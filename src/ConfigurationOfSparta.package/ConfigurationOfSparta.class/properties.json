@@ -1,0 +1,15 @@
+{
+	"commentStamp" : "AliakseiSyrel 8/13/2016 10:31",
+	"super" : "Object",
+	"category" : "ConfigurationOfSparta",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [
+		"LastVersionLoad"
+	],
+	"instvars" : [
+		"project"
+	],
+	"name" : "ConfigurationOfSparta",
+	"type" : "normal"
+}

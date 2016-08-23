@@ -1,14 +1,11 @@
 {
-	"category" : "BaselineOfSparta",
-	"classinstvars" : [
-		 ],
-	"classvars" : [
-		 ],
-	"commentStamp" : "",
-	"instvars" : [
-		 ],
-	"name" : "BaselineOfSparta",
-	"pools" : [
-		 ],
+	"commentStamp" : "AliakseiSyrel 8/24/2016 00:17",
 	"super" : "BaselineOf",
-	"type" : "normal" }
+	"category" : "BaselineOfSparta",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "BaselineOfSparta",
+	"type" : "normal"
+}
