@@ -1,14 +1,13 @@
 {
-	"category" : "Sparta-Core-Builders",
-	"classinstvars" : [
-		 ],
-	"classvars" : [
-		 ],
 	"commentStamp" : "",
-	"instvars" : [
-		"strokeOptions" ],
-	"name" : "SpartaStrokePainter",
-	"pools" : [
-		 ],
 	"super" : "SpartaPathPainter",
-	"type" : "normal" }
+	"category" : "Sparta-Core-Builders",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"strokeOptions"
+	],
+	"name" : "SpartaStrokePainter",
+	"type" : "normal"
+}

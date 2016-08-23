@@ -1,14 +1,11 @@
 {
-	"category" : "Sparta-Core-Path",
-	"classinstvars" : [
-		 ],
-	"classvars" : [
-		 ],
 	"commentStamp" : "AliakseiSyrel 8/21/2016 15:57",
-	"instvars" : [
-		 ],
-	"name" : "SpartaShapeFactory",
-	"pools" : [
-		 ],
 	"super" : "SpartaAbstractPainter",
-	"type" : "normal" }
+	"category" : "Sparta-Core-Path",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "SpartaShapeFactory",
+	"type" : "normal"
+}

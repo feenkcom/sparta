@@ -1,0 +1,10 @@
+{
+	"instance" : {
+		"redrawDuring:" : " 8/23/2016 23:54:19",
+		"initialize" : " 8/23/2016 23:54:19",
+		"checkSession" : " 8/23/2016 23:54:19",
+		"destroy" : " 8/23/2016 23:54:19",
+		"createSpartaCanvas" : " 8/23/2016 23:54:19"
+	},
+	"class" : { }
+}

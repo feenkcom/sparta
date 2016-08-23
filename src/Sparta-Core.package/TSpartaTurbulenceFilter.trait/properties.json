@@ -1,4 +1,5 @@
 {
-	"category" : "Sparta-Core-Filters",
+	"name" : "TSpartaTurbulenceFilter",
 	"commentStamp" : "",
-	"name" : "TSpartaTurbulenceFilter" }
+	"category" : "Sparta-Core-Filters"
+}

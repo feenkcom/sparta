@@ -1,16 +1,15 @@
 {
-	"category" : "Sparta-Core-OSWindow",
-	"classinstvars" : [
-		 ],
-	"classvars" : [
-		 ],
 	"commentStamp" : "",
+	"super" : "Object",
+	"category" : "Sparta-Core-OSWindow",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
 	"instvars" : [
 		"drawingProcess",
 		"window",
-		"renderer" ],
+		"renderer"
+	],
 	"name" : "OSWindowSpartaExample",
-	"pools" : [
-		 ],
-	"super" : "Object",
-	"type" : "normal" }
+	"type" : "normal"
+}

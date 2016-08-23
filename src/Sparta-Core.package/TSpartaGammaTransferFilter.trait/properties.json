@@ -1,4 +1,5 @@
 {
-	"category" : "Sparta-Core-Filters",
+	"name" : "TSpartaGammaTransferFilter",
 	"commentStamp" : "",
-	"name" : "TSpartaGammaTransferFilter" }
+	"category" : "Sparta-Core-Filters"
+}

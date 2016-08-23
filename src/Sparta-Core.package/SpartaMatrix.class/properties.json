@@ -1,19 +1,18 @@
 {
-	"category" : "Sparta-Core-Math",
-	"classinstvars" : [
-		 ],
-	"classvars" : [
-		 ],
 	"commentStamp" : "",
+	"super" : "Object",
+	"category" : "Sparta-Core-Math",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
 	"instvars" : [
 		"sx",
 		"shx",
 		"x",
 		"shy",
 		"sy",
-		"y" ],
+		"y"
+	],
 	"name" : "SpartaMatrix",
-	"pools" : [
-		 ],
-	"super" : "Object",
-	"type" : "normal" }
+	"type" : "normal"
+}

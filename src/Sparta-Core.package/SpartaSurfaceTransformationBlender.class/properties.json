@@ -1,14 +1,13 @@
 {
-	"category" : "Sparta-Core-Surface",
-	"classinstvars" : [
-		 ],
-	"classvars" : [
-		 ],
 	"commentStamp" : "",
-	"instvars" : [
-		"transformation" ],
-	"name" : "SpartaSurfaceTransformationBlender",
-	"pools" : [
-		 ],
 	"super" : "SpartaSurfaceBlender",
-	"type" : "normal" }
+	"category" : "Sparta-Core-Surface",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"transformation"
+	],
+	"name" : "SpartaSurfaceTransformationBlender",
+	"type" : "normal"
+}

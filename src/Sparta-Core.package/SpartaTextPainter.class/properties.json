@@ -1,19 +1,18 @@
 {
-	"category" : "Sparta-Core-Builders",
-	"classinstvars" : [
-		 ],
-	"classvars" : [
-		 ],
 	"commentStamp" : "",
+	"super" : "SpartaAbstractPainter",
+	"category" : "Sparta-Core-Builders",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
 	"instvars" : [
 		"drawOptions",
 		"strokeOptions",
 		"origin",
 		"string",
 		"font",
-		"color" ],
+		"color"
+	],
 	"name" : "SpartaTextPainter",
-	"pools" : [
-		 ],
-	"super" : "SpartaAbstractPainter",
-	"type" : "normal" }
+	"type" : "normal"
+}

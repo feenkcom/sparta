@@ -1,16 +1,15 @@
 {
-	"category" : "Sparta-Core-Builders",
-	"classinstvars" : [
-		 ],
-	"classvars" : [
-		 ],
 	"commentStamp" : "",
+	"super" : "SpartaAbstractPainter",
+	"category" : "Sparta-Core-Builders",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
 	"instvars" : [
 		"path",
 		"paint",
-		"drawOptions" ],
+		"drawOptions"
+	],
 	"name" : "SpartaPathPainter",
-	"pools" : [
-		 ],
-	"super" : "SpartaAbstractPainter",
-	"type" : "normal" }
+	"type" : "normal"
+}
