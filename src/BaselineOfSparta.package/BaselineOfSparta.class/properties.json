@@ -1,0 +1,14 @@
+{
+	"category" : "BaselineOfSparta",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		 ],
+	"name" : "BaselineOfSparta",
+	"pools" : [
+		 ],
+	"super" : "BaselineOf",
+	"type" : "normal" }
