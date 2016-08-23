@@ -4,5 +4,5 @@ baseline: spec
 	spec for: #common do: [ spec
 		package: 'Sparta-Core';
 		package: 'Sparta-Moz2D'
-			with: [ spec requires: #(Sparta-Core) ]
+			with: [ spec requires: 'Sparta-Core' ]
 	]
