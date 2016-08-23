@@ -1,5 +1,4 @@
 {
-	"name" : "TSpartaSpotLight",
+	"category" : "Sparta-Core-Filters",
 	"commentStamp" : "",
-	"category" : "Sparta-Core-Filters"
-}
+	"name" : "TSpartaSpotLight" }

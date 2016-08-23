@@ -1,5 +1,4 @@
 {
-	"name" : "TSpartaFilterSource",
+	"category" : "Sparta-Core-Utils",
 	"commentStamp" : "AliakseiSyrel 8/21/2016 14:26",
-	"category" : "Sparta-Core-Utils"
-}
+	"name" : "TSpartaFilterSource" }

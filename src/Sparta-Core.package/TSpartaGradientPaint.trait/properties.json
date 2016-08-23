@@ -1,5 +1,4 @@
 {
-	"name" : "TSpartaGradientPaint",
+	"category" : "Sparta-Core-Paints",
 	"commentStamp" : "",
-	"category" : "Sparta-Core-Paints"
-}
+	"name" : "TSpartaGradientPaint" }

@@ -1,5 +1,4 @@
 {
-	"name" : "TSpartaPath",
+	"category" : "Sparta-Core-Path",
 	"commentStamp" : "AliakseiSyrel 8/21/2016 15:51",
-	"category" : "Sparta-Core-Path"
-}
+	"name" : "TSpartaPath" }

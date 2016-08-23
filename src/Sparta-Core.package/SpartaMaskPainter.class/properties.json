@@ -1,16 +1,17 @@
 {
-	"commentStamp" : "",
-	"super" : "SpartaAbstractPainter",
 	"category" : "Sparta-Core-Builders",
-	"classinstvars" : [ ],
-	"pools" : [ ],
-	"classvars" : [ ],
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
 	"instvars" : [
 		"drawOptions",
 		"source",
 		"mask",
-		"offset"
-	],
+		"offset" ],
 	"name" : "SpartaMaskPainter",
-	"type" : "normal"
-}
+	"pools" : [
+		 ],
+	"super" : "SpartaAbstractPainter",
+	"type" : "normal" }

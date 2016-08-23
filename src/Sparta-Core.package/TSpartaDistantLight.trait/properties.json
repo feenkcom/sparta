@@ -1,5 +1,4 @@
 {
-	"name" : "TSpartaDistantLight",
+	"category" : "Sparta-Core-Filters",
 	"commentStamp" : "",
-	"category" : "Sparta-Core-Filters"
-}
+	"name" : "TSpartaDistantLight" }

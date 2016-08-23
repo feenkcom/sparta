@@ -1,13 +1,14 @@
 {
-	"commentStamp" : "AliakseiSyrel 8/21/2016 16:30",
-	"super" : "Object",
 	"category" : "Sparta-Core-Builders",
-	"classinstvars" : [ ],
-	"pools" : [ ],
-	"classvars" : [ ],
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "AliakseiSyrel 8/21/2016 16:30",
 	"instvars" : [
-		"canvas"
-	],
+		"canvas" ],
 	"name" : "SpartaAbstractBuilder",
-	"type" : "normal"
-}
+	"pools" : [
+		 ],
+	"super" : "Object",
+	"type" : "normal" }

@@ -1,13 +1,14 @@
 {
-	"commentStamp" : "",
-	"super" : "SpartaAbstractBuilder",
 	"category" : "Sparta-Core-Builders",
-	"classinstvars" : [ ],
-	"pools" : [ ],
-	"classvars" : [ ],
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
 	"instvars" : [
-		"transformation"
-	],
+		"transformation" ],
 	"name" : "SpartaTransformationBuilder",
-	"type" : "normal"
-}
+	"pools" : [
+		 ],
+	"super" : "SpartaAbstractBuilder",
+	"type" : "normal" }

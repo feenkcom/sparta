@@ -1,17 +1,18 @@
 {
-	"commentStamp" : "",
-	"super" : "SpartaSurfaceBlender",
 	"category" : "Sparta-Core-Surface",
-	"classinstvars" : [ ],
-	"pools" : [ ],
-	"classvars" : [ ],
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
 	"instvars" : [
 		"color",
 		"destination",
 		"offset",
 		"sigma",
-		"compositor"
-	],
+		"compositor" ],
 	"name" : "SpartaSurfaceShadowBlender",
-	"type" : "normal"
-}
+	"pools" : [
+		 ],
+	"super" : "SpartaSurfaceBlender",
+	"type" : "normal" }

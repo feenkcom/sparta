@@ -1,16 +1,17 @@
 {
-	"commentStamp" : "",
-	"super" : "SpartaSurfaceBlender",
 	"category" : "Sparta-Core-Surface",
-	"classinstvars" : [ ],
-	"pools" : [ ],
-	"classvars" : [ ],
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
 	"instvars" : [
 		"drawOptions",
 		"surfaceDrawOptions",
 		"sourceRectangle",
-		"destinationRectangle"
-	],
+		"destinationRectangle" ],
 	"name" : "SpartaSurfaceDirectBlender",
-	"type" : "normal"
-}
+	"pools" : [
+		 ],
+	"super" : "SpartaSurfaceBlender",
+	"type" : "normal" }
