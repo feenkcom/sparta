@@ -1,0 +1,16 @@
+{
+	"category" : "Sparta-Moz2D-External",
+	"classinstvars" : [
+		 ],
+	"classtraitcomposition" : "TMozLibrary classTrait",
+	"classvars" : [
+		 ],
+	"commentStamp" : "AliakseiSyrel 8/19/2016 00:03",
+	"instvars" : [
+		 ],
+	"name" : "MozNativePattern",
+	"pools" : [
+		"MozSharedPool" ],
+	"super" : "FFIExternalObject",
+	"traitcomposition" : "TMozLibrary",
+	"type" : "normal" }

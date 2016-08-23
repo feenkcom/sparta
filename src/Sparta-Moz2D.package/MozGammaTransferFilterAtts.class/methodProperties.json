@@ -1,0 +1,18 @@
+{
+	"class" : {
+		"ATT_GAMMA_TRANSFER_AMPLITUDE_A" : "AliakseiSyrel 8/19/2016 22:30",
+		"ATT_GAMMA_TRANSFER_AMPLITUDE_B" : "AliakseiSyrel 8/19/2016 22:30",
+		"ATT_GAMMA_TRANSFER_AMPLITUDE_G" : "AliakseiSyrel 8/19/2016 22:30",
+		"ATT_GAMMA_TRANSFER_AMPLITUDE_R" : "AliakseiSyrel 8/19/2016 22:30",
+		"ATT_GAMMA_TRANSFER_EXPONENT_A" : "AliakseiSyrel 8/19/2016 22:30",
+		"ATT_GAMMA_TRANSFER_EXPONENT_B" : "AliakseiSyrel 8/19/2016 22:30",
+		"ATT_GAMMA_TRANSFER_EXPONENT_G" : "AliakseiSyrel 8/19/2016 22:30",
+		"ATT_GAMMA_TRANSFER_EXPONENT_R" : "AliakseiSyrel 8/19/2016 22:30",
+		"ATT_GAMMA_TRANSFER_OFFSET_A" : "AliakseiSyrel 8/19/2016 22:30",
+		"ATT_GAMMA_TRANSFER_OFFSET_B" : "AliakseiSyrel 8/19/2016 22:30",
+		"ATT_GAMMA_TRANSFER_OFFSET_G" : "AliakseiSyrel 8/19/2016 22:30",
+		"ATT_GAMMA_TRANSFER_OFFSET_R" : "AliakseiSyrel 8/19/2016 22:30",
+		"enumDecl" : "AliakseiSyrel 8/19/2016 22:30",
+		"initialize" : "AliakseiSyrel 8/19/2016 22:23" },
+	"instance" : {
+		 } }

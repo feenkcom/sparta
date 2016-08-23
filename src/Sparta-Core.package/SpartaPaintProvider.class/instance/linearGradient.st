@@ -1,0 +1,3 @@
+paints
+linearGradient
+	^ self subclassResponsibility

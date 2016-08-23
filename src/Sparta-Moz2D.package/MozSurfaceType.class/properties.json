@@ -1,0 +1,25 @@
+{
+	"category" : "Sparta-Moz2D-Enums",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		"CAIRO",
+		"CAIRO_IMAGE",
+		"COREGRAPHICS_CGCONTEXT",
+		"COREGRAPHICS_IMAGE",
+		"D2D1_1_IMAGE",
+		"D2D1_BITMAP",
+		"D2D1_DRAWTARGET",
+		"DATA",
+		"DUAL_DT",
+		"RECORDING",
+		"SKIA",
+		"TILED" ],
+	"commentStamp" : "",
+	"instvars" : [
+		 ],
+	"name" : "MozSurfaceType",
+	"pools" : [
+		 ],
+	"super" : "FFIExternalEnumeration",
+	"type" : "normal" }

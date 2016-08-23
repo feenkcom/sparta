@@ -1,0 +1,18 @@
+{
+	"category" : "Sparta-Moz2D-Filters Enum",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		"COMPOSITE_OPERATOR_ATOP",
+		"COMPOSITE_OPERATOR_IN",
+		"COMPOSITE_OPERATOR_OUT",
+		"COMPOSITE_OPERATOR_OVER",
+		"COMPOSITE_OPERATOR_XOR" ],
+	"commentStamp" : "AliakseiSyrel 8/23/2016 00:01",
+	"instvars" : [
+		 ],
+	"name" : "MozCompositeFilterOperator",
+	"pools" : [
+		 ],
+	"super" : "FFIExternalEnumeration",
+	"type" : "normal" }

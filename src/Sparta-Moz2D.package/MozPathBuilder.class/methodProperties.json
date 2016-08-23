@@ -1,0 +1,27 @@
+{
+	"class" : {
+		 },
+	"instance" : {
+		"absolute" : "AliakseiSyrel 8/16/2016 11:53",
+		"arcAround:radius:startAngle:endAngle:" : "AliakseiSyrel 8/16/2016 12:38",
+		"arcTo:angle:cw:" : "AliakseiSyrel 8/16/2016 12:38",
+		"close" : "AliakseiSyrel 7/14/2016 16:17",
+		"curveVia:and:to:" : "AliakseiSyrel 8/16/2016 12:38",
+		"curveVia:to:" : "AliakseiSyrel 8/16/2016 12:39",
+		"finish" : "AliakseiSyrel 8/22/2016 23:48",
+		"isAbsolute" : "AliakseiSyrel 8/16/2016 12:38",
+		"lineTo:" : "AliakseiSyrel 8/16/2016 12:39",
+		"moveTo:" : "AliakseiSyrel 8/16/2016 12:39",
+		"primArcOriginX:originY:radius:startAngle:endAngle:antiClockwise:absolute:" : "AliakseiSyrel 8/16/2016 12:36",
+		"primArcToX:originY:angle:antiClockwise:absolute:" : "AliakseiSyrel 8/19/2016 00:42",
+		"primArcToX:originY:antiClockwise:absolute:" : "AliakseiSyrel 8/16/2016 12:36",
+		"primBezierX1:Y1:X2:Y2:X3:Y3:absolute:" : "AliakseiSyrel 8/16/2016 12:36",
+		"primCircleArcRadius:directionX:directionY:antiClockwise:" : "AliakseiSyrel 8/16/2016 16:47",
+		"primClose" : "AliakseiSyrel 7/22/2016 11:58",
+		"primCurrentPoint:" : "AliakseiSyrel 8/18/2016 23:21",
+		"primEllipseArcToX:originY:antiClockwise:absolute:" : "AliakseiSyrel 8/16/2016 19:57",
+		"primFinish" : "AliakseiSyrel 8/13/2016 14:01",
+		"primLineToX:Y:absolute:" : "AliakseiSyrel 8/16/2016 12:37",
+		"primMoveToX:Y:absolute:" : "AliakseiSyrel 8/16/2016 12:37",
+		"primQuadraticBezierX1:Y1:X2:Y2:absolute:" : "AliakseiSyrel 8/16/2016 12:37",
+		"relative" : "AliakseiSyrel 8/16/2016 11:53" } }

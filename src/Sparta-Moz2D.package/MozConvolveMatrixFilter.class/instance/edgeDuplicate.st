@@ -1,0 +1,5 @@
+accessing
+edgeDuplicate
+	self
+		primSetAttributeEnum: MozConvolveMatrixFilterEdgeMode EDGE_MODE_DUPLICATE
+		index: MozConvolveMatrixFilterAtts ATT_CONVOLVE_MATRIX_EDGE_MODE

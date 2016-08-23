@@ -1,0 +1,16 @@
+{
+	"category" : "Sparta-Moz2D-Builders",
+	"classinstvars" : [
+		 ],
+	"classtraitcomposition" : "TMozLibrary classTrait",
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		 ],
+	"name" : "MozShapeFactory",
+	"pools" : [
+		"MozSharedPool" ],
+	"super" : "SpartaShapeFactory",
+	"traitcomposition" : "TMozLibrary",
+	"type" : "normal" }

@@ -1,0 +1,17 @@
+{
+	"category" : "Sparta-Moz2D-Text",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		"GLYPH_FILL",
+		"GLYPH_PATH",
+		"GLYPH_STROKE",
+		"GLYPH_STROKE_UNDERNEATH" ],
+	"commentStamp" : "",
+	"instvars" : [
+		 ],
+	"name" : "MozTextDrawMode",
+	"pools" : [
+		 ],
+	"super" : "FFIExternalEnumeration",
+	"type" : "normal" }

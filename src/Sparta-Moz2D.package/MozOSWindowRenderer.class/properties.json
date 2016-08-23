@@ -1,0 +1,14 @@
+{
+	"category" : "Sparta-Moz2D-OSWindow",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		"sdlSurface" ],
+	"name" : "MozOSWindowRenderer",
+	"pools" : [
+		 ],
+	"super" : "OSWindowSpartaRenderer",
+	"type" : "normal" }

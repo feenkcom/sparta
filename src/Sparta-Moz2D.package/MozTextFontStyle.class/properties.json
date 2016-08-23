@@ -1,0 +1,16 @@
+{
+	"category" : "Sparta-Moz2D-Text",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		"ITALIC",
+		"NORMAL",
+		"OBLIQUE" ],
+	"commentStamp" : "",
+	"instvars" : [
+		 ],
+	"name" : "MozTextFontStyle",
+	"pools" : [
+		 ],
+	"super" : "FFIExternalEnumeration",
+	"type" : "normal" }

@@ -1,0 +1,14 @@
+{
+	"category" : "Sparta-Moz2D-Examples",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		"renderBlock" ],
+	"name" : "MozCanvasExamples",
+	"pools" : [
+		 ],
+	"super" : "OSWindowSpartaExample",
+	"type" : "normal" }

@@ -1,0 +1,17 @@
+{
+	"category" : "Sparta-Moz2D-Enums",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		"BEVEL",
+		"MITER",
+		"MITER_OR_BEVEL",
+		"ROUND" ],
+	"commentStamp" : "AliakseiSyrel 8/19/2016 01:35",
+	"instvars" : [
+		 ],
+	"name" : "MozJoinStyle",
+	"pools" : [
+		 ],
+	"super" : "FFIExternalEnumeration",
+	"type" : "normal" }

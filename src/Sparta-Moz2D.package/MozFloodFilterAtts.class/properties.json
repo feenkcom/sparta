@@ -1,0 +1,14 @@
+{
+	"category" : "Sparta-Moz2D-Filters Enum",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		"ATT_FLOOD_COLOR" ],
+	"commentStamp" : "AliakseiSyrel 8/23/2016 00:03",
+	"instvars" : [
+		 ],
+	"name" : "MozFloodFilterAtts",
+	"pools" : [
+		 ],
+	"super" : "FFIExternalEnumeration",
+	"type" : "normal" }

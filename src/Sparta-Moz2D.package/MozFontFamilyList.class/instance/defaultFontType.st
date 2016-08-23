@@ -1,0 +1,4 @@
+accessing
+defaultFontType
+
+	^ self primGetDefaultFontType

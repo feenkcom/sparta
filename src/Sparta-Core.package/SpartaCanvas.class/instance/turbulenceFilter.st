@@ -1,0 +1,3 @@
+filters
+turbulenceFilter
+	^ self subclassResponsibility

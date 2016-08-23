@@ -1,0 +1,26 @@
+enum declaration
+enumDecl
+	"
+	self rebuildEnumAccessors
+	"
+
+	^ #(
+		ATT_POINT_LIGHT_POSITION 0 								"Point3D"
+
+		ATT_SPOT_LIGHT_POSITION 1 								"Point3D"
+		ATT_SPOT_LIGHT_POINTS_AT 2 								"Point3D"
+		ATT_SPOT_LIGHT_FOCUS 3									"Float"
+		ATT_SPOT_LIGHT_LIMITING_CONE_ANGLE 4					"Float"
+
+		ATT_DISTANT_LIGHT_AZIMUTH 5								"Float"
+		ATT_DISTANT_LIGHT_ELEVATION 6							"Float"
+
+		ATT_LIGHTING_COLOR 7										"Color"
+		ATT_LIGHTING_SURFACE_SCALE 8							"Float"
+		ATT_LIGHTING_KERNEL_UNIT_LENGTH 9						"Size"
+
+		ATT_DIFFUSE_LIGHTING_DIFFUSE_CONSTANT 10			"Float"
+
+		ATT_SPECULAR_LIGHTING_SPECULAR_CONSTANT 11			"Float"
+		ATT_SPECULAR_LIGHTING_SPECULAR_EXPONENT	12			"Float"
+	)

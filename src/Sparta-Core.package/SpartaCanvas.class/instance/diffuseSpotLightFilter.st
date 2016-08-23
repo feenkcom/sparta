@@ -1,0 +1,3 @@
+filters
+diffuseSpotLightFilter
+	^ self subclassResponsibility

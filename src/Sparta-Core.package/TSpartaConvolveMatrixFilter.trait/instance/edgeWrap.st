@@ -1,0 +1,3 @@
+accessing
+edgeWrap
+	^ self explicitRequirement

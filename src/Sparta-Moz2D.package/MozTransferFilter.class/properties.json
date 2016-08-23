@@ -1,0 +1,16 @@
+{
+	"category" : "Sparta-Moz2D-Filters",
+	"classinstvars" : [
+		 ],
+	"classtraitcomposition" : "TSpartaTransferFilter classTrait",
+	"classvars" : [
+		 ],
+	"commentStamp" : "AliakseiSyrel 8/19/2016 22:48",
+	"instvars" : [
+		 ],
+	"name" : "MozTransferFilter",
+	"pools" : [
+		 ],
+	"super" : "MozSingleSourceFilter",
+	"traitcomposition" : "TSpartaTransferFilter",
+	"type" : "normal" }

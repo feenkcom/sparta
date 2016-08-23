@@ -1,0 +1,3 @@
+filters
+specularSpotLightFilter
+	^ self subclassResponsibility

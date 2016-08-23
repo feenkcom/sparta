@@ -1,0 +1,18 @@
+{
+	"category" : "Sparta-Core-Builders",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		"size",
+		"weight",
+		"language",
+		"stretch",
+		"style" ],
+	"name" : "SpartaFontBuilder",
+	"pools" : [
+		 ],
+	"super" : "SpartaAbstractBuilder",
+	"type" : "normal" }

@@ -1,0 +1,16 @@
+{
+	"category" : "Sparta-Moz2D-Filters",
+	"classinstvars" : [
+		 ],
+	"classtraitcomposition" : "TSpartaFloodFilter classTrait",
+	"classvars" : [
+		 ],
+	"commentStamp" : "AliakseiSyrel 8/19/2016 21:43",
+	"instvars" : [
+		 ],
+	"name" : "MozFloodFilter",
+	"pools" : [
+		 ],
+	"super" : "MozSingleSourceFilter",
+	"traitcomposition" : "TSpartaFloodFilter",
+	"type" : "normal" }

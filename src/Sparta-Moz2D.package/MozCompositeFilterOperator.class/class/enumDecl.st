@@ -1,0 +1,13 @@
+enum declaration
+enumDecl
+	"
+	self rebuildEnumAccessors
+	"
+
+	^ #(
+		COMPOSITE_OPERATOR_OVER 0
+		COMPOSITE_OPERATOR_IN 1
+		COMPOSITE_OPERATOR_OUT 2
+		COMPOSITE_OPERATOR_ATOP 3
+		COMPOSITE_OPERATOR_XOR 4
+	)

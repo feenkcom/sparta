@@ -1,0 +1,16 @@
+{
+	"category" : "Sparta-Moz2D-Builders",
+	"classinstvars" : [
+		 ],
+	"classtraitcomposition" : "TMozLibrary classTrait",
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		 ],
+	"name" : "MozBitmapBuilder",
+	"pools" : [
+		"MozSharedPool" ],
+	"super" : "SpartaBitmapBuilder",
+	"traitcomposition" : "TMozLibrary",
+	"type" : "normal" }

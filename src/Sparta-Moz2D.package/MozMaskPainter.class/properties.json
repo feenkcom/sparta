@@ -1,0 +1,16 @@
+{
+	"category" : "Sparta-Moz2D-Builders",
+	"classinstvars" : [
+		 ],
+	"classtraitcomposition" : "TMozLibrary classTrait",
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		 ],
+	"name" : "MozMaskPainter",
+	"pools" : [
+		"MozSharedPool" ],
+	"super" : "SpartaMaskPainter",
+	"traitcomposition" : "TMozLibrary",
+	"type" : "normal" }

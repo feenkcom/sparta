@@ -1,0 +1,22 @@
+{
+	"category" : "Sparta-Moz2D-Text",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		"CONDENSED",
+		"EXPANDED",
+		"EXTRA_CONDENSED",
+		"EXTRA_EXPANDED",
+		"NORMAL",
+		"SEMI_CONDENSED",
+		"SEMI_EXPANDED",
+		"ULTRA_CONDENSED",
+		"ULTRA_EXPANDED" ],
+	"commentStamp" : "",
+	"instvars" : [
+		 ],
+	"name" : "MozTextFontStretch",
+	"pools" : [
+		 ],
+	"super" : "FFIExternalEnumeration",
+	"type" : "normal" }

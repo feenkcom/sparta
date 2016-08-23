@@ -1,0 +1,3 @@
+stretch
+stretchExtraExpanded
+	self stretch: MozTextFontStretch EXTRA_EXPANDED

@@ -1,0 +1,18 @@
+{
+	"category" : "Sparta-Moz2D-Enums",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		"CLAMP",
+		"REFLECT",
+		"REPEAT",
+		"REPEAT_X",
+		"REPEAT_Y" ],
+	"commentStamp" : "AliakseiSyrel 8/19/2016 01:24",
+	"instvars" : [
+		 ],
+	"name" : "MozExtendMode",
+	"pools" : [
+		 ],
+	"super" : "FFIExternalEnumeration",
+	"type" : "normal" }

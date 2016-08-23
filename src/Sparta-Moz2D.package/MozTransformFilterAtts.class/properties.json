@@ -1,0 +1,15 @@
+{
+	"category" : "Sparta-Moz2D-Filters Enum",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		"ATT_TRANSFORM_FILTER",
+		"ATT_TRANSFORM_MATRIX" ],
+	"commentStamp" : "AliakseiSyrel 8/23/2016 00:06",
+	"instvars" : [
+		 ],
+	"name" : "MozTransformFilterAtts",
+	"pools" : [
+		 ],
+	"super" : "FFIExternalEnumeration",
+	"type" : "normal" }

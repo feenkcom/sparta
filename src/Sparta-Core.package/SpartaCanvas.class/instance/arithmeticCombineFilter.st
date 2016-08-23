@@ -1,0 +1,3 @@
+filters
+arithmeticCombineFilter
+	^ self subclassResponsibility

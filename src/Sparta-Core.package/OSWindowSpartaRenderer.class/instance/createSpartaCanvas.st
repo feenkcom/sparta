@@ -1,0 +1,3 @@
+initialization
+createSpartaCanvas
+	^ self subclassResponsibility

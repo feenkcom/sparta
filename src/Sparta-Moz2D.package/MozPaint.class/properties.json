@@ -1,0 +1,17 @@
+{
+	"category" : "Sparta-Moz2D-Paints",
+	"classinstvars" : [
+		 ],
+	"classtraitcomposition" : "TSpartaPaint classTrait",
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		"matrix",
+		"extendMode" ],
+	"name" : "MozPaint",
+	"pools" : [
+		 ],
+	"super" : "Object",
+	"traitcomposition" : "TSpartaPaint",
+	"type" : "normal" }

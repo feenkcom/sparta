@@ -1,0 +1,3 @@
+stretch
+stretchReset
+	^ self subclassResponsibility

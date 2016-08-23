@@ -1,0 +1,4 @@
+accessing
+weight
+
+	^ self primGetWeight

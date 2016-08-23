@@ -1,0 +1,3 @@
+accessing
+filterType
+	^ MozFilterType FLOOD

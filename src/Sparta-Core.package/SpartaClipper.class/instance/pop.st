@@ -1,0 +1,4 @@
+clipping
+pop
+
+	^ self subclassResponsibility

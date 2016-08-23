@@ -1,0 +1,3 @@
+sampling filters
+samplingSentinel
+	self samplingFilter: MozSamplingMode SENTINEL

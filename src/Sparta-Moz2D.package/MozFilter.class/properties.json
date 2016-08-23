@@ -1,0 +1,16 @@
+{
+	"category" : "Sparta-Moz2D-Filters",
+	"classinstvars" : [
+		 ],
+	"classtraitcomposition" : "TSpartaFilter classTrait + TMozLibrary classTrait + TMozRefPtr classTrait + TMozDebug classTrait",
+	"classvars" : [
+		 ],
+	"commentStamp" : "AliakseiSyrel 8/2/2016 00:54",
+	"instvars" : [
+		 ],
+	"name" : "MozFilter",
+	"pools" : [
+		 ],
+	"super" : "FFIExternalObject",
+	"traitcomposition" : "TSpartaFilter + TMozLibrary + TMozRefPtr + TMozDebug",
+	"type" : "normal" }

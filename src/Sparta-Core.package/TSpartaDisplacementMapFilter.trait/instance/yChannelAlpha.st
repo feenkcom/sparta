@@ -1,0 +1,3 @@
+accessing
+yChannelAlpha
+	^ self explicitRequirement

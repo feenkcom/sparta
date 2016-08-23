@@ -1,0 +1,3 @@
+filters
+floodFilter
+	^ self subclassResponsibility

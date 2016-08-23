@@ -1,0 +1,19 @@
+{
+	"class" : {
+		 },
+	"instance" : {
+		"absolute" : "AliakseiSyrel 8/16/2016 11:52",
+		"arcAround:radius:startAngle:endAngle:" : "AliakseiSyrel 7/14/2016 16:12",
+		"arcTo:angle:cw:" : "AliakseiSyrel 8/13/2016 22:51",
+		"ccwArcTo:" : "AliakseiSyrel 8/13/2016 22:47",
+		"ccwArcTo:angle:" : "AliakseiSyrel 8/13/2016 22:45",
+		"close" : "AliakseiSyrel 7/14/2016 16:17",
+		"currentPoint" : "AliakseiSyrel 7/14/2016 16:19",
+		"curveVia:and:to:" : "AliakseiSyrel 7/14/2016 16:09",
+		"curveVia:to:" : "AliakseiSyrel 7/14/2016 16:09",
+		"cwArcTo:" : "AliakseiSyrel 8/21/2016 16:03",
+		"cwArcTo:angle:" : "AliakseiSyrel 8/21/2016 16:03",
+		"finish" : "AliakseiSyrel 7/14/2016 16:14",
+		"lineTo:" : "AliakseiSyrel 7/14/2016 16:09",
+		"moveTo:" : "AliakseiSyrel 7/14/2016 16:02",
+		"relative" : "AliakseiSyrel 8/16/2016 11:52" } }

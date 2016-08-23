@@ -1,0 +1,3 @@
+paints
+surface
+	^ MozSurfacePaint new

@@ -1,0 +1,3 @@
+converting
+asMozPatternOn: aCanvas
+	^ self

@@ -1,0 +1,4 @@
+testing
+isAllowedSubpixelAA
+
+	^ self primIsSubpixelAAPermitted

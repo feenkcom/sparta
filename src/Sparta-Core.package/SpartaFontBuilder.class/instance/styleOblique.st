@@ -1,0 +1,3 @@
+style
+styleOblique
+	^ self subclassResponsibility

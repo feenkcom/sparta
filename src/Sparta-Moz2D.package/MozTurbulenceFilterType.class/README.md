@@ -1,0 +1,5 @@
+enum TurbulenceType
+{
+   TURBULENCE_TYPE_TURBULENCE = 0,
+   TURBULENCE_TYPE_FRACTAL_NOISE
+};

@@ -1,0 +1,17 @@
+{
+	"category" : "Sparta-Moz2D-Enums",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		"DEFAULT",
+		"GRAY",
+		"NONE",
+		"SUBPIXEL" ],
+	"commentStamp" : "",
+	"instvars" : [
+		 ],
+	"name" : "MozAntialiasMode",
+	"pools" : [
+		 ],
+	"super" : "FFIExternalEnumeration",
+	"type" : "normal" }

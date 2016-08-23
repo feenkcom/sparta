@@ -1,0 +1,3 @@
+initialization
+defaultSize
+	^ 10

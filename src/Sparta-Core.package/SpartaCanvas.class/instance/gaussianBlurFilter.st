@@ -1,0 +1,3 @@
+filters
+gaussianBlurFilter
+	^ self subclassResponsibility

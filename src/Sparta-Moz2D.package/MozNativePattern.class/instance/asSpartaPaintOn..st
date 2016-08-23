@@ -1,0 +1,3 @@
+converting
+asSpartaPaintOn: aSpartaCanvas
+	^ self

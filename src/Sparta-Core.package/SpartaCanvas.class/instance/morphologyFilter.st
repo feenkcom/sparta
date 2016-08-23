@@ -1,0 +1,3 @@
+filters
+morphologyFilter
+	^ self subclassResponsibility

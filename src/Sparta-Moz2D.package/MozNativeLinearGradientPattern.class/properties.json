@@ -1,0 +1,14 @@
+{
+	"category" : "Sparta-Moz2D-External",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "AliakseiSyrel 8/19/2016 00:04",
+	"instvars" : [
+		 ],
+	"name" : "MozNativeLinearGradientPattern",
+	"pools" : [
+		 ],
+	"super" : "MozNativePattern",
+	"type" : "normal" }

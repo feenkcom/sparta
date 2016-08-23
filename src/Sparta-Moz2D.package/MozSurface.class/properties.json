@@ -1,0 +1,16 @@
+{
+	"category" : "Sparta-Moz2D",
+	"classinstvars" : [
+		 ],
+	"classtraitcomposition" : "TMozLibrary classTrait + TSpartaSurface classTrait + TSpartaInspectorPreview classTrait + TMozRefPtr classTrait + TMozDebug classTrait",
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		 ],
+	"name" : "MozSurface",
+	"pools" : [
+		"MozSharedPool" ],
+	"super" : "FFIExternalObject",
+	"traitcomposition" : "TMozLibrary + TSpartaSurface + TSpartaInspectorPreview + TMozRefPtr + TMozDebug",
+	"type" : "normal" }

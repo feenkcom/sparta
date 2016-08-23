@@ -1,0 +1,3 @@
+style
+styleItalic
+	^ self subclassResponsibility

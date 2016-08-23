@@ -1,0 +1,3 @@
+transformation
+pop
+	^ self subclassResponsibility

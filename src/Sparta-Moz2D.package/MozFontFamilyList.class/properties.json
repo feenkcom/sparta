@@ -1,0 +1,16 @@
+{
+	"category" : "Sparta-Moz2D-Text",
+	"classinstvars" : [
+		 ],
+	"classtraitcomposition" : "TMozLibrary classTrait",
+	"classvars" : [
+		 ],
+	"commentStamp" : "AliakseiSyrel 8/2/2016 04:30",
+	"instvars" : [
+		 ],
+	"name" : "MozFontFamilyList",
+	"pools" : [
+		 ],
+	"super" : "FFIExternalObject",
+	"traitcomposition" : "TMozLibrary",
+	"type" : "normal" }

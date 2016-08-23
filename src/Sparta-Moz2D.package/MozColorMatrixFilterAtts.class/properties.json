@@ -1,0 +1,15 @@
+{
+	"category" : "Sparta-Moz2D-Filters Enum",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		"ATT_COLOR_MATRIX_ALPHA_MODE",
+		"ATT_COLOR_MATRIX_MATRIX" ],
+	"commentStamp" : "AliakseiSyrel 8/23/2016 00:00",
+	"instvars" : [
+		 ],
+	"name" : "MozColorMatrixFilterAtts",
+	"pools" : [
+		 ],
+	"super" : "FFIExternalEnumeration",
+	"type" : "normal" }

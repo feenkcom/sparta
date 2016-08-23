@@ -1,0 +1,9 @@
+{
+	"class" : {
+		"initialize" : "AliakseiSyrel 8/13/2016 12:19",
+		"primShutdownServices" : "AliakseiSyrel 8/1/2016 22:37",
+		"primStartServices" : "AliakseiSyrel 8/1/2016 22:36",
+		"shutDown:" : "AliakseiSyrel 8/13/2016 12:16",
+		"startUp:" : "AliakseiSyrel 8/13/2016 12:16" },
+	"instance" : {
+		 } }

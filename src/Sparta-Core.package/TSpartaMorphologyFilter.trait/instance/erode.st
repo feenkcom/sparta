@@ -1,0 +1,3 @@
+accessing
+erode
+	^ self explicitRequirement

@@ -1,0 +1,3 @@
+stretch
+stretchSemiExpanded
+	self stretch: MozTextFontStretch SEMI_EXPANDED

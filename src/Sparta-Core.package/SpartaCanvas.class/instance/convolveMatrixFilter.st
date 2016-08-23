@@ -1,0 +1,3 @@
+filters
+convolveMatrixFilter
+	^ self subclassResponsibility

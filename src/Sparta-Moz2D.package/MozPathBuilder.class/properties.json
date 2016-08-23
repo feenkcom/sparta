@@ -1,0 +1,16 @@
+{
+	"category" : "Sparta-Moz2D-Path",
+	"classinstvars" : [
+		 ],
+	"classtraitcomposition" : "TSpartaPathBuilder classTrait + TMozLibrary classTrait + TMozRefPtr classTrait + TMozDebug classTrait",
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		"absolute" ],
+	"name" : "MozPathBuilder",
+	"pools" : [
+		"MozSharedPool" ],
+	"super" : "FFIExternalObject",
+	"traitcomposition" : "TSpartaPathBuilder + TMozLibrary + TMozRefPtr + TMozDebug",
+	"type" : "normal" }

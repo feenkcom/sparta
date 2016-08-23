@@ -1,0 +1,17 @@
+{
+	"category" : "Sparta-Moz2D-Filters",
+	"classinstvars" : [
+		 ],
+	"classtraitcomposition" : "TSpartaFilterSource classTrait + TSpartaFilterSecondSource classTrait",
+	"classvars" : [
+		 ],
+	"commentStamp" : "AliakseiSyrel 8/19/2016 22:10",
+	"instvars" : [
+		"source",
+		"secondSource" ],
+	"name" : "MozDoubleSourceFilter",
+	"pools" : [
+		 ],
+	"super" : "MozFilter",
+	"traitcomposition" : "TSpartaFilterSource + TSpartaFilterSecondSource",
+	"type" : "normal" }

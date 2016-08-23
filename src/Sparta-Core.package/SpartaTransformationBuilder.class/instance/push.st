@@ -1,0 +1,3 @@
+transformation
+push
+	^ self subclassResponsibility

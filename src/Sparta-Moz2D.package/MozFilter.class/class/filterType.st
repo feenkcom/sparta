@@ -1,0 +1,3 @@
+accessing
+filterType
+	^ self subclassResponsibility

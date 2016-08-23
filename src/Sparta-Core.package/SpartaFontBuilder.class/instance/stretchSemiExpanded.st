@@ -1,0 +1,3 @@
+stretch
+stretchSemiExpanded
+	^ self subclassResponsibility

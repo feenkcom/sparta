@@ -1,0 +1,3 @@
+updating ressources
+resetSDLSurface
+	self createSDLSurface

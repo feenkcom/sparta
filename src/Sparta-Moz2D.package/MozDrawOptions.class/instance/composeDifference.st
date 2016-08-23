@@ -1,0 +1,3 @@
+composition operators
+composeDifference
+	^ self compositionOperator: MozCompositionOp OP_DIFFERENCE

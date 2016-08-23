@@ -1,0 +1,15 @@
+{
+	"category" : "Sparta-Core-OSWindow",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		"spartaCanvas",
+		"session" ],
+	"name" : "OSWindowSpartaRenderer",
+	"pools" : [
+		 ],
+	"super" : "OSWindowRenderer",
+	"type" : "normal" }

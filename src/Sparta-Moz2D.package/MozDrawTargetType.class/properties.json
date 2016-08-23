@@ -1,0 +1,16 @@
+{
+	"category" : "Sparta-Moz2D-Enums",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		"HARDWARE_RASTER",
+		"SOFTWARE_RASTER",
+		"VECTOR" ],
+	"commentStamp" : "",
+	"instvars" : [
+		 ],
+	"name" : "MozDrawTargetType",
+	"pools" : [
+		 ],
+	"super" : "FFIExternalEnumeration",
+	"type" : "normal" }

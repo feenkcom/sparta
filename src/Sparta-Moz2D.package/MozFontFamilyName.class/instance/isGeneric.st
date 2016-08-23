@@ -1,0 +1,4 @@
+testing
+isGeneric
+
+	^ self primIsGeneric

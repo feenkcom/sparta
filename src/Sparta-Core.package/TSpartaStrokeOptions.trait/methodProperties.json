@@ -1,0 +1,15 @@
+{
+	"class" : {
+		"default" : "AliakseiSyrel 7/12/2016 21:43" },
+	"instance" : {
+		"capButt" : "AliakseiSyrel 7/12/2016 21:01",
+		"capRound" : "AliakseiSyrel 7/12/2016 21:01",
+		"capSquare" : "AliakseiSyrel 7/12/2016 21:01",
+		"dashOffset:" : "AliakseiSyrel 7/12/2016 21:01",
+		"dashPattern:" : "AliakseiSyrel 7/12/2016 21:01",
+		"joinBevel" : "AliakseiSyrel 7/12/2016 21:01",
+		"joinMiter" : "AliakseiSyrel 7/12/2016 21:01",
+		"joinMiterOrBevel" : "AliakseiSyrel 7/12/2016 21:01",
+		"joinRound" : "AliakseiSyrel 7/12/2016 21:01",
+		"miterLimit:" : "AliakseiSyrel 7/12/2016 21:01",
+		"width:" : "AliakseiSyrel 8/3/2016 04:57" } }

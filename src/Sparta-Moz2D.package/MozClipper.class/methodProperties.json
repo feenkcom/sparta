@@ -1,0 +1,14 @@
+{
+	"class" : {
+		 },
+	"instance" : {
+		"globalBounds" : "AliakseiSyrel 8/18/2016 23:07",
+		"localBounds" : "AliakseiSyrel 8/18/2016 23:07",
+		"pop" : "AliakseiSyrel 8/13/2016 14:02",
+		"primGetClipGlobal:" : "AliakseiSyrel 8/18/2016 23:07",
+		"primGetClipLocal:" : "AliakseiSyrel 8/18/2016 23:07",
+		"primPopClip" : "AliakseiSyrel 8/13/2016 14:00",
+		"primPushClipPath:" : "AliakseiSyrel 8/13/2016 14:02",
+		"primPushClipRectangleX:y:width:height:" : "AliakseiSyrel 8/13/2016 14:01",
+		"pushPath:" : "AliakseiSyrel 8/13/2016 14:02",
+		"pushRectangle:" : "AliakseiSyrel 8/13/2016 14:03" } }

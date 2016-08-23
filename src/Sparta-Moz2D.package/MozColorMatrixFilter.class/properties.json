@@ -1,0 +1,16 @@
+{
+	"category" : "Sparta-Moz2D-Filters",
+	"classinstvars" : [
+		 ],
+	"classtraitcomposition" : "TSpartaColorMatrixFilter classTrait",
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		 ],
+	"name" : "MozColorMatrixFilter",
+	"pools" : [
+		 ],
+	"super" : "MozSingleSourceFilter",
+	"traitcomposition" : "TSpartaColorMatrixFilter",
+	"type" : "normal" }

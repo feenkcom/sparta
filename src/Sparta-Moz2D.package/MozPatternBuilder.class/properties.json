@@ -1,0 +1,16 @@
+{
+	"category" : "Sparta-Moz2D-Builders",
+	"classinstvars" : [
+		 ],
+	"classtraitcomposition" : "TMozLibrary classTrait + TMozRefPtr classTrait",
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		 ],
+	"name" : "MozPatternBuilder",
+	"pools" : [
+		"MozSharedPool" ],
+	"super" : "SpartaAbstractBuilder",
+	"traitcomposition" : "TMozLibrary + TMozRefPtr",
+	"type" : "normal" }

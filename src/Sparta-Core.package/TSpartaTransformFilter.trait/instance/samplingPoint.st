@@ -1,0 +1,3 @@
+accessing
+samplingPoint
+	^ self explicitRequirement

@@ -1,0 +1,3 @@
+filters
+discreteTransferFilter
+	^ self subclassResponsibility

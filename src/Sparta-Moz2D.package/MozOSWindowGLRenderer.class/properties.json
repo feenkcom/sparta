@@ -1,0 +1,18 @@
+{
+	"category" : "Sparta-Moz2D-OSWindow",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		"sdlSurface",
+		"session",
+		"glContext",
+		"skiaGlue",
+		"spartaCanvas" ],
+	"name" : "MozOSWindowGLRenderer",
+	"pools" : [
+		 ],
+	"super" : "OSSDL2GLRenderer",
+	"type" : "normal" }

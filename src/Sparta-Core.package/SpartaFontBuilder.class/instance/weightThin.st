@@ -1,0 +1,3 @@
+weight
+weightThin
+	^ self subclassResponsibility

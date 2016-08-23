@@ -1,0 +1,15 @@
+{
+	"category" : "Sparta-Moz2D-Filters Enum",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		"MORPHOLOGY_OPERATOR_DILATE",
+		"MORPHOLOGY_OPERATOR_ERODE" ],
+	"commentStamp" : "AliakseiSyrel 8/23/2016 00:04",
+	"instvars" : [
+		 ],
+	"name" : "MozMorphologyFilterOperator",
+	"pools" : [
+		 ],
+	"super" : "FFIExternalEnumeration",
+	"type" : "normal" }

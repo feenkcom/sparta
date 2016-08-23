@@ -1,0 +1,3 @@
+filters
+compositeFilter
+	^ self subclassResponsibility

@@ -1,0 +1,16 @@
+{
+	"category" : "Sparta-Moz2D-Filters",
+	"classinstvars" : [
+		 ],
+	"classtraitcomposition" : "TSpartaMorphologyFilter classTrait",
+	"classvars" : [
+		 ],
+	"commentStamp" : "AliakseiSyrel 8/19/2016 21:43",
+	"instvars" : [
+		 ],
+	"name" : "MozMorphologyFilter",
+	"pools" : [
+		 ],
+	"super" : "MozSingleSourceFilter",
+	"traitcomposition" : "TSpartaMorphologyFilter",
+	"type" : "normal" }

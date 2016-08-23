@@ -1,0 +1,3 @@
+accessing
+fractalNoise
+	^ self explicitRequirement

@@ -1,0 +1,16 @@
+{
+	"category" : "Sparta-Moz2D-Enums",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		"BUTT",
+		"ROUND",
+		"SQUARE" ],
+	"commentStamp" : "AliakseiSyrel 8/19/2016 01:35",
+	"instvars" : [
+		 ],
+	"name" : "MozCapStyle",
+	"pools" : [
+		 ],
+	"super" : "FFIExternalEnumeration",
+	"type" : "normal" }

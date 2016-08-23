@@ -1,0 +1,4 @@
+accessing
+pixelFormat
+
+	^ self primGetSurfaceFormat

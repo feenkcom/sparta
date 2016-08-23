@@ -1,0 +1,3 @@
+stretch
+stretchUltraCondensed
+	^ self subclassResponsibility

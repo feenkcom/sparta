@@ -1,0 +1,3 @@
+accessing
+samplingSentinel
+	^ self explicitRequirement

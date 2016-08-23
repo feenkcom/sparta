@@ -1,0 +1,25 @@
+{
+	"category" : "Sparta-Moz2D-Filters Enum",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		"ATT_GAMMA_TRANSFER_AMPLITUDE_A",
+		"ATT_GAMMA_TRANSFER_AMPLITUDE_B",
+		"ATT_GAMMA_TRANSFER_AMPLITUDE_G",
+		"ATT_GAMMA_TRANSFER_AMPLITUDE_R",
+		"ATT_GAMMA_TRANSFER_EXPONENT_A",
+		"ATT_GAMMA_TRANSFER_EXPONENT_B",
+		"ATT_GAMMA_TRANSFER_EXPONENT_G",
+		"ATT_GAMMA_TRANSFER_EXPONENT_R",
+		"ATT_GAMMA_TRANSFER_OFFSET_A",
+		"ATT_GAMMA_TRANSFER_OFFSET_B",
+		"ATT_GAMMA_TRANSFER_OFFSET_G",
+		"ATT_GAMMA_TRANSFER_OFFSET_R" ],
+	"commentStamp" : "AliakseiSyrel 8/23/2016 00:03",
+	"instvars" : [
+		 ],
+	"name" : "MozGammaTransferFilterAtts",
+	"pools" : [
+		 ],
+	"super" : "FFIExternalEnumeration",
+	"type" : "normal" }

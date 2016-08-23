@@ -1,0 +1,4 @@
+geometry
+localBounds
+
+	^ self subclassResponsibility

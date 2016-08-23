@@ -1,0 +1,4 @@
+accessing enum
+ATT_SPECULAR_LIGHTING_SPECULAR_CONSTANT
+	"This method was automatically generated"
+	^ ATT_SPECULAR_LIGHTING_SPECULAR_CONSTANT

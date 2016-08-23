@@ -1,0 +1,3 @@
+filters
+linearTransferFilter
+	^ self subclassResponsibility

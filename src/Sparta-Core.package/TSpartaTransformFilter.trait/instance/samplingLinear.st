@@ -1,0 +1,3 @@
+accessing
+samplingLinear
+	^ self explicitRequirement

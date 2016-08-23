@@ -1,0 +1,3 @@
+composition operators
+composeLuminosity
+	^ self compositionOperator: MozCompositionOp OP_LUMINOSITY

@@ -1,0 +1,3 @@
+accessing
+yChannelGreen
+	^ self explicitRequirement

@@ -1,0 +1,3 @@
+accessing
+stretch
+	^ stretch

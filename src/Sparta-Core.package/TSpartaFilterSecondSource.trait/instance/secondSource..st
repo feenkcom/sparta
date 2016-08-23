@@ -1,0 +1,3 @@
+accessing
+secondSource: aFilterOrSurface
+	aFilterOrSurface asFilterSecondSourceOn: self

@@ -1,0 +1,3 @@
+accessing
+strokeBelow
+	^ self subclassResponsibility

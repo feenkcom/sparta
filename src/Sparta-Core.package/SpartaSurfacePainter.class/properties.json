@@ -1,0 +1,15 @@
+{
+	"category" : "Sparta-Core-Builders",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		"surface",
+		"surfaceBlender" ],
+	"name" : "SpartaSurfacePainter",
+	"pools" : [
+		 ],
+	"super" : "SpartaAbstractPainter",
+	"type" : "normal" }

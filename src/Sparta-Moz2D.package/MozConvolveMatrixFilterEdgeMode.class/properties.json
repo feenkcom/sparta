@@ -1,0 +1,16 @@
+{
+	"category" : "Sparta-Moz2D-Filters Enum",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		"EDGE_MODE_DUPLICATE",
+		"EDGE_MODE_NONE",
+		"EDGE_MODE_WRAP" ],
+	"commentStamp" : "AliakseiSyrel 8/23/2016 00:01",
+	"instvars" : [
+		 ],
+	"name" : "MozConvolveMatrixFilterEdgeMode",
+	"pools" : [
+		 ],
+	"super" : "FFIExternalEnumeration",
+	"type" : "normal" }

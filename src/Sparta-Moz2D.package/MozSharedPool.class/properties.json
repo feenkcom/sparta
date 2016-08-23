@@ -1,0 +1,22 @@
+{
+	"category" : "Sparta-Moz2D-Library",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		"DrawOptions",
+		"DrawTarget",
+		"FILL_RULE_EVEN_ODD",
+		"FILL_RULE_WINDING",
+		"FilterNode",
+		"FilterType",
+		"SourceSurface",
+		"StrokeOptions",
+		"SurfaceType" ],
+	"commentStamp" : "AliakseiSyrel 8/22/2016 23:57",
+	"instvars" : [
+		 ],
+	"name" : "MozSharedPool",
+	"pools" : [
+		 ],
+	"super" : "SharedPool",
+	"type" : "normal" }

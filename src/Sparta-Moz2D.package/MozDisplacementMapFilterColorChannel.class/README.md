@@ -1,0 +1,7 @@
+enum ColorChannel
+{
+   COLOR_CHANNEL_R = 0,
+   COLOR_CHANNEL_G,
+   COLOR_CHANNEL_B,
+   COLOR_CHANNEL_A
+};

@@ -1,0 +1,16 @@
+{
+	"category" : "Sparta-Moz2D",
+	"classinstvars" : [
+		 ],
+	"classtraitcomposition" : "TMozLibrary classTrait",
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		 ],
+	"name" : "MozServices",
+	"pools" : [
+		 ],
+	"super" : "Object",
+	"traitcomposition" : "TMozLibrary",
+	"type" : "normal" }
