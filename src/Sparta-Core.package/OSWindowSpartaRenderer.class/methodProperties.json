@@ -1,9 +1,0 @@
-{
-	"class" : {
-		 },
-	"instance" : {
-		"checkSession" : "AliakseiSyrel 8/3/2016 03:27",
-		"createSpartaCanvas" : "AliakseiSyrel 8/3/2016 03:28",
-		"destroy" : "AliakseiSyrel 8/3/2016 03:28",
-		"initialize" : "AliakseiSyrel 8/3/2016 03:28",
-		"redrawDuring:" : "AliakseiSyrel 8/13/2016 21:07" } }
