@@ -5,5 +5,4 @@ SystemOrganization addCategory: 'Sparta-Core-Math'!
 SystemOrganization addCategory: 'Sparta-Core-OSWindow'!
 SystemOrganization addCategory: 'Sparta-Core-Paints'!
 SystemOrganization addCategory: 'Sparta-Core-Path'!
-SystemOrganization addCategory: 'Sparta-Core-Surface'!
 SystemOrganization addCategory: 'Sparta-Core-Utils'!

@@ -1,4 +1,4 @@
-I am a root class for all draw operation builders.
+I am a root class of all draw operation builders.
 Since a draw something on canvas I am named Painter :)
 
 Once draw operation is configured it should be performed sending #draw message

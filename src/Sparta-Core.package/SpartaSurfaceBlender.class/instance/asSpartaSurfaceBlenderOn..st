@@ -1,3 +1,0 @@
-converting
-asSpartaSurfaceBlenderOn: aSpartaCanvas
-	^ self

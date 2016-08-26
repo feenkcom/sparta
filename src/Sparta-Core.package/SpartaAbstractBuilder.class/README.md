@@ -1,7 +1,7 @@
-I am a root class for all sparta builders.
-All builders must be only created and managed by canvas.
+I am a root class of all sparta builders.
+All builders must be created and managed by canvas.
 
-Every builder provides a way to reset resources to enable reuse of builders instead of their recreation on every access.
+Every builder provides a way to reset resources to support reuse instead of recreation on every access.
 
 Public API and Key Messages
 

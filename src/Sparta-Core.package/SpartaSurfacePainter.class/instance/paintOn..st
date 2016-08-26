@@ -1,3 +1,0 @@
-drawing
-paintOn: aSpartaCanvas
-	
