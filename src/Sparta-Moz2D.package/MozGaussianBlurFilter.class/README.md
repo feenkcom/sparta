@@ -1,4 +1,4 @@
-This filter primitive performs a Gaussian blur on the input image.
+Gaussian blur filter primitive performs a Gaussian blur on the input image.
 
 https://www.w3.org/TR/SVG/filters.html#feGaussianBlurElement
 

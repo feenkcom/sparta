@@ -1,7 +1,0 @@
-{
-	"class" : {
-		"from:style:" : "AliakseiSyrel 8/2/2016 16:22",
-		"primCreateFamilyList:style:perfMetrics:userFontSet:devToLocalScale:" : "AliakseiSyrel 8/2/2016 16:20" },
-	"instance" : {
-		"makeTextRun:canvas:" : "AliakseiSyrel 8/3/2016 09:21",
-		"primMakeTextRun:drawTarget:length:initialBreaks:initialBreaksCount:appUnitsPerDevUnit:flags:" : "AliakseiSyrel 8/3/2016 08:22" } }

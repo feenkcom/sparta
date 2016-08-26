@@ -1,4 +1,4 @@
-This filter primitive performs "fattening" or "thinning" of artwork. It is particularly useful for fattening or thinning an alpha channel.
+Morphology filter primitive performs "fattening" or "thinning" of artwork. It is particularly useful for fattening or thinning an alpha channel.
 
 https://www.w3.org/TR/SVG/filters.html#feMorphologyElement
 
