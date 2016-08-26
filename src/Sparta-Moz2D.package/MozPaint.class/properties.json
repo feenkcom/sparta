@@ -2,7 +2,7 @@
 	"category" : "Sparta-Moz2D-Paints",
 	"classinstvars" : [
 		 ],
-	"classtraitcomposition" : "TSpartaPaint classTrait",
+	"classtraitcomposition" : "TSpartaPaint classTrait + TSpartaInspectorPreview classTrait",
 	"classvars" : [
 		 ],
 	"commentStamp" : "",
@@ -13,5 +13,5 @@
 	"pools" : [
 		 ],
 	"super" : "Object",
-	"traitcomposition" : "TSpartaPaint",
+	"traitcomposition" : "TSpartaPaint + TSpartaInspectorPreview",
 	"type" : "normal" }
