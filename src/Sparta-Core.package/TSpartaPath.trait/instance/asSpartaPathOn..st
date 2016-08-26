@@ -1,0 +1,3 @@
+converting
+asSpartaPathOn: aSpartaCanvas
+	^ self
