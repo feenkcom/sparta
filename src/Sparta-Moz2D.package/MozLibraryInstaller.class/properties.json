@@ -1,0 +1,14 @@
+{
+	"category" : "Sparta-Moz2D-Library",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		 ],
+	"name" : "MozLibraryInstaller",
+	"pools" : [
+		 ],
+	"super" : "Object",
+	"type" : "normal" }

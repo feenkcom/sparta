@@ -21,9 +21,9 @@ exampleStrokePath
 		path: path;
 		strokeOptions: (canvas strokeOptions
 			width: 5;
-			joinRound;
-			dashPattern: #(10 10);
-			dashOffset: 11);
+			joinRound
+			"dashPattern: #(10 10);
+			dashOffset: 11");
 		draw.
 	
 	canvas asForm asMorph openInWindowLabeled: 'Vector Path'
