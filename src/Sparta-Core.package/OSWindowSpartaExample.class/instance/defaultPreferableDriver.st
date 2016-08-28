@@ -1,3 +1,0 @@
-initialization
-defaultPreferableDriver
-	^ self subclassResponsibility

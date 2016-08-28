@@ -2,12 +2,14 @@ api
 mask
 	"Start building a mask draw operation.
 	User gets a mask painter responsible for mask creation.
-	See SpartaMaskPainter 'accessing' protocol for available api.
+	See !SpartaMaskPainter 'accessing' protocol for available api.
 	
 	canvas mask
 		source: Color green;
 		mask: canvas surface;
-		draw"
+		draw
+	"
+	<return: #SpartaMaskPainter>
 
 	^ self maskPainter
 		reset;

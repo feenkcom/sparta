@@ -1,3 +1,3 @@
-instance creation
+bitmap
 fromForm: aForm
 	^ self subclassResponsibility

@@ -1,3 +1,0 @@
-options
-strokeOptionsClass
-	^ self subclassResponsibility

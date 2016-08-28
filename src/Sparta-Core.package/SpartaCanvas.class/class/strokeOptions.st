@@ -1,3 +1,3 @@
-options
-drawOptionsClass
+accessing
+strokeOptions
 	^ self subclassResponsibility

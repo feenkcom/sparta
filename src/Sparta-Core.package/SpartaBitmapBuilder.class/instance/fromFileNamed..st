@@ -1,3 +1,3 @@
-instance creation
+bitmap
 fromFileNamed: aString
 	^ self subclassResponsibility

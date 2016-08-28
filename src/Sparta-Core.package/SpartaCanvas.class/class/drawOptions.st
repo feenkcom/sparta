@@ -1,3 +1,3 @@
-updating
-redrawDuring: aBlock
+accessing
+drawOptions
 	^ self subclassResponsibility

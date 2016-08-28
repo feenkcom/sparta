@@ -1,3 +1,3 @@
 instance creation
 defaultStrokeOptions
-	^ self strokeOptionsClass default
+	^ self class strokeOptions default

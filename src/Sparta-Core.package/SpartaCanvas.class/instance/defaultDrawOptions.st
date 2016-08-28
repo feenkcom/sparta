@@ -1,3 +1,3 @@
 instance creation
 defaultDrawOptions
-	^ self drawOptionsClass default
+	^ self class drawOptions default
