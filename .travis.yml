@@ -1,0 +1,12 @@
+language: smalltalk
+sudo: false
+
+os:
+  - linux
+  - osx
+
+smalltalk:
+  - Pharo-3.0
+  - Pharo-4.0
+  - Pharo-5.0
+  - Pharo-6.0
