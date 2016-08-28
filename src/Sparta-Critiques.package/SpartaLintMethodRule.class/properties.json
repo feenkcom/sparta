@@ -1,0 +1,14 @@
+{
+	"category" : "Sparta-Critiques",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		 ],
+	"name" : "SpartaLintMethodRule",
+	"pools" : [
+		 ],
+	"super" : "SpartaLintRule",
+	"type" : "normal" }

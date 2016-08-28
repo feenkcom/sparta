@@ -1,0 +1,14 @@
+{
+	"category" : "Sparta-Critiques",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "AliakseiSyrel 8/27/2016 13:20",
+	"instvars" : [
+		 ],
+	"name" : "SpartaLintRule",
+	"pools" : [
+		 ],
+	"super" : "RBBasicLintRule",
+	"type" : "normal" }
