@@ -1,3 +1,0 @@
-initialization
-defaultPreferableDriver
-	^ OSSDL2MultiTouchDriver new

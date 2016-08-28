@@ -1,3 +1,0 @@
-updating ressources
-resetSpartaCanvas
-	self createSpartaCanvas
