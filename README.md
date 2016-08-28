@@ -25,6 +25,7 @@ In total Sparta supports 5 different rendering backends.
 
 ### Text
 One of the biggest improvements compared to existing graphics engines from Pharo is advanced high quality text rendering with multi-language support.
+
 ![Multilanguage support in Sparta](screenshots/Sparta-v1-Multilanguage.png "Sparta Multilanguage")
 
 The current Pharo text rendering engines draw a piece of text with one concrete font and style. If the font does not have an appropriate character, a stub glyph will be rendered instead.
@@ -32,6 +33,7 @@ Sparta introduces a notion of font groups that allow us to achieve a smooth fall
 
 ### Filters
 Since Sparta is based on the Moz2D backend that was designed for web browsers, we can get support for a wide variety of [filter primitives](https://www.w3.org/TR/SVG/filters.html). Sparta provides an ability to compose multiple filter primitives to get a single, advanced filter. For example, with the help of ColorMatrix and TableTransfer filters we can simulate some popular Instagram-like filters, for example Nashville, Inkwell or Brannan.
+
 ![Instagram-like filters implemented with Sparta](screenshots/Sparta-v1-Filters.png "Sparta Filters")
 
 ### Basic drawings
