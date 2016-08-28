@@ -1,3 +1,3 @@
 instance creation
 drawOptions
-	^ self drawOptionsClass new
+	^ self class drawOptions new

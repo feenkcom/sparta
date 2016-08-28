@@ -1,3 +1,3 @@
 instance creation
 strokeOptions
-	^ self strokeOptionsClass new
+	^ self class strokeOptions new
