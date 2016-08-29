@@ -1,3 +1,3 @@
 library
 libraryDirectory
-	^ Smalltalk vm fullPath asFileReference
+	^ Smalltalk vm fullPath asFileReference parent / 'bin'

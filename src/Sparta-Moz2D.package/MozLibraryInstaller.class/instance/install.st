@@ -14,6 +14,9 @@ install
 		].
 
 	self ensureNotExist: pluginPath.
+	NonInteractiveTranscript stdout show: 'Installing library to ', pluginPath asString; cr.
 	self downloadFilename moveTo: pluginPath.
 
-	MozServices start
+	NonInteractiveTranscript stdout show: 'Launching Moz2D services...'; cr.
+	MozServices start.
+	NonInteractiveTranscript stdout show: 'Sparta-Moz2D succesfully installed!'; cr.
