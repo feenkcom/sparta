@@ -33,9 +33,8 @@ if (file_exists($newfname)) {
     header('Pragma: public');
     header('Content-Length: ' . filesize($newfname));
     readfile($newfname);
+	unlink($newfname);
     exit;
 }
-
-unlink($newfname);
 
 ?>
