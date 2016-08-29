@@ -1,6 +1,6 @@
 accessing platform
 unixModuleName
-	|moduleName|
+	"|moduleName|
 	moduleName := (({
 		Smalltalk vm fullPath asFileReference parent / 'bin'.
 		Smalltalk vm fullPath asFileReference parent.
@@ -9,6 +9,6 @@ unixModuleName
 		detect: [ :path | path exists ]
 		ifNone: [ Error signal: 'Cannot locate Moz2D library. Please check if it installed on your system' ]) fullName.
 		
-	self assert: [ moduleName asFileReference exists ] description: [ 'Library must exist!' ].
+	self assert: [ moduleName asFileReference exists ] description: [ 'Library must exist!' ]."
 	
-	^ moduleName
+	^ 'libMoz2D.so'
