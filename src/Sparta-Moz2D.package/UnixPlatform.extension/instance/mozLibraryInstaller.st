@@ -1,3 +1,3 @@
 *Sparta-Moz2D
 mozLibraryInstaller
-	^ MozLibraryLinuxInstaller new
+	^ MozLibraryLinuxInstaller

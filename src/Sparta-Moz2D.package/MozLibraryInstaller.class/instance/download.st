@@ -3,7 +3,7 @@ download
 	UIManager default informUserDuring: [ :bar |
 		self ensureNotExist: self downloadFilename.
 		bar label: 'Requesting Moz2D Library file...'.
-		NonInteractiveTranscript stdout cr; show: 'Downloading ', self url, ' to ', self downloadFilename, ' ...';cr.
+		NonInteractiveTranscript stdout cr; show: 'Downloading ', self url, ' to ', self downloadFilename asString, ' ...';cr.
 		[ ZnClient new
 			"A horrible hack... using wget works, with ZnClient 403 Forbidden"
 			url: 'http://syrel.ch/download.php?url=', self url;

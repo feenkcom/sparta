@@ -1,6 +1,6 @@
 installation
 install
-	^ self new
+	^ Smalltalk platform mozLibraryInstaller new
 		download;
 		install;
 		yourself
