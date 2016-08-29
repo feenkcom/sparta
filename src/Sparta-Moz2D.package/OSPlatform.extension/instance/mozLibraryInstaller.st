@@ -1,3 +1,3 @@
 *Sparta-Moz2D
-mozPluginInstaller
+mozLibraryInstaller
 	^ self subclassResponsibility
