@@ -1,6 +1,4 @@
 doits
 postLoadActions
 
-	Smalltalk platform mozLibraryInstaller
-		download;
-		install
+	Smalltalk platform mozLibraryInstaller install
