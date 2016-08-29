@@ -10,4 +10,5 @@ baseline: spec
 		group: 'default'
 			with: #(ConfigurationOfSparta 'Sparta-Core' 'Sparta-Moz2D');
 		group: 'development'
-			with: #(default 'Sparta-Critiques') ]
+			with: #(default 'Sparta-Critiques');
+		postLoadDoIt: #postLoadActions ]
