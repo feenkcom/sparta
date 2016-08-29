@@ -15,6 +15,5 @@ install
 	
 	pluginPath exists ifTrue: [ pluginPath delete ].
 	self downloadFilename moveTo: pluginPath.
-	
-	Smalltalk vm loadModule: self libraryName.
+
 	MozServices start
