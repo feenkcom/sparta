@@ -1,8 +1,9 @@
 api
 download
 	UIManager default informUserDuring: [ :bar |
-		self downloadFilename exists ifTrue: [ self downloadFilename delete ].
+		self ensureNotExist: self downloadFilename.
 		bar label: 'Requesting Moz2D Library file...'.
+		NonInteractiveTranscript stdout show: 'Downloading... ', self url; cr.
 		[ ZnClient new
 			"A horrible hack... using wget works, with ZnClient 403 Forbidden"
 			url: 'http://syrel.ch/download.php?url=', self url;
@@ -14,6 +15,7 @@ download
 				bar current: progress percentage.
 				progress total ifNotNil: [ :aTotalNumber | | humanReadable |
 					humanReadable := self printHumanReadableSize: aTotalNumber.
-					bar label: 'Downloading ', progress percentage asInteger asString, '% of ', humanReadable, ' of Moz2D Library... ' ] ].
-			progress resume ] 
-	]
+					humanReadable := 'Downloading ', progress percentage asInteger asString, '% of ', humanReadable, ' of Moz2D Library... '.
+					NonInteractiveTranscript stdout show: humanReadable; cr.
+					bar label: humanReadable ] ].
+			progress resume ] ]

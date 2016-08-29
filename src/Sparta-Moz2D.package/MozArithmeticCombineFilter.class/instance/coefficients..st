@@ -7,7 +7,7 @@ coefficients: anArrayOrFloat
 		anArrayOrFloat isCollection
 			ifTrue: [ anArrayOrFloat size = 4 ]
 			ifFalse: [ true ] ]
-		descriptionBlock: [ 'Must have four coefficients!' ].
+		description: [ 'Must have four coefficients!' ].
 		
 	array := anArrayOrFloat isCollection
 		ifTrue: [ anArrayOrFloat ]

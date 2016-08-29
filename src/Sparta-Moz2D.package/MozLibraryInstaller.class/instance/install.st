@@ -12,8 +12,8 @@ install
 			MozServices stop.
 			Smalltalk vm forgetModule: self libraryName.
 		].
-	
-	pluginPath exists ifTrue: [ pluginPath delete ].
+
+	self ensureNotExist: pluginPath.
 	self downloadFilename moveTo: pluginPath.
 
 	MozServices start

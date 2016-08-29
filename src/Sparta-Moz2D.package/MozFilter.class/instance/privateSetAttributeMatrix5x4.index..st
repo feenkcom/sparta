@@ -8,7 +8,7 @@ privateSetAttributeMatrix5x4: anArrayOrFlaot index: anIndex
 	
 	self
 		assert: [ numbers size = 20 ]
-		descriptionBlock: [ 'Matrix 5x4 must contain 20 elements' ].
+		description: [ 'Matrix 5x4 must contain 20 elements' ].
 
 	array := (FFIExternalArray externalNewType: 'float' size: numbers size)
 		fillFrom: numbers with: #yourself;

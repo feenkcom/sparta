@@ -3,19 +3,19 @@ linearGradient: aLinearGradient
 
 	self
 		assert: [ aLinearGradient isNotNil ]
-		descriptionBlock: [ 'Gradient must not be nil!' ].
+		description: [ 'Gradient must not be nil!' ].
 
 	self
 		assert: [ aLinearGradient stops isNotNil ]
-		descriptionBlock: [ 'Gradient stops must not be nil!' ].
+		description: [ 'Gradient stops must not be nil!' ].
 
 	self
 		assert: [ aLinearGradient begin isNotNil ]
-		descriptionBlock: [ 'Gradient begin point must not be nil!' ].
+		description: [ 'Gradient begin point must not be nil!' ].
 
 	self
 		assert: [ aLinearGradient end isNotNil ]
-		descriptionBlock: [ 'Gradient end point must not be nil!' ].
+		description: [ 'Gradient end point must not be nil!' ].
 
 	^ (self
 		primLinearGradientBeginX: aLinearGradient begin x

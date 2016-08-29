@@ -4,7 +4,7 @@ surface: aMozSurfacePaint
 	
 	self
 		assert: [ aMozSurfacePaint source isNotNil ]
-		descriptionBlock: [ 'Source must not be nil in Surface Paint!' ].
+		description: [ 'Source must not be nil in Surface Paint!' ].
 	
 	aMozSurfacePaint samplingArea
 		ifNil: [

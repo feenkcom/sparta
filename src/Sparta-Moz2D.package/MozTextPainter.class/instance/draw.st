@@ -4,11 +4,11 @@ draw
 
 	self
 		assert: [ string isNotNil ]
-		descriptionBlock: [ 'String must not be nil' ].
+		description: [ 'String must not be nil' ].
 	
 	self
 		assert: [ font isNotNil ]
-		descriptionBlock: [ 'Font must not be nil' ].
+		description: [ 'Font must not be nil' ].
 	
 	
 	x := 0.
