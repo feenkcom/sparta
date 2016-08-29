@@ -1,3 +1,3 @@
-configuration
-url64
+library
+libraryPlatform
 	^ self subclassResponsibility

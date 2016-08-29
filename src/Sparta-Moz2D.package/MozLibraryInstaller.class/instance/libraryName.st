@@ -1,3 +1,3 @@
-configuration
-url32
+library
+libraryName
 	^ self subclassResponsibility
