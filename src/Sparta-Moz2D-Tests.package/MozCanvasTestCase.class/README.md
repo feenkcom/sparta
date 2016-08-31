@@ -1,0 +1,1 @@
+I define a basic structure of MozCanvas TestCase and implement a few helper methods
