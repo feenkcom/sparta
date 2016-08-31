@@ -15,6 +15,26 @@ env:
 - ARCH="i386"
 
 before_install:
+  - |
+       declare -r SSH_FILE="$(mktemp -u $HOME/.ssh/$GITHUB_SSH_FILE)"
+
+       # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+       openssl aes-256-cbc \
+         -K $encrypted_269aad325b32_key \
+         -iv $encrypted_269aad325b32_iv \
+         -in ".travis/travis_id_rsa.enc" \
+         -out "$SSH_FILE" -d
+
+       # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+       # Enable SSH authentication
+
+       chmod 600 "$SSH_FILE" \
+         && printf "%s\n" \
+              "Host github.com" \
+              "  IdentityFile $SSH_FILE" \
+              "  LogLevel ERROR" >> ~/.ssh/config
+
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
       sudo dpkg --add-architecture i386;
       sudo apt-get update;
