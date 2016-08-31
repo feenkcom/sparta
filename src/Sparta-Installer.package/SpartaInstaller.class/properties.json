@@ -1,0 +1,14 @@
+{
+	"category" : "Sparta-Installer",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		 ],
+	"name" : "SpartaInstaller",
+	"pools" : [
+		 ],
+	"super" : "Object",
+	"type" : "normal" }

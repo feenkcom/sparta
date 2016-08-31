@@ -2,13 +2,15 @@ baseline
 baseline: spec
 	<baseline>
 	spec for: #common do: [ spec
-		package: 'ConfigurationOfSparta';
-		package: 'Sparta-Core';
-		package: 'Sparta-Critiques';
-		package: 'Sparta-Moz2D'
-			with: [ spec requires: 'Sparta-Core' ];
+		package: 'Sparta-Installer';
+		"package: 'ConfigurationOfSparta';"
+		"package: 'Sparta-Core';"
+		"package: 'Sparta-Critiques';"
+		"package: 'Sparta-Moz2D'
+			with: [ spec requires: 'Sparta-Core' ];"
 		group: 'default'
-			with: #(ConfigurationOfSparta 'Sparta-Core' 'Sparta-Moz2D');
+			with: #('Sparta-Installer' "'ConfigurationOfSparta'" " 'Sparta-Core' 'Sparta-Moz2D'");
 		group: 'development'
-			with: #(default 'Sparta-Critiques');
-		postLoadDoIt: #postLoadActions ]
+			with: #(default "'Sparta-Critiques'");
+		preLoadDoIt: #preLoadActions:;
+		postLoadDoIt: #postLoadActions ].

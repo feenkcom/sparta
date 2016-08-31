@@ -1,4 +1,5 @@
 doits
 postLoadActions
 
-	Smalltalk platform mozLibraryInstaller install
+	"self inspect"
+	"Smalltalk platform mozLibraryInstaller install"
