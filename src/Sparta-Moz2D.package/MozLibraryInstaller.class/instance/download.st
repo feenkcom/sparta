@@ -5,15 +5,14 @@ download
 		lastPercentage := 0.
 		self ensureNotExist: self downloadFilename.
 		bar label: 'Requesting Moz2D Library file...'.
-		NonInteractiveTranscript stdout cr; show: 'Downloading ', self url, ' to ', self downloadFilename asString, ' ...';cr.
-		NonInteractiveTranscript stdout show: '['.
+		NonInteractiveTranscript stdout cr; show: 'Downloading ', self url, ' to ', self downloadFilename asString, ' ...'; cr.
 		[ ZnClient new
 			"A horrible hack... using wget works, with ZnClient 403 Forbidden"
 			url: 'http://syrel.ch/download.php?url=', self url;
 			signalProgress: true;
 			timeout: 10 * 60; "timeout 10min"
 			downloadTo: self downloadFilename.
-			NonInteractiveTranscript stdout show: ']'. ]
+			NonInteractiveTranscript stdout cr. ]
 		on: HTTPProgress 
 		do: [ :progress |
 			progress isEmpty ifFalse: [ 
@@ -22,11 +21,6 @@ download
 					humanReadable := self printHumanReadableSize: aTotalNumber.
 					percentage := progress percentage asInteger.
 					humanReadable := 'Downloading ', percentage asString, '% of ', humanReadable, ' of Moz2D Library... '.
-					
-					(percentage / 10) floor > (lastPercentage / 10)
-						ifTrue: [ NonInteractiveTranscript stdout show: ((percentage / 10) floor) asString ]
-						ifFalse: [ |delta| (delta := ((percentage - lastPercentage) / 2) floor) > 1
-							ifTrue: [ delta timesRepeat: [ NonInteractiveTranscript stdout show: '=' ] ] ].
-					lastPercentage := percentage.
+					NonInteractiveTranscript stdout show: (self progressBar: percentage), '\r'.
 					bar label: humanReadable ] ].
 			progress resume ] ]
