@@ -8,3 +8,19 @@ os:
 smalltalk:
   - Pharo-5.0
   - Pharo-6.0
+
+env:
+- ARCH="i386"
+
+before_install:
+  - if [[ "$TRAVIS_OS_NAME" == "linux" && "$ARCH" == "i386" ]]; then
+      sudo dpkg --add-architecture i386;
+      sudo apt-get update;
+      export PKG_CONFIG_PATH=/usr/lib/i386-linux-gnu/pkgconfig/;
+      
+      echo "Installing GTK-2.0...";
+      sudo apt-get install libgtk2.0-0:i386
+
+      echo "Installing GTK-3.0...";
+      sudo apt-get install libgtk-3-0:i386;
+    fi 
