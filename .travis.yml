@@ -28,4 +28,8 @@ before_install:
 
       echo "Installing GTK-3.0...";
       sudo apt-get install libgtk-3-0:i386;
-    fi 
+    fi
+    
+before_script:
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
