@@ -6,5 +6,8 @@ SmalltalkCISpec {
       #platforms : [ #pharo ],
       #load : [ 'development' ]
     }
-  ]
+  ],
+  #testing : {
+    #packages : [ 'Sparta.*' ],
+  }
 }
