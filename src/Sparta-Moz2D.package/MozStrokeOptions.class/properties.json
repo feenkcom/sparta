@@ -11,6 +11,6 @@
 	"name" : "MozStrokeOptions",
 	"pools" : [
 		 ],
-	"super" : "FFIExternalPackedStructure",
+	"super" : "FFIExternalStructure",
 	"traitcomposition" : "TSpartaStrokeOptions",
 	"type" : "normal" }

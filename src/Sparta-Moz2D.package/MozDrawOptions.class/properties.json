@@ -11,6 +11,6 @@
 	"name" : "MozDrawOptions",
 	"pools" : [
 		 ],
-	"super" : "FFIExternalPackedStructure",
+	"super" : "FFIExternalStructure",
 	"traitcomposition" : "TSpartaDrawOptions",
 	"type" : "normal" }

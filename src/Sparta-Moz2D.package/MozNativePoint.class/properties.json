@@ -11,6 +11,6 @@
 	"name" : "MozNativePoint",
 	"pools" : [
 		 ],
-	"super" : "FFIExternalPackedStructure",
+	"super" : "FFIExternalStructure",
 	"traitcomposition" : "TMozLibrary",
 	"type" : "normal" }
