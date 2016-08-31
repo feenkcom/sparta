@@ -1,2 +1,2 @@
-(name 'BaselineOfSparta-AliakseiSyrel.8' message 'trying to install sparta using installer' id 'f5e4024c-aedc-420a-97fc-994f3b35d19a' date '31 August 2016' time '10:16:03.59222 pm' author 'AliakseiSyrel' ancestors ((name 'BaselineOfSparta-AliakseiSyrel.7' message 'Better Sparta Baseline post load action
+(name 'BaselineOfSparta-AliakseiSyrel.9' message 'redirect to sparta installer' id '107e57ea-b673-4aa0-bcd3-6bc362a44002' date '31 August 2016' time '10:48:07.034865 pm' author 'AliakseiSyrel' ancestors ((name 'BaselineOfSparta-AliakseiSyrel.7' message 'Better Sparta Baseline post load action
 ' id 'a9bcbe1d-bdde-5fec-9502-75f579bf3e3b' date '29 August 2016' time '3:07:02 pm' author 'AliakseiSyrel' ancestors () stepChildren ())) stepChildren ())
