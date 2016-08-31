@@ -8,6 +8,6 @@ SmalltalkCISpec {
     }
   ],
   #testing : {
-    #packages : [ 'Sparta.*' ],
+    #packages : [ 'Sparta-*' ],
   }
 }
