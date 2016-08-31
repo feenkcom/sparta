@@ -1,5 +1,7 @@
 language: smalltalk
-sudo: false
+sudo: true
+
+dist: xenial
 
 os:
   - linux
