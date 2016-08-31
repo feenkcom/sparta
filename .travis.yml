@@ -15,7 +15,7 @@ env:
 - ARCH="i386"
 
 before_install:
-  - if [[ "$TRAVIS_OS_NAME" == "linux" && "$ARCH" == "i386" ]]; then
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
       sudo dpkg --add-architecture i386;
       sudo apt-get update;
       export PKG_CONFIG_PATH=/usr/lib/i386-linux-gnu/pkgconfig/;
