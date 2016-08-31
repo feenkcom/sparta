@@ -2,4 +2,5 @@ actions
 load: anOrderedPackageList
 
 	anOrderedPackageList do: [ :package |
-		repository updatePackage: package ]
+		NonInteractiveTranscript stdout show: ('Loading latest version of ', package, '...'); cr.
+		(repository packageNamed: package) loadLatest ]
