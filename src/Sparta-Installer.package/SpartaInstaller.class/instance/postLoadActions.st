@@ -1,6 +1,9 @@
 actions
 postLoadActions
-
-	"Pull repository"
-	NonInteractiveTranscript stdout show: '[postLoadActions] repository pull'; cr.
-	repository pull
+	| pragmas |
+	repository pull.
+	
+	pragmas := OrderedCollection new.
+	Object withAllSubclassesDo: [:each |
+		pragmas addAll: (Pragma allNamed: #spartaPostLoad in: each) ].
+	pragmas do: [ :each | each method methodClass baseClass perform: each method selector ]
