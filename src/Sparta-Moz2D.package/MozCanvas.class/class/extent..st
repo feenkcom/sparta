@@ -3,4 +3,4 @@ extent: aPoint
 	^ (self
 		primCreateWidth: aPoint x
 		height: aPoint y
-		format: MozSurfaceFormat A8R8G8B8_UINT32) autoRelease
+		format: MozSurfaceFormat B8G8R8A8) autoRelease
