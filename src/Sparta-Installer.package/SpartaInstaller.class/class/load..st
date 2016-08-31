@@ -2,8 +2,8 @@ actions
 load: aGroup
 
 	self
-		assert: [ aGroup ]
+		assert: [ aGroup isSymbol ]
 		description: [ 'Group must be a symbol!' ].
 
 	self ensureIceberg.
-	self perform: aGroup with: self new
+	self perform: aGroup asMutator with: self new
