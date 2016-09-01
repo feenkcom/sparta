@@ -8,7 +8,7 @@ checker: anExtent
 		paint: Color white;
 		path: (0@0 extent: checker extent);
 		draw;
-		paint: Color veryVeryLightGray;
+		paint: Color veryVeryLightGray slightlyLighter slightlyLighter;
 		path: (0@0 extent: checker extent / 2.0);
 		draw;
 		path: ((checker extent / 2.0) extent: checker extent / 2.0);
