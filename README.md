@@ -3,10 +3,15 @@ Sparta is an almost stateless vector graphics API for Pharo that provides bindin
 
 ### Documentation
   - [Canvas](https://github.com/syrel/Sparta/blob/master/src/Sparta-Core.package/SpartaCanvas.class/README.md)
+  - [Paint](https://github.com/syrel/Sparta/blob/master/src/Sparta-Core.package/TSpartaPaint.trait/README.md)
+    - [Gradient](https://github.com/syrel/Sparta/blob/master/src/Sparta-Core.package/TSpartaGradientPaint.trait/README.md)
+      - [Linear](https://github.com/syrel/Sparta/blob/master/src/Sparta-Core.package/TSpartaLinearGradientPaint.trait/README.md)
+      - [Radial](https://github.com/syrel/Sparta/blob/master/src/Sparta-Core.package/TSpartaRadialGradientPaint.trait/README.md)
+    - [Surface](https://github.com/syrel/Sparta/blob/master/src/Sparta-Core.package/TSpartaSurfacePaint.trait/README.md)
 
 ### Install
 
-Sparta requires extra [Moz2D](https://github.com/syrel/Moz2D) vm plugin. Plugin for the current OS and VM (32 or 64 bit) is downloaded and installed automatically together with all needed packages. For that, Sparta uses [Iceberg](https://github.com/npasserini/iceberg) to work with Git version control system. **Iceberg will installed automatically if not yet present in the system.**
+Sparta requires extra [Moz2D](https://github.com/syrel/Moz2D) vm plugin. Plugin for the current OS and VM (32 or 64 bit) is downloaded and installed automatically together with all needed packages. For that, Sparta uses [Iceberg](https://github.com/npasserini/iceberg) to work with Git version control system. **Iceberg will be installed automatically if not yet present in the system.**
 
 *Core packages:*
 ```smalltalk
