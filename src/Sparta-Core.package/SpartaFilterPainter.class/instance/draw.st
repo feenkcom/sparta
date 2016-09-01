@@ -1,3 +1,0 @@
-drawing
-draw
-	^ self subclassResponsibility

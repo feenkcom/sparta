@@ -1,3 +1,3 @@
 drawing
 draw
-	^ self subclassResponsibility
+	self subclassResponsibility
