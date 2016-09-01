@@ -8,6 +8,8 @@ Sparta is an almost stateless vector graphics API for Pharo that provides bindin
       - [Linear](https://github.com/syrel/Sparta/blob/master/src/Sparta-Core.package/TSpartaLinearGradientPaint.trait/README.md)
       - [Radial](https://github.com/syrel/Sparta/blob/master/src/Sparta-Core.package/TSpartaRadialGradientPaint.trait/README.md)
     - [Surface](https://github.com/syrel/Sparta/blob/master/src/Sparta-Core.package/TSpartaSurfacePaint.trait/README.md)
+  - [Fill](https://github.com/syrel/Sparta/blob/documentation/src/Sparta-Core.package/SpartaFillPainter.class/README.md)
+  - [Stroke](https://github.com/syrel/Sparta/blob/documentation/src/Sparta-Core.package/SpartaStrokePainter.class/README.md)
 
 ### Install
 
