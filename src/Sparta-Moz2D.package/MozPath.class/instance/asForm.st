@@ -7,10 +7,6 @@ asForm
 	bounds := self strokedBounds: options.
 
 	canvas := MozCanvas extent: (bounds extent + margin) asIntegerPoint.
-	canvas fill
-		paint: Color white;
-		path: (0@0 extent: canvas extent);
-		draw.
 	canvas transform
 		translateBy: (bounds origin negated + (margin / 2.0));
 		apply.
