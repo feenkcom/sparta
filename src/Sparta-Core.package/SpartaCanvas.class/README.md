@@ -1,3 +1,4 @@
+# Overview
 I represent a Sparta canvas and provide an API to perform various drawing operations.
 I define an abstract API of Sparta canvas that all concrete implementations must have. 
 
@@ -11,33 +12,43 @@ There is a separate builder for every single operation. They can be found in "ap
 I'm also responsible for creation of filter primitives (filter types) that are used with "filter" operation.
 They can be found in "filters" protocol.
 
-I am polymorphic with Surface.
+I am polymorphic with SpartaSurface.
 
-Public API and Key Messages
+# Public API and Key Messages
 
-- fill - create a builder of fill drawing operation  
-- stroke - create a builder of stroke drawing operation
-- path - create a path builder
-- paint - create a paint builder (linear, radial gradients)
-- clip - create a builder to clip canvas by path (or rectangle)
-- transform - create a builder to transform canvas
-- font - create a font build helper
-- text - create a text rendering builder
-- filter - create a builder of filter drawing operation
-- mask - create a builder of masking draw operation
-- bitmap - create a bitmap factory
-- shape - create a common shapes factory (ellipse, rounded rectangle, etc)
-- filters - create a common filters factory
+- `fill` - create a builder of fill drawing operation  
+- `stroke` - create a builder of stroke drawing operation
+- `path` - create a path builder
+- `paint` - create a paint builder (linear, radial gradients)
+- `clip` - create a builder to clip canvas by path (or rectangle)
+- `transform` - create a builder to transform canvas
+- `font` - create a font build helper
+- `text` - create a text rendering builder
+- `filter` - create a builder of filter drawing operation
+- `mask` - create a builder of masking draw operation
+- `bitmap` - create a bitmap factory
+- `shape `- create a common shapes factory (ellipse, rounded rectangle, etc)
+- `filters` - create a common filters factory
 
-- extent - get my size (width@height)
-- similar: anExtent - to create an empty canvas of size anExtent and of the same type and format 
-- asForm - to rasterize myself and return resulting image as Form
+- `extent` - get my size (width@height)
+- `similar:` - to create an empty canvas of size anExtent and of the same type and format 
+- `asForm` - to rasterize myself and return resulting image as Form
 
    I am an abstract class and should not be instantiated.
    However, the best way to create an instance of sparta canvas is to send extent: message
 
-	SpartaCanvas extent: 200@200
- 
-Internal Representation and Key Implementation Points.
+# Examples:
 
-    Implementation Points
+_Create an empty canvas of size 500@300_
+```
+canvas := SpartaCanvas extent: 500@300
+ ```
+_create a vector path_
+```
+path := canvas path
+	moveTo: 200@100;
+	lineTo: 300@300;
+	lineTo: 100@300;
+	close;
+	finish.
+```
