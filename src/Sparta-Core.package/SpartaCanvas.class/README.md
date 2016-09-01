@@ -1,7 +1,8 @@
-# Overview
+# SpartaCanvas
 I represent a Sparta canvas and provide an API to perform various drawing operations.
-I define an abstract API of Sparta canvas that all concrete implementations must have. 
+I define an abstract API of Sparta canvas that all concrete implementations must have.
 
+## Overview
 My main responsibility is to create and provide backend specific builders and various objects.
 
 In order to create and perform a drawing operation users should rely on corresponding builder.
@@ -14,7 +15,7 @@ They can be found in "filters" protocol.
 
 I am polymorphic with SpartaSurface.
 
-# Public API and Key Messages
+## Public API and Key Messages
 
 - `fill` - create a builder of fill drawing operation  
 - `stroke` - create a builder of stroke drawing operation
@@ -34,21 +35,78 @@ I am polymorphic with SpartaSurface.
 - `similar:` - to create an empty canvas of size anExtent and of the same type and format 
 - `asForm` - to rasterize myself and return resulting image as Form
 
-   I am an abstract class and should not be instantiated.
-   However, the best way to create an instance of sparta canvas is to send extent: message
+*I am an abstract class and should not be instantiated. However, the best way to create an instance of sparta canvas is to send extent: message.*
 
-# Examples:
+## Example:
 
-_Create an empty canvas of size 500@300_
+Create an empty canvas of size 400@250:
 ```
-canvas := SpartaCanvas extent: 500@300
+canvas := SpartaCanvas extent: 400@250.
  ```
-_create a vector path_
+![Empty canvas](https://github.com/syrel/Sparta/blob/master/images/SpartaCanvas/01_empty.png)
+ 
+Create a triangle vector path:
 ```
-path := canvas path
-	moveTo: 200@100;
-	lineTo: 300@300;
-	lineTo: 100@300;
+triangle := canvas path
+	moveTo: 100@0;
+	lineTo: 200@200;
+	lineTo: 0@200;
 	close;
 	finish.
 ```
+![Triangle path](https://github.com/syrel/Sparta/blob/master/images/SpartaCanvas/02_triangle_path.png)
+
+Create a linear gradient:
+```
+linearGradient := canvas paint linearGradient
+	begin: 50@100;
+	end: 150@200;
+	stops: { 0 -> Color red. 1 -> Color blue }.
+```
+
+Apply translation to place trangle in the center:
+```
+canvas transform
+	push;
+	translateBy: 100@25;
+	apply.
+```
+
+Fill previously created path fith linear gradient:
+```
+canvas fill
+	paint: linearGradient;
+	path: triangle;
+	draw.
+```
+![Fill triangle path](https://github.com/syrel/Sparta/blob/master/images/SpartaCanvas/03_fill_path.png)
+
+Stroke triangle with blue color:
+```
+canvas stroke
+	paint: Color blue;
+	path: triangle;
+	width: 6;
+	draw.
+```
+![Stroke triangle path](https://github.com/syrel/Sparta/blob/master/images/SpartaCanvas/04_stroke_path.png)
+
+Restore transformation matrix:
+```
+canvas transform pop.
+```
+
+Create a gaussian blur filter:
+```
+blur := canvas gaussianBlurFilter
+	stdDeviation: 4.
+```
+
+Apply filter on the whole canvas:
+```
+canvas filter
+	area: canvas bounds;
+	type: blue;
+	draw.
+```
+![Blur canvas](https://github.com/syrel/Sparta/blob/master/images/SpartaCanvas/05_blur.png)
