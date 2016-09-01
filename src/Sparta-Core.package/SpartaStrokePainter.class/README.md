@@ -32,7 +32,7 @@ gradient := canvas paint linearGradient
 canvas stroke
   paint: gradient;
   path: (50@25 extent: 300@200);
-  width: icon extent max;
+  width: 16;
   dashOffset: 12.5;
   dashPattern: #(25);
   capRound;
