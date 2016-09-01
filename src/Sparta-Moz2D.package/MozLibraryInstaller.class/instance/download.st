@@ -21,6 +21,5 @@ download
 					humanReadable := self printHumanReadableSize: aTotalNumber.
 					percentage := progress percentage asInteger.
 					humanReadable := 'Downloading ', percentage asString, '% of ', humanReadable, ' of Moz2D Library... '.
-					NonInteractiveTranscript stdout show: (self progressBar: percentage), '\r'.
 					bar label: humanReadable ] ].
 			progress resume ] ]
