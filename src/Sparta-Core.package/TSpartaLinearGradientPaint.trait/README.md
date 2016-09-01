@@ -1,17 +1,17 @@
 # SpartaLinearGradient
 
-I define an api of a linear gradient. Backend specific linear gradient must use me and must implement all my methods.
+I define an api of a linear gradient. Backend specific linear gradient must implement all my methods.
 
 ## Overview
 
-I am responsible for setting begin and end of a linear gradients. They are define as Point in user space coordiante system. I am also add a few paint-paint dispatch methods.
+I am responsible for setting `begin` and `end` of a linear gradient. They are defined as Points in user space coordiante system. I also add a few path-paint dispatch methods.
 
-Linear gradients must be created using a paint builder provided by canvas.
+Linear gradients must be created using paint builder provided by canvas: `canvas paint linearGradient`
 
 ## Public API and Key Messages
 
-- `begin:` set a coordiante where linear gradient starts
-- `end:` set and end point of a gradient
+- `begin:` - set a coordiante where linear gradient starts
+- `end:` - set and end point of a gradient
 
 ## See
 - [Canvas](https://github.com/syrel/Sparta/blob/master/README.md)
@@ -19,7 +19,7 @@ Linear gradients must be created using a paint builder provided by canvas.
 - [Gradient](https://github.com/syrel/Sparta/blob/master/src/Sparta-Core.package/TSpartaGradientPaint.trait/README.md)
  - [Radial](https://github.com/syrel/Sparta/blob/master/src/Sparta-Core.package/TSpartaRadialGradientPaint.trait/README.md)
 
-## Example
+## Example:
 
 Simple gradient to fill rectangle (0@0 extent: 400@250):
 ```
@@ -30,7 +30,7 @@ canvas paint linearGradient
 ```
 ![Simple linear gradient](https://github.com/syrel/Sparta/blob/master/images/TSpartaLinearGradientPaint/02_smooth_red_blue.png)
 
-Complex gradient rotate by 45 degrees that reflects itself to fill rectangle (0@0 extent: 400@250):
+Complex gradient rotated by 45 degrees that reflects itself to fill rectangle (0@0 extent: 400@250):
 ```
 canvas paint linearGradient
 	stops: { 0 -> Color red . 0.5 -> Color green. 1 -> Color blue };
