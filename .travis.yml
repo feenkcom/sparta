@@ -16,8 +16,10 @@ env:
 
 before_install:
   - |
+       # Otherwise build on OSX stucks at unknown fingerprint question
+       echo -e "Host *\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+       
        declare -r SSH_FILE="$(mktemp -u $HOME/.ssh/$GITHUB_SSH_FILE)"
-
        # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        openssl aes-256-cbc \
          -K $encrypted_269aad325b32_key \
