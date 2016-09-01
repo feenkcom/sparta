@@ -1,3 +1,3 @@
 accessing
-strokeOptions: anObject
-	strokeOptions := anObject
+strokeOptions: aSpartaStrokeOptions
+	strokeOptions := aSpartaStrokeOptions
