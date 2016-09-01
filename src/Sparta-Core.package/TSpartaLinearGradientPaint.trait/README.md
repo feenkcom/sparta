@@ -14,10 +14,11 @@ Linear gradients must be created using paint builder provided by canvas: `canvas
 - `end:` - set and end point of a gradient
 
 ## See
-- [Canvas](https://github.com/syrel/Sparta/blob/master/README.md)
 - [Paint](https://github.com/syrel/Sparta/blob/master/src/Sparta-Core.package/TSpartaPaint.trait/README.md)
 - [Gradient](https://github.com/syrel/Sparta/blob/master/src/Sparta-Core.package/TSpartaGradientPaint.trait/README.md)
  - [Radial](https://github.com/syrel/Sparta/blob/master/src/Sparta-Core.package/TSpartaRadialGradientPaint.trait/README.md)
+- [Canvas](https://github.com/syrel/Sparta/blob/master/src/Sparta-Core.package/SpartaCanvas.class/README.md)
+- [Sparta](https://github.com/syrel/Sparta/blob/master/README.md)
 
 ## Example:
 
