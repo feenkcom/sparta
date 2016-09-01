@@ -1,12 +1,14 @@
+# SpartaAbstractPainter
 I am a root class of all draw operation builders.
-Since a draw something on canvas I am named Painter :)
 
-Once draw operation is configured it should be performed sending #draw message
+## Overview
+Since I am responsible for drawing on canvas my name is Painter :)
 
-Public API and Key Messages
+As soon as draw operation is configured it should be performed sending `#draw` message
 
-- draw - to perform a corresponding draw operation
+## Public API and Key Messages
+
+- `draw` - perform a corresponding draw operation
  
-Internal Representation and Key Implementation Points.
-
-	Painter are supposed backend specific
+## Internal Representation and Key Implementation Points.
+Painters are supposed to be backend specific
