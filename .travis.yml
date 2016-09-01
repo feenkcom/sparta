@@ -14,6 +14,10 @@ smalltalk:
 env:
 - ARCH="i386"
 
+branches:
+  except:
+  - documentation
+
 before_install:
   - |
        # Otherwise build on OSX stucks at unknown fingerprint question
