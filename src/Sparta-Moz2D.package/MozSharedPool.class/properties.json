@@ -3,15 +3,8 @@
 	"classinstvars" : [
 		 ],
 	"classvars" : [
-		"DrawOptions",
-		"DrawTarget",
 		"FILL_RULE_EVEN_ODD",
-		"FILL_RULE_WINDING",
-		"FilterNode",
-		"FilterType",
-		"SourceSurface",
-		"StrokeOptions",
-		"SurfaceType" ],
+		"FILL_RULE_WINDING" ],
 	"commentStamp" : "AliakseiSyrel 8/22/2016 23:57",
 	"instvars" : [
 		 ],

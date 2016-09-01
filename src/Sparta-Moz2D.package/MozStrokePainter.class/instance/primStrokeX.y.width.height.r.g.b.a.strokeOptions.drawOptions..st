@@ -2,7 +2,7 @@ private
 primStrokeX: x y: y width: width height: height r: r g: g b: b a: a strokeOptions: aMoz2DStrokeOptions drawOptions: aMoz2DDrawOptions
 
 	^ self ffiCall: #( void moz2d_draw_target_stroke_rect_color (
-		DrawTarget canvas,
+		MozCanvas canvas,
 		float x,
 		float y,
 		float width,
@@ -11,5 +11,5 @@ primStrokeX: x y: y width: width height: height r: r g: g b: b a: a strokeOption
 		float g,
 		float b,
 		float a,
-		StrokeOptions aMoz2DStrokeOptions,
-		DrawOptions aMoz2DDrawOptions ) )
+		MozStrokeOptions aMoz2DStrokeOptions,
+		MozDrawOptions aMoz2DDrawOptions ) )

@@ -8,5 +8,5 @@ primStrokePath: aMoz2DPath r: r g: g b: b a: a strokeOptions: aMoz2DStrokeOption
 		float g,
 		float b,
 		float a,
-		StrokeOptions aMoz2DStrokeOptions,
-		DrawOptions aMoz2DDrawOptions ) )
+		MozStrokeOptions aMoz2DStrokeOptions,
+		MozDrawOptions aMoz2DDrawOptions ) )
