@@ -1,16 +1,27 @@
 # Sparta [![Build Status](https://travis-ci.org/syrel/Sparta.svg?branch=master)](https://travis-ci.org/syrel/Sparta)
 Sparta is an almost stateless vector graphics API for Pharo that provides bindings to the Moz2D rendering backend. Moz2D is the extracted graphical engine from Mozilla Firefox compiled as standalone shared library together with the extern C bindings required to call the engine from Pharo.
 
-### Download
-Sparta requires extra [Moz2D](https://github.com/syrel/Moz2D) vm plugin
+### Documentation
+  - [Canvas](https://github.com/syrel/Sparta/blob/master/src/Sparta-Core.package/SpartaCanvas.class/README.md)
+
+### Install
+
+Sparta requires extra [Moz2D](https://github.com/syrel/Moz2D) vm plugin. Plugin for the current OS and VM (32 or 64 bit) is downloaded and installed automatically together with all needed packages. For that, Sparta uses [Iceberg](https://github.com/npasserini/iceberg) to work with Git version control system. **Iceberg will installed automatically if not yet present in the system.**
+
+*Core packages:*
 ```smalltalk
 Metacello new
   baseline: 'Sparta';
   repository: 'github://syrel/sparta/src';
   load
 ```
-Sparta can be easily loaded using [Iceberg](https://github.com/npasserini/iceberg):
-![Loading Sparta with Iceberg](screenshots/Sparta-Iceberg.png "Iceberg")
+*Development version together with tests and additional Lint rules:*
+```smalltalk
+Metacello new
+  baseline: 'Sparta';
+  repository: 'github://syrel/sparta/src';
+  load: #development
+```
 
 ### Overview
 *(All images are rendered using Sparta in Pharo)*
