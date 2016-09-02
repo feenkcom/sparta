@@ -1,6 +1,15 @@
 # SpartaAbstractBuilder
 I am a root class of all sparta builders.
 
+- [Painter](../SpartaAbstractPainter.class/README.md)
+ - [Fill](../SpartaFillPainter.class/README.md)
+ - [Stroke](../SpartaStrokePainter.class/README.md)
+ - [Filter](../SpartaFilterPainter.class/README.md)
+ - [Text](../SpartaTextPainter.class/README.md)
+ - [Mask](../SpartaMaskPainter.class/README.md)
+- [Path](../TSpartaPathBuilder.trait/README.md)
+- [Font](../SpartaFontBuilder.class/README.md)
+
 ## Overview
 All builders must be created and managed by canvas.
 
@@ -16,7 +25,6 @@ Every builder provides a way to reset resources to support reuse instead of recr
 
 ### Instance Variables
  - canvas: `<SpartaCanvas>` - associated sparta canvas. Subclasses can refer to it directly and use in FFI calls.
-
 
 ### Implementation Points
 
