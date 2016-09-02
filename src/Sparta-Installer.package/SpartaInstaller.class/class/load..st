@@ -1,3 +1,5 @@
 actions
 load: aListOfPackages
-	self new load: aListOfPackages
+	self new
+		load: aListOfPackages;
+		postLoadActions
