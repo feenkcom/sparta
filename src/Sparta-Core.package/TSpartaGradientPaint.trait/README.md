@@ -6,7 +6,7 @@ I define an API of an abstract gradient paint. All gradient paints should use me
 
 I am responsible for setting of gradient stops. Since I just define an abstract api, my implementors should provide concrete logic.
 
-Like any other paint I must not be instantiated by onyone except [canvas](https://github.com/syrel/Sparta/blob/master/src/Sparta-Core.package/SpartaCanvas.class/README.md#spartacanvas).
+Like any other paint I must not be instantiated by onyone except [canvas](../SpartaCanvas.class/README.md).
 
 ## Public API and Key Messages
 

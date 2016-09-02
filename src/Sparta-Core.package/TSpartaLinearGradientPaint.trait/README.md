@@ -14,11 +14,11 @@ Linear gradients must be created using paint builder provided by canvas: `canvas
 - `end:` - set and end point of a gradient
 
 ## See
-- [Paint](https://github.com/syrel/Sparta/blob/master/src/Sparta-Core.package/TSpartaPaint.trait/README.md)
-- [Gradient](https://github.com/syrel/Sparta/blob/master/src/Sparta-Core.package/TSpartaGradientPaint.trait/README.md)
- - [Radial](https://github.com/syrel/Sparta/blob/master/src/Sparta-Core.package/TSpartaRadialGradientPaint.trait/README.md)
-- [Canvas](https://github.com/syrel/Sparta/blob/master/src/Sparta-Core.package/SpartaCanvas.class/README.md)
-- [Sparta](https://github.com/syrel/Sparta/blob/master/README.md)
+- [Paint](../TSpartaPaint.trait/README.md)
+- [Gradient](../TSpartaGradientPaint.trait/README.md)
+ - [Radial](../TSpartaRadialGradientPaint.trait/README.md)
+- [Canvas](../SpartaCanvas.class/README.md)
+- [Sparta](/README.md)
 
 ## Example:
 
@@ -29,7 +29,7 @@ canvas paint linearGradient
 	begin: 0@0;
 	end: 400@250.
 ```
-![Simple linear gradient](https://github.com/syrel/Sparta/blob/master/images/TSpartaLinearGradientPaint/02_smooth_red_blue.png)
+![Simple linear gradient](/images/TSpartaLinearGradientPaint/02_smooth_red_blue.png)
 
 Complex gradient rotated by 45 degrees that reflects itself to fill rectangle (0@0 extent: 400@250):
 ```
@@ -40,4 +40,4 @@ canvas paint linearGradient
 	rotateByDegrees: 45;
 	reflect.
 ```
-![Advanced gradient](https://github.com/syrel/Sparta/blob/master/images/TSpartaLinearGradientPaint/01_red_blue.png)
+![Advanced gradient](/images/TSpartaLinearGradientPaint/01_red_blue.png)

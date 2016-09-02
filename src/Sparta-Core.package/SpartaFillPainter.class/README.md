@@ -29,7 +29,7 @@ canvas fill
 	path: (canvas shape ellipse: (0@0 extent: 400@100));
 	draw.
 ```
-![Pharo logo](https://github.com/syrel/Sparta/blob/documentation/images/SpartaFillPainter/01_pharo_logo.png)
+![Pharo logo](/images/SpartaFillPainter/01_pharo_logo.png)
 
 ## Internal Representation and Key Implementation Points.
 

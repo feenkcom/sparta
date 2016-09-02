@@ -43,7 +43,7 @@ Create an empty canvas of size 400@250:
 ```
 canvas := SpartaCanvas extent: 400@250.
  ```
-![Empty canvas](https://github.com/syrel/Sparta/blob/master/images/SpartaCanvas/01_empty.png)
+![Empty canvas](/images/SpartaCanvas/01_empty.png)
  
 Create a triangle vector path:
 ```
@@ -54,7 +54,7 @@ triangle := canvas path
 	close;
 	finish.
 ```
-![Triangle path](https://github.com/syrel/Sparta/blob/master/images/SpartaCanvas/02_triangle_path.png)
+![Triangle path](/images/SpartaCanvas/02_triangle_path.png)
 
 Create a linear gradient:
 ```
@@ -79,7 +79,7 @@ canvas fill
 	path: triangle;
 	draw.
 ```
-![Fill triangle path](https://github.com/syrel/Sparta/blob/master/images/SpartaCanvas/03_fill_path.png)
+![Fill triangle path](/images/SpartaCanvas/03_fill_path.png)
 
 Stroke triangle with blue color:
 ```
@@ -89,7 +89,7 @@ canvas stroke
 	width: 6;
 	draw.
 ```
-![Stroke triangle path](https://github.com/syrel/Sparta/blob/master/images/SpartaCanvas/04_stroke_path.png)
+![Stroke triangle path](/images/SpartaCanvas/04_stroke_path.png)
 
 Restore transformation matrix:
 ```
@@ -109,4 +109,4 @@ canvas filter
 	type: blue;
 	draw.
 ```
-![Blur canvas](https://github.com/syrel/Sparta/blob/master/images/SpartaCanvas/05_blur.png)
+![Blur canvas](/images/SpartaCanvas/05_blur.png)

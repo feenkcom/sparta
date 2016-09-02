@@ -48,12 +48,12 @@ canvas text
 
 ### Instance Variables
 
-- color: <Object>
-- drawOptions: <TSpartaDrawOptions>
-- font: <Object>
-- origin: <Point>
-- string: <String>
-- strokeOptions: <TSpartaStrokeOptions>
+- color: `<Object>`
+- drawOptions: `<TSpartaDrawOptions>`
+- font: `<Object>`
+- origin: `<Point>`
+- string: `<String>`
+- strokeOptions: `<TSpartaStrokeOptions>`
 
 ### Implementation Points
 

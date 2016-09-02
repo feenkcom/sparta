@@ -38,7 +38,7 @@ canvas stroke
   capRound;
   draw.
 ```
-![Stroke example](https://github.com/syrel/Sparta/blob/documentation/images/SpartaStrokePainter/01_stroke_dash_gradient.png)
+![Stroke example](/images/SpartaStrokePainter/01_stroke_dash_gradient.png)
 
 ## Internal Representation and Key Implementation Points.
 

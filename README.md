@@ -2,14 +2,18 @@
 Sparta is an almost stateless vector graphics API for Pharo that provides bindings to the Moz2D rendering backend. Moz2D is the extracted graphical engine from Mozilla Firefox compiled as standalone shared library together with the extern C bindings required to call the engine from Pharo.
 
 ### Documentation
-  - [Canvas](https://github.com/syrel/Sparta/blob/master/src/Sparta-Core.package/SpartaCanvas.class/README.md)
-  - [Paint](https://github.com/syrel/Sparta/blob/master/src/Sparta-Core.package/TSpartaPaint.trait/README.md)
-    - [Gradient](https://github.com/syrel/Sparta/blob/master/src/Sparta-Core.package/TSpartaGradientPaint.trait/README.md)
-      - [Linear](https://github.com/syrel/Sparta/blob/master/src/Sparta-Core.package/TSpartaLinearGradientPaint.trait/README.md)
-      - [Radial](https://github.com/syrel/Sparta/blob/master/src/Sparta-Core.package/TSpartaRadialGradientPaint.trait/README.md)
-    - [Surface](https://github.com/syrel/Sparta/blob/master/src/Sparta-Core.package/TSpartaSurfacePaint.trait/README.md)
-  - [Fill](https://github.com/syrel/Sparta/blob/documentation/src/Sparta-Core.package/SpartaFillPainter.class/README.md)
-  - [Stroke](https://github.com/syrel/Sparta/blob/documentation/src/Sparta-Core.package/SpartaStrokePainter.class/README.md)
+  - [Canvas](src/Sparta-Core.package/SpartaCanvas.class/README.md)
+  - [Paint](src/Sparta-Core.package/TSpartaPaint.trait/README.md)
+    - [Gradient](src/Sparta-Core.package/TSpartaGradientPaint.trait/README.md)
+      - [Linear](src/Sparta-Core.package/TSpartaLinearGradientPaint.trait/README.md)
+      - [Radial](src/Sparta-Core.package/TSpartaRadialGradientPaint.trait/README.md)
+    - [Surface](src/Sparta-Core.package/TSpartaSurfacePaint.trait/README.md)
+  - [Fill](src/Sparta-Core.package/SpartaFillPainter.class/README.md)
+  - [Stroke](src/Sparta-Core.package/SpartaStrokePainter.class/README.md)
+  - [Path](src/Sparta-Core.package/TSpartaPathBuilder.trait/README.md)
+  - [Clip](src/Sparta-Core.package/SpartaClipper.class/README.md)
+  - [Text](src/Sparta-Core.package/SpartaTextPainter.class/README.md)
+  - [Filter](src/Sparta-Core.package/SpartaFilterPainter.class/README.md)
 
 ### Install
 
