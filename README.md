@@ -12,6 +12,7 @@ Sparta is an almost stateless vector graphics API for Pharo that provides bindin
   - [Stroke](src/Sparta-Core.package/SpartaStrokePainter.class/README.md)
   - [Path](src/Sparta-Core.package/TSpartaPathBuilder.trait/README.md)
   - [Clip](src/Sparta-Core.package/SpartaClipper.class/README.md)
+  - [Font](src/Sparta-Core.package/SpartaFontBuilder.class/README.md)
   - [Text](src/Sparta-Core.package/SpartaTextPainter.class/README.md)
   - [Filter](src/Sparta-Core.package/SpartaFilterPainter.class/README.md)
 
