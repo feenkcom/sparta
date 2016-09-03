@@ -19,21 +19,23 @@ Sparta is an almost stateless vector graphics API for Pharo that provides bindin
 
 ### Install
 
-Sparta requires extra [Moz2D](https://github.com/syrel/Moz2D) vm plugin. Plugin for the current OS and VM (32 or 64 bit) is downloaded and installed automatically together with all needed packages. For that, Sparta uses [Iceberg](https://github.com/npasserini/iceberg) to work with Git version control system. **Iceberg will be installed automatically if not yet present in the system.**
+**More detailed installation guide is described in [INSTALL.md](INSTALL.md)**
 
-*Core packages:*
+Sparta requires extra [Moz2D](https://github.com/syrel/Moz2D) vm plugin. Plugin for the current OS and VM (32 or 64 bit) is downloaded and installed automatically together with all needed packages. For that, Sparta uses [Iceberg](https://github.com/npasserini/iceberg) to work with Git version control system.
+
+*Bootstrap all-in-one* Stable v1.0
 ```smalltalk
 Metacello new
   baseline: 'Sparta';
-  repository: 'github://syrel/sparta/src';
-  load
+  repository: 'github://syrel/sparta/src:v1.0';
+  load: #git:core
 ```
-*Development version together with tests and additional Lint rules:*
+*Bootstrap bleading edge development together with tests and additional Lint rules:*
 ```smalltalk
 Metacello new
   baseline: 'Sparta';
   repository: 'github://syrel/sparta/src';
-  load: #development
+  load: #git:development
 ```
 
 ### Overview
