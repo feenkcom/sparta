@@ -21,7 +21,7 @@ Sparta provides multiple ways of loading code and dealing with external [Moz2D](
 ```
 Metacello new
   baseline: 'Sparta';
-  repository: 'github://syrel/sparta/src:v1.0';
+  repository: 'github://syrel/sparta:v1.0/src';
   load: #git:core
 ```
 
@@ -29,7 +29,7 @@ Metacello new
 ```
 Metacello new
   baseline: 'Sparta';
-  repository: 'github://syrel/sparta/src:v1.0';
+  repository: 'github://syrel/sparta:v1.0/src';
   load: #git:development
 ```
 
@@ -55,7 +55,7 @@ Metacello new
 ```
 Metacello new
   baseline: 'Sparta';
-  repository: 'github://syrel/sparta/src:v1.0';
+  repository: 'github://syrel/sparta:v1.0/src';
   load: #file:core
 ```
 
@@ -63,7 +63,7 @@ Metacello new
 ```
 Metacello new
   baseline: 'Sparta';
-  repository: 'github://syrel/sparta/src:v1.0';
+  repository: 'github://syrel/sparta:v1.0/src';
   load: #file:development
 ```
 
@@ -89,7 +89,7 @@ Metacello new
 ```
 Metacello new
   baseline: 'Sparta';
-  repository: 'github://syrel/sparta/src:v1.0';
+  repository: 'github://syrel/sparta:v1.0/src';
   load: #core
 ```
 
@@ -97,7 +97,7 @@ Metacello new
 ```
 Metacello new
   baseline: 'Sparta';
-  repository: 'github://syrel/sparta/src:v1.0';
+  repository: 'github://syrel/sparta:v1.0/src';
   load: #development
 ```
 
