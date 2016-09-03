@@ -1,8 +1,0 @@
-{
-	"class" : {
-		"load:" : "AliakseiSyrel 9/2/2016 19:56" },
-	"instance" : {
-		"ensureIceberg" : " 9/2/2016 18:23:56",
-		"initialize" : " 9/2/2016 18:23:56",
-		"load:" : "AliakseiSyrel 9/2/2016 19:34",
-		"postLoadActions" : " 9/2/2016 18:23:56" } }

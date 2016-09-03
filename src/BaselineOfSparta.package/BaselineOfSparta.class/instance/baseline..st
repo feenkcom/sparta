@@ -24,6 +24,12 @@ baseline: spec
 			with: #('Sparta-Installer');
 		group: 'git:development'
 			with: #('git:core');
+			
+		"the following groups are loaded automatically with git support"
+		group: 'file:core'
+			with: #(core);
+		group: 'file:development'
+			with: #(development);
 
 		"#default should not be used"
 		group: 'default' with: #() ].
