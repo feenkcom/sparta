@@ -1,3 +1,3 @@
 antialias modes
 antialiasGray
-	^ self explicitRequirement
+	self explicitRequirement

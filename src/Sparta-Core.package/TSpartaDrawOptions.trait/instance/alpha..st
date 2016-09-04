@@ -1,3 +1,3 @@
 accessing
 alpha: aFloat
-	^ self explicitRequirement
+	self explicitRequirement

@@ -1,3 +1,3 @@
 antialias modes
 antialiasSubpixel
-	^ self explicitRequirement
+	self explicitRequirement
