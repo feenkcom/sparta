@@ -16,4 +16,5 @@ postLoadGit: aSpecLoader
 		assert: (Smalltalk hasClassNamed: #SpartaInstaller)
 		description: [ 'At this point SpartaInstaller must exist!' ].
 
-	(Smalltalk classNamed: #SpartaInstaller) loadGit: packages
+	(Smalltalk classNamed: #SpartaInstaller) loadGit: packages.
+	self postLoad
