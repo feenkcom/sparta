@@ -1,3 +1,3 @@
 doits
 postLoadFile: aSpecLoader
-	(Smalltalk classNamed: #SpartaInstaller) postLoad
+	self postLoad

@@ -9,7 +9,7 @@ postLoadActions: aSpecLoader
 		ifTrue: [ ^ self ].
 
 	protocol := group first: columnIndex - 1.
-	
+
 	protocol = #git
 		ifTrue: [ ^ self postLoadGit: aSpecLoader ].
 	

@@ -1,0 +1,19 @@
+{
+	"class" : {
+		"ATT_DIFFUSE_LIGHTING_DIFFUSE_CONSTANT" : "AliakseiSyrel 9/4/2016 01:28:27",
+		"ATT_DISTANT_LIGHT_AZIMUTH" : "AliakseiSyrel 9/4/2016 01:28:27",
+		"ATT_DISTANT_LIGHT_ELEVATION" : "AliakseiSyrel 9/4/2016 01:28:27",
+		"ATT_LIGHTING_COLOR" : "AliakseiSyrel 9/4/2016 01:28:27",
+		"ATT_LIGHTING_KERNEL_UNIT_LENGTH" : "AliakseiSyrel 9/4/2016 01:28:27",
+		"ATT_LIGHTING_SURFACE_SCALE" : "AliakseiSyrel 9/4/2016 01:28:27",
+		"ATT_POINT_LIGHT_POSITION" : "AliakseiSyrel 9/4/2016 01:28:27",
+		"ATT_SPECULAR_LIGHTING_SPECULAR_CONSTANT" : "AliakseiSyrel 9/4/2016 01:28:27",
+		"ATT_SPECULAR_LIGHTING_SPECULAR_EXPONENT" : "AliakseiSyrel 9/4/2016 01:28:27",
+		"ATT_SPOT_LIGHT_FOCUS" : "AliakseiSyrel 9/4/2016 01:28:27",
+		"ATT_SPOT_LIGHT_LIMITING_CONE_ANGLE" : "AliakseiSyrel 9/4/2016 01:28:27",
+		"ATT_SPOT_LIGHT_POINTS_AT" : "AliakseiSyrel 9/4/2016 01:28:27",
+		"ATT_SPOT_LIGHT_POSITION" : "AliakseiSyrel 9/4/2016 01:28:27",
+		"enumDecl" : "AliakseiSyrel 9/4/2016 01:28:27",
+		"initialize" : "AliakseiSyrel 9/4/2016 01:28:27" },
+	"instance" : {
+		 } }
