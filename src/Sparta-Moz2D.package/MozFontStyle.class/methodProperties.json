@@ -1,0 +1,23 @@
+{
+	"class" : {
+		"default" : "AliakseiSyrel 9/4/2016 01:28:27",
+		"fromLogicalFont:" : "AliakseiSyrel 9/4/2016 01:28:27",
+		"primCreateDefault" : "AliakseiSyrel 9/4/2016 01:28:27",
+		"primCreateStyle:weight:stretch:size:sizeAdjust:language:isExplicitLanguage:languageOverride:isSystemFont:isPrinterFont:isWeightSynthesis:isStyleSynthesis:" : "AliakseiSyrel 9/4/2016 01:28:27",
+		"style:weight:stretch:size:language:" : "AliakseiSyrel 9/4/2016 01:28:27",
+		"style:weight:stretch:size:sizeAdjust:language:isExplicitLanguage:languageOverride:isSystemFont:isPrinterFont:isWeightSynthesis:isStyleSynthesis:" : "AliakseiSyrel 9/4/2016 01:28:27" },
+	"instance" : {
+		"language" : "AliakseiSyrel 9/4/2016 01:28:27",
+		"primGetLanguage" : "AliakseiSyrel 9/4/2016 01:28:27",
+		"primGetSize" : "AliakseiSyrel 9/4/2016 01:28:27",
+		"primGetStretch" : "AliakseiSyrel 9/4/2016 01:28:27",
+		"primGetStyle" : "AliakseiSyrel 9/4/2016 01:28:27",
+		"primGetWeight" : "AliakseiSyrel 9/4/2016 01:28:27",
+		"primSetSize:" : "AliakseiSyrel 9/4/2016 01:28:27",
+		"printOn:" : "AliakseiSyrel 9/4/2016 01:28:27",
+		"printStyle" : "AliakseiSyrel 9/4/2016 01:28:27",
+		"size" : "AliakseiSyrel 9/4/2016 01:28:27",
+		"size:" : "AliakseiSyrel 9/4/2016 01:28:27",
+		"stretch" : "AliakseiSyrel 9/4/2016 01:28:27",
+		"style" : "AliakseiSyrel 9/4/2016 01:28:27",
+		"weight" : "AliakseiSyrel 9/4/2016 01:28:27" } }

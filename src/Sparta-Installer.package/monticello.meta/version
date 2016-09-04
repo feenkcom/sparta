@@ -1,0 +1,2 @@
+(name 'Sparta-Installer-AliakseiSyrel.12' message 'relese: checkout branch v1.0' id 'd036d5f8-5196-49b9-8145-dc47b37a936f' date '4 September 2016' time '2:18:56.819723 am' author 'AliakseiSyrel' ancestors ((name 'Sparta-Installer-AliakseiSyrel.11' message 'Introduced separate git: and file: protocol.
+' id 'bc8e8e43-cbcf-5b44-9c6d-42160f3df571' date '4 September 2016' time '12:32 am' author 'AliakseiSyrel' ancestors () stepChildren ())) stepChildren ())
