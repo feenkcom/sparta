@@ -1,9 +1,9 @@
 ! SpartaFontBuilder
-I am a font builder. See *https://www.w3.org/TR/CSS2/fonts.html* for more information about fronts styles.
+I am a font builder. See *https://www.w3.org/TR/CSS2/fonts.html* for more information about font styles.
 
 !! Overview
 
-I help developers to create backend specific font groups. A font group consists of font families and style. Font family can defined be named ("Arial", "Times new Roman", etc) and generic ("sans-serif", "serif", "monospace", etc). Font style is represented by a set of properties which include size, weight, stretch, style kind (oblique, bold) and language.
+I help developers to create backend specific font groups. A font group consists of font families and style. Font family can be defined as named ("Arial", "Times new Roman", etc) or generic ("sans-serif", "serif", "monospace", etc). Font style is represented by a set of properties which include size, weight, stretch, style kind (oblique, bold) and language.
 
 I am created and managed by canvas. Fonts are backend specific and must be only created by me. Created fonts can be later used by text painter to actually render strings.
 
@@ -45,4 +45,4 @@ font := canvas font
 
 !!! Implementation Points
 
-Users should rely as less as possible on raw style values and use builder messages instead
+Users should rely as little as possible on raw style values and use builder messages instead
