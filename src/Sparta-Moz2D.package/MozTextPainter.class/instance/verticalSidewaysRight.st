@@ -1,0 +1,3 @@
+accessing
+verticalSidewaysRight
+	orientation := MozTextOrientation VERTICAL_SIDEWAYS_RIGHT

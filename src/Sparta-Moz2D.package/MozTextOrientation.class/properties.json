@@ -1,0 +1,18 @@
+{
+	"category" : "Sparta-Moz2D-Text",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		"HORIZONTAL",
+		"VERTICAL_MIXED",
+		"VERTICAL_SIDEWAYS_LEFT",
+		"VERTICAL_SIDEWAYS_RIGHT",
+		"VERTICAL_UPRIGHT" ],
+	"commentStamp" : "AliakseiSyrel 9/9/2016 11:15",
+	"instvars" : [
+		 ],
+	"name" : "MozTextOrientation",
+	"pools" : [
+		 ],
+	"super" : "FFIExternalEnumeration",
+	"type" : "normal" }

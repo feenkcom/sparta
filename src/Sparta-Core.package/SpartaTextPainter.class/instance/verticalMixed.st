@@ -1,0 +1,3 @@
+accessing
+verticalMixed
+	^ self subclassResponsibility

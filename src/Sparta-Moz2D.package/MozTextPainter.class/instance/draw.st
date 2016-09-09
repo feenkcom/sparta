@@ -1,6 +1,6 @@
 drawing
 draw
-	| x y r g b a aDrawMode textRun |
+	| x y r g b a aDrawMode textRun flags |
 
 	self
 		assert: [ string isNotNil ]
@@ -30,7 +30,10 @@ draw
 	
 	aDrawMode := drawMode ifNil: [ MozTextDrawMode GLYPH_FILL value ].
 
-	textRun := font makeTextRun: string canvas: canvas.
+	flags := 0.
+	flags := flags | (orientation ifNil: [ MozTextOrientation HORIZONTAL ]) value.
+
+	textRun := font makeTextRun: string canvas: canvas flags: flags.
 
 	self
 		primDrawTextRun: textRun

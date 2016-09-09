@@ -1,0 +1,3 @@
+accessing
+verticalSidewaysRight
+	^ self subclassResponsibility

@@ -1,0 +1,14 @@
+{
+	"category" : "Sparta-Moz2D-Text",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		 ],
+	"name" : "MozTransformedTextRun",
+	"pools" : [
+		 ],
+	"super" : "MozTextRun",
+	"type" : "normal" }

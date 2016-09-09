@@ -1,5 +1,5 @@
-examples
-exampleMultilanguageText
+examples - text
+exampleTextHorizontal
 	|canvas font |
 	canvas := MozCanvas extent: 700@200.
 
@@ -19,15 +19,10 @@ exampleMultilanguageText
 		build.
 
 	canvas text
-		strokeColor: Color red;
-		fill;
-		stroke;
-		string: 'Sparta  Спарта  斯巴達  سپارٹا  ස්පාටා';
+		horizontal;
+		string: 'Horizontal';
 		font: font;
 		origin: 20@30;
-		draw;
-		string: '😂🙈🚀';
-		origin: 20@60;
 		draw.
 
-	canvas asForm asMorph openInWindowLabeled: 'Text'
+	canvas asForm asMorph openInWindowLabeled: 'Horizontal'

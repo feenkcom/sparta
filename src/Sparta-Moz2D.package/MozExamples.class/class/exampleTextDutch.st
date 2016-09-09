@@ -1,5 +1,5 @@
 examples
-exampleMultilanguageText
+exampleTextDutch
 	|canvas font |
 	canvas := MozCanvas extent: 700@200.
 
@@ -14,20 +14,17 @@ exampleMultilanguageText
 
 	font := canvas font
 		size: 28;
-		weightThin;
+		language: 'nl';
+		stretchUltraExpanded;
+		named: 'Helvetica Neue';
 		sansSerif;
 		build.
 
 	canvas text
 		strokeColor: Color red;
-		fill;
-		stroke;
-		string: 'Sparta  Спарта  斯巴達  سپارٹا  ස්පාටා';
+		string: 'IJselijk koud is het IJ, maar altijd dichtbij.';
 		font: font;
 		origin: 20@30;
-		draw;
-		string: '😂🙈🚀';
-		origin: 20@60;
 		draw.
 
 	canvas asForm asMorph openInWindowLabeled: 'Text'
