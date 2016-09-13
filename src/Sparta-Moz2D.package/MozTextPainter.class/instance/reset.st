@@ -2,4 +2,6 @@ accessing
 reset
 	super reset.
 	
-	drawMode := nil
+	drawMode := nil.
+	orientation := MozTextOrientation HORIZONTAL.
+	breakPriority := MozTextBreakPriority eNormalBreak

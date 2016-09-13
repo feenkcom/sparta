@@ -13,7 +13,7 @@ It is also possible to choose if stroke should be rendered below fill or not.
 
 - ==font:== - set a font that should be used to render a string
 - ==string:== - set string to render
-- ==origin:== - set location where string should be rendered
+- ==baseline:== - set baseline location where string should be rendered
 - ==fill== - string should be filled (default mode)
 - ==stroke== - stroke string
 - ==strokeBelow== - stroke should be rendered below fill
@@ -36,7 +36,7 @@ Use created font group to render multi-language text:
 canvas text
   string: 'Sparta Спарта 斯巴達 سپارٹا ස්පාටා';
   font: font;
-  origin: 20@40;
+  baseline: 20@40;
   draw;
   string: '😂🙈🚀'
   origin: 20@70;
@@ -51,7 +51,7 @@ canvas text
 - color: ==<Object>==
 - drawOptions: ==<TSpartaDrawOptions>==
 - font: ==<Object>==
-- origin: ==<Point>==
+- baseline: ==<Point>==
 - string: ==<String>==
 - strokeOptions: ==<TSpartaStrokeOptions>==
 

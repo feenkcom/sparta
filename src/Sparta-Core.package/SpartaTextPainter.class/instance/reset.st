@@ -1,10 +1,12 @@
-accessing
+initialize-release
 reset
 	super reset.
 	
 	drawOptions := nil.
 	strokeOptions := nil.
 	font := nil.
-	color := nil.
-	origin := nil.
-	string := nil
+	paint := Color black.
+	strokePaint := Color transparent.
+	baseline := 0@0.
+	string := nil.
+	self horizontal

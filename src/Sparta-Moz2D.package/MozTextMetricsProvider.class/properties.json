@@ -1,0 +1,31 @@
+{
+	"category" : "Sparta-Moz2D-Text",
+	"classinstvars" : [
+		 ],
+	"classtraitcomposition" : "TMozLibrary classTrait",
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		"width",
+		"start",
+		"length",
+		"boxType",
+		"canvas",
+		"flags",
+		"suppressBreaks",
+		"breakPriority",
+		"lineBreakBefore",
+		"trimWhitespace",
+		"textMetrics",
+		"canWordWrap",
+		"string",
+		"propertyProvider",
+		"lastBreak",
+		"usedHyphenation" ],
+	"name" : "MozTextMetricsProvider",
+	"pools" : [
+		 ],
+	"super" : "Object",
+	"traitcomposition" : "TMozLibrary",
+	"type" : "normal" }

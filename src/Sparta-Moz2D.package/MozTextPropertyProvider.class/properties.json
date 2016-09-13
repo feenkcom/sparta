@@ -1,0 +1,22 @@
+{
+	"category" : "Sparta-Moz2D-Text",
+	"classinstvars" : [
+		 ],
+	"classtraitcomposition" : "TMozLibrary classTrait + TMozDebug classTrait + TSpartaTextPropertiesProvider classTrait",
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		"getAppUnitsPerDevUnitFn",
+		"getDrawTargetFn",
+		"getHyphenWidthFn",
+		"getHyphenationBreaksFn",
+		"getHyphensOption",
+		"getSpacingFn",
+		"metricsProvider" ],
+	"name" : "MozTextPropertyProvider",
+	"pools" : [
+		 ],
+	"super" : "FFIExternalObject",
+	"traitcomposition" : "TMozLibrary + TMozDebug + TSpartaTextPropertiesProvider",
+	"type" : "normal" }

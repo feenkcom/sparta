@@ -1,9 +1,11 @@
 instance creation
 from: aFontFamilyList style: aFontStyle
 
-	^ self
+	^ (self
 		primCreateFamilyList: aFontFamilyList
 		style: aFontStyle
 		perfMetrics: nil
 		userFontSet: nil
-		devToLocalScale: 1.0
+		devToLocalScale: 1.0)
+			familyList: aFontFamilyList;
+			yourself

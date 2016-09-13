@@ -9,3 +9,4 @@ SystemOrganization addCategory: 'Sparta-Moz2D-Library'!
 SystemOrganization addCategory: 'Sparta-Moz2D-Paints'!
 SystemOrganization addCategory: 'Sparta-Moz2D-Path'!
 SystemOrganization addCategory: 'Sparta-Moz2D-Text'!
+SystemOrganization addCategory: 'Sparta-Moz2D-Text-Enums'!

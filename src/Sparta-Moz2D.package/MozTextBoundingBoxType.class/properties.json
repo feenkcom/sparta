@@ -1,0 +1,16 @@
+{
+	"category" : "Sparta-Moz2D-Text-Enums",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		"LOOSE_INK_EXTENTS",
+		"TIGHT_HINTED_OUTLINE_EXTENTS",
+		"TIGHT_INK_EXTENTS" ],
+	"commentStamp" : "",
+	"instvars" : [
+		 ],
+	"name" : "MozTextBoundingBoxType",
+	"pools" : [
+		 ],
+	"super" : "FFIExternalEnumeration",
+	"type" : "normal" }

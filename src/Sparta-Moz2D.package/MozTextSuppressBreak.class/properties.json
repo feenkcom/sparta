@@ -1,0 +1,16 @@
+{
+	"category" : "Sparta-Moz2D-Text-Enums",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		"eNoSuppressBreak",
+		"eSuppressAllBreaks",
+		"eSuppressInitialBreak" ],
+	"commentStamp" : "",
+	"instvars" : [
+		 ],
+	"name" : "MozTextSuppressBreak",
+	"pools" : [
+		 ],
+	"super" : "FFIExternalEnumeration",
+	"type" : "normal" }

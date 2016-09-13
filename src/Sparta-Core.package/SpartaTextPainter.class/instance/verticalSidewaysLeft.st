@@ -1,3 +1,3 @@
-accessing
+accessing - orientation
 verticalSidewaysLeft
 	^ self subclassResponsibility

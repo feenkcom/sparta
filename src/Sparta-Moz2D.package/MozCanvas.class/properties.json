@@ -17,7 +17,6 @@
 		"shapeBuilder",
 		"transformBuilder",
 		"bitmapBuilder",
-		"textPainter",
 		"fontBuilder" ],
 	"name" : "MozCanvas",
 	"pools" : [

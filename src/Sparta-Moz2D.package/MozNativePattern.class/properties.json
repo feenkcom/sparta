@@ -10,7 +10,7 @@
 		 ],
 	"name" : "MozNativePattern",
 	"pools" : [
-		"MozSharedPool" ],
+		 ],
 	"super" : "FFIExternalObject",
 	"traitcomposition" : "TMozLibrary",
 	"type" : "normal" }

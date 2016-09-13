@@ -1,0 +1,4 @@
+accessing structure variables
+after
+	"This method was automatically generated"
+	^handle floatAt: 5

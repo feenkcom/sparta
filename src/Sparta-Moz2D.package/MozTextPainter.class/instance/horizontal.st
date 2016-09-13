@@ -1,4 +1,4 @@
-accessing
+accessing - orientation
 horizontal
 
 	orientation := MozTextOrientation HORIZONTAL

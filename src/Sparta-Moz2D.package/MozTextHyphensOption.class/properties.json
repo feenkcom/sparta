@@ -1,0 +1,16 @@
+{
+	"category" : "Sparta-Moz2D-Text-Enums",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		"AUTO",
+		"MANUAL",
+		"NONE" ],
+	"commentStamp" : "",
+	"instvars" : [
+		 ],
+	"name" : "MozTextHyphensOption",
+	"pools" : [
+		 ],
+	"super" : "FFIExternalEnumeration",
+	"type" : "normal" }
