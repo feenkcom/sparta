@@ -1,0 +1,3 @@
+accessing - metrics
+fontMetrics
+	^ fontMetrics

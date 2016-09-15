@@ -1,5 +1,5 @@
 {
-	"category" : "Sparta-Core-Path",
+	"category" : "Sparta-Core-Builders",
 	"classinstvars" : [
 		 ],
 	"classvars" : [
@@ -10,5 +10,5 @@
 	"name" : "SpartaShapeFactory",
 	"pools" : [
 		 ],
-	"super" : "SpartaAbstractPainter",
+	"super" : "SpartaAbstractBuilder",
 	"type" : "normal" }

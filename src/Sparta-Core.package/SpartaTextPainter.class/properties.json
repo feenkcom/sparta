@@ -13,7 +13,10 @@
 		"font",
 		"paint",
 		"strokePaint",
-		"baseline" ],
+		"baseline",
+		"start",
+		"end",
+		"spacing" ],
 	"name" : "SpartaTextPainter",
 	"pools" : [
 		 ],

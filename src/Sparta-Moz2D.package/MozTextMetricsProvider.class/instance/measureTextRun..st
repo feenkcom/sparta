@@ -7,7 +7,7 @@ measureTextRun: aTextRun
 
 	result := self
 		primMeasureAndBreak: aTextRun
-		start: start
+		start: start - 1
 		maxLength: length
 		lineBreakBefore: lineBreakBefore
 		width: width
@@ -19,7 +19,9 @@ measureTextRun: aTextRun
 		canvas: canvas
 		usedHyphenation: usedHyphenation
 		lastBreak: lastBreak
-		canWordWrap: canWordWrap
+		canWordWrap: (breakPriority canWrapWord and: [ canWordWrap ])
 		breakPriority: breakPriorityPointer.
-		
+
+	fontMetrics isNull ifFalse: [ self primFontMetrics: fontMetrics textRun: aTextRun ].
+	
 	^ result

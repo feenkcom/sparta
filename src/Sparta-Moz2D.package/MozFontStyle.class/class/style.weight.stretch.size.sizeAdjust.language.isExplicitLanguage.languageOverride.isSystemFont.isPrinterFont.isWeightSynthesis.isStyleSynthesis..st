@@ -1,7 +1,7 @@
 instance creation
 style: aStyle weight: aWeight stretch: aStretch size: aSize sizeAdjust: aSizeAdjust language: aLanguage isExplicitLanguage: aExplicitLanguage languageOverride: aLanguageOverride isSystemFont: aSystemFont isPrinterFont: aPrinterFont isWeightSynthesis: aWeightSynthesis isStyleSynthesis: aStyleSynthesis
 
-	^ self
+	^ (self
 		primCreateStyle: aStyle
 		weight: aWeight
 		stretch: aStretch
@@ -13,4 +13,6 @@ style: aStyle weight: aWeight stretch: aStretch size: aSize sizeAdjust: aSizeAdj
 		isSystemFont: aSystemFont
 		isPrinterFont: aPrinterFont
 		isWeightSynthesis: aWeightSynthesis
-		isStyleSynthesis: aStyleSynthesis
+		isStyleSynthesis: aStyleSynthesis)
+			autoRelease;
+			yourself

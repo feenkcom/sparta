@@ -1,0 +1,14 @@
+{
+	"category" : "Sparta-Moz2D-Examples",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		 ],
+	"name" : "MozTextExamples",
+	"pools" : [
+		 ],
+	"super" : "Object",
+	"type" : "normal" }

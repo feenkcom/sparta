@@ -7,5 +7,7 @@ from: aFontFamilyList style: aFontStyle
 		perfMetrics: nil
 		userFontSet: nil
 		devToLocalScale: 1.0)
+			autoRelease;
+			style: aFontStyle;
 			familyList: aFontFamilyList;
 			yourself

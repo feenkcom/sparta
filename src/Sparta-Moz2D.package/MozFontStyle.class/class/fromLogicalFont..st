@@ -2,7 +2,7 @@ instance creation
 fromLogicalFont: aLogicalFont
 
 	^ self
-		primCreateStyle: aLogicalFont slantValue
+		style: aLogicalFont slantValue
 		weight: aLogicalFont weightValue
 		stretch: aLogicalFont stretchValue
 		size: aLogicalFont pixelSize

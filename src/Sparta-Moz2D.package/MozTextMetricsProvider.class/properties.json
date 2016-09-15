@@ -22,7 +22,10 @@
 		"string",
 		"propertyProvider",
 		"lastBreak",
-		"usedHyphenation" ],
+		"usedHyphenation",
+		"fontMetrics",
+		"spacing",
+		"orientation" ],
 	"name" : "MozTextMetricsProvider",
 	"pools" : [
 		 ],

@@ -1,3 +1,3 @@
 advanced options
 ignoreTrimmedWhitespace
-	trimWhitespace := ExternalAddress new
+	trimWhitespace := nil

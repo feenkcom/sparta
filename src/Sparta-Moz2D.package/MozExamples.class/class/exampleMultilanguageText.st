@@ -19,15 +19,12 @@ exampleMultilanguageText
 		build.
 
 	canvas text
-		strokeColor: Color red;
-		fill;
-		stroke;
 		string: 'Sparta  Спарта  斯巴達  سپارٹا  ස්පාටා';
 		font: font;
-		origin: 20@30;
+		baseline: 20@30;
 		draw;
 		string: '😂🙈🚀';
-		origin: 20@60;
+		baseline: 20@60;
 		draw.
 
 	canvas asForm asMorph openInWindowLabeled: 'Text'

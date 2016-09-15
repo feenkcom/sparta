@@ -22,7 +22,7 @@ exampleTextVerticalSidewaysRight
 		verticalSidewaysRight;
 		string: 'Vertical sideways right';
 		font: font;
-		origin: 20@30;
+		baseline: 20@30;
 		draw.
 
 	canvas asForm asMorph openInWindowLabeled: 'Vertical sideways right'

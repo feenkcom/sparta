@@ -1,6 +1,8 @@
 instance creation
 named: aFontNameString
 
-	^ self
+	^ (self
 		primCreateNamed: aFontNameString
-		quoted: false
+		quoted: false)
+			autoRelease;
+			yourself

@@ -4,6 +4,7 @@
 		 ],
 	"classvars" : [
 		"HORIZONTAL",
+		"MASK",
 		"VERTICAL_MIXED",
 		"VERTICAL_SIDEWAYS_LEFT",
 		"VERTICAL_SIDEWAYS_RIGHT",

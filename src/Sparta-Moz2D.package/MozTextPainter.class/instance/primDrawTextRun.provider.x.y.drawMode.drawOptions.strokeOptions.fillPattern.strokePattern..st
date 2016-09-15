@@ -4,6 +4,8 @@ primDrawTextRun: aTextRun provider: aProvider x: x y: y drawMode: aDrawMode draw
 	^ self ffiCall: #(void moz2d_text_run_draw_pattern (
 		MozCanvas canvas,
 		MozTextRun aTextRun,
+		uint32 start,
+		uint32 end,
       MozTextPropertyProvider aProvider,
 		double x,
 		double y,

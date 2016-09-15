@@ -1,3 +1,3 @@
-break priority
+accessing - break priority
 breakPriority: aBreakPriority
 	breakPriority := aBreakPriority

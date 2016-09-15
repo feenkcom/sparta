@@ -1,0 +1,1 @@
+I add general mechanism of deleting C++ objects that does not implement smart pointers and have public destructors

@@ -1,3 +1,3 @@
 accessing - metrics
-metrics
+textMetrics
 	^ textMetrics

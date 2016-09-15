@@ -9,4 +9,7 @@ reset
 	strokePaint := Color transparent.
 	baseline := 0@0.
 	string := nil.
+	start := nil.
+	end := nil.
+	spacing := 0.
 	self horizontal

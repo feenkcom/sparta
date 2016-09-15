@@ -2,5 +2,5 @@ accessing
 spacingIn: anInterval
 
 	^ (Array new: anInterval size * 2)
-		atAllPut: 0;
+		atAllPut: metricsProvider spacing;
 		yourself

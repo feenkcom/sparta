@@ -1,4 +1,4 @@
-accessing
+accessing - flags
 flags: aFlagsAsNumber
 
-	flags := flags bitOr: aFlagsAsNumber
+	flags := aFlagsAsNumber
