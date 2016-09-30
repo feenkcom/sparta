@@ -15,7 +15,7 @@ Sparta provides multiple ways of loading code and dealing with external [Moz2D](
 - Manual code-only [Sparta](https://github.com/syrel/Sparta) *(group)*
 - Manual plugin-only [Moz2D](https://github.com/syrel/Moz2D)
 
-## Boostrap all-in-one
+## Bootstrap all-in-one
 
 **Stable v1.0** Core
 ```
@@ -119,7 +119,7 @@ Metacello new
 
 ## Manual plugin-only
 
-Binaries for 32 and 64 bit platforms are deployed on bintay:
+Binaries for 32 and 64 bit platforms are deployed on bintray:
 
 **Stable v1.0**
 https://bintray.com/syrel/Moz2D/libMoz2D/1.0
