@@ -3,7 +3,7 @@ insert: aRope at: anIndex
 	"Insert aRope after anIndex"
 	anIndex = 0
 		ifTrue: [ ^ aRope append: self ].
-	
+
 	anIndex = self size
 		ifTrue: [ ^ self append: aRope ].
 		

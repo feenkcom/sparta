@@ -1,0 +1,15 @@
+{
+	"category" : "Sparta-Core-Text-Rope",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		"position",
+		"readStream" ],
+	"name" : "FileReferenceRopeIterator",
+	"pools" : [
+		 ],
+	"super" : "RopeIterator",
+	"type" : "normal" }

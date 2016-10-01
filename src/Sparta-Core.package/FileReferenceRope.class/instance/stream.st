@@ -1,0 +1,3 @@
+accessing
+stream
+	^ fileReference readStream
