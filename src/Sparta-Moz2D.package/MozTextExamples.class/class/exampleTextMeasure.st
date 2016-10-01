@@ -19,6 +19,7 @@ exampleTextMeasure
 		build.
 
 	textPainter := canvas text
+		breakWordWrap;
 		paint: (Color black alpha: 0.5);
 		string: 'Sparta';
 		spacing: 0;

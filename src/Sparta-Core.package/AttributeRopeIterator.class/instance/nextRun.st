@@ -1,0 +1,3 @@
+accessing
+nextRun
+	^ subIterator nextRun

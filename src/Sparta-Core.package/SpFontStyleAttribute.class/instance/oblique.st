@@ -1,0 +1,3 @@
+styles
+oblique
+	style := #styleOblique

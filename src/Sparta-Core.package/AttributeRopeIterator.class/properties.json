@@ -1,0 +1,15 @@
+{
+	"category" : "Sparta-Core-Text-Rope",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		"position",
+		"subIterator" ],
+	"name" : "AttributeRopeIterator",
+	"pools" : [
+		 ],
+	"super" : "RopeIterator",
+	"type" : "normal" }

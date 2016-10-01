@@ -1,0 +1,14 @@
+{
+	"category" : "Sparta-Core-Text-Model",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		"color" ],
+	"name" : "SpTextColorAttribute",
+	"pools" : [
+		 ],
+	"super" : "SpAttribute",
+	"type" : "normal" }

@@ -1,0 +1,3 @@
+accessing
+attributes
+	^ rope attributes

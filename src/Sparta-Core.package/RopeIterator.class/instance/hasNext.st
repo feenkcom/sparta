@@ -1,0 +1,3 @@
+testing
+hasNext
+	^ self subclassResponsibility

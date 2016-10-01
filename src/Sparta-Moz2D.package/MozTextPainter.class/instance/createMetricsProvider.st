@@ -2,8 +2,7 @@ instance creation
 createMetricsProvider
 	|metricsProvider|
 	metricsProvider := MozTextMetricsProvider new.
-	metricsProvider enableFontMetrics.
-	metricsProvider flags: orientation value.
+	metricsProvider orientation: orientation.
 	metricsProvider breakPriority: breakPriority.
 	metricsProvider string: string.
 	metricsProvider spacing: spacing.

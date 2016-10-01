@@ -1,0 +1,14 @@
+{
+	"category" : "Sparta-Core-Text-Model",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		 ],
+	"name" : "SpAttribute",
+	"pools" : [
+		 ],
+	"super" : "Object",
+	"type" : "normal" }

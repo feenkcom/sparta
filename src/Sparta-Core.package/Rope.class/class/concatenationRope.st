@@ -1,0 +1,3 @@
+rope types
+concatenationRope
+	^ ConcatenationRope

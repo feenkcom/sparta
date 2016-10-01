@@ -1,0 +1,14 @@
+{
+	"category" : "Sparta-Core-Text-Rope-Tests",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		 ],
+	"name" : "LargeCollectionRopeTests",
+	"pools" : [
+		 ],
+	"super" : "CollectionRopeTests",
+	"type" : "normal" }
