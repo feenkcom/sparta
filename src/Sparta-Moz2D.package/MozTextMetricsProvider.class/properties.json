@@ -25,7 +25,8 @@
 		"usedHyphenation",
 		"fontMetrics",
 		"spacing",
-		"orientation" ],
+		"orientation",
+		"longestSubstring" ],
 	"name" : "MozTextMetricsProvider",
 	"pools" : [
 		 ],

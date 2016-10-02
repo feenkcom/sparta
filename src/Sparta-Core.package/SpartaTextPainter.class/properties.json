@@ -17,7 +17,8 @@
 		"start",
 		"end",
 		"spacing",
-		"maxWidth" ],
+		"maxWidth",
+		"clip" ],
 	"name" : "SpartaTextPainter",
 	"pools" : [
 		 ],

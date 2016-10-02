@@ -9,8 +9,13 @@ fillString: aString withColor: aFillColor strokeColor: aStrokeColor
 		assert: [ font isNotNil ]
 		description: [ 'Font must not be nil' ].
 
-	metricsProvider := self createMetricsProvider.
+	metricsProvider := self createMetricsProvider.	
+
 	textRun := font makeTextRun: string canvas: canvas flags: metricsProvider flags.
+	clip ifTrue: [ 
+		maxWidth ifNotNil: [ metricsProvider width: maxWidth ].
+		metricsProvider measureTextRun: textRun.
+		end := end min: metricsProvider longestSubstring ].
 
 	aDrawMode := drawMode ifNil: [ MozTextDrawMode GLYPH_FILL value ].
 	aStrokeColor isTransparent

@@ -1,11 +1,11 @@
 measurement
 measureTextRun: aTextRun
-	|result breakPriorityPointer|
+	| breakPriorityPointer |
 	
 	breakPriorityPointer := ExternalAddress allocate: (FFIUInt32 externalTypeSize).
 	breakPriorityPointer unsignedLongAt: 1 put: breakPriority value.
 
-	result := self
+	longestSubstring := self
 		primMeasureAndBreak: aTextRun
 		start: start - 1
 		maxLength: length
@@ -24,4 +24,4 @@ measureTextRun: aTextRun
 
 	fontMetrics isNull ifFalse: [ self primFontMetrics: fontMetrics textRun: aTextRun ].
 	
-	^ result
+	^ longestSubstring

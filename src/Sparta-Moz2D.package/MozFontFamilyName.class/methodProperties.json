@@ -1,0 +1,18 @@
+{
+	"class" : {
+		"generic:" : "AliakseiSyrel 10/2/2016 21:40:10",
+		"named:" : "AliakseiSyrel 10/2/2016 21:40:10",
+		"primCreateGeneric:" : "AliakseiSyrel 10/2/2016 21:40:10",
+		"primCreateNamed:quoted:" : "AliakseiSyrel 10/2/2016 21:40:10" },
+	"instance" : {
+		"asString" : "AliakseiSyrel 10/2/2016 21:40:10",
+		"isGeneric" : "AliakseiSyrel 10/2/2016 21:40:10",
+		"isNamed" : "AliakseiSyrel 10/2/2016 21:40:10",
+		"name" : "AliakseiSyrel 10/2/2016 21:40:10",
+		"primGetName" : "AliakseiSyrel 10/2/2016 21:40:10",
+		"primGetType" : "AliakseiSyrel 10/2/2016 21:40:10",
+		"primIsGeneric" : "AliakseiSyrel 10/2/2016 21:40:10",
+		"primIsNamed" : "AliakseiSyrel 10/2/2016 21:40:10",
+		"primToStringQuotes:" : "AliakseiSyrel 10/2/2016 21:40:10",
+		"printOn:" : "AliakseiSyrel 10/2/2016 21:40:10",
+		"type" : "AliakseiSyrel 10/2/2016 21:40:10" } }

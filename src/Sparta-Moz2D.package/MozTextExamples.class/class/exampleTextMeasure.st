@@ -19,9 +19,11 @@ exampleTextMeasure
 		build.
 
 	textPainter := canvas text
+		clip;
+		maxWidth: 900;
 		breakWordWrap;
 		paint: (Color black alpha: 0.5);
-		string: 'Sparta';
+		string: 'Sparta [%clipped text outside of maxWidth%]';
 		spacing: 0;
 		font: font;
 		yourself.

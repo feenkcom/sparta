@@ -6,6 +6,7 @@ initialize
 	flags := 0.
 	length := SmallInteger maxVal.
 	width := SmallInteger maxVal.
+	longestSubstring := 0.
 	self spacing: 0.
 	self breakPriority: MozTextBreakPriority eNormalBreak.
 	self orientation: MozTextOrientation HORIZONTAL.

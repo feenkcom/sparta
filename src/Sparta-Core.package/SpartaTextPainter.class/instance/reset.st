@@ -12,4 +12,5 @@ reset
 	start := nil.
 	end := nil.
 	spacing := 0.
+	clip := false.
 	self horizontal

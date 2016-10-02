@@ -1,0 +1,14 @@
+{
+	"class" : {
+		"ATT_LINEAR_TRANSFER_INTERCEPT_A" : "AliakseiSyrel 10/2/2016 21:40:10",
+		"ATT_LINEAR_TRANSFER_INTERCEPT_B" : "AliakseiSyrel 10/2/2016 21:40:10",
+		"ATT_LINEAR_TRANSFER_INTERCEPT_G" : "AliakseiSyrel 10/2/2016 21:40:10",
+		"ATT_LINEAR_TRANSFER_INTERCEPT_R" : "AliakseiSyrel 10/2/2016 21:40:10",
+		"ATT_LINEAR_TRANSFER_SLOPE_A" : "AliakseiSyrel 10/2/2016 21:40:10",
+		"ATT_LINEAR_TRANSFER_SLOPE_B" : "AliakseiSyrel 10/2/2016 21:40:10",
+		"ATT_LINEAR_TRANSFER_SLOPE_G" : "AliakseiSyrel 10/2/2016 21:40:10",
+		"ATT_LINEAR_TRANSFER_SLOPE_R" : "AliakseiSyrel 10/2/2016 21:40:10",
+		"enumDecl" : "AliakseiSyrel 10/2/2016 21:40:10",
+		"initialize" : "AliakseiSyrel 10/2/2016 21:40:10" },
+	"instance" : {
+		 } }

@@ -1,0 +1,12 @@
+{
+	"class" : {
+		"ATT_TURBULENCE_BASE_FREQUENCY" : "AliakseiSyrel 10/2/2016 21:40:10",
+		"ATT_TURBULENCE_NUM_OCTAVES" : "AliakseiSyrel 10/2/2016 21:40:10",
+		"ATT_TURBULENCE_RECT" : "AliakseiSyrel 10/2/2016 21:40:10",
+		"ATT_TURBULENCE_SEED" : "AliakseiSyrel 10/2/2016 21:40:10",
+		"ATT_TURBULENCE_STITCHABLE" : "AliakseiSyrel 10/2/2016 21:40:10",
+		"ATT_TURBULENCE_TYPE" : "AliakseiSyrel 10/2/2016 21:40:10",
+		"enumDecl" : "AliakseiSyrel 10/2/2016 21:40:10",
+		"initialize" : "AliakseiSyrel 10/2/2016 21:40:10" },
+	"instance" : {
+		 } }

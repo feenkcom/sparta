@@ -11,6 +11,10 @@ fillString: aString withPattern: aFillPattern strokePattern: aStrokePattern
 
 	metricsProvider := self createMetricsProvider.
 	textRun := font makeTextRun: string canvas: canvas flags: metricsProvider flags.
+	clip ifTrue: [ 
+		maxWidth ifNotNil: [ metricsProvider width: maxWidth ].
+		metricsProvider measureTextRun: textRun.
+		end := end min: metricsProvider longestSubstring ].
 	aDrawMode := drawMode ifNil: [ MozTextDrawMode GLYPH_FILL value ].
 	aDrawMode := aDrawMode | MozTextDrawMode GLYPH_STROKE value.
 
