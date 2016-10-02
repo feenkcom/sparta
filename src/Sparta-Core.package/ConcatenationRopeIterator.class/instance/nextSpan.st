@@ -1,17 +1,17 @@
 accessing
-nextRun
+nextSpan
 	| run attributes |
 	self hasNext
 		ifFalse: [ self error: 'reached end of rope' ].
 
 	attributes := self nextAttributes.
 	
-	run := currentIterator nextRun.
+	run := currentIterator nextSpan.
 	self moveForward: run size.
 
 	[ self hasNext and: [ self nextAttributes = attributes ] ] whileTrue: [ 
 		| nextRun |
-		nextRun := currentIterator nextRun.
+		nextRun := currentIterator nextSpan.
 		run := run append: nextRun.
 		self moveForward: nextRun size ].
 

@@ -1,4 +1,4 @@
 testing
 hasNext
-	^ (position < rope size)
-		and: [ position < end ]
+	^ (position <= rope size)
+		and: [ position <= end ]

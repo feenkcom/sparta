@@ -1,2 +1,0 @@
-(name 'BaselineOfSparta-AliakseiSyrel.14' message 'postLoad moved to baseline, since installer is loaded only in case of git load' id '26211fcb-daed-49a3-b5ce-2219c397dbe3' date '4 September 2016' time '2:39:08.415125 am' author 'AliakseiSyrel' ancestors ((name 'BaselineOfSparta-AliakseiSyrel.13' message 'on master branch always refer to development versions of plugin.fixed baseline protocol detection
-' id 'd674e4c3-73bb-5a94-8fe3-0bd6f5063ba1' date '4 September 2016' time '12:40:35 am' author 'AliakseiSyrel' ancestors () stepChildren ())) stepChildren ())

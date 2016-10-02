@@ -2,4 +2,8 @@ drawing
 drawOn: aCanvas from: aStart to: anEnd
 	| aRope |
 	aRope := rope.
-	self draw: aRope on: aCanvas from: aStart to: anEnd
+	SpartaTextRenderer new
+		start: aStart;
+		end: anEnd;
+		rope: aRope;
+		renderOn: aCanvas

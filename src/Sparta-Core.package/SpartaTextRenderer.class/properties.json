@@ -1,0 +1,22 @@
+{
+	"category" : "Sparta-Core-Text-Rendering",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		"rope",
+		"start",
+		"end",
+		"baseline",
+		"lineHeight",
+		"maxWidth",
+		"maxHeight",
+		"lines",
+		"totalHeight" ],
+	"name" : "SpartaTextRenderer",
+	"pools" : [
+		 ],
+	"super" : "Object",
+	"type" : "normal" }

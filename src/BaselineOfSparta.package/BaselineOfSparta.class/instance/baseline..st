@@ -19,13 +19,13 @@ baseline: spec
 		group: 'development'
 			with: #('core' 'Sparta-Critiques' 'Sparta-Moz2D-Tests');
 
-		"the following groups are loaded automatically with git support"
+		"the following groups are loaded automatically with gittree support"
 		group: 'git:core'
 			with: #('Sparta-Installer');
 		group: 'git:development'
 			with: #('git:core');
 			
-		"the following groups are loaded automatically with git support"
+		"the following groups are loaded automatically with filetree support"
 		group: 'file:core'
 			with: #(core);
 		group: 'file:development'

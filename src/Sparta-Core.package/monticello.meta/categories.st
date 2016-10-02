@@ -4,8 +4,8 @@ SystemOrganization addCategory: 'Sparta-Core-Filters'!
 SystemOrganization addCategory: 'Sparta-Core-Math'!
 SystemOrganization addCategory: 'Sparta-Core-Paints'!
 SystemOrganization addCategory: 'Sparta-Core-Path'!
-SystemOrganization addCategory: 'Sparta-Core-Text'!
 SystemOrganization addCategory: 'Sparta-Core-Text-Model'!
+SystemOrganization addCategory: 'Sparta-Core-Text-Rendering'!
 SystemOrganization addCategory: 'Sparta-Core-Text-Rope'!
 SystemOrganization addCategory: 'Sparta-Core-Text-Rope-Tests'!
 SystemOrganization addCategory: 'Sparta-Core-Utils'!

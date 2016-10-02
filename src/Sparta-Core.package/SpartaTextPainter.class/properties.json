@@ -16,7 +16,8 @@
 		"baseline",
 		"start",
 		"end",
-		"spacing" ],
+		"spacing",
+		"maxWidth" ],
 	"name" : "SpartaTextPainter",
 	"pools" : [
 		 ],
