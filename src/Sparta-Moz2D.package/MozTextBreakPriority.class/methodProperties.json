@@ -1,9 +1,10 @@
 {
 	"class" : {
-		"eNoBreak" : "AliakseiSyrel 10/2/2016 21:40:10",
-		"eNormalBreak" : "AliakseiSyrel 10/2/2016 21:40:10",
-		"eWordWrapBreak" : "AliakseiSyrel 10/2/2016 21:40:10",
-		"enumDecl" : "AliakseiSyrel 10/2/2016 21:40:10",
-		"initialize" : "AliakseiSyrel 10/2/2016 21:40:10" },
+		"eNoBreak" : "AliakseiSyrel 10/2/2016 22:20:20",
+		"eNormalBreak" : "AliakseiSyrel 10/2/2016 22:20:20",
+		"eWordWrapBreak" : "AliakseiSyrel 10/2/2016 22:20:20",
+		"enumDecl" : "AliakseiSyrel 10/2/2016 22:20:20",
+		"initialize" : "AliakseiSyrel 10/2/2016 22:20:20" },
 	"instance" : {
-		"canWrapWord" : "AliakseiSyrel 10/2/2016 21:40:10" } }
+		"canWrapHyphens" : "AliakseiSyrel 10/3/2016 15:26",
+		"canWrapWord" : "AliakseiSyrel 10/3/2016 14:46" } }

@@ -1,14 +1,14 @@
 {
 	"class" : {
-		"from:style:" : "AliakseiSyrel 10/2/2016 21:40:10",
-		"primCreateFamilyList:style:perfMetrics:userFontSet:devToLocalScale:" : "AliakseiSyrel 10/2/2016 21:40:10" },
+		"from:style:" : "AliakseiSyrel 10/2/2016 22:20:20",
+		"primCreateFamilyList:style:perfMetrics:userFontSet:devToLocalScale:" : "AliakseiSyrel 10/2/2016 22:20:20" },
 	"instance" : {
-		"familyList" : "AliakseiSyrel 10/2/2016 21:40:10",
-		"familyList:" : "AliakseiSyrel 10/2/2016 21:40:10",
-		"makeTextRun:canvas:flags:" : "AliakseiSyrel 10/2/2016 21:40:10",
-		"metrics" : "AliakseiSyrel 10/2/2016 21:40:10",
-		"metrics:" : "AliakseiSyrel 10/2/2016 21:40:10",
-		"primGetMetrics:orientation:" : "AliakseiSyrel 10/2/2016 21:40:10",
-		"primMakeTextRun:drawTarget:length:initialBreaks:initialBreaksCount:appUnitsPerDevUnit:flags:" : "AliakseiSyrel 10/2/2016 21:40:10",
-		"style" : "AliakseiSyrel 10/2/2016 21:40:10",
-		"style:" : "AliakseiSyrel 10/2/2016 21:40:10" } }
+		"familyList" : "AliakseiSyrel 10/2/2016 22:20:20",
+		"familyList:" : "AliakseiSyrel 10/2/2016 22:20:20",
+		"makeTextRun:canvas:flags:" : "AliakseiSyrel 10/2/2016 22:20:20",
+		"metrics" : "AliakseiSyrel 10/2/2016 22:20:20",
+		"metrics:" : "AliakseiSyrel 10/2/2016 22:20:20",
+		"primGetMetrics:orientation:" : "AliakseiSyrel 10/2/2016 22:20:20",
+		"primMakeTextRun:drawTarget:length:initialBreaks:initialBreaksCount:appUnitsPerDevUnit:flags:" : "AliakseiSyrel 10/2/2016 22:20:20",
+		"style" : "AliakseiSyrel 10/2/2016 22:20:20",
+		"style:" : "AliakseiSyrel 10/2/2016 22:20:20" } }

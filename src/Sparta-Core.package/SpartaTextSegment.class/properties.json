@@ -6,9 +6,11 @@
 		 ],
 	"commentStamp" : "",
 	"instvars" : [
-		"rope",
-		"start",
-		"end" ],
+		"width",
+		"height",
+		"bounds",
+		"ascent",
+		"descent" ],
 	"name" : "SpartaTextSegment",
 	"pools" : [
 		 ],

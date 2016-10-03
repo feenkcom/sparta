@@ -1,9 +1,8 @@
 rendering
 renderOn: aCanvas
-	| iterator |
-
-	iterator := self rope iterator: self start to: self end.
-	[ iterator hasNext ] whileTrue: [ 
-		| line |
-		line := iterator nextLine.
-		self renderLine: line on: aCanvas ]
+	
+	baseline := 0@0.
+	layout lines do: [ :line |
+		baseline := 0 @ (baseline y + line ascent).
+		self renderLine: line on: aCanvas.
+		baseline := 0 @ (baseline y + line descent) ]

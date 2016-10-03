@@ -1,3 +1,3 @@
 accessing - metrics
 longestSubstring
-	^ longestSubstring
+	^ longestSubstring + start - 1

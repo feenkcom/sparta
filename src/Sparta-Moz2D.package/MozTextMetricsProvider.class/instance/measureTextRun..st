@@ -23,5 +23,4 @@ measureTextRun: aTextRun
 		breakPriority: breakPriorityPointer.
 
 	fontMetrics isNull ifFalse: [ self primFontMetrics: fontMetrics textRun: aTextRun ].
-	
 	^ longestSubstring

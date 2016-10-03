@@ -1,5 +1,9 @@
 {
 	"class" : {
-		 },
+		"spans:" : "AliakseiSyrel 10/3/2016 14:08" },
 	"instance" : {
-		 } }
+		"do:" : "AliakseiSyrel 10/3/2016 01:11",
+		"initialize" : "AliakseiSyrel 10/3/2016 15:58",
+		"printOn:" : "AliakseiSyrel 10/3/2016 00:56",
+		"spans" : "AliakseiSyrel 10/3/2016 01:04",
+		"spans:" : "AliakseiSyrel 10/3/2016 16:04" } }
