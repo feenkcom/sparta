@@ -1,4 +1,4 @@
 initialization
 attributes: anAttribute rope: aRope
-	attributes := anAttribute asSet.
+	attributes := anAttribute.
 	rope := aRope

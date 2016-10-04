@@ -10,7 +10,8 @@
 		"accumulatedHeight",
 		"spansStack",
 		"accumulatedWidth",
-		"position" ],
+		"position",
+		"isSplitted" ],
 	"name" : "SpartaTextLayoutContext",
 	"pools" : [
 		 ],

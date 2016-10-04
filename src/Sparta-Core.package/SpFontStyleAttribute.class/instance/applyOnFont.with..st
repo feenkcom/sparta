@@ -1,3 +1,3 @@
 properties
-applyOnFont: aFontBuilder with: aRope
+applyOnFont: aFontBuilder with: aSpan
 	aFontBuilder perform: style

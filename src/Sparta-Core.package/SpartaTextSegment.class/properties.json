@@ -8,9 +8,10 @@
 	"instvars" : [
 		"width",
 		"height",
-		"bounds",
 		"ascent",
-		"descent" ],
+		"descent",
+		"baseline",
+		"box" ],
 	"name" : "SpartaTextSegment",
 	"pools" : [
 		 ],

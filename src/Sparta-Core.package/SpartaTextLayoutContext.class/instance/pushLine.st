@@ -2,9 +2,8 @@ adding
 pushLine
 	| line spans |
 	spans := spansStack asArray.
-	spansStack removeAll.
-	accumulatedWidth := 0.
-	
+	self initializeForNewLine.
+
 	line := SpartaTextLine spans: spans.
 	layout addLine: line.
 	

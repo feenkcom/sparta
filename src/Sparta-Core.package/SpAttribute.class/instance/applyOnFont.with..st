@@ -1,3 +1,3 @@
 properties
-applyOnFont: aFontBuilder with: aRope
+applyOnFont: aFontBuilder with: aSpan
 	"Attribute may customize a font used to render text"

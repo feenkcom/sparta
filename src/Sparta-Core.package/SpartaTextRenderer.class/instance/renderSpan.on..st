@@ -15,5 +15,5 @@ renderSpan: aSpan on: aCanvas
 	textPainter
 		font: font;
 		string: aSpan string;
-		baseline: self baseline;
+		baseline: aSpan baseline;
 		draw.

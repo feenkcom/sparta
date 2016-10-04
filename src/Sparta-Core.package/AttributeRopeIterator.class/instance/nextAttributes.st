@@ -1,3 +1,3 @@
 accessing
 nextAttributes
-	^ rope attributes, subIterator nextAttributes
+	^ subIterator nextAttributes, rope attributes

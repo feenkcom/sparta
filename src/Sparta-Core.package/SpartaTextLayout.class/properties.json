@@ -11,7 +11,8 @@
 		"maxHeight",
 		"maxWidth",
 		"height",
-		"width" ],
+		"width",
+		"end" ],
 	"name" : "SpartaTextLayout",
 	"pools" : [
 		 ],

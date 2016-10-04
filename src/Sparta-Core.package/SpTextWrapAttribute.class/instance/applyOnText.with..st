@@ -1,3 +1,3 @@
 properties
-applyOnText: aTextPainter with: aRope
+applyOnText: aTextPainter with: aSpan
 	aTextPainter perform: wrapType

@@ -1,3 +1,3 @@
 accessing
 nextAttributes
-	^ #() asSet
+	^ #()
