@@ -1,0 +1,15 @@
+{
+	"category" : "Sparta-Moz2D-Tests",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		"canvas",
+		"breakPriority" ],
+	"name" : "MozTextPropertyProviderTestsHelper",
+	"pools" : [
+		 ],
+	"super" : "Object",
+	"type" : "normal" }

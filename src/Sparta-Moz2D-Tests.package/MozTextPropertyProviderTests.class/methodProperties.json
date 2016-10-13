@@ -1,0 +1,14 @@
+{
+	"class" : {
+		 },
+	"instance" : {
+		"primGetDrawTarget:" : "AliakseiSyrel 10/11/2016 18:00",
+		"primGetHyphenOption:" : "AliakseiSyrel 10/11/2016 19:04",
+		"primGetHyphenWidth:" : "AliakseiSyrel 10/11/2016 17:55",
+		"primIsValid:" : "AliakseiSyrel 10/11/2016 16:52",
+		"setUp" : "AliakseiSyrel 10/11/2016 16:41",
+		"tearDown" : "AliakseiSyrel 10/11/2016 16:42",
+		"testGetDrawTarget" : "AliakseiSyrel 10/11/2016 17:59",
+		"testGetHyphenOption" : "AliakseiSyrel 10/11/2016 18:16",
+		"testGetHyphenWidth" : "AliakseiSyrel 10/11/2016 17:53",
+		"testIsValid" : "AliakseiSyrel 10/11/2016 16:52" } }
