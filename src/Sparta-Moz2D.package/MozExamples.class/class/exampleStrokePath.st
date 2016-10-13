@@ -19,11 +19,10 @@ exampleStrokePath
 	canvas stroke
 		paint: Color red;
 		path: path;
-		strokeOptions: (canvas strokeOptions
-			width: 5;
-			joinRound
-			"dashPattern: #(10 10);
-			dashOffset: 11");
+		width: 5;
+		joinRound;
+		dashPattern: #(10 10);
+		dashOffset: 11;
 		draw.
 	
 	canvas asForm asMorph openInWindowLabeled: 'Vector Path'

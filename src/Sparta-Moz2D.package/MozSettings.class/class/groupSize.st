@@ -1,0 +1,3 @@
+settings
+groupSize
+	^ 10

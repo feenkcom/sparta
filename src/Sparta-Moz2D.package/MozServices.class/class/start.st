@@ -1,3 +1,7 @@
-system startup
+services
 start
-	^ self primStartServices
+	"First of all we need to load preferences from image"
+	OSPlatform current mozSettings export.
+	self primStartAtom.
+	self primStartGfxConfig.
+	self primStartPlatform

@@ -1,0 +1,4 @@
+testing
+isEnabled
+
+	^ self primIsEnabled

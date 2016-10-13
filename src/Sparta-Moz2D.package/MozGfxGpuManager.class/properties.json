@@ -1,0 +1,16 @@
+{
+	"category" : "Sparta-Moz2D-GFX",
+	"classinstvars" : [
+		 ],
+	"classtraitcomposition" : "TMozLibrary classTrait + TMozRefPtr classTrait + TMozDebug classTrait",
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		"devices" ],
+	"name" : "MozGfxGpuManager",
+	"pools" : [
+		 ],
+	"super" : "FFIExternalObject",
+	"traitcomposition" : "TMozLibrary + TMozRefPtr + TMozDebug",
+	"type" : "normal" }

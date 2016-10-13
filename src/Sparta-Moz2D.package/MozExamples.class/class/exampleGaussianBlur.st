@@ -8,7 +8,7 @@ exampleGaussianBlur
 		paint: Color white;
 		path: canvas bounds;
 		draw.
-	
+
 	path := canvas path
 		moveTo: 150@50;
 		lineTo: 250@250;

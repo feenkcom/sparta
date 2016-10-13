@@ -1,0 +1,16 @@
+{
+	"category" : "Sparta-Moz2D-GFX",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		"description",
+		"deviceId",
+		"vendorId" ],
+	"name" : "MozGfxGpuDevice",
+	"pools" : [
+		 ],
+	"super" : "Object",
+	"type" : "normal" }

@@ -18,7 +18,7 @@ exampleNeonFilter
 		string: 'Sparta';
 		font: font;
 		fill;
-		origin: 170@300;
+		baseline: 170@300;
 		draw.
 
 	canvas transform pop.

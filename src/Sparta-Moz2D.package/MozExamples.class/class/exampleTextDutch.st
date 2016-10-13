@@ -21,10 +21,10 @@ exampleTextDutch
 		build.
 
 	canvas text
-		strokeColor: Color red;
+		paint: Color red;
 		string: 'IJselijk koud is het IJ, maar altijd dichtbij.';
 		font: font;
-		origin: 20@30;
+		baseline: 20@30;
 		draw.
 
 	canvas asForm asMorph openInWindowLabeled: 'Text'

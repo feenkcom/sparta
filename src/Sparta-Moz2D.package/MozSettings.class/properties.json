@@ -1,0 +1,14 @@
+{
+	"category" : "Sparta-Moz2D-Preferences",
+	"classinstvars" : [
+		"uniqueInstance" ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		"table" ],
+	"name" : "MozSettings",
+	"pools" : [
+		 ],
+	"super" : "Object",
+	"type" : "normal" }

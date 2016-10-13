@@ -1,3 +1,5 @@
-system startup
+services
 stop
-	^ self primShutdownServices
+	self primShutdownPlatform.
+	self primShutdownAtom.
+	self primShutdownGfxConfig.

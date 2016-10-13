@@ -1,0 +1,24 @@
+{
+	"category" : "Sparta-Moz2D-GFX",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		"Available",
+		"Blacklisted",
+		"Blocked",
+		"Broken",
+		"CrashedInHandler",
+		"CrashedOnStartup",
+		"Disabled",
+		"Failed",
+		"ForceEnabled",
+		"Unavailable",
+		"Unused" ],
+	"commentStamp" : "",
+	"instvars" : [
+		 ],
+	"name" : "MozGfxFeatureStatus",
+	"pools" : [
+		 ],
+	"super" : "FFIExternalEnumeration",
+	"type" : "normal" }

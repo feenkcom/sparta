@@ -1,0 +1,3 @@
+accessing
+enableByDefault
+	self primEnableByDefault

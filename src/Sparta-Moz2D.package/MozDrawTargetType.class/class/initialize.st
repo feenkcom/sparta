@@ -1,3 +1,5 @@
 class initialization
 initialize
-	self initializeEnumeration
+	self initializeEnumeration.
+	
+	representationType := FFIInt8 new

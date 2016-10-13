@@ -1,7 +1,7 @@
 examples - text
 exampleTextWithShadow
 	| canvas rope textLayout |
-	canvas := MozCanvas extent: 405 @ 215.
+	canvas := MozCanvas extent: 465 @ 245.
 	canvas fill
 		paint: Color white;
 		path: canvas bounds;

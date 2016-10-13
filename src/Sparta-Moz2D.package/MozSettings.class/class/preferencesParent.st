@@ -1,0 +1,3 @@
+configuration
+preferencesParent
+	^ #graphics
