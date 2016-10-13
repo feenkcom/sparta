@@ -6,20 +6,20 @@ measureTextRun: aTextRun
 	breakPriorityPointer unsignedLongAt: 1 put: breakPriority value.
 
 	longestSubstring := self
-		primMeasureAndBreak: aTextRun
+		primMeasure: aTextRun
 		start: start - 1
-		maxLength: length
-		lineBreakBefore: lineBreakBefore
+		length: length
+		breakBefore: lineBreakBefore
 		width: width
-		propertyProvider: propertyProvider
-		suppressBreak: suppressBreaks
-		trimWhitespace: trimWhitespace
+		provider: propertyProvider
+		suppress: suppressBreaks
+		whitespace: trimWhitespace
 		metrics: textMetrics
-		boundingBoxType: boxType
+		boxType: boxType
 		canvas: canvas
-		usedHyphenation: usedHyphenation
+		hyphen: usedHyphenation
 		lastBreak: lastBreak
-		canWordWrap: (breakPriority canWrapWord and: [ canWordWrap ])
+		wordWrap: (breakPriority canWrapWord and: [ canWordWrap ])
 		breakPriority: breakPriorityPointer.
 
 	fontMetrics isNull ifFalse: [ self primFontMetrics: fontMetrics textRun: aTextRun ].
