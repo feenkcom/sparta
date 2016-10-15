@@ -13,6 +13,7 @@ groupPreferences: aCollectionOfPreferences on: aBuilder depth: aDepth
 	groups do: [ :aGroup |
 		| groupCategory groupId |
 		groupId := (aGroup first categories first: aDepth) reduce: [ :a :b | a , '.', b ].
+		groupId := self preferencesGroup asLowercase, groupId.
 		groupCategory := aGroup first categories at: aDepth.
 		(aBuilder group: groupId asSymbol)
 			label: groupCategory asLowercase capitalized;

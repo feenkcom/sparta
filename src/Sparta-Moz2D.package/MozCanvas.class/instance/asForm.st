@@ -1,10 +1,13 @@
 converting
 asForm
-	|checker|
+	| checker form |
 	checker := self class checker: self extent.
 	checker fill
 		paint: self;
 		path: self bounds;
 		draw.
 	
-	^ Form extent: checker extent depth: 32 fromArray: checker pixels offset: 0@0
+	form := Form extent: checker extent depth: 32.
+	form unhibernate.
+	checker primAsForm: form bits.
+	^ form

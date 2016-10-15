@@ -1,3 +1,5 @@
 settings
 groupSize
-	^ 10
+	^ self = MozSettings
+		ifTrue: [ Float infinity ]
+		ifFalse: [ 10 ]
