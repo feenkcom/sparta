@@ -1,3 +1,5 @@
 services
 stop
-	self primShutdown
+	self primShutdownServices.
+	self primShutdownPlatform.
+	self primStartGfxConfig

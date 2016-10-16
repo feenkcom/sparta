@@ -1,5 +1,7 @@
 services
 start
-	"First of all we need to load preferences from image"
+	"First of all we need to start services"
+	self primStartServices.
+	self primStartGfxConfig.
 	OSPlatform current mozSettings export.
-	self primStart
+	self primStartPlatform

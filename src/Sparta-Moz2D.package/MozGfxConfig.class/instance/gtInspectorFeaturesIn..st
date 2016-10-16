@@ -4,7 +4,7 @@ gtInspectorFeaturesIn: composite
 	composite table
 		title: 'Features';
 		display: [ self features ];
-		when: [ self size isZero not ];
+		when: [ self features size isZero not ];
 		column: 'Name' evaluated: [ :each | each name ];
 		column: 'Description' evaluated: [ :each | each description ];
 		column: 'Enabled' evaluated: [ :each | each isEnabled printString ];
