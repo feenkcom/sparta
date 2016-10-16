@@ -4,7 +4,7 @@ SmalltalkCISpec {
       #baseline : 'Sparta',
       #directory : 'src',
       #platforms : [ #pharo ],
-      #load : [ 'git:development' ]
+      #load : [ 'file:development' ]
     }
   ],
   #testing : {
