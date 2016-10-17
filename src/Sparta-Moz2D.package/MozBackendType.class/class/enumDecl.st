@@ -13,5 +13,4 @@ enumDecl
 		SKIA 5
 		RECORDING 6
 		DIRECT2D1_1 7
-		SKIA_GL 8
 	)

@@ -10,8 +10,7 @@
 		"DIRECT2D1_1",
 		"NONE",
 		"RECORDING",
-		"SKIA",
-		"SKIA_GL" ],
+		"SKIA" ],
 	"commentStamp" : "",
 	"instvars" : [
 		 ],
