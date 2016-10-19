@@ -1,10 +1,8 @@
 # Installation
 
-___Only Mac OS X and Linux (32bit & 64bit) are supported for now___
+Tested on Pharo 6
 
-Works and tested on Pharo 5 and Pharo 6
-
-Linux 32bit users please first [readme](http://example.com)
+**32bit plugin does not work on 64bit Linux - gtk2:i386 and gtk3:i386 are required. Installing them on 64bit linux will break your system!**
 
 ## HowTo
 
@@ -17,19 +15,19 @@ Sparta provides multiple ways of loading code and dealing with external [Moz2D](
 
 ## Bootstrap all-in-one
 
-**Stable v1.0** Core
+**Stable v1.1** Core
 ```
 Metacello new
   baseline: 'Sparta';
-  repository: 'github://syrel/sparta:v1.0/src';
+  repository: 'github://syrel/sparta:v1.1/src';
   load: #git:core
 ```
 
-**Stable v1.0** Core + Tests + Lint rules
+**Stable v1.1** Core + Tests + Lint rules
 ```
 Metacello new
   baseline: 'Sparta';
-  repository: 'github://syrel/sparta:v1.0/src';
+  repository: 'github://syrel/sparta:v1.1/src';
   load: #git:development
 ```
 
@@ -51,19 +49,19 @@ Metacello new
 
 ## Bootstrap light
 
-**Stable v1.0** Core
+**Stable v1.1** Core
 ```
 Metacello new
   baseline: 'Sparta';
-  repository: 'github://syrel/sparta:v1.0/src';
+  repository: 'github://syrel/sparta:v1.1/src';
   load: #file:core
 ```
 
-**Stable v1.0** Core + Tests + Lint rules
+**Stable v1.1** Core + Tests + Lint rules
 ```
 Metacello new
   baseline: 'Sparta';
-  repository: 'github://syrel/sparta:v1.0/src';
+  repository: 'github://syrel/sparta:v1.1/src';
   load: #file:development
 ```
 
