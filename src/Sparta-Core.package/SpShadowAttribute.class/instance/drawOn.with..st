@@ -1,8 +1,12 @@
 drawing
 drawOn: aCanvas with: aSpan
-	| attributes font fontBuilder textPainter area shadowCanvas |
+	| attributes font fontBuilder textPainter area shadowCanvas expand |
+	
+	expand := radius * Float pi.
+	area := (aSpan box translateBy: aSpan baseline) expandBy: expand.
 
-	area := (aSpan box translateBy: offset + aSpan baseline) expandBy: radius * Float pi.
+	aSpan box logCr.
+
 	shadowCanvas := aCanvas similar: area extent.
 
 	attributes := aSpan attributes.
@@ -19,9 +23,9 @@ drawOn: aCanvas with: aSpan
 		paint: color;
 		font: font;
 		string: aSpan string;
-		baseline: 0@aSpan ascent;
+		baseline: (aSpan box left negated + expand) @ aSpan ascent;
 		draw.
-
+	
 	shadowCanvas filter
 		area: shadowCanvas bounds;
 		type: (shadowCanvas gaussianBlurFilter
@@ -33,5 +37,5 @@ drawOn: aCanvas with: aSpan
 
 	aCanvas fill
 		paint: shadowCanvas surface;
-		path: area;
+		path: (area translateBy: offset);
 		draw.
