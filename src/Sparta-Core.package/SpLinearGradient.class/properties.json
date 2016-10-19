@@ -1,0 +1,20 @@
+{
+	"category" : "Sparta-Core-Text-Model",
+	"classinstvars" : [
+		 ],
+	"classtraitcomposition" : "TSpartaPaint classTrait + TSpartaGradientPaint classTrait + TSpartaLinearGradientPaint classTrait",
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		"begin",
+		"end",
+		"stops",
+		"transformation",
+		"extend" ],
+	"name" : "SpLinearGradient",
+	"pools" : [
+		 ],
+	"super" : "Object",
+	"traitcomposition" : "TSpartaPaint + TSpartaGradientPaint + TSpartaLinearGradientPaint",
+	"type" : "normal" }
