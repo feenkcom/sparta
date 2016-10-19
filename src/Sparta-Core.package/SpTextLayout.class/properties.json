@@ -1,0 +1,20 @@
+{
+	"category" : "Sparta-Core-Text-Rendering",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		"rope",
+		"lines",
+		"maxHeight",
+		"maxWidth",
+		"height",
+		"width",
+		"end" ],
+	"name" : "SpTextLayout",
+	"pools" : [
+		 ],
+	"super" : "Object",
+	"type" : "normal" }

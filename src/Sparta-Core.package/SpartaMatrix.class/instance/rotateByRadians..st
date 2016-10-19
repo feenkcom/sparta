@@ -21,4 +21,4 @@ rotateByRadians: angle
 	shy := shy*cos + (sy*sin).
 
 	sx := newSx.
-	sy := newSy.
+	sy := newSy

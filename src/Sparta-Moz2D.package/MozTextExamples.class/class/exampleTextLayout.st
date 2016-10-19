@@ -9,11 +9,11 @@ exampleTextLayout
 		path: canvas bounds;
 		draw.
 
-	rope := Rope from: 'abcdefg-12345', String cr, 'hijklmadadfsdgs', String cr, 'Hello World!'.
+	rope := SpRope from: 'abcdefg-12345', String cr, 'hijklmadadfsdgs', String cr, 'Hello World!'.
 	rope := rope attributes: { SpFontSizeAttribute new size: 70 } from: 1 to: rope size.
 	rope := rope attributes: { SpTextWrapAttribute new normal } from: 1 to: rope size.
 
-	textLayout := SpartaTextLayout rope: rope.
+	textLayout := SpTextLayout rope: rope.
 	textLayout maxWidth: maxWidth.
 	textLayout renderOn: canvas.
 

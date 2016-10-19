@@ -2,5 +2,5 @@ drawing
 drawOn: aCanvas
 	| aRope layout |
 	aRope := rope.
-	layout := SpartaTextLayout rope: rope.
+	layout := SpTextLayout rope: aRope.
 	layout renderOn: aCanvas

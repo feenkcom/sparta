@@ -9,5 +9,5 @@ translateX: px Y: py
 |  0     0     1   |       | 0  0   1  |             |  0     0    1  |
 
 "
-	x := (sx*px) + (shx*py) + x.
-	y := (shy*px) + (sy*py) + y.
+	x := px "(sx*px) + (shx*py)" + x.
+	y := py "(shy*px) + (sy*py)" + y.

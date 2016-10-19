@@ -1,5 +1,5 @@
 instance creation
 fromString: aString
 	^ self new
-		initializeWith: (Rope fromCollection: aString);
+		initializeWith: (SpRope fromCollection: aString);
 		yourself

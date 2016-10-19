@@ -1,0 +1,17 @@
+{
+	"category" : "Sparta-Core-Text-Rendering",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		"rope",
+		"start",
+		"end",
+		"attributes" ],
+	"name" : "SpTextSpan",
+	"pools" : [
+		 ],
+	"super" : "SpTextSegment",
+	"type" : "normal" }

@@ -1,0 +1,15 @@
+{
+	"category" : "Sparta-Core-Text-Rope",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		"attributes",
+		"rope" ],
+	"name" : "SpAttributeRope",
+	"pools" : [
+		 ],
+	"super" : "SpRope",
+	"type" : "normal" }

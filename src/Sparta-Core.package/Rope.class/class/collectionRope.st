@@ -1,3 +1,0 @@
-rope types
-collectionRope
-	^ CollectionRope

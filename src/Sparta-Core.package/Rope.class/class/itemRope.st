@@ -1,3 +1,0 @@
-rope types
-itemRope
-	^ ItemRope

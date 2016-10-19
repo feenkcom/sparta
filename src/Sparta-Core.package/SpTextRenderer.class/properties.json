@@ -1,0 +1,14 @@
+{
+	"category" : "Sparta-Core-Text-Rendering",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		"layout" ],
+	"name" : "SpTextRenderer",
+	"pools" : [
+		 ],
+	"super" : "Object",
+	"type" : "normal" }
