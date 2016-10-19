@@ -1,4 +1,4 @@
-# Sparta [![Build Status](https://travis-ci.org/syrel/Sparta.svg?branch=master)](https://travis-ci.org/syrel/Sparta) [![Build status](https://ci.appveyor.com/api/projects/status/5rivbl8u726h31is?svg=true)](https://ci.appveyor.com/project/syrel/sparta)
+# Sparta [![Build Status](https://travis-ci.org/syrel/Sparta.svg?branch=master)](https://travis-ci.org/syrel/Sparta) [![Build status](https://ci.appveyor.com/api/projects/status/5rivbl8u726h31is?svg=true)](https://ci.appveyor.com/project/syrel/sparta) [![Coverage Status](https://coveralls.io/repos/github/syrel/Sparta/badge.svg?branch=master)](https://coveralls.io/github/syrel/Sparta?branch=master)
 
 Sparta is an almost stateless vector graphics API for Pharo that provides bindings to the Moz2D rendering backend. Moz2D is the extracted graphical engine from Mozilla Firefox compiled as standalone shared library together with the extern C bindings required to call the engine from Pharo.
 
