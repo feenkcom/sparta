@@ -1,3 +1,3 @@
 library
 libraryVersion
-	^ 'development'
+	^ 'v1.1'
