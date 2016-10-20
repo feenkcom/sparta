@@ -3,7 +3,7 @@ drawLineAt: offsetY named: aName color: aColor on: aCanvas
 	| textPainter metricsProvider |
 	aCanvas stroke
 		paint: aColor;
-		path: (aCanvas shape lineFrom: self canvasOffset x negated @ offsetY to: (aCanvas width - self canvasOffset x)@ offsetY );
+		path: (aCanvas shape line: self canvasOffset x negated @ offsetY to: (aCanvas width - self canvasOffset x)@ offsetY );
 		draw.
 
 	textPainter := aCanvas text

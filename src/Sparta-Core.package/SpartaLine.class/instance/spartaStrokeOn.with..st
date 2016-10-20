@@ -1,3 +1,3 @@
-*Sparta-Core
+dispatch
 spartaStrokeOn: aSpartaCanvas with: aSpartaStrokePainter
-	aSpartaStrokePainter strokeRectangle: self
+	aSpartaStrokePainter strokeLine: self

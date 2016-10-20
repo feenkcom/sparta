@@ -1,8 +1,9 @@
 transformation
 apply
 	
-	"transformation isPureTranslation ifTrue: [ ^ self ]."
-	
+	transformation isIdentity
+		ifTrue: [ ^ self ].
+
 	self
 		primConcatenateTransformA11: transformation sx
 		a12: transformation shy

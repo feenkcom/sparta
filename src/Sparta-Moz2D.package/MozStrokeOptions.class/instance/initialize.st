@@ -6,7 +6,7 @@ initialize
 	self autoRelease.
 
 	"Setting default values according to backend specification"
-	self width: 1.0.
+	self width: self class defaultWidth.
 	self joinMiterOrBevel.
 	self capButt.
 	self miterLimit: 10.0.

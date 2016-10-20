@@ -1,3 +1,3 @@
 drawing
 strokeLine: aLine
-	^ self subclassResponsibility
+	paint spartaStrokeLine: aLine with: self

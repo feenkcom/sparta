@@ -1,0 +1,4 @@
+running
+tearDown
+
+	canvas := nil

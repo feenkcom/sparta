@@ -3,7 +3,7 @@ drawVerticalLineAt: offsetX named: aName color: aColor on: aCanvas
 	| textPainter metricsProvider |
 	aCanvas stroke
 		paint: aColor;
-		path: (aCanvas shape lineFrom: offsetX @ self canvasOffset y negated to: offsetX @ (aCanvas height - self canvasOffset y) );
+		path: (aCanvas shape line: offsetX @ self canvasOffset y negated to: offsetX @ (aCanvas height - self canvasOffset y) );
 		draw.
 
 	textPainter := aCanvas text
