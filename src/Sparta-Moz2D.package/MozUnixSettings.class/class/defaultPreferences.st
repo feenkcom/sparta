@@ -1,6 +1,8 @@
 configuration
 defaultPreferences
 	^ #(
+		'gfx.canvas.azure.accelerated' false
+			
 		'gfx.canvas.azure.backends' 'skia,cairo'
 		'gfx.content.azure.backends' 'skia,cairo'
 		
