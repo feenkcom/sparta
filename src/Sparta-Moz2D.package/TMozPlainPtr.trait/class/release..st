@@ -1,10 +1,9 @@
 finalization
 release: aHandle
-	
+
 	aHandle isNull
-		ifTrue: [
-			self warning: [ 'Trying to release null pointer!' ].
-			^ self ].
+		"A handle may already be null, if garbage collector did his job before us :) "
+		ifTrue: [ ^ self ].
 
 	self warning: [ '(', aHandle value asString, ') Ptr: ', aHandle value asString ].
-	self primRelease: aHandle value
+	aHandle free

@@ -1,6 +1,6 @@
 debug
 warning: aMessageBlock
-"	|message|
+	"|message|
 
 	message := '[', self name asString ,'] ', aMessageBlock value.
 

@@ -2,7 +2,7 @@
 	"category" : "Sparta-Moz2D-Text",
 	"classinstvars" : [
 		 ],
-	"classtraitcomposition" : "TMozLibrary classTrait + TMozDebug classTrait + TSpTextPropertiesProvider classTrait",
+	"classtraitcomposition" : "TMozLibrary classTrait + TMozPlainPtr classTrait + TMozDebug classTrait + TSpTextPropertiesProvider classTrait",
 	"classvars" : [
 		 ],
 	"commentStamp" : "",
@@ -18,5 +18,5 @@
 	"pools" : [
 		 ],
 	"super" : "FFIExternalObject",
-	"traitcomposition" : "TMozLibrary + TMozDebug + TSpTextPropertiesProvider",
+	"traitcomposition" : "TMozLibrary + TMozPlainPtr + TMozDebug + TSpTextPropertiesProvider",
 	"type" : "normal" }

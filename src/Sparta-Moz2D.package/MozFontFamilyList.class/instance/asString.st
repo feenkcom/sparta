@@ -1,7 +1,5 @@
 printing
 asString
-	self isNull
-		ifTrue: [ ^ '' ].
 
 	^ self
 		primToStringQuotes: false

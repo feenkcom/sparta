@@ -5,11 +5,13 @@ makeTextRun: aString canvas: canvas flags: aFlags
 		beLittleEndian;
 		encodeString: aString.
 
-	^ self
+	^ (self
 		primMakeTextRun: byteArray
 		drawTarget: canvas
 		length: byteArray size / 2
 		initialBreaks: nil "Didn't manage to make them work"
 		initialBreaksCount: 0
 		appUnitsPerDevUnit: 1
-		flags: aFlags
+		flags: aFlags)
+			autoRelease;
+			yourself
