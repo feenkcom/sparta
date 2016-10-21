@@ -6,3 +6,7 @@ These objects are not backend specific, however for example the gradient stops o
 Public API and Key Messages
 
 - asForm - to render a preview of me on sparta canavas
+
+Internal Representation and Key Implementation Points.
+
+	I am sent by value to all DrawTarget methods therefore need to be freed when not needed

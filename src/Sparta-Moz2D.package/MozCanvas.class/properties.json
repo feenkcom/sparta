@@ -16,8 +16,7 @@
 		"clipBuilder",
 		"shapeBuilder",
 		"transformBuilder",
-		"bitmapBuilder",
-		"fontBuilder" ],
+		"bitmapBuilder" ],
 	"name" : "MozCanvas",
 	"pools" : [
 		"MozSharedPool" ],

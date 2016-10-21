@@ -4,6 +4,8 @@ createFontGroup
 	self fontList isEmpty
 		ifTrue: [ self sansSerif ].
 	
-	^ MozFontGroup
+	^ (MozFontGroup
 		from: self fontList
-		style: self fontStyle
+		style: self fontStyle)
+			autoRelease;
+			yourself

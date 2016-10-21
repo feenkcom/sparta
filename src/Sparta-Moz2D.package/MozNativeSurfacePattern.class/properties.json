@@ -7,7 +7,7 @@
 	"commentStamp" : "AliakseiSyrel 8/19/2016 00:06",
 	"instvars" : [
 		 ],
-	"name" : "MozExternalSurfacePattern",
+	"name" : "MozNativeSurfacePattern",
 	"pools" : [
 		 ],
 	"super" : "MozNativePattern",

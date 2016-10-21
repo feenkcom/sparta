@@ -2,15 +2,15 @@
 	"category" : "Sparta-Moz2D-External",
 	"classinstvars" : [
 		 ],
-	"classtraitcomposition" : "TMozLibrary classTrait",
+	"classtraitcomposition" : "TMozLibrary classTrait + TMozPlainPtr classTrait + TMozDebug classTrait",
 	"classvars" : [
 		 ],
-	"commentStamp" : "AliakseiSyrel 8/19/2016 00:03",
+	"commentStamp" : "AliakseiSyrel 10/21/2016 12:34",
 	"instvars" : [
 		 ],
 	"name" : "MozNativePattern",
 	"pools" : [
 		 ],
 	"super" : "FFIExternalObject",
-	"traitcomposition" : "TMozLibrary",
+	"traitcomposition" : "TMozLibrary + TMozPlainPtr + TMozDebug",
 	"type" : "normal" }

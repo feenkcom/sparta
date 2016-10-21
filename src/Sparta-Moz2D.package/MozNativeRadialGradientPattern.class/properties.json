@@ -7,7 +7,7 @@
 	"commentStamp" : "AliakseiSyrel 8/19/2016 00:05",
 	"instvars" : [
 		 ],
-	"name" : "MozExternalRadialGradientPattern",
+	"name" : "MozNativeRadialGradientPattern",
 	"pools" : [
 		 ],
 	"super" : "MozNativePattern",
