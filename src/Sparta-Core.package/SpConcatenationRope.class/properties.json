@@ -9,7 +9,9 @@
 		"left",
 		"right",
 		"depth",
-		"length" ],
+		"length",
+		"count",
+		"balance" ],
 	"name" : "SpConcatenationRope",
 	"pools" : [
 		 ],

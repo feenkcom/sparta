@@ -1,0 +1,3 @@
+accessing
+count
+	^ self subclassResponsibility

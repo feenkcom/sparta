@@ -1,0 +1,3 @@
+accessing
+count
+	^ rope count

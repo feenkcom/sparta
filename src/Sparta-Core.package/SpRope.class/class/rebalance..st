@@ -1,23 +1,22 @@
 rope
 rebalance: aRope
-	| leafs examine |
+	| leafs examine grade |
 
 	"No need to rebalance a rope that did not exceed max depth"
-	(aRope depth <= self maxDepth)
+	(aRope depth <= self maxDepth or: [ aRope needsBalancing not ])
 		ifTrue: [ ^ aRope ].
-
-	leafs := OrderedCollection new: aRope size.
-	examine := LinkedList new.
 	
-	examine addLast: aRope.
+	leafs := OrderedCollection new: 24.
+	examine := LinkedList new.
+	grade := (aRope balanceGrade / aRope count) / 2.
 
+	examine addLast: aRope.
 	[ examine isEmpty ] whileFalse: [
 		| rope |
-		rope := examine removeLast.
-		rope isConcatenation
+		rope := examine removeFirst.
+		(rope isConcatenation and: [ (rope balanceGrade / rope count) > grade ])
 			ifTrue: [ 
-				examine addLast: rope left.
-				examine addLast: rope right ]
+				examine addFirst: rope right.
+				examine addFirst: rope left. ]
 			ifFalse: [ leafs add: rope ] ].
-		
 	^ self merge: leafs from: 1 to: leafs size

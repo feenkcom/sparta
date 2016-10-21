@@ -10,6 +10,5 @@ attributes: anAttributesCollection from: aStart to: anEnd
 
 	rope := self from: aStart to: anEnd.
 	rope := self class attributeRope attributes: anAttributesCollection rope: rope.
-	rope size = self size.
 	
 	^ ((self from: 1 to: aStart - 1) append: rope) append: (self from: anEnd + 1 to: self size)
