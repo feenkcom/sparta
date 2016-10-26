@@ -6,10 +6,10 @@
 		 ],
 	"commentStamp" : "",
 	"instvars" : [
-		"rope",
 		"start",
 		"end",
-		"attributes" ],
+		"attributes",
+		"spanRope" ],
 	"name" : "SpTextSpan",
 	"pools" : [
 		 ],

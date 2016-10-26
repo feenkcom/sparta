@@ -1,19 +1,24 @@
 rendering
 renderSpan: aSpan on: aCanvas
-	| attributes font fontBuilder textPainter |
-
+	| attributes font fontBuilder textPainter transformation |
 	attributes := aSpan attributes.
 	fontBuilder := aCanvas font.
 	textPainter := aCanvas text.
-
-	attributes do: [ :attribute |
-		attribute drawOn: aCanvas with: aSpan.
-		attribute applyOnFont: fontBuilder with: aSpan.
-		attribute applyOnText: textPainter with: aSpan ].
-
+	transformation := SpartaMatrix new.
+	attributes
+		do: [ :attribute | 
+			attribute applyOnTransform: transformation with: aSpan.
+			attribute drawOn: aCanvas with: aSpan.
+			attribute applyOnFont: fontBuilder with: aSpan.
+			attribute applyOnText: textPainter with: aSpan ].
 	font := fontBuilder build.
-	textPainter
-		font: font;
-		string: aSpan string;
-		baseline: aSpan baseline;
-		draw.
+	aCanvas transform
+		during: [ :aTransform | 
+			aTransform
+				multiplyBy: transformation;
+				apply.
+			textPainter
+				font: font;
+				string: aSpan string;
+				baseline: ( transformation inverted transform: aSpan baseline  + transformation translation);
+				draw ]

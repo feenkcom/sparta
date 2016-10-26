@@ -4,7 +4,7 @@ pushLine
 	spans := spansStack asArray.
 	self initializeForNewLine.
 
-	line := SpTextLine spans: spans.
-	layout addLine: line.
+	line := SpTextLineSegment rope: rope spans: spans.
+	lines add: line.
 	
 	accumulatedHeight := accumulatedHeight + line height

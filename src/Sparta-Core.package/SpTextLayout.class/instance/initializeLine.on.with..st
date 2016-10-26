@@ -1,4 +1,4 @@
-initialization
+initialize-release
 initializeLine: aLine on: aCanvas with: aContext
 	| iterator |
 

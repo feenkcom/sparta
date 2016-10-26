@@ -1,3 +1,3 @@
 accessing
 availableHeight
-	^ layout maxHeight - accumulatedHeight
+	^ maxHeight - accumulatedHeight

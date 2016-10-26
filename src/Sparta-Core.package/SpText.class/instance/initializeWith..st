@@ -1,3 +1,4 @@
 initialization
 initializeWith: aRope
-	rope := aRope
+	rope := aRope.
+	selections := OrderedCollection new.

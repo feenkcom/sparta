@@ -1,4 +1,4 @@
-initialization
+initialize-release
 initializeFont: aSpan on: aCanvas
 	| fontBuilder attributes |
 

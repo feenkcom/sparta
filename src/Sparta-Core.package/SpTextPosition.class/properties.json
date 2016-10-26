@@ -1,0 +1,16 @@
+{
+	"category" : "Sparta-Core-Text-Rendering",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		"lineIndex",
+		"spanIndex",
+		"offset" ],
+	"name" : "SpTextPosition",
+	"pools" : [
+		 ],
+	"super" : "Object",
+	"type" : "normal" }

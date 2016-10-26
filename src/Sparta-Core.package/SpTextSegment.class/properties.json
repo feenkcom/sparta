@@ -11,7 +11,11 @@
 		"ascent",
 		"descent",
 		"baseline",
-		"box" ],
+		"box",
+		"length",
+		"from",
+		"to",
+		"rope" ],
 	"name" : "SpTextSegment",
 	"pools" : [
 		 ],

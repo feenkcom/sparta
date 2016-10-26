@@ -6,12 +6,15 @@
 		 ],
 	"commentStamp" : "",
 	"instvars" : [
-		"layout",
+		"maxHeight",
+		"maxWidth",
 		"accumulatedHeight",
 		"spansStack",
 		"accumulatedWidth",
 		"position",
-		"isSplitted" ],
+		"isSplitted",
+		"lines",
+		"rope" ],
 	"name" : "SpTextLayoutContext",
 	"pools" : [
 		 ],

@@ -16,6 +16,7 @@ exampleStyledText
 	text attributes: { SpFontGenericFamilyAttribute new monospace } from: 1 to: 4.
 	text attributes: { SpFontStyleAttribute new italic } from: 7 to: 12.
 	text attributes: { SpForegroundColorAttribute new color: Color red } from: 3 to: 9.
+	text attributes: { SpTransformationAttribute new translateBy: 20@0 } from: 15 to: 21.
 
 	text drawOn: canvas.
 

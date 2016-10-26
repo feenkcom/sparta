@@ -1,0 +1,14 @@
+{
+	"category" : "Sparta-Core-Text-Elements",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "AliakseiSyrel 10/23/2016 14:03",
+	"instvars" : [
+		 ],
+	"name" : "SpTextParagraph",
+	"pools" : [
+		 ],
+	"super" : "Object",
+	"type" : "normal" }

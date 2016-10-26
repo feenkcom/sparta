@@ -1,4 +1,4 @@
 testing
 isSplitted
 
-	^ end - start + 1 < rope size
+	^ end - start + 1 < spanRope size

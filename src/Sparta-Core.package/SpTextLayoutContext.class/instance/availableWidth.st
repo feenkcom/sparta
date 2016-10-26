@@ -1,3 +1,3 @@
 accessing
 availableWidth
-	^ layout maxWidth - accumulatedWidth
+	^ maxWidth - accumulatedWidth

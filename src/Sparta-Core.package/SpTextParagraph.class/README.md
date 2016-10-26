@@ -1,0 +1,1 @@
+I represent a multiline text paragraph that has rectangular shape

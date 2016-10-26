@@ -1,4 +1,4 @@
-initialization
+initialize-release
 initializePainter: aSpan on: aCanvas
 	| fontBuilder textPainter attributes |
 
