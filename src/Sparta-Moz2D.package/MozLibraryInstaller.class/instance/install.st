@@ -9,9 +9,9 @@ install
 	
 	(Smalltalk vm listLoadedModules includes: self libraryName)
 		ifTrue: [
-			MozServices stop.
-			Smalltalk vm forgetModule: self libraryName.
-		].
+			MozServices isRunning
+				ifTrue: [ MozServices stop ].
+			Smalltalk vm forgetModule: self libraryName ].
 
 	self ensureNotExist: pluginPath.
 	self assert: [ pluginPath isWritable ] description: [ 'Library destination must be writable' ].

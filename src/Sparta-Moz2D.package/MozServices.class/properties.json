@@ -1,7 +1,7 @@
 {
 	"category" : "Sparta-Moz2D",
 	"classinstvars" : [
-		 ],
+		"isRunning" ],
 	"classtraitcomposition" : "TMozLibrary classTrait",
 	"classvars" : [
 		 ],
