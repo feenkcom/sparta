@@ -1,6 +1,6 @@
-doits
+loading
 postLoad
-	|pragmas|
+	| pragmas |
 	pragmas := OrderedCollection new.
 	Object withAllSubclassesDo: [:each |
 		pragmas addAll: (Pragma allNamed: #spartaPostLoad in: each) ].

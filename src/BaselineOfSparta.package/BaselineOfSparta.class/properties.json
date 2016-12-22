@@ -4,9 +4,9 @@
 		 ],
 	"classvars" : [
 		 ],
-	"commentStamp" : "AliakseiSyrel 8/24/2016 00:17",
+	"commentStamp" : "AliakseiSyrel 12/22/2016 08:54",
 	"instvars" : [
-		 ],
+		"group" ],
 	"name" : "BaselineOfSparta",
 	"pools" : [
 		 ],

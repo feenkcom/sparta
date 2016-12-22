@@ -1,8 +1,9 @@
-baseline
+baselines
 baseline: spec
 	<baseline>
 	spec for: #common do: [ spec
-		postLoadDoIt: #postLoadActions:;
+		preLoadDoIt:  #preLoadActions:;
+		postLoadDoIt: #postLoadSparta:;
 		package: 'Sparta-Core';
 		package: 'Sparta-Moz2D'
 			with: [ spec requires: #('Sparta-Core') ];
@@ -10,26 +11,28 @@ baseline: spec
 			with: [ spec requires: #('Sparta-Moz2D') ];
 
 		"additional development packages"
-		package: 'Sparta-Installer';
 		package: 'Sparta-Critiques';
 
-		"groups without #git: prefix are loaded without git support"
-		group: 'core'
-			with: #('Sparta-Core' 'Sparta-Moz2D');
-		group: 'development'
-			with: #('core' 'Sparta-Critiques' 'Sparta-Moz2D-Tests');
-
-		"the following groups are loaded automatically with gittree support"
-		group: 'git:core'
-			with: #('Sparta-Installer');
-		group: 'git:development'
-			with: #('git:core');
-			
-		"the following groups are loaded automatically with filetree support"
+		"groups with only sources"
 		group: 'file:core'
-			with: #(core);
+			with: #('Sparta-Core' 'Sparta-Moz2D');
 		group: 'file:development'
-			with: #(development);
+			with: #('file:core' 'Sparta-Critiques' 'Sparta-Moz2D-Tests');
 
+		"groups with sources and plugin installation"
+		group: 'core'
+			with: #('file:core');
+		group: 'development'
+			with: #('file:development');
+
+		"groups with sources, plugin installion and git support"
+		group: 'git:core'
+			with: #(core);
+		group: 'git:development'
+			with: #(development);
+		
+		"Allow better integration of Sparta in Bloc"
+		group: 'stub' with: #();
+		
 		"#default should not be used"
-		group: 'default' with: #() ].
+		group: 'default' with: #(core) ].
