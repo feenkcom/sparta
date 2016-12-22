@@ -29,7 +29,7 @@ Sparta requires extra [Moz2D](https://github.com/syrel/Moz2D) vm plugin. Plugin 
 Metacello new
   baseline: 'Sparta';
   repository: 'github://syrel/sparta:v1.1/src';
-  load: #file:core
+  load: #core
 ```
 *Bootstrap bleading edge development together with tests and additional Lint rules:*
 ```smalltalk
