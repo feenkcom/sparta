@@ -1,3 +1,4 @@
 style
 styleNormal
-	self style: self style | MozTextFontStyle NORMAL value
+	"Normal style resets style"
+	self style: MozTextFontStyle NORMAL value
