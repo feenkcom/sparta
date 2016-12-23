@@ -3,9 +3,9 @@ primInitHyphenationBreaks: aHyphenationBreaks hyphensOption: aHyphensOption hyph
 
 	^ self ffiCall: #(void moz2d_text_run_property_provider_init (
 		self,
-		FFICallback aHyphenationBreaks,
-		FFICallback aHyphensOption,
-		FFICallback aHyphenWidth,
-		FFICallback aSpacing,
-		FFICallback aDrawTarget,
-		FFICallback anAppUnitsPerDevUnit))
+		MozTextPropertyHyphenationBreaksCallback aHyphenationBreaks,
+		MozTextPropertyHyphensOptionCallback aHyphensOption,
+		MozTextPropertyHyphenWidthCallback aHyphenWidth,
+		MozTextPropertySpacingCallback aSpacing,
+		MozTextPropertyDrawTargetCallback aDrawTarget,
+		MozTextPropertyAppUnitsCallback anAppUnitsPerDevUnit))

@@ -1,9 +1,9 @@
 services
 start
 	
-	self
+	"self
 		assert: [ self isRunning not ]
-		description: [ 'Services must not be running' ].
+		description: [ 'Services must not be running' ]."
 		
 	MozLibrary uniqueInstance hasModule
 		"If there is not Moz2D library installed we can not start services"

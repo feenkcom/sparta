@@ -4,4 +4,4 @@ testGetHyphenWidth
 	
 	actualWidth := self primGetHyphenWidth: propertyProvider.
 
-	self assert: actualWidth equals: propertyProvider hyphenWidth
+	self assert: (actualWidth - propertyProvider hyphenWidth) abs < 0.000001

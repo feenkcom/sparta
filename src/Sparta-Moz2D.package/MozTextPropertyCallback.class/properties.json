@@ -1,0 +1,16 @@
+{
+	"category" : "Sparta-Moz2D-Text-Callbacks",
+	"classinstvars" : [
+		"uniqueInstance" ],
+	"classtraitcomposition" : "TMozLibrary classTrait",
+	"classvars" : [
+		 ],
+	"commentStamp" : "AliakseiSyrel 12/23/2016 19:15",
+	"instvars" : [
+		"session" ],
+	"name" : "MozTextPropertyCallback",
+	"pools" : [
+		 ],
+	"super" : "FFICallback",
+	"traitcomposition" : "TMozLibrary",
+	"type" : "normal" }

@@ -7,7 +7,9 @@
 	"commentStamp" : "",
 	"instvars" : [
 		"canvas",
-		"breakPriority" ],
+		"breakPriority",
+		"spacing",
+		"string" ],
 	"name" : "MozTextPropertyProviderTestsHelper",
 	"pools" : [
 		 ],
