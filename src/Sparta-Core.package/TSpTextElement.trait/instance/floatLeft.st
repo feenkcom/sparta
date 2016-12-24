@@ -1,2 +1,0 @@
-floating
-floatLeft

@@ -1,0 +1,3 @@
+initialization
+defaultPaint
+	^ Color black

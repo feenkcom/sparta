@@ -1,1 +1,0 @@
-I define an api that any text element should have

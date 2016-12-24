@@ -1,0 +1,14 @@
+{
+	"category" : "Sparta-Core-Text-Model",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "AliakseiSyrel 12/24/2016 21:26",
+	"instvars" : [
+		"paint" ],
+	"name" : "SpTextForegroundAttribute",
+	"pools" : [
+		 ],
+	"super" : "SpAttribute",
+	"type" : "normal" }

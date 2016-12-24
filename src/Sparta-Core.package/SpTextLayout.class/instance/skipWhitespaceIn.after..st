@@ -1,14 +1,14 @@
 private
 skipWhitespaceIn: aString after: aStart
-	"Return an index of the first non-whitespace character in aString
-	after aStart index"
+	"Return an index of the first non-whitespace character in aString after aStart index"
 	<return: #Number>
+	| anIndex aChar |
 
-	|index char |
-	index := aStart.
-	char := aString at: index.
-	[ index < aString size
-		and: [ self isWhitespace: char ] ] whileTrue: [ 
-		index := index + 1.
-		char := aString at: index ].
-	^ index
+	anIndex := aStart.
+	aChar := aString at: anIndex.
+	[ anIndex < aString size
+		and: [ self isWhitespace: aChar ] ]
+			whileTrue: [ 
+				anIndex := anIndex + 1.
+				aChar := aString at: anIndex ].
+	^ anIndex

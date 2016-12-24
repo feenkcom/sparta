@@ -15,8 +15,8 @@ exampleTextWithShadow
 	rope := SpRope from: 'Line 1' , String cr , 'Line 2' , String cr , 'Hello World!'.
 	rope := rope
 		attributes:
-			{(SpForegroundColorAttribute color: Color veryVeryDarkGray).
-			(SpShadowAttribute new
+			{(SpTextForegroundAttribute paint: Color veryVeryDarkGray).
+			(SpTextShadowAttribute new
 				offset: 2 @ 2;
 				color: Color gray;
 				radius: 1).
@@ -28,7 +28,7 @@ exampleTextWithShadow
 	rope := rope
 		attributes:
 			{SpFontStyleAttribute italic.
-			(SpForegroundColorAttribute color: Color red)}
+			(SpTextForegroundAttribute color: Color red)}
 		from: 8
 		to: 13.
 	rope := rope attributes: {(SpFontWeightAttribute weight: 800)} from: 15 to: rope size.

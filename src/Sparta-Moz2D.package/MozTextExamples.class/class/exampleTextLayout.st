@@ -12,7 +12,7 @@ exampleTextLayout
 	rope := SpRope from: 'abcdefg-12345', String cr, 'hijklmadadfsdgs', String cr, 'Hello World!'.
 	rope := rope attributes: { SpFontSizeAttribute new size: 70 } from: 1 to: rope size.
 	rope := rope attributes: { SpTextWrapAttribute new normal } from: 1 to: rope size.
-	rope := rope attributes: { SpTransformationAttribute new
+	rope := rope attributes: { SpTextTransformationAttribute new
 		scaleBy: 0.2 } from: 15 to: 30.
 
 	textLayout := SpTextLayout

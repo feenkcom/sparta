@@ -9,9 +9,9 @@ renderSpan: aSpan on: aCanvas
 	aTextPainter := aCanvas text.
 	attributes
 		do: [ :attribute | 
-			attribute drawOn: aCanvas with: aSpan.
+			attribute drawBelowOn: aCanvas with: aSpan.
 			attribute applyOnText: aTextPainter with: aSpan ].
-	
+
 	aBaseline := transformation inverted transform: (aSpan baseline + transformation translation).
 	
 	"If transformation is just a translation there is no need
@@ -26,4 +26,8 @@ renderSpan: aSpan on: aCanvas
 				aTransform
 					multiplyBy: transformation;
 					apply.
-				self renderSpan: aSpan with: aTextPainter at: aBaseline ] ]
+				self renderSpan: aSpan with: aTextPainter at: aBaseline ] ].
+
+	"And finally let attributes to render above the text"
+	attributes
+		do: [ :attribute | attribute drawAboveOn: aCanvas with: aSpan ].

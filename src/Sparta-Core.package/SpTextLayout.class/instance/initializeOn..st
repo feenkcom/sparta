@@ -1,13 +1,15 @@
 initialization
 initializeOn: aCanvas
+	"Measure and create lines with text spans from provided rope
+	based on attributes and layout properties (maximum width / height)"
 	| anIterator aContext |
+
 	aContext := SpTextLayoutContext new.
 	aContext rope: rope.
 	aContext maxWidth: maxWidth.
 	aContext maxHeight: maxHeight.
-	
-	anIterator := self rope iterator: 1 to: self rope size.
 
+	anIterator := rope iterator: 1 to: rope size.
 	[ anIterator hasNext and: [ aContext availableHeight > 0 ] ] whileTrue: [ 
 		| aLine |
 		"If we pass while-check we definitely moved to the next line,
@@ -15,7 +17,7 @@ initializeOn: aCanvas
 		aContext movePosition: anIterator position.
 		aLine := anIterator nextLine.
 		self initializeLine: aLine on: aCanvas with: aContext ].
-	
+
 	height := 0.
 	aContext lines do: [ :aLine |
 		aLine baseline: 0 @ (height + aLine ascent).

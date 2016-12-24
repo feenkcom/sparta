@@ -1,3 +1,8 @@
 properties
 applyOnFont: aFontBuilder with: aSpan
-	aFontBuilder weight: weight
+
+	weight isNumber
+		ifTrue: [ aFontBuilder weight: weight ]
+		ifFalse: [ weight isSymbol
+			ifTrue: [ aFontBuilder perform: weight ]
+			ifFalse: [ self error: 'Unknown weight: ', weight asString ] ]

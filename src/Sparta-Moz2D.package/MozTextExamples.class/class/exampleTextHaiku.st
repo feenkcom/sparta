@@ -14,10 +14,10 @@ exampleTextHaiku
 	rope := SpRope from: 'Soft words' , String cr , 'Brushing minds' , String cr , 'Are poetic gifts'.
 	rope := rope
 		attributes:
-			{ SpForegroundColorAttribute color: Color veryVeryDarkGray.
+			{ SpTextForegroundAttribute paint: Color veryVeryDarkGray.
 			  SpFontSizeAttribute size: 70.
 			  SpTextWrapAttribute new normal.
-			  SpShadowAttribute new
+			  SpTextShadowAttribute new
 			    offset: 2 @ 2;
 			    color: Color gray;
 			    radius: 1 }
@@ -25,13 +25,13 @@ exampleTextHaiku
 	rope := rope
 		attributes:
 			{ SpFontStyleAttribute italic.
-			  SpForegroundColorAttribute color: Color darkGray.
+			  SpTextForegroundAttribute color: Color darkGray.
 			  SpFontWeightAttribute weight: 50 }
 		from: 1
 		to: 10.
 	rope := rope
 		attributes:
-			{ SpForegroundColorAttribute color: (SpLinearGradient new
+			{ SpTextForegroundAttribute color: (SpLinearGradient new
 				begin: 0@0;
 				end: 500@0;
 				stops: { 0 -> Color red. 1 -> Color blue }).
