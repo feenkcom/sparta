@@ -8,7 +8,7 @@ reset
 	paint := Color black.
 	strokePaint := Color transparent.
 	baseline := 0@0.
-	string := nil.
+	text := nil.
 	start := nil.
 	end := nil.
 	spacing := 0.

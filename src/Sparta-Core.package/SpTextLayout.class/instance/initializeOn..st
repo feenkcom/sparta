@@ -18,6 +18,7 @@ initializeOn: aCanvas
 		line := iterator nextLine.
 		self initializeLine: line on: aCanvas with: context ].
 	
+	height := 0.
 	context lines do: [ :aLine |
 		lines add: aLine.
 		aLine baseline: 0@(height + aLine ascent).

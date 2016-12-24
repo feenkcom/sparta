@@ -9,7 +9,6 @@
 	"instvars" : [
 		"drawOptions",
 		"strokeOptions",
-		"string",
 		"font",
 		"paint",
 		"strokePaint",
@@ -18,7 +17,8 @@
 		"end",
 		"spacing",
 		"maxWidth",
-		"clip" ],
+		"clip",
+		"text" ],
 	"name" : "SpartaTextPainter",
 	"pools" : [
 		 ],

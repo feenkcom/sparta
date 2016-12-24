@@ -1,5 +1,7 @@
 measurement
 measureFont: aFontGroup
-	|textRun|
-	textRun := aFontGroup makeTextRun: string canvas: canvas flags: flags.
-	^ self measureTextRun: textRun
+	| aTextRun aResult |
+	aTextRun := aFontGroup makeTextRunNoRelease: string canvas: canvas flags: flags.
+	aResult := self measureTextRun: aTextRun.
+	aTextRun release.
+	^ aResult

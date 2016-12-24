@@ -5,8 +5,6 @@ drawOn: aCanvas with: aSpan
 	expand := radius * Float pi.
 	area := (aSpan box translateBy: aSpan baseline) expandBy: expand.
 
-	aSpan box logCr.
-
 	shadowCanvas := aCanvas similar: area extent.
 
 	attributes := aSpan attributes.

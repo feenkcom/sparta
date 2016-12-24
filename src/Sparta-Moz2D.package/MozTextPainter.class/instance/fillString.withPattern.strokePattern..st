@@ -1,6 +1,6 @@
 drawing
 fillString: aString withPattern: aFillPattern strokePattern: aStrokePattern
-	| metricsProvider textRun aDrawMode |
+	| aMetricsProvider aTextRun aDrawMode |
 	self
 		assert: [ aString isNotNil ]
 		description: [ 'String must not be nil' ].
@@ -9,22 +9,24 @@ fillString: aString withPattern: aFillPattern strokePattern: aStrokePattern
 		assert: [ font isNotNil ]
 		description: [ 'Font must not be nil' ].
 
-	metricsProvider := self createMetricsProvider.
-	textRun := font makeTextRun: string canvas: canvas flags: metricsProvider flags.
+	aMetricsProvider := self metricsProvider.
+	aTextRun := font makeTextRunNoRelease: text canvas: canvas flags: aMetricsProvider flags.
 	clip ifTrue: [ 
-		maxWidth ifNotNil: [ metricsProvider width: maxWidth ].
-		metricsProvider measureTextRun: textRun.
-		end := end min: metricsProvider longestSubstring ].
+		maxWidth ifNotNil: [ aMetricsProvider width: maxWidth ].
+		aMetricsProvider measureTextRun: aTextRun.
+		end := end min: aMetricsProvider longestSubstring ].
 	aDrawMode := drawMode ifNil: [ MozTextDrawMode GLYPH_FILL value ].
 	aDrawMode := aDrawMode | MozTextDrawMode GLYPH_STROKE value.
 
 	self
-		primDrawTextRun: textRun
-		provider: metricsProvider propertyProvider
+		primDrawTextRun: aTextRun
+		provider: aMetricsProvider propertyProvider
 		x: baseline x
 		y: baseline y
 		drawMode: aDrawMode
 		drawOptions: (drawOptions ifNil: [ canvas defaultDrawOptions ])
 		strokeOptions: (strokeOptions ifNil: [ canvas defaultStrokeOptions ])
 		fillPattern: (aFillPattern asMozPatternOn: canvas)
-		strokePattern: (aStrokePattern asMozPatternOn: canvas)
+		strokePattern: (aStrokePattern asMozPatternOn: canvas).
+	
+	aTextRun release

@@ -9,7 +9,11 @@
 		"start",
 		"end",
 		"attributes",
-		"spanRope" ],
+		"spanRope",
+		"metrics",
+		"textRun",
+		"font",
+		"transformation" ],
 	"name" : "SpTextSpan",
 	"pools" : [
 		 ],

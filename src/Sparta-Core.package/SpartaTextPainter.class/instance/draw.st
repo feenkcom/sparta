@@ -1,3 +1,3 @@
 drawing
 draw
-	paint spartaFillString: string with: self
+	text spartaFillOn: canvas with: self
