@@ -38,12 +38,10 @@ initializeSpan: aSpan on: aCanvas with: aContext
 			"to can be less than from, meaning that there are no fully visible characters that fit in available width"
 			to < from
 				ifTrue: [ | saveEnd |
-					saveEnd := textPainter end.
 					aMetricsProvider width: Float infinity.
-					aMetricsProvider end: from.
+					aMetricsProvider length: from - aMetricsProvider start + 1.
 					aMetricsProvider measureTextRun: aTextRun.
-					to := aMetricsProvider longestSubstring.
-					textPainter end: saveEnd ].
+					to := aMetricsProvider longestSubstring ].
 			span := SpTextSpan
 				rope: rope
 				segment: aSpan
