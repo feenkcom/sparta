@@ -1,5 +1,5 @@
 initialization
-rope: aRope segment: aSpanRope start: aStart end: anEnd from: aTextFrom to: aTextTo metrics: aMetrics transform: aSpartaMatrix textRun: aTextRun font: aFont
+rope: aRope segment: aSpanRope start: aStart end: anEnd from: aTextFrom to: aTextTo metrics: aMetrics transform: aSpartaMatrix transformInverted: anInvertedSpartaMatrix textRun: aTextRun font: aFont
 	rope := aRope.
 	spanRope := aSpanRope.
 	start := aStart.
@@ -15,6 +15,7 @@ rope: aRope segment: aSpanRope start: aStart end: anEnd from: aTextFrom to: aTex
 	strikethroughSize := aSpartaMatrix transformY: aMetrics fontMetrics strikeoutSize.
 	height := ascent + descent.
 	transformation := aSpartaMatrix.
+	transformationInverted := anInvertedSpartaMatrix.
 	metrics := aMetrics.
 	textRun := aTextRun.
 	font := aFont

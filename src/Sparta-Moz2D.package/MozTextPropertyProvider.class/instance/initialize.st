@@ -4,7 +4,6 @@ initialize
 
 	self
 		primInitHyphenationBreaks: MozTextPropertyHyphenationBreaksCallback uniqueInstance
-		hyphensOption: MozTextPropertyHyphensOptionCallback uniqueInstance
 		hyphenWidth: MozTextPropertyHyphenWidthCallback uniqueInstance
 		spacing: MozTextPropertySpacingCallback uniqueInstance
 		drawTarget: MozTextPropertyDrawTargetCallback uniqueInstance

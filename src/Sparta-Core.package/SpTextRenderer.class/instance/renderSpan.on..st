@@ -1,30 +1,30 @@
 rendering
 renderSpan: aSpan on: aCanvas
-	| attributes transformation aTextRun aTextPainter aBaseline |
-	
+	| attributes aTransformation aTransformationInverted aTextPainter aBaseline |
+
 	attributes := aSpan attributes.
-	transformation := aSpan transformation.
-	aTextRun := aSpan textRun.
-	
+	aTransformation := aSpan transformation.
+	aTransformationInverted := aSpan transformationInverted.
+
 	aTextPainter := aCanvas text.
 	attributes
-		do: [ :attribute | 
+		do: [ :attribute |
 			attribute drawBelowOn: aCanvas with: aSpan.
 			attribute applyOnText: aTextPainter with: aSpan ].
 
-	aBaseline := transformation inverted transform: (aSpan baseline + transformation translation).
-	
+	aBaseline := aTransformationInverted transform: (aSpan baseline + aTransformation translation).
+
 	"If transformation is just a translation there is no need
 	to changed transformation matrix of a canvas, we can just
 	translate a baseline - just faster"
-	transformation isPureTranslation
+	aTransformation isPureTranslation
 		ifTrue: [ 
-			aBaseline := aBaseline + transformation translation.
+			aBaseline := aBaseline + aTransformation translation.
 			self renderSpan: aSpan with: aTextPainter at: aBaseline ]
 		ifFalse: [ 
 			aCanvas transform during: [ :aTransform | 
 				aTransform
-					multiplyBy: transformation;
+					multiplyBy: aTransformation;
 					apply.
 				self renderSpan: aSpan with: aTextPainter at: aBaseline ] ].
 

@@ -52,6 +52,7 @@ initializeSpan: aSpan on: aCanvas with: aContext
 				to: aContext position + (to - from)
 				metrics: aMetricsProvider
 				transform: transform
+				transformInverted: transformInverted
 				textRun: aTextRun
 				font: aFont.
 			span attributes: attributes.

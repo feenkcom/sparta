@@ -15,7 +15,8 @@
 		"font",
 		"transformation",
 		"strikethroughOffset",
-		"strikethroughSize" ],
+		"strikethroughSize",
+		"transformationInverted" ],
 	"name" : "SpTextSpan",
 	"pools" : [
 		 ],
