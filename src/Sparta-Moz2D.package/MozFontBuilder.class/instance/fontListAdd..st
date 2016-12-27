@@ -1,4 +1,5 @@
 private
 fontListAdd: aFontName
-	fontList add: aFontName.
-	self resetFontGroup
+
+	fontList ifNil: [ fontList := OrderedCollection new ].
+	fontList add: aFontName

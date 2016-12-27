@@ -1,15 +1,14 @@
 {
 	"category" : "Sparta-Moz2D-Builders",
 	"classinstvars" : [
-		 ],
+		"cache",
+		"session" ],
 	"classtraitcomposition" : "TMozLibrary classTrait",
 	"classvars" : [
 		 ],
 	"commentStamp" : "",
 	"instvars" : [
-		"fontList",
-		"fontStyle",
-		"fontGroup" ],
+		"fontList" ],
 	"name" : "MozFontBuilder",
 	"pools" : [
 		"MozSharedPool" ],

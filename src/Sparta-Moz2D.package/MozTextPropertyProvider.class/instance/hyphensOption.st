@@ -4,5 +4,5 @@ hyphensOption
 	whether it is necessary to send hyphenationBreaksWithin:
 	Hyphens option can be one of NONE, AUTO or MANUAL"
 	^ self metricsProvider breakPriority canWrapHyphens
-		ifTrue: [ MozTextHyphensOption AUTO ]
+		ifTrue: [ MozTextHyphensOption MANUAL ]
 		ifFalse: [ MozTextHyphensOption NONE ]

@@ -3,7 +3,7 @@ hyphenationBreaksWithin: anInterval in: anArray
 	"Detect hyphenation break opportunities in the given range.
 	Breaks not at cluster boundaries will be ignored."
 	| aPrevChar |
-
+	
 	aPrevChar := nil.
 	anInterval withIndexDo: [ :aStringIndex :anArrayIndex |
 		| aChar shouldBreak |

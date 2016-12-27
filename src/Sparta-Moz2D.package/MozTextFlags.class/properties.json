@@ -5,6 +5,9 @@
 	"classvars" : [
 		"TEXT_ENABLE_HYPHEN_BREAKS",
 		"TEXT_ENABLE_SPACING",
+		"TEXT_IS_ASCII",
+		"TEXT_IS_PERSISTENT",
+		"TEXT_IS_RTL",
 		"TEXT_NEED_BOUNDING_BOX" ],
 	"commentStamp" : "",
 	"instvars" : [

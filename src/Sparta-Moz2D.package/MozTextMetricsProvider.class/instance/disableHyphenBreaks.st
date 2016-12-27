@@ -1,3 +1,3 @@
 advanced options
 disableHyphenBreaks
-	flags := flags bitXor: MozTextFlags TEXT_ENABLE_HYPHEN_BREAKS value
+	self clearFlag: MozTextFlags TEXT_ENABLE_HYPHEN_BREAKS

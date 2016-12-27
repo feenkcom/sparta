@@ -16,7 +16,7 @@ initialize
 	self tightInkExtents.
 	self suppressNoBreaks.
 	self enableBoundingBox.
-	self enableHyphenBreaks.
+	self disableHyphenBreaks.
 	self enableWordWrap.
 	self enablePropertyProvider.
 	self recordLastBreak.

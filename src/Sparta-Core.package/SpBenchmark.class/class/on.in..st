@@ -1,7 +1,7 @@
 benchmark
 on: aBlock in: aFileName
 	| max accuracy results |
-	max := 16.
+	max := 10.
 
 	accuracy := 6.
 	results := OrderedDictionary new.

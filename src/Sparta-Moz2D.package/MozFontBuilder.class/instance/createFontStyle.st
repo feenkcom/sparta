@@ -2,8 +2,8 @@ private - instance creation
 createFontStyle
 
 	^ MozFontStyle
-		style: style
-		weight: weight
-		stretch: stretch
+		style: style value
+		weight: weight value
+		stretch: stretch value
 		size: size
 		language: language

@@ -1,0 +1,14 @@
+{
+	"category" : "Sparta-Moz2D",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		 ],
+	"name" : "MozObject",
+	"pools" : [
+		 ],
+	"super" : "Object",
+	"type" : "normal" }

@@ -1,3 +1,0 @@
-private
-resetFontGroup
-	fontGroup := nil

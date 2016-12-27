@@ -1,11 +1,9 @@
 drawing
 fillTextRun: aTextRun withColor: aFillColor strokeColor: aStrokeColor
 	| aMetricsProvider aDrawMode |
-	self
-		assert: [ aTextRun isNotNil and: [ aTextRun isNull not ] ]
-		description: [ 'A text run must not be nil or nullptr' ].
 
 	aMetricsProvider := aTextRun metricsProvider.
+	
 	(clip and: [ aMetricsProvider isNotNil ]) ifTrue: [ 
 		maxWidth ifNotNil: [ aMetricsProvider width: maxWidth ].
 		aMetricsProvider measureTextRun: aTextRun.
