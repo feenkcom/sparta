@@ -12,7 +12,7 @@ initializeSpan: aSpan on: aCanvas with: aContext
 	from := 1.
 	size := aSpan size.
 	transformInverted := transform inverted.
-	
+
 	aFont := aTextPainter font.
 	aMetricsProvider := aTextPainter metricsProvider.
 	aMetricsProvider enableFontMetrics.
@@ -53,8 +53,7 @@ initializeSpan: aSpan on: aCanvas with: aContext
 				metrics: aMetricsProvider
 				transform: transform
 				transformInverted: transformInverted
-				textRun: aTextRun
-				font: aFont.
+				textRun: aTextRun.
 			span attributes: attributes.
 			aContext pushSpan: span.
 			aContext isSplitted
