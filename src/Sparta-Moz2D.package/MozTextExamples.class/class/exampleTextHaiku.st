@@ -25,13 +25,13 @@ exampleTextHaiku
 	rope := rope
 		attributes:
 			{ SpFontStyleAttribute italic.
-			  SpTextForegroundAttribute color: Color darkGray.
+			  SpTextForegroundAttribute paint: Color darkGray.
 			  SpFontWeightAttribute weight: 50 }
 		from: 1
 		to: 10.
 	rope := rope
 		attributes:
-			{ SpTextForegroundAttribute color: (SpLinearGradient new
+			{ SpTextForegroundAttribute paint: (SpLinearGradient new
 				begin: 0@0;
 				end: 500@0;
 				stops: { 0 -> Color red. 1 -> Color blue }).

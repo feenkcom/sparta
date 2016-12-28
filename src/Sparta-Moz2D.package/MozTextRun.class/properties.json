@@ -8,7 +8,9 @@
 	"commentStamp" : "",
 	"instvars" : [
 		"metricsProvider",
-		"buffer" ],
+		"buffer",
+		"length",
+		"bits" ],
 	"name" : "MozTextRun",
 	"pools" : [
 		 ],

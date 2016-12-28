@@ -5,5 +5,4 @@ makeTextRun: aString canvas: canvas flags: aFlags
 	aTextRun := (self makeTextRunNoRelease: aString canvas: canvas flags: aFlags).
 	
 	aTextRun	autoRelease.
-
 	^ aTextRun

@@ -2,12 +2,19 @@ accessing
 hyphenationBreaksWithin: anInterval in: anArray
 	"Detect hyphenation break opportunities in the given range.
 	Breaks not at cluster boundaries will be ignored."
-	| aPrevChar |
+	| aPrevChar anIterator |
+	
+	self
+		assert: [ self textRun isNotNil ]
+		description: [ 'Text run must not be nil' ].
 	
 	aPrevChar := nil.
-	anInterval withIndexDo: [ :aStringIndex :anArrayIndex |
+	anIterator := self textRun iterator.
+	anIterator skipUnits: anInterval first - 1.
+	
+	anInterval withIndexDo: [ :aTextRunIndex :anArrayIndex |
 		| aChar shouldBreak |
-		aChar := (self string at: aStringIndex).
+		aChar := anIterator nextUnit.
 		shouldBreak := aChar = Character space or: [ aPrevChar = $- ].
 		aPrevChar := aChar.
 		anArray at: anArrayIndex put: shouldBreak ]

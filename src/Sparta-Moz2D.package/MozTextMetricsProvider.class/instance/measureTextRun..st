@@ -5,9 +5,11 @@ measureTextRun: aTextRun
 	breakPriorityPointer := ExternalAddress allocate: (FFIUInt32 externalTypeSize).
 	breakPriorityPointer unsignedLongAt: 1 put: breakPriority value.
 	
-	propertyProvider ifNotNil: [ :aProvider | self
-		primSet: aProvider
-		hyphensOption: aProvider hyphensOption ].
+	propertyProvider ifNotNil: [ :aProvider |
+		self
+			primSet: aProvider
+			hyphensOption: aProvider hyphensOption.
+		aProvider textRun: aTextRun ].
 	
 	longestSubstring := self
 		primMeasure: aTextRun
@@ -25,6 +27,8 @@ measureTextRun: aTextRun
 		lastBreak: lastBreak
 		wordWrap: (breakPriority canWrapWord and: [ canWordWrap ])
 		breakPriority: breakPriorityPointer.
-
+	
+	propertyProvider ifNotNil: [ :aProvider | aProvider textRun: nil ].
+	
 	fontMetrics isNull ifFalse: [ self primFontMetrics: fontMetrics textRun: aTextRun ].
 	^ longestSubstring

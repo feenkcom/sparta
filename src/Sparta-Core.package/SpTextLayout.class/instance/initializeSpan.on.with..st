@@ -1,6 +1,6 @@
 initialize-release
 initializeSpan: aSpan on: aCanvas with: aContext
-	| attributes aTextPainter size from transform transformInverted aMetricsProvider aTextRun aFont |
+	| attributes aTextPainter aLength aStart transform transformInverted aMetricsProvider aTextRun aFont |
 	self
 		assert: [ aSpan isNotEmpty ]
 		description: [ 'Span must be non-empty!' ].
@@ -9,8 +9,7 @@ initializeSpan: aSpan on: aCanvas with: aContext
 	transform := SpartaMatrix new.
 	attributes do: [ :attribute | attribute applyOnTransform: transform with: aSpan ].
 	aTextPainter := self initializePainter: aSpan on: aCanvas.
-	from := 1.
-	size := aSpan size.
+	aStart := 1.
 	transformInverted := transform inverted.
 
 	aFont := aTextPainter font.
@@ -22,34 +21,38 @@ initializeSpan: aSpan on: aCanvas with: aContext
 		canvas: aTextPainter canvas
 		flags: aMetricsProvider flags.
 
+	aLength := aTextRun size.
+	
 	self
 		assert: [ aTextRun isNull not ]
 		description: [ 'Created text run must not be nullptr' ].
 
 	aTextRun metricsProvider: aMetricsProvider.
-	[ from <= size and: [ aContext availableHeight > 0 ] ]
-		whileTrue: [ | span to |
+	[ aStart <= aLength and: [ aContext availableHeight > 0 ] ]
+		whileTrue: [ | span anEnd |
 			"here we skip all left whitespace after break"
 			aContext isSplitted
-				ifTrue: [ from := self skipWhitespaceIn: aTextPainter string after: from ].
+				ifTrue: [
+					"white space"
+					aStart := self skipWhitespaceIn: aTextPainter string after: aStart ].
 
 			aMetricsProvider width: (transformInverted transformX: aContext availableWidth) - transform translation x.
-			aMetricsProvider start: from.
+			aMetricsProvider start: aStart.
 			aMetricsProvider measureTextRun: aTextRun.
-			to := aMetricsProvider longestSubstring.
+			anEnd := aMetricsProvider longestSubstring.
 			"to can be less than from, meaning that there are no fully visible characters that fit in available width"
-			to < from ifTrue: [
+			anEnd < aStart ifTrue: [
 				aMetricsProvider width: Float infinity.
-				aMetricsProvider length: from - aMetricsProvider start + 1.
+				aMetricsProvider length: aStart - aMetricsProvider start + 1.
 				aMetricsProvider measureTextRun: aTextRun.
-				to := aMetricsProvider longestSubstring ].
+				anEnd := aMetricsProvider longestSubstring ].
 			span := SpTextSpan
 				rope: rope
 				segment: aSpan
-				start: from
-				end: to
+				start: aStart "should be in string buffer coordinates (respecting 1 vs 2 vs 4 bits per character)"
+				end: anEnd "should be in string buffer coordinates (respecting 1 vs 2 vs 4 bits per character)"
 				from: aContext position
-				to: aContext position + (to - from)
+				to: aContext position + (anEnd - aStart)
 				metrics: aMetricsProvider
 				transform: transform
 				transformInverted: transformInverted
@@ -58,5 +61,5 @@ initializeSpan: aSpan on: aCanvas with: aContext
 			aContext pushSpan: span.
 			aContext isSplitted
 				ifTrue: [ aContext pushLine ].
-			from := to + 1 ].
-	aContext pushPosition: from - 1 - size
+			aStart := anEnd + 1 ].
+	aContext pushPosition: aStart - 1 - aLength

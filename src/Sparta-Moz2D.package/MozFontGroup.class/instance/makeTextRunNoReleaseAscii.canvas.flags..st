@@ -8,7 +8,7 @@ makeTextRunNoReleaseAscii: aString canvas: canvas flags: aFlags
 	aTextRun := (self
 		primMakeTextRunASCII: aBuffer
 		drawTarget: canvas
-		length: aBuffer size
+		length: aLength
 		initialBreaks: nil "Didn't manage to make them work"
 		initialBreaksCount: 0
 		appUnitsPerDevUnit: 1
@@ -18,5 +18,7 @@ makeTextRunNoReleaseAscii: aString canvas: canvas flags: aFlags
 			yourself.
 
 	aTextRun buffer: aBuffer.
-	
+	aTextRun length: aString size.
+	aTextRun bits: 8.
+
 	^ aTextRun

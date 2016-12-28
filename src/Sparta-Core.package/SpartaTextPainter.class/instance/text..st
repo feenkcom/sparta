@@ -2,4 +2,5 @@ accessing
 text: aText
 	text := aText.
 	start := 1.
-	end := aText size
+	"Float infinity means that we render untill the end of the text"
+	end := Float infinity

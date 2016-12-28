@@ -1,9 +1,9 @@
 drawing
 fillTextRun: aTextRun withColor: aFillColor strokeColor: aStrokeColor
 	| aMetricsProvider aDrawMode |
-
-	aMetricsProvider := aTextRun metricsProvider.
 	
+	aMetricsProvider := aTextRun metricsProvider.
+
 	(clip and: [ aMetricsProvider isNotNil ]) ifTrue: [ 
 		maxWidth ifNotNil: [ aMetricsProvider width: maxWidth ].
 		aMetricsProvider measureTextRun: aTextRun.

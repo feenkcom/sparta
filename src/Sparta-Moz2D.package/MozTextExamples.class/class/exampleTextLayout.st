@@ -9,7 +9,7 @@ exampleTextLayout
 		path: canvas bounds;
 		draw.
 
-	rope := SpRope from: 'abcdefg-12345', String cr, 'hijklmadadfsdgs', String cr, 'Hello World!'.
+	rope := SpRope from: 'abcdef🚀-12345', String cr, 'hijklmadadfsdgs', String cr, 'Hello World!'.
 	rope := rope attributes: { SpFontSizeAttribute size: 70 } from: 1 to: rope size.
 	rope := rope attributes: { SpTextWrapAttribute normal } from: 1 to: rope size.
 	rope := rope attributes: { SpTextTransformationAttribute new
