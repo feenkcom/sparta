@@ -28,7 +28,7 @@ exampleTextWithShadow
 	rope := rope
 		attributes:
 			{SpFontStyleAttribute italic.
-			(SpTextForegroundAttribute color: Color red)}
+			(SpTextForegroundAttribute paint: Color red)}
 		from: 8
 		to: 13.
 	rope := rope attributes: {(SpFontWeightAttribute weight: 800)} from: 15 to: rope size.

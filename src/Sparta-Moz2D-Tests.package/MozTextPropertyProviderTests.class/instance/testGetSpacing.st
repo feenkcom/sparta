@@ -4,7 +4,10 @@ testGetSpacing
 	aSpacing := 20.0.
 	aStart := 10.
 	anEnd := 20. "without last, open interval"
-	anExpected := Array new: (anEnd - aStart) * 2 withAll: aSpacing.
+	anExpected := Array new: (anEnd - aStart) * 2 withAll: 0.
+	anExpected withIndexDo: [ :each :index |
+		index % 2 = 0
+			ifTrue: [ anExpected at: index put: aSpacing ] ].
 	
 	helper := MozTextPropertyProviderTestsHelper new.
 	helper spacing: aSpacing.

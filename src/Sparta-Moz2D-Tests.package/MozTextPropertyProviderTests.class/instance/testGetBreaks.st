@@ -8,10 +8,11 @@ testGetBreaks
 	anExpected := Array new: (anEnd - aStart) withAll: false.
 	anExpected at: 5 put: true.
 	anExpected at: 7 put: true.
-	
+
 	helper := MozTextPropertyProviderTestsHelper new.
 	helper string: aString.
 	propertyProvider metricsProvider: helper.
+	propertyProvider textRun: (MozTextRun fromString: aString).
 	
 	anExternalArray := FFIExternalArray externalNewType: 'bool' size: (anEnd - aStart).
 	anExternalArray atAllPut: false.
