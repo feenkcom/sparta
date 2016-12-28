@@ -1,29 +1,26 @@
 examples - attributes
 exampleForegroundGradient
-	| aCanvas aRope aTextLayout |
-
-	aCanvas := MozCanvas extent: 700@500.
+	| aCanvas aText |
+	aCanvas := MozCanvas extent: 700 @ 500.
 	aCanvas fill
 		paint: Color white;
 		path: aCanvas bounds;
 		draw.
 	aCanvas transform
-		translateBy: 200@200;
+		translateBy: 200 @ 200;
 		apply.
 
-	aRope := SpRope from: 'Foreground'.
-	aRope := aRope
-		attributes: {
+	aText := SpText fromString: 'Foreground'.
+	aText attributes: {
 			SpTextForegroundAttribute paint: (SpLinearGradient new
 				begin: 0@0;
 				end: 200@0;
 				stops: { 0 -> Color red. 1 -> Color blue } ).
 			SpTextStrikethroughAttribute new.
-			SpFontSizeAttribute size: 40 }
-		from: 1
-		to: aRope size.
-
-	aTextLayout := SpTextLayout rope: aRope.
-	aTextLayout renderOn: aCanvas.
-
+			SpFontSizeAttribute size: 40 }.
+	
+	aCanvas text
+		text: aText;
+		draw.
+	
 	aCanvas asForm asMorph openInWindow
