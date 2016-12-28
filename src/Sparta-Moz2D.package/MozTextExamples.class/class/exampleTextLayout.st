@@ -1,7 +1,7 @@
 examples - text
 exampleTextLayout
 	|canvas rope maxWidth textLayout |
-	maxWidth := 300.
+	maxWidth := 310.
 
 	canvas := MozCanvas extent: 700@500.
 	canvas fill

@@ -13,14 +13,14 @@ exampleTextMeasureHello
 		apply.
 
 	font := canvas font
-		size: 300;
+		size: 250;
 		weightThin;
 		sansSerif;
 		build.
 
 	textPainter := canvas text
 		paint: (Color black alpha: 0.5);
-		string: 'Hello';
+		string: 'H🙈llo';
 		font: font;
 		yourself.
 

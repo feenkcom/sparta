@@ -1,3 +1,3 @@
 style
 styleReset
-	self style: MozTextFontStyle NORMAL
+	self style: MozTextFontStyle NORMAL value

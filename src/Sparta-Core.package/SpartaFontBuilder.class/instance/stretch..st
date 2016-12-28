@@ -1,3 +1,3 @@
 accessing
 stretch: aNumber
-	stretch := aNumber
+	stretch := aNumber value
