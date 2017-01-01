@@ -15,6 +15,6 @@ hyphenationBreaksWithin: anInterval in: anArray
 	anInterval withIndexDo: [ :aTextRunIndex :anArrayIndex |
 		| aChar shouldBreak |
 		aChar := anIterator nextUnit.
-		shouldBreak := aChar = Character space or: [ aPrevChar = $- ].
+		shouldBreak := aPrevChar = Character space or: [ aPrevChar = $- ].
 		aPrevChar := aChar.
 		anArray at: anArrayIndex put: shouldBreak ]

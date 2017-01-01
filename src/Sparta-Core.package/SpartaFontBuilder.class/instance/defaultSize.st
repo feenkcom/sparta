@@ -1,3 +1,3 @@
 initialization
 defaultSize
-	^ 10
+	^ 14

@@ -2,7 +2,7 @@ accessing
 spacingWithin: anInterval in: anArray
 	| aSpacing |
 	
-	aSpacing := self metricsProvider spacing.
+	aSpacing := self spacing.
 
 	anInterval withIndexDo: [ :aStringIndex :anArrayIndex |
 		"Set spacing only after character"

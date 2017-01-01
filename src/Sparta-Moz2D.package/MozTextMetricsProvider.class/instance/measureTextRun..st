@@ -6,11 +6,14 @@ measureTextRun: aTextRun
 	breakPriorityPointer unsignedLongAt: 1 put: breakPriority value.
 	
 	propertyProvider ifNotNil: [ :aProvider |
+		aProvider spacing: self spacing.
+		aProvider breakPriority: self breakPriority.
+		
 		self
 			primSet: aProvider
 			hyphensOption: aProvider hyphensOption.
-		aProvider textRun: aTextRun ].
-	
+		aProvider textRun: aTextRun. ].
+
 	longestSubstring := self
 		primMeasure: aTextRun
 		start: start - 1
