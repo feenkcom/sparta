@@ -3,8 +3,8 @@ fillTextRun: aTextRun withColor: aFillColor strokeColor: aStrokeColor
 	| aMetricsProvider aDrawMode |
 	
 	aMetricsProvider := aTextRun metricsProvider.
-
-	(clip and: [ aMetricsProvider isNotNil ]) ifTrue: [ 
+	aMetricsProvider ifNil: [ aMetricsProvider := self metricsProvider ].
+	clip ifTrue: [ 
 		| aMetrics |
 		aMetrics := self metrics.
 		aMetrics measureFont: false.

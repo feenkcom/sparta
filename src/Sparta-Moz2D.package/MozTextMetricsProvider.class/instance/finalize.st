@@ -1,6 +1,5 @@
 finalization
 finalize
-	super finalize.
 	
 	self finalizeLastBreak.
 	self finalizeTrimWhitespace.

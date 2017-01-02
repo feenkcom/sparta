@@ -6,8 +6,8 @@ fillTextRun: aTextRun withPattern: aFillPattern strokePattern: aStrokePattern
 		description: [ 'A text run must not be nil' ].
 
 	aMetricsProvider := aTextRun metricsProvider.
-
-	(clip and: [ aMetricsProvider isNotNil ]) ifTrue: [ 
+	aMetricsProvider ifNil: [ aMetricsProvider := self metricsProvider ].
+	clip ifTrue: [ 
 		| aMetrics |
 		aMetrics := self metrics.
 		aMetrics measureFont: false.

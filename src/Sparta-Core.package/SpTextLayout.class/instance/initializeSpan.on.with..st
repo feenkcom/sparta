@@ -15,7 +15,10 @@ initializeSpan: aSpan on: aCanvas with: aContext
 
 	aMetrics := aTextPainter metrics.
 	aMetricsProvider := aTextPainter metricsProvider.
-	aTextRun := aTextPainter textRun autoRelease.
+	aTextRun := aTextPainter textRun.
+
+	self wantsAutoRelease
+		ifTrue: [ aTextRun autoRelease ].
 
 	"Length is amount of glyphs, not characters!"
 	aLength := aTextRun size.

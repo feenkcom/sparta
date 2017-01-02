@@ -1,5 +1,5 @@
 transformations
-translateX: px Y: py
+translateX: aX Y: aY
 
 
 " multiply receiver by translation matrix :
@@ -9,5 +9,5 @@ translateX: px Y: py
 |  0     0     1   |       | 0  0   1  |             |  0     0    1  |
 
 "
-	x := px "(sx*px) + (shx*py)" + x.
-	y := py "(shy*px) + (sy*py)" + y.
+	x := aX "(sx*px) + (shx*py)" + x.
+	y := aY "(shy*px) + (sy*py)" + y.

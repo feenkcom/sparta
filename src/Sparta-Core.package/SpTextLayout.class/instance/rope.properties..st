@@ -12,4 +12,5 @@ rope: aRope properties: aDictionary
 
 	rope := aRope.
 	maxWidth := aProperties at: #maxWidth ifAbsent: [ Float infinity ].
-	maxHeight := aProperties at: #maxHeight ifAbsent: [ Float infinity ]
+	maxHeight := aProperties at: #maxHeight ifAbsent: [ Float infinity ].
+	autoRelease := aProperties at: #autoRelease ifAbsent: [ true ]

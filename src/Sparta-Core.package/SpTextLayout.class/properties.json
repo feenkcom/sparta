@@ -12,7 +12,8 @@
 		"maxWidth",
 		"height",
 		"width",
-		"end" ],
+		"end",
+		"autoRelease" ],
 	"name" : "SpTextLayout",
 	"pools" : [
 		 ],
