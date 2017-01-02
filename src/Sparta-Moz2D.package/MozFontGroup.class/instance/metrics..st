@@ -1,7 +1,7 @@
 accessing
 metrics: isVertical
 	|metrics |
-	metrics := MozFontMetrics externalNew.
+	metrics := MozNativeFontMetrics externalNew.
 	self primGetMetrics: metrics orientation: isVertical.
 	metrics autoRelease.
 	^ metrics

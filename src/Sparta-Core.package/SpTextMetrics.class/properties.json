@@ -1,0 +1,20 @@
+{
+	"category" : "Sparta-Core-Text",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		"ascent",
+		"descent",
+		"top",
+		"left",
+		"width",
+		"advance",
+		"height" ],
+	"name" : "SpTextMetrics",
+	"pools" : [
+		 ],
+	"super" : "Object",
+	"type" : "normal" }

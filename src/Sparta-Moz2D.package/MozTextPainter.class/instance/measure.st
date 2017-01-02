@@ -1,13 +1,13 @@
 measurement
 measure
-	| metricsProvider aTextRun |
+	| aMetrics aMetricsProvider aTextRun |
 
-	metricsProvider := self metricsProvider.
-	maxWidth ifNotNil: [ metricsProvider width: maxWidth ].
-	metricsProvider enableFontMetrics.
+	aMetrics := self metrics.
+	aMetricsProvider := self metricsProvider.
+	aTextRun := self textRun.
 
-	aTextRun := font makeTextRunNoRelease: text canvas: canvas flags: metricsProvider flags.
-	metricsProvider measureTextRun: aTextRun.
+	aMetricsProvider processRequest: aMetrics with: aTextRun.
+
 	aTextRun release.
 
-	^ metricsProvider
+	^ aMetrics

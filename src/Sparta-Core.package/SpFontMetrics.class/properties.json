@@ -1,0 +1,30 @@
+{
+	"category" : "Sparta-Core-Text",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		"aveCharWidth",
+		"emAscent",
+		"emDescent",
+		"emHeight",
+		"externalLeading",
+		"internalLeading",
+		"maxAdvance",
+		"maxAscent",
+		"maxDescent",
+		"maxHeight",
+		"spaceWidth",
+		"strikeoutOffset",
+		"strikeoutSize",
+		"underlineOffset",
+		"underlineSize",
+		"xHeight",
+		"zeroOrAveCharWidth" ],
+	"name" : "SpFontMetrics",
+	"pools" : [
+		 ],
+	"super" : "Object",
+	"type" : "normal" }

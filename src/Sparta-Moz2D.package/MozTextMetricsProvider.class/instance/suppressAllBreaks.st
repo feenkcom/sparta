@@ -1,3 +1,0 @@
-advanced options
-suppressAllBreaks
-	suppressBreaks := MozTextSuppressBreak eSuppressAllBreaks

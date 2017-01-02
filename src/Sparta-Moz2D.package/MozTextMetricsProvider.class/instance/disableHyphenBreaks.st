@@ -1,3 +1,0 @@
-advanced options
-disableHyphenBreaks
-	self clearFlag: MozTextFlags TEXT_ENABLE_HYPHEN_BREAKS

@@ -15,5 +15,5 @@ drawLineAt: offsetY named: aName color: aColor on: aCanvas
 			build).
 	metricsProvider := textPainter measure.	
 	textPainter
-		baseline: ((aCanvas width - 5 - self canvasOffset x) @ offsetY) - (metricsProvider textMetrics boundingBox width @ 3);
+		baseline: ((aCanvas width - 5 - self canvasOffset x) @ offsetY) - (metricsProvider textMetrics width @ 3);
 		draw.

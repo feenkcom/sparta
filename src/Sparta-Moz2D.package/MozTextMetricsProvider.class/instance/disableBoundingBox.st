@@ -1,3 +1,0 @@
-advanced options
-disableBoundingBox
-	self clearFlag: MozTextFlags TEXT_NEED_BOUNDING_BOX

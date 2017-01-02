@@ -1,8 +1,7 @@
 advanced options
 enableFontMetrics
 
-	fontMetrics := MozFontMetrics externalNew.
-	fontMetrics autoRelease.
+	fontMetrics := MozNativeFontMetrics externalNew.
 	fontMetrics
 		aveCharWidth: 0;
 		emAscent: 0;

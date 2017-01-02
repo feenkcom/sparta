@@ -1,3 +1,0 @@
-advanced options
-suppressInitialBreak
-	suppressBreaks := MozTextSuppressBreak eSuppressInitialBreak

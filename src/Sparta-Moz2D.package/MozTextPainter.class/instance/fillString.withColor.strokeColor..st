@@ -9,10 +9,11 @@ fillString: aString withColor: aFillColor strokeColor: aStrokeColor
 		assert: [ font isNotNil ]
 		description: [ 'Font must not be nil' ].
 
-	aMetricsProvider := self metricsProvider.	
-	aTextRun := font makeTextRunNoRelease: text canvas: canvas flags: aMetricsProvider flags.
+	aMetricsProvider := self metricsProvider.
+	aTextRun := self textRun.
 	aTextRun metricsProvider: aMetricsProvider.
 	
 	self fillTextRun: aTextRun withColor: aFillColor strokeColor: aStrokeColor.
 	
+	aTextRun metricsProvider: nil.
 	aTextRun release

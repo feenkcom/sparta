@@ -13,3 +13,4 @@ SystemOrganization addCategory: 'Sparta-Moz2D-Preferences'!
 SystemOrganization addCategory: 'Sparta-Moz2D-Text'!
 SystemOrganization addCategory: 'Sparta-Moz2D-Text-Callbacks'!
 SystemOrganization addCategory: 'Sparta-Moz2D-Text-Enums'!
+SystemOrganization addCategory: 'Sparta-Moz2D-Text-Metrics'!

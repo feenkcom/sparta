@@ -1,7 +1,7 @@
 measurement
 fontMetrics
 	|metrics |
-	metrics := MozFontMetrics externalNew.
+	metrics := MozNativeFontMetrics externalNew.
 	metrics autoRelease.
 	self primFontMetrics: metrics.
 	^ metrics

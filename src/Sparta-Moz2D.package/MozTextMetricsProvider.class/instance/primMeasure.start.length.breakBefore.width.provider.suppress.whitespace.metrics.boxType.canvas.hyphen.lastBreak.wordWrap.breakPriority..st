@@ -10,7 +10,7 @@ primMeasure: aTextRun start: aStart length: aMaxLength breakBefore: aLineBreakBe
 		MozTextPropertyProvider aProvider,
 		MozTextSuppressBreak aSuppressBreak,
 		ExternalAddress aTrimWhitespace,
-		MozTextMetrics aMetrics,
+		MozNativeTextMetrics aMetrics,
 		MozTextBoundingBoxType aBoundingBoxType,
 		MozCanvas aCanvas,
 		ExternalAddress aUsedHyphenation,

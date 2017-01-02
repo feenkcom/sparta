@@ -1,8 +1,7 @@
 advanced options
 enableTextMetrics
 
-	textMetrics := MozTextMetrics externalNew.
-	textMetrics autoRelease.
+	textMetrics := MozNativeTextMetrics externalNew.
 	textMetrics
 		advanceWidth: 0;
 		ascent: 0;
@@ -10,4 +9,4 @@ enableTextMetrics
 		boundingBoxWidth: 0;
 		boundingBoxX: 0;
 		boundingBoxY: 0;
-		descent: 0.
+		descent: 0

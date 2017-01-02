@@ -13,4 +13,5 @@ reset
 	end := nil.
 	spacing := 0.
 	clip := false.
+	maxWidth := Float infinity.
 	self horizontal

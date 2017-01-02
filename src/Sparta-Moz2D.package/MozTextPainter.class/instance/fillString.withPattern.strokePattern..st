@@ -10,9 +10,10 @@ fillString: aString withPattern: aFillPattern strokePattern: aStrokePattern
 		description: [ 'Font must not be nil' ].
 
 	aMetricsProvider := self metricsProvider.
-	aTextRun := font makeTextRunNoRelease: text canvas: canvas flags: aMetricsProvider flags.
+	aTextRun := self textRun.
 	aTextRun metricsProvider: aMetricsProvider.
 	
 	self fillTextRun: aTextRun withPattern: aFillPattern strokePattern: aStrokePattern.
 	
+	aTextRun metricsProvider: nil.
 	aTextRun release

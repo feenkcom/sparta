@@ -37,7 +37,7 @@ exampleTextMeasureItalic
 	"bounding box"
 	canvas stroke
 		paint: (Color red alpha: 0.4);
-		path: metricsProvider textMetrics boundingBox;
+		path: metricsProvider textMetrics bounds;
 		draw.
 
 	self drawBaseline: metricsProvider on: canvas.

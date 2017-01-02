@@ -1,5 +1,5 @@
 advanced options
 disableFontMetrics
 
-	fontMetrics := MozFontMetrics externalNew.
+	fontMetrics := MozNativeFontMetrics externalNew.
 	fontMetrics free

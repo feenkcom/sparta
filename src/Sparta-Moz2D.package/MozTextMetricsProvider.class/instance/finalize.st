@@ -1,5 +1,12 @@
-initialization
+finalization
 finalize
 	super finalize.
 	
-	'finalize ' logCr.
+	self finalizeLastBreak.
+	self finalizeTrimWhitespace.
+	self finalizeUsedHyphenation.
+	self finalizeTextMetrics.
+	self finalizeFontMetrics.
+	self finalizePropertyProvider.
+	
+	session := nil

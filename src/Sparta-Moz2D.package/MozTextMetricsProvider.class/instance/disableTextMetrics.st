@@ -1,5 +1,5 @@
 advanced options
 disableTextMetrics
 
-	textMetrics := MozTextMetrics externalNew.
+	textMetrics := MozNativeTextMetrics externalNew.
 	textMetrics free

@@ -1,4 +1,4 @@
 advanced options
 ignoreLastBreak
-	lastBreak := ExternalAddress allocate: (FFIBool externalTypeSize).
+	lastBreak := ExternalAddress allocate: (FFIUInt32 externalTypeSize).
 	lastBreak free

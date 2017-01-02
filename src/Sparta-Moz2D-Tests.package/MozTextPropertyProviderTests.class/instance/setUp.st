@@ -1,4 +1,5 @@
 running
 setUp
 
-	propertyProvider := MozTextPropertyProvider new
+	propertyProvider := MozTextPropertyProvider new.
+	propertyProvider autoRelease

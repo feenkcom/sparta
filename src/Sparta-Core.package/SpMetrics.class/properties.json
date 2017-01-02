@@ -1,0 +1,30 @@
+{
+	"category" : "Sparta-Core-Text",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "AliakseiSyrel 1/1/2017 23:03",
+	"instvars" : [
+		"orientation",
+		"breakPriority",
+		"spacing",
+		"start",
+		"length",
+		"textRun",
+		"width",
+		"propertyProvider",
+		"lineBreakBefore",
+		"suppressBreaks",
+		"measureFont",
+		"measureText",
+		"fontMetrics",
+		"textMetrics",
+		"boxType",
+		"wrappedLength",
+		"canvas" ],
+	"name" : "SpMetrics",
+	"pools" : [
+		 ],
+	"super" : "Object",
+	"type" : "normal" }

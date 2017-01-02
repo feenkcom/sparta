@@ -8,7 +8,7 @@ drawAdvanceWidth: aMetricsProvider on: aCanvas
 		on: aCanvas.
 
 	self
-		drawVerticalLineAt: aMetricsProvider textMetrics advanceWidth
+		drawVerticalLineAt: aMetricsProvider textMetrics advance
 		named: 'Advance width'
 		color: Color green darker darker
 		on: aCanvas

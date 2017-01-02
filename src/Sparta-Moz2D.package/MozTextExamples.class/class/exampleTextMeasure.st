@@ -1,6 +1,6 @@
 examples - text
 exampleTextMeasure
-	|canvas font metricsProvider textPainter |
+	|canvas font aMetrics textPainter |
 	canvas := MozCanvas extent: 1100@520.
 
 	canvas fill
@@ -29,21 +29,21 @@ exampleTextMeasure
 		font: font;
 		yourself.
 
-	metricsProvider := textPainter measure.
+	aMetrics := textPainter measure.
 	"render text"
 	textPainter draw.
 
 	"bounding box"
 	canvas stroke
 		paint: (Color red alpha: 0.4);
-		path: metricsProvider textMetrics boundingBox;
+		path: aMetrics textMetrics bounds;
 		draw.
 
-	self drawBaseline: metricsProvider on: canvas.
-	self drawAscent: metricsProvider on: canvas.
-	self drawDescent: metricsProvider on: canvas.
-	self drawUnderlineOffset: metricsProvider on: canvas.
-	self drawAdvanceWidth: metricsProvider on: canvas.
-	self drawStrikeoutOffset: metricsProvider on: canvas.
+	self drawBaseline: aMetrics on: canvas.
+	self drawAscent: aMetrics on: canvas.
+	self drawDescent: aMetrics on: canvas.
+	self drawUnderlineOffset: aMetrics on: canvas.
+	self drawAdvanceWidth: aMetrics on: canvas.
+	self drawStrikeoutOffset: aMetrics on: canvas.
 
 	canvas asForm asMorph openInWindowLabeled: 'Metrics'

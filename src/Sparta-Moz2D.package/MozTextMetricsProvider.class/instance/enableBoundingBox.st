@@ -1,3 +1,0 @@
-advanced options
-enableBoundingBox
-	self addFlag: MozTextFlags TEXT_NEED_BOUNDING_BOX

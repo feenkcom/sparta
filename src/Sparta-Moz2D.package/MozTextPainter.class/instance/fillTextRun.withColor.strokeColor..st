@@ -5,9 +5,11 @@ fillTextRun: aTextRun withColor: aFillColor strokeColor: aStrokeColor
 	aMetricsProvider := aTextRun metricsProvider.
 
 	(clip and: [ aMetricsProvider isNotNil ]) ifTrue: [ 
-		maxWidth ifNotNil: [ aMetricsProvider width: maxWidth ].
-		aMetricsProvider measureTextRun: aTextRun.
-		end := end min: aMetricsProvider longestSubstring ].
+		| aMetrics |
+		aMetrics := self metrics.
+		aMetrics measureFont: false.
+		aMetricsProvider processRequest: aMetrics with: aTextRun.
+		end := end min: aMetrics wrappedEnd ].
 
 	aDrawMode := drawMode ifNil: [ MozTextDrawMode GLYPH_FILL value ].
 	aStrokeColor isTransparent

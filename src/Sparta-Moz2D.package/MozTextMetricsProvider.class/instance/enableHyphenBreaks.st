@@ -1,3 +1,0 @@
-advanced options
-enableHyphenBreaks
-	self addFlag: MozTextFlags TEXT_ENABLE_HYPHEN_BREAKS
