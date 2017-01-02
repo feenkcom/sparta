@@ -13,6 +13,7 @@ renderSpan: aSpan on: aCanvas
 			attribute applyOnText: aTextPainter with: aSpan ].
 
 	aBaseline := aTransformationInverted transform: (aSpan baseline + aTransformation translation).
+	aBaseline := aBaseline + self offset.
 
 	"If transformation is just a translation there is no need
 	to changed transformation matrix of a canvas, we can just

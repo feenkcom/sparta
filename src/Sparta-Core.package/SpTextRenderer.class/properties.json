@@ -6,7 +6,8 @@
 		 ],
 	"commentStamp" : "",
 	"instvars" : [
-		"layout" ],
+		"layout",
+		"offset" ],
 	"name" : "SpTextRenderer",
 	"pools" : [
 		 ],
