@@ -1,7 +1,7 @@
 vector-transform
 transform: aPoint 
 	| px py |
-	
+
 	px := aPoint x.
 	py := aPoint y.
 	^ Point 
