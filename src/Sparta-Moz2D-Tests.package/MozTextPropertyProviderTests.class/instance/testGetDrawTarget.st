@@ -1,11 +1,9 @@
 tests
 testGetDrawTarget
-	| helper canvas actualCanvas |
-	canvas := MozCanvas extent: 200@200.
-	helper := MozTextPropertyProviderTestsHelper new.
-	helper canvas: canvas.
+	| canvas actualCanvas |
 	
-	propertyProvider metricsProvider: helper.
+	canvas := MozCanvas extent: 200@200.
+	propertyProvider canvas: canvas.
 	actualCanvas := self primGetDrawTarget: propertyProvider.
 
 	self assert: actualCanvas getHandle value equals: canvas handle

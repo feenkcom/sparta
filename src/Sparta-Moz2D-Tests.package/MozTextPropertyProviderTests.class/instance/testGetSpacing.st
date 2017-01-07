@@ -1,6 +1,6 @@
 tests
 testGetSpacing
-	| aSpacing helper aStart anEnd anExpected anActual anExternalArray |
+	| aSpacing aStart anEnd anExpected anActual anExternalArray |
 	aSpacing := 20.0.
 	aStart := 10.
 	anEnd := 20. "without last, open interval"
@@ -9,9 +9,7 @@ testGetSpacing
 		index % 2 = 0
 			ifTrue: [ anExpected at: index put: aSpacing ] ].
 	
-	helper := MozTextPropertyProviderTestsHelper new.
-	helper spacing: aSpacing.
-	propertyProvider metricsProvider: helper.
+	propertyProvider spacing: aSpacing.
 	
 	anExternalArray := FFIExternalArray externalNewType: 'double' size: (anEnd - aStart) * 2.
 	anExternalArray atAllPut: 0.
