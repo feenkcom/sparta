@@ -36,5 +36,5 @@
 	"name" : "MozCompositionOp",
 	"pools" : [
 		 ],
-	"super" : "FFIExternalEnumeration",
+	"super" : "MozEnum",
 	"type" : "normal" }

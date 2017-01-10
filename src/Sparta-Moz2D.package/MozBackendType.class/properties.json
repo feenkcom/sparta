@@ -4,8 +4,6 @@
 		 ],
 	"classvars" : [
 		"CAIRO",
-		"COREGRAPHICS",
-		"COREGRAPHICS_ACCELERATED",
 		"DIRECT2D",
 		"DIRECT2D1_1",
 		"NONE",
@@ -17,5 +15,5 @@
 	"name" : "MozBackendType",
 	"pools" : [
 		 ],
-	"super" : "FFIExternalEnumeration",
+	"super" : "MozEnum",
 	"type" : "normal" }

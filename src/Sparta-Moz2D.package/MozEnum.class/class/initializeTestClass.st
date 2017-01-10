@@ -1,0 +1,3 @@
+class initialization
+initializeTestClass
+	self createTestClass

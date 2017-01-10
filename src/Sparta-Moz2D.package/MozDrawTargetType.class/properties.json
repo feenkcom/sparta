@@ -12,5 +12,5 @@
 	"name" : "MozDrawTargetType",
 	"pools" : [
 		 ],
-	"super" : "FFIExternalEnumeration",
+	"super" : "MozEnum",
 	"type" : "normal" }

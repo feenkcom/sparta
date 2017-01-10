@@ -6,11 +6,9 @@ enumDecl
 
 	^ #(
 		NONE 0
-		DIRECT2D 1
-		COREGRAPHICS 2
-		COREGRAPHICS_ACCELERATED 3
-		CAIRO 4
-		SKIA 5
-		RECORDING 6
-		DIRECT2D1_1 7
+		DIRECT2D 1 "Used for version independent D2D objects."
+		CAIRO 2
+		SKIA 3
+		RECORDING 4
+		DIRECT2D1_1 5
 	)
