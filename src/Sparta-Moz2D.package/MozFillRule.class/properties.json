@@ -1,15 +1,14 @@
 {
+	"commentStamp" : "",
+	"super" : "FFIExternalEnumeration",
 	"category" : "Sparta-Moz2D-Enums",
-	"classinstvars" : [
-		 ],
+	"classinstvars" : [ ],
+	"pools" : [ ],
 	"classvars" : [
 		"FILL_EVEN_ODD",
-		"FILL_WINDING" ],
-	"commentStamp" : "",
-	"instvars" : [
-		 ],
+		"FILL_WINDING"
+	],
+	"instvars" : [ ],
 	"name" : "MozFillRule",
-	"pools" : [
-		 ],
-	"super" : "FFIExternalEnumeration",
-	"type" : "normal" }
+	"type" : "normal"
+}

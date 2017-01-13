@@ -1,0 +1,1 @@
+I am an independent test of FFI functionality

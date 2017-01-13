@@ -1,16 +1,15 @@
 {
-	"category" : "Sparta-Moz2D",
-	"classinstvars" : [
-		"isRunning" ],
 	"classtraitcomposition" : "TMozLibrary classTrait",
-	"classvars" : [
-		 ],
-	"commentStamp" : "AliakseiSyrel 9/1/2016 01:44",
-	"instvars" : [
-		 ],
+	"classvars" : [ ],
+	"instvars" : [ ],
 	"name" : "MozServices",
-	"pools" : [
-		 ],
+	"commentStamp" : "AliakseiSyrel 9/1/2016 01:44",
 	"super" : "Object",
 	"traitcomposition" : "TMozLibrary",
-	"type" : "normal" }
+	"type" : "normal",
+	"classinstvars" : [
+		"isRunning"
+	],
+	"pools" : [ ],
+	"category" : "Sparta-Moz2D"
+}

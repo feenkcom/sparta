@@ -1,16 +1,15 @@
 {
+	"commentStamp" : "AliakseiSyrel 8/23/2016 00:02",
+	"super" : "FFIExternalEnumeration",
 	"category" : "Sparta-Moz2D-Filters Enum",
-	"classinstvars" : [
-		 ],
+	"classinstvars" : [ ],
+	"pools" : [ ],
 	"classvars" : [
 		"ATT_DISPLACEMENT_MAP_SCALE",
 		"ATT_DISPLACEMENT_MAP_X_CHANNEL",
-		"ATT_DISPLACEMENT_MAP_Y_CHANNEL" ],
-	"commentStamp" : "AliakseiSyrel 8/23/2016 00:02",
-	"instvars" : [
-		 ],
+		"ATT_DISPLACEMENT_MAP_Y_CHANNEL"
+	],
+	"instvars" : [ ],
 	"name" : "MozDisplacementMapFilterAtts",
-	"pools" : [
-		 ],
-	"super" : "FFIExternalEnumeration",
-	"type" : "normal" }
+	"type" : "normal"
+}

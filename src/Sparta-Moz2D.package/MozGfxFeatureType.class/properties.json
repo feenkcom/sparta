@@ -1,7 +1,9 @@
 {
+	"commentStamp" : "",
+	"super" : "FFIExternalEnumeration",
 	"category" : "Sparta-Moz2D-GFX",
-	"classinstvars" : [
-		 ],
+	"classinstvars" : [ ],
+	"pools" : [ ],
 	"classvars" : [
 		"D3D11_COMPOSITING",
 		"D3D11_HW_ANGLE",
@@ -9,12 +11,9 @@
 		"DIRECT2D",
 		"GPU_PROCESS",
 		"HW_COMPOSITING",
-		"OPENGL_COMPOSITING" ],
-	"commentStamp" : "",
-	"instvars" : [
-		 ],
+		"OPENGL_COMPOSITING"
+	],
+	"instvars" : [ ],
 	"name" : "MozGfxFeatureType",
-	"pools" : [
-		 ],
-	"super" : "FFIExternalEnumeration",
-	"type" : "normal" }
+	"type" : "normal"
+}

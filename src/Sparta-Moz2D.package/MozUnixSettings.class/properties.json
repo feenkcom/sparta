@@ -1,14 +1,11 @@
 {
-	"category" : "Sparta-Moz2D-Preferences",
-	"classinstvars" : [
-		 ],
-	"classvars" : [
-		 ],
 	"commentStamp" : "",
-	"instvars" : [
-		 ],
-	"name" : "MozUnixSettings",
-	"pools" : [
-		 ],
 	"super" : "MozSettings",
-	"type" : "normal" }
+	"category" : "Sparta-Moz2D-Preferences",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "MozUnixSettings",
+	"type" : "normal"
+}

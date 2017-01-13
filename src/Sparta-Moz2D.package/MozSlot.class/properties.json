@@ -1,14 +1,11 @@
 {
-	"category" : "Sparta-Moz2D",
-	"classinstvars" : [
-		 ],
-	"classvars" : [
-		 ],
 	"commentStamp" : "",
-	"instvars" : [
-		 ],
-	"name" : "MozSlot",
-	"pools" : [
-		 ],
 	"super" : "IndexedSlot",
-	"type" : "normal" }
+	"category" : "Sparta-Moz2D",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "MozSlot",
+	"type" : "normal"
+}

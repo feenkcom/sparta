@@ -6,4 +6,5 @@ release: aHandle
 		ifTrue: [ ^ self ].
 
 	self warning: [ '(', aHandle value asString, ') Ptr: ', aHandle value asString ].
-	aHandle free
+	self primRelease: aHandle value.
+	aHandle getHandle beNull

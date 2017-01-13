@@ -1,14 +1,13 @@
 {
-	"category" : "Sparta-Moz2D-Filters Enum",
-	"classinstvars" : [
-		 ],
-	"classvars" : [
-		"ATT_ARITHMETIC_COMBINE_COEFFICIENTS" ],
 	"commentStamp" : "",
-	"instvars" : [
-		 ],
-	"name" : "MozArithmeticCombineFilterAtts",
-	"pools" : [
-		 ],
 	"super" : "FFIExternalEnumeration",
-	"type" : "normal" }
+	"category" : "Sparta-Moz2D-Filters Enum",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [
+		"ATT_ARITHMETIC_COMBINE_COEFFICIENTS"
+	],
+	"instvars" : [ ],
+	"name" : "MozArithmeticCombineFilterAtts",
+	"type" : "normal"
+}

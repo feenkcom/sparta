@@ -1,16 +1,15 @@
 {
-	"category" : "Sparta-Moz2D-Filters",
-	"classinstvars" : [
-		 ],
 	"classtraitcomposition" : "TSpartaFilterSource classTrait + TSpartaCompositeFilter classTrait",
-	"classvars" : [
-		 ],
-	"commentStamp" : "AliakseiSyrel 8/19/2016 23:55",
+	"classvars" : [ ],
 	"instvars" : [
-		"sources" ],
+		"sources"
+	],
 	"name" : "MozCompositeFilter",
-	"pools" : [
-		 ],
+	"commentStamp" : "AliakseiSyrel 8/19/2016 23:55",
 	"super" : "MozFilter",
 	"traitcomposition" : "TSpartaFilterSource + TSpartaCompositeFilter",
-	"type" : "normal" }
+	"type" : "normal",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"category" : "Sparta-Moz2D-Filters"
+}

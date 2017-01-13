@@ -1,14 +1,11 @@
 {
-	"category" : "Sparta-Moz2D-Text-Callbacks",
-	"classinstvars" : [
-		 ],
-	"classvars" : [
-		 ],
 	"commentStamp" : "",
-	"instvars" : [
-		 ],
-	"name" : "MozTextPropertyDrawTargetCallback",
-	"pools" : [
-		 ],
 	"super" : "MozTextPropertyCallback",
-	"type" : "normal" }
+	"category" : "Sparta-Moz2D-Text-Callbacks",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "MozTextPropertyDrawTargetCallback",
+	"type" : "normal"
+}

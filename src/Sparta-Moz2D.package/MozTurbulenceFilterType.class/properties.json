@@ -1,15 +1,14 @@
 {
+	"commentStamp" : "AliakseiSyrel 8/23/2016 00:06",
+	"super" : "FFIExternalEnumeration",
 	"category" : "Sparta-Moz2D-Filters Enum",
-	"classinstvars" : [
-		 ],
+	"classinstvars" : [ ],
+	"pools" : [ ],
 	"classvars" : [
 		"TURBULENCE_TYPE_FRACTAL_NOISE",
-		"TURBULENCE_TYPE_TURBULENCE" ],
-	"commentStamp" : "AliakseiSyrel 8/23/2016 00:06",
-	"instvars" : [
-		 ],
+		"TURBULENCE_TYPE_TURBULENCE"
+	],
+	"instvars" : [ ],
 	"name" : "MozTurbulenceFilterType",
-	"pools" : [
-		 ],
-	"super" : "FFIExternalEnumeration",
-	"type" : "normal" }
+	"type" : "normal"
+}

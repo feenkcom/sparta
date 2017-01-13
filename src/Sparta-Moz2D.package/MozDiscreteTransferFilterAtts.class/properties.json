@@ -1,17 +1,16 @@
 {
+	"commentStamp" : "AliakseiSyrel 8/23/2016 00:02",
+	"super" : "FFIExternalEnumeration",
 	"category" : "Sparta-Moz2D-Filters Enum",
-	"classinstvars" : [
-		 ],
+	"classinstvars" : [ ],
+	"pools" : [ ],
 	"classvars" : [
 		"ATT_DISCRETE_TRANSFER_TABLE_A",
 		"ATT_DISCRETE_TRANSFER_TABLE_B",
 		"ATT_DISCRETE_TRANSFER_TABLE_G",
-		"ATT_DISCRETE_TRANSFER_TABLE_R" ],
-	"commentStamp" : "AliakseiSyrel 8/23/2016 00:02",
-	"instvars" : [
-		 ],
+		"ATT_DISCRETE_TRANSFER_TABLE_R"
+	],
+	"instvars" : [ ],
 	"name" : "MozDiscreteTransferFilterAtts",
-	"pools" : [
-		 ],
-	"super" : "FFIExternalEnumeration",
-	"type" : "normal" }
+	"type" : "normal"
+}

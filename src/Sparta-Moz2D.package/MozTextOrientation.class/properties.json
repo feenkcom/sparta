@@ -1,19 +1,18 @@
 {
+	"commentStamp" : "AliakseiSyrel 9/9/2016 11:15",
+	"super" : "FFIExternalEnumeration",
 	"category" : "Sparta-Moz2D-Text-Enums",
-	"classinstvars" : [
-		 ],
+	"classinstvars" : [ ],
+	"pools" : [ ],
 	"classvars" : [
 		"HORIZONTAL",
 		"MASK",
 		"VERTICAL_MIXED",
 		"VERTICAL_SIDEWAYS_LEFT",
 		"VERTICAL_SIDEWAYS_RIGHT",
-		"VERTICAL_UPRIGHT" ],
-	"commentStamp" : "AliakseiSyrel 9/9/2016 11:15",
-	"instvars" : [
-		 ],
+		"VERTICAL_UPRIGHT"
+	],
+	"instvars" : [ ],
 	"name" : "MozTextOrientation",
-	"pools" : [
-		 ],
-	"super" : "FFIExternalEnumeration",
-	"type" : "normal" }
+	"type" : "normal"
+}
