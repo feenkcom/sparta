@@ -1,13 +1,16 @@
 {
+	"category" : "Sparta-Moz2D-Filters",
+	"classinstvars" : [
+		 ],
 	"classtraitcomposition" : "TSpartaGaussianBlurFilter classTrait",
-	"classvars" : [ ],
-	"instvars" : [ ],
-	"name" : "MozGaussianBlurFilter",
+	"classvars" : [
+		 ],
 	"commentStamp" : "AliakseiSyrel 8/26/2016 19:45",
+	"instvars" : [
+		 ],
+	"name" : "MozGaussianBlurFilter",
+	"pools" : [
+		 ],
 	"super" : "MozSingleSourceFilter",
 	"traitcomposition" : "TSpartaGaussianBlurFilter",
-	"type" : "normal",
-	"classinstvars" : [ ],
-	"pools" : [ ],
-	"category" : "Sparta-Moz2D-Filters"
-}
+	"type" : "normal" }

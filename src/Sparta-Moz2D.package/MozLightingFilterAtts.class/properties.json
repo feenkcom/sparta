@@ -1,9 +1,7 @@
 {
-	"commentStamp" : "AliakseiSyrel 8/23/2016 00:04",
-	"super" : "FFIExternalEnumeration",
 	"category" : "Sparta-Moz2D-Filters Enum",
-	"classinstvars" : [ ],
-	"pools" : [ ],
+	"classinstvars" : [
+		 ],
 	"classvars" : [
 		"ATT_DIFFUSE_LIGHTING_DIFFUSE_CONSTANT",
 		"ATT_DISTANT_LIGHT_AZIMUTH",
@@ -17,9 +15,12 @@
 		"ATT_SPOT_LIGHT_FOCUS",
 		"ATT_SPOT_LIGHT_LIMITING_CONE_ANGLE",
 		"ATT_SPOT_LIGHT_POINTS_AT",
-		"ATT_SPOT_LIGHT_POSITION"
-	],
-	"instvars" : [ ],
+		"ATT_SPOT_LIGHT_POSITION" ],
+	"commentStamp" : "AliakseiSyrel 8/23/2016 00:04",
+	"instvars" : [
+		 ],
 	"name" : "MozLightingFilterAtts",
-	"type" : "normal"
-}
+	"pools" : [
+		 ],
+	"super" : "FFIExternalEnumeration",
+	"type" : "normal" }

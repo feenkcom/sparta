@@ -1,13 +1,16 @@
 {
+	"category" : "Sparta-Moz2D-Filters",
+	"classinstvars" : [
+		 ],
 	"classtraitcomposition" : "TSpartaTransformFilter classTrait",
-	"classvars" : [ ],
-	"instvars" : [ ],
-	"name" : "MozTransformFilter",
+	"classvars" : [
+		 ],
 	"commentStamp" : "",
+	"instvars" : [
+		 ],
+	"name" : "MozTransformFilter",
+	"pools" : [
+		 ],
 	"super" : "MozSingleSourceFilter",
 	"traitcomposition" : "TSpartaTransformFilter",
-	"type" : "normal",
-	"classinstvars" : [ ],
-	"pools" : [ ],
-	"category" : "Sparta-Moz2D-Filters"
-}
+	"type" : "normal" }

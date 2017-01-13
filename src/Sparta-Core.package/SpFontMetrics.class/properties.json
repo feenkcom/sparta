@@ -22,7 +22,8 @@
 		"underlineOffset",
 		"underlineSize",
 		"xHeight",
-		"zeroOrAveCharWidth" ],
+		"zeroOrAveCharWidth",
+		"capHeight" ],
 	"name" : "SpFontMetrics",
 	"pools" : [
 		 ],

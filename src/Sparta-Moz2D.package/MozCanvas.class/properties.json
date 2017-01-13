@@ -1,6 +1,11 @@
 {
+	"category" : "Sparta-Moz2D",
+	"classinstvars" : [
+		 ],
 	"classtraitcomposition" : "TMozLibrary classTrait + TMozRefPtr classTrait + TMozDebug classTrait",
-	"classvars" : [ ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
 	"instvars" : [
 		"handle",
 		"fillPainter",
@@ -11,16 +16,10 @@
 		"clipBuilder",
 		"shapeBuilder",
 		"transformBuilder",
-		"bitmapBuilder"
-	],
+		"bitmapBuilder" ],
 	"name" : "MozCanvas",
-	"commentStamp" : "",
+	"pools" : [
+		"MozSharedPool" ],
 	"super" : "SpartaCanvas",
 	"traitcomposition" : "TMozLibrary + TMozRefPtr + TMozDebug",
-	"type" : "normal",
-	"classinstvars" : [ ],
-	"pools" : [
-		"MozSharedPool"
-	],
-	"category" : "Sparta-Moz2D"
-}
+	"type" : "normal" }

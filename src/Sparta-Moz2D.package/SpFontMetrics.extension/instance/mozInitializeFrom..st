@@ -1,8 +1,9 @@
 *Sparta-Moz2D
 mozInitializeFrom: aMozFontMetrics
 	"Initialize me from external structure"
-
+	
 	aveCharWidth := aMozFontMetrics aveCharWidth.
+	capHeight := aMozFontMetrics capHeight.
 	emAscent := aMozFontMetrics emAscent.
 	emDescent := aMozFontMetrics emDescent.
 	emHeight := aMozFontMetrics emHeight.

@@ -1,13 +1,16 @@
 {
+	"category" : "Sparta-Moz2D-Builders",
+	"classinstvars" : [
+		 ],
 	"classtraitcomposition" : "TMozLibrary classTrait",
-	"classvars" : [ ],
-	"instvars" : [ ],
-	"name" : "MozLayerBuilder",
+	"classvars" : [
+		 ],
 	"commentStamp" : "",
+	"instvars" : [
+		 ],
+	"name" : "MozLayerBuilder",
+	"pools" : [
+		 ],
 	"super" : "SpartaLayerBuilder",
 	"traitcomposition" : "TMozLibrary",
-	"type" : "normal",
-	"classinstvars" : [ ],
-	"pools" : [ ],
-	"category" : "Sparta-Moz2D-Builders"
-}
+	"type" : "normal" }

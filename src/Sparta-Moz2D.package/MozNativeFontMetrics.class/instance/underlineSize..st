@@ -1,4 +1,4 @@
 accessing structure variables
 underlineSize: anObject
 	"This method was automatically generated"
-	handle doubleAt: 25 put: anObject
+	handle doubleAt: 33 put: anObject

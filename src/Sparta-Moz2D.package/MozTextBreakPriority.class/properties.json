@@ -1,15 +1,16 @@
 {
-	"commentStamp" : "",
-	"super" : "FFIExternalEnumeration",
 	"category" : "Sparta-Moz2D-Text-Enums",
-	"classinstvars" : [ ],
-	"pools" : [ ],
+	"classinstvars" : [
+		 ],
 	"classvars" : [
 		"eNoBreak",
 		"eNormalBreak",
-		"eWordWrapBreak"
-	],
-	"instvars" : [ ],
+		"eWordWrapBreak" ],
+	"commentStamp" : "",
+	"instvars" : [
+		 ],
 	"name" : "MozTextBreakPriority",
-	"type" : "normal"
-}
+	"pools" : [
+		 ],
+	"super" : "FFIExternalEnumeration",
+	"type" : "normal" }

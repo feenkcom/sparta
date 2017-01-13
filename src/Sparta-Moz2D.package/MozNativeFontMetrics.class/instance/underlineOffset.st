@@ -1,4 +1,4 @@
 accessing structure variables
 underlineOffset
 	"This method was automatically generated"
-	^handle doubleAt: 33
+	^handle doubleAt: 41

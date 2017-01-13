@@ -1,15 +1,16 @@
 {
+	"category" : "Sparta-Moz2D-Paints",
+	"classinstvars" : [
+		 ],
 	"classtraitcomposition" : "TSpartaGradientPaint classTrait",
-	"classvars" : [ ],
-	"instvars" : [
-		"stops"
-	],
-	"name" : "MozGradientPaint",
+	"classvars" : [
+		 ],
 	"commentStamp" : "",
+	"instvars" : [
+		"stops" ],
+	"name" : "MozGradientPaint",
+	"pools" : [
+		 ],
 	"super" : "MozPaint",
 	"traitcomposition" : "TSpartaGradientPaint",
-	"type" : "normal",
-	"classinstvars" : [ ],
-	"pools" : [ ],
-	"category" : "Sparta-Moz2D-Paints"
-}
+	"type" : "normal" }

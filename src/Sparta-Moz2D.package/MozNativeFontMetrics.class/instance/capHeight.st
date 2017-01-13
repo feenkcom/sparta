@@ -1,4 +1,4 @@
 accessing structure variables
-maxHeight
+capHeight
 	"This method was automatically generated"
-	^handle doubleAt: 89
+	^handle doubleAt: 1

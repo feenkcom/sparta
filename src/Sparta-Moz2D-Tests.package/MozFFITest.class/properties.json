@@ -1,13 +1,16 @@
 {
+	"category" : "Sparta-Moz2D-Tests",
+	"classinstvars" : [
+		 ],
 	"classtraitcomposition" : "TMozLibrary classTrait",
-	"classvars" : [ ],
-	"instvars" : [ ],
-	"name" : "MozFFITest",
+	"classvars" : [
+		 ],
 	"commentStamp" : "AliakseiSyrel 1/13/2017 09:31",
+	"instvars" : [
+		 ],
+	"name" : "MozFFITest",
+	"pools" : [
+		 ],
 	"super" : "TestCase",
 	"traitcomposition" : "TMozLibrary",
-	"type" : "normal",
-	"classinstvars" : [ ],
-	"pools" : [ ],
-	"category" : "Sparta-Moz2D-Tests"
-}
+	"type" : "normal" }

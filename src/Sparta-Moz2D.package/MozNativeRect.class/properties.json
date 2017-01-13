@@ -1,13 +1,16 @@
 {
+	"category" : "Sparta-Moz2D-External",
+	"classinstvars" : [
+		 ],
 	"classtraitcomposition" : "TMozLibrary classTrait",
-	"classvars" : [ ],
-	"instvars" : [ ],
-	"name" : "MozNativeRect",
+	"classvars" : [
+		 ],
 	"commentStamp" : "AliakseiSyrel 10/21/2016 12:30",
+	"instvars" : [
+		 ],
+	"name" : "MozNativeRect",
+	"pools" : [
+		 ],
 	"super" : "FFIExternalStructure",
 	"traitcomposition" : "TMozLibrary",
-	"type" : "normal",
-	"classinstvars" : [ ],
-	"pools" : [ ],
-	"category" : "Sparta-Moz2D-External"
-}
+	"type" : "normal" }

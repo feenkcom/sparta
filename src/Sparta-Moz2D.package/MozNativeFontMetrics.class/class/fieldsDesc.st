@@ -4,6 +4,7 @@ fieldsDesc
 	self rebuildFieldAccessors
 	"
 	^ #(
+		double capHeight;
 		double xHeight;
 		double strikeoutSize;
 		double strikeoutOffset;

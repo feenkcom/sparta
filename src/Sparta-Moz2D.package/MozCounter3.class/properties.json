@@ -1,15 +1,16 @@
 {
-	"commentStamp" : "",
-	"super" : "Object",
 	"category" : "Sparta-Moz2D",
 	"classinstvars" : [
 		"count",
 		"time",
-		"current"
-	],
-	"pools" : [ ],
-	"classvars" : [ ],
-	"instvars" : [ ],
+		"current" ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		 ],
 	"name" : "MozCounter3",
-	"type" : "normal"
-}
+	"pools" : [
+		 ],
+	"super" : "Object",
+	"type" : "normal" }

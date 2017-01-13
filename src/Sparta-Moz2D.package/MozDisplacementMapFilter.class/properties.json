@@ -1,13 +1,16 @@
 {
+	"category" : "Sparta-Moz2D-Filters",
+	"classinstvars" : [
+		 ],
 	"classtraitcomposition" : "TSpartaDisplacementMapFilter classTrait",
-	"classvars" : [ ],
-	"instvars" : [ ],
-	"name" : "MozDisplacementMapFilter",
+	"classvars" : [
+		 ],
 	"commentStamp" : "AliakseiSyrel 8/19/2016 21:43",
+	"instvars" : [
+		 ],
+	"name" : "MozDisplacementMapFilter",
+	"pools" : [
+		 ],
 	"super" : "MozDoubleSourceFilter",
 	"traitcomposition" : "TSpartaDisplacementMapFilter",
-	"type" : "normal",
-	"classinstvars" : [ ],
-	"pools" : [ ],
-	"category" : "Sparta-Moz2D-Filters"
-}
+	"type" : "normal" }

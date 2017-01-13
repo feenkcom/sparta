@@ -1,13 +1,16 @@
 {
+	"category" : "Sparta-Moz2D-Filters",
+	"classinstvars" : [
+		 ],
 	"classtraitcomposition" : "TSpartaConvolveMatrixFilter classTrait",
-	"classvars" : [ ],
-	"instvars" : [ ],
-	"name" : "MozConvolveMatrixFilter",
+	"classvars" : [
+		 ],
 	"commentStamp" : "AliakseiSyrel 8/19/2016 21:42",
+	"instvars" : [
+		 ],
+	"name" : "MozConvolveMatrixFilter",
+	"pools" : [
+		 ],
 	"super" : "MozSingleSourceFilter",
 	"traitcomposition" : "TSpartaConvolveMatrixFilter",
-	"type" : "normal",
-	"classinstvars" : [ ],
-	"pools" : [ ],
-	"category" : "Sparta-Moz2D-Filters"
-}
+	"type" : "normal" }

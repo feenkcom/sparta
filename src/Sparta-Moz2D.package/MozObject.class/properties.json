@@ -1,13 +1,14 @@
 {
-	"commentStamp" : "",
-	"super" : "Object",
 	"category" : "Sparta-Moz2D",
-	"classinstvars" : [ ],
-	"pools" : [ ],
-	"classvars" : [ ],
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
 	"instvars" : [
-		"#lol => MozSlot"
-	],
+		"#lol => MozSlot" ],
 	"name" : "MozObject",
-	"type" : "normal"
-}
+	"pools" : [
+		 ],
+	"super" : "Object",
+	"type" : "normal" }

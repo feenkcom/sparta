@@ -1,4 +1,4 @@
 accessing structure variables
 emHeight
 	"This method was automatically generated"
-	^handle doubleAt: 57
+	^handle doubleAt: 65

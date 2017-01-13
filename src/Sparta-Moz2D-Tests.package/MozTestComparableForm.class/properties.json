@@ -1,11 +1,14 @@
 {
-	"commentStamp" : "AliakseiSyrel 8/31/2016 20:33",
-	"super" : "Form",
 	"category" : "Sparta-Moz2D-Tests",
-	"classinstvars" : [ ],
-	"pools" : [ ],
-	"classvars" : [ ],
-	"instvars" : [ ],
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "AliakseiSyrel 8/31/2016 20:33",
+	"instvars" : [
+		 ],
 	"name" : "MozTestComparableForm",
-	"type" : "normal"
-}
+	"pools" : [
+		 ],
+	"super" : "Form",
+	"type" : "normal" }

@@ -1,15 +1,16 @@
 {
+	"category" : "Sparta-Moz2D",
+	"classinstvars" : [
+		"default" ],
 	"classtraitcomposition" : "TSpartaStrokeOptions classTrait",
-	"classvars" : [ ],
-	"instvars" : [ ],
-	"name" : "MozStrokeOptions",
+	"classvars" : [
+		 ],
 	"commentStamp" : "",
+	"instvars" : [
+		 ],
+	"name" : "MozStrokeOptions",
+	"pools" : [
+		 ],
 	"super" : "FFIExternalStructure",
 	"traitcomposition" : "TSpartaStrokeOptions",
-	"type" : "normal",
-	"classinstvars" : [
-		"default"
-	],
-	"pools" : [ ],
-	"category" : "Sparta-Moz2D"
-}
+	"type" : "normal" }

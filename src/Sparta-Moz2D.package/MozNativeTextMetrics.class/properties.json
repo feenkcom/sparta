@@ -1,13 +1,16 @@
 {
+	"category" : "Sparta-Moz2D-External",
+	"classinstvars" : [
+		 ],
 	"classtraitcomposition" : "TMozLibrary classTrait",
-	"classvars" : [ ],
-	"instvars" : [ ],
-	"name" : "MozNativeTextMetrics",
+	"classvars" : [
+		 ],
 	"commentStamp" : "",
+	"instvars" : [
+		 ],
+	"name" : "MozNativeTextMetrics",
+	"pools" : [
+		 ],
 	"super" : "FFIExternalStructure",
 	"traitcomposition" : "TMozLibrary",
-	"type" : "normal",
-	"classinstvars" : [ ],
-	"pools" : [ ],
-	"category" : "Sparta-Moz2D-External"
-}
+	"type" : "normal" }

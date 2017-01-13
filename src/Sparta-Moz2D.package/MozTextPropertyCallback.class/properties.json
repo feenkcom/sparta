@@ -1,17 +1,16 @@
 {
+	"category" : "Sparta-Moz2D-Text-Callbacks",
+	"classinstvars" : [
+		"uniqueInstance" ],
 	"classtraitcomposition" : "TMozLibrary classTrait",
-	"classvars" : [ ],
-	"instvars" : [
-		"session"
-	],
-	"name" : "MozTextPropertyCallback",
+	"classvars" : [
+		 ],
 	"commentStamp" : "AliakseiSyrel 12/23/2016 19:15",
+	"instvars" : [
+		"session" ],
+	"name" : "MozTextPropertyCallback",
+	"pools" : [
+		 ],
 	"super" : "FFICallback",
 	"traitcomposition" : "TMozLibrary",
-	"type" : "normal",
-	"classinstvars" : [
-		"uniqueInstance"
-	],
-	"pools" : [ ],
-	"category" : "Sparta-Moz2D-Text-Callbacks"
-}
+	"type" : "normal" }

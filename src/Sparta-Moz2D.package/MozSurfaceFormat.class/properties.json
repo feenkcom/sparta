@@ -1,9 +1,7 @@
 {
-	"commentStamp" : "",
-	"super" : "MozEnum",
 	"category" : "Sparta-Moz2D-Enums",
-	"classinstvars" : [ ],
-	"pools" : [ ],
+	"classinstvars" : [
+		 ],
 	"classvars" : [
 		"A8",
 		"A8R8G8B8",
@@ -23,9 +21,12 @@
 		"X8R8G8B8",
 		"X8R8G8B8_UINT32",
 		"YUV",
-		"YUV422"
-	],
-	"instvars" : [ ],
+		"YUV422" ],
+	"commentStamp" : "",
+	"instvars" : [
+		 ],
 	"name" : "MozSurfaceFormat",
-	"type" : "normal"
-}
+	"pools" : [
+		 ],
+	"super" : "MozEnum",
+	"type" : "normal" }

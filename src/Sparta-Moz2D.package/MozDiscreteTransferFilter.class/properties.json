@@ -1,13 +1,16 @@
 {
+	"category" : "Sparta-Moz2D-Filters",
+	"classinstvars" : [
+		 ],
 	"classtraitcomposition" : "TSpartaDiscreteTransferFilter classTrait",
-	"classvars" : [ ],
-	"instvars" : [ ],
-	"name" : "MozDiscreteTransferFilter",
+	"classvars" : [
+		 ],
 	"commentStamp" : "AliakseiSyrel 8/19/2016 22:57",
+	"instvars" : [
+		 ],
+	"name" : "MozDiscreteTransferFilter",
+	"pools" : [
+		 ],
 	"super" : "MozTransferFilter",
 	"traitcomposition" : "TSpartaDiscreteTransferFilter",
-	"type" : "normal",
-	"classinstvars" : [ ],
-	"pools" : [ ],
-	"category" : "Sparta-Moz2D-Filters"
-}
+	"type" : "normal" }

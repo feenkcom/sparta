@@ -1,16 +1,17 @@
 {
-	"commentStamp" : "",
-	"super" : "FFIExternalEnumeration",
 	"category" : "Sparta-Moz2D-Enums",
-	"classinstvars" : [ ],
-	"pools" : [ ],
+	"classinstvars" : [
+		 ],
 	"classvars" : [
 		"GOOD",
 		"LINEAR",
 		"POINT",
-		"SENTINEL"
-	],
-	"instvars" : [ ],
+		"SENTINEL" ],
+	"commentStamp" : "",
+	"instvars" : [
+		 ],
 	"name" : "MozSamplingMode",
-	"type" : "normal"
-}
+	"pools" : [
+		 ],
+	"super" : "FFIExternalEnumeration",
+	"type" : "normal" }
