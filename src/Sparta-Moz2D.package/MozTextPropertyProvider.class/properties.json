@@ -10,7 +10,8 @@
 		"spacing",
 		"breakPriority",
 		"textRun",
-		"canvas" ],
+		"canvas",
+		"hyphenWidth" ],
 	"name" : "MozTextPropertyProvider",
 	"pools" : [
 		 ],

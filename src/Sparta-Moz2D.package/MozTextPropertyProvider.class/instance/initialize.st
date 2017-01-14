@@ -7,4 +7,7 @@ initialize
 		hyphenWidth: MozTextPropertyHyphenWidthCallback uniqueInstance
 		spacing: MozTextPropertySpacingCallback uniqueInstance
 		drawTarget: MozTextPropertyDrawTargetCallback uniqueInstance
-		appUnitsPerDevUnit: MozTextPropertyAppUnitsCallback uniqueInstance
+		appUnitsPerDevUnit: MozTextPropertyAppUnitsCallback uniqueInstance.
+		
+	hyphenWidth := 0.0.
+	spacing := 0.0

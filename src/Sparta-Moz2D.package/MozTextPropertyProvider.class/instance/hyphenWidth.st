@@ -1,3 +1,3 @@
 accessing
 hyphenWidth
-	^ 0
+	^ hyphenWidth
