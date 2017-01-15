@@ -13,5 +13,5 @@
 	"name" : "MozSamplingMode",
 	"pools" : [
 		 ],
-	"super" : "FFIExternalEnumeration",
+	"super" : "MozEnum",
 	"type" : "normal" }

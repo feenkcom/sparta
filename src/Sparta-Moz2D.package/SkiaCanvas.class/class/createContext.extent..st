@@ -1,7 +1,7 @@
 instance creation
-createContext: aGrContext extent: aPoint
+createContext: aGrContext extent: anExtent
 
 	^ self
 		createContext: aGrContext
-		extent: aPoint
-		format: MozSurfaceFormat B8G8R8A8
+		extent: anExtent
+		renderExtent: anExtent

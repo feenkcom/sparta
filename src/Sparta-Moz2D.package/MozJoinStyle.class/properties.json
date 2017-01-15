@@ -13,5 +13,5 @@
 	"name" : "MozJoinStyle",
 	"pools" : [
 		 ],
-	"super" : "FFIExternalEnumeration",
+	"super" : "MozEnum",
 	"type" : "normal" }

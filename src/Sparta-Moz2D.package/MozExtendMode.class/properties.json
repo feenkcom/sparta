@@ -14,5 +14,5 @@
 	"name" : "MozExtendMode",
 	"pools" : [
 		 ],
-	"super" : "FFIExternalEnumeration",
+	"super" : "MozEnum",
 	"type" : "normal" }

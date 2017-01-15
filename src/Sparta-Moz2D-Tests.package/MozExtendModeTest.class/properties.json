@@ -1,0 +1,14 @@
+{
+	"category" : "Sparta-Moz2D-Tests",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		 ],
+	"name" : "MozExtendModeTest",
+	"pools" : [
+		 ],
+	"super" : "MozEnumTest",
+	"type" : "normal" }

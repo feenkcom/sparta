@@ -12,5 +12,5 @@
 	"name" : "MozCapStyle",
 	"pools" : [
 		 ],
-	"super" : "FFIExternalEnumeration",
+	"super" : "MozEnum",
 	"type" : "normal" }
