@@ -1,0 +1,16 @@
+{
+	"category" : "Sparta-Moz2D-Skia",
+	"classinstvars" : [
+		 ],
+	"classtraitcomposition" : "TMozLibrary classTrait",
+	"classvars" : [
+		 ],
+	"commentStamp" : "AliakseiSyrel 1/15/2017 11:07",
+	"instvars" : [
+		"isHeadless" ],
+	"name" : "SkiaGrContext",
+	"pools" : [
+		 ],
+	"super" : "FFIExternalObject",
+	"traitcomposition" : "TMozLibrary",
+	"type" : "normal" }

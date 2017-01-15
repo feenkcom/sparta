@@ -5,5 +5,6 @@ createPrimitiveMethod
 
 	(Smalltalk classNamed: self testClassName) compile:
 'valueNamed: aName in: anAddress
+	"This method was automatically generated"
 	^ self ffiCall: #(bool moz2d_test_' , self externalEnum asString, '(String aName, int* anAddress))'
 	classified: 'private - ffi'

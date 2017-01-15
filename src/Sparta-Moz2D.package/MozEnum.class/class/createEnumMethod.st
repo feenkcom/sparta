@@ -5,5 +5,6 @@ createEnumMethod
 
 	(Smalltalk classNamed: self testClassName) compile:
 'enum
+	"This method was automatically generated"
 	^ ', self name asString
 	classified: 'accessing'
