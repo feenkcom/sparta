@@ -1,7 +1,7 @@
 accessing
 surface: aMozSurfacePaint
-	|samplingX samplingY samplingWidth samplingHeight|
-	
+	| samplingX samplingY samplingWidth samplingHeight |
+
 	self
 		assert: [ aMozSurfacePaint source isNotNil ]
 		description: [ 'Source must not be nil in Surface Paint!' ].
