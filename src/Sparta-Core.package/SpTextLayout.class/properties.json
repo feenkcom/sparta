@@ -4,10 +4,9 @@
 		 ],
 	"classvars" : [
 		 ],
-	"commentStamp" : "",
+	"commentStamp" : "AliakseiSyrel 1/16/2017 18:11",
 	"instvars" : [
 		"rope",
-		"lines",
 		"maxHeight",
 		"maxWidth",
 		"height",

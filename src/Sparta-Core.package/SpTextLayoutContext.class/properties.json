@@ -9,11 +9,8 @@
 		"maxHeight",
 		"maxWidth",
 		"accumulatedHeight",
-		"spansStack",
 		"accumulatedWidth",
 		"position",
-		"isSplitted",
-		"lines",
 		"rope" ],
 	"name" : "SpTextLayoutContext",
 	"pools" : [

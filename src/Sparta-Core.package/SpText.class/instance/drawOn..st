@@ -2,7 +2,7 @@ drawing
 drawOn: aCanvas
 	| aRope layout |
 	aRope := rope.
-	layout := SpTextLayout rope: aRope.
+	layout := SpMultilineTextLayout rope: aRope.
 	layout renderOn: aCanvas.
 	selections
 		select: [ :selection | selection interval isNotEmpty ]

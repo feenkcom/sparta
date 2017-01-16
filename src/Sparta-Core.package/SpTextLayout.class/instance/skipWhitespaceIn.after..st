@@ -1,4 +1,4 @@
-private
+testing
 skipWhitespaceIn: aString after: aStart
 	"Return an index of the first non-whitespace character in aString after aStart index"
 	<return: #Number>

@@ -32,6 +32,6 @@ exampleTextWithShadow
 		from: 8
 		to: 13.
 	rope := rope attributes: {(SpFontWeightAttribute weight: 800)} from: 15 to: rope size.
-	textLayout := SpTextLayout rope: rope.
+	textLayout := SpMultilineTextLayout rope: rope.
 	textLayout renderOn: canvas.
 	canvas asForm asMorph openInWindowLabeled: 'Text with shadow'

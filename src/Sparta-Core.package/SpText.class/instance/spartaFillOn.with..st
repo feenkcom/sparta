@@ -1,4 +1,4 @@
 dispatch
 spartaFillOn: aSpartaCanvas with: aTextPainter
-	(SpTextLayout rope: rope)
+	(SpMultilineTextLayout rope: rope)
 		renderOn: aSpartaCanvas

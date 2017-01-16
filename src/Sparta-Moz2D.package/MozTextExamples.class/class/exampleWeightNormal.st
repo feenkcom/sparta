@@ -20,7 +20,7 @@ exampleWeightNormal
 		from: 1
 		to: aRope size.
 
-	aTextLayout := SpTextLayout rope: aRope.
+	aTextLayout := SpMultilineTextLayout rope: aRope.
 	aTextLayout renderOn: aCanvas.
 
 	aCanvas asForm asMorph openInWindow

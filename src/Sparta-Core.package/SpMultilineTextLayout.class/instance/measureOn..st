@@ -1,10 +1,10 @@
-initialization
-initializeOn: aCanvas
+measuring
+measureOn: aCanvas
 	"Measure and create lines with text spans from provided rope
 	based on attributes and layout properties (maximum width / height)"
 	| anIterator aContext |
 
-	aContext := SpTextLayoutContext new.
+	aContext := SpMultilineTextLayoutContext new.
 	aContext rope: rope.
 	aContext maxWidth: maxWidth.
 	aContext maxHeight: maxHeight.

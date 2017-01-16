@@ -37,6 +37,6 @@ exampleTextHaiku
 				stops: { 0 -> Color red. 1 -> Color blue }).
 			  SpFontWeightAttribute weight: 800 }
 		from: 26 to: rope size.
-	textLayout := SpTextLayout rope: rope.
+	textLayout := SpMultilineTextLayout rope: rope.
 	textLayout renderOn: canvas.
 	canvas asForm asMorph openInWindowLabeled: 'Haiku'

@@ -9,7 +9,7 @@ initializeSpan: aSpan on: aCanvas with: aContext
 	attributes := aSpan attributes.
 	transform := SpartaMatrix new.
 	attributes do: [ :attribute | attribute applyOnTransform: transform with: aSpan ].
-	aTextPainter := self initializePainter: aSpan on: aCanvas.
+	aTextPainter := self createPainter: aSpan on: aCanvas.
 	aStart := 1.
 	transformInverted := transform inverted.
 
@@ -29,18 +29,12 @@ initializeSpan: aSpan on: aCanvas with: aContext
 
 	aTextRun metricsProvider: aMetricsProvider.
 
-	[ aStart <= aLength and: [ aContext availableHeight > 0 ] ]
+	[ aStart <= aLength and: [ aContext availableWidth > 0 ] ]
 		whileTrue: [ | span anEnd |
-			"here we skip all left whitespace after break"
-			aContext isSplitted
-				ifTrue: [
-					"white space"
-					aStart := self skipWhitespaceIn: aTextPainter string after: aStart ].
-
 			aMetrics width: (transformInverted transformX: aContext availableWidth) - transform translation x.
 			aMetrics start: aStart.
 			aMetricsProvider processRequest: aMetrics with: aTextRun.
-			
+
 			anEnd := aMetrics wrappedEnd.
 			"to can be less than from, meaning that there are no fully visible characters that fit in available width"
 			anEnd < aStart ifTrue: [
@@ -61,7 +55,5 @@ initializeSpan: aSpan on: aCanvas with: aContext
 				textRun: aTextRun.
 			span attributes: attributes.
 			aContext pushSpan: span.
-			aContext isSplitted
-				ifTrue: [ aContext pushLine ].
 			aStart := anEnd + 1 ].
 	aContext pushPosition: aStart - 1 - aLength
