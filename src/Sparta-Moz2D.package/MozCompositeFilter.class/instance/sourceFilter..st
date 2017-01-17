@@ -1,6 +1,8 @@
 dispatch
 sourceFilter: aFilter
+
+	"Filters are ref counted, so no need to strong refer them"
 	self primSetInputFilter: aFilter intIndex: self size.
-	"We need to have a strong reference to aFilter to prevent external
-	object from automatic garbage collection"
-	self sources add: aFilter
+
+	"increase counter by one"
+	count := count + 1

@@ -1,3 +1,3 @@
 converting
 asFilterSourceOn: aFilter
-	self surface asFilterSourceOn: aFilter
+	aFilter sourceCanvas: self

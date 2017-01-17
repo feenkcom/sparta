@@ -1,6 +1,8 @@
 dispatch
 sourceSurface: aSurface
+
+	"Surfaces are ref counted, so no need to strong refer them"
 	self primSetInputSurface: aSurface intIndex: self size.
-	"We need to have a strong reference to aSurface to prevent external
-	object from automatic garbage collection"
-	self sources add: aSurface
+
+	"increase counter by one"
+	count := count + 1

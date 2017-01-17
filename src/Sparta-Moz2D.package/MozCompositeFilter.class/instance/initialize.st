@@ -2,4 +2,4 @@ initialization
 initialize
 	super initialize.
 	
-	lol := 'haba'.
+	count := 0

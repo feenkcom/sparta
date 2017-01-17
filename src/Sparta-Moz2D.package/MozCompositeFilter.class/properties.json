@@ -7,7 +7,7 @@
 		 ],
 	"commentStamp" : "AliakseiSyrel 8/19/2016 23:55",
 	"instvars" : [
-		"sources" ],
+		"count" ],
 	"name" : "MozCompositeFilter",
 	"pools" : [
 		 ],

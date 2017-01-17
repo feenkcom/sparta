@@ -3,11 +3,11 @@ hasModule
 	"Return if there is a loadable and working Moz2D library installed, false otherwise"
 	<return: #Boolean>
 	| aResult |
+
+	aResult := nil.
 	
-	aResult := true.
-	
-	[ self testCall ]
+	[ aResult := self primTest ]
 		on: Error
 		do: [ :e | aResult := false ].
-	
-	^ aResult
+
+	^ aResult ifNil: [ false ]
