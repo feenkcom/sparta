@@ -21,6 +21,6 @@ release: aHandle
 	self
 		assert: [ refCount >= 0 ]
 		description: [ 'Reference count can only be positive!' ].
-		
-	refCount = 0
-		ifTrue: [ aHandle getHandle beNull ]
+	
+	"always nullify handle, since object gets garbage collected on pharo side"
+	aHandle getHandle beNull

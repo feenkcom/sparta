@@ -2,30 +2,34 @@ rectangle functions
 merge: aRectangle 
 	"Merge provided rectangle into me.
 	aRectangle must not be nil"
-	| useRcvr rOrigin rCorner minX maxX minY maxY |
+	| useRcvr aLeft aTop aRight aBottom minX maxX minY maxY |
 
 	useRcvr := true.
-	rOrigin := aRectangle topLeft.
-	rCorner := aRectangle bottomRight.
-	minX := rOrigin x < left
+
+	aLeft := aRectangle left.
+	aTop := aRectangle top.
+	aRight := aRectangle right.
+	aBottom := aRectangle bottom.
+
+	minX := aLeft < left
 		ifTrue: 
 			[ useRcvr := false.
-			rOrigin x ]
+			aLeft ]
 		ifFalse: [ left ].
-	maxX := rCorner x > right
+	maxX := aRight > right
 		ifTrue: 
 			[ useRcvr := false.
-			rCorner x ]
+			aRight ]
 		ifFalse: [ right ].
-	minY := rOrigin y < top
+	minY := aTop < top
 		ifTrue: 
 			[ useRcvr := false.
-			rOrigin y ]
+			aTop ]
 		ifFalse: [ top ].
-	maxY := rCorner y > bottom
+	maxY := aBottom > bottom
 		ifTrue: 
 			[ useRcvr := false.
-			rCorner y ]
+			aBottom ]
 		ifFalse: [ bottom ].
 	
 	"no need to merge do nothing"

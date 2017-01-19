@@ -16,6 +16,6 @@ createPainter: aSpRope on: aCanvas
 		anAttribute applyOnText: aTextPainter with: aSpRope ].
 
 	aTextPainter font: aFontBuilder build.
-	aTextPainter string: (String streamContents: [ :aStream | aStream nextPutAll: aSpRope ]).
+	aTextPainter string: (String new: aSpRope size streamContents: [ :aStream | aStream nextPutAll: aSpRope ]).
 
 	^ aTextPainter
