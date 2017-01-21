@@ -1,5 +1,5 @@
 instance creation
 rope: aRope
-	^ self
-		rope: aRope
-		properties: { }
+	^ self new
+		rope: aRope;
+		yourself

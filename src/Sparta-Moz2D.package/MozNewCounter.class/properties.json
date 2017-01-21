@@ -1,0 +1,17 @@
+{
+	"category" : "Sparta-Moz2D",
+	"classinstvars" : [
+		"dictionary",
+		"count",
+		"link",
+		"running" ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		 ],
+	"name" : "MozNewCounter",
+	"pools" : [
+		 ],
+	"super" : "Object",
+	"type" : "normal" }

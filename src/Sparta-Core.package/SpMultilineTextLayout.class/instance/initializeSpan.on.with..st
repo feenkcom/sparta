@@ -58,8 +58,8 @@ initializeSpan: aSpan on: aCanvas with: aContext
 				metrics: aMetrics
 				transform: transform
 				transformInverted: transformInverted
-				textRun: aTextRun.
-			span attributes: attributes.
+				textRun: aTextRun
+				attributes: attributes.
 			aContext pushSpan: span.
 			aContext isSplitted
 				ifTrue: [ aContext pushLine ].

@@ -1,8 +1,12 @@
 printing
 printOn: aStream
+	aStream nextPutAll: self class name; nextPutAll: ' ('.
 
-	aStream nextPutAll: self class name, ' ('; cr.
-	aStream tab; nextPutAll: 'fonts: ', self asString; cr.
-	aStream tab; nextPutAll: 'size: ', self size asString; cr.
-	aStream tab; nextPutAll: 'default: ', self defaultFontType item asString; cr.
-	aStream nextPutAll: ')'; cr.
+	self isNull
+		ifFalse: [
+			aStream cr.
+			aStream tab; nextPutAll: 'fonts: '; nextPutAll: self asString; cr.
+			aStream tab; nextPutAll: 'size: '; nextPutAll: self size asString; cr.
+			aStream tab; nextPutAll: 'default: '; nextPutAll: self defaultFontType item asString; cr ]
+		ifTrue: [ aStream nextPutAll: 'nil' ].
+	aStream nextPutAll: ')'; cr

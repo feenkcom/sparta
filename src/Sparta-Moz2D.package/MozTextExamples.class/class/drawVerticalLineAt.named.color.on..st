@@ -16,5 +16,5 @@ drawVerticalLineAt: offsetX named: aName color: aColor on: aCanvas
 			build).
 	metricsProvider := textPainter measure.	
 	textPainter
-		baseline: (offsetX - 3) @ (aCanvas height -  self canvasOffset y - 5);
+		baseline: (offsetX + 3) @ (aCanvas height -  self canvasOffset y - 5);
 		draw

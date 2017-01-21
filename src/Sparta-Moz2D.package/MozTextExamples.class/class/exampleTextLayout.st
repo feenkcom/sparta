@@ -15,9 +15,9 @@ exampleTextLayout
 	rope := rope attributes: { SpTextTransformationAttribute new
 		scaleBy: 0.2 } from: 15 to: 30.
 
-	textLayout := SpMultilineTextLayout
+	textLayout := SpMultilineTextLayout new
 		rope: rope
-		properties: { #maxWidth -> maxWidth }.
+		maxWidth: maxWidth.
 	textLayout renderOn: canvas.
 
 	canvas stroke

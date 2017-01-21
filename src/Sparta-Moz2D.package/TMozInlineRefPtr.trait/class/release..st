@@ -7,14 +7,14 @@ release: aHandle
 		ifTrue: [ ^ self ].
 
 	"amout of references before release"
-	refCount := (self primRefCount: aHandle value).
+	refCount := (self primRefCount: aHandle).
 	refCount = 0
 		ifTrue: [ 
 			self warning: [ 'Trying to release a reference with 0 refCount!' ].
 			^ self ].
-	
+
 	self warning: [ '(', aHandle value asString, ') RefCount: ', (refCount - 1) asString ].
-	self primRelease: aHandle value.
+	self primRelease: aHandle.
 
 	refCount := refCount - 1.
 	

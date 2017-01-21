@@ -1,5 +1,5 @@
 initialization
-initialize
-	super initialize.
+reset
+	super reset.
 	
 	spans := nil

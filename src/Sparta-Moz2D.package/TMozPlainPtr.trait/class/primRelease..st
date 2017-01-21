@@ -1,4 +1,5 @@
 private - ffi
 primRelease: aHandle
-
-	^ self ffiCall: #(void moz2d_plain_ptr_release(ulong aHandle))
+	
+	"Plain pointers must be deleted using delete(), all users must implement a specific method"
+	^ self explicitRequirement

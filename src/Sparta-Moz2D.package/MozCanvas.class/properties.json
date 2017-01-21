@@ -15,7 +15,6 @@
 		"paintProvider",
 		"clipBuilder",
 		"shapeBuilder",
-		"transformBuilder",
 		"bitmapBuilder" ],
 	"name" : "MozCanvas",
 	"pools" : [

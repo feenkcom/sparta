@@ -1,0 +1,14 @@
+{
+	"category" : "Sparta-Moz2D-Tests",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		"canvas" ],
+	"name" : "MozSkiaMemoryLeakTests",
+	"pools" : [
+		 ],
+	"super" : "TestCase",
+	"type" : "normal" }

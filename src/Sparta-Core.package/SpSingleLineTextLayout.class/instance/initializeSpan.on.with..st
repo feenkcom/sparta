@@ -1,17 +1,31 @@
 initialize-release
 initializeSpan: aSpan on: aCanvas with: aContext
-	| attributes aTextPainter aLength aStart transform transformInverted aMetricsProvider aTextRun aMetrics |
+	| attributes aTextPainter aLength aStart aTransformation anInvertedTransformation aMetricsProvider aTextRun aMetrics |
 
 	self
 		assert: [ aSpan isNotEmpty ]
 		description: [ 'Span must be non-empty!' ].
 
+	aTransformation := self class matrix loadIdentity.	
 	attributes := aSpan attributes.
-	transform := SpartaMatrix new.
-	attributes do: [ :attribute | attribute applyOnTransform: transform with: aSpan ].
+	attributes do: [ :attribute | attribute applyOnTransform: aTransformation with: aSpan ].
+
+	"Only compute inverted matrix if we actually have custom transformation"
+	anInvertedTransformation := aTransformation isIdentity
+		"nil transform and inverted transform means that we don't have any transformation.
+		Please note, that this is done to prevent unneseccary object creation and not needed
+		garbage collection in the future. Text measurement must be optimized as much as possible
+		in terms of object creation. It is also important to mention that a single text editor
+		expanded on full screen may contain a few thousands of small text pieces where each of them
+		own a text layout. It means that with such a simple optimization we prevent many thousands
+		of matrix objects from being created and later garbage collected. Worth it!"
+		ifTrue: [ aTransformation := nil ]
+		ifFalse: [ aTransformation inverted ].
+	
 	aTextPainter := self createPainter: aSpan on: aCanvas.
-	aStart := 1.
-	transformInverted := transform inverted.
+	"Since I am a single line layout we want to force disable breaks in order
+	to prevent hyphenation computations which is rather slow"
+	aTextPainter breakNone.
 
 	aMetrics := aTextPainter metrics.
 	aMetricsProvider := aTextPainter metricsProvider.
@@ -29,9 +43,16 @@ initializeSpan: aSpan on: aCanvas with: aContext
 
 	aTextRun metricsProvider: aMetricsProvider.
 
+	aStart := 1.
 	[ aStart <= aLength and: [ aContext availableWidth > 0 ] ]
-		whileTrue: [ | span anEnd |
-			aMetrics width: (transformInverted transformX: aContext availableWidth) - transform translation x.
+		whileTrue: [ | span anEnd aMaxWidth |
+			
+			"compute width limit based on existance of custom transformation"			
+			aMaxWidth := (aTransformation isNil or: [ anInvertedTransformation isNil ])
+				ifTrue: [ aContext availableWidth ]
+				ifFalse: [ (anInvertedTransformation transformX: aContext availableWidth) - aTransformation translation x ].
+
+			aMetrics width: aMaxWidth.
 			aMetrics start: aStart.
 			aMetricsProvider processRequest: aMetrics with: aTextRun.
 
@@ -42,18 +63,32 @@ initializeSpan: aSpan on: aCanvas with: aContext
 				aMetrics length: aStart - aMetrics start + 1.
 				aMetricsProvider processRequest: aMetrics with: aTextRun.
 				anEnd := aMetrics wrappedEnd ].
-			span := SpTextSpan
-				rope: rope
-				segment: aSpan
-				start: aStart "should be in string buffer coordinates (respecting 1 vs 2 vs 4 bits per character)"
-				end: anEnd "should be in string buffer coordinates (respecting 1 vs 2 vs 4 bits per character)"
-				from: aContext position
-				to: aContext position + (anEnd - aStart)
-				metrics: aMetrics
-				transform: transform
-				transformInverted: transformInverted
-				textRun: aTextRun.
-			span attributes: attributes.
+			
+			span :=  (aTransformation isNil or: [ anInvertedTransformation isNil ])
+				ifTrue: [
+					SpTextSpan
+						rope: rope
+						segment: aSpan
+						start: aStart "should be in string buffer coordinates (respecting 1 vs 2 vs 4 bits per character)"
+						end: anEnd "should be in string buffer coordinates (respecting 1 vs 2 vs 4 bits per character)"
+						from: aContext position
+						to: aContext position + (anEnd - aStart)
+						metrics: aMetrics
+						textRun: aTextRun
+						attributes: attributes ]
+				ifFalse: [ 
+					SpTextSpan
+						rope: rope
+						segment: aSpan
+						start: aStart "should be in string buffer coordinates (respecting 1 vs 2 vs 4 bits per character)"
+						end: anEnd "should be in string buffer coordinates (respecting 1 vs 2 vs 4 bits per character)"
+						from: aContext position
+						to: aContext position + (anEnd - aStart)
+						metrics: aMetrics
+						transform: aTransformation
+						transformInverted: anInvertedTransformation
+						textRun: aTextRun
+						attributes: attributes ].
 			aContext pushSpan: span.
 			aStart := anEnd + 1 ].
 	aContext pushPosition: aStart - 1 - aLength

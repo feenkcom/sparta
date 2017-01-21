@@ -1,7 +1,7 @@
 {
 	"category" : "Sparta-Core-Text-Rendering",
 	"classinstvars" : [
-		 ],
+		"matrix" ],
 	"classvars" : [
 		 ],
 	"commentStamp" : "AliakseiSyrel 1/16/2017 18:11",
