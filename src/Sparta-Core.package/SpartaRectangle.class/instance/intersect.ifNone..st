@@ -18,7 +18,7 @@ intersect: aRectangle ifNone: aBlock
 	newRight := aRight min: right.
 	newBottom := aBottom min: bottom.
 
-	^ SpartaRectangle new
+	^ self class new
 		left: newLeft
 		top: newTop
 		right: newRight
