@@ -1,4 +1,3 @@
 transformations
 multiplyBy: aMatrix
-
-	self transformation multiplyBy: aMatrix
+	aMatrix spartaMultiplyWith: self transformation

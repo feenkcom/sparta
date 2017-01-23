@@ -1,3 +1,5 @@
 accessing
 transformation
-	self explicitRequirement
+	<return: #SpartaMatrix>
+
+	^ self explicitRequirement
