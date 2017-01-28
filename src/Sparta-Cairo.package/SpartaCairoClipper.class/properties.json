@@ -1,0 +1,16 @@
+{
+	"category" : "Sparta-Cairo-Builders",
+	"classinstvars" : [
+		 ],
+	"classtraitcomposition" : "TSpartaCairoLibrary classTrait",
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		 ],
+	"name" : "SpartaCairoClipper",
+	"pools" : [
+		 ],
+	"super" : "SpartaClipper",
+	"traitcomposition" : "TSpartaCairoLibrary",
+	"type" : "normal" }

@@ -1,0 +1,3 @@
+builders
+clipBuilder
+	^ SpartaCairoClipper new

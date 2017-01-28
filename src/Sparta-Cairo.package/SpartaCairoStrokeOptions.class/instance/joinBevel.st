@@ -1,0 +1,3 @@
+join styles
+joinBevel
+	self lineJoin: SpartaCairoJoinStyle CAIRO_LINE_JOIN_BEVEL

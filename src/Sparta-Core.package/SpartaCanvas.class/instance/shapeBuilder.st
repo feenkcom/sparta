@@ -1,3 +1,0 @@
-builders
-shapeBuilder
-	^ self subclassResponsibility

@@ -1,7 +1,7 @@
 api
 shape
 
-	^ self shapeBuilder
+	^ self shapeFactory
 		reset;
 		canvas: self;
 		yourself

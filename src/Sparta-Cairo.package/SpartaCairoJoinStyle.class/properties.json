@@ -1,0 +1,16 @@
+{
+	"category" : "Sparta-Cairo-Enums",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		"CAIRO_LINE_JOIN_BEVEL",
+		"CAIRO_LINE_JOIN_MITER",
+		"CAIRO_LINE_JOIN_ROUND" ],
+	"commentStamp" : "",
+	"instvars" : [
+		 ],
+	"name" : "SpartaCairoJoinStyle",
+	"pools" : [
+		 ],
+	"super" : "SpartaCairoEnum",
+	"type" : "normal" }

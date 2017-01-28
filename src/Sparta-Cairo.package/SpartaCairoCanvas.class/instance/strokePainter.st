@@ -1,0 +1,3 @@
+builders
+strokePainter
+	^ SpartaCairoStrokePainter new

@@ -1,0 +1,19 @@
+{
+	"category" : "Sparta-Cairo-Paints",
+	"classinstvars" : [
+		 ],
+	"classtraitcomposition" : "TSpartaRadialGradientPaint classTrait",
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		"innerCenter",
+		"innerRadius",
+		"outerCenter",
+		"outerRadius" ],
+	"name" : "SpartaCairoRadialGradientPaint",
+	"pools" : [
+		 ],
+	"super" : "SpartaCairoGradientPaint",
+	"traitcomposition" : "TSpartaRadialGradientPaint",
+	"type" : "normal" }

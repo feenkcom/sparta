@@ -1,5 +1,6 @@
 SystemOrganization addCategory: #'Sparta-Core'!
 SystemOrganization addCategory: 'Sparta-Core-Builders'!
+SystemOrganization addCategory: 'Sparta-Core-Examples'!
 SystemOrganization addCategory: 'Sparta-Core-Filters'!
 SystemOrganization addCategory: 'Sparta-Core-Filters-Traits'!
 SystemOrganization addCategory: 'Sparta-Core-Math'!

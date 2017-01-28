@@ -14,8 +14,8 @@
 		"patternBuilder",
 		"paintProvider",
 		"clipBuilder",
-		"shapeBuilder",
-		"bitmapBuilder" ],
+		"bitmapBuilder",
+		"shapeFactory" ],
 	"name" : "MozCanvas",
 	"pools" : [
 		"MozSharedPool" ],

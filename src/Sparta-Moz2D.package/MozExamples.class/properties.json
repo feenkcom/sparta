@@ -2,6 +2,7 @@
 	"category" : "Sparta-Moz2D-Examples",
 	"classinstvars" : [
 		 ],
+	"classtraitcomposition" : "TSpartaExamples classTrait",
 	"classvars" : [
 		 ],
 	"commentStamp" : "",
@@ -11,4 +12,5 @@
 	"pools" : [
 		 ],
 	"super" : "Object",
+	"traitcomposition" : "TSpartaExamples",
 	"type" : "normal" }
