@@ -14,3 +14,6 @@ path
 	<return: #TSpartaPathBuilder>
 
 	^ self pathBuilder
+		reset;
+		canvas: self;
+		yourself

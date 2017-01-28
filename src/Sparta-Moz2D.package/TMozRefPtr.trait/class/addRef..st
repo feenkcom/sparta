@@ -1,4 +1,4 @@
 accessing
 addRef: aHandle
 
-	self primAddRef: aHandle value
+	self primAddRef: aHandle

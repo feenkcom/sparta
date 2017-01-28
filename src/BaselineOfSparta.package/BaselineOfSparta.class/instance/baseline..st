@@ -9,13 +9,15 @@ baseline: spec
 			with: [ spec requires: #('Sparta-Core') ];
 		package: 'Sparta-Moz2D-Tests'
 			with: [ spec requires: #('Sparta-Moz2D') ];
+		package: 'Sparta-Cairo'
+			with: [ spec requires: #('Sparta-Core') ];
 
 		"additional development packages"
 		package: 'Sparta-Critiques';
 
 		"groups with only sources"
 		group: 'file:core'
-			with: #('Sparta-Core' 'Sparta-Moz2D');
+			with: #('Sparta-Core' 'Sparta-Moz2D' 'Sparta-Cairo');
 		group: 'file:development'
 			with: #('file:core' 'Sparta-Critiques' 'Sparta-Moz2D-Tests');
 

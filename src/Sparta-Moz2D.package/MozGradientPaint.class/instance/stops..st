@@ -1,3 +1,3 @@
 accessing
-stops: aGradientStops
-	stops := aGradientStops
+stops: aCollectionOfStops
+	stops := aCollectionOfStops

@@ -1,9 +1,11 @@
 converting
 asForm
-	|canvas|
-	canvas := MozCanvas checker: self formExtent.
-	canvas fill
+	| aCanvas |
+
+	aCanvas := MozCanvas checker: self formExtent.
+	aCanvas fill
 		paint: self;
-		path: (0@0 extent: canvas extent);
+		path: aCanvas bounds;
 		draw.
-	^ canvas asForm
+
+	^ aCanvas asForm

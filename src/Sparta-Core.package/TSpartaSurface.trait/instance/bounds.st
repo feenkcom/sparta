@@ -5,4 +5,4 @@ bounds
 	bounds can not be nil"
 	<return: #Rectangle>
 
-	^ (0@0 extent: self extent)
+	^ 0@0 extent: self extent

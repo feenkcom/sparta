@@ -4,7 +4,7 @@ strokedBounds: aStrokeOptions
 	These bounds are not guaranteed to be tight."
 	<return: #Rectangle>
 
-	|extRect|
+	| extRect |
 	extRect := MozNativeRect new.
 	self primStrokeBounds: aStrokeOptions rect: extRect.
 	^ extRect asRectangle

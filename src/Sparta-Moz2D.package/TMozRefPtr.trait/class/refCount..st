@@ -1,4 +1,4 @@
 accessing
 refCount: aHandle
 
-	^ self primRefCount: aHandle value
+	^ self primRefCount: aHandle

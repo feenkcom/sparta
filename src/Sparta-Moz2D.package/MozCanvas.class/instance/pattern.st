@@ -1,4 +1,4 @@
-accessing
+api
 pattern
 	^ self patternBuilder
 		reset;

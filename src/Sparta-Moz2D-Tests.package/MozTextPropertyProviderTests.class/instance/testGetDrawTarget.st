@@ -6,4 +6,4 @@ testGetDrawTarget
 	propertyProvider canvas: canvas.
 	actualCanvas := self primGetDrawTarget: propertyProvider.
 
-	self assert: actualCanvas getHandle value equals: canvas handle
+	self assert: actualCanvas getHandle value equals: canvas getHandle value

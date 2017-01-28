@@ -2,6 +2,7 @@
 	"category" : "Sparta-Core-Builders",
 	"classinstvars" : [
 		 ],
+	"classtraitcomposition" : "TSpartaDrawOptions classTrait",
 	"classvars" : [
 		 ],
 	"commentStamp" : "AliakseiSyrel 8/26/2016 19:01",
@@ -13,4 +14,5 @@
 	"pools" : [
 		 ],
 	"super" : "SpartaAbstractPainter",
+	"traitcomposition" : "TSpartaDrawOptions",
 	"type" : "normal" }

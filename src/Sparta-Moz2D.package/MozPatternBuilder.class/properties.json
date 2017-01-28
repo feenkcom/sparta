@@ -2,7 +2,7 @@
 	"category" : "Sparta-Moz2D-Builders",
 	"classinstvars" : [
 		 ],
-	"classtraitcomposition" : "TMozLibrary classTrait + TMozRefPtr classTrait",
+	"classtraitcomposition" : "TMozLibrary classTrait",
 	"classvars" : [
 		 ],
 	"commentStamp" : "",
@@ -12,5 +12,5 @@
 	"pools" : [
 		"MozSharedPool" ],
 	"super" : "SpartaAbstractBuilder",
-	"traitcomposition" : "TMozLibrary + TMozRefPtr",
+	"traitcomposition" : "TMozLibrary",
 	"type" : "normal" }
