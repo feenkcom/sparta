@@ -1,0 +1,3 @@
+composition operators
+composeLighten
+	operator := SpartaCairoCompositionOp CAIRO_OPERATOR_LIGHTEN

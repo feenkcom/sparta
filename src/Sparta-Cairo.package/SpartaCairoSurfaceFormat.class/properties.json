@@ -1,0 +1,20 @@
+{
+	"category" : "Sparta-Cairo-Enums",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		"CAIRO_FORMAT_A1",
+		"CAIRO_FORMAT_A8",
+		"CAIRO_FORMAT_ARGB32",
+		"CAIRO_FORMAT_INVALID",
+		"CAIRO_FORMAT_RGB16_565",
+		"CAIRO_FORMAT_RGB24",
+		"CAIRO_FORMAT_RGB30" ],
+	"commentStamp" : "",
+	"instvars" : [
+		 ],
+	"name" : "SpartaCairoSurfaceFormat",
+	"pools" : [
+		 ],
+	"super" : "SpartaCairoEnum",
+	"type" : "normal" }

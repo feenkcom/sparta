@@ -1,0 +1,3 @@
+accessing
+radialGradient: aRadialGradient
+	self shouldBeImplemented

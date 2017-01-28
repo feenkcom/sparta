@@ -1,0 +1,3 @@
+builders
+fillPainter
+	^ SpartaCairoFillPainter new

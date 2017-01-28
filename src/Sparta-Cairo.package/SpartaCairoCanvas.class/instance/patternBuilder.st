@@ -1,0 +1,3 @@
+builders
+patternBuilder
+	^ SpartaCairoPatternBuilder new

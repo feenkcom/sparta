@@ -1,0 +1,3 @@
+composition operators
+composeDestAtop
+	operator := SpartaCairoCompositionOp CAIRO_OPERATOR_DEST_ATOP 

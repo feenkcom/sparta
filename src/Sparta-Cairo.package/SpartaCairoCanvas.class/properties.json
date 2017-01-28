@@ -1,0 +1,18 @@
+{
+	"category" : "Sparta-Cairo",
+	"classinstvars" : [
+		 ],
+	"classtraitcomposition" : "TSpartaCairoLibrary classTrait + TSpartaCairoRefPtr classTrait + TSpartaCairoDebug classTrait",
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		"handle",
+		"surface",
+		"transformationStack" ],
+	"name" : "SpartaCairoCanvas",
+	"pools" : [
+		 ],
+	"super" : "SpartaCanvas",
+	"traitcomposition" : "TSpartaCairoLibrary + TSpartaCairoRefPtr + TSpartaCairoDebug",
+	"type" : "normal" }

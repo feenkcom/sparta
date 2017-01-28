@@ -1,0 +1,16 @@
+{
+	"category" : "Sparta-Cairo-Builders",
+	"classinstvars" : [
+		 ],
+	"classtraitcomposition" : "TMozLibrary classTrait",
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		 ],
+	"name" : "SpartaCairoPatternBuilder",
+	"pools" : [
+		"MozSharedPool" ],
+	"super" : "SpartaAbstractBuilder",
+	"traitcomposition" : "TMozLibrary",
+	"type" : "normal" }

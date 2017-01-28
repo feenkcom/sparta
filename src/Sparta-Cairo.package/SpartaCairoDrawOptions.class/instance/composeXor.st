@@ -1,0 +1,3 @@
+composition operators
+composeXor
+	operator := SpartaCairoCompositionOp CAIRO_OPERATOR_XOR

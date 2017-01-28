@@ -1,0 +1,3 @@
+composition operators
+composeSoftLight
+	operator := SpartaCairoCompositionOp CAIRO_OPERATOR_SOFT_LIGHT

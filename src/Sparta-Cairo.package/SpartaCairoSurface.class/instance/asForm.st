@@ -1,0 +1,4 @@
+converting
+asForm
+
+	^ self subclassResponsibility

@@ -1,0 +1,3 @@
+antialias modes
+antialiasSubpixel
+	antialias := SpartaCairoAntialias CAIRO_ANTIALIAS_SUBPIXEL

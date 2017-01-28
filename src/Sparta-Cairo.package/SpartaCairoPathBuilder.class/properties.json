@@ -1,0 +1,19 @@
+{
+	"category" : "Sparta-Cairo-Path",
+	"classinstvars" : [
+		 ],
+	"classtraitcomposition" : "TSpartaPathBuilder classTrait + TSpartaCairoLibrary classTrait",
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		"absolute",
+		"canvas",
+		"endPoint",
+		"lastControlPoint" ],
+	"name" : "SpartaCairoPathBuilder",
+	"pools" : [
+		 ],
+	"super" : "Object",
+	"traitcomposition" : "TSpartaPathBuilder + TSpartaCairoLibrary",
+	"type" : "normal" }

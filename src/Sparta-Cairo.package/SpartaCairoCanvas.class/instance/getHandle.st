@@ -1,0 +1,3 @@
+private - ffi
+getHandle
+	^ handle

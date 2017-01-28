@@ -1,0 +1,16 @@
+{
+	"category" : "Sparta-Cairo-External",
+	"classinstvars" : [
+		 ],
+	"classtraitcomposition" : "TSpartaCairoLibrary classTrait + TSpartaCairoRefPtr classTrait + TSpartaCairoDebug classTrait + TSpartaInspectorPreview classTrait",
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		 ],
+	"name" : "SpartaCairoPattern",
+	"pools" : [
+		 ],
+	"super" : "FFIExternalObject",
+	"traitcomposition" : "TSpartaCairoLibrary + TSpartaCairoRefPtr + TSpartaCairoDebug + TSpartaInspectorPreview",
+	"type" : "normal" }

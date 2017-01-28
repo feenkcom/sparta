@@ -1,0 +1,3 @@
+composition operators
+composeOverlay
+	operator := SpartaCairoCompositionOp CAIRO_OPERATOR_OVERLAY

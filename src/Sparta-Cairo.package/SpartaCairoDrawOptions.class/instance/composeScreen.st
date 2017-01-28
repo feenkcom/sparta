@@ -1,0 +1,3 @@
+composition operators
+composeScreen
+	operator := SpartaCairoCompositionOp CAIRO_OPERATOR_SCREEN

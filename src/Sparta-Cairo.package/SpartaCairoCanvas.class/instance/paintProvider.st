@@ -1,0 +1,3 @@
+builders
+paintProvider
+	^ SpartaCairoPaintProvider new

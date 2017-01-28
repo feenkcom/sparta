@@ -1,0 +1,14 @@
+{
+	"category" : "Sparta-Cairo-Examples",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		 ],
+	"name" : "SpartaCairoExamples",
+	"pools" : [
+		 ],
+	"super" : "Object",
+	"type" : "normal" }

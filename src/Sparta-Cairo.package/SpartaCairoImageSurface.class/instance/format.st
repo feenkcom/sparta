@@ -1,0 +1,4 @@
+accessing
+format
+
+	^ self primFormat

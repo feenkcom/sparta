@@ -1,0 +1,14 @@
+{
+	"category" : "Sparta-Cairo",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		 ],
+	"name" : "SpartaCairoImageSurface",
+	"pools" : [
+		 ],
+	"super" : "SpartaCairoSurface",
+	"type" : "normal" }

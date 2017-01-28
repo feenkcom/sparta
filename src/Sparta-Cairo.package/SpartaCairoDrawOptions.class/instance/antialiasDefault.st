@@ -1,0 +1,3 @@
+antialias modes
+antialiasDefault
+	antialias := SpartaCairoAntialias CAIRO_ANTIALIAS_DEFAULT

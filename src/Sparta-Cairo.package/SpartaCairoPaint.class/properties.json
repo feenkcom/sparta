@@ -1,0 +1,17 @@
+{
+	"category" : "Sparta-Cairo-Paints",
+	"classinstvars" : [
+		 ],
+	"classtraitcomposition" : "TSpartaPaint classTrait + TSpartaTransformable classTrait + TSpartaInspectorPreview classTrait",
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		"matrix",
+		"extendMode" ],
+	"name" : "SpartaCairoPaint",
+	"pools" : [
+		 ],
+	"super" : "Object",
+	"traitcomposition" : "TSpartaPaint + TSpartaTransformable + TSpartaInspectorPreview",
+	"type" : "normal" }

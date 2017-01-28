@@ -1,0 +1,3 @@
+composition operators
+composeColorDodge
+	operator := SpartaCairoCompositionOp CAIRO_OPERATOR_COLOR_DODGE
