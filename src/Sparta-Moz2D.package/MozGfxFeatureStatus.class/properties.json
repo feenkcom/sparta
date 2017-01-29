@@ -1,7 +1,9 @@
 {
+	"commentStamp" : "",
+	"super" : "FFIExternalEnumeration",
 	"category" : "Sparta-Moz2D-GFX",
-	"classinstvars" : [
-		 ],
+	"classinstvars" : [ ],
+	"pools" : [ ],
 	"classvars" : [
 		"Available",
 		"Blacklisted",
@@ -13,12 +15,9 @@
 		"Failed",
 		"ForceEnabled",
 		"Unavailable",
-		"Unused" ],
-	"commentStamp" : "",
-	"instvars" : [
-		 ],
+		"Unused"
+	],
+	"instvars" : [ ],
 	"name" : "MozGfxFeatureStatus",
-	"pools" : [
-		 ],
-	"super" : "FFIExternalEnumeration",
-	"type" : "normal" }
+	"type" : "normal"
+}

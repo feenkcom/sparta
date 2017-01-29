@@ -1,15 +1,14 @@
 {
+	"commentStamp" : "AliakseiSyrel 8/23/2016 00:06",
+	"super" : "FFIExternalEnumeration",
 	"category" : "Sparta-Moz2D-Filters Enum",
-	"classinstvars" : [
-		 ],
+	"classinstvars" : [ ],
+	"pools" : [ ],
 	"classvars" : [
 		"INPUT",
-		"SECOND_INPUT" ],
-	"commentStamp" : "AliakseiSyrel 8/23/2016 00:06",
-	"instvars" : [
-		 ],
+		"SECOND_INPUT"
+	],
+	"instvars" : [ ],
 	"name" : "MozFilterInputs",
-	"pools" : [
-		 ],
-	"super" : "FFIExternalEnumeration",
-	"type" : "normal" }
+	"type" : "normal"
+}

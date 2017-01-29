@@ -1,14 +1,11 @@
 {
-	"category" : "Sparta-Moz2D-Enums",
-	"classinstvars" : [
-		 ],
-	"classvars" : [
-		 ],
 	"commentStamp" : "",
-	"instvars" : [
-		 ],
-	"name" : "MozEnum",
-	"pools" : [
-		 ],
 	"super" : "FFIExternalEnumeration",
-	"type" : "normal" }
+	"category" : "Sparta-Moz2D-Enums",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "MozEnum",
+	"type" : "normal"
+}

@@ -1,15 +1,14 @@
 {
+	"commentStamp" : "",
+	"super" : "FFIExternalEnumeration",
 	"category" : "Sparta-Moz2D-Filters Enum",
-	"classinstvars" : [
-		 ],
+	"classinstvars" : [ ],
+	"pools" : [ ],
 	"classvars" : [
 		"ALPHA_MODE_PREMULTIPLIED",
-		"ALPHA_MODE_STRAIGHT" ],
-	"commentStamp" : "",
-	"instvars" : [
-		 ],
+		"ALPHA_MODE_STRAIGHT"
+	],
+	"instvars" : [ ],
 	"name" : "MozFilterAlphaMode",
-	"pools" : [
-		 ],
-	"super" : "FFIExternalEnumeration",
-	"type" : "normal" }
+	"type" : "normal"
+}

@@ -1,17 +1,16 @@
 {
-	"category" : "Sparta-Moz2D-Text",
-	"classinstvars" : [
-		 ],
 	"classtraitcomposition" : "TMozLibrary classTrait + TMozInlineRefPtr classTrait + TMozDebug classTrait",
-	"classvars" : [
-		 ],
-	"commentStamp" : "",
+	"classvars" : [ ],
 	"instvars" : [
 		"style",
-		"familyList" ],
+		"familyList"
+	],
 	"name" : "MozFontGroup",
-	"pools" : [
-		 ],
+	"commentStamp" : "",
 	"super" : "FFIExternalObject",
 	"traitcomposition" : "TMozLibrary + TMozInlineRefPtr + TMozDebug",
-	"type" : "normal" }
+	"type" : "normal",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"category" : "Sparta-Moz2D-Text"
+}

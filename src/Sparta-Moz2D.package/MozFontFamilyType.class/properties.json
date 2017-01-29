@@ -1,7 +1,9 @@
 {
+	"commentStamp" : "AliakseiSyrel 8/2/2016 00:52",
+	"super" : "FFIExternalEnumeration",
 	"category" : "Sparta-Moz2D-Text",
-	"classinstvars" : [
-		 ],
+	"classinstvars" : [ ],
+	"pools" : [ ],
 	"classvars" : [
 		"cursive",
 		"fantasy",
@@ -13,12 +15,9 @@
 		"sansSerif",
 		"serif",
 		"special",
-		"variable" ],
-	"commentStamp" : "AliakseiSyrel 8/2/2016 00:52",
-	"instvars" : [
-		 ],
+		"variable"
+	],
+	"instvars" : [ ],
 	"name" : "MozFontFamilyType",
-	"pools" : [
-		 ],
-	"super" : "FFIExternalEnumeration",
-	"type" : "normal" }
+	"type" : "normal"
+}

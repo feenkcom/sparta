@@ -1,17 +1,16 @@
 {
+	"commentStamp" : "",
+	"super" : "MozEnum",
 	"category" : "Sparta-Moz2D-Enums",
-	"classinstvars" : [
-		 ],
+	"classinstvars" : [ ],
+	"pools" : [ ],
 	"classvars" : [
 		"GOOD",
 		"LINEAR",
 		"POINT",
-		"SENTINEL" ],
-	"commentStamp" : "",
-	"instvars" : [
-		 ],
+		"SENTINEL"
+	],
+	"instvars" : [ ],
 	"name" : "MozSamplingMode",
-	"pools" : [
-		 ],
-	"super" : "MozEnum",
-	"type" : "normal" }
+	"type" : "normal"
+}

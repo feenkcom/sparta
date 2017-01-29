@@ -1,14 +1,11 @@
 {
-	"category" : "Sparta-Moz2D-Text",
-	"classinstvars" : [
-		 ],
-	"classvars" : [
-		 ],
 	"commentStamp" : "",
-	"instvars" : [
-		 ],
-	"name" : "MozTextRunIterator16Bit",
-	"pools" : [
-		 ],
 	"super" : "MozTextRunIterator",
-	"type" : "normal" }
+	"category" : "Sparta-Moz2D-Text",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "MozTextRunIterator16Bit",
+	"type" : "normal"
+}

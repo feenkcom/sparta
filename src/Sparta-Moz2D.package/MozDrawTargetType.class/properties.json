@@ -1,16 +1,15 @@
 {
+	"commentStamp" : "",
+	"super" : "MozEnum",
 	"category" : "Sparta-Moz2D-Enums",
-	"classinstvars" : [
-		 ],
+	"classinstvars" : [ ],
+	"pools" : [ ],
 	"classvars" : [
 		"HARDWARE_RASTER",
 		"SOFTWARE_RASTER",
-		"VECTOR" ],
-	"commentStamp" : "",
-	"instvars" : [
-		 ],
+		"VECTOR"
+	],
+	"instvars" : [ ],
 	"name" : "MozDrawTargetType",
-	"pools" : [
-		 ],
-	"super" : "MozEnum",
-	"type" : "normal" }
+	"type" : "normal"
+}

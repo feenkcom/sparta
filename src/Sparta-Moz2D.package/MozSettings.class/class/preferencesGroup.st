@@ -1,3 +1,3 @@
 configuration
 preferencesGroup
-	^ 'Graphics'
+	^ 'Moz2D'

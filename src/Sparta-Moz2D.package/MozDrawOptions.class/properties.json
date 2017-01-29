@@ -1,16 +1,15 @@
 {
-	"category" : "Sparta-Moz2D",
-	"classinstvars" : [
-		"default" ],
 	"classtraitcomposition" : "TSpartaDrawOptions classTrait",
-	"classvars" : [
-		 ],
-	"commentStamp" : "AliakseiSyrel 9/1/2016 01:37",
-	"instvars" : [
-		 ],
+	"classvars" : [ ],
+	"instvars" : [ ],
 	"name" : "MozDrawOptions",
-	"pools" : [
-		 ],
+	"commentStamp" : "AliakseiSyrel 9/1/2016 01:37",
 	"super" : "FFIExternalStructure",
 	"traitcomposition" : "TSpartaDrawOptions",
-	"type" : "normal" }
+	"type" : "normal",
+	"classinstvars" : [
+		"default"
+	],
+	"pools" : [ ],
+	"category" : "Sparta-Moz2D"
+}

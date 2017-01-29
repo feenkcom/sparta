@@ -1,18 +1,17 @@
 {
-	"category" : "Sparta-Moz2D-Paints",
-	"classinstvars" : [
-		 ],
 	"classtraitcomposition" : "TSpartaSurfacePaint classTrait",
-	"classvars" : [
-		 ],
-	"commentStamp" : "",
+	"classvars" : [ ],
 	"instvars" : [
 		"surface",
 		"samplingArea",
-		"samplingFilter" ],
+		"samplingFilter"
+	],
 	"name" : "MozSurfacePaint",
-	"pools" : [
-		 ],
+	"commentStamp" : "",
 	"super" : "MozPaint",
 	"traitcomposition" : "TSpartaSurfacePaint",
-	"type" : "normal" }
+	"type" : "normal",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"category" : "Sparta-Moz2D-Paints"
+}

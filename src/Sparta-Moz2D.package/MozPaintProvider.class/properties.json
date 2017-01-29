@@ -1,14 +1,11 @@
 {
-	"category" : "Sparta-Moz2D-Builders",
-	"classinstvars" : [
-		 ],
-	"classvars" : [
-		 ],
 	"commentStamp" : "AliakseiSyrel 7/24/2016 14:52",
-	"instvars" : [
-		 ],
-	"name" : "MozPaintProvider",
-	"pools" : [
-		 ],
 	"super" : "SpartaPaintProvider",
-	"type" : "normal" }
+	"category" : "Sparta-Moz2D-Builders",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "MozPaintProvider",
+	"type" : "normal"
+}

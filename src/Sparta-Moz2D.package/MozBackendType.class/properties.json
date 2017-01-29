@@ -1,19 +1,18 @@
 {
+	"commentStamp" : "",
+	"super" : "MozEnum",
 	"category" : "Sparta-Moz2D-Enums",
-	"classinstvars" : [
-		 ],
+	"classinstvars" : [ ],
+	"pools" : [ ],
 	"classvars" : [
 		"CAIRO",
 		"DIRECT2D",
 		"DIRECT2D1_1",
 		"NONE",
 		"RECORDING",
-		"SKIA" ],
-	"commentStamp" : "",
-	"instvars" : [
-		 ],
+		"SKIA"
+	],
+	"instvars" : [ ],
 	"name" : "MozBackendType",
-	"pools" : [
-		 ],
-	"super" : "MozEnum",
-	"type" : "normal" }
+	"type" : "normal"
+}
