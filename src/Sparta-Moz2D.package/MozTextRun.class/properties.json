@@ -1,5 +1,5 @@
 {
-	"classtraitcomposition" : "TMozLibrary classTrait + TMozInlineRefPtr classTrait + TMozDebug classTrait",
+	"classtraitcomposition" : "TSpTextRun classTrait + TMozLibrary classTrait + TMozInlineRefPtr classTrait + TMozDebug classTrait",
 	"classvars" : [ ],
 	"instvars" : [
 		"metricsProvider",
@@ -10,7 +10,7 @@
 	"name" : "MozTextRun",
 	"commentStamp" : "",
 	"super" : "FFIExternalObject",
-	"traitcomposition" : "TMozLibrary + TMozInlineRefPtr + TMozDebug",
+	"traitcomposition" : "TSpTextRun + TMozLibrary + TMozInlineRefPtr + TMozDebug",
 	"type" : "normal",
 	"classinstvars" : [ ],
 	"pools" : [ ],

@@ -1,14 +1,13 @@
 {
-	"category" : "Sparta-Core-Text-Model",
-	"classinstvars" : [
-		 ],
-	"classvars" : [
-		 ],
 	"commentStamp" : "",
-	"instvars" : [
-		"family" ],
-	"name" : "SpFontGenericFamilyAttribute",
-	"pools" : [
-		 ],
 	"super" : "SpAttribute",
-	"type" : "normal" }
+	"category" : "Sparta-Core-Text-Model",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"family"
+	],
+	"name" : "SpFontGenericFamilyAttribute",
+	"type" : "normal"
+}

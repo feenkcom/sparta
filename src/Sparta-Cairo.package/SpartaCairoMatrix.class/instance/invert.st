@@ -1,0 +1,4 @@
+transformations
+invert
+
+	self primInvert

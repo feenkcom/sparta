@@ -1,16 +1,15 @@
 {
-	"category" : "Sparta-Core-Builders",
-	"classinstvars" : [
-		 ],
 	"classtraitcomposition" : "TSpartaStrokeOptions classTrait",
-	"classvars" : [
-		 ],
-	"commentStamp" : "",
+	"classvars" : [ ],
 	"instvars" : [
-		"strokeOptions" ],
+		"strokeOptions"
+	],
 	"name" : "SpartaStrokePainter",
-	"pools" : [
-		 ],
+	"commentStamp" : "",
 	"super" : "SpartaPathPainter",
 	"traitcomposition" : "TSpartaStrokeOptions",
-	"type" : "normal" }
+	"type" : "normal",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"category" : "Sparta-Core-Builders"
+}

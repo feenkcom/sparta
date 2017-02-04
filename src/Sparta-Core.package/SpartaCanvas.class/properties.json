@@ -1,16 +1,13 @@
 {
-	"category" : "Sparta-Core",
-	"classinstvars" : [
-		 ],
 	"classtraitcomposition" : "TSpartaInspectorPreview classTrait + TSpartaSurface classTrait",
-	"classvars" : [
-		 ],
-	"commentStamp" : "AliakseiSyrel 9/1/2016 12:58",
-	"instvars" : [
-		 ],
+	"classvars" : [ ],
+	"instvars" : [ ],
 	"name" : "SpartaCanvas",
-	"pools" : [
-		 ],
+	"commentStamp" : "AliakseiSyrel 9/1/2016 12:58",
 	"super" : "Object",
 	"traitcomposition" : "TSpartaInspectorPreview + TSpartaSurface",
-	"type" : "normal" }
+	"type" : "normal",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"category" : "Sparta-Core"
+}

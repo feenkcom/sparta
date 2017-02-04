@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "SpTextRunIterator",
+	"category" : "Sparta-Core-Text",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "SpTextRunIterator8Bit",
+	"type" : "normal"
+}

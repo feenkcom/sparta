@@ -1,0 +1,3 @@
+builders
+fontBuilder
+	^ SpartaCairoFreetypeFontBuilder new

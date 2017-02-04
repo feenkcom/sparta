@@ -1,0 +1,4 @@
+layers
+popLayer
+
+	^ layerStack pop

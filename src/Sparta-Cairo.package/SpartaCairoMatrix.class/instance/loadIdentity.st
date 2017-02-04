@@ -1,0 +1,4 @@
+initialization
+loadIdentity
+
+	self primLoadIdentity

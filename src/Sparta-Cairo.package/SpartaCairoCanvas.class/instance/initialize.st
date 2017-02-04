@@ -2,4 +2,5 @@ initialization
 initialize
 	super initialize.
 	
-	transformationStack := Stack new
+	transformationStack := Stack new.
+	layerStack := Stack new

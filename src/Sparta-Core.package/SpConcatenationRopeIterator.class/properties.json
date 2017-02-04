@@ -1,18 +1,17 @@
 {
-	"category" : "Sparta-Core-Text-Rope",
-	"classinstvars" : [
-		 ],
-	"classvars" : [
-		 ],
 	"commentStamp" : "",
+	"super" : "SpRopeIterator",
+	"category" : "Sparta-Core-Text-Rope",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
 	"instvars" : [
 		"traverse",
 		"currentRope",
 		"currentPos",
 		"position",
-		"currentIterator" ],
+		"currentIterator"
+	],
 	"name" : "SpConcatenationRopeIterator",
-	"pools" : [
-		 ],
-	"super" : "SpRopeIterator",
-	"type" : "normal" }
+	"type" : "normal"
+}

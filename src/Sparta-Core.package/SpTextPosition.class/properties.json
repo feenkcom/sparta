@@ -1,16 +1,15 @@
 {
-	"category" : "Sparta-Core-Text-Rendering",
-	"classinstvars" : [
-		 ],
-	"classvars" : [
-		 ],
 	"commentStamp" : "",
+	"super" : "Object",
+	"category" : "Sparta-Core-Text-Rendering",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
 	"instvars" : [
 		"lineIndex",
 		"spanIndex",
-		"offset" ],
+		"offset"
+	],
 	"name" : "SpTextPosition",
-	"pools" : [
-		 ],
-	"super" : "Object",
-	"type" : "normal" }
+	"type" : "normal"
+}

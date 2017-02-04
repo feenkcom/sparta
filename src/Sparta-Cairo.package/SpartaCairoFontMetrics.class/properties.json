@@ -1,0 +1,13 @@
+{
+	"classtraitcomposition" : "TSpartaCairoLibrary classTrait",
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "SpartaCairoFontMetrics",
+	"commentStamp" : "",
+	"super" : "FFIExternalStructure",
+	"traitcomposition" : "TSpartaCairoLibrary",
+	"type" : "normal",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"category" : "Sparta-Cairo-Text"
+}

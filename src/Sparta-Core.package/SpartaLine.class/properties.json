@@ -1,15 +1,14 @@
 {
-	"category" : "Sparta-Core-Path",
-	"classinstvars" : [
-		 ],
-	"classvars" : [
-		 ],
 	"commentStamp" : "AliakseiSyrel 10/20/2016 19:16",
+	"super" : "Object",
+	"category" : "Sparta-Core-Path",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
 	"instvars" : [
 		"from",
-		"to" ],
+		"to"
+	],
 	"name" : "SpartaLine",
-	"pools" : [
-		 ],
-	"super" : "Object",
-	"type" : "normal" }
+	"type" : "normal"
+}

@@ -1,0 +1,13 @@
+{
+	"classtraitcomposition" : "TSpartaCairoLibrary classTrait + TSpartaCairoContext classTrait",
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "SpartaCairoLayerBuilder",
+	"commentStamp" : "",
+	"super" : "SpartaLayerBuilder",
+	"traitcomposition" : "TSpartaCairoLibrary + TSpartaCairoContext",
+	"type" : "normal",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"category" : "Sparta-Cairo-Builders"
+}

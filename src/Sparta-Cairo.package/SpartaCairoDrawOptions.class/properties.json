@@ -1,18 +1,19 @@
 {
-	"category" : "Sparta-Cairo",
-	"classinstvars" : [
-		"default" ],
 	"classtraitcomposition" : "TSpartaDrawOptions classTrait",
-	"classvars" : [
-		 ],
-	"commentStamp" : "",
+	"classvars" : [ ],
 	"instvars" : [
 		"alpha",
 		"antialias",
-		"operator" ],
+		"operator"
+	],
 	"name" : "SpartaCairoDrawOptions",
-	"pools" : [
-		 ],
+	"commentStamp" : "",
 	"super" : "Object",
 	"traitcomposition" : "TSpartaDrawOptions",
-	"type" : "normal" }
+	"type" : "normal",
+	"classinstvars" : [
+		"default"
+	],
+	"pools" : [ ],
+	"category" : "Sparta-Cairo"
+}

@@ -1,10 +1,10 @@
 {
-	"category" : "Sparta-Core-Text-Rendering",
-	"classinstvars" : [
-		 ],
-	"classvars" : [
-		 ],
 	"commentStamp" : "",
+	"super" : "SpTextSegment",
+	"category" : "Sparta-Core-Text-Rendering",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
 	"instvars" : [
 		"start",
 		"end",
@@ -14,9 +14,8 @@
 		"transformation",
 		"strikethroughOffset",
 		"strikethroughSize",
-		"transformationInverted" ],
+		"transformationInverted"
+	],
 	"name" : "SpTextSpan",
-	"pools" : [
-		 ],
-	"super" : "SpTextSegment",
-	"type" : "normal" }
+	"type" : "normal"
+}

@@ -1,0 +1,15 @@
+{
+	"commentStamp" : "",
+	"super" : "Object",
+	"category" : "Sparta-Cairo-Utilities",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"alpha",
+		"mask",
+		"subpixelAA"
+	],
+	"name" : "SpartaCairoLayer",
+	"type" : "normal"
+}

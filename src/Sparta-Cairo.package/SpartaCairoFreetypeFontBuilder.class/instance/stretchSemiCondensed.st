@@ -1,0 +1,3 @@
+stretch
+stretchSemiCondensed
+	self stretch: LogicalFont stretchSemiCondensed

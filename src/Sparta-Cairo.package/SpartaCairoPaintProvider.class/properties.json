@@ -1,14 +1,11 @@
 {
-	"category" : "Sparta-Cairo-Builders",
-	"classinstvars" : [
-		 ],
-	"classvars" : [
-		 ],
 	"commentStamp" : "",
-	"instvars" : [
-		 ],
-	"name" : "SpartaCairoPaintProvider",
-	"pools" : [
-		 ],
 	"super" : "SpartaPaintProvider",
-	"type" : "normal" }
+	"category" : "Sparta-Cairo-Builders",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "SpartaCairoPaintProvider",
+	"type" : "normal"
+}

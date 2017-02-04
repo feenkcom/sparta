@@ -1,15 +1,14 @@
 {
-	"category" : "Sparta-Core-Text-Model",
-	"classinstvars" : [
-		 ],
-	"classvars" : [
-		 ],
 	"commentStamp" : "",
+	"super" : "Object",
+	"category" : "Sparta-Core-Text-Model",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
 	"instvars" : [
 		"rope",
-		"selections" ],
+		"selections"
+	],
 	"name" : "SpText",
-	"pools" : [
-		 ],
-	"super" : "Object",
-	"type" : "normal" }
+	"type" : "normal"
+}

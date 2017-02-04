@@ -1,7 +1,9 @@
 {
+	"commentStamp" : "",
+	"super" : "SpartaCairoEnum",
 	"category" : "Sparta-Cairo-Enums",
-	"classinstvars" : [
-		 ],
+	"classinstvars" : [ ],
+	"pools" : [ ],
 	"classvars" : [
 		"CAIRO_ANTIALIAS_BEST",
 		"CAIRO_ANTIALIAS_DEFAULT",
@@ -9,12 +11,9 @@
 		"CAIRO_ANTIALIAS_GOOD",
 		"CAIRO_ANTIALIAS_GRAY",
 		"CAIRO_ANTIALIAS_NONE",
-		"CAIRO_ANTIALIAS_SUBPIXEL" ],
-	"commentStamp" : "",
-	"instvars" : [
-		 ],
+		"CAIRO_ANTIALIAS_SUBPIXEL"
+	],
+	"instvars" : [ ],
 	"name" : "SpartaCairoAntialias",
-	"pools" : [
-		 ],
-	"super" : "SpartaCairoEnum",
-	"type" : "normal" }
+	"type" : "normal"
+}

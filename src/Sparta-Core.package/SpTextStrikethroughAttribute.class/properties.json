@@ -1,15 +1,14 @@
 {
-	"category" : "Sparta-Core-Text-Model",
-	"classinstvars" : [
-		 ],
-	"classvars" : [
-		 ],
 	"commentStamp" : "",
+	"super" : "SpAttribute",
+	"category" : "Sparta-Core-Text-Model",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
 	"instvars" : [
 		"paint",
-		"width" ],
+		"width"
+	],
 	"name" : "SpTextStrikethroughAttribute",
-	"pools" : [
-		 ],
-	"super" : "SpAttribute",
-	"type" : "normal" }
+	"type" : "normal"
+}

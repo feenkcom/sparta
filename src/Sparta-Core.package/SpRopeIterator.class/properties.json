@@ -1,16 +1,15 @@
 {
-	"category" : "Sparta-Core-Text-Rope",
-	"classinstvars" : [
-		 ],
-	"classvars" : [
-		 ],
 	"commentStamp" : "",
+	"super" : "Object",
+	"category" : "Sparta-Core-Text-Rope",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
 	"instvars" : [
 		"rope",
 		"start",
-		"end" ],
+		"end"
+	],
 	"name" : "SpRopeIterator",
-	"pools" : [
-		 ],
-	"super" : "Object",
-	"type" : "normal" }
+	"type" : "normal"
+}

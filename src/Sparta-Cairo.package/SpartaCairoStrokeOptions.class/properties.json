@@ -1,21 +1,22 @@
 {
-	"category" : "Sparta-Cairo",
-	"classinstvars" : [
-		"default" ],
 	"classtraitcomposition" : "TSpartaStrokeOptions classTrait",
-	"classvars" : [
-		 ],
-	"commentStamp" : "",
+	"classvars" : [ ],
 	"instvars" : [
 		"width",
 		"miterLimit",
 		"dashOffset",
 		"dashPattern",
 		"lineCap",
-		"lineJoin" ],
+		"lineJoin"
+	],
 	"name" : "SpartaCairoStrokeOptions",
-	"pools" : [
-		 ],
+	"commentStamp" : "",
 	"super" : "Object",
 	"traitcomposition" : "TSpartaStrokeOptions",
-	"type" : "normal" }
+	"type" : "normal",
+	"classinstvars" : [
+		"default"
+	],
+	"pools" : [ ],
+	"category" : "Sparta-Cairo"
+}

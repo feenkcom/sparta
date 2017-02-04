@@ -1,0 +1,3 @@
+stretch
+stretchUltraCondensed
+	self stretch: LogicalFont stretchUltraCondensed

@@ -14,7 +14,7 @@
 	],
 	"name" : "MozTextMetricsProvider",
 	"commentStamp" : "",
-	"super" : "Object",
+	"super" : "SpMetricsProvider",
 	"traitcomposition" : "TMozLibrary",
 	"type" : "normal",
 	"classinstvars" : [

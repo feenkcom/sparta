@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "",
+	"super" : "SpartaFontBuilder",
+	"category" : "Sparta-Cairo-Builders",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"fontList"
+	],
+	"name" : "SpartaCairoFreetypeFontBuilder",
+	"type" : "normal"
+}

@@ -1,10 +1,10 @@
 {
-	"category" : "Sparta-Core-Text-Rendering",
-	"classinstvars" : [
-		 ],
-	"classvars" : [
-		 ],
 	"commentStamp" : "",
+	"super" : "Object",
+	"category" : "Sparta-Core-Text-Rendering",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
 	"instvars" : [
 		"width",
 		"height",
@@ -15,9 +15,8 @@
 		"length",
 		"from",
 		"to",
-		"rope" ],
+		"rope"
+	],
 	"name" : "SpTextSegment",
-	"pools" : [
-		 ],
-	"super" : "Object",
-	"type" : "normal" }
+	"type" : "normal"
+}

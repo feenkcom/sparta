@@ -4,4 +4,4 @@ similar: anExtent
 	anExtent must not be nil"
 	<return: #SpartaCanvas>
 
-	^ self subclassResponsibility
+	^ self shouldBeImplemented

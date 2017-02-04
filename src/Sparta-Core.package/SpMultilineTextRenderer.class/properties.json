@@ -1,14 +1,11 @@
 {
-	"category" : "Sparta-Core-Text-Rendering",
-	"classinstvars" : [
-		 ],
-	"classvars" : [
-		 ],
 	"commentStamp" : "",
-	"instvars" : [
-		 ],
-	"name" : "SpMultilineTextRenderer",
-	"pools" : [
-		 ],
 	"super" : "SpTextRenderer",
-	"type" : "normal" }
+	"category" : "Sparta-Core-Text-Rendering",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "SpMultilineTextRenderer",
+	"type" : "normal"
+}

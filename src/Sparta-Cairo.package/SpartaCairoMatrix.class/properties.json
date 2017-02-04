@@ -1,16 +1,13 @@
 {
-	"category" : "Sparta-Cairo-External",
-	"classinstvars" : [
-		 ],
-	"classtraitcomposition" : "TCairoLibrary classTrait",
-	"classvars" : [
-		 ],
-	"commentStamp" : "",
-	"instvars" : [
-		 ],
+	"classtraitcomposition" : "TSpartaCairoLibrary classTrait",
+	"classvars" : [ ],
+	"instvars" : [ ],
 	"name" : "SpartaCairoMatrix",
-	"pools" : [
-		 ],
+	"commentStamp" : "",
 	"super" : "FFIExternalStructure",
-	"traitcomposition" : "TCairoLibrary",
-	"type" : "normal" }
+	"traitcomposition" : "TSpartaCairoLibrary",
+	"type" : "normal",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"category" : "Sparta-Cairo-External"
+}

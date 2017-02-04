@@ -1,19 +1,18 @@
 {
-	"category" : "Sparta-Core-Text-Rendering",
-	"classinstvars" : [
-		 ],
-	"classvars" : [
-		 ],
 	"commentStamp" : "",
+	"super" : "Object",
+	"category" : "Sparta-Core-Text-Rendering",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
 	"instvars" : [
 		"maxHeight",
 		"maxWidth",
 		"accumulatedHeight",
 		"accumulatedWidth",
 		"position",
-		"rope" ],
+		"rope"
+	],
 	"name" : "SpTextLayoutContext",
-	"pools" : [
-		 ],
-	"super" : "Object",
-	"type" : "normal" }
+	"type" : "normal"
+}

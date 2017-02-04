@@ -1,0 +1,3 @@
+external resource management
+autoRelease
+	glyphs autoRelease

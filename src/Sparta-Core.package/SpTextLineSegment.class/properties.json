@@ -1,14 +1,13 @@
 {
-	"category" : "Sparta-Core-Text-Rendering",
-	"classinstvars" : [
-		 ],
-	"classvars" : [
-		 ],
 	"commentStamp" : "",
-	"instvars" : [
-		"spans" ],
-	"name" : "SpTextLineSegment",
-	"pools" : [
-		 ],
 	"super" : "SpTextSegment",
-	"type" : "normal" }
+	"category" : "Sparta-Core-Text-Rendering",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"spans"
+	],
+	"name" : "SpTextLineSegment",
+	"type" : "normal"
+}

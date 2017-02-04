@@ -1,18 +1,17 @@
 {
-	"category" : "Sparta-Core-Builders",
-	"classinstvars" : [
-		 ],
 	"classtraitcomposition" : "TSpartaDrawOptions classTrait",
-	"classvars" : [
-		 ],
-	"commentStamp" : "AliakseiSyrel 8/26/2016 19:01",
+	"classvars" : [ ],
 	"instvars" : [
 		"path",
 		"paint",
-		"drawOptions" ],
+		"drawOptions"
+	],
 	"name" : "SpartaPathPainter",
-	"pools" : [
-		 ],
+	"commentStamp" : "AliakseiSyrel 8/26/2016 19:01",
 	"super" : "SpartaAbstractPainter",
 	"traitcomposition" : "TSpartaDrawOptions",
-	"type" : "normal" }
+	"type" : "normal",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"category" : "Sparta-Core-Builders"
+}

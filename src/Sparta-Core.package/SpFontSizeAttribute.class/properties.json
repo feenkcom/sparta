@@ -1,14 +1,13 @@
 {
-	"category" : "Sparta-Core-Text-Model",
-	"classinstvars" : [
-		 ],
-	"classvars" : [
-		 ],
 	"commentStamp" : "",
-	"instvars" : [
-		"size" ],
-	"name" : "SpFontSizeAttribute",
-	"pools" : [
-		 ],
 	"super" : "SpAttribute",
-	"type" : "normal" }
+	"category" : "Sparta-Core-Text-Model",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"size"
+	],
+	"name" : "SpFontSizeAttribute",
+	"type" : "normal"
+}

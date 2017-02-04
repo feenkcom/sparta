@@ -1,14 +1,11 @@
 {
-	"category" : "Sparta-Core",
-	"classinstvars" : [
-		 ],
-	"classvars" : [
-		 ],
 	"commentStamp" : "AliakseiSyrel 1/27/2017 19:05",
-	"instvars" : [
-		 ],
-	"name" : "SpartaUnsupported",
-	"pools" : [
-		 ],
 	"super" : "Notification",
-	"type" : "normal" }
+	"category" : "Sparta-Core",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "SpartaUnsupported",
+	"type" : "normal"
+}

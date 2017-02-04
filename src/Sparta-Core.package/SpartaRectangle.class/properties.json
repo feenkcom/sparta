@@ -1,17 +1,16 @@
 {
-	"category" : "Sparta-Core-Math",
-	"classinstvars" : [
-		 ],
-	"classvars" : [
-		 ],
 	"commentStamp" : "AliakseiSyrel 1/3/2017 17:38",
+	"super" : "Object",
+	"category" : "Sparta-Core-Math",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
 	"instvars" : [
 		"left",
 		"top",
 		"right",
-		"bottom" ],
+		"bottom"
+	],
 	"name" : "SpartaRectangle",
-	"pools" : [
-		 ],
-	"super" : "Object",
-	"type" : "normal" }
+	"type" : "normal"
+}

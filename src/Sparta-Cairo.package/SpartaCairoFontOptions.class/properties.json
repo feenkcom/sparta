@@ -1,0 +1,13 @@
+{
+	"classtraitcomposition" : "TSpartaCairoLibrary classTrait + TSpartaCairoPlainPtr classTrait + TSpartaCairoDebug classTrait",
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "SpartaCairoFontOptions",
+	"commentStamp" : "",
+	"super" : "FFIExternalObject",
+	"traitcomposition" : "TSpartaCairoLibrary + TSpartaCairoPlainPtr + TSpartaCairoDebug",
+	"type" : "normal",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"category" : "Sparta-Cairo-Text"
+}

@@ -1,16 +1,15 @@
 {
+	"commentStamp" : "",
+	"super" : "SpartaCairoEnum",
 	"category" : "Sparta-Cairo-Enums",
-	"classinstvars" : [
-		 ],
+	"classinstvars" : [ ],
+	"pools" : [ ],
 	"classvars" : [
 		"CAIRO_LINE_CAP_BUTT",
 		"CAIRO_LINE_CAP_ROUND",
-		"CAIRO_LINE_CAP_SQUARE" ],
-	"commentStamp" : "",
-	"instvars" : [
-		 ],
+		"CAIRO_LINE_CAP_SQUARE"
+	],
+	"instvars" : [ ],
 	"name" : "SpartaCairoCapStyle",
-	"pools" : [
-		 ],
-	"super" : "SpartaCairoEnum",
-	"type" : "normal" }
+	"type" : "normal"
+}

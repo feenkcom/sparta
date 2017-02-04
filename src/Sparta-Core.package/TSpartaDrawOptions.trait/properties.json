@@ -1,4 +1,5 @@
 {
-	"category" : "Sparta-Core",
+	"name" : "TSpartaDrawOptions",
 	"commentStamp" : "AliakseiSyrel 7/12/2016 16:43",
-	"name" : "TSpartaDrawOptions" }
+	"category" : "Sparta-Core"
+}

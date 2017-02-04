@@ -1,10 +1,12 @@
 {
+	"commentStamp" : "AliakseiSyrel 1/16/2017 18:11",
+	"super" : "Object",
 	"category" : "Sparta-Core-Text-Rendering",
 	"classinstvars" : [
-		"matrix" ],
-	"classvars" : [
-		 ],
-	"commentStamp" : "AliakseiSyrel 1/16/2017 18:11",
+		"matrix"
+	],
+	"pools" : [ ],
+	"classvars" : [ ],
 	"instvars" : [
 		"rope",
 		"maxHeight",
@@ -12,9 +14,8 @@
 		"height",
 		"width",
 		"end",
-		"autoRelease" ],
+		"autoRelease"
+	],
 	"name" : "SpTextLayout",
-	"pools" : [
-		 ],
-	"super" : "Object",
-	"type" : "normal" }
+	"type" : "normal"
+}

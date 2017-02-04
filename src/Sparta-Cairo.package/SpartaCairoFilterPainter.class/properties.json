@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "SpartaFilterPainter",
+	"category" : "Sparta-Cairo-Builders",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "SpartaCairoFilterPainter",
+	"type" : "normal"
+}

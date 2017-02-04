@@ -1,0 +1,19 @@
+{
+	"classtraitcomposition" : "TSpTextRun classTrait",
+	"classvars" : [ ],
+	"instvars" : [
+		"glyphs",
+		"buffer",
+		"bits",
+		"length",
+		"scaledFont"
+	],
+	"name" : "SpartaCairoTextRun",
+	"commentStamp" : "",
+	"super" : "Object",
+	"traitcomposition" : "TSpTextRun",
+	"type" : "normal",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"category" : "Sparta-Cairo-Text"
+}

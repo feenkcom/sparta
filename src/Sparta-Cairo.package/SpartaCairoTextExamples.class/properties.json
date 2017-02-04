@@ -1,0 +1,13 @@
+{
+	"classtraitcomposition" : "TSpartaTextExamples classTrait",
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "SpartaCairoTextExamples",
+	"commentStamp" : "",
+	"super" : "Object",
+	"traitcomposition" : "TSpartaTextExamples",
+	"type" : "normal",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"category" : "Sparta-Cairo-Examples"
+}

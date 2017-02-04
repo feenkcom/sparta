@@ -1,14 +1,11 @@
 {
-	"category" : "Sparta-Cairo-Library",
-	"classinstvars" : [
-		 ],
-	"classvars" : [
-		 ],
 	"commentStamp" : "",
-	"instvars" : [
-		 ],
-	"name" : "SpartaCairoLibrary",
-	"pools" : [
-		 ],
 	"super" : "FFILibrary",
-	"type" : "normal" }
+	"category" : "Sparta-Cairo-Library",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "SpartaCairoLibrary",
+	"type" : "normal"
+}

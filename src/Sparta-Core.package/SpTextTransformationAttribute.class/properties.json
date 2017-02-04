@@ -1,16 +1,15 @@
 {
-	"category" : "Sparta-Core-Text-Model",
-	"classinstvars" : [
-		 ],
 	"classtraitcomposition" : "TSpartaTransformable classTrait",
-	"classvars" : [
-		 ],
-	"commentStamp" : "",
+	"classvars" : [ ],
 	"instvars" : [
-		"matrix" ],
+		"matrix"
+	],
 	"name" : "SpTextTransformationAttribute",
-	"pools" : [
-		 ],
+	"commentStamp" : "",
 	"super" : "SpAttribute",
 	"traitcomposition" : "TSpartaTransformable",
-	"type" : "normal" }
+	"type" : "normal",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"category" : "Sparta-Core-Text-Model"
+}

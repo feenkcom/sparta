@@ -5,8 +5,8 @@ arcAround: aCenterPoint radius: aRadius startAngle: aStartAngle endAngle: anEndA
 	aCenter := self toAbsolute: aCenterPoint.
 
 	self
-		primArcCenterX: aCenterPoint x
-		centerY: aCenterPoint y
+		primArcCenterX: aCenter x
+		centerY: aCenter y
 		radius: aRadius
 		startAngle: aStartAngle
 		endAngle: anEndAngle.

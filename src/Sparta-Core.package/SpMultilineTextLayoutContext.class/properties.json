@@ -1,16 +1,15 @@
 {
-	"category" : "Sparta-Core-Text-Rendering",
-	"classinstvars" : [
-		 ],
-	"classvars" : [
-		 ],
 	"commentStamp" : "",
+	"super" : "SpTextLayoutContext",
+	"category" : "Sparta-Core-Text-Rendering",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
 	"instvars" : [
 		"lines",
 		"spansStack",
-		"isSplitted" ],
+		"isSplitted"
+	],
 	"name" : "SpMultilineTextLayoutContext",
-	"pools" : [
-		 ],
-	"super" : "SpTextLayoutContext",
-	"type" : "normal" }
+	"type" : "normal"
+}

@@ -1,19 +1,18 @@
 {
-	"category" : "Sparta-Core-Text-Rope",
-	"classinstvars" : [
-		 ],
-	"classvars" : [
-		 ],
 	"commentStamp" : "",
+	"super" : "SpRope",
+	"category" : "Sparta-Core-Text-Rope",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
 	"instvars" : [
 		"left",
 		"right",
 		"depth",
 		"length",
 		"count",
-		"balance" ],
+		"balance"
+	],
 	"name" : "SpConcatenationRope",
-	"pools" : [
-		 ],
-	"super" : "SpRope",
-	"type" : "normal" }
+	"type" : "normal"
+}

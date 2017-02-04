@@ -1,0 +1,17 @@
+{
+	"commentStamp" : "",
+	"super" : "SpartaCairoEnum",
+	"category" : "Sparta-Cairo-Enums",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [
+		"CAIRO_SUBPIXEL_ORDER_BGR",
+		"CAIRO_SUBPIXEL_ORDER_DEFAULT",
+		"CAIRO_SUBPIXEL_ORDER_RGB",
+		"CAIRO_SUBPIXEL_ORDER_VBGR",
+		"CAIRO_SUBPIXEL_ORDER_VRGB"
+	],
+	"instvars" : [ ],
+	"name" : "SpartaCairoSubpixelOrder",
+	"type" : "normal"
+}

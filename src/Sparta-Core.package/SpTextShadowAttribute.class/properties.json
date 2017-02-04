@@ -1,16 +1,15 @@
 {
-	"category" : "Sparta-Core-Text-Model",
-	"classinstvars" : [
-		 ],
-	"classvars" : [
-		 ],
 	"commentStamp" : "",
+	"super" : "SpAttribute",
+	"category" : "Sparta-Core-Text-Model",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
 	"instvars" : [
 		"offset",
 		"color",
-		"radius" ],
+		"radius"
+	],
 	"name" : "SpTextShadowAttribute",
-	"pools" : [
-		 ],
-	"super" : "SpAttribute",
-	"type" : "normal" }
+	"type" : "normal"
+}

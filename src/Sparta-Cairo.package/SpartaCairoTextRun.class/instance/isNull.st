@@ -1,0 +1,4 @@
+testing
+isNull
+
+	^ glyphs isNil

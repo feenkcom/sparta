@@ -1,17 +1,16 @@
 {
-	"category" : "Sparta-Core-Builders",
-	"classinstvars" : [
-		 ],
-	"classvars" : [
-		 ],
 	"commentStamp" : "AliakseiSyrel 9/1/2016 12:39",
+	"super" : "SpartaAbstractPainter",
+	"category" : "Sparta-Core-Builders",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
 	"instvars" : [
 		"filter",
 		"sourceRectangle",
 		"destinationPoint",
-		"drawOptions" ],
+		"drawOptions"
+	],
 	"name" : "SpartaFilterPainter",
-	"pools" : [
-		 ],
-	"super" : "SpartaAbstractPainter",
-	"type" : "normal" }
+	"type" : "normal"
+}

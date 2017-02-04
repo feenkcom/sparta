@@ -1,7 +1,9 @@
 {
+	"commentStamp" : "",
+	"super" : "SpartaCairoEnum",
 	"category" : "Sparta-Cairo-Enums",
-	"classinstvars" : [
-		 ],
+	"classinstvars" : [ ],
+	"pools" : [ ],
 	"classvars" : [
 		"CAIRO_OPERATOR_ADD",
 		"CAIRO_OPERATOR_ATOP",
@@ -31,12 +33,9 @@
 		"CAIRO_OPERATOR_SCREEN",
 		"CAIRO_OPERATOR_SOFT_LIGHT",
 		"CAIRO_OPERATOR_SOURCE",
-		"CAIRO_OPERATOR_XOR" ],
-	"commentStamp" : "",
-	"instvars" : [
-		 ],
+		"CAIRO_OPERATOR_XOR"
+	],
+	"instvars" : [ ],
 	"name" : "SpartaCairoCompositionOp",
-	"pools" : [
-		 ],
-	"super" : "SpartaCairoEnum",
-	"type" : "normal" }
+	"type" : "normal"
+}

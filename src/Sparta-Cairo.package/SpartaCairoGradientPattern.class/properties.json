@@ -1,14 +1,11 @@
 {
-	"category" : "Sparta-Cairo-External",
-	"classinstvars" : [
-		 ],
-	"classvars" : [
-		 ],
 	"commentStamp" : "",
-	"instvars" : [
-		 ],
-	"name" : "SpartaCairoGradientPattern",
-	"pools" : [
-		 ],
 	"super" : "SpartaCairoPattern",
-	"type" : "normal" }
+	"category" : "Sparta-Cairo-External",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "SpartaCairoGradientPattern",
+	"type" : "normal"
+}

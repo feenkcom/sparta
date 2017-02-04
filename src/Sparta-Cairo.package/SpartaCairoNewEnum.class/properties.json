@@ -1,14 +1,11 @@
 {
-	"category" : "Sparta-Cairo-Enums",
-	"classinstvars" : [
-		 ],
-	"classvars" : [
-		 ],
 	"commentStamp" : "",
-	"instvars" : [
-		 ],
-	"name" : "SpartaCairoNewEnum",
-	"pools" : [
-		 ],
 	"super" : "SpartaCairoEnum",
-	"type" : "normal" }
+	"category" : "Sparta-Cairo-Enums",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "SpartaCairoNewEnum",
+	"type" : "normal"
+}

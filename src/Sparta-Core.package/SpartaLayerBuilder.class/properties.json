@@ -1,21 +1,20 @@
 {
-	"category" : "Sparta-Core-Builders",
-	"classinstvars" : [
-		 ],
 	"classtraitcomposition" : "TSpartaTransformable classTrait",
-	"classvars" : [
-		 ],
-	"commentStamp" : "",
+	"classvars" : [ ],
 	"instvars" : [
 		"alpha",
 		"transformation",
 		"area",
 		"mask",
 		"shouldCopy",
-		"isOpaque" ],
+		"isOpaque"
+	],
 	"name" : "SpartaLayerBuilder",
-	"pools" : [
-		 ],
+	"commentStamp" : "",
 	"super" : "SpartaAbstractBuilder",
 	"traitcomposition" : "TSpartaTransformable",
-	"type" : "normal" }
+	"type" : "normal",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"category" : "Sparta-Core-Builders"
+}

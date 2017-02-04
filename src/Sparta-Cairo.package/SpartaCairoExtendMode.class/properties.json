@@ -1,17 +1,16 @@
 {
+	"commentStamp" : "",
+	"super" : "SpartaCairoEnum",
 	"category" : "Sparta-Cairo-Enums",
-	"classinstvars" : [
-		 ],
+	"classinstvars" : [ ],
+	"pools" : [ ],
 	"classvars" : [
 		"CAIRO_EXTEND_NONE",
 		"CAIRO_EXTEND_PAD",
 		"CAIRO_EXTEND_REFLECT",
-		"CAIRO_EXTEND_REPEAT" ],
-	"commentStamp" : "",
-	"instvars" : [
-		 ],
+		"CAIRO_EXTEND_REPEAT"
+	],
+	"instvars" : [ ],
 	"name" : "SpartaCairoExtendMode",
-	"pools" : [
-		 ],
-	"super" : "SpartaCairoEnum",
-	"type" : "normal" }
+	"type" : "normal"
+}

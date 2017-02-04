@@ -1,11 +1,6 @@
 {
-	"category" : "Sparta-Core-Builders",
-	"classinstvars" : [
-		 ],
 	"classtraitcomposition" : "TSpartaStrokeOptions classTrait",
-	"classvars" : [
-		 ],
-	"commentStamp" : "AliakseiSyrel 9/13/2016 17:48",
+	"classvars" : [ ],
 	"instvars" : [
 		"drawOptions",
 		"strokeOptions",
@@ -18,10 +13,14 @@
 		"spacing",
 		"maxWidth",
 		"clip",
-		"text" ],
+		"text"
+	],
 	"name" : "SpartaTextPainter",
-	"pools" : [
-		 ],
+	"commentStamp" : "AliakseiSyrel 9/13/2016 17:48",
 	"super" : "SpartaAbstractPainter",
 	"traitcomposition" : "TSpartaStrokeOptions",
-	"type" : "normal" }
+	"type" : "normal",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"category" : "Sparta-Core-Builders"
+}

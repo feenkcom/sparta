@@ -1,16 +1,13 @@
 {
-	"category" : "Sparta-Cairo-Builders",
-	"classinstvars" : [
-		 ],
 	"classtraitcomposition" : "TSpartaCairoLibrary classTrait + TSpartaCairoContext classTrait",
-	"classvars" : [
-		 ],
-	"commentStamp" : "",
-	"instvars" : [
-		 ],
+	"classvars" : [ ],
+	"instvars" : [ ],
 	"name" : "SpartaCairoFillPainter",
-	"pools" : [
-		 ],
+	"commentStamp" : "",
 	"super" : "SpartaFillPainter",
 	"traitcomposition" : "TSpartaCairoLibrary + TSpartaCairoContext",
-	"type" : "normal" }
+	"type" : "normal",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"category" : "Sparta-Cairo-Builders"
+}

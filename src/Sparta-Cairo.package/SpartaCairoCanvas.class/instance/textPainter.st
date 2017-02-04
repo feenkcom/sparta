@@ -1,0 +1,3 @@
+builders
+textPainter
+	^ SpartaCairoTextPainter new
