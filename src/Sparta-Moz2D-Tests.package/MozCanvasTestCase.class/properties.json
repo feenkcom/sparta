@@ -1,15 +1,14 @@
 {
-	"category" : "Sparta-Moz2D-Tests",
-	"classinstvars" : [
-		 ],
-	"classvars" : [
-		 ],
 	"commentStamp" : "AliakseiSyrel 8/31/2016 20:25",
+	"super" : "TestCase",
+	"category" : "Sparta-Moz2D-Tests",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
 	"instvars" : [
 		"canvas",
-		"form" ],
+		"form"
+	],
 	"name" : "MozCanvasTestCase",
-	"pools" : [
-		 ],
-	"super" : "TestCase",
-	"type" : "normal" }
+	"type" : "normal"
+}

@@ -1,6 +1,14 @@
 {
 	"classtraitcomposition" : "TSpartaStrokeOptions classTrait",
-	"classvars" : [ ],
+	"classvars" : [
+		"OFFSET_DASHOFFSET",
+		"OFFSET_LINECAP",
+		"OFFSET_LINEJOIN",
+		"OFFSET_MITERLIMIT",
+		"OFFSET_PRIVATEDASHLENGTH",
+		"OFFSET_PRIVATEDASHPATTERN",
+		"OFFSET_WIDTH"
+	],
 	"instvars" : [ ],
 	"name" : "MozStrokeOptions",
 	"commentStamp" : "",

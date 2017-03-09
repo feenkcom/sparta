@@ -1,14 +1,11 @@
 {
-	"category" : "Sparta-Moz2D-Tests",
-	"classinstvars" : [
-		 ],
-	"classvars" : [
-		 ],
 	"commentStamp" : "",
-	"instvars" : [
-		 ],
-	"name" : "MozCompositionOpTest",
-	"pools" : [
-		 ],
 	"super" : "MozEnumTest",
-	"type" : "normal" }
+	"category" : "Sparta-Moz2D-Tests",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "MozCompositionOpTest",
+	"type" : "normal"
+}

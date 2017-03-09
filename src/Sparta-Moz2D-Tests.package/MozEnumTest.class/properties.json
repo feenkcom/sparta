@@ -1,16 +1,13 @@
 {
-	"category" : "Sparta-Moz2D-Tests",
-	"classinstvars" : [
-		 ],
 	"classtraitcomposition" : "TMozLibrary classTrait",
-	"classvars" : [
-		 ],
-	"commentStamp" : "",
-	"instvars" : [
-		 ],
+	"classvars" : [ ],
+	"instvars" : [ ],
 	"name" : "MozEnumTest",
-	"pools" : [
-		 ],
+	"commentStamp" : "",
 	"super" : "TestCase",
 	"traitcomposition" : "TMozLibrary",
-	"type" : "normal" }
+	"type" : "normal",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"category" : "Sparta-Moz2D-Tests"
+}

@@ -1,6 +1,11 @@
 {
 	"classtraitcomposition" : "TMozLibrary classTrait",
-	"classvars" : [ ],
+	"classvars" : [
+		"OFFSET_HEIGHT",
+		"OFFSET_WIDTH",
+		"OFFSET_X",
+		"OFFSET_Y"
+	],
 	"instvars" : [ ],
 	"name" : "MozNativeRect",
 	"commentStamp" : "AliakseiSyrel 10/21/2016 12:30",

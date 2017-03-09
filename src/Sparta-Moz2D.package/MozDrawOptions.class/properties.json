@@ -1,6 +1,10 @@
 {
 	"classtraitcomposition" : "TSpartaDrawOptions classTrait",
-	"classvars" : [ ],
+	"classvars" : [
+		"OFFSET_ALPHA",
+		"OFFSET_ANTIALIASMODE",
+		"OFFSET_COMPOSITIONOPERATOR"
+	],
 	"instvars" : [ ],
 	"name" : "MozDrawOptions",
 	"commentStamp" : "AliakseiSyrel 9/1/2016 01:37",

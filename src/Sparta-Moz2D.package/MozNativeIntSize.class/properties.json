@@ -1,6 +1,9 @@
 {
 	"classtraitcomposition" : "TMozLibrary classTrait",
-	"classvars" : [ ],
+	"classvars" : [
+		"OFFSET_HEIGHT",
+		"OFFSET_WIDTH"
+	],
 	"instvars" : [ ],
 	"name" : "MozNativeIntSize",
 	"commentStamp" : "AliakseiSyrel 8/18/2016 23:23",

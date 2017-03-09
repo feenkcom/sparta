@@ -1,6 +1,14 @@
 {
 	"classtraitcomposition" : "TMozLibrary classTrait",
-	"classvars" : [ ],
+	"classvars" : [
+		"OFFSET_ADVANCEWIDTH",
+		"OFFSET_ASCENT",
+		"OFFSET_BOUNDINGBOXHEIGHT",
+		"OFFSET_BOUNDINGBOXWIDTH",
+		"OFFSET_BOUNDINGBOXX",
+		"OFFSET_BOUNDINGBOXY",
+		"OFFSET_DESCENT"
+	],
 	"instvars" : [ ],
 	"name" : "MozNativeTextMetrics",
 	"commentStamp" : "",
