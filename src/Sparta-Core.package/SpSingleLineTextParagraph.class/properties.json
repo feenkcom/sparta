@@ -8,6 +8,6 @@
 	"instvars" : [
 		"spans"
 	],
-	"name" : "SpSingleLineTextLayout",
+	"name" : "SpSingleLineTextParagraph",
 	"type" : "normal"
 }

@@ -16,7 +16,7 @@ from: aStart to: anEnd
 	
 	aStart > leftSize
 		ifTrue: [ ^ right from: aStart - leftSize to: anEnd - leftSize ].
-		
+
 	^ self class
 		concatenate: (left from: aStart to: leftSize)
 		and: (right from: 1 to: anEnd - leftSize)

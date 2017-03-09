@@ -1,0 +1,3 @@
+styles
+bold
+	style := #styleBold

@@ -15,7 +15,7 @@ moveForward: aNumber
 		traverse isEmpty ifTrue: [ 
 			position := position - remaining + 1.
 			^ self ].
-		
+
 		break := false.
 		[ traverse isEmpty or: [ break ] ] whileFalse: [ 
 			currentRope := traverse removeLast.
