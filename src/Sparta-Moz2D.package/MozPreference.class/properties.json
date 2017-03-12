@@ -1,16 +1,17 @@
 {
+	"category" : "Sparta-Moz2D-Preferences",
+	"classinstvars" : [
+		 ],
 	"classtraitcomposition" : "TMozLibrary classTrait",
-	"classvars" : [ ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
 	"instvars" : [
 		"value",
-		"key"
-	],
+		"key" ],
 	"name" : "MozPreference",
-	"commentStamp" : "",
+	"pools" : [
+		 ],
 	"super" : "Object",
 	"traitcomposition" : "TMozLibrary",
-	"type" : "normal",
-	"classinstvars" : [ ],
-	"pools" : [ ],
-	"category" : "Sparta-Moz2D-Preferences"
-}
+	"type" : "normal" }

@@ -1,19 +1,18 @@
 {
+	"category" : "Sparta-Moz2D",
+	"classinstvars" : [
+		"default" ],
 	"classtraitcomposition" : "TSpartaDrawOptions classTrait",
 	"classvars" : [
-		"OFFSET_ALPHA",
-		"OFFSET_ANTIALIASMODE",
-		"OFFSET_COMPOSITIONOPERATOR"
-	],
-	"instvars" : [ ],
-	"name" : "MozDrawOptions",
+		"OFFSET_PRIMALPHA",
+		"OFFSET_PRIMANTIALIASMODE",
+		"OFFSET_PRIMCOMPOSITIONOPERATOR" ],
 	"commentStamp" : "AliakseiSyrel 9/1/2016 01:37",
+	"instvars" : [
+		 ],
+	"name" : "MozDrawOptions",
+	"pools" : [
+		 ],
 	"super" : "FFIExternalStructure",
 	"traitcomposition" : "TSpartaDrawOptions",
-	"type" : "normal",
-	"classinstvars" : [
-		"default"
-	],
-	"pools" : [ ],
-	"category" : "Sparta-Moz2D"
-}
+	"type" : "normal" }

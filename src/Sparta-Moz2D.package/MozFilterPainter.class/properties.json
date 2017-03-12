@@ -1,15 +1,16 @@
 {
+	"category" : "Sparta-Moz2D-Builders",
+	"classinstvars" : [
+		 ],
 	"classtraitcomposition" : "TMozLibrary classTrait",
-	"classvars" : [ ],
-	"instvars" : [ ],
-	"name" : "MozFilterPainter",
+	"classvars" : [
+		 ],
 	"commentStamp" : "",
+	"instvars" : [
+		 ],
+	"name" : "MozFilterPainter",
+	"pools" : [
+		"MozSharedPool" ],
 	"super" : "SpartaFilterPainter",
 	"traitcomposition" : "TMozLibrary",
-	"type" : "normal",
-	"classinstvars" : [ ],
-	"pools" : [
-		"MozSharedPool"
-	],
-	"category" : "Sparta-Moz2D-Builders"
-}
+	"type" : "normal" }

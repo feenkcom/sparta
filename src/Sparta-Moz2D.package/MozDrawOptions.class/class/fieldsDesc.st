@@ -1,8 +1,11 @@
 field definition
 fieldsDesc
-
+	"
+	self rebuildFieldAccessors
+	"
+	
 	^ #(
-		float alpha;
-		MozCompositionOp compositionOperator;
-		MozAntialiasMode antialiasMode
+		float primAlpha;
+		MozCompositionOp primCompositionOperator;
+		MozAntialiasMode primAntialiasMode
 	)

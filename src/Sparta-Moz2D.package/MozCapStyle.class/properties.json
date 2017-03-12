@@ -1,15 +1,16 @@
 {
-	"commentStamp" : "AliakseiSyrel 8/19/2016 01:35",
-	"super" : "MozEnum",
 	"category" : "Sparta-Moz2D-Enums",
-	"classinstvars" : [ ],
-	"pools" : [ ],
+	"classinstvars" : [
+		 ],
 	"classvars" : [
 		"BUTT",
 		"ROUND",
-		"SQUARE"
-	],
-	"instvars" : [ ],
+		"SQUARE" ],
+	"commentStamp" : "AliakseiSyrel 8/19/2016 01:35",
+	"instvars" : [
+		 ],
 	"name" : "MozCapStyle",
-	"type" : "normal"
-}
+	"pools" : [
+		 ],
+	"super" : "MozEnum",
+	"type" : "normal" }

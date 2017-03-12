@@ -1,9 +1,7 @@
 {
-	"commentStamp" : "AliakseiSyrel 8/23/2016 00:03",
-	"super" : "MozEnum",
 	"category" : "Sparta-Moz2D-Filters Enum",
-	"classinstvars" : [ ],
-	"pools" : [ ],
+	"classinstvars" : [
+		 ],
 	"classvars" : [
 		"ARITHMETIC_COMBINE",
 		"BLEND",
@@ -30,9 +28,12 @@
 		"TILE",
 		"TRANSFORM",
 		"TURBULENCE",
-		"UNPREMULTIPLY"
-	],
-	"instvars" : [ ],
+		"UNPREMULTIPLY" ],
+	"commentStamp" : "AliakseiSyrel 8/23/2016 00:03",
+	"instvars" : [
+		 ],
 	"name" : "MozFilterType",
-	"type" : "normal"
-}
+	"pools" : [
+		 ],
+	"super" : "MozEnum",
+	"type" : "normal" }

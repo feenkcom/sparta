@@ -1,13 +1,16 @@
 {
+	"category" : "Sparta-Moz2D-Filters",
+	"classinstvars" : [
+		 ],
 	"classtraitcomposition" : "TSpartaDistantLight classTrait",
-	"classvars" : [ ],
-	"instvars" : [ ],
-	"name" : "MozDiffuseDistantLightFilter",
+	"classvars" : [
+		 ],
 	"commentStamp" : "",
+	"instvars" : [
+		 ],
+	"name" : "MozDiffuseDistantLightFilter",
+	"pools" : [
+		 ],
 	"super" : "MozDiffuseLightingFilter",
 	"traitcomposition" : "TSpartaDistantLight",
-	"type" : "normal",
-	"classinstvars" : [ ],
-	"pools" : [ ],
-	"category" : "Sparta-Moz2D-Filters"
-}
+	"type" : "normal" }

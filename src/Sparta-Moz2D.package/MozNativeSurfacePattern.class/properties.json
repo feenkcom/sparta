@@ -1,11 +1,14 @@
 {
-	"commentStamp" : "AliakseiSyrel 8/19/2016 00:06",
-	"super" : "MozNativePattern",
 	"category" : "Sparta-Moz2D-External",
-	"classinstvars" : [ ],
-	"pools" : [ ],
-	"classvars" : [ ],
-	"instvars" : [ ],
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "AliakseiSyrel 8/19/2016 00:06",
+	"instvars" : [
+		 ],
 	"name" : "MozNativeSurfacePattern",
-	"type" : "normal"
-}
+	"pools" : [
+		 ],
+	"super" : "MozNativePattern",
+	"type" : "normal" }

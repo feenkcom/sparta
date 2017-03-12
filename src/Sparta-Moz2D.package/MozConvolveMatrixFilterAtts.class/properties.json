@@ -1,9 +1,7 @@
 {
-	"commentStamp" : "AliakseiSyrel 8/23/2016 00:01",
-	"super" : "FFIExternalEnumeration",
 	"category" : "Sparta-Moz2D-Filters Enum",
-	"classinstvars" : [ ],
-	"pools" : [ ],
+	"classinstvars" : [
+		 ],
 	"classvars" : [
 		"ATT_CONVOLVE_MATRIX_BIAS",
 		"ATT_CONVOLVE_MATRIX_DIVISOR",
@@ -13,9 +11,12 @@
 		"ATT_CONVOLVE_MATRIX_KERNEL_UNIT_LENGTH",
 		"ATT_CONVOLVE_MATRIX_PRESERVE_ALPHA",
 		"ATT_CONVOLVE_MATRIX_SOURCE_RECT",
-		"ATT_CONVOLVE_MATRIX_TARGET"
-	],
-	"instvars" : [ ],
+		"ATT_CONVOLVE_MATRIX_TARGET" ],
+	"commentStamp" : "AliakseiSyrel 8/23/2016 00:01",
+	"instvars" : [
+		 ],
 	"name" : "MozConvolveMatrixFilterAtts",
-	"type" : "normal"
-}
+	"pools" : [
+		 ],
+	"super" : "FFIExternalEnumeration",
+	"type" : "normal" }

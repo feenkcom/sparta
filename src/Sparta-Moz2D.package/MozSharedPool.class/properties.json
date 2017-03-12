@@ -1,14 +1,15 @@
 {
-	"commentStamp" : "AliakseiSyrel 8/22/2016 23:57",
-	"super" : "SharedPool",
 	"category" : "Sparta-Moz2D-Library",
-	"classinstvars" : [ ],
-	"pools" : [ ],
+	"classinstvars" : [
+		 ],
 	"classvars" : [
 		"FILL_RULE_EVEN_ODD",
-		"FILL_RULE_WINDING"
-	],
-	"instvars" : [ ],
+		"FILL_RULE_WINDING" ],
+	"commentStamp" : "AliakseiSyrel 8/22/2016 23:57",
+	"instvars" : [
+		 ],
 	"name" : "MozSharedPool",
-	"type" : "normal"
-}
+	"pools" : [
+		 ],
+	"super" : "SharedPool",
+	"type" : "normal" }

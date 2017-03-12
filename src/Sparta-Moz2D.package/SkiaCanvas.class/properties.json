@@ -1,11 +1,14 @@
 {
-	"commentStamp" : "AliakseiSyrel 1/15/2017 10:59",
-	"super" : "MozCanvas",
 	"category" : "Sparta-Moz2D-Skia",
-	"classinstvars" : [ ],
-	"pools" : [ ],
-	"classvars" : [ ],
-	"instvars" : [ ],
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "AliakseiSyrel 1/15/2017 10:59",
+	"instvars" : [
+		 ],
 	"name" : "SkiaCanvas",
-	"type" : "normal"
-}
+	"pools" : [
+		 ],
+	"super" : "MozCanvas",
+	"type" : "normal" }

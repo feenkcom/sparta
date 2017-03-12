@@ -1,11 +1,14 @@
 {
-	"commentStamp" : "",
-	"super" : "MozSettings",
 	"category" : "Sparta-Moz2D-Preferences",
-	"classinstvars" : [ ],
-	"pools" : [ ],
-	"classvars" : [ ],
-	"instvars" : [ ],
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		 ],
 	"name" : "MozWindowsSettings",
-	"type" : "normal"
-}
+	"pools" : [
+		 ],
+	"super" : "MozSettings",
+	"type" : "normal" }

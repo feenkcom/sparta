@@ -1,9 +1,7 @@
 {
-	"commentStamp" : "",
-	"super" : "MozEnum",
 	"category" : "Sparta-Moz2D-Enums",
-	"classinstvars" : [ ],
-	"pools" : [ ],
+	"classinstvars" : [
+		 ],
 	"classvars" : [
 		"CAIRO",
 		"CAIRO_IMAGE",
@@ -16,9 +14,12 @@
 		"DUAL_DT",
 		"RECORDING",
 		"SKIA",
-		"TILED"
-	],
-	"instvars" : [ ],
+		"TILED" ],
+	"commentStamp" : "",
+	"instvars" : [
+		 ],
 	"name" : "MozSurfaceType",
-	"type" : "normal"
-}
+	"pools" : [
+		 ],
+	"super" : "MozEnum",
+	"type" : "normal" }

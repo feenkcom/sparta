@@ -1,9 +1,7 @@
 {
-	"commentStamp" : "AliakseiSyrel 8/19/2016 01:43",
-	"super" : "MozEnum",
 	"category" : "Sparta-Moz2D-Enums",
-	"classinstvars" : [ ],
-	"pools" : [ ],
+	"classinstvars" : [
+		 ],
 	"classvars" : [
 		"OP_ADD",
 		"OP_ATOP",
@@ -31,9 +29,12 @@
 		"OP_SCREEN",
 		"OP_SOFT_LIGHT",
 		"OP_SOURCE",
-		"OP_XOR"
-	],
-	"instvars" : [ ],
+		"OP_XOR" ],
+	"commentStamp" : "AliakseiSyrel 8/19/2016 01:43",
+	"instvars" : [
+		 ],
 	"name" : "MozCompositionOp",
-	"type" : "normal"
-}
+	"pools" : [
+		 ],
+	"super" : "MozEnum",
+	"type" : "normal" }

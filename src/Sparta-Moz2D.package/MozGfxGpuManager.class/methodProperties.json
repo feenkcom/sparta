@@ -1,0 +1,14 @@
+{
+	"class" : {
+		"new" : " 3/10/2017 20:04:42",
+		"primCreate" : " 3/10/2017 20:04:42" },
+	"instance" : {
+		"devices" : " 3/10/2017 20:04:42",
+		"gtInspectorDevicesIn:" : " 3/10/2017 20:04:42",
+		"initialize" : " 3/10/2017 20:04:42",
+		"initializeDevices" : " 3/10/2017 20:04:42",
+		"primGetCount" : " 3/10/2017 20:04:42",
+		"primGetDescription:" : " 3/10/2017 20:04:42",
+		"primGetDeviceId:" : " 3/10/2017 20:04:42",
+		"primGetVendorId:" : " 3/10/2017 20:04:42",
+		"size" : " 3/10/2017 20:04:42" } }

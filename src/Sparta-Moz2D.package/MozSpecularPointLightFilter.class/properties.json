@@ -1,13 +1,16 @@
 {
+	"category" : "Sparta-Moz2D-Filters",
+	"classinstvars" : [
+		 ],
 	"classtraitcomposition" : "TSpartaPointLight classTrait",
-	"classvars" : [ ],
-	"instvars" : [ ],
-	"name" : "MozSpecularPointLightFilter",
+	"classvars" : [
+		 ],
 	"commentStamp" : "",
+	"instvars" : [
+		 ],
+	"name" : "MozSpecularPointLightFilter",
+	"pools" : [
+		 ],
 	"super" : "MozSpecularLightingFilter",
 	"traitcomposition" : "TSpartaPointLight",
-	"type" : "normal",
-	"classinstvars" : [ ],
-	"pools" : [ ],
-	"category" : "Sparta-Moz2D-Filters"
-}
+	"type" : "normal" }

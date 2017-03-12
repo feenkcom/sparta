@@ -10,4 +10,4 @@ alpha: aNumber
 			and: [ aNumber >= 0 and: [ aNumber <= 1 ] ] ] ]
 		description: [ 'Alpha must be a number within [0..1] range!' ].
 
-	handle floatAt: OFFSET_ALPHA put: aNumber
+	self primAlpha: aNumber

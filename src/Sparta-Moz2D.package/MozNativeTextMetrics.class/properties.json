@@ -1,4 +1,7 @@
 {
+	"category" : "Sparta-Moz2D-External",
+	"classinstvars" : [
+		 ],
 	"classtraitcomposition" : "TMozLibrary classTrait",
 	"classvars" : [
 		"OFFSET_ADVANCEWIDTH",
@@ -7,15 +10,13 @@
 		"OFFSET_BOUNDINGBOXWIDTH",
 		"OFFSET_BOUNDINGBOXX",
 		"OFFSET_BOUNDINGBOXY",
-		"OFFSET_DESCENT"
-	],
-	"instvars" : [ ],
-	"name" : "MozNativeTextMetrics",
+		"OFFSET_DESCENT" ],
 	"commentStamp" : "",
+	"instvars" : [
+		 ],
+	"name" : "MozNativeTextMetrics",
+	"pools" : [
+		 ],
 	"super" : "FFIExternalStructure",
 	"traitcomposition" : "TMozLibrary",
-	"type" : "normal",
-	"classinstvars" : [ ],
-	"pools" : [ ],
-	"category" : "Sparta-Moz2D-External"
-}
+	"type" : "normal" }

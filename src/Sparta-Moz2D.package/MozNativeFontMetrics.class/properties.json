@@ -1,4 +1,7 @@
 {
+	"category" : "Sparta-Moz2D-External",
+	"classinstvars" : [
+		 ],
 	"classtraitcomposition" : "TMozLibrary classTrait",
 	"classvars" : [
 		"OFFSET_AVECHARWIDTH",
@@ -18,15 +21,13 @@
 		"OFFSET_UNDERLINEOFFSET",
 		"OFFSET_UNDERLINESIZE",
 		"OFFSET_XHEIGHT",
-		"OFFSET_ZEROORAVECHARWIDTH"
-	],
-	"instvars" : [ ],
-	"name" : "MozNativeFontMetrics",
+		"OFFSET_ZEROORAVECHARWIDTH" ],
 	"commentStamp" : "",
+	"instvars" : [
+		 ],
+	"name" : "MozNativeFontMetrics",
+	"pools" : [
+		 ],
 	"super" : "FFIExternalStructure",
 	"traitcomposition" : "TMozLibrary",
-	"type" : "normal",
-	"classinstvars" : [ ],
-	"pools" : [ ],
-	"category" : "Sparta-Moz2D-External"
-}
+	"type" : "normal" }

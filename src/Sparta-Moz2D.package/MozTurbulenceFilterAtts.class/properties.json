@@ -1,18 +1,19 @@
 {
-	"commentStamp" : "AliakseiSyrel 8/23/2016 00:06",
-	"super" : "FFIExternalEnumeration",
 	"category" : "Sparta-Moz2D-Filters Enum",
-	"classinstvars" : [ ],
-	"pools" : [ ],
+	"classinstvars" : [
+		 ],
 	"classvars" : [
 		"ATT_TURBULENCE_BASE_FREQUENCY",
 		"ATT_TURBULENCE_NUM_OCTAVES",
 		"ATT_TURBULENCE_RECT",
 		"ATT_TURBULENCE_SEED",
 		"ATT_TURBULENCE_STITCHABLE",
-		"ATT_TURBULENCE_TYPE"
-	],
-	"instvars" : [ ],
+		"ATT_TURBULENCE_TYPE" ],
+	"commentStamp" : "AliakseiSyrel 8/23/2016 00:06",
+	"instvars" : [
+		 ],
 	"name" : "MozTurbulenceFilterAtts",
-	"type" : "normal"
-}
+	"pools" : [
+		 ],
+	"super" : "FFIExternalEnumeration",
+	"type" : "normal" }

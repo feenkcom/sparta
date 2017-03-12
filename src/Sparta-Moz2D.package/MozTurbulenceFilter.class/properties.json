@@ -1,13 +1,16 @@
 {
+	"category" : "Sparta-Moz2D-Filters",
+	"classinstvars" : [
+		 ],
 	"classtraitcomposition" : "TSpartaTurbulenceFilter classTrait",
-	"classvars" : [ ],
-	"instvars" : [ ],
-	"name" : "MozTurbulenceFilter",
+	"classvars" : [
+		 ],
 	"commentStamp" : "AliakseiSyrel 8/26/2016 19:46",
+	"instvars" : [
+		 ],
+	"name" : "MozTurbulenceFilter",
+	"pools" : [
+		 ],
 	"super" : "MozFilter",
 	"traitcomposition" : "TSpartaTurbulenceFilter",
-	"type" : "normal",
-	"classinstvars" : [ ],
-	"pools" : [ ],
-	"category" : "Sparta-Moz2D-Filters"
-}
+	"type" : "normal" }

@@ -1,0 +1,21 @@
+{
+	"class" : {
+		"ffiLibraryName" : " 3/10/2017 20:04:42" },
+	"instance" : {
+		"fillPath:withForm:" : " 3/10/2017 20:04:42",
+		"fillPath:withLinearGradient:" : " 3/10/2017 20:04:42",
+		"fillPath:withPattern:" : " 3/10/2017 20:04:42",
+		"fillPath:withRadialGradient:" : " 3/10/2017 20:04:42",
+		"fillPath:withSolidColor:" : " 3/10/2017 20:04:42",
+		"fillPath:withSurface:" : " 3/10/2017 20:04:42",
+		"fillRectangle:withForm:" : " 3/10/2017 20:04:42",
+		"fillRectangle:withLinearGradient:" : " 3/10/2017 20:04:42",
+		"fillRectangle:withPattern:" : " 3/10/2017 20:04:42",
+		"fillRectangle:withRadialGradient:" : " 3/10/2017 20:04:42",
+		"fillRectangle:withSolidColor:" : " 3/10/2017 20:04:42",
+		"fillRectangle:withSurface:" : " 3/10/2017 20:04:42",
+		"primFillPath:pattern:drawOptions:" : " 3/10/2017 20:04:42",
+		"primFillPathColor:r:g:b:a:drawOptions:" : " 3/10/2017 20:04:42",
+		"primFillRect:pattern:drawOptions:" : " 3/10/2017 20:04:42",
+		"primFillX:y:width:height:bits:formWidth:formHeight:stride:drawOptions:" : " 3/10/2017 20:04:42",
+		"primFillX:y:width:height:r:g:b:a:drawOptions:" : " 3/10/2017 20:04:42" } }

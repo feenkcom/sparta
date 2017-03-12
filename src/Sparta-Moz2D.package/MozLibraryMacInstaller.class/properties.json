@@ -1,11 +1,14 @@
 {
-	"commentStamp" : "AliakseiSyrel 9/1/2016 01:03",
-	"super" : "MozLibraryInstaller",
 	"category" : "Sparta-Moz2D-Library",
-	"classinstvars" : [ ],
-	"pools" : [ ],
-	"classvars" : [ ],
-	"instvars" : [ ],
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "AliakseiSyrel 9/1/2016 01:03",
+	"instvars" : [
+		 ],
 	"name" : "MozLibraryMacInstaller",
-	"type" : "normal"
-}
+	"pools" : [
+		 ],
+	"super" : "MozLibraryInstaller",
+	"type" : "normal" }

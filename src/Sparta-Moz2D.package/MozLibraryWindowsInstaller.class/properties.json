@@ -1,11 +1,14 @@
 {
-	"commentStamp" : "AliakseiSyrel 10/13/2016 20:52",
-	"super" : "MozLibraryInstaller",
 	"category" : "Sparta-Moz2D-Library",
-	"classinstvars" : [ ],
-	"pools" : [ ],
-	"classvars" : [ ],
-	"instvars" : [ ],
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "AliakseiSyrel 10/13/2016 20:52",
+	"instvars" : [
+		 ],
 	"name" : "MozLibraryWindowsInstaller",
-	"type" : "normal"
-}
+	"pools" : [
+		 ],
+	"super" : "MozLibraryInstaller",
+	"type" : "normal" }

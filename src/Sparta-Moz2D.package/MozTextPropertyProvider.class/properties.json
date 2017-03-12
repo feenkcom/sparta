@@ -1,21 +1,20 @@
 {
+	"category" : "Sparta-Moz2D-Text-Metrics",
+	"classinstvars" : [
+		"instances" ],
 	"classtraitcomposition" : "TMozLibrary classTrait + TMozPlainPtr classTrait + TMozDebug classTrait + TSpTextPropertiesProvider classTrait",
-	"classvars" : [ ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
 	"instvars" : [
 		"spacing",
 		"breakPriority",
 		"textRun",
 		"canvas",
-		"hyphenWidth"
-	],
+		"hyphenWidth" ],
 	"name" : "MozTextPropertyProvider",
-	"commentStamp" : "",
+	"pools" : [
+		 ],
 	"super" : "FFIExternalObject",
 	"traitcomposition" : "TMozLibrary + TMozPlainPtr + TMozDebug + TSpTextPropertiesProvider",
-	"type" : "normal",
-	"classinstvars" : [
-		"instances"
-	],
-	"pools" : [ ],
-	"category" : "Sparta-Moz2D-Text-Metrics"
-}
+	"type" : "normal" }

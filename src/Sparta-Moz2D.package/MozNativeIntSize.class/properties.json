@@ -1,16 +1,17 @@
 {
+	"category" : "Sparta-Moz2D-External",
+	"classinstvars" : [
+		 ],
 	"classtraitcomposition" : "TMozLibrary classTrait",
 	"classvars" : [
 		"OFFSET_HEIGHT",
-		"OFFSET_WIDTH"
-	],
-	"instvars" : [ ],
-	"name" : "MozNativeIntSize",
+		"OFFSET_WIDTH" ],
 	"commentStamp" : "AliakseiSyrel 8/18/2016 23:23",
+	"instvars" : [
+		 ],
+	"name" : "MozNativeIntSize",
+	"pools" : [
+		 ],
 	"super" : "FFIExternalStructure",
 	"traitcomposition" : "TMozLibrary",
-	"type" : "normal",
-	"classinstvars" : [ ],
-	"pools" : [ ],
-	"category" : "Sparta-Moz2D-External"
-}
+	"type" : "normal" }

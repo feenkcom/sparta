@@ -1,13 +1,16 @@
 {
+	"category" : "Sparta-Moz2D-Filters",
+	"classinstvars" : [
+		 ],
 	"classtraitcomposition" : "TSpartaArithmeticCombineFilter classTrait",
-	"classvars" : [ ],
-	"instvars" : [ ],
-	"name" : "MozArithmeticCombineFilter",
+	"classvars" : [
+		 ],
 	"commentStamp" : "",
+	"instvars" : [
+		 ],
+	"name" : "MozArithmeticCombineFilter",
+	"pools" : [
+		 ],
 	"super" : "MozDoubleSourceFilter",
 	"traitcomposition" : "TSpartaArithmeticCombineFilter",
-	"type" : "normal",
-	"classinstvars" : [ ],
-	"pools" : [ ],
-	"category" : "Sparta-Moz2D-Filters"
-}
+	"type" : "normal" }

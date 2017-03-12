@@ -1,13 +1,14 @@
 {
-	"commentStamp" : "AliakseiSyrel 8/23/2016 00:01",
-	"super" : "FFIExternalEnumeration",
 	"category" : "Sparta-Moz2D-Filters Enum",
-	"classinstvars" : [ ],
-	"pools" : [ ],
+	"classinstvars" : [
+		 ],
 	"classvars" : [
-		"ATT_COMPOSITE_OPERATOR"
-	],
-	"instvars" : [ ],
+		"ATT_COMPOSITE_OPERATOR" ],
+	"commentStamp" : "AliakseiSyrel 8/23/2016 00:01",
+	"instvars" : [
+		 ],
 	"name" : "MozCompositeFilterAtts",
-	"type" : "normal"
-}
+	"pools" : [
+		 ],
+	"super" : "FFIExternalEnumeration",
+	"type" : "normal" }
