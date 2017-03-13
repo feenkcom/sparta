@@ -1,5 +1,6 @@
 tests
 testCallbackIntptr
+	<expectedFailure> "bug in FFI"
 
 	self
 		assert: (self primCall: self callbackIntptr intptr: self primIntptrMin)

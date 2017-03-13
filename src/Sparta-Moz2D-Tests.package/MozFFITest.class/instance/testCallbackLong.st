@@ -1,5 +1,6 @@
 tests
 testCallbackLong
+	<expectedFailure> "bug in FFI"
 
 	self
 		assert: (self primCall: self callbackLong long: self primLongMin)
