@@ -1,4 +1,4 @@
 accessing structure variables
 bearingY
 	"This method was automatically generated"
-	^handle doubleAt: 9
+	^handle doubleAt: OFFSET_BEARINGY

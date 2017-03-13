@@ -1,4 +1,4 @@
-accessing
+accessing structure variables
 dashOffset: anObject
 	"This method was automatically generated"
-	handle floatAt: 17 put: anObject
+	handle floatAt: OFFSET_DASHOFFSET put: anObject

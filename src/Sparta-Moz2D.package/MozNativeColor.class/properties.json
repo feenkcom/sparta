@@ -1,16 +1,18 @@
 {
-	"category" : "Sparta-Moz2D-External",
-	"classinstvars" : [
-		 ],
 	"classtraitcomposition" : "TMozLibrary classTrait",
 	"classvars" : [
-		 ],
-	"commentStamp" : "AliakseiSyrel 8/18/2016 23:17",
-	"instvars" : [
-		 ],
+		"OFFSET_ALPHA",
+		"OFFSET_BLUE",
+		"OFFSET_GREEN",
+		"OFFSET_RED"
+	],
+	"instvars" : [ ],
 	"name" : "MozNativeColor",
-	"pools" : [
-		 ],
+	"commentStamp" : "AliakseiSyrel 8/18/2016 23:17",
 	"super" : "FFIExternalStructure",
 	"traitcomposition" : "TMozLibrary",
-	"type" : "normal" }
+	"type" : "normal",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"category" : "Sparta-Moz2D-External"
+}

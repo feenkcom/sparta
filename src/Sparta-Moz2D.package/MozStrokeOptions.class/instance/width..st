@@ -1,4 +1,4 @@
-accessing
-width: aFloat
+accessing structure variables
+width: anObject
 	"This method was automatically generated"
-	handle floatAt: 1 put: aFloat
+	handle floatAt: OFFSET_WIDTH put: anObject

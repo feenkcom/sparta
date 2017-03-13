@@ -1,4 +1,4 @@
-accessing
+accessing structure variables
 miterLimit: anObject
 	"This method was automatically generated"
-	handle floatAt: 5 put: anObject
+	handle floatAt: OFFSET_MITERLIMIT put: anObject

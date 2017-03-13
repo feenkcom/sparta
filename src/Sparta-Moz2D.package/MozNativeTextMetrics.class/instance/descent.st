@@ -1,4 +1,4 @@
-accessing
+accessing structure variables
 descent
 	"This method was automatically generated"
-	^handle doubleAt: 17
+	^handle doubleAt: OFFSET_DESCENT

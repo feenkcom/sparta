@@ -1,14 +1,11 @@
 {
-	"category" : "Sparta-Moz2D-Library",
-	"classinstvars" : [
-		 ],
-	"classvars" : [
-		 ],
 	"commentStamp" : "AliakseiSyrel 8/22/2016 23:52",
-	"instvars" : [
-		 ],
-	"name" : "MozLibrary",
-	"pools" : [
-		 ],
 	"super" : "FFILibrary",
-	"type" : "normal" }
+	"category" : "Sparta-Moz2D-Library",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "MozLibrary",
+	"type" : "normal"
+}

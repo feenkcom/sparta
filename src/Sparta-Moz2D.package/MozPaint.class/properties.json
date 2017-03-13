@@ -1,17 +1,16 @@
 {
-	"category" : "Sparta-Moz2D-Paints",
-	"classinstvars" : [
-		 ],
 	"classtraitcomposition" : "TSpartaPaint classTrait + TSpartaTransformable classTrait + TSpartaInspectorPreview classTrait",
-	"classvars" : [
-		 ],
-	"commentStamp" : "",
+	"classvars" : [ ],
 	"instvars" : [
 		"matrix",
-		"extendMode" ],
+		"extendMode"
+	],
 	"name" : "MozPaint",
-	"pools" : [
-		 ],
+	"commentStamp" : "",
 	"super" : "Object",
 	"traitcomposition" : "TSpartaPaint + TSpartaTransformable + TSpartaInspectorPreview",
-	"type" : "normal" }
+	"type" : "normal",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"category" : "Sparta-Moz2D-Paints"
+}

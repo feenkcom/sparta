@@ -1,4 +1,4 @@
-private - ffi
+accessing structure variables
 lineJoin: anObject
 	"This method was automatically generated"
-	handle unsignedByteAt: 21 put: anObject value
+	handle signedByteAt: OFFSET_LINEJOIN put: anObject value

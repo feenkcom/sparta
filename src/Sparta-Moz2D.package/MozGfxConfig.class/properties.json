@@ -1,16 +1,13 @@
 {
-	"category" : "Sparta-Moz2D-GFX",
-	"classinstvars" : [
-		 ],
 	"classtraitcomposition" : "TMozLibrary classTrait",
-	"classvars" : [
-		 ],
-	"commentStamp" : "",
-	"instvars" : [
-		 ],
+	"classvars" : [ ],
+	"instvars" : [ ],
 	"name" : "MozGfxConfig",
-	"pools" : [
-		 ],
+	"commentStamp" : "",
 	"super" : "Object",
 	"traitcomposition" : "TMozLibrary",
-	"type" : "normal" }
+	"type" : "normal",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"category" : "Sparta-Moz2D-GFX"
+}

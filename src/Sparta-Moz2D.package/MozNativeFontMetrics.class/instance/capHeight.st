@@ -1,4 +1,4 @@
 accessing structure variables
 capHeight
 	"This method was automatically generated"
-	^handle doubleAt: 1
+	^handle doubleAt: OFFSET_CAPHEIGHT

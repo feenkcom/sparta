@@ -1,4 +1,4 @@
-private - ffi
+accessing structure variables
 miterLimit
 	"This method was automatically generated"
-	^handle floatAt: 5
+	^handle floatAt: OFFSET_MITERLIMIT

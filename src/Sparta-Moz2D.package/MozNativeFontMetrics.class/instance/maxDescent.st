@@ -1,4 +1,4 @@
 accessing structure variables
 maxDescent
 	"This method was automatically generated"
-	^handle doubleAt: 105
+	^handle doubleAt: OFFSET_MAXDESCENT

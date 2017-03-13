@@ -1,4 +1,4 @@
 accessing structure variables
 aveCharWidth
 	"This method was automatically generated"
-	^handle doubleAt: 121
+	^handle doubleAt: OFFSET_AVECHARWIDTH

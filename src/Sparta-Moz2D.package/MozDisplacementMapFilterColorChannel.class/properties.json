@@ -1,17 +1,16 @@
 {
+	"commentStamp" : "AliakseiSyrel 8/23/2016 00:02",
+	"super" : "FFIExternalEnumeration",
 	"category" : "Sparta-Moz2D-Filters Enum",
-	"classinstvars" : [
-		 ],
+	"classinstvars" : [ ],
+	"pools" : [ ],
 	"classvars" : [
 		"COLOR_CHANNEL_A",
 		"COLOR_CHANNEL_B",
 		"COLOR_CHANNEL_G",
-		"COLOR_CHANNEL_R" ],
-	"commentStamp" : "AliakseiSyrel 8/23/2016 00:02",
-	"instvars" : [
-		 ],
+		"COLOR_CHANNEL_R"
+	],
+	"instvars" : [ ],
 	"name" : "MozDisplacementMapFilterColorChannel",
-	"pools" : [
-		 ],
-	"super" : "FFIExternalEnumeration",
-	"type" : "normal" }
+	"type" : "normal"
+}

@@ -1,4 +1,4 @@
 accessing structure variables
 emAscent
 	"This method was automatically generated"
-	^handle doubleAt: 73
+	^handle doubleAt: OFFSET_EMASCENT

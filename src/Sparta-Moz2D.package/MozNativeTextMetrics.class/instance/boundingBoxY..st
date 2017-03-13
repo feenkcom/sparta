@@ -1,4 +1,4 @@
-private
+accessing structure variables
 boundingBoxY: anObject
 	"This method was automatically generated"
-	handle doubleAt: 33 put: anObject
+	handle doubleAt: OFFSET_BOUNDINGBOXY put: anObject

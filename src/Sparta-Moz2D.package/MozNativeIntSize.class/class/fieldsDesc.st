@@ -1,6 +1,8 @@
 field definition
 fieldsDesc
-	"self rebuildFieldAccessors"
+	"
+	self rebuildFieldAccessors
+	"
 	^ #(
 		int width; int height
 	)

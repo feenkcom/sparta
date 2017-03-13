@@ -1,6 +1,12 @@
 {
 	"classtraitcomposition" : "TSpartaCairoLibrary classTrait",
-	"classvars" : [ ],
+	"classvars" : [
+		"OFFSET_ASCENT",
+		"OFFSET_DESCENT",
+		"OFFSET_HEIGHT",
+		"OFFSET_MAXADVANCEX",
+		"OFFSET_MAXADVANCEY"
+	],
 	"instvars" : [ ],
 	"name" : "SpartaCairoFontMetrics",
 	"commentStamp" : "",

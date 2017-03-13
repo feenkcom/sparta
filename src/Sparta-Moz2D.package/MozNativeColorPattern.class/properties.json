@@ -1,14 +1,11 @@
 {
-	"category" : "Sparta-Moz2D-External",
-	"classinstvars" : [
-		 ],
-	"classvars" : [
-		 ],
 	"commentStamp" : "AliakseiSyrel 8/19/2016 00:13",
-	"instvars" : [
-		 ],
-	"name" : "MozNativeColorPattern",
-	"pools" : [
-		 ],
 	"super" : "MozNativePattern",
-	"type" : "normal" }
+	"category" : "Sparta-Moz2D-External",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "MozNativeColorPattern",
+	"type" : "normal"
+}

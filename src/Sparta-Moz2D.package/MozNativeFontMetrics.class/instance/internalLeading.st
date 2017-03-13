@@ -1,4 +1,4 @@
 accessing structure variables
 internalLeading
 	"This method was automatically generated"
-	^handle doubleAt: 49
+	^handle doubleAt: OFFSET_INTERNALLEADING

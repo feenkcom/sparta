@@ -1,4 +1,3 @@
-private - ffi
+accessing
 compositionOperator
-	"This method was automatically generated"
 	^ self primCompositionOperator

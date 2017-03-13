@@ -1,4 +1,4 @@
-accessing
+accessing structure variables
 descent: anObject
 	"This method was automatically generated"
-	handle doubleAt: 17 put: anObject
+	handle doubleAt: OFFSET_DESCENT put: anObject

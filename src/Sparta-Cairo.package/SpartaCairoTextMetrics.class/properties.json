@@ -1,6 +1,13 @@
 {
 	"classtraitcomposition" : "TSpartaCairoLibrary classTrait",
-	"classvars" : [ ],
+	"classvars" : [
+		"OFFSET_ADVANCEX",
+		"OFFSET_ADVANCEY",
+		"OFFSET_BEARINGX",
+		"OFFSET_BEARINGY",
+		"OFFSET_HEIGHT",
+		"OFFSET_WIDTH"
+	],
 	"instvars" : [ ],
 	"name" : "SpartaCairoTextMetrics",
 	"commentStamp" : "AliakseiSyrel 2/4/2017 18:41",

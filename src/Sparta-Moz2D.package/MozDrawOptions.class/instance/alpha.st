@@ -1,4 +1,3 @@
-private - ffi
+accessing
 alpha
-	"This method was automatically generated"
 	^ self primAlpha

@@ -1,16 +1,16 @@
 {
-	"category" : "Sparta-Moz2D-External",
-	"classinstvars" : [
-		 ],
 	"classtraitcomposition" : "TMozLibrary classTrait",
 	"classvars" : [
-		 ],
-	"commentStamp" : "AliakseiSyrel 10/21/2016 12:30",
-	"instvars" : [
-		 ],
+		"OFFSET_X",
+		"OFFSET_Y"
+	],
+	"instvars" : [ ],
 	"name" : "MozNativePoint",
-	"pools" : [
-		 ],
+	"commentStamp" : "AliakseiSyrel 10/21/2016 12:30",
 	"super" : "FFIExternalStructure",
 	"traitcomposition" : "TMozLibrary",
-	"type" : "normal" }
+	"type" : "normal",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"category" : "Sparta-Moz2D-External"
+}

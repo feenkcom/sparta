@@ -1,7 +1,4 @@
 {
-	"category" : "Sparta-Moz2D",
-	"classinstvars" : [
-		"default" ],
 	"classtraitcomposition" : "TSpartaStrokeOptions classTrait",
 	"classvars" : [
 		"OFFSET_DASHOFFSET",
@@ -10,13 +7,17 @@
 		"OFFSET_MITERLIMIT",
 		"OFFSET_PRIVATEDASHLENGTH",
 		"OFFSET_PRIVATEDASHPATTERN",
-		"OFFSET_WIDTH" ],
-	"commentStamp" : "",
-	"instvars" : [
-		 ],
+		"OFFSET_WIDTH"
+	],
+	"instvars" : [ ],
 	"name" : "MozStrokeOptions",
-	"pools" : [
-		 ],
+	"commentStamp" : "",
 	"super" : "FFIExternalStructure",
 	"traitcomposition" : "TSpartaStrokeOptions",
-	"type" : "normal" }
+	"type" : "normal",
+	"classinstvars" : [
+		"default"
+	],
+	"pools" : [ ],
+	"category" : "Sparta-Moz2D"
+}

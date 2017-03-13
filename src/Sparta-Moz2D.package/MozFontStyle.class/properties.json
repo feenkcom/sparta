@@ -1,16 +1,13 @@
 {
-	"category" : "Sparta-Moz2D-Text",
-	"classinstvars" : [
-		 ],
 	"classtraitcomposition" : "TMozLibrary classTrait + TMozDebug classTrait + TMozPlainPtr classTrait",
-	"classvars" : [
-		 ],
-	"commentStamp" : "AliakseiSyrel 8/1/2016 23:59",
-	"instvars" : [
-		 ],
+	"classvars" : [ ],
+	"instvars" : [ ],
 	"name" : "MozFontStyle",
-	"pools" : [
-		 ],
+	"commentStamp" : "AliakseiSyrel 8/1/2016 23:59",
 	"super" : "FFIExternalObject",
 	"traitcomposition" : "TMozLibrary + TMozDebug + TMozPlainPtr",
-	"type" : "normal" }
+	"type" : "normal",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"category" : "Sparta-Moz2D-Text"
+}

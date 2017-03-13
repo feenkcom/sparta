@@ -1,4 +1,4 @@
 accessing structure variables
 zeroOrAveCharWidth
 	"This method was automatically generated"
-	^handle doubleAt: 137
+	^handle doubleAt: OFFSET_ZEROORAVECHARWIDTH

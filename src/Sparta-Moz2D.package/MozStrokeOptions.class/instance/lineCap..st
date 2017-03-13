@@ -1,4 +1,4 @@
-private - ffi
+accessing structure variables
 lineCap: anObject
 	"This method was automatically generated"
-	handle unsignedByteAt: 22 put: anObject value
+	handle signedByteAt: OFFSET_LINECAP put: anObject value

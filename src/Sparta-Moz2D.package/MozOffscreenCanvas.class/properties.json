@@ -1,14 +1,15 @@
 {
+	"commentStamp" : "",
+	"super" : "MozCanvas",
 	"category" : "Sparta-Moz2D",
 	"classinstvars" : [
-		"uniqueInstance" ],
-	"classvars" : [
-		 ],
-	"commentStamp" : "",
+		"uniqueInstance"
+	],
+	"pools" : [ ],
+	"classvars" : [ ],
 	"instvars" : [
-		"session" ],
+		"session"
+	],
 	"name" : "MozOffscreenCanvas",
-	"pools" : [
-		 ],
-	"super" : "MozCanvas",
-	"type" : "normal" }
+	"type" : "normal"
+}

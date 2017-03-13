@@ -1,7 +1,9 @@
 {
+	"commentStamp" : "AliakseiSyrel 8/23/2016 00:04",
+	"super" : "FFIExternalEnumeration",
 	"category" : "Sparta-Moz2D-Filters Enum",
-	"classinstvars" : [
-		 ],
+	"classinstvars" : [ ],
+	"pools" : [ ],
 	"classvars" : [
 		"ATT_LINEAR_TRANSFER_INTERCEPT_A",
 		"ATT_LINEAR_TRANSFER_INTERCEPT_B",
@@ -10,12 +12,9 @@
 		"ATT_LINEAR_TRANSFER_SLOPE_A",
 		"ATT_LINEAR_TRANSFER_SLOPE_B",
 		"ATT_LINEAR_TRANSFER_SLOPE_G",
-		"ATT_LINEAR_TRANSFER_SLOPE_R" ],
-	"commentStamp" : "AliakseiSyrel 8/23/2016 00:04",
-	"instvars" : [
-		 ],
+		"ATT_LINEAR_TRANSFER_SLOPE_R"
+	],
+	"instvars" : [ ],
 	"name" : "MozLinearTransferFilterAtts",
-	"pools" : [
-		 ],
-	"super" : "FFIExternalEnumeration",
-	"type" : "normal" }
+	"type" : "normal"
+}

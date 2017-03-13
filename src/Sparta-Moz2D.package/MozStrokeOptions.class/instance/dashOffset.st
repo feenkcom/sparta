@@ -1,4 +1,4 @@
-private - ffi
+accessing structure variables
 dashOffset
 	"This method was automatically generated"
-	^handle floatAt: 17
+	^handle floatAt: OFFSET_DASHOFFSET

@@ -1,16 +1,15 @@
 {
-	"category" : "Sparta-Moz2D-Builders",
-	"classinstvars" : [
-		 ],
 	"classtraitcomposition" : "TMozLibrary classTrait",
-	"classvars" : [
-		 ],
-	"commentStamp" : "",
-	"instvars" : [
-		 ],
+	"classvars" : [ ],
+	"instvars" : [ ],
 	"name" : "MozTransformationBuilder",
-	"pools" : [
-		"MozSharedPool" ],
+	"commentStamp" : "",
 	"super" : "SpartaTransformationBuilder",
 	"traitcomposition" : "TMozLibrary",
-	"type" : "normal" }
+	"type" : "normal",
+	"classinstvars" : [ ],
+	"pools" : [
+		"MozSharedPool"
+	],
+	"category" : "Sparta-Moz2D-Builders"
+}

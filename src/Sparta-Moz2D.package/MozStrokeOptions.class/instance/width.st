@@ -1,4 +1,4 @@
-private - ffi
+accessing structure variables
 width
 	"This method was automatically generated"
-	^handle floatAt: 1
+	^handle floatAt: OFFSET_WIDTH

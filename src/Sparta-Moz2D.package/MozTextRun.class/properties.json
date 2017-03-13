@@ -1,19 +1,18 @@
 {
-	"category" : "Sparta-Moz2D-Text",
-	"classinstvars" : [
-		 ],
 	"classtraitcomposition" : "TSpTextRun classTrait + TMozLibrary classTrait + TMozInlineRefPtr classTrait + TMozDebug classTrait",
-	"classvars" : [
-		 ],
-	"commentStamp" : "",
+	"classvars" : [ ],
 	"instvars" : [
 		"metricsProvider",
 		"buffer",
 		"length",
-		"bits" ],
+		"bits"
+	],
 	"name" : "MozTextRun",
-	"pools" : [
-		 ],
+	"commentStamp" : "",
 	"super" : "FFIExternalObject",
 	"traitcomposition" : "TSpTextRun + TMozLibrary + TMozInlineRefPtr + TMozDebug",
-	"type" : "normal" }
+	"type" : "normal",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"category" : "Sparta-Moz2D-Text"
+}

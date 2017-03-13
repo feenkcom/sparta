@@ -1,15 +1,14 @@
 {
+	"commentStamp" : "AliakseiSyrel 1/15/2017 11:15",
+	"super" : "MozEnum",
 	"category" : "Sparta-Moz2D-Skia",
-	"classinstvars" : [
-		 ],
+	"classinstvars" : [ ],
+	"pools" : [ ],
 	"classvars" : [
 		"kOpenGL_GrBackend",
-		"kVulkan_GrBackend" ],
-	"commentStamp" : "AliakseiSyrel 1/15/2017 11:15",
-	"instvars" : [
-		 ],
+		"kVulkan_GrBackend"
+	],
+	"instvars" : [ ],
 	"name" : "SkiaBackend",
-	"pools" : [
-		 ],
-	"super" : "MozEnum",
-	"type" : "normal" }
+	"type" : "normal"
+}

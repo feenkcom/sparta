@@ -1,11 +1,8 @@
 {
-	"category" : "Sparta-Moz2D-Text-Metrics",
-	"classinstvars" : [
-		"default" ],
 	"classtraitcomposition" : "TMozLibrary classTrait",
 	"classvars" : [
-		"Nullptr" ],
-	"commentStamp" : "",
+		"Nullptr"
+	],
 	"instvars" : [
 		"trimWhitespace",
 		"textMetrics",
@@ -13,10 +10,16 @@
 		"lastBreak",
 		"fontMetrics",
 		"usedHyphenation",
-		"session" ],
+		"session"
+	],
 	"name" : "MozTextMetricsProvider",
-	"pools" : [
-		 ],
+	"commentStamp" : "",
 	"super" : "SpMetricsProvider",
 	"traitcomposition" : "TMozLibrary",
-	"type" : "normal" }
+	"type" : "normal",
+	"classinstvars" : [
+		"default"
+	],
+	"pools" : [ ],
+	"category" : "Sparta-Moz2D-Text-Metrics"
+}

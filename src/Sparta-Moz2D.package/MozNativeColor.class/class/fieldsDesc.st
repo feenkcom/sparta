@@ -1,6 +1,8 @@
 field definition
 fieldsDesc
-	"self rebuildFieldAccessors"
+	"
+	self rebuildFieldAccessors
+	"
 	^ #(
 		float red; float green;
 		float blue; float alpha

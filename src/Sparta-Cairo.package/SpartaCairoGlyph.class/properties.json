@@ -1,6 +1,10 @@
 {
 	"classtraitcomposition" : "TSpartaCairoLibrary classTrait",
-	"classvars" : [ ],
+	"classvars" : [
+		"OFFSET_INDEX",
+		"OFFSET_X",
+		"OFFSET_Y"
+	],
 	"instvars" : [ ],
 	"name" : "SpartaCairoGlyph",
 	"commentStamp" : "",

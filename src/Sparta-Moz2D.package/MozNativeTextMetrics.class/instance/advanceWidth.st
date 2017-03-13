@@ -1,4 +1,4 @@
-accessing
+accessing structure variables
 advanceWidth
 	"This method was automatically generated"
-	^handle doubleAt: 1
+	^handle doubleAt: OFFSET_ADVANCEWIDTH

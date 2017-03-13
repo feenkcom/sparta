@@ -1,17 +1,16 @@
 {
+	"commentStamp" : "",
+	"super" : "MozEnum",
 	"category" : "Sparta-Moz2D-Enums",
-	"classinstvars" : [
-		 ],
+	"classinstvars" : [ ],
+	"pools" : [ ],
 	"classvars" : [
 		"DEFAULT",
 		"GRAY",
 		"NONE",
-		"SUBPIXEL" ],
-	"commentStamp" : "",
-	"instvars" : [
-		 ],
+		"SUBPIXEL"
+	],
+	"instvars" : [ ],
 	"name" : "MozAntialiasMode",
-	"pools" : [
-		 ],
-	"super" : "MozEnum",
-	"type" : "normal" }
+	"type" : "normal"
+}

@@ -1,4 +1,4 @@
-private - ffi
+accessing structure variables
 lineCap
 	"This method was automatically generated"
-	^ MozCapStyle fromInteger: (handle unsignedByteAt: 22)
+	^MozCapStyle fromInteger: (handle signedByteAt: OFFSET_LINECAP)

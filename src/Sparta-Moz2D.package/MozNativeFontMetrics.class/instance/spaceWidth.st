@@ -1,4 +1,4 @@
 accessing structure variables
 spaceWidth
 	"This method was automatically generated"
-	^handle doubleAt: 129
+	^handle doubleAt: OFFSET_SPACEWIDTH

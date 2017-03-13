@@ -1,16 +1,15 @@
 {
+	"commentStamp" : "",
+	"super" : "FFIExternalEnumeration",
 	"category" : "Sparta-Moz2D-Text-Enums",
-	"classinstvars" : [
-		 ],
+	"classinstvars" : [ ],
+	"pools" : [ ],
 	"classvars" : [
 		"BOLD",
 		"NORMAL",
-		"THIN" ],
-	"commentStamp" : "",
-	"instvars" : [
-		 ],
+		"THIN"
+	],
+	"instvars" : [ ],
 	"name" : "MozTextFontWeight",
-	"pools" : [
-		 ],
-	"super" : "FFIExternalEnumeration",
-	"type" : "normal" }
+	"type" : "normal"
+}

@@ -1,4 +1,4 @@
-private - ffi
+accessing structure variables
 privateDashLength: anObject
 	"This method was automatically generated"
-	handle unsignedLongAt: 13 put: anObject
+	handle unsignedLongAt: OFFSET_PRIVATEDASHLENGTH put: anObject

@@ -1,4 +1,5 @@
 {
-	"category" : "Sparta-Moz2D-Library",
+	"name" : "TMozDebug",
 	"commentStamp" : "AliakseiSyrel 8/22/2016 23:55",
-	"name" : "TMozDebug" }
+	"category" : "Sparta-Moz2D-Library"
+}

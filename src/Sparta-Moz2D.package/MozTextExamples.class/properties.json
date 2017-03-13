@@ -1,16 +1,13 @@
 {
-	"category" : "Sparta-Moz2D-Examples",
-	"classinstvars" : [
-		 ],
 	"classtraitcomposition" : "TSpartaTextExamples classTrait",
-	"classvars" : [
-		 ],
-	"commentStamp" : "",
-	"instvars" : [
-		 ],
+	"classvars" : [ ],
+	"instvars" : [ ],
 	"name" : "MozTextExamples",
-	"pools" : [
-		 ],
+	"commentStamp" : "",
 	"super" : "Object",
 	"traitcomposition" : "TSpartaTextExamples",
-	"type" : "normal" }
+	"type" : "normal",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"category" : "Sparta-Moz2D-Examples"
+}

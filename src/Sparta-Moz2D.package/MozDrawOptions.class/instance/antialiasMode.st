@@ -1,4 +1,3 @@
-private - ffi
+accessing
 antialiasMode
-	"This method was automatically generated"
 	^ self primAntialiasMode

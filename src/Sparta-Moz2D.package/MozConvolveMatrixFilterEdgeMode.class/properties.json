@@ -1,16 +1,15 @@
 {
+	"commentStamp" : "AliakseiSyrel 8/23/2016 00:01",
+	"super" : "FFIExternalEnumeration",
 	"category" : "Sparta-Moz2D-Filters Enum",
-	"classinstvars" : [
-		 ],
+	"classinstvars" : [ ],
+	"pools" : [ ],
 	"classvars" : [
 		"EDGE_MODE_DUPLICATE",
 		"EDGE_MODE_NONE",
-		"EDGE_MODE_WRAP" ],
-	"commentStamp" : "AliakseiSyrel 8/23/2016 00:01",
-	"instvars" : [
-		 ],
+		"EDGE_MODE_WRAP"
+	],
+	"instvars" : [ ],
 	"name" : "MozConvolveMatrixFilterEdgeMode",
-	"pools" : [
-		 ],
-	"super" : "FFIExternalEnumeration",
-	"type" : "normal" }
+	"type" : "normal"
+}
