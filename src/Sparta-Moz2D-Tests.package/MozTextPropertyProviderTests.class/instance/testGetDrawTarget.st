@@ -1,5 +1,9 @@
 tests
 testGetDrawTarget
+	<expectedFailure>
+	"bug in Alien callbacks.
+	@see MozFFITest>>testCallbackUIntptr"
+	
 	| canvas actualCanvas |
 	
 	canvas := MozCanvas extent: 200@200.

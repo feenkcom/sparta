@@ -1,6 +1,14 @@
 tests
 testGetBreaks
-	<expectedFailure> "bug in FFI"
+	<expectedFailure>
+	"bug in FFI:
+	
+	array := FFIExternalArray externalNewType: 'bool' size: 1.
+	array autoRelease.
+	array at: 1 put: true.
+	Object assert: (array at: 1)"
+	
+	
 	| aString aStart anEnd anExpected anActual anExternalArray |
 	
 	aString := 'Hel-lo world!'.
@@ -16,7 +24,7 @@ testGetBreaks
 
 	anExternalArray := FFIExternalArray externalNewType: 'bool' size: (anEnd - aStart).
 	anExternalArray atAllPut: false.
-	
+
 	self primGetBreaks: propertyProvider start: aStart end: anEnd array: anExternalArray getHandle.
 	
 	anActual := anExternalArray asArray.

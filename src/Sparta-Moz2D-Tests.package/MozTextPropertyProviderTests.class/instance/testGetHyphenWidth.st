@@ -1,5 +1,9 @@
 tests
 testGetHyphenWidth
+	<expectedFailure>
+	"bug in Alien callbacks.
+	@see MozFFITest>>testCallbackUIntptr"
+	
 	| actualWidth |
 
 	actualWidth := self primGetHyphenWidth: propertyProvider.

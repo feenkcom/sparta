@@ -1,5 +1,9 @@
 tests
 testGetSpacing
+	<expectedFailure>
+	"bug in Alien callbacks.
+	@see MozFFITest>>testCallbackUIntptr"
+	
 	| aSpacing aStart anEnd anExpected anActual anExternalArray |
 	aSpacing := 20.0.
 	aStart := 10.
