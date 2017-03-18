@@ -8,7 +8,7 @@ initializeSpan: aSpan on: aCanvas with: aContext
 	attributes := aSpan attributes.
 	attributes
 		do:
-			[ :attribute | attribute applyOnTransform: aTransformation with: aSpan ].
+			[ :attribute | attribute applyOnSpartaMatrix: aTransformation with: aSpan ].
 
 	"Only compute inverted matrix if we actually have custom transformation"
 	anInvertedTransformation := aTransformation isIdentity

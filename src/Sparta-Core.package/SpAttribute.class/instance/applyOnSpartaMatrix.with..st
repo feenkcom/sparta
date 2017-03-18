@@ -1,3 +1,3 @@
 properties
-applyOnTransform: aMatrix with: aSpan
+applyOnSpartaMatrix: aMatrix with: aSpan
 	"Attribute may customize a transformation matrix"

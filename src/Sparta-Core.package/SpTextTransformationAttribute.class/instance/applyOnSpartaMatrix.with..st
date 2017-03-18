@@ -1,4 +1,4 @@
 properties
-applyOnTransform: aMatrix with: aSpan
+applyOnSpartaMatrix: aMatrix with: aSpan
 	aMatrix
 		multiplyBy: self transformation
