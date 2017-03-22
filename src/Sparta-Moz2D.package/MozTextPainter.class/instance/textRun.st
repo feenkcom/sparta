@@ -1,7 +1,9 @@
 instance creation
 textRun
 
-	^ font
+	^ (font
 		makeTextRunNoRelease: text
 		canvas: canvas
-		flags: self flags
+		flags: self flags)
+			metricsProvider: self metricsProvider; "do not forget to set a default metrics provider"
+			yourself
