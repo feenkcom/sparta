@@ -2,7 +2,6 @@ stream access
 nextWord
 	| aWord |
 
-	self halt.
 	aWord := self peek16BitWord.
 	index := index + 1.
 	^ (aWord < 16rD800 or: [ aWord > 16rDBFF ])
