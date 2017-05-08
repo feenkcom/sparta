@@ -5,10 +5,10 @@ baseline: spec
 		preLoadDoIt:  #preLoadActions:;
 		postLoadDoIt: #postLoadSparta:;
 		package: 'Sparta-Core';
-		"package: 'Sparta-Moz2D'
+		package: 'Sparta-Moz2D'
 			with: [ spec requires: #('Sparta-Core') ];
 		package: 'Sparta-Moz2D-Tests'
-			with: [ spec requires: #('Sparta-Moz2D') ];"
+			with: [ spec requires: #('Sparta-Moz2D') ];
 		package: 'Sparta-Cairo'
 			with: [ spec requires: #('Sparta-Core') ];
 
@@ -17,9 +17,9 @@ baseline: spec
 
 		"groups with only sources"
 		group: 'file:core'
-			with: #('Sparta-Core' "'Sparta-Moz2D'" 'Sparta-Cairo');
+			with: #('Sparta-Core' 'Sparta-Cairo');
 		group: 'file:development'
-			with: #('file:core' 'Sparta-Critiques' "'Sparta-Moz2D-Tests'");
+			with: #('file:core' 'Sparta-Critiques' 'Sparta-Moz2D' 'Sparta-Moz2D-Tests');
 
 		"groups with sources and plugin installation"
 		group: 'core'

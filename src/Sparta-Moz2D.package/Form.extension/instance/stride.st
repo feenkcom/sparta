@@ -7,4 +7,3 @@ stride
 	stride := (stride // 32).         "DWORDs per row"
 	stride := stride * 4.					"bytes per row"
 	^ stride
-	
