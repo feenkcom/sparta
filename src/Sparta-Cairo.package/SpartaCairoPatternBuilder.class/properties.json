@@ -8,8 +8,6 @@
 	"traitcomposition" : "TMozLibrary",
 	"type" : "normal",
 	"classinstvars" : [ ],
-	"pools" : [
-		"MozSharedPool"
-	],
+	"pools" : [ ],
 	"category" : "Sparta-Cairo-Builders"
 }
