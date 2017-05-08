@@ -6,7 +6,8 @@
 		"buffer",
 		"bits",
 		"length",
-		"scaledFont"
+		"scaledFont",
+		"metricsProvider"
 	],
 	"name" : "SpartaCairoTextRun",
 	"commentStamp" : "",
