@@ -13,7 +13,7 @@ exampleTextMeasureItalic
 		apply.
 
 	font := canvas font
-		named: 'Arial';
+		serif;
 		size: 300;
 		weightThin;
 		styleItalic;

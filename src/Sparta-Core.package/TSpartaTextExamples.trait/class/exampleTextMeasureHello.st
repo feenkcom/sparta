@@ -1,7 +1,7 @@
 examples - text
 exampleTextMeasureHello
 	|canvas font metricsProvider textPainter |
-	canvas := self canvas: 1100@520.
+	canvas := self canvas: 900@520.
 
 	canvas fill
 		paint: Color white;
@@ -13,14 +13,14 @@ exampleTextMeasureHello
 		apply.
 
 	font := canvas font
-		named: 'Arial';
+		serif;
 		size: 250;
 		weightThin;
 		build.
 
 	textPainter := canvas text
 		paint: (Color black alpha: 0.5);
-		string: 'H🙈llo';
+		string: 'H🤖llo';
 		font: font;
 		yourself.
 
