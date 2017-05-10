@@ -4,4 +4,4 @@ fillPath: aPath withSurface: aSpartaSurfacePaint
 	anOrigin := aPath bounds origin.
 	aSpartaSurfacePaint translateBy: anOrigin.
 	self fillPath: aPath withPattern: aSpartaSurfacePaint.
-	aSpartaSurfacePaint translateBy: anOrigin negated.
+	aSpartaSurfacePaint translateBy: anOrigin negated

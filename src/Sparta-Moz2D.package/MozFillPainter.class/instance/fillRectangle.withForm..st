@@ -1,7 +1,7 @@
 drawing
 fillRectangle: aRectangle withForm: aForm
 	| form |
-	
+
 	form := aForm unhibernate; asFormOfDepth: 32.
 	self
 		primFillX: aRectangle left
