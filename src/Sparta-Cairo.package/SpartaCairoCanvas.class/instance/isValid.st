@@ -4,4 +4,4 @@ isValid
 	and is actually valid that is determined by a backend"
 	<return: #Boolean>
 
-	^ handle isNull not and: [ self primIsValid ]
+	^ handle isNull not
