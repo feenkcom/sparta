@@ -1,7 +1,7 @@
 testing
 containsLocal: aRectangle
 	^ self
-		primContainsLocalX: aRectangle left
-		y: aRectangle top
-		width: aRectangle width
-		height: aRectangle height
+		primContainsLocalX: aRectangle left asFloat
+		y: aRectangle top asFloat
+		width: aRectangle width asFloat
+		height: aRectangle height asFloat
