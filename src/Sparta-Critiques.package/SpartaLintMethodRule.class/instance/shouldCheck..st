@@ -3,4 +3,4 @@ shouldCheck: aMethod
 	"We check methods only from desired Sparta packages"
 	<return: #Boolean>
 
-	^ self packagesToCheck includes: (aMethod package name)
+	^ self packagesToCheck includes: (aMethod package packageName)
