@@ -1,4 +1,3 @@
 clipping
-pushPath: aRectangle
-
-	^ self subclassResponsibility
+pushPath: aSpartaPath
+	self subclassResponsibility

@@ -1,4 +1,3 @@
 clipping
 pushRectangle: aRectangle
-
-	^ self subclassResponsibility
+	self subclassResponsibility

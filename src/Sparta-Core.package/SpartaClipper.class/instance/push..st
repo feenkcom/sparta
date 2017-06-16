@@ -1,4 +1,3 @@
 clipping
-push: aPath
-
-	aPath spartaClipOn: canvas with: self
+push: aSpartaPath
+	aSpartaPath spartaClipOn: canvas with: self

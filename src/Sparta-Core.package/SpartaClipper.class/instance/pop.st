@@ -1,4 +1,3 @@
 clipping
 pop
-
-	^ self subclassResponsibility
+	self subclassResponsibility
