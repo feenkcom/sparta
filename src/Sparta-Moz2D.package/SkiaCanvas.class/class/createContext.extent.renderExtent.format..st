@@ -7,4 +7,7 @@ createContext: aGrContext extent: anExtent renderExtent: aRenderExtent format: a
 		height: anExtent y
 		renderWidth: aRenderExtent x
 		renderHeight: aRenderExtent y
-		format: aSurfaceFormat) autoRelease
+		format: aSurfaceFormat)
+			autoRelease;
+			context: aGrContext;
+			yourself

@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "",
+	"super" : "SpartaTexture",
+	"category" : "Sparta-Core-Utils",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"id"
+	],
+	"name" : "SpartaOpenGLTexture",
+	"type" : "normal"
+}

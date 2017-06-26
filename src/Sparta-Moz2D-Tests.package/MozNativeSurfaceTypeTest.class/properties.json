@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "MozEnumTest",
+	"category" : "Sparta-Moz2D-Tests",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "MozNativeSurfaceTypeTest",
+	"type" : "normal"
+}

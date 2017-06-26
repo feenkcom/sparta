@@ -1,0 +1,17 @@
+{
+	"commentStamp" : "",
+	"super" : "MozEnum",
+	"category" : "Sparta-Moz2D-Enums",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [
+		"CAIRO_CONTEXT",
+		"CGCONTEXT",
+		"CGCONTEXT_ACCELERATED",
+		"D3D10_TEXTURE",
+		"OPENGL_TEXTURE"
+	],
+	"instvars" : [ ],
+	"name" : "MozNativeSurfaceType",
+	"type" : "normal"
+}
