@@ -4,8 +4,8 @@ install
 
 	self downloadFilename exists
 		ifFalse: [ Error signal: 'Library is not downloaded!' ].
-
-	pluginPath := self libraryDirectory / self libraryName.
+	
+	pluginPath := self libraryInstallationPath / self libraryName.
 	
 	(Smalltalk vm listLoadedModules includes: self libraryName)
 		ifTrue: [
