@@ -41,20 +41,20 @@ measure: aTextRun in: aMetrics
 
 		aWrappedLength := self
 			primMeasure: aTextRun
-			start: aStart
-			length: aLength
-			breakBefore: aLineBreakBefore
-			width: aWidth
-			provider: aPropertyProvider
-			suppress: aSuppressBreaks
-			whitespace: trimWhitespace
-			metrics: textMetrics "computed text metrics will be loaded in textMetrics"
-			boxType: aBoxType
-			canvas: aCanvas
-			hyphen: usedHyphenation
-			lastBreak: lastBreak
-			wordWrap: aWordWrap
-			breakPriority: aBreakPriorityPointer.
+			s: aStart
+			l: aLength
+			b: aLineBreakBefore
+			w: aWidth
+			p: aPropertyProvider
+			s: aSuppressBreaks
+			w: trimWhitespace
+			m: textMetrics "computed text metrics will be loaded in textMetrics"
+			b: aBoxType
+			c: aCanvas
+			h: usedHyphenation
+			l: lastBreak
+			w: aWordWrap
+			b: aBreakPriorityPointer.
 
 		"text run is measured, clean state"
 		aPropertyProvider textRun: nil.
