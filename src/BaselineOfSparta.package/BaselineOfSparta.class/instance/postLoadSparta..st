@@ -1,7 +1,8 @@
 actions
 postLoadSparta: aSpecLoader
-	"Let sparta load as it wish"
+	| pragmas |
 	
-	self
-		load: 'Sparta'
-		from: aSpecLoader spec versionSpec repositories map keys first
+	pragmas := OrderedCollection new.
+	Object withAllSubclassesDo: [:each |
+		pragmas addAll: (Pragma allNamed: #spartaPostLoad in: each) ].
+	pragmas do: [ :each | each method methodClass baseClass perform: each method selector ]

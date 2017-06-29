@@ -5,9 +5,7 @@
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
-	"instvars" : [
-		"group"
-	],
+	"instvars" : [ ],
 	"name" : "BaselineOfSparta",
 	"type" : "normal"
 }
