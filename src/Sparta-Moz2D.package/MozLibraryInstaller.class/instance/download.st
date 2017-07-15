@@ -5,10 +5,10 @@ download
 		lastPercentage := 0.
 		self ensureNotExist: self downloadFilename.
 		bar label: 'Requesting Moz2D Library file...'.
-		NonInteractiveTranscript stdout cr; show: 'Downloading ', self url, ' to ', self downloadFilename asString, ' ...'; cr.
+		NonInteractiveTranscript stdout cr; show: 'Downloading ', self urlPath, ' to ', self downloadFilename asString, ' ...'; cr.
 		[ ZnClient new
 			"A horrible hack... using wget works, with ZnClient 403 Forbidden"
-			url: 'http://syrel.ch/download.php?url=', self url;
+			url: 'http://dl.feenk.com/', self urlPath;
 			signalProgress: true;
 			timeout: 10 * 60; "timeout 10min"
 			downloadTo: self downloadFilename.
