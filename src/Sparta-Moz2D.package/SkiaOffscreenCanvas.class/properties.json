@@ -1,0 +1,15 @@
+{
+	"commentStamp" : "",
+	"super" : "SkiaCanvas",
+	"category" : "Sparta-Moz2D-Skia",
+	"classinstvars" : [
+		"uniqueInstance"
+	],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"session"
+	],
+	"name" : "SkiaOffscreenCanvas",
+	"type" : "normal"
+}
