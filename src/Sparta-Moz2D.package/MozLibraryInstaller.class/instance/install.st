@@ -19,6 +19,10 @@ install
 	
 	self downloadFilename moveTo: pluginPath.
 	
+	"we must not start services if they are already running"
+	MozServices isRunning
+		ifTrue: [ ^ self ].
+	
 	NonInteractiveTranscript stdout show: 'Launching Moz2D services...'; cr.
 	MozServices start.
 	NonInteractiveTranscript stdout show: 'Sparta-Moz2D succesfully installed!'; cr.
