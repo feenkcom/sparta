@@ -1,17 +1,15 @@
 api
 install
 	|pluginPath|
+	
+	"Library already exists and running, no need to install it again"
+	MozServices isRunning
+		ifTrue: [ ^ self ].
 
 	self downloadFilename exists
 		ifFalse: [ Error signal: 'Library is not downloaded!' ].
 	
 	pluginPath := self libraryInstallationPath / self libraryName.
-	
-	(Smalltalk vm listLoadedModules includes: self libraryName)
-		ifTrue: [
-			MozServices isRunning
-				ifTrue: [ MozServices stop ].
-			Smalltalk vm forgetModule: self libraryName ].
 
 	self ensureNotExist: pluginPath.
 	self assert: [ pluginPath isWritable ] description: [ 'Library destination must be writable' ].
@@ -20,8 +18,7 @@ install
 	self downloadFilename moveTo: pluginPath.
 	
 	"we must not start services if they are already running"
-	MozServices isRunning
-		ifTrue: [ ^ self ].
+	self assert: [ MozServices isRunning not ] description: [ 'Services must not be running' ].
 	
 	NonInteractiveTranscript stdout show: 'Launching Moz2D services...'; cr.
 	MozServices start.

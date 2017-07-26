@@ -1,5 +1,9 @@
 api
 download
+	"Library already exists and running, no need to download it again"
+	MozServices isRunning
+		ifTrue: [ ^ self ].
+
 	UIManager default informUserDuring: [ :bar |
 		|lastPercentage|
 		lastPercentage := 0.
