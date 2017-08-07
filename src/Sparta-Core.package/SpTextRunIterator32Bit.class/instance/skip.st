@@ -1,3 +1,3 @@
 stream access
-skip
+skip		
 	self nextWord

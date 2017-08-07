@@ -10,7 +10,7 @@ measure: aTextRun in: aMetrics
 		| aBreakPriorityPointer aPropertyProvider aStart aLength aWidth aLineBreakBefore aSpacing aBreakPriority aBoxType aCanvas aWordWrap aSuppressBreaks aWrappedLength |
 
 		"In C++ array index starts from 0"
-		aStart := aMetrics start - 1.
+		aStart := (aMetrics start - 1) max: 0.
 		aLength := aMetrics length.
 		aWidth := aMetrics width.
 		aLineBreakBefore := aMetrics lineBreakBefore.
