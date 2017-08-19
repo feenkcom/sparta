@@ -1,4 +1,4 @@
 private - ffi
 primGetWeight
 
-	^ self ffiCall: #(int moz2d_font_style_get_weight(self))
+	^ self ffiCall: #(uint16 moz2d_font_style_get_weight(self))

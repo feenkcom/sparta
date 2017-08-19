@@ -4,5 +4,5 @@ fieldsDesc
 	self rebuildFieldAccessors
 	"
 	^ #(
-		int width; int height
+		int32 width; int32 height
 	)
