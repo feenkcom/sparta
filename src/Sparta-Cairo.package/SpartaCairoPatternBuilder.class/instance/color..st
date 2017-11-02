@@ -1,4 +1,3 @@
 accessing
 color: aColor
-
-	^ MozNativeColorPattern fromColor: aColor
+	self shouldBeImplemented
