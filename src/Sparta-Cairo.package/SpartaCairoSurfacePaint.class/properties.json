@@ -1,0 +1,17 @@
+{
+	"classtraitcomposition" : "TSpartaSurfacePaint classTrait",
+	"classvars" : [ ],
+	"instvars" : [
+		"samplingFilter",
+		"samplingArea",
+		"surface"
+	],
+	"name" : "SpartaCairoSurfacePaint",
+	"commentStamp" : "",
+	"super" : "SpartaCairoPaint",
+	"traitcomposition" : "TSpartaSurfacePaint",
+	"type" : "normal",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"category" : "Sparta-Cairo-Paints"
+}

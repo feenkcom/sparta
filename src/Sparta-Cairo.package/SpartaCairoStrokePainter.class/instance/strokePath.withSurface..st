@@ -1,3 +1,3 @@
 drawing
 strokePath: aPath withSurface: aSpartaSurfacePaint
-	self shouldBeImplemented
+	self strokePath: aPath withPattern: aSpartaSurfacePaint

@@ -1,0 +1,3 @@
+sampling filters
+samplingPoint
+	self samplingFilter: SpartaCairoSamplingFilter CAIRO_FILTER_NEAREST

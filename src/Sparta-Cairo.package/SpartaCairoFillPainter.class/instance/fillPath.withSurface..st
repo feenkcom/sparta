@@ -1,3 +1,3 @@
 drawing
 fillPath: aPath withSurface: aSpartaSurfacePaint
-	self shouldBeImplemented
+	self fillPath: aPath withPattern: aSpartaSurfacePaint

@@ -1,3 +1,3 @@
 drawing
 strokeLine: aLine withSurface: aSpartaSurfacePaint
-	self shouldBeImplemented
+	self strokeLine: aLine withPattern: aSpartaSurfacePaint

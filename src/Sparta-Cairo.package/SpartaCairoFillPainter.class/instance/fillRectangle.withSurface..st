@@ -1,3 +1,3 @@
 drawing
 fillRectangle: aRectangle withSurface: aSpartaSurfacePaint
-	self shouldBeImplemented
+	self fillRectangle: aRectangle withPattern: aSpartaSurfacePaint

@@ -1,0 +1,3 @@
+builders
+bitmapBuilder
+	^ SpartaCairoBitmapBuilder new

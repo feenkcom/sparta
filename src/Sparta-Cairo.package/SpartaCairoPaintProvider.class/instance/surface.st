@@ -1,3 +1,3 @@
 paints
 surface
-	^ self shouldBeImplemented
+	^ SpartaCairoSurfacePaint new

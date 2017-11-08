@@ -1,3 +1,6 @@
 accessing
-surface: aMozSurfacePaint
-	self shouldBeImplemented
+surface: aCairoSurfacePaint
+	| aSurfacePattern |
+	
+	aSurfacePattern := SpartaCairoSurfacePattern surface: aCairoSurfacePaint source.
+	^ aSurfacePattern
