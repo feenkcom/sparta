@@ -11,7 +11,7 @@ measure: aTextRun in: aMetrics
 
 		"In C++ array index starts from 0"
 		aStart := (aMetrics start - 1) max: 0.
-		aLength := aMetrics length.
+		aLength := aMetrics length min: 4294967295. "limit to max of uint32"
 		aWidth := aMetrics width.
 		aLineBreakBefore := aMetrics lineBreakBefore.
 		aBreakPriority := aMetrics breakPriority.

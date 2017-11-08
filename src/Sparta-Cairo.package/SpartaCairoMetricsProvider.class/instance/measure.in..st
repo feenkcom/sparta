@@ -6,7 +6,6 @@ measure: aSpTextRun in: aSpMetrics
 		| aTextMetrics |
 		aTextMetrics := SpartaCairoTextMetrics new.
 		
-		"self halt."
 		self primSetScaledFont: aSpTextRun scaledFont canvas: aSpMetrics canvas.
 		self
 			primGlyphExtents: aSpTextRun glyphs
