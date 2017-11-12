@@ -1,3 +1,3 @@
 styles
 bold
-	style := #styleBold
+	style := #weightBold

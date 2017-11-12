@@ -1,9 +1,5 @@
 {
-	"commentStamp" : "",
-	"super" : "SpartaAbstractBuilder",
-	"category" : "Sparta-Core-Builders",
-	"classinstvars" : [ ],
-	"pools" : [ ],
+	"classtraitcomposition" : "TSpFontDescriptor classTrait",
 	"classvars" : [ ],
 	"instvars" : [
 		"size",
@@ -13,5 +9,11 @@
 		"style"
 	],
 	"name" : "SpartaFontBuilder",
-	"type" : "normal"
+	"commentStamp" : "",
+	"super" : "SpartaAbstractBuilder",
+	"traitcomposition" : "TSpFontDescriptor",
+	"type" : "normal",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"category" : "Sparta-Core-Builders"
 }

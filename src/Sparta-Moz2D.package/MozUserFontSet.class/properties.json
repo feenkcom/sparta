@@ -1,0 +1,18 @@
+{
+	"classtraitcomposition" : "TMozLibrary classTrait + TMozInlineRefPtr classTrait + TMozDebug classTrait + TSpUserFontSet classTrait",
+	"classvars" : [ ],
+	"instvars" : [
+		"fontEntries"
+	],
+	"name" : "MozUserFontSet",
+	"commentStamp" : "",
+	"super" : "FFIExternalObject",
+	"traitcomposition" : "TMozLibrary + TMozInlineRefPtr + TMozDebug + TSpUserFontSet",
+	"type" : "normal",
+	"classinstvars" : [
+		"session",
+		"empty"
+	],
+	"pools" : [ ],
+	"category" : "Sparta-Moz2D-Text"
+}

@@ -5,5 +5,5 @@ primCreateFamilyList: aFontFamilyList style: aFontStyle perfMetrics: aTextPerf u
 		MozFontFamilyList aFontFamilyList,
 		MozFontStyle aFontStyle,
 		void* aTextPerf,
-		void* aUserFontSet,
+		MozUserFontSet aUserFontSet,
 		float aDevToLocalScale))

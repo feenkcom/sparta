@@ -1,0 +1,18 @@
+{
+	"commentStamp" : "AliakseiSyrel 11/12/2017 20:28",
+	"super" : "Object",
+	"category" : "Sparta-Core-Text",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"familyName",
+		"style",
+		"weight",
+		"stretch",
+		"unicodeRange",
+		"source"
+	],
+	"name" : "SpUserFontFace",
+	"type" : "normal"
+}

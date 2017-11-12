@@ -1,5 +1,5 @@
 settings
 groupSize
 	^ self = MozSettings
-		ifTrue: [ 15 ]
-		ifFalse: [ 15 ]
+		ifTrue: [ 16 ]
+		ifFalse: [ 16 ]

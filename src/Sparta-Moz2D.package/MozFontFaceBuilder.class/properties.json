@@ -1,0 +1,17 @@
+{
+	"classtraitcomposition" : "TMozLibrary classTrait + TMozFontDescriptor classTrait",
+	"classvars" : [ ],
+	"instvars" : [
+		"userFontSet"
+	],
+	"name" : "MozFontFaceBuilder",
+	"commentStamp" : "",
+	"super" : "SpartaFontFaceBuilder",
+	"traitcomposition" : "TMozLibrary + TMozFontDescriptor",
+	"type" : "normal",
+	"classinstvars" : [ ],
+	"pools" : [
+		"MozSharedPool"
+	],
+	"category" : "Sparta-Moz2D-Builders"
+}

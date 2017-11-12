@@ -1,5 +1,5 @@
 {
-	"classtraitcomposition" : "TMozLibrary classTrait",
+	"classtraitcomposition" : "TMozLibrary classTrait + TMozFontDescriptor classTrait",
 	"classvars" : [ ],
 	"instvars" : [
 		"fontList"
@@ -7,7 +7,7 @@
 	"name" : "MozFontBuilder",
 	"commentStamp" : "",
 	"super" : "SpartaFontBuilder",
-	"traitcomposition" : "TMozLibrary",
+	"traitcomposition" : "TMozLibrary + TMozFontDescriptor",
 	"type" : "normal",
 	"classinstvars" : [
 		"cache",

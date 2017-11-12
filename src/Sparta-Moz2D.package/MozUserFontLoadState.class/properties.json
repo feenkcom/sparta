@@ -1,0 +1,16 @@
+{
+	"commentStamp" : "",
+	"super" : "FFIExternalEnumeration",
+	"category" : "Sparta-Moz2D-Text",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [
+		"STATUS_FAILED",
+		"STATUS_LOADED",
+		"STATUS_LOADING",
+		"STATUS_NOT_LOADED"
+	],
+	"instvars" : [ ],
+	"name" : "MozUserFontLoadState",
+	"type" : "normal"
+}

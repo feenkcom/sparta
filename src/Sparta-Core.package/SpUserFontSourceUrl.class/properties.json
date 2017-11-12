@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "AliakseiSyrel 11/12/2017 20:05",
+	"super" : "SpUserFontSource",
+	"category" : "Sparta-Core-Text",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"url"
+	],
+	"name" : "SpUserFontSourceUrl",
+	"type" : "normal"
+}

@@ -1,0 +1,1 @@
+I represent a font face source and know how to retrieve font contents from it

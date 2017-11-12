@@ -1,3 +1,0 @@
-style
-styleBold
-	self weightBold

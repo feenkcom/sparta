@@ -11,6 +11,8 @@ defaultPreferences
 		'gfx.font_loader.delay' 8000
 		'gfx.font_loader.interval' 50
 		
+		'gfx.downloadable_fonts.woff2.enabled' true
+		
 		'gfx.color_management.force_srgb' false
 		'gfx.color_management.display_profile' ''
 		"0 = Off, 1 = Full, 2 = Tagged Images Only."

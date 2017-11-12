@@ -10,7 +10,8 @@
 		"paintProvider",
 		"clipBuilder",
 		"bitmapBuilder",
-		"shapeFactory"
+		"shapeFactory",
+		"fontFaceBuilder"
 	],
 	"name" : "MozCanvas",
 	"commentStamp" : "",
