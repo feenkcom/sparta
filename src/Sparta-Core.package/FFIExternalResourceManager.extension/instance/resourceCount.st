@@ -1,3 +1,3 @@
-*Sparta-Moz2D
+*Sparta-Core
 resourceCount
 	^ registry size
