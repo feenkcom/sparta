@@ -6,4 +6,6 @@ initialize
 		ifTrue: [ ^ self ].
 
 	self initializeEnumeration.
-	self rebuildEnumAccessors
+	Author
+		useAuthor: 'UFFI'
+		during: [ self rebuildEnumAccessors ]

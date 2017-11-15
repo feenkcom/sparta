@@ -7,4 +7,8 @@ initialize
 
 	self initializeEnumeration.
 	representationType := self externalType.
-	self initializeTest
+	self initializeTest.
+	
+	Author
+		useAuthor: 'UFFI'
+		during: [ self rebuildEnumAccessors ]
