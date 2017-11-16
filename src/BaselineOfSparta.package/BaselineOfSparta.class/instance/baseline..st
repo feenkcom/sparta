@@ -1,13 +1,14 @@
 baselines
 baseline: spec
 	<baseline>
-	spec for: #common do: [ spec
+	spec for: #common do: [spec
+		baseline: 'Beacon' with: [ spec repository: 'github://pharo-project/pharo-beacon/repository' ];
 		postLoadDoIt: #postLoadSparta:;
 		package: 'Sparta-Core';
 		package: 'Sparta-Moz2D'
 			with: [ spec requires: #('Sparta-Core') ];
 		package: 'Sparta-Moz2D-Installer'
-			with: [ spec requires: #('Sparta-Moz2D') ];
+			with: [ spec requires: #('Sparta-Moz2D' 'Beacon') ];
 		package: 'Sparta-Moz2D-Tests'
 			with: [ spec requires: #('Sparta-Moz2D') ];
 		package: 'Sparta-Cairo'
