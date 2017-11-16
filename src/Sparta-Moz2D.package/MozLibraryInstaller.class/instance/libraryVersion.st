@@ -1,3 +1,0 @@
-library
-libraryVersion
-	^ 'development'

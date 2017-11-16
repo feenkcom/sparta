@@ -1,3 +1,0 @@
-library
-libraryDirectory
-	^ self subclassResponsibility

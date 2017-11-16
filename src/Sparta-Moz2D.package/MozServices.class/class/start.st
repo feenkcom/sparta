@@ -3,9 +3,8 @@ start
 
 	MozLibrary uniqueInstance hasModule
 		"If there is no Moz2D library installed we can not start services"
-		ifFalse: [ 
+		ifFalse: [
 			isRunning := false.
-			Warning signal: 'Moz2D library is not installed correctly.'.
 			^ self ].
 
 	"First of all we need to start services"
