@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "MozInstallerError",
+	"category" : "Sparta-Moz2D-Installer-Errors",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "MozInstallerErrorNoLocalDirectory",
+	"type" : "normal"
+}

@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "SignalLogger",
+	"category" : "Sparta-Moz2D-Installer-Loggers",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "MozInstallerLogger",
+	"type" : "normal"
+}

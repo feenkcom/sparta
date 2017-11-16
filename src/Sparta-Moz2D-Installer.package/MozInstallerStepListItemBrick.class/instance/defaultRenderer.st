@@ -1,0 +1,3 @@
+initialization
+defaultRenderer
+	^ MozGLMBrickVerticesRenderer new

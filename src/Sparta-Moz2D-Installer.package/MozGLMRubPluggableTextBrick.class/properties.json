@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "GLMRubScrolledTextBrick",
+	"category" : "Sparta-Moz2D-Installer-UI",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "MozGLMRubPluggableTextBrick",
+	"type" : "normal"
+}

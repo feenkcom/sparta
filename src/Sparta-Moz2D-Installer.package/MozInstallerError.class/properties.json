@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "",
+	"super" : "Error",
+	"category" : "Sparta-Moz2D-Installer-Errors",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"help"
+	],
+	"name" : "MozInstallerError",
+	"type" : "normal"
+}

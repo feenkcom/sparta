@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "GLMBrick",
+	"category" : "Sparta-Moz2D-Installer-UI",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "MozInstallerStepBrick",
+	"type" : "normal"
+}

@@ -1,0 +1,3 @@
+initialization
+defaultMessage
+	^ self subclassResponsibility

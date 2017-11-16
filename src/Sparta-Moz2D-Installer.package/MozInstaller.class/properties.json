@@ -1,0 +1,17 @@
+{
+	"commentStamp" : "",
+	"super" : "Object",
+	"category" : "Sparta-Moz2D-Installer-Actions",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"steps",
+		"platform",
+		"beacon",
+		"destinationFolder",
+		"installationFolder"
+	],
+	"name" : "MozInstaller",
+	"type" : "normal"
+}

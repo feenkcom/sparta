@@ -6,6 +6,8 @@ baseline: spec
 		package: 'Sparta-Core';
 		package: 'Sparta-Moz2D'
 			with: [ spec requires: #('Sparta-Core') ];
+		package: 'Sparta-Moz2D-Installer'
+			with: [ spec requires: #('Sparta-Moz2D') ];
 		package: 'Sparta-Moz2D-Tests'
 			with: [ spec requires: #('Sparta-Moz2D') ];
 		package: 'Sparta-Cairo'
@@ -23,6 +25,7 @@ baseline: spec
 			'core'
 			'Sparta-Critiques'
 			'Sparta-Moz2D'
+			'Sparta-Moz2D-Installer'
 			'Sparta-Moz2D-Tests');
 
 		"Allow better integration of Sparta in Bloc"

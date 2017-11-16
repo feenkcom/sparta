@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "AliakseiSyrel 9/1/2016 01:03",
+	"super" : "MozLibraryPlatform",
+	"category" : "Sparta-Moz2D-Installer",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "MozLibraryMac",
+	"type" : "normal"
+}

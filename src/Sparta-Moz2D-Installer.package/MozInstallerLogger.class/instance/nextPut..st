@@ -1,0 +1,2 @@
+registering
+nextPut: aSignal
