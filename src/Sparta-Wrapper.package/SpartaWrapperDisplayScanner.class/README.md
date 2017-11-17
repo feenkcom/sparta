@@ -1,0 +1,1 @@
+A SpartaWrapperDisplayScanner displays the text paragraphs on a SpartaCanvas

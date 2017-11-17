@@ -1,17 +1,12 @@
 displaying
-displayString: string from: startIndex  to: stopIndex at: aPoint
-	| aFont aTextPainter metrics |
-	
-	aFont := self canvas font build.
-	
-	aTextPainter := self canvas text
-		font: aFont;
+displayString: string from: startIndex to: stopIndex at: aPoint
+
+	self canvas text
+		paint: foregroundColor;
+		font: spartaFont;
 		text: string;
 		start: startIndex;
-		end: stopIndex.
-		
-	metrics := aTextPainter measure textMetrics bounds.
-	
-	aTextPainter
-		baseline: aPoint - metrics origin;
+		end: stopIndex;
+		baseline: aPoint + (0@font ascent);
 		draw
+		

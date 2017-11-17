@@ -5,9 +5,7 @@ drawString: s from: firstIndex to: lastIndex in: boundsRect font: fontOrNil colo
 	aLogicalFont := fontOrNil ifNil: [ StandardFonts defaultFont ].
 		
 	aFont := self canvas font
-		named: aLogicalFont familyName;
-		weight: aLogicalFont weightValue;
-		size: aLogicalFont pixelSize;
+		logical: aLogicalFont;
 		build.	
 
 	textPainter := self canvas text

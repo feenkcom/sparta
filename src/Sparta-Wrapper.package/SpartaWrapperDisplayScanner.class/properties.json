@@ -1,5 +1,5 @@
 {
-	"commentStamp" : "",
+	"commentStamp" : "AliakseiSyrel 11/17/2017 23:58",
 	"super" : "DisplayScanner",
 	"category" : "Sparta-Wrapper",
 	"classinstvars" : [ ],
@@ -7,7 +7,9 @@
 	"classvars" : [ ],
 	"instvars" : [
 		"canvas",
-		"paragraph"
+		"paragraph",
+		"spartaFont",
+		"previousFont"
 	],
 	"name" : "SpartaWrapperDisplayScanner",
 	"type" : "normal"

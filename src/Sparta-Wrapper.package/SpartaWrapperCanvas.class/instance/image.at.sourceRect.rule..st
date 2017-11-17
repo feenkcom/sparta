@@ -7,7 +7,11 @@ image: aForm at: aPoint sourceRect: sourceRect rule: rule
 		ifTrue: [ aForm ]
 		ifFalse: [ aForm copy: sourceRect ].
 	
-	self canvas fill
-		path: (aPoint extent: aSourceForm extent);
-		paint: aSourceForm;
-		draw
+	self canvas transform
+		during: [ :aTransform |
+			aTransform translateBy: aPoint.
+			aTransform apply.
+				self canvas fill
+					path: (0@0 extent: aSourceForm extent);
+					paint: aSourceForm;
+					draw ]
