@@ -1,7 +1,9 @@
 {
 	"classtraitcomposition" : "TMozLibrary classTrait",
 	"classvars" : [ ],
-	"instvars" : [ ],
+	"instvars" : [
+		"sharedDrawOptions"
+	],
 	"name" : "MozFillPainter",
 	"commentStamp" : "",
 	"super" : "SpartaFillPainter",
