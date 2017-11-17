@@ -1,0 +1,14 @@
+{
+	"commentStamp" : "",
+	"super" : "DisplayScanner",
+	"category" : "Sparta-Wrapper",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"canvas",
+		"paragraph"
+	],
+	"name" : "SpartaWrapperDisplayScanner",
+	"type" : "normal"
+}

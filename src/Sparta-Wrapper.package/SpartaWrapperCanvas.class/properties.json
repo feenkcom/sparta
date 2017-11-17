@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "AliakseiSyrel 11/17/2017 21:00",
+	"super" : "Canvas",
+	"category" : "Sparta-Wrapper",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"canvas"
+	],
+	"name" : "SpartaWrapperCanvas",
+	"type" : "normal"
+}
