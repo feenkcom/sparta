@@ -2,4 +2,4 @@ accessing
 origin
 	"Return the current origin for drawing operations"
 	
-	^ 0@0
+	^ self canvas transform current transform: 0@0
