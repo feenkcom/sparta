@@ -2,6 +2,9 @@ accessing
 contentsOfArea: aRectangle into: aForm
 	"Return the contents of the given area"
 	| bb |
+	
+	formCanvas ifNotNil: [ ^ formCanvas contentsOfArea: aRectangle into: aForm ].
+	
 	self canvas flush.
 	bb := BitBlt toForm: aForm.
 	bb

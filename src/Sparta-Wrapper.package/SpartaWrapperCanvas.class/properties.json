@@ -6,7 +6,8 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"canvas"
+		"canvas",
+		"formCanvas"
 	],
 	"name" : "SpartaWrapperCanvas",
 	"type" : "normal"
