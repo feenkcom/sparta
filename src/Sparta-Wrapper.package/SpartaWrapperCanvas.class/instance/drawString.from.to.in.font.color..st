@@ -1,6 +1,6 @@
 drawing-text
 drawString: s from: firstIndex to: lastIndex in: boundsRect font: fontOrNil color: c
-	| aLogicalFont aFont textPainter metrics |
+	| aLogicalFont aFont |
 	
 	aLogicalFont := fontOrNil ifNil: [ StandardFonts defaultFont ].
 		
@@ -8,15 +8,11 @@ drawString: s from: firstIndex to: lastIndex in: boundsRect font: fontOrNil colo
 		logical: aLogicalFont;
 		build.	
 
-	textPainter := self canvas text
+	self canvas text
 		font: aFont;
 		text: s asString;
 		start: firstIndex;
 		end: lastIndex;
-		paint: c.
-		
-	metrics := textPainter measure textMetrics bounds.
-	
-	textPainter 
-		baseline: (boundsRect origin asFloatPoint - metrics origin + (0@1));
+		paint: c;
+		baseline: (boundsRect origin asFloatPoint + (0@aLogicalFont ascent));
 		draw

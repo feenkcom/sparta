@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "AliakseiSyrel 11/18/2017 15:48",
+	"super" : "WorldMorph",
+	"category" : "Sparta-Wrapper",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "SpartaWrapperWorldMorph",
+	"type" : "normal"
+}
