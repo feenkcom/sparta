@@ -1,0 +1,15 @@
+{
+	"commentStamp" : "AliakseiSyrel 11/18/2017 13:08",
+	"super" : "WorldState",
+	"category" : "Sparta-Wrapper",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"sparta",
+		"wrapper",
+		"session"
+	],
+	"name" : "SpartaWrapperWorldState",
+	"type" : "normal"
+}
