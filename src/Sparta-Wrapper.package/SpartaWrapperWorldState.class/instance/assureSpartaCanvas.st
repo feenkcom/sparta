@@ -4,6 +4,9 @@ assureSpartaCanvas
 		ifFalse: [
 			sparta := wrapper := nil.
 			session := Smalltalk session ].
+	
+	(wrapper isNotNil and: [ wrapper formCanvas == self canvas ])
+		ifFalse: [ sparta := wrapper := nil ].
 
 	(sparta isNotNil and: [ sparta extent = self canvas extent ])
 		ifTrue: [ ^ self ].

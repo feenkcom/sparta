@@ -8,8 +8,7 @@ displayWorld: aWorld submorphs: submorphs
 	self checkIfUpdateNeeded ifFalse: [^ self].  "display is already up-to-date"
 
 	deferredUpdateMode := self doDeferredUpdatingFor: aWorld.
-	deferredUpdateMode ifFalse: [self assuredCanvas].
-	
+	deferredUpdateMode ifFalse: [ self assuredCanvas ].
 	self assureSpartaCanvas.
 	
 	wrapper roundCornersOf: aWorld during:[ | worldDamageRects handDamageRects |
@@ -18,7 +17,6 @@ displayWorld: aWorld submorphs: submorphs
 		handsToDraw := self selectHandsToDrawForDamage: worldDamageRects.
 		handDamageRects := handsToDraw collect: [:h | h savePatchFrom: wrapper].
 		allDamage := worldDamageRects, handDamageRects.
-
 		handsToDraw reverseDo: [:h | wrapper fullDrawMorph: h].  "draw hands onto world canvas"
 	].
 
