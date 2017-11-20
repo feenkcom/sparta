@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "AliakseiSyrel 11/19/2017 15:07",
+	"super" : "LRUCache",
+	"category" : "Sparta-Core-Utils",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"previousAssociation"
+	],
+	"name" : "SpartaFontCache",
+	"type" : "normal"
+}

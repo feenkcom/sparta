@@ -38,7 +38,7 @@ measure: aTextRun in: aMetrics
 		aPropertyProvider spacing: aSpacing.
 		aPropertyProvider breakPriority: aBreakPriority.
 		aPropertyProvider textRun: aTextRun.
-
+		
 		aWrappedLength := self
 			primMeasure: aTextRun
 			s: aStart
@@ -55,7 +55,7 @@ measure: aTextRun in: aMetrics
 			l: lastBreak
 			w: aWordWrap
 			b: aBreakPriorityPointer.
-
+		
 		"text run is measured, clean state"
 		aPropertyProvider textRun: nil.
 		aBreakPriorityPointer free.
