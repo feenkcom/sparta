@@ -1,5 +1,5 @@
 private - ffi
-primRadialGradientInnerCenterX: innerCenterX innerCenterY: innerCenterY innerRadius: innerRadius outerCenterX: outerCenterX outerCenterY: outerCenterY outerRadius: outerRadius rawStops: rawStops stopsNum: stopsNum rawMatrix: rawMatrix extendMode: anExtendMode
+primRadialX: innerCenterX Y: innerCenterY iR: innerRadius oX: outerCenterX Y: outerCenterY oR: outerRadius stops: rawStops stopsNum: stopsNum matrix: rawMatrix extend: anExtendMode
 
 	^ self ffiCall: #( #MozNativeRadialGradientPattern moz2d_pattern_radial_gradient_create_flat (
 		MozCanvas canvas,

@@ -1,16 +1,18 @@
 instance creation
 style: aStyle weight: aWeight stretch: aStretch size: aSize language: aLanguage
-
-	^ self
-		style: aStyle
-		weight: aWeight
-		stretch: aStretch
-		size: aSize
-		sizeAdjust: -1.0
-		language: aLanguage
-		isExplicitLanguage: false
-		languageOverride: ''
-		isSystemFont: true
-		isPrinterFont: false
-		isWeightSynthesis: true
-		isStyleSynthesis: true
+		
+	^ (self
+		primCreateStyle: aStyle
+		w: aWeight
+		s: aStretch
+		s: aSize
+		a: -1.0
+		l: aLanguage
+		e: false
+		o: ''
+		i: true
+		i: false
+		i: true
+		i: true)
+			autoRelease;
+			yourself

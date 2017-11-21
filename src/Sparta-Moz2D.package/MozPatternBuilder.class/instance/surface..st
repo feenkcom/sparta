@@ -20,12 +20,12 @@ surface: aMozSurfacePaint
 	
 	^ (self 
 		primSurface: aMozSurfacePaint source
-		samplingX: samplingX
-		samplingY: samplingY
-		samplingWidth: samplingWidth
-		samplingHeight: samplingHeight
-		samplingFilter: aMozSurfacePaint samplingFilter
-		extendMode: aMozSurfacePaint extendMode
+		X: samplingX
+		Y: samplingY
+		width: samplingWidth
+		height: samplingHeight
+		filter: aMozSurfacePaint samplingFilter
+		extend: aMozSurfacePaint extendMode
 		a11: aMozSurfacePaint transformation sx
 		a12: aMozSurfacePaint transformation shy
 		a21: aMozSurfacePaint transformation shx

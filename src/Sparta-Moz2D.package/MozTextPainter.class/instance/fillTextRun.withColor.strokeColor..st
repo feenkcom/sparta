@@ -13,21 +13,21 @@ fillTextRun: aTextRun withColor: aFillColor strokeColor: aStrokeColor
 	aStrokeColor isTransparent
 		ifFalse: [ aDrawMode := aDrawMode | MozTextDrawMode GLYPH_STROKE value ].
 	self
-		primDrawTextRun: aTextRun
+		primDraw: aTextRun
 		provider:
 			(aMetricsProvider
 				ifNotNil: #propertyProvider
 				ifNil: [ FFIExternalObject null ])
 		x: baseline x
 		y: baseline y
-		drawMode: aDrawMode
-		drawOptions: (drawOptions ifNil: [ canvas defaultDrawOptions ])
-		strokeOptions: (strokeOptions ifNil: [ canvas defaultStrokeOptions ])
-		fillR: aFillColor red
-		fillG: aFillColor green
-		fillB: aFillColor blue
-		fillA: aFillColor alpha
-		strokeR: aStrokeColor red
-		strokeG: aStrokeColor green
-		strokeB: aStrokeColor blue
-		strokeA: aStrokeColor alpha
+		mode: aDrawMode
+		dOptions: (drawOptions ifNil: [ canvas defaultDrawOptions ])
+		sOptions: (strokeOptions ifNil: [ canvas defaultStrokeOptions ])
+		fR: aFillColor red
+		fG: aFillColor green
+		fB: aFillColor blue
+		fA: aFillColor alpha
+		sR: aStrokeColor red
+		sG: aStrokeColor green
+		sB: aStrokeColor blue
+		sA: aStrokeColor alpha

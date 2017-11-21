@@ -1,5 +1,5 @@
 private - ffi
-primDrawTextRun: aTextRun provider: aProvider x: x y: y drawMode: aDrawMode drawOptions: aDrawOptions strokeOptions: aStrokeOptions fillPattern: aFillPattern strokePattern: aStrokePattern
+primDraw: aTextRun provider: aProvider x: x y: y node: aDrawMode dOptions: aDrawOptions sOptions: aStrokeOptions fPattern: aFillPattern sPattern: aStrokePattern
 	
 	self ffiCall: #(void moz2d_text_run_draw_pattern (
 		MozCanvas canvas,

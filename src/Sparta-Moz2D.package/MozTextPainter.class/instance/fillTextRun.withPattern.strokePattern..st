@@ -15,15 +15,15 @@ fillTextRun: aTextRun withPattern: aFillPattern strokePattern: aStrokePattern
 	aDrawMode := drawMode ifNil: [ MozTextDrawMode GLYPH_FILL value ].
 	aDrawMode := aDrawMode | MozTextDrawMode GLYPH_STROKE value.
 	self
-		primDrawTextRun: aTextRun
+		primDraw: aTextRun
 		provider:
 			(aMetricsProvider
 				ifNotNil: #propertyProvider
 				ifNil: [ FFIExternalObject null ])
 		x: baseline x
 		y: baseline y
-		drawMode: aDrawMode
-		drawOptions: (drawOptions ifNil: [ canvas defaultDrawOptions ])
-		strokeOptions: (strokeOptions ifNil: [ canvas defaultStrokeOptions ])
-		fillPattern: (aFillPattern asMozPatternOn: canvas)
-		strokePattern: (aStrokePattern asMozPatternOn: canvas)
+		node: aDrawMode
+		dOptions: (drawOptions ifNil: [ canvas defaultDrawOptions ])
+		sOptions: (strokeOptions ifNil: [ canvas defaultStrokeOptions ])
+		fPattern: (aFillPattern asMozPatternOn: canvas)
+		sPattern: (aStrokePattern asMozPatternOn: canvas)

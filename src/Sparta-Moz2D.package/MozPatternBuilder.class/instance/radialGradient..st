@@ -11,13 +11,13 @@ radialGradient: aRadialGradient
 	outerCenter ifNil: [ outerCenter := innerCenter ].
 
 	^ (self
-		primRadialGradientInnerCenterX: innerCenter x
-		innerCenterY: innerCenter y
-		innerRadius: aRadialGradient innerRadius
-		outerCenterX: outerCenter x
-		outerCenterY: outerCenter y
-		outerRadius: aRadialGradient outerRadius
-		rawStops: (self primExternalGradientStops: aRadialGradient stops)
+		primRadialX: innerCenter x
+		Y: innerCenter y
+		iR: aRadialGradient innerRadius
+		oX: outerCenter x
+		Y: outerCenter y
+		oR: aRadialGradient outerRadius
+		stops: (self primExternalGradientStops: aRadialGradient stops)
 		stopsNum: aRadialGradient stops size
-		rawMatrix: aRadialGradient transformation asExternalArray getHandle
-		extendMode: aRadialGradient extendMode value) autoRelease
+		matrix: aRadialGradient transformation asExternalArray getHandle
+		extend: aRadialGradient extendMode value) autoRelease
