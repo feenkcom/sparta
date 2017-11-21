@@ -2,4 +2,5 @@ cleanup
 cleanUp
 	super cleanUp.
 	
-	instances := nil
+	instances := nil.
+	session := nil.

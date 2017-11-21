@@ -7,7 +7,7 @@ rope: aRope segment: aSpanRope start: aStart end: anEnd from: aTextFrom to: aTex
 	from := aTextFrom.
 	to := aTextTo.
 	length := anEnd - aStart + 1.
-	box := aSpartaMatrix localBoundsToGlobal: aMetrics textMetrics bounds.
+	box := aMetrics textMetrics bounds.
 	"actual ascent consists not only from font ascent but also from fallback fonts ascent (box top abs)"
 	ascent := box top abs max: (aSpartaMatrix transformY: aMetrics fontMetrics emAscent).
 	descent := box bottom abs max: (aSpartaMatrix transformY: aMetrics fontMetrics emDescent).
