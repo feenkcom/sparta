@@ -7,6 +7,6 @@ install
 	ui := MozInstallerBrick new.
 	ui installer: installer.
 	ui extent: 650@300.
-	ui openInBorderlessWindow position: 0@0.
+	ui openInBorderlessWindow.
 
 	installer run
