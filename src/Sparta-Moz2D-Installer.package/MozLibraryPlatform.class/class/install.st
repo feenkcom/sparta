@@ -1,6 +1,5 @@
 installation
 install
-	<spartaPostLoad>
 	| installer ui |
 
 	installer := MozInstaller new.
