@@ -2,4 +2,4 @@ accessing
 directory: anObject
 	directory := anObject.
 	
-	self messageText: (self messageText format: { directory asString })
+	self help: (self help format: { directory asString })

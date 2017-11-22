@@ -30,7 +30,7 @@ initializeBricks
 	aStepList vSpaceFill.
 
 	aListContainer := GLMBandBrick new.
-	aListContainer width: 250.
+	aListContainer width: 210.
 	aListContainer vSpaceFill.
 	aListContainer zIndex: 2.
 
@@ -40,7 +40,7 @@ initializeBricks
 	stepBrick useHorizontalLinearLayout.
 	stepBrick hSpaceFill.
 	stepBrick vSpaceFill.
-	stepBrick marginLeft: -40.
-	stepBrick paddingLeft: 40.
+	stepBrick marginLeft: 0.
+	stepBrick paddingLeft: 0.
 	
 	self addAllBricks: { aListContainer . stepBrick }

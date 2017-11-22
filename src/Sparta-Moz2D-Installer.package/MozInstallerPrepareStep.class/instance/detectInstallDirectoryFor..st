@@ -5,5 +5,5 @@ detectInstallDirectoryFor: anInstaller
 	installDirectory := anInstaller platform libraryDirectories
 		detect: [ :each | each exists ]
 		ifNone: [ ^ MozInstallerErrorNoInstallDirectory signal ].
-		
+
 	^ installDirectory

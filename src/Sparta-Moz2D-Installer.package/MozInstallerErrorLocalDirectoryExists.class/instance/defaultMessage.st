@@ -1,3 +1,3 @@
 initialization
 defaultMessage
-	^ 'Unable to delete temporary directory ({1})'
+	^ 'Unable to delete temporary directory'

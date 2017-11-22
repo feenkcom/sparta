@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "",
+	"super" : "GLMBandBrick",
+	"category" : "Sparta-Moz2D-Installer-UI",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"helpBrick"
+	],
+	"name" : "MozInstallerErrorBrick",
+	"type" : "normal"
+}

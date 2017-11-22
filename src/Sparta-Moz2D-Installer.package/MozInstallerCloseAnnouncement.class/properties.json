@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "Announcement",
+	"category" : "Sparta-Moz2D-Installer-Announcements",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "MozInstallerCloseAnnouncement",
+	"type" : "normal"
+}

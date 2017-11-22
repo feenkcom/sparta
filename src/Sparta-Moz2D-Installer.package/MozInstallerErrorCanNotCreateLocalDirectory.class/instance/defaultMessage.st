@@ -1,3 +1,3 @@
 initialization
 defaultMessage
-	^ 'Unable to create temporary directory ({1})'
+	^ 'Unable to create a temporary directory'

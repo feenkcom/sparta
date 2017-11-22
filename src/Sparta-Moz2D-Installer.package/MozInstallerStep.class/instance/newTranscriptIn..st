@@ -4,7 +4,7 @@ newTranscriptIn: anInstaller
 	
 	aTranscript := ThreadSafeTranscript new.
 
-	aFont := LogicalFont familyName: StandardFonts defaultFont familyName pointSize: 8. 
+	aFont := LogicalFont familyName: StandardFonts defaultFont familyName pointSize: 9. 
 
 	textBrick := MozGLMRubPluggableTextBrick new
 		getTextSelector: #contents;

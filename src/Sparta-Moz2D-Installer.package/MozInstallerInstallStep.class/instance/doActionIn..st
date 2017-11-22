@@ -6,9 +6,7 @@ doActionIn: anInstaller
 
 	"Library already exists and running, no need to install it again"
 	MozServices isRunning
-		ifTrue: [
-			
-		].
+		ifTrue: [ Error signal: 'Library is already installed' ].
 
 	downloadFileName exists
 		ifFalse: [ Error signal: 'Library is not downloaded!' ].
@@ -25,4 +23,6 @@ doActionIn: anInstaller
 	downloadFileName moveTo: pluginPath.
 	
 	pluginPath exists
-		ifFalse: [ Error signal: 'Library was moved!' ]
+		ifFalse: [ Error signal: 'Library was moved!' ].
+		
+	MozServices start
