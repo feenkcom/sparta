@@ -6,23 +6,28 @@ doActionIn: anInstaller
 
 	"Library already exists and running, no need to install it again"
 	MozServices isRunning
-		ifTrue: [ Error signal: 'Library is already installed' ].
+		ifTrue: [ MozInstallerErrorAlreadyInstalled signal ].
 
 	downloadFileName exists
-		ifFalse: [ Error signal: 'Library is not downloaded!' ].
+		"Bug in installer"
+		ifFalse: [ Error signal: 'Library is not downloaded' ].
 	
 	pluginPath := anInstaller installationFolder / anInstaller platform libraryName.
 
 	self ensureNotExist: pluginPath.
-	self
-		assert: [ pluginPath isWritable ]
-		description: [ 'Library destination must be writable' ].
+	pluginPath isWritable
+		ifFalse: [  Error signal: 'Library destination must be writable' ].
 
 	NonInteractiveTranscript stdout show: 'Installing library to ', pluginPath asString; cr.
 	
-	downloadFileName moveTo: pluginPath.
+	 [ downloadFileName moveTo: pluginPath ]
+		on: Error
+		do: [ MozInstallerErrorSandboxed signal ].
 	
 	pluginPath exists
-		ifFalse: [ Error signal: 'Library was moved!' ].
-		
+		ifFalse: [ Error signal: 'Failed to move library to VM directory' ].
+	
+	MozLibrary uniqueInstance hasModule
+		ifFalse: [ MozInstallerErrorUnmetDependencies signal ].
+	
 	MozServices start

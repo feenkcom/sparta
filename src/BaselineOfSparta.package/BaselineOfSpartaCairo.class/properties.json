@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "AliakseiSyrel 11/22/2017 14:24",
+	"super" : "BaselineOf",
+	"category" : "BaselineOfSparta",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "BaselineOfSpartaCairo",
+	"type" : "normal"
+}

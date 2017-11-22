@@ -14,7 +14,5 @@ start
 		self primStartPlatform ]
 	"Image will crash anyway crash if something fails in library,
 	so we just guard ourselves against image-side issues"
-	on: Error do: [ :e |
-		MozCanvas primStderr: e messageText.
-		isRunning := true ].
+	on: Error do: [ :e | MozCanvas primStderr: e messageText ].
 	isRunning := true
