@@ -3,4 +3,6 @@ createExtent: aPoint format: aSurfaceFormat
 	^ (self
 		primCreateWidth: aPoint x
 		height: aPoint y
-		format: aSurfaceFormat) autoRelease
+		format: aSurfaceFormat) 
+			initialize;
+			autoRelease

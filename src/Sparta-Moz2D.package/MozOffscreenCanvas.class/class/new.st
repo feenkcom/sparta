@@ -5,5 +5,6 @@ new
 			primCreateWidth: 1
 			height: 1
 			format: MozSurfaceFormat B8G8R8A8) getHandle;
+		initialize;
 		autoRelease;
 		yourself

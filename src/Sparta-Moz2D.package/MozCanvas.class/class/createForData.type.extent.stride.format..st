@@ -7,4 +7,6 @@ createForData: aData type: aBackendType extent: aPoint stride: stride format: aS
 		height: aPoint y
 		stride: stride
 		format: aSurfaceFormat
-		uninitialized: false) autoRelease
+		uninitialized: false)
+			initialize;
+			autoRelease

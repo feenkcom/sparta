@@ -5,4 +5,6 @@ createForData: aData extent: aPoint stride: stride format: aSurfaceFormat
 		width: aPoint x
 		height: aPoint y
 		stride: stride
-		format: aSurfaceFormat) autoRelease
+		format: aSurfaceFormat)
+			initialize;
+			autoRelease

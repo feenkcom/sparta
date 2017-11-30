@@ -1,7 +1,9 @@
 {
 	"classtraitcomposition" : "TSpartaInspectorPreview classTrait + TSpartaSurface classTrait",
 	"classvars" : [ ],
-	"instvars" : [ ],
+	"instvars" : [
+		"composeOperators"
+	],
 	"name" : "SpartaCanvas",
 	"commentStamp" : "AliakseiSyrel 9/1/2016 12:58",
 	"super" : "Object",

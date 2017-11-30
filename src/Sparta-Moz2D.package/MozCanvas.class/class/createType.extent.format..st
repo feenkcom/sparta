@@ -4,4 +4,6 @@ createType: aBackendType extent: aPoint format: aSurfaceFormat
 		primCreate: aBackendType
 		width: aPoint x
 		height: aPoint y
-		format: aSurfaceFormat) autoRelease
+		format: aSurfaceFormat)
+			initialize;
+			autoRelease
