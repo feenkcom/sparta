@@ -1,3 +1,3 @@
 composition operators
 composeDestIn
-	^ self explicitRequirement
+	self explicitRequirement

@@ -1,0 +1,3 @@
+composition operators
+composeXor
+	self drawOptions composeXor

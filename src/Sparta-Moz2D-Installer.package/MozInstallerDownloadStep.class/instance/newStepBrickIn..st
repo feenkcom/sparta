@@ -12,7 +12,7 @@ newStepBrickIn: anInstaller
 	aLabel hSpaceFill.
 	aLabel marginBottom: 5.
 	
-	progressBrick := MozInstallerProgressBrick new.
+	progressBrick := SpartaInstallerProgressBrick new.
 	progressBrick hSpaceFill.
 	progressBrick height: 4.
 	progressBrick marginTop: 5.

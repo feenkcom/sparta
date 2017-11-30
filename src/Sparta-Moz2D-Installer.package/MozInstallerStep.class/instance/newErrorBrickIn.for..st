@@ -2,7 +2,7 @@ instance creation
 newErrorBrickIn: anInstaller for: anError
 	"Create and return a new step brick"
 	
-	^ MozInstallerErrorBrick new
+	^ SpartaInstallerErrorBrick new
 		hSpaceFill;
 		vSpaceFill;
 		error: anError

@@ -1,0 +1,3 @@
+composition operators
+composeClear
+	operator := SpartaCairoCompositionOp CAIRO_OPERATOR_CLEAR

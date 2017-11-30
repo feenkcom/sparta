@@ -1,3 +1,3 @@
 composition operators
 composeXor
-	^ self explicitRequirement
+	self explicitRequirement

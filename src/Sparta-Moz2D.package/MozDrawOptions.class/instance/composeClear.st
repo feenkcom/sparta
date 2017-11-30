@@ -1,0 +1,3 @@
+composition operators
+composeClear
+	self compositionOperator: MozCompositionOp OP_CLEAR

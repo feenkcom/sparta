@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "AliakseiSyrel 11/22/2017 16:56",
+	"super" : "GLMBandBrick",
+	"category" : "Sparta-Installer-UI",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"installerProgram"
+	],
+	"name" : "SpartaInstallerStepListBrick",
+	"type" : "normal"
+}

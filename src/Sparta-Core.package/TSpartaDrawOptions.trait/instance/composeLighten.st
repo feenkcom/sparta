@@ -1,3 +1,3 @@
 composition operators
 composeLighten
-	^ self explicitRequirement
+	self explicitRequirement

@@ -1,3 +1,3 @@
 composition operators
 composeAtop
-	^ self compositionOperator: MozCompositionOp OP_ATOP
+	self compositionOperator: MozCompositionOp OP_ATOP

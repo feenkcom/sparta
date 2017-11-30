@@ -1,3 +1,3 @@
 composition operators
 composeDifference
-	^ self explicitRequirement
+	self explicitRequirement

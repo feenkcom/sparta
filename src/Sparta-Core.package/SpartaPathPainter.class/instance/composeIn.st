@@ -1,0 +1,3 @@
+composition operators
+composeIn
+	self drawOptions composeIn

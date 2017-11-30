@@ -1,0 +1,3 @@
+composition operators
+composeColor
+	self drawOptions composeColor

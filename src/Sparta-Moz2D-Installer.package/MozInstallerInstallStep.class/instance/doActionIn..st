@@ -1,7 +1,7 @@
 running
 doActionIn: anInstaller
 	| pluginPath downloadFileName |
-
+		
 	downloadFileName := anInstaller destinationFolder / anInstaller downloadFileName.
 
 	"Library already exists and running, no need to install it again"

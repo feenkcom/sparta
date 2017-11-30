@@ -1,3 +1,3 @@
 composition operators
 composeDarken
-	^ self explicitRequirement
+	self explicitRequirement

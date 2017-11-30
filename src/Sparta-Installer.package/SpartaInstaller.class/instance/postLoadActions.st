@@ -1,3 +1,0 @@
-actions
-postLoadActions
-	repository pull

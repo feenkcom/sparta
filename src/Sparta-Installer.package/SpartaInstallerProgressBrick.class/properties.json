@@ -1,0 +1,14 @@
+{
+	"commentStamp" : "AliakseiSyrel 11/22/2017 16:48",
+	"super" : "GLMBrick",
+	"category" : "Sparta-Installer-UI",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"progressColor",
+		"progress"
+	],
+	"name" : "SpartaInstallerProgressBrick",
+	"type" : "normal"
+}

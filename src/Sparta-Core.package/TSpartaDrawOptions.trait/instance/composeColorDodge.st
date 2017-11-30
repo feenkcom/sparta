@@ -1,3 +1,3 @@
 composition operators
 composeColorDodge
-	^ self explicitRequirement
+	self explicitRequirement

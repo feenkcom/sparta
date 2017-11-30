@@ -1,3 +1,3 @@
 composition operators
 composeHardLight
-	^ self explicitRequirement
+	self explicitRequirement

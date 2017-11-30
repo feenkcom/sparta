@@ -1,3 +1,3 @@
 composition operators
 composeHue
-	^ self explicitRequirement
+	self explicitRequirement

@@ -1,0 +1,3 @@
+composition operators
+composeDestIn
+	self drawOptions composeDestIn

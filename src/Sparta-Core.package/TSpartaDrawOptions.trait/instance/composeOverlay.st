@@ -1,3 +1,3 @@
 composition operators
 composeOverlay
-	^ self explicitRequirement
+	self explicitRequirement

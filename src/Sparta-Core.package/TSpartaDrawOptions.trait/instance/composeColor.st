@@ -1,3 +1,3 @@
 composition operators
 composeColor
-	^ self explicitRequirement
+	self explicitRequirement

@@ -1,3 +1,3 @@
 composition operators
 composeAdd
-	^ self compositionOperator: MozCompositionOp OP_ADD
+	self compositionOperator: MozCompositionOp OP_ADD

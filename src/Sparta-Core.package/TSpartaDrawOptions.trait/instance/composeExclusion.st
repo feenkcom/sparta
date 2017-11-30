@@ -1,3 +1,3 @@
 composition operators
 composeExclusion
-	^ self explicitRequirement
+	self explicitRequirement

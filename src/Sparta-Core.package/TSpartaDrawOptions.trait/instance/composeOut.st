@@ -1,3 +1,3 @@
 composition operators
 composeOut
-	^ self explicitRequirement
+	self explicitRequirement

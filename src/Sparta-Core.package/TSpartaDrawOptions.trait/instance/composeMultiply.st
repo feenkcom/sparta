@@ -1,3 +1,3 @@
 composition operators
 composeMultiply
-	^ self explicitRequirement
+	self explicitRequirement
