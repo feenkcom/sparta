@@ -1,6 +1,5 @@
 tests
 testGetSpacing
-	<expectedFailure>
 	"bug in Alien callbacks.
 	@see MozFFITest>>testCallbackUIntptr"
 	

@@ -1,6 +1,5 @@
 tests
 testGetDrawTarget
-	<expectedFailure>
 	"bug in Alien callbacks.
 	@see MozFFITest>>testCallbackUIntptr"
 	

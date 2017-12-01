@@ -1,6 +1,5 @@
 tests
 testGetHyphenWidth
-	<expectedFailure>
 	"bug in Alien callbacks.
 	@see MozFFITest>>testCallbackUIntptr"
 	
