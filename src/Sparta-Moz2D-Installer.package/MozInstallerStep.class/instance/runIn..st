@@ -2,7 +2,7 @@ running
 runIn: anInstaller
 	
 	self isActive: true.
-	anInstaller announce: (MozInstallerSwitchStepBrickAnnouncement new brick: (self newStepBrickIn: anInstaller)).
+	anInstaller announce: (SpartaInstallerSwitchStepBrickAnnouncement new brick: (self newStepBrickIn: anInstaller)).
 	
 	anInstaller flush.
 	

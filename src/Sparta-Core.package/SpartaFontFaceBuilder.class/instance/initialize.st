@@ -6,4 +6,4 @@ initialize
 	self weightNormal.
 	self stretchNormal.
 	
-	range := nil "range is not defined"
+	unicodeRange := nil "range is not defined"

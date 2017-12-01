@@ -1,0 +1,1 @@
+Is sent when Installer should be closed

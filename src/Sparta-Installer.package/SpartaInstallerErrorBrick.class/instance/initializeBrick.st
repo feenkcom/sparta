@@ -17,7 +17,7 @@ initializeBrick
 	titleBrick hAlign: #center.
 	titleBrick hShrinkWrap.
 	
-	helpBrick := MozGLMRubPluggableTextBrick new.
+	helpBrick := SpartaGLMRubPluggableTextBrick new.
 	helpBrick withoutBorder.
 	helpBrick withoutBackground.
 	helpBrick hSpaceFill.

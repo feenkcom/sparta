@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "AliakseiSyrel 12/1/2017 13:53",
+	"super" : "Announcement",
+	"category" : "Sparta-Installer-Announcements",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "SpartaInstallerCloseAnnouncement",
+	"type" : "normal"
+}

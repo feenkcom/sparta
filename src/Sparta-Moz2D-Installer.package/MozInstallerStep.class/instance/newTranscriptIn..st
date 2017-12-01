@@ -6,7 +6,7 @@ newTranscriptIn: anInstaller
 
 	aFont := LogicalFont familyName: StandardFonts defaultFont familyName pointSize: 9. 
 
-	textBrick := MozGLMRubPluggableTextBrick new
+	textBrick := SpartaGLMRubPluggableTextBrick new
 		getTextSelector: #contents;
 		setTextSelector: #clear;
 		withoutAdornment;

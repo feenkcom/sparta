@@ -1,3 +1,3 @@
 initialization
 defaultRenderer
-	^ MozGLMBrickVerticesRenderer new
+	^ SpartaGLMBrickVerticesRenderer new

@@ -1,3 +1,3 @@
-*Sparta-Moz2D
+*Sparta-Moz2D-Installer
 mozSettings
 	self subclassResponsibility

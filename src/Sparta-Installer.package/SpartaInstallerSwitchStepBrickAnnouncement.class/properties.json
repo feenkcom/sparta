@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "AliakseiSyrel 12/1/2017 13:52",
+	"super" : "Announcement",
+	"category" : "Sparta-Installer-Announcements",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"brick"
+	],
+	"name" : "SpartaInstallerSwitchStepBrickAnnouncement",
+	"type" : "normal"
+}

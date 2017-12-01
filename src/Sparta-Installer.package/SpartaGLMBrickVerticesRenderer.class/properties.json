@@ -1,11 +1,11 @@
 {
-	"commentStamp" : "",
+	"commentStamp" : "AliakseiSyrel 12/1/2017 13:55",
 	"super" : "GLMBrickRenderer",
-	"category" : "Sparta-Moz2D-Installer-UI",
+	"category" : "Sparta-Installer-UI",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [ ],
-	"name" : "MozGLMBrickVerticesRenderer",
+	"name" : "SpartaGLMBrickVerticesRenderer",
 	"type" : "normal"
 }
