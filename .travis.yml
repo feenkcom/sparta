@@ -1,21 +1,17 @@
 language: smalltalk
 sudo: true
 
-dist: xenial
+dist: trusty
 
 os:
   - linux
   - osx
 
 smalltalk:
-  - Pharo-6.0
+  - Pharo-6.1
 
 env:
 - ARCH="i386"
-
-branches:
-  except:
-  - documentation
 
 before_install:
   - |
