@@ -29,6 +29,7 @@ baseline: spec
 			'core'
 			'Sparta-Critiques'
 			'Sparta-Moz2D'
+			'Sparta-Installer'
 			'Sparta-Moz2D-Installer'
 			'Sparta-Moz2D-Tests');
 
