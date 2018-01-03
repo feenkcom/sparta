@@ -20,7 +20,7 @@ doActionIn: anInstaller
 	
 	 [ [ ZnClient new
 			"A horrible hack... using wget works, with ZnClient 403 Forbidden"
-			url: 'http://dl.feenk.com/', anInstaller platform urlPath;
+			url: 'https://dl.feenk.com/', anInstaller platform urlPath;
 			signalProgress: true;
 			timeout: 10 * 60; "timeout 10min"
 			downloadTo: downloadFilename.

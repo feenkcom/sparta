@@ -10,7 +10,7 @@ download
 		NonInteractiveTranscript stdout cr; show: 'Downloading ', self urlPath, ' to ', self downloadFilename asString, ' ...'; cr.
 		[ ZnClient new
 			"A horrible hack... using wget works, with ZnClient 403 Forbidden"
-			url: 'http://dl.feenk.com/', self urlPath;
+			url: 'https://dl.feenk.com/', self urlPath;
 			signalProgress: true;
 			timeout: 10 * 60; "timeout 10min"
 			downloadTo: self downloadFilename.
