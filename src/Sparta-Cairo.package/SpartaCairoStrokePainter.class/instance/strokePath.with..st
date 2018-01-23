@@ -3,9 +3,9 @@ strokePath: aPath with: aBlock
 
 	self
 		applyDrawOptions;
-		applyStrokeOptions;
-		primNewPath;
-		primAppendPath: aPath.
+		applyStrokeOptions.
+		
+	aPath setOnCanvas: self canvas.
 	
 	aBlock value.
 	self stroke.

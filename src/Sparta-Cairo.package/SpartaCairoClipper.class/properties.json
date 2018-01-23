@@ -1,11 +1,11 @@
 {
-	"classtraitcomposition" : "TSpartaCairoLibrary classTrait",
+	"classtraitcomposition" : "TSpartaCairoLibrary classTrait + TSpartaCairoContext classTrait",
 	"classvars" : [ ],
 	"instvars" : [ ],
 	"name" : "SpartaCairoClipper",
 	"commentStamp" : "",
 	"super" : "SpartaClipper",
-	"traitcomposition" : "TSpartaCairoLibrary",
+	"traitcomposition" : "TSpartaCairoLibrary + TSpartaCairoContext",
 	"type" : "normal",
 	"classinstvars" : [ ],
 	"pools" : [ ],

@@ -1,3 +1,3 @@
 builders
-pathBuilder
+pathBuilder: aFillRuleSymbol
 	^ self subclassResponsibility

@@ -1,5 +1,5 @@
 private - ffi
-primEllipseX: x y: y width: width height: height
+primEllipseX: x y: y width: width height: height fillRule: aFillRile
 
 	^ self ffiCall: #( MozPath moz2d_shape_ellipse (
 		MozCanvas canvas,
@@ -7,4 +7,4 @@ primEllipseX: x y: y width: width height: height
 		float y,
 		float width,
 		float height,
-		FILL_RULE_WINDING ) )
+		MozFillRule aFillRile ) )

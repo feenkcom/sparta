@@ -10,8 +10,6 @@
 	"traitcomposition" : "TMozLibrary + TMozFontDescriptor",
 	"type" : "normal",
 	"classinstvars" : [ ],
-	"pools" : [
-		"MozSharedPool"
-	],
+	"pools" : [ ],
 	"category" : "Sparta-Moz2D-Builders"
 }

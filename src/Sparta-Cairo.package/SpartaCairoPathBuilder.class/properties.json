@@ -5,7 +5,8 @@
 		"absolute",
 		"canvas",
 		"endPoint",
-		"lastControlPoint"
+		"lastControlPoint",
+		"fillRule"
 	],
 	"name" : "SpartaCairoPathBuilder",
 	"commentStamp" : "",

@@ -1,3 +1,0 @@
-builders
-pathBuilder
-	^ SpartaCairoPathBuilder new

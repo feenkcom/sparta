@@ -1,6 +1,6 @@
 private - ffi
-primAppendPath: aCairoPath
+primAppendPath: aCairoPath on: aSpartaCairoCanvas
 
 	^ self ffiCall: #(void cairo_append_path (
-			SpartaCairoCanvas canvas,
+			SpartaCairoCanvas aSpartaCairoCanvas,
          SpartaCairoPath aCairoPath) )

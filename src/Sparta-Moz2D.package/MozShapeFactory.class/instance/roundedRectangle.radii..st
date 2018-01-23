@@ -10,3 +10,4 @@ roundedRectangle: aRectangle radii: cornerRadii
 		trr: cornerRadii topRight
 		brr: cornerRadii bottomRight
 		blr: cornerRadii bottomLeft
+		fr: MozFillRule FILL_WINDING

@@ -1,5 +1,5 @@
 private - ffi
-primRoundedRectangleX: x y: y width: width height: height tlr: tlr trr: trr brr: brr blr: blr
+primRoundedRectangleX: x y: y width: width height: height tlr: tlr trr: trr brr: brr blr: blr fr: aFillRile
 
 	^ self ffiCall: #( MozPath moz2d_shape_rounded_rectangle (
 		MozCanvas canvas,
@@ -11,4 +11,4 @@ primRoundedRectangleX: x y: y width: width height: height tlr: tlr trr: trr brr:
 		float trr,
 		float brr,
 		float blr,
-		FILL_RULE_WINDING ) )
+		MozFillRule aFillRile ) )

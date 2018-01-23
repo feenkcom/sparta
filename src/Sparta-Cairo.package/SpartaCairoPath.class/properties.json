@@ -1,7 +1,9 @@
 {
 	"classtraitcomposition" : "TSpartaPath classTrait + TSpartaCairoLibrary classTrait + TSpartaInspectorPreview classTrait + TSpartaCairoPlainPtr classTrait + TSpartaCairoDebug classTrait",
 	"classvars" : [ ],
-	"instvars" : [ ],
+	"instvars" : [
+		"fillRule"
+	],
 	"name" : "SpartaCairoPath",
 	"commentStamp" : "",
 	"super" : "FFIExternalObject",

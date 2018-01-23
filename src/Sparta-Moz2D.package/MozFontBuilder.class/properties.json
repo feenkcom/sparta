@@ -13,8 +13,6 @@
 		"cache",
 		"session"
 	],
-	"pools" : [
-		"MozSharedPool"
-	],
+	"pools" : [ ],
 	"category" : "Sparta-Moz2D-Builders"
 }

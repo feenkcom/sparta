@@ -1,8 +1,8 @@
 clipping
 pushPath: aPath
 
-	self
-		primSave;
-		primNewPath;
-		primAppendPath: aPath;
-		primClip
+	self primSave.
+		
+	aPath setOnCanvas: self canvas.
+
+	self primClipPreserve

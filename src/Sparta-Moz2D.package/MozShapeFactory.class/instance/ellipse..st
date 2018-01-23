@@ -6,3 +6,4 @@ ellipse: aRectangle
 		y: aRectangle top
 		width: aRectangle width
 		height: aRectangle height
+		fillRule: MozFillRule FILL_WINDING

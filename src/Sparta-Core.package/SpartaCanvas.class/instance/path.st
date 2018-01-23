@@ -1,6 +1,6 @@
 api
 path
-	"Start building a vector path.
+	"Start building a vector path with nonzero(default) fill rule.
 	User gets a path builder responsible for path creation.
 	See !TSpartaPathBuilder for available api.
 	
@@ -13,7 +13,4 @@ path
 	"
 	<return: #TSpartaPathBuilder>
 
-	^ self pathBuilder
-		reset;
-		canvas: self;
-		yourself
+	^ self path: #nonzero

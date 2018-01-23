@@ -2,9 +2,9 @@ drawing
 fillPath: aPath with: aBlock
 
 	self
-		applyDrawOptions;
-		primNewPath;
-		primAppendPath: aPath.
+		applyDrawOptions.
+
+	aPath setOnCanvas: self canvas.
 	
 	aBlock value.
 	self fill.
