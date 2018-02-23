@@ -5,4 +5,4 @@ containsPoint: aPoint
 	
 	path ifNil: [ self error: 'Path must be set before texting if it contains a point' ].
 
-	^ path strokeContainsPoint: aPoint options: self strokeOptions
+	^ path strokeContainsPoint: aPoint options: self strokeOptions on: self canvas
