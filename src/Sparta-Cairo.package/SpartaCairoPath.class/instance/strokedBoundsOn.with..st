@@ -1,11 +1,11 @@
-geometry
-strokedBoundsOn: aSpartaCanvas with: aStrokeOptions
+geometry - accessing
+strokedBoundsOn: aSpartaCairoCanvas with: aStrokeOptions
 	"Return the bounds of the stroke of this path using the specified strokeoptions.
 	These bounds are not guaranteed to be tight."
 	<return: #Rectangle>
 	| strokePainter bounds |
 	
-	strokePainter := aSpartaCanvas stroke.
+	strokePainter := aSpartaCairoCanvas stroke.
 	strokePainter strokeOptions: aStrokeOptions.
 
 	bounds := (0@0 extent: 0@0).
@@ -18,12 +18,10 @@ strokedBoundsOn: aSpartaCanvas with: aStrokeOptions
 	cornerX := FFIExternalArray externalNewType: 'double' size: 1.
 	cornerY := FFIExternalArray externalNewType: 'double' size: 1.
 	
-	strokePainter
-		primNewPath;
-		primAppendPath: self.
+	self setOnCanvas: aSpartaCairoCanvas.
 	
 	self
-		primStrokeExtent: aSpartaCanvas
+		primStrokeExtent: aSpartaCairoCanvas
 		originX: originX getHandle
 		originY: originY getHandle
 		cornerX: cornerX getHandle
