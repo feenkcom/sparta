@@ -10,8 +10,11 @@ makeTextRunNoReleaseAscii: aString
 		ifFalse: [ SpartaCairoError signal: aStatus ].
 	
 	aGlyphsNum := aGlyphsNumPtr unsignedLongAt: 1.
-	aGlyphsArray := FFIExternalArray fromHandle: aGlyphsArrayPtr type: SpartaCairoGlyph size: aGlyphsNum.
-
+	aGlyphsArray := aGlyphsNum isZero
+		ifTrue: [ FFIExternalArray externalNewType: SpartaCairoGlyph size: 0 ]
+		ifFalse: [ FFIExternalArray fromHandle: aGlyphsArrayPtr type: SpartaCairoGlyph size: aGlyphsNum.
+ ].
+			
 	aTextRun := SpartaCairoTextRun new
 		bits: 8;
 		buffer: aString;

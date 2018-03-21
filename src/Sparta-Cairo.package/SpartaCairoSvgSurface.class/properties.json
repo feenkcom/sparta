@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "",
+	"super" : "SpartaCairoSurface",
+	"category" : "Sparta-Cairo",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"extent"
+	],
+	"name" : "SpartaCairoSvgSurface",
+	"type" : "normal"
+}

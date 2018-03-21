@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "SpartaCairoCanvas",
+	"category" : "Sparta-Cairo",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "SpartaCairoSvgCanvas",
+	"type" : "normal"
+}
