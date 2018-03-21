@@ -1,3 +1,3 @@
 api - instance creation
-extent: aPoint
+pdf: aFileName extent: aPoint
 	^ self subclassResponsibility

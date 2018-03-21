@@ -1,3 +1,3 @@
 api - instance creation
-extent: aPoint
+svg: aFileName extent: aPoint
 	^ self subclassResponsibility

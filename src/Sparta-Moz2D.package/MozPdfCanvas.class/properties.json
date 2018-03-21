@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "",
+	"super" : "MozCanvas",
+	"category" : "Sparta-Moz2D",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"pdfSurface"
+	],
+	"name" : "MozPdfCanvas",
+	"type" : "normal"
+}
