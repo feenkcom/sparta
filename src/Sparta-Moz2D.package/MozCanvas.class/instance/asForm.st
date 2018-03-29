@@ -1,6 +1,10 @@
 converting
 asForm
 	| checker form |
+	
+	self isValid
+		ifFalse: [ ^ Form extent: 50@50 depth: 32 ].
+	
 	checker := self class checker: self extent.
 	checker fill
 		paint: self;
