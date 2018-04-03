@@ -1,0 +1,13 @@
+{
+	"classtraitcomposition" : "TMozLibrary classTrait",
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "MozTextRunTests",
+	"commentStamp" : "",
+	"super" : "TestCase",
+	"traitcomposition" : "TMozLibrary",
+	"type" : "normal",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"category" : "Sparta-Moz2D-Tests"
+}
