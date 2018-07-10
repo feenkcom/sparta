@@ -1,7 +1,7 @@
 shapes
 roundedRectangle: aRectangle radii: cornerRadii
 	
-	^ self
+	^ (self
 		primRoundedRectangleX: aRectangle left
 		y: aRectangle top
 		width: aRectangle width
@@ -10,4 +10,6 @@ roundedRectangle: aRectangle radii: cornerRadii
 		trr: cornerRadii topRight
 		brr: cornerRadii bottomRight
 		blr: cornerRadii bottomLeft
-		fr: MozFillRule FILL_WINDING
+		fr: MozFillRule FILL_WINDING)
+			initialize;
+			autoRelease
