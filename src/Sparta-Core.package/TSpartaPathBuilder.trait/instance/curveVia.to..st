@@ -1,3 +1,3 @@
 path commands
-curveVia: cp1 to: aPoint
+curveVia: aControlPoint to: anEndPoint
 	^ self explicitRequirement

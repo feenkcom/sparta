@@ -1,9 +1,9 @@
 path commands
-curveVia: cp1 to: aPoint
+curveVia: aControlPoint to: anEndPoint
 
 	self
-		primQuadraticBezierX1: cp1 x
-		Y1: cp1 y
-		X2: aPoint x
-		Y2: aPoint y
+		primQuadraticBezierX1: aControlPoint x
+		Y1: aControlPoint y
+		X2: anEndPoint x
+		Y2: anEndPoint y
 		absolute: self isAbsolute
