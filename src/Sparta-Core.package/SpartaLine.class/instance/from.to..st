@@ -1,7 +1,7 @@
 initialization
 from: aFromPoint to: aToPoint
 	self
-		assert: [ aFromPoint isNil and: [ aToPoint isNil ] ]
+		assert: [ from isNil and: [ to isNil ] ]
 		description: [ 'Path is immutable and can not be changed' ].
 
 	from := aFromPoint.
