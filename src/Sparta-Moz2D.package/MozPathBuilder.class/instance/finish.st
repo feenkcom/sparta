@@ -1,4 +1,6 @@
 path commands
 finish
 
-	^ self primFinish autoRelease
+	^ self primFinish
+		initialize;
+		autoRelease

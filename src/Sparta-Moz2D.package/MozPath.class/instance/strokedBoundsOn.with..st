@@ -4,4 +4,6 @@ strokedBoundsOn: aSpartaCanvas with: aStrokeOptions
 	These bounds are not guaranteed to be tight."
 	<return: #Rectangle>
 
-	^ self strokedBounds: aStrokeOptions
+	^ boundsCache
+		strokedBounds: aStrokeOptions
+		ifAbsentPut: [ self strokedBounds: aStrokeOptions ]

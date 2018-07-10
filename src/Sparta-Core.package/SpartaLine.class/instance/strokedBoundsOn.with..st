@@ -4,7 +4,10 @@ strokedBoundsOn: aSpartaCanvas with: aStrokeOptions
 	These bounds are not guaranteed to be tight."
 	<return: #Rectangle>
 
-	^ (aSpartaCanvas path
-		moveTo: self from;
-		lineTo: self to;
-		build) strokedBoundsOn: aSpartaCanvas with: aStrokeOptions
+	^ boundsCache
+		strokedBounds: aStrokeOptions
+		ifAbsentPut: [
+			(aSpartaCanvas path
+				moveTo: self from;
+				lineTo: self to;
+				build) strokedBoundsOn: aSpartaCanvas with: aStrokeOptions ]

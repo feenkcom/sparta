@@ -1,0 +1,15 @@
+{
+	"commentStamp" : "AliakseiSyrel 7/10/2018 09:58",
+	"super" : "Object",
+	"category" : "Sparta-Core-Path",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"bounds",
+		"strokeOptions",
+		"session"
+	],
+	"name" : "SpartaStrokedBoundsCache",
+	"type" : "normal"
+}

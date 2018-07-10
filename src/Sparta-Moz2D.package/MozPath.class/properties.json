@@ -1,7 +1,9 @@
 {
 	"classtraitcomposition" : "TSpartaPath classTrait + TMozLibrary classTrait + TSpartaInspectorPreview classTrait + TMozRefPtr classTrait + TMozDebug classTrait",
 	"classvars" : [ ],
-	"instvars" : [ ],
+	"instvars" : [
+		"boundsCache"
+	],
 	"name" : "MozPath",
 	"commentStamp" : "",
 	"super" : "FFIExternalObject",

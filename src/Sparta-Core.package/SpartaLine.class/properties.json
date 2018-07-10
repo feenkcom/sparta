@@ -3,7 +3,8 @@
 	"classvars" : [ ],
 	"instvars" : [
 		"from",
-		"to"
+		"to",
+		"boundsCache"
 	],
 	"name" : "SpartaLine",
 	"commentStamp" : "AliakseiSyrel 10/20/2016 19:16",
