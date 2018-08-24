@@ -1,0 +1,11 @@
+baselines
+baseline: spec
+	<baseline>
+	spec for: #common do: [ spec
+		baseline: 'Sparta' with: [ spec 
+			repository: 'github://syrel/Sparta/src' ];
+		baseline: 'SpartaMoz2DDevelopment' with: [ spec 
+			repository: 'github://syrel/Sparta/src' ];
+
+		package: 'Sparta-Critiques'
+	].

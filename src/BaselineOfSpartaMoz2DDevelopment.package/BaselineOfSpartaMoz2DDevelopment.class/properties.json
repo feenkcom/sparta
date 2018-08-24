@@ -1,11 +1,11 @@
 {
-	"commentStamp" : "AliakseiSyrel 11/22/2017 14:24",
+	"commentStamp" : "",
 	"super" : "BaselineOf",
-	"category" : "BaselineOfSparta",
+	"category" : "BaselineOfSpartaMoz2DDevelopment",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [ ],
-	"name" : "BaselineOfSpartaCairo",
+	"name" : "BaselineOfSpartaMoz2DDevelopment",
 	"type" : "normal"
 }
