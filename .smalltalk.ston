@@ -7,6 +7,7 @@ SmalltalkCISpec {
     }
   ],
   #testing : {
+    #packages : [ 'Sparta-*' ],
     #coverage : {
       #packages : [ 'Sparta-*' ]
     }
