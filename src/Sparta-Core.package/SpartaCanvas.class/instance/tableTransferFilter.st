@@ -1,3 +1,0 @@
-filters
-tableTransferFilter
-	^ self subclassResponsibility

@@ -1,3 +1,0 @@
-style
-styleItalic
-	^ self subclassResponsibility

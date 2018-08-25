@@ -1,3 +1,0 @@
-accessing
-installer
-	^ installerProgram

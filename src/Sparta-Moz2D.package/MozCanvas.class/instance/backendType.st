@@ -1,4 +1,0 @@
-accessing
-backendType
-
-	^ self primGetBackendType

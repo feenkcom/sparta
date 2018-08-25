@@ -1,3 +1,0 @@
-accessing
-stride
-	^ self primGetStride

@@ -1,3 +1,0 @@
-accessing
-monospace
-	family := #monospace

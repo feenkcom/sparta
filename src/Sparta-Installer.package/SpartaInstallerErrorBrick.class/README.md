@@ -1,1 +1,0 @@
-I am a page to display an error with detailed transcript

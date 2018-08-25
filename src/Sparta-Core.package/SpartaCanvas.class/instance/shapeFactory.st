@@ -1,3 +1,0 @@
-builders
-shapeFactory
-	^ self subclassResponsibility

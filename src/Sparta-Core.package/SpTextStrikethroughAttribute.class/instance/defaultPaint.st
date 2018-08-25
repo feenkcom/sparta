@@ -1,3 +1,0 @@
-initialization
-defaultPaint
-	^ Color black

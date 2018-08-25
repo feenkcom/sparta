@@ -1,3 +1,0 @@
-stretch
-stretchExtraCondensed
-	self stretch: MozTextFontStretch EXTRA_CONDENSED

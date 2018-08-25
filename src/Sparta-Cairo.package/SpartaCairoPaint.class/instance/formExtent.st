@@ -1,3 +1,0 @@
-converting
-formExtent
-	^ self subclassResponsibility

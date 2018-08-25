@@ -1,3 +1,0 @@
-geometry
-maxWidth
-	^ maxWidth

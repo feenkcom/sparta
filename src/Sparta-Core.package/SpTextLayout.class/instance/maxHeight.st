@@ -1,3 +1,0 @@
-geometry
-maxHeight
-	^ maxHeight

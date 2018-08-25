@@ -1,3 +1,0 @@
-layer
-push
-	^ self subclassResponsibility

@@ -1,3 +1,0 @@
-builders
-shapeFactory
-	^ SpartaCairoShapeFactory new

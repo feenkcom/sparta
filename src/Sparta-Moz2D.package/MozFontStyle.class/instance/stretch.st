@@ -1,4 +1,0 @@
-accessing
-stretch
-
-	^ self primGetStretch

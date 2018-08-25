@@ -1,3 +1,0 @@
-accessing
-compositionOperator: anObject
-	self primCompositionOperator: anObject

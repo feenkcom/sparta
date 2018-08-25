@@ -1,3 +1,0 @@
-composition operators
-composeDestIn
-	operator := SpartaCairoCompositionOp CAIRO_OPERATOR_DEST_IN

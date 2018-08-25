@@ -1,4 +1,0 @@
-accessing
-style
-
-	^ self primGetStyle

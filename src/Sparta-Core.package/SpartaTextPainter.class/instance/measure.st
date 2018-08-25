@@ -1,3 +1,0 @@
-measurement
-measure
-	^ self subclassResponsibility

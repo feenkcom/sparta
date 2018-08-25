@@ -1,3 +1,0 @@
-sampling filters
-samplingGood
-	self samplingFilter: SpartaCairoSamplingFilter CAIRO_FILTER_GOOD

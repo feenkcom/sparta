@@ -1,3 +1,0 @@
-accessing
-samplingGood
-	^ self explicitRequirement

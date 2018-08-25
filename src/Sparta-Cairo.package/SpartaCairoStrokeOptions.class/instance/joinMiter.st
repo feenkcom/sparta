@@ -1,3 +1,0 @@
-join styles
-joinMiter
-	self lineJoin: SpartaCairoJoinStyle CAIRO_LINE_JOIN_MITER

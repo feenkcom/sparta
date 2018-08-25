@@ -1,2 +1,0 @@
-registering
-nextPut: aSignal

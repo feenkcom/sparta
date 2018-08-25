@@ -1,3 +1,0 @@
-paints
-radialGradient
-	^ self subclassResponsibility

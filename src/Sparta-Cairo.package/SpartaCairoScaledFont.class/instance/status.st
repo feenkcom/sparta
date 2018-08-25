@@ -1,4 +1,0 @@
-accessing
-status
-
-	^ self primStatus

@@ -1,3 +1,0 @@
-composition operators
-composeClear
-	self drawOptions composeClear

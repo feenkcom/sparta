@@ -1,5 +1,0 @@
-accessing
-erode
-	self
-		primSetAttributeEnum: MozMorphologyFilterOperator MORPHOLOGY_OPERATOR_ERODE
-		index: MozMorphologyFilterAtts ATT_MORPHOLOGY_OPERATOR

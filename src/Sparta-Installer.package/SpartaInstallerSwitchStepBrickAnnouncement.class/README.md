@@ -1,1 +1,0 @@
-I am sent when step brick should we switched. It happens when we switch to the next installer step

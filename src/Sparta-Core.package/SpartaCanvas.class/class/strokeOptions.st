@@ -1,3 +1,0 @@
-accessing
-strokeOptions
-	^ self subclassResponsibility

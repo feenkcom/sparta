@@ -1,3 +1,0 @@
-styles
-normal
-	style := #styleNormal

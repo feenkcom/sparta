@@ -1,3 +1,0 @@
-style
-styleNormal
-	^ self subclassResponsibility

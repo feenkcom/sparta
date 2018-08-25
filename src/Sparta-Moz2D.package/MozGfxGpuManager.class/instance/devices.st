@@ -1,3 +1,0 @@
-accessing
-devices
-	^ devices

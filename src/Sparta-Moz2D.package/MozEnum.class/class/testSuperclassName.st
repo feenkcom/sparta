@@ -1,3 +1,0 @@
-test generation
-testSuperclassName
-	^ #MozEnumTest

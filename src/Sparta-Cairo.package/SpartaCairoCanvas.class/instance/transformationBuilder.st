@@ -1,3 +1,0 @@
-builders
-transformationBuilder
-	^ SpartaCairoTransformationBuilder new

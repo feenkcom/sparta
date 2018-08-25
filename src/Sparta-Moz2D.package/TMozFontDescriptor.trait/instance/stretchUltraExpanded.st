@@ -1,3 +1,0 @@
-stretch
-stretchUltraExpanded
-	self stretch: MozTextFontStretch ULTRA_EXPANDED

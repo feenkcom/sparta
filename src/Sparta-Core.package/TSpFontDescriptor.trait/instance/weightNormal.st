@@ -1,3 +1,0 @@
-weight
-weightNormal
-	^ self subclassResponsibility

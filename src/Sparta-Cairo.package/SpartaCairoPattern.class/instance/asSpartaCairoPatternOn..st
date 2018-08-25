@@ -1,3 +1,0 @@
-converting
-asSpartaCairoPatternOn: aSpartaCairoCanvas
-	^ self

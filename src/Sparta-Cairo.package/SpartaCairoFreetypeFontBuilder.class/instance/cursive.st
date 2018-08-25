@@ -1,3 +1,0 @@
-instance creation
-cursive
-	SpartaUnsupported signal

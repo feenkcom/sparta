@@ -1,2 +1,0 @@
-dispatch
-sourceCanvas: aSpartaCanvas

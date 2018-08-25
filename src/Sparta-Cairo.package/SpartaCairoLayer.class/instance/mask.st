@@ -1,3 +1,0 @@
-accessing
-mask
-	^ mask

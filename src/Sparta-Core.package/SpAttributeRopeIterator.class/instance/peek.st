@@ -1,3 +1,0 @@
-accessing
-peek
-	^ subIterator peek

@@ -1,3 +1,0 @@
-join styles
-joinMiterOrBevel
-	self strokeOptions joinMiterOrBevel

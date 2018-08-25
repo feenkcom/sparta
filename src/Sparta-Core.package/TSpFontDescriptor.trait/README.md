@@ -1,1 +1,0 @@
-I am a helper trait that defines basic font properties such as weight, style and stretch

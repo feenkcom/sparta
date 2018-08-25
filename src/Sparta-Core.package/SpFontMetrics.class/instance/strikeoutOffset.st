@@ -1,3 +1,0 @@
-accessing
-strikeoutOffset
-	^ strikeoutOffset

@@ -1,3 +1,0 @@
-accessing
-bold
-	weight := #weightBold

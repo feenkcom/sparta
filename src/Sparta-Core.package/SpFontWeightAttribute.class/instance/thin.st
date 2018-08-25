@@ -1,3 +1,0 @@
-accessing
-thin
-	weight := #weightThin

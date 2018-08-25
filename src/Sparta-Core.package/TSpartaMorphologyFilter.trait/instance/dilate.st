@@ -1,3 +1,0 @@
-accessing
-dilate
-	^ self explicitRequirement

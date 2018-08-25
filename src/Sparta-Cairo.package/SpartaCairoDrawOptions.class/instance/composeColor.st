@@ -1,3 +1,0 @@
-composition operators
-composeColor
-	SpartaUnsupported signal

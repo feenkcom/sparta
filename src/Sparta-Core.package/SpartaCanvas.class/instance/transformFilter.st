@@ -1,3 +1,0 @@
-filters
-transformFilter
-	^ self subclassResponsibility

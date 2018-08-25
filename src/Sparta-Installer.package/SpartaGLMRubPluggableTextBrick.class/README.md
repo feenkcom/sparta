@@ -1,1 +1,0 @@
-I wrap RubPluggableTextMorph and allow it to be embedded in Morphic-Brick

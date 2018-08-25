@@ -1,3 +1,0 @@
-accessing
-sansSerif
-	family := #sansSerif

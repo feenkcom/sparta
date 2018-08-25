@@ -1,3 +1,0 @@
-accessing
-edgeNone
-	^ self explicitRequirement

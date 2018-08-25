@@ -1,3 +1,0 @@
-composition operators
-composeDifference
-	self drawOptions composeDifference

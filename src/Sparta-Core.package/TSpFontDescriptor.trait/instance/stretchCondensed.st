@@ -1,3 +1,0 @@
-stretch
-stretchCondensed
-	^ self subclassResponsibility

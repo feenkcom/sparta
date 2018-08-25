@@ -1,3 +1,0 @@
-builders
-paintProvider
-	^ SpartaCairoPaintProvider new

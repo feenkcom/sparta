@@ -1,3 +1,0 @@
-accessing
-stroke
-	^ self subclassResponsibility

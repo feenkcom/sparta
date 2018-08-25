@@ -1,3 +1,0 @@
-accessing
-state
-	^ self primLoadState

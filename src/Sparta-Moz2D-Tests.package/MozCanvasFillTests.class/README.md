@@ -1,1 +1,0 @@
-I test fill drawing operation, both builder and actual drawing to make sure that plugin works as expected

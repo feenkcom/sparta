@@ -1,3 +1,0 @@
-sampling filters
-samplingFilter
-		^ samplingFilter

@@ -1,1 +1,0 @@
-I am a wapper around SpartaCanvas providing Morphic Canvas api

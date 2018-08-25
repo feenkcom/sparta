@@ -1,3 +1,0 @@
-accessing
-build
-	^ self subclassResponsibility

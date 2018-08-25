@@ -1,4 +1,0 @@
-testing
-isNull
-
-	^ glyphs isNil

@@ -1,3 +1,0 @@
-settings
-preferencesGroup
-	^ 'Mac OSX'

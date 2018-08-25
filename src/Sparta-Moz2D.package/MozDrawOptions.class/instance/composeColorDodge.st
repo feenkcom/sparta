@@ -1,3 +1,0 @@
-composition operators
-composeColorDodge
-	^ self compositionOperator: MozCompositionOp OP_COLOR_DODGE

@@ -1,4 +1,0 @@
-clipping
-pop
-
-	self primPopClip

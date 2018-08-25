@@ -1,3 +1,0 @@
-composition operators
-composeMultiply
-	operator := SpartaCairoCompositionOp CAIRO_OPERATOR_MULTIPLY

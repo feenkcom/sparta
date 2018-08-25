@@ -1,5 +1,0 @@
-accessing
-dilate
-	self
-		primSetAttributeEnum: MozMorphologyFilterOperator MORPHOLOGY_OPERATOR_DILATE
-		index: MozMorphologyFilterAtts ATT_MORPHOLOGY_OPERATOR

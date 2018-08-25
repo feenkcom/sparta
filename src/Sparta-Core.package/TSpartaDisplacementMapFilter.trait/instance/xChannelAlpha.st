@@ -1,3 +1,0 @@
-accessing
-xChannelAlpha
-	^ self explicitRequirement

@@ -1,4 +1,0 @@
-accessing
-rasterType
-
-	^ self primGetDrawTargetType

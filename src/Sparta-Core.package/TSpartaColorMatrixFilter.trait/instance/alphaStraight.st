@@ -1,3 +1,0 @@
-accessing
-alphaStraight
-	^ self explicitRequirement

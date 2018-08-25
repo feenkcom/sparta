@@ -1,3 +1,0 @@
-accessing
-xChannelRed
-	^ self explicitRequirement

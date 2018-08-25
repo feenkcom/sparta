@@ -1,3 +1,0 @@
-composition operators
-composeDarken
-	operator := SpartaCairoCompositionOp CAIRO_OPERATOR_DARKEN

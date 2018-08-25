@@ -1,3 +1,0 @@
-accessing - breaks
-breakPriority
-	^ breakPriority

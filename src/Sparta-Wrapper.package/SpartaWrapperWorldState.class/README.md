@@ -1,1 +1,0 @@
-Modified world state to use sparta canvas wrapper instead of form canvas

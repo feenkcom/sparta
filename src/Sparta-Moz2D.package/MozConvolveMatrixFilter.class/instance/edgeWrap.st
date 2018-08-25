@@ -1,5 +1,0 @@
-accessing
-edgeWrap
-	self
-		primSetAttributeEnum: MozConvolveMatrixFilterEdgeMode EDGE_MODE_WRAP
-		index: MozConvolveMatrixFilterAtts ATT_CONVOLVE_MATRIX_EDGE_MODE

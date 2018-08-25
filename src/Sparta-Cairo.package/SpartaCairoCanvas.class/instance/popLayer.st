@@ -1,4 +1,0 @@
-layers
-popLayer
-
-	^ layerStack pop

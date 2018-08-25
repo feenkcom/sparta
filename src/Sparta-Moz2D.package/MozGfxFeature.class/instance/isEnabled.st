@@ -1,4 +1,0 @@
-testing
-isEnabled
-
-	^ self primIsEnabled

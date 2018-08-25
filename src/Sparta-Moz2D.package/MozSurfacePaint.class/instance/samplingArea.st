@@ -1,3 +1,0 @@
-sampling filters
-samplingArea
-	^ samplingArea

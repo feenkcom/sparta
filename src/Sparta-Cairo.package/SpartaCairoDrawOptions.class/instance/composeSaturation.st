@@ -1,3 +1,0 @@
-composition operators
-composeSaturation
-	operator := SpartaCairoCompositionOp CAIRO_OPERATOR_SATURATE

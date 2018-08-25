@@ -1,3 +1,0 @@
-accessing
-yChannelBlue
-	^ self explicitRequirement

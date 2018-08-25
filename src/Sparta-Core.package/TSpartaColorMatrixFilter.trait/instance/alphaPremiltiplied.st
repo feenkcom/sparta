@@ -1,3 +1,0 @@
-accessing
-alphaPremiltiplied
-	^ self explicitRequirement

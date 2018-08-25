@@ -1,1 +1,0 @@
-I represent a callback funtion used by text property provider to use image-side implementation of properties logic. Callbacks are used to execute Smalltalk code from C/C++

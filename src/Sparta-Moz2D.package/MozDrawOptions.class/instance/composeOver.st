@@ -1,3 +1,0 @@
-composition operators
-composeOver
-	self compositionOperator: MozCompositionOp OP_OVER

@@ -1,3 +1,0 @@
-initialization
-defaultSize
-	^ 14

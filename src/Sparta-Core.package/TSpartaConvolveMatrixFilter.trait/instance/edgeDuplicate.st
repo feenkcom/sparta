@@ -1,3 +1,0 @@
-accessing
-edgeDuplicate
-	^ self explicitRequirement

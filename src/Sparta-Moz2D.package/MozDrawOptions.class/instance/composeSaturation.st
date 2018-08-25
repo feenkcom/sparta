@@ -1,3 +1,0 @@
-composition operators
-composeSaturation
-	^ self compositionOperator: MozCompositionOp OP_SATURATION

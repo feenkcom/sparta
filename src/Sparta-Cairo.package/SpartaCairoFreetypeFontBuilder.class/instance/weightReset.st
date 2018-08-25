@@ -1,3 +1,0 @@
-weight
-weightReset
-	self weightNormal

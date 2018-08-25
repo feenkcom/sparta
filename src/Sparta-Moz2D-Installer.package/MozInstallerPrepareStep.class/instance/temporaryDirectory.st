@@ -1,3 +1,0 @@
-folders
-temporaryDirectory
-	^ 'sparta-cache'

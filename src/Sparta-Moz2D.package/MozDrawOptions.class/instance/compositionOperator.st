@@ -1,3 +1,0 @@
-accessing
-compositionOperator
-	^ self primCompositionOperator

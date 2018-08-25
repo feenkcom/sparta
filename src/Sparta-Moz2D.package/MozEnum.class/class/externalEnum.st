@@ -1,3 +1,0 @@
-accessing
-externalEnum
-	^ self subclassResponsibility

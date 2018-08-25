@@ -1,3 +1,0 @@
-accessing
-strokeOptions
-	^ MozStrokeOptions

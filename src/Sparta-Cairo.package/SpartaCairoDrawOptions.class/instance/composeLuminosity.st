@@ -1,3 +1,0 @@
-composition operators
-composeLuminosity
-	SpartaUnsupported signal

@@ -1,3 +1,0 @@
-accessing
-samplingSentinel
-	^ self explicitRequirement

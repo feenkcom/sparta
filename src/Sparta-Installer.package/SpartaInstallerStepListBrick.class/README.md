@@ -1,1 +1,0 @@
-I am a visual list of installer steps

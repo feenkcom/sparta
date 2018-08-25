@@ -1,3 +1,0 @@
-builders
-filtersFactory
-	^ SpartaFiltersFactory new

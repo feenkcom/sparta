@@ -1,3 +1,0 @@
-comparing
-= anotherFontSource
-	^ self subclassResponsibility

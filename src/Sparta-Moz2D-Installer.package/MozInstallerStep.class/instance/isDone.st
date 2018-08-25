@@ -1,3 +1,0 @@
-accessing
-isDone
-	^ isDone

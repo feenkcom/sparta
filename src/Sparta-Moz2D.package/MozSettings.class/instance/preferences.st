@@ -1,3 +1,0 @@
-accessing
-preferences
-	^ table copy

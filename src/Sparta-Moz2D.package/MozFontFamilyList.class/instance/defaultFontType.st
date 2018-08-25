@@ -1,4 +1,0 @@
-accessing
-defaultFontType
-
-	^ self primGetDefaultFontType

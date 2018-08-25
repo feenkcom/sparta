@@ -1,3 +1,0 @@
-colors
-inactiveColor
-	^ Color transparent

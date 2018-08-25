@@ -1,3 +1,0 @@
-layer
-pop
-	self primPopLayer

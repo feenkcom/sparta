@@ -1,3 +1,0 @@
-clipping
-pushPath: aSpartaPath
-	self subclassResponsibility

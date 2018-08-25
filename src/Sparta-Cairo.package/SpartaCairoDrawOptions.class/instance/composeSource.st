@@ -1,3 +1,0 @@
-composition operators
-composeSource
-	operator := SpartaCairoCompositionOp CAIRO_OPERATOR_SOURCE

@@ -1,3 +1,0 @@
-initialization
-defaultHelp
-	^ self subclassResponsibility

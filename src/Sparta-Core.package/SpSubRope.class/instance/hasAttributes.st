@@ -1,3 +1,0 @@
-testing
-hasAttributes
-	^ rope hasAttributes

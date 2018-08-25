@@ -1,3 +1,0 @@
-accessing
-balanceGrade
-	^ rope balanceGrade

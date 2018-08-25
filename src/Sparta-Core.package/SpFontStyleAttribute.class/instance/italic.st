@@ -1,3 +1,0 @@
-styles
-italic
-	style := #styleItalic

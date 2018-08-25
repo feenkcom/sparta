@@ -1,3 +1,0 @@
-running
-doActionIn: anInstaller
-	self subclassResponsibility

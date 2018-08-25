@@ -1,3 +1,0 @@
-antialias modes
-antialiasSubpixel
-	self antialiasMode: MozAntialiasMode SUBPIXEL

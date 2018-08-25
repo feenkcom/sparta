@@ -1,3 +1,0 @@
-filters
-specularDistantLightFilter
-	^ self subclassResponsibility

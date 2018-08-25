@@ -1,4 +1,0 @@
-testing
-isAllowedSubpixelAA
-
-	^ self primIsSubpixelAAPermitted

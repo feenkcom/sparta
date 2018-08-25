@@ -1,3 +1,0 @@
-filters
-gammaTransferFilter
-	^ self subclassResponsibility

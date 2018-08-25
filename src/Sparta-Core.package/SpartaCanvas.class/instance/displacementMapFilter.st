@@ -1,3 +1,0 @@
-filters
-displacementMapFilter
-	^ self subclassResponsibility

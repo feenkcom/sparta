@@ -1,4 +1,0 @@
-testing
-isRecording
-
-	^ self primIsRecording

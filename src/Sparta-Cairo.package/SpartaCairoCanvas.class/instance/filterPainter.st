@@ -1,3 +1,0 @@
-builders
-filterPainter
-	^ SpartaCairoFilterPainter new

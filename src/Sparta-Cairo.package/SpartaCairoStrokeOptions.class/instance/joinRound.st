@@ -1,3 +1,0 @@
-join styles
-joinRound
-	self lineJoin: SpartaCairoJoinStyle CAIRO_LINE_JOIN_ROUND

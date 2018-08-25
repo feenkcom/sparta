@@ -1,4 +1,0 @@
-transformation
-pop
-	
-	self primPopTransform

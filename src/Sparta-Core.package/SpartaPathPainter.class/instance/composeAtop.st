@@ -1,3 +1,0 @@
-composition operators
-composeAtop
-	self drawOptions composeAtop

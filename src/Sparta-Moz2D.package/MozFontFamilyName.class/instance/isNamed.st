@@ -1,4 +1,0 @@
-testing
-isNamed
-
-	^ self primIsNamed

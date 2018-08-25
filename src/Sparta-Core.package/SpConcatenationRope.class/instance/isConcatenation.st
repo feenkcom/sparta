@@ -1,3 +1,0 @@
-testing
-isConcatenation
-	^ true

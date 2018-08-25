@@ -1,3 +1,0 @@
-initialization
-defaultLanguage
-	^ 'en'

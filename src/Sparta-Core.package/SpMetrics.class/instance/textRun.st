@@ -1,3 +1,0 @@
-accessing
-textRun
-	^ textRun

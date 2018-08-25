@@ -1,3 +1,0 @@
-extend modes
-extendMode
-	^ extendMode

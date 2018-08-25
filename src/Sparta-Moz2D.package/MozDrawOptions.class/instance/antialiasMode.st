@@ -1,3 +1,0 @@
-accessing
-antialiasMode
-	^ self primAntialiasMode

@@ -1,3 +1,0 @@
-style
-styleReset
-	self styleNormal

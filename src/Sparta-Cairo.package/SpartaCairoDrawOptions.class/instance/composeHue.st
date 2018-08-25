@@ -1,3 +1,0 @@
-composition operators
-composeHue
-	operator := SpartaCairoCompositionOp CAIRO_OPERATOR_HSL_HUE

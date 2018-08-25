@@ -1,3 +1,0 @@
-accessing
-markDirty
-	self primMarkDirty

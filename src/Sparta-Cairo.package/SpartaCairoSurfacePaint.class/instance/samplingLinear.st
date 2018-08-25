@@ -1,3 +1,0 @@
-sampling filters
-samplingLinear
-	self samplingFilter: SpartaCairoSamplingFilter CAIRO_FILTER_BILINEAR

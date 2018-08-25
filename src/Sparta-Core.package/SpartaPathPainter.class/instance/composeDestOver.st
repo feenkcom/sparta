@@ -1,3 +1,0 @@
-composition operators
-composeDestOver
-	self drawOptions composeDestOver
