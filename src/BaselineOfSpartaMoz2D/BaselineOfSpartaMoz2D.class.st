@@ -4,19 +4,44 @@ I am a Baseline of Sparta-Moz2D backend
 Class {
 	#name : #BaselineOfSpartaMoz2D,
 	#superclass : #BaselineOf,
-	#category : 'BaselineOfSpartaMoz2D'
+	#category : #BaselineOfSpartaMoz2D
 }
 
 { #category : #baselines }
 BaselineOfSpartaMoz2D >> baseline: spec [
 	<baseline>
-	spec for: #common do: [ spec
+	spec for: #Moz2D do: [ spec
+		postLoadDoIt: #postLoadSparta:;
 		baseline: 'SpartaCore' with: [ spec 
 			repository: 'github://syrel/Sparta/src' ];
+		baseline: 'SpartaCoreDevelopment' with: [ spec 
+			repository: 'github://syrel/Sparta/src' ];
+		baseline: 'Beacon' with: [ spec 
+			repository: 'github://pharo-project/pharo-beacon/repository' ];
 
 		package: 'Sparta-Moz2D' with: [ spec 
 			requires: #('SpartaCore') ];
 		package: 'Sparta-Moz2D-Tests' with: [ spec 
-			requires: #('Sparta-Moz2D') ]
+			requires: #('Sparta-Moz2D') ];
+		package: 'Sparta-Moz2D-Installer' with: [ spec 
+			requires: #('Sparta-Moz2D' 'Beacon' 'SpartaCoreDevelopment') ]
 	].
+]
+
+{ #category : #accessing }
+BaselineOfSpartaMoz2D >> customProjectAttributes [
+	Smalltalk os isMacOS ifTrue: [ ^ #(#MacOS #OS64bit #Moz2D) ].
+	Smalltalk os isUnix32 ifTrue: [ ^ #(#Unix32 #OS32bit #NoMoz2D) ].
+	Smalltalk os isUnix64 ifTrue: [ ^ #(#Unix64 #OS64bit #Moz2D) ].
+	Smalltalk os isWindows ifTrue: [ ^ #(#Windows #OS64bit #Moz2D) ]
+]
+
+{ #category : #actions }
+BaselineOfSpartaMoz2D >> postLoadSparta: aSpecLoader [
+	| pragmas |
+	
+	pragmas := OrderedCollection new.
+	Object withAllSubclassesDo: [:each |
+		pragmas addAll: (Pragma allNamed: #spartaPostLoad in: each) ].
+	pragmas do: [ :each | each method methodClass baseClass perform: each method selector ]
 ]

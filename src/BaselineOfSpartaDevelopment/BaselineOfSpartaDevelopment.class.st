@@ -1,7 +1,7 @@
 Class {
 	#name : #BaselineOfSpartaDevelopment,
 	#superclass : #BaselineOf,
-	#category : 'BaselineOfSpartaDevelopment'
+	#category : #BaselineOfSpartaDevelopment
 }
 
 { #category : #baselines }
@@ -10,7 +10,7 @@ BaselineOfSpartaDevelopment >> baseline: spec [
 	spec for: #common do: [ spec
 		baseline: 'Sparta' with: [ spec 
 			repository: 'github://syrel/Sparta/src' ];
-		baseline: 'SpartaMoz2DDevelopment' with: [ spec 
+		baseline: 'SpartaMoz2D' with: [ spec 
 			repository: 'github://syrel/Sparta/src' ];
 
 		package: 'Sparta-Critiques'
