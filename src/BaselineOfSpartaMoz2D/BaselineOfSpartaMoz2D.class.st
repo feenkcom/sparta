@@ -34,6 +34,7 @@ BaselineOfSpartaMoz2D >> customProjectAttributes [
 	Smalltalk os isUnix32 ifTrue: [ ^ #() ].
 	Smalltalk os isUnix64 ifTrue: [ ^ #(#Moz2D) ].
 	Smalltalk os isWindows ifTrue: [ ^ #(#Moz2D) ].
+	^ #()
 ]
 
 { #category : #actions }
