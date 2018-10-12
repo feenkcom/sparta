@@ -197,6 +197,8 @@ TSpartaTextExamples classSide >> exampleStrikethrough [
 { #category : #'examples - text' }
 TSpartaTextExamples classSide >> exampleTextMeasure [
 	|canvas font aMetrics textPainter |
+	<gtExample>
+
 	canvas := self canvas: 1100@520.
 
 	canvas fill
@@ -237,7 +239,7 @@ TSpartaTextExamples classSide >> exampleTextMeasure [
 	self drawAdvanceWidth: aMetrics on: canvas.
 	self drawStrikeoutOffset: aMetrics on: canvas.
 
-	canvas asForm asMorph openInWindowLabeled: 'Metrics'
+	^ canvas asForm
 ]
 
 { #category : #'examples - text' }

@@ -137,6 +137,12 @@ SpartaTextPainter >> end: anIndex [
 ]
 
 { #category : #accessing }
+SpartaTextPainter >> ensureFont [
+	(font isNil and: [ text isString ])
+		ifTrue: [ font := self canvas font build ]
+]
+
+{ #category : #accessing }
 SpartaTextPainter >> fill [
 	^ self subclassResponsibility
 ]
