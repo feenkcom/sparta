@@ -239,7 +239,7 @@ TSpartaTextExamples classSide >> exampleTextMeasure [
 	self drawAdvanceWidth: aMetrics on: canvas.
 	self drawStrikeoutOffset: aMetrics on: canvas.
 
-	^ canvas asForm
+	^ canvas
 ]
 
 { #category : #'examples - text' }

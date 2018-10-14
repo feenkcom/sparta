@@ -90,6 +90,7 @@ MozTextExamples class >> exampleStyledText [
 
 { #category : #'examples - text' }
 MozTextExamples class >> exampleTextHaiku [
+	<gtExample>
 	| canvas rope textLayout |
 	canvas := MozCanvas extent: 605 @ 265.
 	canvas fill
@@ -129,7 +130,7 @@ MozTextExamples class >> exampleTextHaiku [
 		from: 26 to: rope size.
 	textLayout := SpMultilineTextLayout rope: rope.
 	textLayout renderOn: canvas.
-	canvas asForm asMorph openInWindowLabeled: 'Haiku'
+	^ canvas
 ]
 
 { #category : #'examples - text' }

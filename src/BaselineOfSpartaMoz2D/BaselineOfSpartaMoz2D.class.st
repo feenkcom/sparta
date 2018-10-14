@@ -40,9 +40,11 @@ BaselineOfSpartaMoz2D >> customProjectAttributes [
 { #category : #actions }
 BaselineOfSpartaMoz2D >> postLoadSparta: aSpecLoader [
 	| pragmas |
-	
 	pragmas := OrderedCollection new.
-	Object withAllSubclassesDo: [:each |
-		pragmas addAll: (Pragma allNamed: #spartaPostLoad in: each) ].
-	pragmas do: [ :each | each method methodClass baseClass perform: each method selector ]
+	Object
+		withAllSubclassesDo:
+			[ :each | pragmas addAll: (Pragma allNamed: #spartaPostLoad in: each) ].
+	pragmas
+		do:
+			[ :each | each method methodClass instanceSide perform: each method selector ]
 ]
