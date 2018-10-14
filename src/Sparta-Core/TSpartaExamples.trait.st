@@ -209,3 +209,46 @@ TSpartaExamples >> donut [
 		
 	^ canvas
 ]
+
+{ #category : #examples }
+TSpartaExamples >> mario [
+	<gtExample>
+	| mario colors pixel canvas |
+
+	mario := #(
+		(0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1)
+		(0 0 0 0 0 0 2 2 2 2 2 0 0 0 1 1)
+		(0 0 0 0 0 2 2 2 2 2 2 2 2 2 1 1)
+		(0 0 0 0 0 3 3 3 1 1 3 1 0 3 3 3)
+		(0 0 0 0 3 1 3 1 1 1 3 1 1 3 3 3)
+		(0 0 0 0 3 1 3 3 1 1 1 3 1 1 1 3)
+		(0 0 0 0 3 3 1 1 1 1 3 3 3 3 3 0)
+		(0 0 0 0 0 0 1 1 1 1 1 1 1 3 0 0)
+		(0 0 3 3 3 3 3 2 3 3 3 2 3 0 0 0)
+		(0 3 3 3 3 3 3 3 2 3 3 3 2 0 0 3)
+		(1 1 3 3 3 3 3 3 2 2 2 2 2 0 0 3)
+		(1 1 1 0 2 2 3 2 2 1 2 2 1 2 3 3)
+		(0 1 0 3 2 2 2 2 2 2 2 2 2 2 3 3)
+		(0 0 3 3 3 2 2 2 2 2 2 2 2 2 3 3)
+		(0 3 3 3 2 2 2 2 2 2 2 0 0 0 0 0)
+		(0 3 0 0 2 2 2 2 0 0 0 0 0 0 0 0)).
+		
+	colors := { 
+		0 -> (Color fromHexString: #FFFFFF).
+		1 -> (Color fromHexString: #F6A502).
+		2 -> (Color fromHexString: #D30301).
+		3 -> (Color fromHexString: #'6B5200')
+	} asDictionary.
+
+	pixel := 32.
+
+	canvas := self class canvas: pixel * mario size asPoint.
+
+	mario withIndexDo: [ :eachRow :y |
+		eachRow withIndexDo: [ :dot :x |
+			canvas fill
+				path: ((x@y - 1) * pixel extent: pixel asPoint);
+				paint: (colors at: dot);
+				draw ] ].
+	^ canvas
+]
