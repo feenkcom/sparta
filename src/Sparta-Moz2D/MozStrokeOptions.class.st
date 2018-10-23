@@ -206,13 +206,13 @@ MozStrokeOptions >> miterLimit: anObject [
 { #category : #'accessing structure variables' }
 MozStrokeOptions >> privateDashLength [
 	"This method was automatically generated"
-	^handle platformUnsignedLongAt: OFFSET_PRIVATEDASHLENGTH
+	^handle platformSizeTAt: OFFSET_PRIVATEDASHLENGTH
 ]
 
 { #category : #'accessing structure variables' }
 MozStrokeOptions >> privateDashLength: anObject [
 	"This method was automatically generated"
-	^handle platformUnsignedLongAt: OFFSET_PRIVATEDASHLENGTH put: anObject
+	^handle platformSizeTAt: OFFSET_PRIVATEDASHLENGTH put: anObject
 ]
 
 { #category : #'accessing structure variables' }

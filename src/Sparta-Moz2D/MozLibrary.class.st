@@ -8,6 +8,15 @@ Class {
 	#category : 'Sparta-Moz2D-Library'
 }
 
+{ #category : #'accessing platform' }
+MozLibrary >> detectLibrary: aFileName [
+	^ ({ Smalltalk imageDirectory . Smalltalk vmDirectory . FileSystem workingDirectory }
+		collect: [ :aPath | aPath asFileReference / aFileName ])
+			detect: #exists
+			ifFound: #fullName
+			ifNone: [ aFileName ]
+]
+
 { #category : #testing }
 MozLibrary >> hasModule [
 	"Return if there is a loadable and working Moz2D library installed, false otherwise"
@@ -25,7 +34,7 @@ MozLibrary >> hasModule [
 
 { #category : #'accessing platform' }
 MozLibrary >> macModuleName [
-	^ 'libMoz2D.dylib'
+	^ self detectLibrary: 'libMoz2D.dylib'
 ]
 
 { #category : #'private - ffi' }
@@ -35,10 +44,10 @@ MozLibrary >> primTest [
 
 { #category : #'accessing platform' }
 MozLibrary >> unixModuleName [
-	^ 'libMoz2D.so'
+	^ self detectLibrary: 'libMoz2D.so'
 ]
 
 { #category : #'accessing platform' }
-MozLibrary >> win32ModuleName [ 
-	^ 'libMoz2D.dll'
+MozLibrary >> win32ModuleName [
+	^ self detectLibrary: 'libMoz2D.dll'
 ]
