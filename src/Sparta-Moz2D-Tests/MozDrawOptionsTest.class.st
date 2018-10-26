@@ -4,11 +4,11 @@ DrawOptions is important external structure and must work flawlessly.
 "
 Class {
 	#name : #MozDrawOptionsTest,
-	#superclass : #TestCase,
+	#superclass : #MozTestCase,
 	#instVars : [
 		'drawOptions'
 	],
-	#category : 'Sparta-Moz2D-Tests'
+	#category : #'Sparta-Moz2D-Tests'
 }
 
 { #category : #running }

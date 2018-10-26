@@ -16,3 +16,8 @@ MozTestComparableForm >> = anObject [
 	^ self bits = anObject bits
 		and: [ self depth = anObject depth ]
 ]
+
+{ #category : #comparing }
+MozTestComparableForm >> hash [
+	^ self bits hash bitXor: self depth hash
+]

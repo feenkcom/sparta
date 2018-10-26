@@ -1,12 +1,10 @@
 Class {
 	#name : #MozCrashTests,
-	#superclass : #TestCase,
-	#traits : 'TMozLibrary',
-	#classTraits : 'TMozLibrary classTrait',
+	#superclass : #MozTestCase,
 	#instVars : [
 		'canvas'
 	],
-	#category : 'Sparta-Moz2D-Tests'
+	#category : #'Sparta-Moz2D-Tests'
 }
 
 { #category : #initialization }

@@ -3,10 +3,8 @@ I am an independent test of FFI functionality
 "
 Class {
 	#name : #MozFFITest,
-	#superclass : #TestCase,
-	#traits : 'TMozLibrary',
-	#classTraits : 'TMozLibrary classTrait',
-	#category : 'Sparta-Moz2D-Tests'
+	#superclass : #MozTestCase,
+	#category : #'Sparta-Moz2D-Tests'
 }
 
 { #category : #'instance creation' }

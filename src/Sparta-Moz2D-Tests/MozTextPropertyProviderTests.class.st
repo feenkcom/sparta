@@ -1,12 +1,10 @@
 Class {
 	#name : #MozTextPropertyProviderTests,
-	#superclass : #TestCase,
-	#traits : 'TMozLibrary',
-	#classTraits : 'TMozLibrary classTrait',
+	#superclass : #MozTestCase,
 	#instVars : [
 		'propertyProvider'
 	],
-	#category : 'Sparta-Moz2D-Tests'
+	#category : #'Sparta-Moz2D-Tests'
 }
 
 { #category : #'private - ffi' }

@@ -3,12 +3,12 @@ I define a basic structure of MozCanvas TestCase and implement a few helper meth
 "
 Class {
 	#name : #MozCanvasTestCase,
-	#superclass : #TestCase,
+	#superclass : #MozTestCase,
 	#instVars : [
 		'canvas',
 		'form'
 	],
-	#category : 'Sparta-Moz2D-Tests'
+	#category : #'Sparta-Moz2D-Tests'
 }
 
 { #category : #asserting }
@@ -31,7 +31,7 @@ MozCanvasTestCase >> defaultExtent [
 
 { #category : #accessing }
 MozCanvasTestCase >> form [
-	^ form ifNil: [ form := Form extent: canvas extent depth: 32 fromArray: canvas pixels offset: 0@0 ]
+	^ form ifNil: [ form := MozTestComparableForm extent: canvas extent depth: 32 fromArray: canvas pixels offset: 0@0 ]
 ]
 
 { #category : #running }

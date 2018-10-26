@@ -1,9 +1,7 @@
 Class {
 	#name : #MozTextRunTests,
-	#superclass : #TestCase,
-	#traits : 'TMozLibrary',
-	#classTraits : 'TMozLibrary classTrait',
-	#category : 'Sparta-Moz2D-Tests'
+	#superclass : #MozTestCase,
+	#category : #'Sparta-Moz2D-Tests'
 }
 
 { #category : #tests }
