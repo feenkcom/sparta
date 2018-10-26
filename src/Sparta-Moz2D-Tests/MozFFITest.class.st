@@ -383,7 +383,10 @@ MozFFITest >> testCallbackInt32 [
 
 { #category : #tests }
 MozFFITest >> testCallbackInt64 [
-	<expectedFailure> "bug in FFI"
+	
+	"testing 64bit data types does not make sense for 32bit platforms"
+	Smalltalk vm is32bit
+		ifTrue: [ ^ self skip ].
 
 	self
 		assert: (self primCall: self callbackInt64 int64: self primInt64Min)
@@ -416,7 +419,6 @@ MozFFITest >> testCallbackInt8 [
 
 { #category : #tests }
 MozFFITest >> testCallbackIntptr [
-	<expectedFailure> "bug in FFI"
 
 	self
 		assert: (self primCall: self callbackIntptr intptr: self primIntptrMin)
@@ -433,7 +435,6 @@ MozFFITest >> testCallbackIntptr [
 
 { #category : #tests }
 MozFFITest >> testCallbackLong [
-	<expectedFailure> "bug in FFI"
 
 	self
 		assert: (self primCall: self callbackLong long: self primLongMin)
@@ -474,7 +475,11 @@ MozFFITest >> testCallbackUInt32 [
 
 { #category : #tests }
 MozFFITest >> testCallbackUInt64 [
-	<expectedFailure> "bug in FFI"
+
+
+	"testing 64bit data types does not make sense for 32bit platforms"
+	Smalltalk vm is32bit
+		ifTrue: [ ^ self skip ].
 		
 	self
 		assert: (self primCall: self callbackUInt64 uint64: 0)
@@ -499,7 +504,6 @@ MozFFITest >> testCallbackUInt8 [
 
 { #category : #tests }
 MozFFITest >> testCallbackUIntptr [
-	<expectedFailure> "bug in FFI"
 	
 	self
 		assert: (self primCall: self callbackUIntptr uintptr: 0)
