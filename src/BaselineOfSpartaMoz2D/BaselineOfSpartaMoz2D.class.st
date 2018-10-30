@@ -18,11 +18,12 @@ BaselineOfSpartaMoz2D >> baseline: spec [
 			repository: 'github://syrel/Sparta/src' ];
 		baseline: 'Beacon' with: [ spec 
 			repository: 'github://pharo-project/pharo-beacon/repository' ];
-
 		package: 'Sparta-Moz2D' with: [ spec 
 			requires: #('SpartaCore') ];
 		package: 'Sparta-Moz2D-Tests' with: [ spec 
-			requires: #('Sparta-Moz2D') ];
+			requires: #('Sparta-Moz2D') ]
+	].
+	spec for: #Moz2DInstaller do: [ spec
 		package: 'Sparta-Moz2D-Installer' with: [ spec 
 			requires: #('Sparta-Moz2D' 'Beacon' 'SpartaCoreDevelopment') ]
 	].
@@ -30,10 +31,10 @@ BaselineOfSpartaMoz2D >> baseline: spec [
 
 { #category : #accessing }
 BaselineOfSpartaMoz2D >> customProjectAttributes [
-	Smalltalk os isMacOS ifTrue: [ ^ #(#Moz2D) ].
-	Smalltalk os isUnix32 ifTrue: [ ^ #(Moz2D) ].
-	Smalltalk os isUnix64 ifTrue: [ ^ #(#Moz2D) ].
-	Smalltalk os isWindows ifTrue: [ ^ #(#Moz2D) ].
+	Smalltalk os isMacOS ifTrue: [ ^ #(#Moz2D #Moz2DInstaller) ].
+	Smalltalk os isUnix32 ifTrue: [ ^ #(#Moz2D) ].
+	Smalltalk os isUnix64 ifTrue: [ ^ #(#Moz2D #Moz2DInstaller) ].
+	Smalltalk os isWindows ifTrue: [ ^ #(#Moz2D #Moz2DInstaller) ].
 	^ #()
 ]
 
