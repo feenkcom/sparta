@@ -31,7 +31,7 @@ BaselineOfSpartaMoz2D >> baseline: spec [
 { #category : #accessing }
 BaselineOfSpartaMoz2D >> customProjectAttributes [
 	Smalltalk os isMacOS ifTrue: [ ^ #(#Moz2D) ].
-	Smalltalk os isUnix32 ifTrue: [ ^ #() ].
+	Smalltalk os isUnix32 ifTrue: [ ^ #(Moz2D) ].
 	Smalltalk os isUnix64 ifTrue: [ ^ #(#Moz2D) ].
 	Smalltalk os isWindows ifTrue: [ ^ #(#Moz2D) ].
 	^ #()
