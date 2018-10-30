@@ -8,6 +8,20 @@ Class {
 }
 
 { #category : #'instance creation' }
+MozFFITest >> callbackDouble [
+	^ FFICallback 
+		signature: #(double (double))
+		block: [ :value | value ]
+]
+
+{ #category : #'instance creation' }
+MozFFITest >> callbackFloat [
+	^ FFICallback 
+		signature: #(float (float))
+		block: [ :value | value ]
+]
+
+{ #category : #'instance creation' }
 MozFFITest >> callbackInt [
 	^ FFICallback 
 		signature: #(int (int))
@@ -92,6 +106,18 @@ MozFFITest >> callbackUIntptr [
 ]
 
 { #category : #'private - ffi' }
+MozFFITest >> primCall: aCallback double: aNumber [
+
+	^ self ffiCall: #(double moz2d_test_ffi_callback_double(FFICallback aCallback, double aNumber))
+]
+
+{ #category : #'private - ffi' }
+MozFFITest >> primCall: aCallback float: aNumber [
+
+	^ self ffiCall: #(float moz2d_test_ffi_callback_float(FFICallback aCallback, float aNumber))
+]
+
+{ #category : #'private - ffi' }
 MozFFITest >> primCall: aCallback int16: aNumber [
 
 	^ self ffiCall: #(int16 moz2d_test_ffi_callback_int16_t(FFICallback aCallback, int16 aNumber))
@@ -161,6 +187,54 @@ MozFFITest >> primCall: aCallback uint8: aNumber [
 MozFFITest >> primCall: aCallback uintptr: aNumber [
 
 	^ self ffiCall: #(ulong moz2d_test_ffi_callback_uintptr_t(FFICallback aCallback, ulong aNumber))
+]
+
+{ #category : #'private - ffi' }
+MozFFITest >> primComboFloat: aNumber [
+
+	^ self ffiCall: #(bool moz2d_test_ffi_combo_float(float aNumber, float aNumber, float aNumber, float aNumber, float aNumber))
+]
+
+{ #category : #'private - ffi' }
+MozFFITest >> primComboInt: aNumber [
+
+	^ self ffiCall: #(bool moz2d_test_ffi_combo_int(int aNumber, int aNumber, int aNumber, int aNumber, int aNumber))
+]
+
+{ #category : #'private - ffi' }
+MozFFITest >> primDouble: aNumber [
+
+	^ self ffiCall: #(double moz2d_test_ffi_double(double aNumber))
+]
+
+{ #category : #'private - ffi' }
+MozFFITest >> primDoubleMax [
+
+	^ self ffiCall: #(double moz2d_test_ffi_floating_max_double())
+]
+
+{ #category : #'private - ffi' }
+MozFFITest >> primDoubleMin [
+
+	^ self ffiCall: #(double moz2d_test_ffi_floating_min_double())
+]
+
+{ #category : #'private - ffi' }
+MozFFITest >> primFloat: aNumber [
+
+	^ self ffiCall: #(float moz2d_test_ffi_float(float aNumber))
+]
+
+{ #category : #'private - ffi' }
+MozFFITest >> primFloatMax [
+
+	^ self ffiCall: #(float moz2d_test_ffi_floating_max_float())
+]
+
+{ #category : #'private - ffi' }
+MozFFITest >> primFloatMin [
+
+	^ self ffiCall: #(float moz2d_test_ffi_floating_min_float())
 ]
 
 { #category : #'private - ffi' }
@@ -349,7 +423,39 @@ MozFFITest >> primUIntptrMax [
 	^ self ffiCall: #(ulong moz2d_test_ffi_fixed_unsigned_max_uintptr_t())
 ]
 
-{ #category : #tests }
+{ #category : #'tests - callback' }
+MozFFITest >> testCallbackDouble [
+
+	self
+		assert: (self primCall: self callbackDouble double: self primDoubleMin)
+		equals: self primDoubleMin.
+	
+	self
+		assert: (self primCall: self callbackDouble double: 0)
+		equals: 0.
+	
+	self
+		assert: (self primCall: self callbackDouble double: self primDoubleMax)
+		equals: self primDoubleMax
+]
+
+{ #category : #'tests - callback' }
+MozFFITest >> testCallbackFloat [
+
+	self
+		assert: (self primCall: self callbackFloat float: self primFloatMin)
+		equals: self primFloatMin.
+	
+	self
+		assert: (self primCall: self callbackFloat float: 0)
+		equals: 0.
+	
+	self
+		assert: (self primCall: self callbackFloat float: self primFloatMax)
+		equals: self primFloatMax
+]
+
+{ #category : #'tests - callback' }
 MozFFITest >> testCallbackInt16 [
 
 	self
@@ -365,7 +471,7 @@ MozFFITest >> testCallbackInt16 [
 		equals: self primInt16Max
 ]
 
-{ #category : #tests }
+{ #category : #'tests - callback' }
 MozFFITest >> testCallbackInt32 [
 
 	self
@@ -381,7 +487,7 @@ MozFFITest >> testCallbackInt32 [
 		equals: self primInt32Max
 ]
 
-{ #category : #tests }
+{ #category : #'tests - callback' }
 MozFFITest >> testCallbackInt64 [
 	
 	"testing 64bit data types does not make sense for 32bit platforms"
@@ -401,7 +507,7 @@ MozFFITest >> testCallbackInt64 [
 		equals: self primInt64Max
 ]
 
-{ #category : #tests }
+{ #category : #'tests - callback' }
 MozFFITest >> testCallbackInt8 [
 
 	self
@@ -417,7 +523,7 @@ MozFFITest >> testCallbackInt8 [
 		equals: self primInt8Max
 ]
 
-{ #category : #tests }
+{ #category : #'tests - callback' }
 MozFFITest >> testCallbackIntptr [
 
 	self
@@ -433,7 +539,7 @@ MozFFITest >> testCallbackIntptr [
 		equals: self primIntptrMax
 ]
 
-{ #category : #tests }
+{ #category : #'tests - callback' }
 MozFFITest >> testCallbackLong [
 
 	self
@@ -449,7 +555,7 @@ MozFFITest >> testCallbackLong [
 		equals: self primLongMax
 ]
 
-{ #category : #tests }
+{ #category : #'tests - callback' }
 MozFFITest >> testCallbackUInt16 [
 	
 	self
@@ -461,7 +567,7 @@ MozFFITest >> testCallbackUInt16 [
 		equals: self primUInt16Max
 ]
 
-{ #category : #tests }
+{ #category : #'tests - callback' }
 MozFFITest >> testCallbackUInt32 [
 	
 	self
@@ -473,7 +579,7 @@ MozFFITest >> testCallbackUInt32 [
 		equals: self primUInt32Max
 ]
 
-{ #category : #tests }
+{ #category : #'tests - callback' }
 MozFFITest >> testCallbackUInt64 [
 
 
@@ -490,7 +596,7 @@ MozFFITest >> testCallbackUInt64 [
 		equals: self primUInt64Max
 ]
 
-{ #category : #tests }
+{ #category : #'tests - callback' }
 MozFFITest >> testCallbackUInt8 [
 	
 	self
@@ -502,7 +608,7 @@ MozFFITest >> testCallbackUInt8 [
 		equals: self primUInt8Max
 ]
 
-{ #category : #tests }
+{ #category : #'tests - callback' }
 MozFFITest >> testCallbackUIntptr [
 	
 	self
@@ -514,7 +620,23 @@ MozFFITest >> testCallbackUIntptr [
 		equals: self primUIntptrMax
 ]
 
-{ #category : #tests }
+{ #category : #'tests - type' }
+MozFFITest >> testDouble [
+
+	self assert: (self primDouble: self primDoubleMin) equals: self primDoubleMin.
+	self assert: (self primDouble: 0) equals: 0.
+	self assert: (self primDouble: self primDoubleMax) equals: self primDoubleMax
+]
+
+{ #category : #'tests - type' }
+MozFFITest >> testFloat [
+
+	self assert: (self primFloat: self primFloatMin) equals: self primFloatMin.
+	self assert: (self primFloat: 0) equals: 0.
+	self assert: (self primFloat: self primFloatMax) equals: self primFloatMax
+]
+
+{ #category : #'tests - type' }
 MozFFITest >> testInt [
 
 	self assert: (self primInt: self primIntMin) equals: self primIntMin.
@@ -522,7 +644,7 @@ MozFFITest >> testInt [
 	self assert: (self primInt: self primIntMax) equals: self primIntMax
 ]
 
-{ #category : #tests }
+{ #category : #'tests - type' }
 MozFFITest >> testInt16 [
 
 	self assert: (self primInt16: self primInt16Min) equals: self primInt16Min.
@@ -530,7 +652,7 @@ MozFFITest >> testInt16 [
 	self assert: (self primInt16: self primInt16Max) equals: self primInt16Max
 ]
 
-{ #category : #tests }
+{ #category : #'tests - type' }
 MozFFITest >> testInt32 [
 
 	self assert: (self primInt32: self primInt32Min) equals: self primInt32Min.
@@ -538,7 +660,7 @@ MozFFITest >> testInt32 [
 	self assert: (self primInt32: self primInt32Max) equals: self primInt32Max
 ]
 
-{ #category : #tests }
+{ #category : #'tests - type' }
 MozFFITest >> testInt64 [
 
 	self assert: (self primInt64: self primInt64Min) equals: self primInt64Min.
@@ -546,7 +668,7 @@ MozFFITest >> testInt64 [
 	self assert: (self primInt64: self primInt64Max) equals: self primInt64Max
 ]
 
-{ #category : #tests }
+{ #category : #'tests - type' }
 MozFFITest >> testInt8 [
 
 	self assert: (self primInt8: self primInt8Min) equals: self primInt8Min.
@@ -554,7 +676,7 @@ MozFFITest >> testInt8 [
 	self assert: (self primInt8: self primInt8Max) equals: self primInt8Max
 ]
 
-{ #category : #tests }
+{ #category : #'tests - type' }
 MozFFITest >> testIntptr [
 
 	self assert: (self primIntptr: self primIntptrMin) equals: self primIntptrMin.
@@ -562,7 +684,7 @@ MozFFITest >> testIntptr [
 	self assert: (self primIntptr: self primIntptrMax) equals: self primIntptrMax
 ]
 
-{ #category : #tests }
+{ #category : #'tests - type' }
 MozFFITest >> testLong [
 
 	self assert: (self primLong: self primLongMin) equals: self primLongMin.
@@ -570,35 +692,35 @@ MozFFITest >> testLong [
 	self assert: (self primLong: self primLongMax) equals: self primLongMax
 ]
 
-{ #category : #tests }
+{ #category : #'tests - type' }
 MozFFITest >> testUInt16 [
 
 	self assert: (self primUInt16: 0) equals: 0.
 	self assert: (self primUInt16: self primUInt16Max) equals: self primUInt16Max
 ]
 
-{ #category : #tests }
+{ #category : #'tests - type' }
 MozFFITest >> testUInt32 [
 
 	self assert: (self primUInt32: 0) equals: 0.
 	self assert: (self primUInt32: self primUInt32Max) equals: self primUInt32Max
 ]
 
-{ #category : #tests }
+{ #category : #'tests - type' }
 MozFFITest >> testUInt64 [
 
 	self assert: (self primUInt64: 0) equals: 0.
 	self assert: (self primUInt64: self primUInt64Max) equals: self primUInt64Max
 ]
 
-{ #category : #tests }
+{ #category : #'tests - type' }
 MozFFITest >> testUInt8 [
 
 	self assert: (self primUInt8: 0) equals: 0.
 	self assert: (self primUInt8: self primUInt8Max) equals: self primUInt8Max
 ]
 
-{ #category : #tests }
+{ #category : #'tests - type' }
 MozFFITest >> testUIntptr [
 
 	self assert: (self primUIntptr: 0) equals: 0.

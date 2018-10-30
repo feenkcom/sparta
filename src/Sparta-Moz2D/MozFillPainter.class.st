@@ -6,11 +6,6 @@ Class {
 	#category : 'Sparta-Moz2D-Builders'
 }
 
-{ #category : #'library path' }
-MozFillPainter class >> ffiLibraryName [
-	^ MozLibrary
-]
-
 { #category : #drawing }
 MozFillPainter >> fillPath: aPath withForm: aForm [
 	| form |
