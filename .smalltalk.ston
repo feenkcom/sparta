@@ -1,7 +1,7 @@
 SmalltalkCISpec {
   #loading : [
     SCIMetacelloLoadSpec {
-      #baseline : 'SpartaDevelopment',
+      #baseline : 'Sparta',
       #directory : 'src',
       #platforms : [ #pharo ]
     }
