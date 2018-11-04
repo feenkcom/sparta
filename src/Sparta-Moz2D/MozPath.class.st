@@ -23,13 +23,13 @@ MozPath >> asForm [
 	canvas := MozCanvas extent: (bounds extent + margin) asIntegerPoint.
 	canvas transform
 		translateBy: (bounds origin negated + (margin / 2.0));
-		apply.
+		push.
 	canvas stroke
 		paint: Color black;
 		path: self;
 		strokeOptions: options;
 	draw.
-	
+
 	^ canvas asForm
 ]
 

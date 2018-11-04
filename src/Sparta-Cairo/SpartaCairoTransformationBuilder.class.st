@@ -6,15 +6,6 @@ Class {
 	#category : 'Sparta-Cairo-Builders'
 }
 
-{ #category : #transformation }
-SpartaCairoTransformationBuilder >> apply [
-	
-	transformation isIdentity
-		ifTrue: [ ^ self ].
-
-	self primApplyTransform: (SpartaCairoMatrix fromSpartaMatrix: transformation)
-]
-
 { #category : #accessing }
 SpartaCairoTransformationBuilder >> current [
 	| aSpartaMatrix aCairoMatrix |
@@ -34,7 +25,6 @@ SpartaCairoTransformationBuilder >> current [
 
 { #category : #transformation }
 SpartaCairoTransformationBuilder >> pop [
-	
 	self primSetTransform: (SpartaCairoMatrix fromSpartaMatrix: canvas popTransform)
 ]
 
@@ -63,7 +53,11 @@ SpartaCairoTransformationBuilder >> primSetTransform: aCairoMatrix [
 ]
 
 { #category : #transformation }
-SpartaCairoTransformationBuilder >> push [
+SpartaCairoTransformationBuilder >> push: aSpartaMatrix [
 
-	canvas pushTransform: self current
+	"save current"
+	canvas pushTransform: self current.
+
+	"then set new"
+	self primApplyTransform: (SpartaCairoMatrix fromSpartaMatrix: aSpartaMatrix)
 ]

@@ -86,12 +86,9 @@ MozClipperTests >> testTransformClip [
 	outside := 0@0 extent: 50@50.
 	partially := 50@50 extent: 100@100.
 	
-	canvas transform during: [ 
-		canvas transform
-			translateBy: translate;
-			apply.
-
-		canvas clip by: clip during: [ 
+	canvas transform
+		by: [ :t | t translateBy: translate ]
+		during: [ canvas clip by: clip during: [ 
 			self assert: canvas clip localBounds equals: clip.
 			self assert: canvas clip globalBounds equals: (clip translateBy: translate).
 			self assert: (canvas clip containsLocal: clip).

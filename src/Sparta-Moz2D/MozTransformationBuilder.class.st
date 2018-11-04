@@ -6,21 +6,6 @@ Class {
 	#category : 'Sparta-Moz2D-Builders'
 }
 
-{ #category : #transformation }
-MozTransformationBuilder >> apply [
-	
-	transformation isIdentity
-		ifTrue: [ ^ self ].
-
-	self
-		primConcatenateTransformA11: transformation sx
-		a12: transformation shy
-		a21: transformation shx
-		a22: transformation sy
-		a31: transformation x
-		a32: transformation y
-]
-
 { #category : #accessing }
 MozTransformationBuilder >> current [
 	^ self privGetTransform
@@ -56,7 +41,6 @@ MozTransformationBuilder >> drawSurface: aSpartaSurface transformed: aMatrix3D [
 
 { #category : #transformation }
 MozTransformationBuilder >> pop [
-	
 	self primPopTransform
 ]
 
@@ -102,7 +86,18 @@ MozTransformationBuilder >> privGetTransform [
 ]
 
 { #category : #transformation }
-MozTransformationBuilder >> push [
+MozTransformationBuilder >> push: aSpartaMatrix [
+
+	self primPushTransform.
 	
-	self primPushTransform
+	aSpartaMatrix isIdentity
+		ifTrue: [ ^ self ].
+
+	self
+		primConcatenateTransformA11: aSpartaMatrix sx
+		a12: aSpartaMatrix shy
+		a21: aSpartaMatrix shx
+		a22: aSpartaMatrix sy
+		a31: aSpartaMatrix x
+		a32: aSpartaMatrix y
 ]
