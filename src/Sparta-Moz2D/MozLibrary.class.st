@@ -11,13 +11,6 @@ Class {
 	#category : #'Sparta-Moz2D-Library'
 }
 
-{ #category : #cleanup }
-MozLibrary class >> cleanUp [
-	super cleanUp.
-	
-	postLoaded := nil
-]
-
 { #category : #installation }
 MozLibrary class >> install [
 	<script: 'self install'>
@@ -39,18 +32,6 @@ MozLibrary class >> install [
 	ui openInBorderlessWindow.
 
 	installer run
-]
-
-{ #category : #installation }
-MozLibrary class >> mozPostLoad [
-	<spartaPostLoad>
-	
-	"prevent from installing multiple times by metacello"
-	(postLoaded isNil or: [ postLoaded not ])
-		ifFalse: [ ^ self ].
-
-	postLoaded := true.
-	self install
 ]
 
 { #category : #'accessing platform' }
