@@ -8,7 +8,7 @@ branches:
 os:
   - linux
   - osx
-  - windows
+#  - windows
 
 smalltalk:
   - Pharo-7.0
