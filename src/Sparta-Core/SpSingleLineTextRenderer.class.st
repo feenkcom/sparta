@@ -1,7 +1,7 @@
 Class {
 	#name : #SpSingleLineTextRenderer,
 	#superclass : #SpTextRenderer,
-	#category : 'Sparta-Core-Text-Rendering'
+	#category : #'Sparta-Core-Text-Rendering'
 }
 
 { #category : #rendering }

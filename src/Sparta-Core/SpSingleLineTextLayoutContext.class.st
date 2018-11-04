@@ -4,7 +4,7 @@ Class {
 	#instVars : [
 		'spans'
 	],
-	#category : 'Sparta-Core-Text-Rendering'
+	#category : #'Sparta-Core-Text-Rendering'
 }
 
 { #category : #initialization }

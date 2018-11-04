@@ -20,7 +20,7 @@ Public API and Key Messages
 "
 Trait {
 	#name : #TSpartaDisplacementMapFilter,
-	#category : 'Sparta-Core-Filters'
+	#category : #'Sparta-Core-Filters'
 }
 
 { #category : #accessing }

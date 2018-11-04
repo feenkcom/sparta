@@ -21,7 +21,7 @@ Class {
 		'zeroOrAveCharWidth',
 		'capHeight'
 	],
-	#category : 'Sparta-Core-Text'
+	#category : #'Sparta-Core-Text'
 }
 
 { #category : #accessing }

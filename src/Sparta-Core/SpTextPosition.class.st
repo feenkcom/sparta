@@ -6,7 +6,7 @@ Class {
 		'spanIndex',
 		'offset'
 	],
-	#category : 'Sparta-Core-Text-Rendering'
+	#category : #'Sparta-Core-Text-Rendering'
 }
 
 { #category : #'instance creation' }

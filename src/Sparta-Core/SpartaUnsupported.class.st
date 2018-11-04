@@ -4,5 +4,5 @@ I am a silent notification that is signaled if backend does not support a reques
 Class {
 	#name : #SpartaUnsupported,
 	#superclass : #Notification,
-	#category : 'Sparta-Core'
+	#category : #'Sparta-Core'
 }

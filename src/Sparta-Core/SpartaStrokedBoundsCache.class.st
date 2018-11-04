@@ -16,7 +16,7 @@ Class {
 		'strokeOptions',
 		'session'
 	],
-	#category : 'Sparta-Core-Path'
+	#category : #'Sparta-Core-Path'
 }
 
 { #category : #'private - accessing' }

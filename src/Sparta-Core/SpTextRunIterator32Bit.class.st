@@ -4,7 +4,7 @@ Class {
 	#instVars : [
 		'offset'
 	],
-	#category : 'Sparta-Core-Text'
+	#category : #'Sparta-Core-Text'
 }
 
 { #category : #initialization }

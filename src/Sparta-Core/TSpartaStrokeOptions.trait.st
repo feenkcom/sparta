@@ -4,7 +4,7 @@ Stroke options are used in stroking operations.
 "
 Trait {
 	#name : #TSpartaStrokeOptions,
-	#category : 'Sparta-Core'
+	#category : #'Sparta-Core'
 }
 
 { #category : #accessing }

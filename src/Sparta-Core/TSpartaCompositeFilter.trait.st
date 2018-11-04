@@ -17,7 +17,7 @@ Example:
 "
 Trait {
 	#name : #TSpartaCompositeFilter,
-	#category : 'Sparta-Core-Filters'
+	#category : #'Sparta-Core-Filters'
 }
 
 { #category : #'composion operators' }

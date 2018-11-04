@@ -1,7 +1,7 @@
 Class {
 	#name : #SpAttribute,
 	#superclass : #Object,
-	#category : 'Sparta-Core-Text-Model'
+	#category : #'Sparta-Core-Text-Model'
 }
 
 { #category : #properties }

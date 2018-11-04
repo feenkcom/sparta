@@ -1,6 +1,6 @@
 Trait {
 	#name : #TSpartaTransformFilter,
-	#category : 'Sparta-Core-Filters'
+	#category : #'Sparta-Core-Filters'
 }
 
 { #category : #accessing }

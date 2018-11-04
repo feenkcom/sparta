@@ -13,7 +13,7 @@ Internal Representation and Key Implementation Points.
 "
 Trait {
 	#name : #TSpartaSurface,
-	#category : 'Sparta-Core'
+	#category : #'Sparta-Core'
 }
 
 { #category : #converting }

@@ -13,7 +13,7 @@ Class {
 		'unicodeRange',
 		'source'
 	],
-	#category : 'Sparta-Core-Text'
+	#category : #'Sparta-Core-Text'
 }
 
 { #category : #comparing }

@@ -20,7 +20,7 @@ brannan := canvas filters brannan: kitty.
 Class {
 	#name : #SpartaFiltersFactory,
 	#superclass : #SpartaAbstractBuilder,
-	#category : 'Sparta-Core-Builders'
+	#category : #'Sparta-Core-Builders'
 }
 
 { #category : #filters }

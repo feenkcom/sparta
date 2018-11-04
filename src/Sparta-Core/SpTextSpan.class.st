@@ -12,7 +12,7 @@ Class {
 		'strikethroughSize',
 		'transformationInverted'
 	],
-	#category : 'Sparta-Core-Text-Rendering'
+	#category : #'Sparta-Core-Text-Rendering'
 }
 
 { #category : #'instance creation' }

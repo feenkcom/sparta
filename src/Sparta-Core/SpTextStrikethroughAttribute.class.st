@@ -5,7 +5,7 @@ Class {
 		'paint',
 		'width'
 	],
-	#category : 'Sparta-Core-Text-Model'
+	#category : #'Sparta-Core-Text-Model'
 }
 
 { #category : #initialization }

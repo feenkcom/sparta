@@ -1,6 +1,6 @@
 Trait {
 	#name : #TSpartaSurfacePaint,
-	#category : 'Sparta-Core-Paints'
+	#category : #'Sparta-Core-Paints'
 }
 
 { #category : #'sampling filters' }

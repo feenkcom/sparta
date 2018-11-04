@@ -49,7 +49,7 @@ canvas paint radialGradient
 "
 Trait {
 	#name : #TSpartaRadialGradientPaint,
-	#category : 'Sparta-Core-Paints'
+	#category : #'Sparta-Core-Paints'
 }
 
 { #category : #accessing }

@@ -1,6 +1,6 @@
 Trait {
 	#name : #TSpartaExamples,
-	#category : 'Sparta-Core-Examples'
+	#category : #'Sparta-Core-Examples'
 }
 
 { #category : #'instance creation' }

@@ -19,7 +19,7 @@ Examples
 "
 Trait {
 	#name : #TSpartaDiscreteTransferFilter,
-	#category : 'Sparta-Core-Filters'
+	#category : #'Sparta-Core-Filters'
 }
 
 { #category : #accessing }

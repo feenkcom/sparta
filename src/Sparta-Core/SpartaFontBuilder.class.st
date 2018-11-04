@@ -61,7 +61,7 @@ Class {
 		'stretch',
 		'style'
 	],
-	#category : 'Sparta-Core-Builders'
+	#category : #'Sparta-Core-Builders'
 }
 
 { #category : #accessing }

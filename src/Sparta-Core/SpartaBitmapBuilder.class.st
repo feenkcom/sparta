@@ -21,7 +21,7 @@ surface := canvas bitmap fromFileNamed: 'images/cats/kitty.jpg'
 Class {
 	#name : #SpartaBitmapBuilder,
 	#superclass : #SpartaAbstractBuilder,
-	#category : 'Sparta-Core-Builders'
+	#category : #'Sparta-Core-Builders'
 }
 
 { #category : #bitmap }

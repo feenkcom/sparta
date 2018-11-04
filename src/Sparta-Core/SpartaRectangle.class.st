@@ -10,7 +10,7 @@ Class {
 		'right',
 		'bottom'
 	],
-	#category : 'Sparta-Core-Math'
+	#category : #'Sparta-Core-Math'
 }
 
 { #category : #'instance creation' }

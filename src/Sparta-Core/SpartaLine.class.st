@@ -29,7 +29,7 @@ Class {
 		'to',
 		'boundsCache'
 	],
-	#category : 'Sparta-Core-Path'
+	#category : #'Sparta-Core-Path'
 }
 
 { #category : #'instance creation' }

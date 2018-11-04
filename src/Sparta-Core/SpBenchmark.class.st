@@ -1,7 +1,7 @@
 Class {
 	#name : #SpBenchmark,
 	#superclass : #Object,
-	#category : 'Sparta-Core-Text-Rope-Tests'
+	#category : #'Sparta-Core-Text-Rope-Tests'
 }
 
 { #category : #benchmark }

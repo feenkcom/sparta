@@ -3,7 +3,7 @@ I am a helper trait that defines basic font properties such as weight, style and
 "
 Trait {
 	#name : #TSpFontDescriptor,
-	#category : 'Sparta-Core-Text'
+	#category : #'Sparta-Core-Text'
 }
 
 { #category : #stretch }

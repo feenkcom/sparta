@@ -6,7 +6,7 @@ Class {
 		'length',
 		'index'
 	],
-	#category : 'Sparta-Core-Text'
+	#category : #'Sparta-Core-Text'
 }
 
 { #category : #'instance creation' }

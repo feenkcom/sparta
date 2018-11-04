@@ -43,7 +43,7 @@ Class {
 	#classInstVars : [
 		'matrix'
 	],
-	#category : 'Sparta-Core-Text-Rendering'
+	#category : #'Sparta-Core-Text-Rendering'
 }
 
 { #category : #cleanup }

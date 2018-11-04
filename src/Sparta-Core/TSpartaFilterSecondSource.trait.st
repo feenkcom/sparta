@@ -5,7 +5,7 @@ Classes that use me must implment #secondSourceFilter: and #secondSourceSurface:
 "
 Trait {
 	#name : #TSpartaFilterSecondSource,
-	#category : 'Sparta-Core-Filters-Traits'
+	#category : #'Sparta-Core-Filters-Traits'
 }
 
 { #category : #accessing }

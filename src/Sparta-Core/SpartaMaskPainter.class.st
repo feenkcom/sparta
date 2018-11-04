@@ -7,7 +7,7 @@ Class {
 		'mask',
 		'offset'
 	],
-	#category : 'Sparta-Core-Builders'
+	#category : #'Sparta-Core-Builders'
 }
 
 { #category : #drawing }

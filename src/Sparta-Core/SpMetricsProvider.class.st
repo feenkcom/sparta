@@ -1,7 +1,7 @@
 Class {
 	#name : #SpMetricsProvider,
 	#superclass : #Object,
-	#category : 'Sparta-Core-Text'
+	#category : #'Sparta-Core-Text'
 }
 
 { #category : #measurement }

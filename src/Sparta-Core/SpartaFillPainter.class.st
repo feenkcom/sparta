@@ -40,7 +40,7 @@ Concrete backend implementations should subclass me directly, I was never ment t
 Class {
 	#name : #SpartaFillPainter,
 	#superclass : #SpartaPathPainter,
-	#category : 'Sparta-Core-Builders'
+	#category : #'Sparta-Core-Builders'
 }
 
 { #category : #testing }

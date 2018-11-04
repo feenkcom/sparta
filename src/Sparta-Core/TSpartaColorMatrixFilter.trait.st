@@ -1,6 +1,6 @@
 Trait {
 	#name : #TSpartaColorMatrixFilter,
-	#category : 'Sparta-Core-Filters'
+	#category : #'Sparta-Core-Filters'
 }
 
 { #category : #accessing }

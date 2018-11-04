@@ -25,7 +25,7 @@ Class {
 	#instVars : [
 		'pointer'
 	],
-	#category : 'Sparta-Core-Utils'
+	#category : #'Sparta-Core-Utils'
 }
 
 { #category : #initialize }

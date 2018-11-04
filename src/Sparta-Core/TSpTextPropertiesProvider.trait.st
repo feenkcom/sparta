@@ -1,6 +1,6 @@
 Trait {
 	#name : #TSpTextPropertiesProvider,
-	#category : 'Sparta-Core-Text-Rendering'
+	#category : #'Sparta-Core-Text-Rendering'
 }
 
 { #category : #accessing }

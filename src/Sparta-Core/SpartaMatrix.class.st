@@ -9,7 +9,7 @@ Class {
 		'sy',
 		'y'
 	],
-	#category : 'Sparta-Core-Math'
+	#category : #'Sparta-Core-Math'
 }
 
 { #category : #accessing }

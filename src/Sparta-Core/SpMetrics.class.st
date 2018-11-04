@@ -25,7 +25,7 @@ Class {
 		'wrappedLength',
 		'canvas'
 	],
-	#category : 'Sparta-Core-Text'
+	#category : #'Sparta-Core-Text'
 }
 
 { #category : #accessing }

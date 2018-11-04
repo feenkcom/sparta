@@ -7,7 +7,7 @@ The rectangle is as large as the filter primitive subregion established by the â
 "
 Trait {
 	#name : #TSpartaFloodFilter,
-	#category : 'Sparta-Core-Filters'
+	#category : #'Sparta-Core-Filters'
 }
 
 { #category : #accessing }

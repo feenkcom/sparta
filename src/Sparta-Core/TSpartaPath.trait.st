@@ -11,7 +11,7 @@ Public API and Key Messages
 "
 Trait {
 	#name : #TSpartaPath,
-	#category : 'Sparta-Core-Path'
+	#category : #'Sparta-Core-Path'
 }
 
 { #category : #converting }

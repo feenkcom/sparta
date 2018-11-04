@@ -1,7 +1,7 @@
 Class {
 	#name : #SpCollectionRopeIteratorTests,
 	#superclass : #TestCase,
-	#category : 'Sparta-Core-Text-Rope-Tests'
+	#category : #'Sparta-Core-Text-Rope-Tests'
 }
 
 { #category : #tests }

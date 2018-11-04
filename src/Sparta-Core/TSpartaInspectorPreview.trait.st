@@ -5,7 +5,7 @@ Classes that use me must implement asForm convertion method.
 "
 Trait {
 	#name : #TSpartaInspectorPreview,
-	#category : 'Sparta-Core-Utils'
+	#category : #'Sparta-Core-Utils'
 }
 
 { #category : #converting }

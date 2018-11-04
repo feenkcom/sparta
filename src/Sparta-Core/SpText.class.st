@@ -5,7 +5,7 @@ Class {
 		'rope',
 		'selections'
 	],
-	#category : 'Sparta-Core-Text-Model'
+	#category : #'Sparta-Core-Text-Model'
 }
 
 { #category : #'instance creation' }

@@ -4,7 +4,7 @@ I represent a font face source and know how to retrieve font contents from it
 Class {
 	#name : #SpUserFontSource,
 	#superclass : #Object,
-	#category : 'Sparta-Core-Text'
+	#category : #'Sparta-Core-Text'
 }
 
 { #category : #comparing }

@@ -1,6 +1,6 @@
 Trait {
 	#name : #TSpartaDiffuseLightingFilter,
-	#category : 'Sparta-Core-Filters'
+	#category : #'Sparta-Core-Filters'
 }
 
 { #category : #accessing }

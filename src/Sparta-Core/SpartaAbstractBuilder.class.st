@@ -38,7 +38,7 @@ Class {
 	#instVars : [
 		'canvas'
 	],
-	#category : 'Sparta-Core-Builders'
+	#category : #'Sparta-Core-Builders'
 }
 
 { #category : #accessing }

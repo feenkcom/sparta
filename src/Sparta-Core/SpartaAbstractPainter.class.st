@@ -18,7 +18,7 @@ Painters are supposed to be backend specific
 Class {
 	#name : #SpartaAbstractPainter,
 	#superclass : #SpartaAbstractBuilder,
-	#category : 'Sparta-Core-Builders'
+	#category : #'Sparta-Core-Builders'
 }
 
 { #category : #drawing }

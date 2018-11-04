@@ -6,7 +6,7 @@ Class {
 	#instVars : [
 		'matrix'
 	],
-	#category : 'Sparta-Core-Text-Model'
+	#category : #'Sparta-Core-Text-Model'
 }
 
 { #category : #properties }

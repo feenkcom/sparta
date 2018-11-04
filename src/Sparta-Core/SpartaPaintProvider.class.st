@@ -24,7 +24,7 @@ Internal Representation and Key Implementation Points.
 Class {
 	#name : #SpartaPaintProvider,
 	#superclass : #SpartaAbstractBuilder,
-	#category : 'Sparta-Core-Builders'
+	#category : #'Sparta-Core-Builders'
 }
 
 { #category : #paints }

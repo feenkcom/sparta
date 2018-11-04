@@ -39,7 +39,7 @@ Subclasses must implement pushRectangle: pushPath: and pop
 Class {
 	#name : #SpartaClipper,
 	#superclass : #SpartaAbstractBuilder,
-	#category : 'Sparta-Core-Builders'
+	#category : #'Sparta-Core-Builders'
 }
 
 { #category : #clipping }

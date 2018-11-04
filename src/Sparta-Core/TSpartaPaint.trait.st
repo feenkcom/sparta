@@ -31,7 +31,7 @@ Generally, a Paint is not meant to be an external object, however for additional
 "
 Trait {
 	#name : #TSpartaPaint,
-	#category : 'Sparta-Core-Paints'
+	#category : #'Sparta-Core-Paints'
 }
 
 { #category : #converting }

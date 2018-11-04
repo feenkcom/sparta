@@ -5,8 +5,53 @@ I just implement a double dispatch with the platform.
 Class {
 	#name : #MozLibrary,
 	#superclass : #FFILibrary,
-	#category : 'Sparta-Moz2D-Library'
+	#classInstVars : [
+		'postLoaded'
+	],
+	#category : #'Sparta-Moz2D-Library'
 }
+
+{ #category : #cleanup }
+MozLibrary class >> cleanUp [
+	super cleanUp.
+	
+	postLoaded := nil
+]
+
+{ #category : #installation }
+MozLibrary class >> install [
+	<script: 'self install'>
+	| installer ui |
+
+	installer := GtLibraryInstaller new.
+	installer library: 'Moz2D'.
+	installer version: 'development'.
+	installer icon: (SpartaCanvas logo scaledToSize: 50@50).
+	installer binary: 'libMoz2D'.
+	installer url: 'https://dl.feenk.com/{library}/{platform}/{version}/{arch}/{binary}.{extension}'.
+	installer running: [ MozServices isRunning ].
+	installer works: [ MozLibrary uniqueInstance hasModule ].
+	installer postInstall: [ MozServices start ].
+
+	ui := GtLibraryInstallerMorph new.
+	ui installer: installer.
+	ui extent: 650@300.
+	ui openInBorderlessWindow.
+
+	installer run
+]
+
+{ #category : #installation }
+MozLibrary class >> mozPostLoad [
+	<spartaPostLoad>
+	
+	"prevent from installing multiple times by metacello"
+	(postLoaded isNil or: [ postLoaded not ])
+		ifFalse: [ ^ self ].
+
+	postLoaded := true.
+	self install
+]
 
 { #category : #'accessing platform' }
 MozLibrary >> detectLibrary: aFileName [

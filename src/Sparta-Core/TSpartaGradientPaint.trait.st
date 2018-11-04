@@ -16,7 +16,7 @@ Like any other paint I must not be instantiated by onyone except *canvas>../Spar
 "
 Trait {
 	#name : #TSpartaGradientPaint,
-	#category : 'Sparta-Core-Paints'
+	#category : #'Sparta-Core-Paints'
 }
 
 { #category : #accessing }

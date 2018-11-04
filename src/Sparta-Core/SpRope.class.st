@@ -27,7 +27,7 @@ Class {
 	#classInstVars : [
 		'fibonacci'
 	],
-	#category : 'Sparta-Core-Text-Rope'
+	#category : #'Sparta-Core-Text-Rope'
 }
 
 { #category : #'rope types' }

@@ -1,7 +1,7 @@
 Class {
 	#name : #SpTextRunIterator16Bit,
 	#superclass : #SpTextRunIterator,
-	#category : 'Sparta-Core-Text'
+	#category : #'Sparta-Core-Text'
 }
 
 { #category : #private }

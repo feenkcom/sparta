@@ -9,7 +9,7 @@ Class {
 	#instVars : [
 		'file'
 	],
-	#category : 'Sparta-Core-Text'
+	#category : #'Sparta-Core-Text'
 }
 
 { #category : #comparing }

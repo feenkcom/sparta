@@ -47,7 +47,7 @@ canvas paint linearGradient
 "
 Trait {
 	#name : #TSpartaLinearGradientPaint,
-	#category : 'Sparta-Core-Paints'
+	#category : #'Sparta-Core-Paints'
 }
 
 { #category : #accessing }

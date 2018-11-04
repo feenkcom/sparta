@@ -4,7 +4,7 @@ A draw options control how the incoming color (source) will be transferred to su
 "
 Trait {
 	#name : #TSpartaDrawOptions,
-	#category : 'Sparta-Core'
+	#category : #'Sparta-Core'
 }
 
 { #category : #accessing }

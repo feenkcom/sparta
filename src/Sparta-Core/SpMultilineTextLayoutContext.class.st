@@ -6,7 +6,7 @@ Class {
 		'spansStack',
 		'isSplitted'
 	],
-	#category : 'Sparta-Core-Text-Rendering'
+	#category : #'Sparta-Core-Text-Rendering'
 }
 
 { #category : #initialization }

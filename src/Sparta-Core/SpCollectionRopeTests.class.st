@@ -4,7 +4,7 @@ Class {
 	#instVars : [
 		'rope'
 	],
-	#category : 'Sparta-Core-Text-Rope-Tests'
+	#category : #'Sparta-Core-Text-Rope-Tests'
 }
 
 { #category : #testing }

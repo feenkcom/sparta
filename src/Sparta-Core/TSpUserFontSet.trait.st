@@ -3,7 +3,7 @@ I define an API of user font set that allows custom fonts to be used without the
 "
 Trait {
 	#name : #TSpUserFontSet,
-	#category : 'Sparta-Core-Text'
+	#category : #'Sparta-Core-Text'
 }
 
 { #category : #adding }

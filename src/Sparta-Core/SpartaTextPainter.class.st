@@ -80,7 +80,7 @@ Class {
 		'clip',
 		'text'
 	],
-	#category : 'Sparta-Core-Builders'
+	#category : #'Sparta-Core-Builders'
 }
 
 { #category : #accessing }

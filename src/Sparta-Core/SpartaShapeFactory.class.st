@@ -20,7 +20,7 @@ Internal Representation and Key Implementation Points.
 Class {
 	#name : #SpartaShapeFactory,
 	#superclass : #SpartaAbstractBuilder,
-	#category : 'Sparta-Core-Builders'
+	#category : #'Sparta-Core-Builders'
 }
 
 { #category : #shapes }

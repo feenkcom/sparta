@@ -1,7 +1,7 @@
 Class {
 	#name : #SpSmallCollectionRopeTests,
 	#superclass : #SpCollectionRopeTests,
-	#category : 'Sparta-Core-Text-Rope-Tests'
+	#category : #'Sparta-Core-Text-Rope-Tests'
 }
 
 { #category : #requirements }

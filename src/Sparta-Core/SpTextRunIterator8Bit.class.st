@@ -1,7 +1,7 @@
 Class {
 	#name : #SpTextRunIterator8Bit,
 	#superclass : #SpTextRunIterator,
-	#category : 'Sparta-Core-Text'
+	#category : #'Sparta-Core-Text'
 }
 
 { #category : #'stream access' }

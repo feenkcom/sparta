@@ -1,6 +1,6 @@
 Trait {
 	#name : #TSpartaTextExamples,
-	#category : 'Sparta-Core-Examples'
+	#category : #'Sparta-Core-Examples'
 }
 
 { #category : #accessing }

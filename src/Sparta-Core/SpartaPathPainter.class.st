@@ -37,7 +37,7 @@ Class {
 		'paint',
 		'drawOptions'
 	],
-	#category : 'Sparta-Core-Builders'
+	#category : #'Sparta-Core-Builders'
 }
 
 { #category : #accessing }

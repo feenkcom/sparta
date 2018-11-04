@@ -122,7 +122,7 @@ Class {
 	#instVars : [
 		'composeOperators'
 	],
-	#category : 'Sparta-Core'
+	#category : #'Sparta-Core'
 }
 
 { #category : #help }

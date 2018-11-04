@@ -1,6 +1,6 @@
 Trait {
 	#name : #TSpartaTransformable,
-	#category : 'Sparta-Core-Math'
+	#category : #'Sparta-Core-Math'
 }
 
 { #category : #transformations }

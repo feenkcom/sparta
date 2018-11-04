@@ -5,7 +5,7 @@ Class {
 		'extent',
 		'format'
 	],
-	#category : 'Sparta-Core-Utils'
+	#category : #'Sparta-Core-Utils'
 }
 
 { #category : #accessing }

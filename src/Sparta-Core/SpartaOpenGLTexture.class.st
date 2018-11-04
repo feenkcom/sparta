@@ -4,7 +4,7 @@ Class {
 	#instVars : [
 		'id'
 	],
-	#category : 'Sparta-Core-Utils'
+	#category : #'Sparta-Core-Utils'
 }
 
 { #category : #accessing }

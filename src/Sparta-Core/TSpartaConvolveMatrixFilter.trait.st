@@ -41,7 +41,7 @@ When the image must be resampled to match the coordinate system defined by ‘ke
 "
 Trait {
 	#name : #TSpartaConvolveMatrixFilter,
-	#category : 'Sparta-Core-Filters'
+	#category : #'Sparta-Core-Filters'
 }
 
 { #category : #accessing }

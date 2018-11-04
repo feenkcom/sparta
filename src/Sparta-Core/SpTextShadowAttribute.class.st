@@ -6,7 +6,7 @@ Class {
 		'color',
 		'radius'
 	],
-	#category : 'Sparta-Core-Text-Model'
+	#category : #'Sparta-Core-Text-Model'
 }
 
 { #category : #accessing }

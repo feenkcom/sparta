@@ -10,7 +10,7 @@ Class {
 		'advance',
 		'height'
 	],
-	#category : 'Sparta-Core-Text'
+	#category : #'Sparta-Core-Text'
 }
 
 { #category : #converting }

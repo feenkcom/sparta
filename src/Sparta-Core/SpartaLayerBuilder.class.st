@@ -11,7 +11,7 @@ Class {
 		'shouldCopy',
 		'isOpaque'
 	],
-	#category : 'Sparta-Core-Builders'
+	#category : #'Sparta-Core-Builders'
 }
 
 { #category : #accessing }

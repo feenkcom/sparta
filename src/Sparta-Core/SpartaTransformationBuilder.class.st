@@ -67,13 +67,21 @@ Class {
 	#instVars : [
 		'transformation'
 	],
-	#category : 'Sparta-Core-Builders'
+	#category : #'Sparta-Core-Builders'
 }
 
 { #category : #transformation }
 SpartaTransformationBuilder >> apply [
+	self deprecated: 'Use `push` instead'
+]
 
-	^ self subclassResponsibility
+{ #category : #transformation }
+SpartaTransformationBuilder >> by: aTransformationBlock during: aDuringBlock [
+
+	"we build a transformation within transformation block.
+	it will be applied only within during block"
+	aTransformationBlock cull: self.
+	[ self push. aDuringBlock value ] ensure: [ self pop ]
 ]
 
 { #category : #accessing }
@@ -92,6 +100,8 @@ SpartaTransformationBuilder >> drawSurface: aSpartaSurface transformed: aMatrix4
 
 { #category : #transformation }
 SpartaTransformationBuilder >> during: aBlock [
+	self deprecated: 'Use `by:during:` instead'.
+
 	self push.
 	[ aBlock cull: self ] ensure: [
 		self pop ]
@@ -110,6 +120,11 @@ SpartaTransformationBuilder >> pop [
 
 { #category : #transformation }
 SpartaTransformationBuilder >> push [
+	^ self push: transformation
+]
+
+{ #category : #transformation }
+SpartaTransformationBuilder >> push: aSpartaMatrix [
 	^ self subclassResponsibility
 ]
 

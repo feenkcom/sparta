@@ -1,12 +1,12 @@
 Class {
 	#name : #BaselineOfSpartaCore,
 	#superclass : #BaselineOf,
-	#category : 'BaselineOfSpartaCore'
+	#category : #BaselineOfSpartaCore
 }
 
 { #category : #baselines }
 BaselineOfSpartaCore >> baseline: spec [
 	<baseline>
-	spec for: #common do: [
-		spec package: 'Sparta-Core' ].
+
+	spec for: #common do: [ spec package: 'Sparta-Core' ]
 ]

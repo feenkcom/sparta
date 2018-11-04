@@ -33,7 +33,7 @@ Note: the approximation formula also applies correspondingly to 't'.
 "
 Trait {
 	#name : #TSpartaGaussianBlurFilter,
-	#category : 'Sparta-Core-Filters'
+	#category : #'Sparta-Core-Filters'
 }
 
 { #category : #accessing }

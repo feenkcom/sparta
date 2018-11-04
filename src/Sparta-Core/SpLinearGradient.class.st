@@ -10,7 +10,7 @@ Class {
 		'transformation',
 		'extend'
 	],
-	#category : 'Sparta-Core-Text-Model'
+	#category : #'Sparta-Core-Text-Model'
 }
 
 { #category : #converting }

@@ -4,7 +4,7 @@ Class {
 	#instVars : [
 		'wrapType'
 	],
-	#category : 'Sparta-Core-Text-Model'
+	#category : #'Sparta-Core-Text-Model'
 }
 
 { #category : #'instance creation' }

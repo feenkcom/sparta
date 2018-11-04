@@ -6,7 +6,7 @@ https://www.w3.org/TR/filter-effects/#feComponentTransferElement
 "
 Trait {
 	#name : #TSpartaTableTransferFilter,
-	#category : 'Sparta-Core-Filters'
+	#category : #'Sparta-Core-Filters'
 }
 
 { #category : #accessing }

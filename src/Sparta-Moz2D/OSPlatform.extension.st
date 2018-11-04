@@ -4,3 +4,8 @@ Extension { #name : #OSPlatform }
 OSPlatform >> mozLibraryInstaller [
 	^ self subclassResponsibility
 ]
+
+{ #category : #'*Sparta-Moz2D' }
+OSPlatform >> mozSettings [
+	self subclassResponsibility
+]

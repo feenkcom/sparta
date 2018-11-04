@@ -4,7 +4,7 @@ Class {
 	#instVars : [
 		'item'
 	],
-	#category : 'Sparta-Core-Text-Rope'
+	#category : #'Sparta-Core-Text-Rope'
 }
 
 { #category : #'instance creation' }

@@ -55,7 +55,7 @@ Class {
 	#instVars : [
 		'strokeOptions'
 	],
-	#category : 'Sparta-Core-Builders'
+	#category : #'Sparta-Core-Builders'
 }
 
 { #category : #'cap styles' }

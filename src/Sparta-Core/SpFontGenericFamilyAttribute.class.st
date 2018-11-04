@@ -4,7 +4,7 @@ Class {
 	#instVars : [
 		'family'
 	],
-	#category : 'Sparta-Core-Text-Model'
+	#category : #'Sparta-Core-Text-Model'
 }
 
 { #category : #'instance creation' }

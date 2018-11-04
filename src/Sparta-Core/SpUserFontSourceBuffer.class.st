@@ -8,7 +8,7 @@ Class {
 	#instVars : [
 		'buffer'
 	],
-	#category : 'Sparta-Core-Text'
+	#category : #'Sparta-Core-Text'
 }
 
 { #category : #comparing }

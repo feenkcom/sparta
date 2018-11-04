@@ -7,7 +7,7 @@ Users should never instantiate TextRun directly, instead ask TextPainter to do t
 "
 Trait {
 	#name : #TSpTextRun,
-	#category : 'Sparta-Core-Text'
+	#category : #'Sparta-Core-Text'
 }
 
 { #category : #accessing }

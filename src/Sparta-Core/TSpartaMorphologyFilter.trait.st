@@ -13,7 +13,7 @@ Because ‘Morphology’ operates on premultipied color values, it will always r
 "
 Trait {
 	#name : #TSpartaMorphologyFilter,
-	#category : 'Sparta-Core-Filters'
+	#category : #'Sparta-Core-Filters'
 }
 
 { #category : #accessing }

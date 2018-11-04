@@ -42,7 +42,7 @@ path := canvas path
 "
 Trait {
 	#name : #TSpartaPathBuilder,
-	#category : 'Sparta-Core-Path'
+	#category : #'Sparta-Core-Path'
 }
 
 { #category : #'path commands' }

@@ -6,7 +6,7 @@ Class {
 		'start',
 		'end'
 	],
-	#category : 'Sparta-Core-Text-Rope'
+	#category : #'Sparta-Core-Text-Rope'
 }
 
 { #category : #'instance creation' }

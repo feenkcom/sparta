@@ -10,42 +10,14 @@ Class {
 { #category : #baselines }
 BaselineOfSpartaMoz2D >> baseline: spec [
 	<baseline>
-	spec for: #Moz2D do: [ spec
-		postLoadDoIt: #postLoadSparta:;
+
+	spec for: #common do: [ spec
 		baseline: 'SpartaCore' with: [ spec 
 			repository: 'github://syrel/Sparta/src' ];
-		baseline: 'SpartaCoreDevelopment' with: [ spec 
-			repository: 'github://syrel/Sparta/src' ];
-		baseline: 'Beacon' with: [ spec 
-			repository: 'github://pharo-project/pharo-beacon/repository' ];
+		baseline: 'GToolkitInstaller' with: [ spec 
+			repository: 'github://feenkcom/gtoolkit-installer/src' ];
 		package: 'Sparta-Moz2D' with: [ spec 
-			requires: #('SpartaCore') ];
+			requires: #('SpartaCore' 'GToolkitInstaller') ];
 		package: 'Sparta-Moz2D-Tests' with: [ spec 
-			requires: #('Sparta-Moz2D') ]
-	].
-	spec for: #Moz2DInstaller do: [ spec
-		package: 'Sparta-Moz2D-Installer' with: [ spec 
-			requires: #('Sparta-Moz2D' 'Beacon' 'SpartaCoreDevelopment') ]
-	].
-]
-
-{ #category : #accessing }
-BaselineOfSpartaMoz2D >> customProjectAttributes [
-	Smalltalk os isMacOS ifTrue: [ ^ #(#Moz2D #Moz2DInstaller) ].
-	Smalltalk os isUnix32 ifTrue: [ ^ #(#Moz2D) ].
-	Smalltalk os isUnix64 ifTrue: [ ^ #(#Moz2D #Moz2DInstaller) ].
-	Smalltalk os isWindows ifTrue: [ ^ #(#Moz2D #Moz2DInstaller) ].
-	^ #()
-]
-
-{ #category : #actions }
-BaselineOfSpartaMoz2D >> postLoadSparta: aSpecLoader [
-	| pragmas |
-	pragmas := OrderedCollection new.
-	Object
-		withAllSubclassesDo:
-			[ :each | pragmas addAll: (Pragma allNamed: #spartaPostLoad in: each) ].
-	pragmas
-		do:
-			[ :each | each method methodClass instanceSide perform: each method selector ]
+			requires: #('Sparta-Moz2D') ] ]
 ]

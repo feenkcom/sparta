@@ -5,7 +5,7 @@ Class {
 		'position',
 		'readStream'
 	],
-	#category : 'Sparta-Core-Text-Rope'
+	#category : #'Sparta-Core-Text-Rope'
 }
 
 { #category : #testing }
