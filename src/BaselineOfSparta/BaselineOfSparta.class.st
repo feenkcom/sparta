@@ -7,14 +7,16 @@ Class {
 	#category : #BaselineOfSparta
 }
 
-{ #category : #baselines }
+{ #category : #baseline }
 BaselineOfSparta >> baseline: spec [
 	<baseline>
-	spec for: #common do: [ spec
-		baseline: 'SpartaCore' with: [ 
-			spec repository: 'github://syrel/Sparta/src' ];
-		baseline: 'SpartaCairo' with: [ 
-			spec repository: 'github://syrel/Sparta/src' ];
-		baseline: 'SpartaMoz2D' with: [ 
-			spec repository: 'github://syrel/Sparta/src' ] ]
+	spec for: #'common' do: [
+		spec 
+			baseline: 'SpartaCore' with: [
+				spec repository: 'github://syrel/Sparta/src' ];
+			baseline: 'SpartaCairo' with: [
+				spec repository: 'github://syrel/Sparta/src' ];
+			baseline: 'SpartaMoz2D' with: [
+				spec repository: 'github://syrel/Sparta/src' ]. ].
+
 ]
