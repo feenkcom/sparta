@@ -122,7 +122,7 @@ MozServices class >> stop [
 			^ self ].
 
 	[	self primShutdownPlatform.
-		self primShutdownServices.
-		self primStartGfxConfig ]
+		self primShutdownGfxConfig.
+		self primShutdownServices ]
 	ensure: [ isRunning := false ]
 ]
