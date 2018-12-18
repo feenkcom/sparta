@@ -121,8 +121,8 @@ MozServices class >> stop [
 			isRunning := false.
 			^ self ].
 
-	[	self primShutdownServices.
-		self primShutdownPlatform.
+	[	self primShutdownPlatform.
+		self primShutdownServices.
 		self primStartGfxConfig ]
 	ensure: [ isRunning := false ]
 ]
