@@ -121,8 +121,10 @@ MozServices class >> stop [
 			isRunning := false.
 			^ self ].
 
-	[	self primShutdownPlatform.
+	self flag: 'Dont stop services for now because it causes a crash on save and quit. Requires further investigation'.
+	
+	[	"self primShutdownPlatform.
 		self primShutdownGfxConfig.
-		self primShutdownServices ]
+		self primShutdownServices" ]
 	ensure: [ isRunning := false ]
 ]
