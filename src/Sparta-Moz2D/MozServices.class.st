@@ -99,7 +99,7 @@ MozServices class >> start [
 		self primStartGfxConfig.
 		OSPlatform current mozSettings export.
 		self primStartPlatform ]
-	"Image will crash anyway crash if something fails in library,
+	"Image will crash anyway if something fails in library,
 	so we just guard ourselves against image-side issues"
 	on: Error do: [ :e | MozCanvas primStderr: e messageText ].
 	isRunning := true
@@ -116,13 +116,15 @@ MozServices class >> startUp: inANewImageSession [
 MozServices class >> stop [
 	
 	MozLibrary uniqueInstance hasModule
-		"If there is no Moz2D library installed we can not start services"
+		"If there is no Moz2D library installed we can not stop services"
 		ifFalse: [ 
 			isRunning := false.
 			^ self ].
 
-	[	self primShutdownServices.
-		self primShutdownPlatform.
-		self primStartGfxConfig ]
+	self flag: 'Dont stop services for now because it causes a crash on save and quit. Requires further investigation'.
+	
+	[	"self primShutdownPlatform.
+		self primShutdownGfxConfig.
+		self primShutdownServices" ]
 	ensure: [ isRunning := false ]
 ]
