@@ -462,8 +462,8 @@ SpartaMatrix >> translateX: aX Y: aY [
 |  0     0     1   |       | 0  0   1  |             |  0     0    1  |
 
 "
-	x := aX "(sx*px) + (shx*py)" + x.
-	y := aY "(shy*px) + (sy*py)" + y.
+	x := (sx*aX) + (shx*aY) + x.
+	y := (shy*aX) + (sy*aY) + y.
 
 ]
 
