@@ -9,6 +9,7 @@ pipeline {
         }
         stage('Load') {
             steps {
+                sh 'rm -rf pharo-local'
                 sh 'scripts/build/load.sh'
             }
         }
