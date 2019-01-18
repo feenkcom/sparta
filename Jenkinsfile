@@ -1,6 +1,9 @@
 pipeline {
     agent any
     stages {
+        stage('Clean') {
+            cleanWs()
+        }
         stage('Load') {
             steps {
                 sh 'git clean -f -d'
