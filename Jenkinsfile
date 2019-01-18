@@ -1,9 +1,10 @@
 pipeline {
     agent any
     stages {
-        stage('Cleanup') {
+        stage('Clean Workspace') {
             steps {
-                cleanWs()
+                sh 'git clean -fdx'
+                sh 'chmod +x scripts/build/*.sh'
             }
         }
         stage('Load') {
