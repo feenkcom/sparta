@@ -35,5 +35,5 @@ BaselineOfSpartaMoz2D >> postLoadMoz2D: aSpecLoader [
 		ifTrue: [ ^ self ].
 
 	PostLoaded := true.
-	(self class environment at: #MozLibrary) install
+	"(self class environment at: #MozLibrary) install"
 ]
