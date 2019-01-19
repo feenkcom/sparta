@@ -14,7 +14,7 @@ Class {
 { #category : #installation }
 MozLibrary class >> install [
 	<script: 'self install'>
-	"| installer ui |
+	| installer ui |
 
 	installer := GtLibraryInstaller new.
 	installer library: 'Moz2D'.
@@ -26,19 +26,12 @@ MozLibrary class >> install [
 	installer works: [ MozLibrary uniqueInstance hasModule ].
 	installer postInstall: [ MozServices start ].
 
-	ui := GtLibraryInstallerMorph new.
+	"ui := GtLibraryInstallerMorph new.
 	ui installer: installer.
 	ui extent: 650@300.
-	ui openInBorderlessWindow.
+	ui openInBorderlessWindow."
 
-	installer run"
-	
-	ZnClient new
-		url: 'https://dl.feenk.com/Moz2D/osx/development/x86_64/libMoz2D.dylib';
-		signalProgress: false;
-		numberOfRetries: 1;
-		timeout: 50;
-		downloadTo: Smalltalk image imageDirectory / 'libMoz2D_x86_64.dylib'
+	installer run
 ]
 
 { #category : #'accessing platform' }
