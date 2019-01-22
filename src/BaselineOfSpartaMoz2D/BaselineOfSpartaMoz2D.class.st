@@ -17,9 +17,9 @@ BaselineOfSpartaMoz2D >> baseline: spec [
 		spec postLoadDoIt: #'postLoadMoz2D:'.
 		spec 
 			baseline: 'SpartaCore' with: [
-				spec repository: 'github://syrel/Sparta:v0.4.2/src' ];
+				spec repository: 'github://syrel/Sparta:v0.4.3/src' ];
 			baseline: 'GToolkitInstaller' with: [
-				spec repository: 'github://feenkcom/gtoolkit-installer:v0.4.0/src' ].
+				spec repository: 'github://feenkcom/gtoolkit-installer:v0.4.1/src' ].
 		spec 
 			package: 'Sparta-Moz2D' with: [
 				spec requires: #('SpartaCore' 'GToolkitInstaller' ). ];
