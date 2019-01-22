@@ -1,9 +1,15 @@
 pipeline {
     agent any
     stages {
+        stage('Clean Workspace') {
+            steps {
+                sh 'git clean -fdx'
+                sh 'chmod +x scripts/build/*.sh'
+            }
+        }
         stage('Load') {
             steps {
-                sh 'git clean -f -d'
+                sh 'rm -rf pharo-local'
                 sh 'scripts/build/load.sh'
             }
         }
