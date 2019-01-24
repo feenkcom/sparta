@@ -30,7 +30,7 @@ MozSurface >> asForm [
 		paint: self;
 		path: (0@0 extent: aCanvas extent);
 		draw.
-	^ aCanvas asPureForm
+	^ aCanvas asForm
 ]
 
 { #category : #converting }
