@@ -266,7 +266,7 @@ MozExamples class >> exampleTextHorizontal [
 	
 	canvas transform
 		translateBy: 100@50;
-		apply.
+		push.
 
 	font := canvas font
 		size: 28;
@@ -280,7 +280,9 @@ MozExamples class >> exampleTextHorizontal [
 		font: font;
 		baseline: 20@30;
 		draw.
-
+	
+	canvas transform pop.
+	
 	canvas asForm asMorph openInWindowLabeled: 'Horizontal'
 ]
 

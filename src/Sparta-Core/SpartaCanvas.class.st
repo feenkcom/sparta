@@ -246,6 +246,22 @@ SpartaCanvas >> arithmeticCombineFilter [
 ]
 
 { #category : #converting }
+SpartaCanvas >> asCheckerForm [
+	| checker |
+	
+	self isValid
+		ifFalse: [ ^ Form extent: 50@50 depth: 32 ].
+	
+	checker := self class checker: self extent.
+	checker fill
+		paint: self;
+		path: self bounds;
+		draw.
+
+	^ checker asForm
+]
+
+{ #category : #converting }
 SpartaCanvas >> asFilterSecondSourceOn: aFilter [
 	aFilter secondSourceCanvas: self
 ]
