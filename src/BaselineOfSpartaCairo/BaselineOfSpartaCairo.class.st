@@ -7,12 +7,12 @@ Class {
 	#category : #BaselineOfSpartaCairo
 }
 
-{ #category : #baselines }
+{ #category : #baseline }
 BaselineOfSpartaCairo >> baseline: spec [
 	<baseline>
 	spec for: #'common' do: [
 		spec baseline: 'SpartaCore' with: [
-				spec repository: 'github://feenkcom/Sparta/src' ].
+				spec repository: 'github://feenkcom/Sparta:v0.4.2/src' ].
 		spec package: 'Sparta-Cairo' with: [
 				spec requires: #('SpartaCore' ). ]. ].
 
