@@ -26,10 +26,10 @@ MozLibrary class >> install [
 	installer works: [ MozLibrary uniqueInstance hasModule ].
 	installer postInstall: [ MozServices start ].
 
-	ui := GtLibraryInstallerMorph new.
+	"ui := GtLibraryInstallerMorph new.
 	ui installer: installer.
 	ui extent: 650@300.
-	ui openInBorderlessWindow.
+	ui openInBorderlessWindow."
 
 	installer run
 ]
