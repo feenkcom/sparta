@@ -100,7 +100,7 @@ MozTextExamples class >> exampleTextHaiku [
 
 	canvas transform
 		translateBy: 50@20;
-		apply.	
+		push.	
 
 	rope := SpRope from: 'Soft words' , String cr , 'Brushing minds' , String cr , 'Are poetic gifts'.
 	rope := rope
@@ -243,6 +243,54 @@ MozTextExamples class >> exampleTextLayout [
 		draw.
 
 	canvas asForm asMorph openInWindow
+]
+
+{ #category : #'examples - text' }
+MozTextExamples class >> exampleTextMeasure [
+	|canvas font aMetrics textPainter |
+	<gtExample>
+
+	canvas := self canvas: 1100@520.
+
+	canvas fill
+		paint: Color white;
+		path: canvas bounds;
+		draw.
+
+	canvas transform
+		translateBy: self canvasOffset;
+		push.
+
+	font := canvas font
+		serif;
+		size: 300;
+		weightThin;
+		build.
+
+	textPainter := canvas text
+		paint: (Color black alpha: 0.5);
+		string: 'Sparta';
+		font: font;
+		yourself.
+
+	aMetrics := textPainter measure.
+	"render text"
+	textPainter draw.
+
+	"bounding box"
+	canvas stroke
+		paint: (Color red alpha: 0.4);
+		path: aMetrics textMetrics bounds;
+		draw.
+
+	self drawBaseline: aMetrics on: canvas.
+	self drawAscent: aMetrics on: canvas.
+	self drawDescent: aMetrics on: canvas.
+	self drawUnderlineOffset: aMetrics on: canvas.
+	self drawAdvanceWidth: aMetrics on: canvas.
+	self drawStrikeoutOffset: aMetrics on: canvas.
+
+	^ canvas
 ]
 
 { #category : #'examples - text' }
