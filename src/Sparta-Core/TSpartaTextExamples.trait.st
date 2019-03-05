@@ -254,7 +254,7 @@ TSpartaTextExamples classSide >> exampleTextMeasureHello [
 
 	canvas transform
 		translateBy: self canvasOffset;
-		apply.
+		push.
 
 	font := canvas font
 		serif;
@@ -300,7 +300,7 @@ TSpartaTextExamples classSide >> exampleTextMeasureItalic [
 
 	canvas transform
 		translateBy: self canvasOffset;
-		apply.
+		push.
 
 	font := canvas font
 		serif;

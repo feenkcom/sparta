@@ -10,6 +10,7 @@ TSpartaExamples classSide >> canvas: anExtent [
 
 { #category : #examples }
 TSpartaExamples classSide >> example18plus [
+	<gtExample>
 	| canvas path linear stroke sphere radial |
 	
 	canvas := self canvas: 500@500.
@@ -92,7 +93,7 @@ TSpartaExamples classSide >> example18plus [
 	
 	canvas transform pop.
 
-	canvas asForm asMorph openInWindow
+	^ canvas
 ]
 
 { #category : #examples }
