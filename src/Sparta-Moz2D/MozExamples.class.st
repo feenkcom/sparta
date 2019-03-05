@@ -256,6 +256,7 @@ MozExamples class >> exampleTextDutch [
 
 { #category : #'examples - text' }
 MozExamples class >> exampleTextHorizontal [
+	<gtExample>
 	|canvas font |
 	canvas := MozCanvas extent: 700@200.
 
@@ -283,7 +284,7 @@ MozExamples class >> exampleTextHorizontal [
 	
 	canvas transform pop.
 	
-	canvas asForm asMorph openInWindowLabeled: 'Horizontal'
+	^ canvas
 ]
 
 { #category : #examples }
@@ -317,6 +318,7 @@ MozExamples class >> exampleTextSmall [
 
 { #category : #'examples - text' }
 MozExamples class >> exampleTextVerticalMixed [
+	<gtExample>
 	|canvas font |
 	canvas := MozCanvas extent: 200@700.
 
@@ -327,7 +329,7 @@ MozExamples class >> exampleTextVerticalMixed [
 	
 	canvas transform
 		translateBy: 100@50;
-		apply.
+		push.
 
 	font := canvas font
 		size: 28;
@@ -342,11 +344,12 @@ MozExamples class >> exampleTextVerticalMixed [
 		baseline: 20@30;
 		draw.
 
-	canvas asForm asMorph openInWindowLabeled: 'Vertical mixed'
+	^ canvas
 ]
 
 { #category : #'examples - text' }
 MozExamples class >> exampleTextVerticalSidewaysLeft [
+	<gtExample>
 	|canvas font |
 	canvas := MozCanvas extent: 200@700.
 
@@ -357,7 +360,7 @@ MozExamples class >> exampleTextVerticalSidewaysLeft [
 	
 	canvas transform
 		translateBy: 100@50;
-		apply.
+		push.
 
 	font := canvas font
 		size: 28;
@@ -372,11 +375,12 @@ MozExamples class >> exampleTextVerticalSidewaysLeft [
 		baseline: 20@300;
 		draw.
 
-	canvas asForm asMorph openInWindowLabeled: 'Vertical sideways left'
+	^ canvas
 ]
 
 { #category : #'examples - text' }
 MozExamples class >> exampleTextVerticalSidewaysRight [
+	<gtExample>
 	|canvas font |
 	canvas := MozCanvas extent: 200@700.
 
@@ -387,7 +391,7 @@ MozExamples class >> exampleTextVerticalSidewaysRight [
 	
 	canvas transform
 		translateBy: 100@50;
-		apply.
+		push.
 
 	font := canvas font
 		size: 28;
@@ -402,11 +406,12 @@ MozExamples class >> exampleTextVerticalSidewaysRight [
 		baseline: 20@30;
 		draw.
 
-	canvas asForm asMorph openInWindowLabeled: 'Vertical sideways right'
+	^ canvas
 ]
 
 { #category : #'examples - text' }
 MozExamples class >> exampleTextVerticalUpRight [
+	<gtExample> 
 	|canvas font |
 	canvas := MozCanvas extent: 200@700.
 
@@ -417,7 +422,7 @@ MozExamples class >> exampleTextVerticalUpRight [
 	
 	canvas transform
 		translateBy: 100@50;
-		apply.
+		push.
 
 	font := canvas font
 		size: 28;
@@ -432,7 +437,7 @@ MozExamples class >> exampleTextVerticalUpRight [
 		baseline: 20@30;
 		draw.
 
-	canvas asForm asMorph openInWindowLabeled: 'Vertical upright text'
+	^ canvas
 ]
 
 { #category : #examples }

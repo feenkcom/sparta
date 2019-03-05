@@ -13,6 +13,7 @@ MozTextExamples class >> canvas: anExtent [
 
 { #category : #'examples - attributes' }
 MozTextExamples class >> exampleForegroundGradient [
+	<gtExample>
 	| aCanvas aText |
 	aCanvas := MozCanvas extent: 700 @ 500.
 	aCanvas fill
@@ -21,7 +22,7 @@ MozTextExamples class >> exampleForegroundGradient [
 		draw.
 	aCanvas transform
 		translateBy: 200 @ 200;
-		apply.
+		push.
 
 	aText := SpText fromString: 'Foreground'.
 	aText attributes: {
@@ -36,11 +37,12 @@ MozTextExamples class >> exampleForegroundGradient [
 		text: aText;
 		draw.
 	
-	aCanvas asForm asMorph openInWindow
+	^ aCanvas
 ]
 
 { #category : #'examples - attributes' }
 MozTextExamples class >> exampleSpacing [
+	<gtExample>
 	| aCanvas aText |
 	aCanvas := MozCanvas extent: 700 @ 500.
 	aCanvas fill
@@ -49,7 +51,7 @@ MozTextExamples class >> exampleSpacing [
 		draw.
 	aCanvas transform
 		translateBy: 200 @ 200;
-		apply.
+		push.
 
 	aText := SpText fromString: 'Spacing 10'.
 	aText attributes: {
@@ -60,11 +62,12 @@ MozTextExamples class >> exampleSpacing [
 		text: aText;
 		draw.
 	
-	aCanvas asForm asMorph openInWindow
+	^ aCanvas
 ]
 
 { #category : #'examples - text' }
 MozTextExamples class >> exampleStyledText [
+	<gtExample>
 	| canvas text |
 	canvas := MozCanvas extent: 600@400.
 	canvas fill
@@ -74,7 +77,7 @@ MozTextExamples class >> exampleStyledText [
 
 	canvas transform
 		translateBy: 20@50;
-		apply.
+		push.
 
 	text := SpText fromString: 'Line 1', String cr, 'Line 2', String cr, 'Line 3', String cr, 'Line 4'.
 	text attributes: { SpFontSizeAttribute new size: 35 } from: 1 to: text size.
@@ -85,7 +88,7 @@ MozTextExamples class >> exampleStyledText [
 
 	text drawOn: canvas.
 
-	canvas asForm asMorph openInWindowLabeled: 'Sparta text'
+	^ canvas
 ]
 
 { #category : #'examples - text' }
@@ -135,6 +138,7 @@ MozTextExamples class >> exampleTextHaiku [
 
 { #category : #'examples - text' }
 MozTextExamples class >> exampleTextHaikuFilter [
+	<gtExample>
 	| canvas rope textLayout |
 	canvas := MozCanvas extent: (605 @ 265) * 3.
 	canvas fill
@@ -145,12 +149,12 @@ MozTextExamples class >> exampleTextHaikuFilter [
 	canvas transform
 		push;
 		scaleBy: 0.7;
-		apply.
+		push.
 	
 	canvas transform
 		push;
 		translateBy: 100@80;
-		apply.	
+		push.	
 
 	rope := SpRope from: '全身心自在' , String cr , '身感風如馭氣天' , String cr , '下雪富士山'.
 	rope := rope
@@ -207,11 +211,12 @@ MozTextExamples class >> exampleTextHaikuFilter [
 		draw;
 		canvas.
 	
-	canvas asForm asMorph openInWindowLabeled: 'Haiku'
+	^ canvas
 ]
 
 { #category : #'examples - text' }
 MozTextExamples class >> exampleTextLayout [
+	<gtExample>
 	|canvas rope maxWidth textLayout |
 	maxWidth := 310.
 
@@ -242,13 +247,13 @@ MozTextExamples class >> exampleTextLayout [
 		path: (0@0 extent: maxWidth @ textLayout height);
 		draw.
 
-	canvas asForm asMorph openInWindow
+	^ canvas
 ]
 
 { #category : #'examples - text' }
 MozTextExamples class >> exampleTextMeasure [
-	|canvas font aMetrics textPainter |
 	<gtExample>
+	|canvas font aMetrics textPainter |
 
 	canvas := self canvas: 1100@520.
 
@@ -295,6 +300,7 @@ MozTextExamples class >> exampleTextMeasure [
 
 { #category : #'examples - text' }
 MozTextExamples class >> exampleTextWithShadow [
+	<gtExample>
 	| canvas rope textLayout |
 	canvas := MozCanvas extent: 565 @ 345.
 	canvas fill
@@ -305,7 +311,7 @@ MozTextExamples class >> exampleTextWithShadow [
 	canvas transform
 		rotateByDegrees: 10;
 		translateBy: 50@20;
-		apply.	
+		push.	
 
 	rope := SpRope from: 'Line 1' , String cr , 'Line 2' , String cr , 'Hello World!'.
 	rope := rope
@@ -329,5 +335,5 @@ MozTextExamples class >> exampleTextWithShadow [
 	rope := rope attributes: {(SpFontWeightAttribute weight: 800)} from: 15 to: rope size.
 	textLayout := SpMultilineTextLayout rope: rope.
 	textLayout renderOn: canvas.
-	canvas asForm asMorph openInWindowLabeled: 'Text with shadow'
+	^ canvas
 ]
