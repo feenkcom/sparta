@@ -543,6 +543,15 @@ SpartaCanvas >> gtInspectorHelpIn: composite [
 	^ self class gtInspectorHelpIn: composite
 ]
 
+{ #category : #'gt-inspector-extension' }
+SpartaCanvas >> gtPreviewFor: aView [
+	<gtView>
+	^ aView explicit
+		title: 'Preview';
+		priority: 1;
+		stencil: [ self asForm asElement asScalableElement ]
+]
+
 { #category : #accessing }
 SpartaCanvas >> identity [
 	<return: #Object>
