@@ -509,8 +509,8 @@ SpartaCanvas >> font [
 
 { #category : #builders }
 SpartaCanvas >> fontBuilder [
-	self subclassResponsibility.
-	^ SpartaFontBuilder new
+	<return: #SpartaFontBuilder>
+	^ self subclassResponsibility
 ]
 
 { #category : #api }
@@ -697,7 +697,7 @@ SpartaCanvas >> pathBuilder: aFillRuleSymbol [
 
 { #category : #api }
 SpartaCanvas >> shape [
-
+	<return: #SpartaShapeFactory>
 	^ self shapeFactory
 		reset;
 		canvas: self;
@@ -706,6 +706,7 @@ SpartaCanvas >> shape [
 
 { #category : #builders }
 SpartaCanvas >> shapeFactory [
+	<return: #SpartaShapeFactory>
 	^ self subclassResponsibility
 ]
 
@@ -803,8 +804,8 @@ SpartaCanvas >> text [
 
 { #category : #builders }
 SpartaCanvas >> textPainter [
-	self subclassResponsibility.
-	^ SpartaTextPainter new
+	<return: #SpartaTextPainter>
+	^ self subclassResponsibility
 ]
 
 { #category : #api }
