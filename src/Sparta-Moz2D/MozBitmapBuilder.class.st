@@ -17,6 +17,17 @@ MozBitmapBuilder >> fromBGR: aData extent: anExtent stride: aStride [
 ]
 
 { #category : #'instance creation' }
+MozBitmapBuilder >> fromBGRA: aData extent: anExtent stride: aStride [
+
+	^ (self
+		primCreateSurfaceForData: aData
+		width: anExtent x
+		height: anExtent y
+		stride: aStride
+		format: MozSurfaceFormat B8G8R8A8) autoRelease
+]
+
+{ #category : #'instance creation' }
 MozBitmapBuilder >> fromForm: aForm [
 	| form |
 	
@@ -27,6 +38,17 @@ MozBitmapBuilder >> fromForm: aForm [
 		height: form height
 		stride: form stride
 		format: canvas pixelFormat) autoRelease
+]
+
+{ #category : #'instance creation' }
+MozBitmapBuilder >> fromGray: aData extent: anExtent stride: aStride [
+
+	^ (self
+		primCreateSurfaceForData: aData
+		width: anExtent x
+		height: anExtent y
+		stride: aStride
+		format: MozSurfaceFormat A8) autoRelease
 ]
 
 { #category : #'instance creation' }
@@ -49,6 +71,17 @@ MozBitmapBuilder >> fromOpenGLTexture: aSpartaOpenGLTexture [
 	aGLuid free.
 	
 	^ surface
+]
+
+{ #category : #'instance creation' }
+MozBitmapBuilder >> fromRGBA: aData extent: anExtent stride: aStride [
+
+	^ (self
+		primCreateSurfaceForData: aData
+		width: anExtent x
+		height: anExtent y
+		stride: aStride
+		format: MozSurfaceFormat R8G8B8A8) autoRelease
 ]
 
 { #category : #'private - ffi' }
