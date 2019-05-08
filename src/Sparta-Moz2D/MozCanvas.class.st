@@ -542,6 +542,11 @@ MozCanvas >> resourceData [
 ]
 
 { #category : #builders }
+MozCanvas >> shadowPainter [
+	^ MozShadowPainter new
+]
+
+{ #category : #builders }
 MozCanvas >> shapeFactory [
 	^ shapeFactory ifNil: [ shapeFactory := MozShapeFactory new ]
 ]

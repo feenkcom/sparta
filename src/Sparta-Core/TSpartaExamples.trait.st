@@ -253,3 +253,31 @@ TSpartaExamples >> mario [
 				draw ] ].
 	^ canvas
 ]
+
+{ #category : #examples }
+TSpartaExamples >> shadow [
+	<gtExample>
+	| canvas floating |
+
+	canvas := self class canvas: 500@300.
+	canvas fill
+		paint: Color white;
+		path: canvas bounds;
+		draw.
+
+	floating := self class canvas: 100@100.
+	floating fill
+		paint: (Color gray alpha: 1);
+		path: (floating shape ellipse: (floating bounds insetBy: 20));
+		draw.
+
+	canvas shadow
+		destination: 0@0;
+		offset: 8@10;
+		sigma: 6;
+		color: (Color black alpha: 0.7);
+		source: floating;
+		draw.
+
+	^ canvas
+]
