@@ -705,6 +705,20 @@ SpartaCanvas >> pathBuilder: aFillRuleSymbol [
 ]
 
 { #category : #api }
+SpartaCanvas >> shadow [
+	^ self shadowPainter
+		reset;
+		canvas: self;
+		yourself
+]
+
+{ #category : #builders }
+SpartaCanvas >> shadowPainter [
+	self subclassResponsibility.
+	^ SpartaShadowPainter new
+]
+
+{ #category : #api }
 SpartaCanvas >> shape [
 	<return: #SpartaShapeFactory>
 	^ self shapeFactory
