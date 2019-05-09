@@ -556,7 +556,7 @@ SpartaCanvas >> gtPreviewFor: aView [
 SpartaCanvas >> identity [
 	<return: #Object>
 
-	^ self hash
+	^ self class
 ]
 
 { #category : #initialization }

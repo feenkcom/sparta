@@ -12,6 +12,16 @@ Class {
 	#category : 'Sparta-Moz2D-Path'
 }
 
+{ #category : #comparing }
+MozPath >> = anotherObject [
+	self == anotherObject
+		ifTrue: [ ^ true ].
+	(anotherObject isKindOf: self class)
+		ifFalse: [ ^ false ].
+	
+	^ anotherObject getHandle asInteger = self getHandle asInteger
+]
+
 { #category : #converting }
 MozPath >> asForm [
 	|canvas options bounds margin |
@@ -39,6 +49,11 @@ MozPath >> containsPoint: aPoint on: aSpartaCanvas [
 	<return: #Boolean>
 
 	^ self primContainsPointX: aPoint x Y: aPoint y
+]
+
+{ #category : #comparing }
+MozPath >> hash [
+	^ self class hash bitXor: self getHandle asInteger hash
 ]
 
 { #category : #initialization }
