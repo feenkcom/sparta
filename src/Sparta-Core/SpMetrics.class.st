@@ -23,7 +23,8 @@ Class {
 		'textMetrics',
 		'boxType',
 		'wrappedLength',
-		'canvas'
+		'canvas',
+		'isVertical'
 	],
 	#category : #'Sparta-Core-Text'
 }
@@ -78,7 +79,18 @@ SpMetrics >> initialize [
 	super initialize.
 	
 	measureFont := true.
-	measureText := true
+	measureText := true.
+	isVertical := false
+]
+
+{ #category : #accessing }
+SpMetrics >> isVertical [
+	^ isVertical
+]
+
+{ #category : #accessing }
+SpMetrics >> isVertical: anObject [
+	isVertical := anObject
 ]
 
 { #category : #accessing }

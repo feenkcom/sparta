@@ -188,6 +188,8 @@ MozTextPainter >> flags [
 		ifTrue: [ theFlags := theFlags | MozTextFlags TEXT_ENABLE_HYPHEN_BREAKS value ].
 	spacing isZero
 		ifFalse: [ theFlags := theFlags |  MozTextFlags TEXT_ENABLE_SPACING value ].
+		
+	theFlags := theFlags | orientation value.
 	
 	^ theFlags
 ]
@@ -222,6 +224,7 @@ MozTextPainter >> metrics [
 	aMetrics measureFont: true.
 	aMetrics measureText: true.
 	aMetrics orientation: orientation.
+	aMetrics isVertical: orientation isVertical.
 	aMetrics spacing: spacing.
 	aMetrics start: start.
 	aMetrics suppressBreaks: MozTextSuppressBreak eSuppressInitialBreak.

@@ -81,3 +81,13 @@ MozTextOrientation class >> enumDecl [
 MozTextOrientation class >> initialize [
 	self initializeEnumeration
 ]
+
+{ #category : #testing }
+MozTextOrientation >> isHorizontal [
+	^ self = MozTextOrientation HORIZONTAL
+]
+
+{ #category : #testing }
+MozTextOrientation >> isVertical [
+	^ self isHorizontal not
+]
