@@ -102,7 +102,8 @@ MozFillPainter >> fillRectangle: aRectangle withRadialGradient: aSpartaRadialGra
 
 { #category : #drawing }
 MozFillPainter >> fillRectangle: aRectangle withSolidColor: aColor [
-	self
+
+	[ self
 		primFillX: aRectangle left
 		y: aRectangle top
 		width: aRectangle width
@@ -111,7 +112,16 @@ MozFillPainter >> fillRectangle: aRectangle withSolidColor: aColor [
 		g: aColor green
 		b: aColor blue
 		a: aColor alpha 
-		drawOptions: (drawOptions ifNil: [ canvas defaultDrawOptions ])
+		drawOptions: (drawOptions ifNil: [ canvas defaultDrawOptions ]) ]
+			on: Error do: [
+				| aMessage |
+				
+				aMessage := 'Unable to fill rectangle: {1} with {2}' format: { aRectangle . aColor }.
+				Notification signal: aMessage.
+				
+				NonInteractiveTranscript stderr
+					show: aMessage;
+					cr ]
 ]
 
 { #category : #drawing }
