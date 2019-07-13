@@ -42,6 +42,7 @@ SkiaCanvas class >> createContext: aGrContext extent: anExtent renderExtent: aRe
 		renderHeight: aRenderExtent y
 		format: aSurfaceFormat)
 			autoRelease;
+			initialize;
 			context: aGrContext;
 			yourself
 ]
