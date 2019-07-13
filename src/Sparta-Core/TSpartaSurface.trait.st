@@ -28,7 +28,7 @@ TSpartaSurface >> asFilterSourceOn: aFilter [
 
 { #category : #converting }
 TSpartaSurface >> asSpartaPaintOn: aSpartaCanvas [
-	^ aSpartaCanvas paint surface source: self
+	^ aSpartaCanvas paint surface source: self; samplingPoint
 ]
 
 { #category : #accessing }

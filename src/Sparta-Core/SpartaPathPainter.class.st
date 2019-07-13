@@ -45,6 +45,26 @@ SpartaPathPainter >> alpha: aFloat [
 	self drawOptions alpha: aFloat
 ]
 
+{ #category : #'antialias modes' }
+SpartaPathPainter >> antialiasDefault [
+	self drawOptions antialiasDefault
+]
+
+{ #category : #'antialias modes' }
+SpartaPathPainter >> antialiasGray [
+	self drawOptions antialiasGray
+]
+
+{ #category : #'antialias modes' }
+SpartaPathPainter >> antialiasNone [
+	self drawOptions antialiasNone
+]
+
+{ #category : #'antialias modes' }
+SpartaPathPainter >> antialiasSubpixel [
+	self drawOptions antialiasSubpixel
+]
+
 { #category : #'composition operators' }
 SpartaPathPainter >> composeAdd [
 	self drawOptions composeAdd
