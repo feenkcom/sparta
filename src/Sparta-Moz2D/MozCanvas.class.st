@@ -184,6 +184,7 @@ MozCanvas >> asForm [
 
 	form := Form extent: self extent depth: 32.
 	form unhibernate.
+	self flush.
 	self primAsForm: form bits.
 	^ form
 ]
