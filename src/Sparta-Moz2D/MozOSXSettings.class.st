@@ -7,8 +7,6 @@ Class {
 { #category : #configuration }
 MozOSXSettings class >> defaultPreferences [
 	^ #(
-		'gfx.canvas.azure.backends' 'cg,skia'
-		'gfx.content.azure.backends' 'cg,skia'
 		
 		"use Mac OS X Appearance panel text smoothing setting when rendering text, enabled by default"
 		'gfx.use_text_smoothing_setting' true

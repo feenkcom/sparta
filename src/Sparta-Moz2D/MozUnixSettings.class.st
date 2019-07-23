@@ -7,10 +7,6 @@ Class {
 { #category : #configuration }
 MozUnixSettings class >> defaultPreferences [
 	^ #(
-		'gfx.canvas.azure.accelerated' false
-			
-		'gfx.canvas.azure.backends' 'skia,cairo'
-		'gfx.content.azure.backends' 'skia,cairo'
 		
 		'gfx.font_rendering.fontconfig.fontlist.enabled' true
 		'gfx.font_rendering.fontconfig.max_generic_substitutions' 3

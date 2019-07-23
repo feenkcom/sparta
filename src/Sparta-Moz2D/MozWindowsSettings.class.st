@@ -6,10 +6,7 @@ Class {
 
 { #category : #configuration }
 MozWindowsSettings class >> defaultPreferences [
-	^ #(
-		'gfx.canvas.azure.backends' 'direct2d1.1,skia,cairo'
-		'gfx.content.azure.backends' 'direct2d1.1,cairo'
-		
+	^ #(		
 		'gfx.font_loader.delay' 120000
 		'gfx.font_loader.interval' 1000
 		

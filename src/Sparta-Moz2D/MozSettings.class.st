@@ -38,10 +38,10 @@ MozSettings class >> cleanUp [
 MozSettings class >> defaultPreferences [
 	"general for all platforms!"
 	^ #(
-		'gfx.canvas.azure.accelerated' false "desable because of artifacts"
+		'gfx.canvas.azure.accelerated' true
 
-		'gfx.canvas.azure.backends' 'skia'
-		'gfx.content.azure.backends' 'cairo'
+		'gfx.canvas.azure.backends' 'skia, cairo'
+		'gfx.content.azure.backends' 'skia, cairo'
 		
 		'gfx.font_loader.families_per_slice' 3
 		'gfx.font_loader.delay' 8000
