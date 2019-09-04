@@ -29,7 +29,7 @@ Sparta requires extra [Moz2D](https://github.com/syrel/Moz2D) vm plugin. Plugin 
 EpMonitor current disable.
 [ 
   Metacello new
-    baseline: 'GToolkit';
+    baseline: 'Sparta';
     repository: 'github://feenkcom/sparta/src';
     load
 ] ensure: [ EpMonitor current enable ].  
