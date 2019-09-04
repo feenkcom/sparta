@@ -34,8 +34,8 @@ MozFontFaceBuilder >> build [
 { #category : #initialization }
 MozFontFaceBuilder >> initialize [
 	super initialize.
-	
-	userFontSet := MozUserFontSet new
+
+	userFontSet := MozUserFontSet default
 ]
 
 { #category : #accessing }
