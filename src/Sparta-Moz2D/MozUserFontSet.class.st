@@ -8,9 +8,10 @@ Class {
 	],
 	#classInstVars : [
 		'session',
-		'empty'
+		'empty',
+		'default'
 	],
-	#category : 'Sparta-Moz2D-Text'
+	#category : #'Sparta-Moz2D-Text'
 }
 
 { #category : #cleanup }
@@ -22,6 +23,16 @@ MozUserFontSet class >> cleanUp [
 ]
 
 { #category : #'instance creation' }
+MozUserFontSet class >> default [
+	session == Smalltalk session
+		ifFalse: [
+			default := nil.
+			session := Smalltalk session ].
+
+	^ default ifNil: [ default := self new ]
+]
+
+{ #category : #'instance creation' }
 MozUserFontSet class >> empty [
 	session == Smalltalk session
 		ifFalse: [
@@ -29,6 +40,11 @@ MozUserFontSet class >> empty [
 			session := Smalltalk session ].
 
 	^ empty ifNil: [ empty := self new ]
+]
+
+{ #category : #'library path' }
+MozUserFontSet class >> ffiLibraryName [
+	^ MozLibrary
 ]
 
 { #category : #'instance creation' }
@@ -57,7 +73,7 @@ MozUserFontSet >> add: aUserFontFace [
 
 	(self hasFontFace: aUserFontFace)
 		ifTrue: [ ^ self ].
-		
+
 	aBuffer := aUserFontFace source fontContents.
 	
 	aFontStyle := MozFontStyle
