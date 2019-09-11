@@ -256,6 +256,13 @@ MozCanvas >> displacementMapFilter [
 	^ MozDisplacementMapFilter createOn: self
 ]
 
+{ #category : #'instance creation' }
+MozCanvas >> drawOptions [
+	^ self class drawOptions sample clone
+		in: [ :aDrawOptions | composeOperators ifNotEmpty: [ :theOperators | aDrawOptions perform: theOperators top ] ];
+		yourself
+]
+
 { #category : #accessing }
 MozCanvas >> extent [
 	|externalSize|
@@ -577,6 +584,11 @@ MozCanvas >> specularSpotLightFilter [
 { #category : #accessing }
 MozCanvas >> stride [
 	^ self primGetStride
+]
+
+{ #category : #'instance creation' }
+MozCanvas >> strokeOptions [
+	^ self class strokeOptions sample clone
 ]
 
 { #category : #builders }

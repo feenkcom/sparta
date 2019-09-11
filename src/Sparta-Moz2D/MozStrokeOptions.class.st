@@ -3,6 +3,9 @@ Class {
 	#superclass : #FFIExternalStructure,
 	#traits : 'TSpartaStrokeOptions',
 	#classTraits : 'TSpartaStrokeOptions classTrait',
+	#instVars : [
+		'hasDashes'
+	],
 	#classVars : [
 		'OFFSET_DASHOFFSET',
 		'OFFSET_LINECAP',
@@ -14,7 +17,8 @@ Class {
 	],
 	#classInstVars : [
 		'default',
-		'session'
+		'session',
+		'sample'
 	],
 	#category : #'Sparta-Moz2D'
 }
@@ -27,10 +31,12 @@ MozStrokeOptions class >> asExternalTypeOn: generator [
 
 { #category : #cleanup }
 MozStrokeOptions class >> cleanUp [
+	<script: 'self cleanUp'>
 	super cleanUp.
 	
 	default := nil.
-	session := nil
+	sample := nil.
+	session := nil.
 ]
 
 { #category : #accessing }
@@ -65,18 +71,17 @@ MozStrokeOptions class >> finalizeResourceData: aHandle [
 	
 	"Call the class specific free frunction if aHandle is still a valid external address."
 	aHandle isNull
-		ifTrue: [ ^self ].
-		
-	aDashBuffer := ExternalData fromHandle: (aHandle pointerAt: OFFSET_PRIVATEDASHPATTERN) type: ExternalType float asPointerType.
-	aDashBuffer free.
+		ifTrue: [ ^ self ].
 
-	aHandle free.
-	aHandle beNull
+	aDashBuffer := ExternalData fromHandle: (aHandle pointerAt: OFFSET_PRIVATEDASHPATTERN) type: ExternalType float asPointerType.
+	aDashBuffer isNull
+		ifFalse:  [ aDashBuffer free ].
+	aHandle free
 ]
 
-{ #category : #'instance creation' }
-MozStrokeOptions class >> new [
-	^ self externalNew autoRelease
+{ #category : #accessing }
+MozStrokeOptions class >> sample [
+	^ sample ifNil: [ sample := self new ]
 ]
 
 { #category : #comparing }
@@ -92,6 +97,18 @@ MozStrokeOptions >> = anotherObject [
 				and: [ anotherObject miterLimit = self miterLimit
 					and: [ anotherObject dashOffset = self dashOffset
 						and: [ anotherObject dashPattern = self dashPattern ] ] ] ] ]
+]
+
+{ #category : #converting }
+MozStrokeOptions >> asExternalDuring: aBlock [
+	| anExternalOptions |
+	
+	self isExternal
+		ifTrue: [ aBlock value: self ].
+
+	anExternalOptions := self cloneToExternal.
+	[ aBlock value: anExternalOptions ]
+		ensure: [ anExternalOptions free ]
 ]
 
 { #category : #'external resource management' }
@@ -116,6 +133,35 @@ MozStrokeOptions >> capRound [
 { #category : #'cap styles' }
 MozStrokeOptions >> capSquare [
 	self lineCap: MozCapStyle SQUARE
+]
+
+{ #category : #copying }
+MozStrokeOptions >> clone [
+	self
+		assert: [ self isExternal not ]
+		description: [ 'Must be in pharo memory' ].
+		
+	^ self deepCopy
+]
+
+{ #category : #copying }
+MozStrokeOptions >> cloneToExternal [
+	| aCloneAddress aClone |
+
+	aCloneAddress := ExternalAddress allocate: self class structureSize.
+
+	aClone := self class basicNew.
+	aClone setHandle: aCloneAddress.
+
+	"Setting default values according to backend specification"
+	aClone width: self width.
+	aClone lineJoin: self lineJoin.
+	aClone lineCap: self lineCap.
+	aClone miterLimit: self miterLimit.
+	aClone dashOffset: self dashOffset.
+	aClone dashPattern: self dashPattern.
+
+	^ aClone
 ]
 
 { #category : #'accessing structure variables' }
@@ -145,17 +191,49 @@ MozStrokeOptions >> dashPattern [
 
 { #category : #accessing }
 MozStrokeOptions >> dashPattern: anArrayOfFloats [
-	| buffer |
+	| aBuffer |
 	
+	hasDashes := anArrayOfFloats isNotEmpty.
 	self privateDashLength: anArrayOfFloats size.
 	
-	anArrayOfFloats ifEmpty: [ ^ self ].
+	aBuffer := anArrayOfFloats
+		ifEmpty: [ ExternalData fromHandle: ExternalAddress null type: ExternalType float ]
+		ifNotEmpty: [
+			| anExternalArray | 
+			anExternalArray := FFIExternalArray externalNewType: 'float' size: anArrayOfFloats size.
+			anArrayOfFloats withIndexDo: [ :dash :index | anExternalArray at: index put: dash asFloat ].
+			anExternalArray ].
 
-	buffer := FFIExternalArray externalNewType: 'float' size: anArrayOfFloats size.
-	anArrayOfFloats withIndexDo: [ :dash :index |
-		buffer at: index put: dash asFloat ].
+	self privateDashPattern: aBuffer
+]
 
-	self privateDashPattern: buffer
+{ #category : #finalization }
+MozStrokeOptions >> free [
+	self freeDashes.
+	super free
+]
+
+{ #category : #finalization }
+MozStrokeOptions >> freeDashes [
+	| aDashBuffer |
+
+	hasDashes
+		ifFalse: [ ^ self ].
+
+	(handle notNil and:[ handle isExternalAddress ])
+		ifFalse: [ ^ self ].
+		
+	aDashBuffer := self privateDashPattern.
+	aDashBuffer isNull
+		ifFalse:  [ aDashBuffer free ].
+	hasDashes := false
+]
+
+{ #category : #accessing }
+MozStrokeOptions >> hasDashes [
+	<return: #Boolean>
+
+	^ hasDashes isNotNil and: [ hasDashes ]
 ]
 
 { #category : #comparing }
@@ -178,6 +256,11 @@ MozStrokeOptions >> initialize [
 	self miterLimit: 10.0.
 	self dashOffset: 0.
 	self dashPattern: #()
+]
+
+{ #category : #'private - testing' }
+MozStrokeOptions >> isExternal [
+	^ self getHandle isExternalAddress
 ]
 
 { #category : #'join styles' }
