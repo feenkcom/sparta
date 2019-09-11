@@ -75,11 +75,6 @@ MozDrawOptions class >> fieldsDesc [
 	)
 ]
 
-{ #category : #'instance creation' }
-MozDrawOptions class >> new [
-	^ self externalNew autoRelease initialize
-]
-
 { #category : #accessing }
 MozDrawOptions class >> sample [
 	^ sample ifNil: [ sample := self new ]
