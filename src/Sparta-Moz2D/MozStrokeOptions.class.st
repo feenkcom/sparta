@@ -13,9 +13,10 @@ Class {
 		'OFFSET_WIDTH'
 	],
 	#classInstVars : [
-		'default'
+		'default',
+		'session'
 	],
-	#category : 'Sparta-Moz2D'
+	#category : #'Sparta-Moz2D'
 }
 
 { #category : #converting }
@@ -28,11 +29,17 @@ MozStrokeOptions class >> asExternalTypeOn: generator [
 MozStrokeOptions class >> cleanUp [
 	super cleanUp.
 	
-	default := nil
+	default := nil.
+	session := nil
 ]
 
 { #category : #accessing }
 MozStrokeOptions class >> default [
+	session == Smalltalk session
+		ifFalse: [
+			default := nil.
+			session := Smalltalk session ].
+
 	^ default ifNil: [ default := self new ]
 ]
 
@@ -52,6 +59,26 @@ MozStrokeOptions class >> fieldsDesc [
 	)
 ]
 
+{ #category : #finalization }
+MozStrokeOptions class >> finalizeResourceData: aHandle [
+	| aDashBuffer |
+	
+	"Call the class specific free frunction if aHandle is still a valid external address."
+	aHandle isNull
+		ifTrue: [ ^self ].
+		
+	aDashBuffer := ExternalData fromHandle: (aHandle pointerAt: OFFSET_PRIVATEDASHPATTERN) type: ExternalType float asPointerType.
+	aDashBuffer free.
+
+	aHandle free.
+	aHandle beNull
+]
+
+{ #category : #'instance creation' }
+MozStrokeOptions class >> new [
+	^ self externalNew autoRelease
+]
+
 { #category : #comparing }
 MozStrokeOptions >> = anotherObject [
 	self == anotherObject
@@ -65,6 +92,15 @@ MozStrokeOptions >> = anotherObject [
 				and: [ anotherObject miterLimit = self miterLimit
 					and: [ anotherObject dashOffset = self dashOffset
 						and: [ anotherObject dashPattern = self dashPattern ] ] ] ] ]
+]
+
+{ #category : #'external resource management' }
+MozStrokeOptions >> autoRelease [
+	"I reference an external array to hold dash pattern which should be release when I am released.
+	Therefore I require a specialized #free function.
+
+	Note, I implement #resourceData and #finalizeResourceData: on class side"
+	FFIExternalResourceManager addResource: self
 ]
 
 { #category : #'cap styles' }
@@ -134,9 +170,6 @@ MozStrokeOptions >> hash [
 { #category : #initialization }
 MozStrokeOptions >> initialize [
 	super initialize.
-	
-	"To handle lifecycle of external object"
-	self autoRelease.
 
 	"Setting default values according to backend specification"
 	self width: self class defaultWidth.
@@ -225,6 +258,11 @@ MozStrokeOptions >> privateDashPattern [
 MozStrokeOptions >> privateDashPattern: anObject [
 	"This method was automatically generated"
 	handle pointerAt: OFFSET_PRIVATEDASHPATTERN put: anObject getHandle.
+]
+
+{ #category : #'initialize-release' }
+MozStrokeOptions >> resourceData [
+	^ self getHandle
 ]
 
 { #category : #'accessing structure variables' }

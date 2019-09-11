@@ -29,9 +29,10 @@ Class {
 		'OFFSET_PRIMCOMPOSITIONOPERATOR'
 	],
 	#classInstVars : [
-		'default'
+		'default',
+		'session'
 	],
-	#category : 'Sparta-Moz2D'
+	#category : #'Sparta-Moz2D'
 }
 
 { #category : #converting }
@@ -44,11 +45,17 @@ MozDrawOptions class >> asExternalTypeOn: generator [
 MozDrawOptions class >> cleanUp [
 	super cleanUp.
 	
-	default := nil
+	default := nil.
+	session := nil
 ]
 
 { #category : #accessing }
 MozDrawOptions class >> default [
+	session == Smalltalk session
+		ifFalse: [
+			default := nil.
+			session := Smalltalk session ].
+
 	^ default ifNil: [ default := self new ]
 ]
 
@@ -63,6 +70,11 @@ MozDrawOptions class >> fieldsDesc [
 		MozCompositionOp primCompositionOperator;
 		MozAntialiasMode primAntialiasMode
 	)
+]
+
+{ #category : #'instance creation' }
+MozDrawOptions class >> new [
+	^ self externalNew autoRelease initialize
 ]
 
 { #category : #comparing }
@@ -276,10 +288,8 @@ MozDrawOptions >> hash [
 
 { #category : #initialization }
 MozDrawOptions >> initialize [
-	super initialize.
-	
-	"To handle lifecycle of external object"
-	self autoRelease.
+	"Do not send `super initialize` otherwise `handle` is set to nil"
+
 	self reset
 ]
 
