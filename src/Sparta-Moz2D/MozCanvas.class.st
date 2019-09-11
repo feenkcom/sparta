@@ -115,6 +115,11 @@ MozCanvas class >> extent: aPoint [
 			autoRelease
 ]
 
+{ #category : #'library path' }
+MozCanvas class >> ffiLibraryName [
+	^ MozLibrary
+]
+
 { #category : #'api - instance creation' }
 MozCanvas class >> pdf: aFileName extent: aPoint [
 	^ MozPdfCanvas createFor: aFileName extent: aPoint
@@ -254,6 +259,13 @@ MozCanvas >> discreteTransferFilter [
 { #category : #filters }
 MozCanvas >> displacementMapFilter [
 	^ MozDisplacementMapFilter createOn: self
+]
+
+{ #category : #'instance creation' }
+MozCanvas >> drawOptions [
+	^ self class drawOptions sample clone
+		in: [ :aDrawOptions | composeOperators ifNotEmpty: [ :theOperators | aDrawOptions perform: theOperators top ] ];
+		yourself
 ]
 
 { #category : #accessing }
@@ -577,6 +589,11 @@ MozCanvas >> specularSpotLightFilter [
 { #category : #accessing }
 MozCanvas >> stride [
 	^ self primGetStride
+]
+
+{ #category : #'instance creation' }
+MozCanvas >> strokeOptions [
+	^ self class strokeOptions sample clone
 ]
 
 { #category : #builders }

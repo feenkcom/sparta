@@ -29,9 +29,11 @@ Class {
 		'OFFSET_PRIMCOMPOSITIONOPERATOR'
 	],
 	#classInstVars : [
-		'default'
+		'default',
+		'session',
+		'sample'
 	],
-	#category : 'Sparta-Moz2D'
+	#category : #'Sparta-Moz2D'
 }
 
 { #category : #converting }
@@ -42,13 +44,21 @@ MozDrawOptions class >> asExternalTypeOn: generator [
 
 { #category : #cleanup }
 MozDrawOptions class >> cleanUp [
+	<script: 'self cleanUp'>
 	super cleanUp.
 	
-	default := nil
+	default := nil.
+	sample := nil.
+	session := nil.
 ]
 
 { #category : #accessing }
 MozDrawOptions class >> default [
+	session == Smalltalk session
+		ifFalse: [
+			default := nil.
+			session := Smalltalk session ].
+
 	^ default ifNil: [ default := self new ]
 ]
 
@@ -63,6 +73,11 @@ MozDrawOptions class >> fieldsDesc [
 		MozCompositionOp primCompositionOperator;
 		MozAntialiasMode primAntialiasMode
 	)
+]
+
+{ #category : #accessing }
+MozDrawOptions class >> sample [
+	^ sample ifNil: [ sample := self new ]
 ]
 
 { #category : #comparing }
@@ -122,6 +137,15 @@ MozDrawOptions >> antialiasNone [
 { #category : #'antialias modes' }
 MozDrawOptions >> antialiasSubpixel [
 	self antialiasMode: MozAntialiasMode SUBPIXEL
+]
+
+{ #category : #copying }
+MozDrawOptions >> clone [
+	self
+		assert: [ self isExternal not ]
+		description: [ 'Must be in pharo memory' ].
+
+	^ self deepCopy
 ]
 
 { #category : #'composition operators' }
@@ -276,11 +300,14 @@ MozDrawOptions >> hash [
 
 { #category : #initialization }
 MozDrawOptions >> initialize [
-	super initialize.
-	
-	"To handle lifecycle of external object"
-	self autoRelease.
+	"Do not send `super initialize` otherwise `handle` is set to nil"
+
 	self reset
+]
+
+{ #category : #'private - testing' }
+MozDrawOptions >> isExternal [
+	^ self getHandle isExternalAddress
 ]
 
 { #category : #'accessing structure variables' }
