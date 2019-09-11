@@ -115,6 +115,11 @@ MozCanvas class >> extent: aPoint [
 			autoRelease
 ]
 
+{ #category : #'library path' }
+MozCanvas class >> ffiLibraryName [
+	^ MozLibrary
+]
+
 { #category : #'api - instance creation' }
 MozCanvas class >> pdf: aFileName extent: aPoint [
 	^ MozPdfCanvas createFor: aFileName extent: aPoint
