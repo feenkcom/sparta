@@ -75,7 +75,8 @@ MozUserFontSet >> add: aUserFontFace [
 		ifTrue: [ ^ self ].
 
 	aBuffer := aUserFontFace source fontContents.
-	
+	aBuffer pinInMemory.
+
 	aFontStyle := MozFontStyle
 		style: aUserFontFace style value
 		weight: aUserFontFace weight value
