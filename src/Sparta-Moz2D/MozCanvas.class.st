@@ -18,7 +18,7 @@ Class {
 	#pools : [
 		'MozSharedPool'
 	],
-	#category : 'Sparta-Moz2D'
+	#category : #'Sparta-Moz2D'
 }
 
 { #category : #converting }
@@ -53,11 +53,20 @@ MozCanvas class >> checker: anExtent [
 	^ canvas
 ]
 
+{ #category : #converting }
+MozCanvas class >> clampExtent: anExtent [
+	^ (anExtent max: 0@0) min: 10000@10000
+]
+
 { #category : #'instance creation' }
 MozCanvas class >> createExtent: aPoint format: aSurfaceFormat [
+	| anExtent |
+	
+	anExtent := self clampExtent: aPoint.
+	
 	^ (self
-		primCreateWidth: aPoint x
-		height: aPoint y
+		primCreateWidth: anExtent x
+		height: anExtent y
 		format: aSurfaceFormat) 
 			initialize;
 			autoRelease
@@ -91,10 +100,14 @@ MozCanvas class >> createForData: aData type: aBackendType extent: aPoint stride
 
 { #category : #'instance creation' }
 MozCanvas class >> createType: aBackendType extent: aPoint format: aSurfaceFormat [
+	| anExtent |
+	
+	anExtent := self clampExtent: aPoint.
+	
 	^ (self
 		primCreate: aBackendType
-		width: aPoint x
-		height: aPoint y
+		width: anExtent x
+		height: anExtent y
 		format: aSurfaceFormat)
 			initialize;
 			autoRelease
@@ -107,9 +120,12 @@ MozCanvas class >> drawOptions [
 
 { #category : #'api - instance creation' }
 MozCanvas class >> extent: aPoint [
+	| anExtent |
+	
+	anExtent := self clampExtent: aPoint.
 	^ (self
-		primCreateWidth: aPoint x
-		height: aPoint y
+		primCreateWidth: anExtent x
+		height: anExtent y
 		format: MozSurfaceFormat B8G8R8A8)
 			initialize;
 			autoRelease
@@ -565,7 +581,11 @@ MozCanvas >> shapeFactory [
 ]
 
 { #category : #'instance creation' }
-MozCanvas >> similar: anExtent [
+MozCanvas >> similar: aPoint [
+	| anExtent |
+	
+	anExtent := self class clampExtent: aPoint.
+
 	^ (self primCreateSimilarWidth: anExtent x height: anExtent y)
 		initialize;
 		autoRelease
