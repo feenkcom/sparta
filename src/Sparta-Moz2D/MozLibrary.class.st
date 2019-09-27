@@ -14,7 +14,10 @@ Class {
 { #category : #installation }
 MozLibrary class >> install [
 	<script: 'self install'>
-	| installer ui |
+	| installer |
+
+	"Windows require a few extra .dll first"
+	self installWindowsExtras.
 
 	installer := GtLibraryInstaller new.
 	installer library: 'Moz2D'.
@@ -26,12 +29,32 @@ MozLibrary class >> install [
 	installer works: [ MozLibrary uniqueInstance hasModule ].
 	installer postInstall: [ MozServices start ].
 
-	"ui := GtLibraryInstallerMorph new.
-	ui installer: installer.
-	ui extent: 650@300.
-	ui openInBorderlessWindow."
-
 	installer run
+]
+
+{ #category : #installation }
+MozLibrary class >> installWindowsExtras [
+	<script: 'self installWindowsExtras'>
+	| msvcp140 vcruntime140 |
+	
+	OSPlatform current isWindows
+		ifFalse: [ ^ self ].
+
+	msvcp140 := GtLibraryInstaller new.
+	msvcp140 library: 'Moz2D'.
+	msvcp140 version: 'development'.
+	msvcp140 icon: (SpartaCanvas logo scaledToSize: 50@50).
+	msvcp140 binary: 'msvcp140'.
+	msvcp140 url: 'https://dl.feenk.com/{library}/{platform}/{version}/{arch}/{binary}.{extension}'.
+	msvcp140 run.
+	
+	vcruntime140 := GtLibraryInstaller new.
+	vcruntime140 library: 'Moz2D'.
+	vcruntime140 version: 'development'.
+	vcruntime140 icon: (SpartaCanvas logo scaledToSize: 50@50).
+	vcruntime140 binary: 'vcruntime140'.
+	vcruntime140 url: 'https://dl.feenk.com/{library}/{platform}/{version}/{arch}/{binary}.{extension}'.
+	vcruntime140 run.
 ]
 
 { #category : #'accessing platform' }
