@@ -18,8 +18,8 @@ SpartaCairoLibrary >> findUnixModule: aLibraryName in: directories [
 			libraryPath := path asFileReference / aLibraryName.
 			libraryPath exists
 				ifTrue: [ ^ libraryPath fullName ] ].
-	self error: ('Cannot locate {0}. Please check if it installed on your system' 
-			format: aLibraryName)
+	self error: ('Cannot locate {1}. Please check if it installed on your system' 
+			format: { aLibraryName. })
 ]
 
 { #category : #'accessing platform' }
