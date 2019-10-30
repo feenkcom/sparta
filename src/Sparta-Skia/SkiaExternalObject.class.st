@@ -21,8 +21,13 @@ SkiaExternalObject class >> fromHandle: aHandle [
 ]
 
 { #category : #'instance creation' }
+SkiaExternalObject class >> fromNativeHandle: anExternalData [
+	^ (self fromHandle: (anExternalData getHandle)) autoRelease
+]
+
+{ #category : #'instance creation' }
 SkiaExternalObject class >> new [
-	^ (self fromHandle: (self primCreate getHandle)) autoRelease
+	^ self fromNativeHandle: self primCreate
 ]
 
 { #category : #'private - ffi' }
