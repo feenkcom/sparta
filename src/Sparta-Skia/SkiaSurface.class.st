@@ -32,6 +32,17 @@ SkiaSurface class >> primRelease: aHandle [
 ]
 
 { #category : #accessing }
+SkiaSurface >> data [
+	<return: #GtBoxerArrayU8>
+	| anImageInfo anArray |
+	
+	anImageInfo := self imageInfo.
+	anArray := GtBoxerArrayU8 new: anImageInfo byteSize withAll: 0.
+	self primReadAllPixels: anArray.
+	^ anArray
+]
+
+{ #category : #accessing }
 SkiaSurface >> extent [
 	"Return my extent as point (width @ height).
 	extent can not be nil"
@@ -73,4 +84,9 @@ SkiaSurface >> primGetImageInfo [
 { #category : #'private - ffi' }
 SkiaSurface >> primGetWidth [
 	^ self ffiCall: #(int32 skia_surface_get_width(self))
+]
+
+{ #category : #'private - ffi' }
+SkiaSurface >> primReadAllPixels: aBoxerArrayU8 [
+	^ self ffiCall: #(bool skia_surface_read_all_pixels(self, GtBoxerArrayU8 aBoxerArrayU8))
 ]

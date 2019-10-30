@@ -24,6 +24,13 @@ SkiaImageInfo >> alphaType [
 ]
 
 { #category : #accessing }
+SkiaImageInfo >> byteSize [
+	"Return the minimum amount of bytes needed for the image"
+	
+	^ self computeByteSize: self minRowBytes
+]
+
+{ #category : #accessing }
 SkiaImageInfo >> bytesPerPixel [
 	<return: #Number>
 	
@@ -37,6 +44,13 @@ SkiaImageInfo >> colorType [
 	^ self primGetColorType
 ]
 
+{ #category : #memory }
+SkiaImageInfo >> computeByteSize: aRowBytes [
+	<return: #Number>
+
+	^ self primComputeByteSize: aRowBytes
+]
+
 { #category : #'gt-extension' }
 SkiaImageInfo >> gtInforFor: aView [
 	<gtView>
@@ -47,7 +61,8 @@ SkiaImageInfo >> gtInforFor: aView [
 		#alphaType -> self alphaType.
 		#colorType -> self colorType.
 		#bytesPerPixel -> self bytesPerPixel.
-		#shiftPerPixel -> self shiftPerPixel
+		#shiftPerPixel -> self shiftPerPixel.
+		#byteSize -> self byteSize
 	 } asOrderedDictionary gtItemsFor: aView)
 			title: 'Info';
 			priority: 2
@@ -58,6 +73,18 @@ SkiaImageInfo >> height [
 	<return: #Number>
 
 	^ self primGetHeight
+]
+
+{ #category : #memory }
+SkiaImageInfo >> minRowBytes [
+	<return: #Number>
+	
+	^ self primGetMinRowBytes
+]
+
+{ #category : #'private - ffi' }
+SkiaImageInfo >> primComputeByteSize: anAmountOfRowBytes [
+	^ self ffiCall: #(size_t skia_image_info_compute_byte_size(self, size_t anAmountOfRowBytes))
 ]
 
 { #category : #'private - ffi' }
@@ -78,6 +105,11 @@ SkiaImageInfo >> primGetColorType [
 { #category : #'private - ffi' }
 SkiaImageInfo >> primGetHeight [
 	^ self ffiCall: #(int32 skia_image_info_get_height(self))
+]
+
+{ #category : #'private - ffi' }
+SkiaImageInfo >> primGetMinRowBytes [
+	^ self ffiCall: #(size_t skia_image_info_min_row_bytes(self))
 ]
 
 { #category : #'private - ffi' }
