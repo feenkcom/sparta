@@ -1,6 +1,6 @@
 Class {
 	#name : #SkiaPixelGeometryExamples,
-	#superclass : #Object,
+	#superclass : #SkiaExternalEnumerationExamples,
 	#category : #'Sparta-Skia-Examples'
 }
 
