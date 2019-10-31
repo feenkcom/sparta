@@ -32,6 +32,13 @@ SkiaSurface class >> primRelease: aHandle [
 ]
 
 { #category : #accessing }
+SkiaSurface >> canvas [
+	<return: #SkiaSurfaceCanvas>
+
+	^ SkiaSurfaceCanvas fromNativeHandle: self primGetCanvas
+]
+
+{ #category : #accessing }
 SkiaSurface >> data [
 	<return: #GtBoxerArrayU8>
 	| anImageInfo anArray |
@@ -69,6 +76,11 @@ SkiaSurface >> imageInfo [
 	<return: #SkiaImageInfo>
 
 	^ SkiaImageInfo fromNativeHandle: self primGetImageInfo
+]
+
+{ #category : #'private - ffi' }
+SkiaSurface >> primGetCanvas [
+	^ self ffiCall: #(void* skia_surface_get_canvas(self))
 ]
 
 { #category : #'private - ffi' }
