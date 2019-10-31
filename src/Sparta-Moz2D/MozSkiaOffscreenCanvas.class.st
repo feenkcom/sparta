@@ -1,24 +1,24 @@
 Class {
-	#name : #SkiaOffscreenCanvas,
-	#superclass : #SkiaCanvas,
+	#name : #MozSkiaOffscreenCanvas,
+	#superclass : #MozSkiaCanvas,
 	#instVars : [
 		'session'
 	],
 	#classInstVars : [
 		'uniqueInstance'
 	],
-	#category : 'Sparta-Moz2D-Skia'
+	#category : #'Sparta-Moz2D-Skia'
 }
 
 { #category : #cleanup }
-SkiaOffscreenCanvas class >> cleanUp [
+MozSkiaOffscreenCanvas class >> cleanUp [
 	super cleanUp.
 	
 	uniqueInstance := nil
 ]
 
 { #category : #'instance creation' }
-SkiaOffscreenCanvas class >> new [
+MozSkiaOffscreenCanvas class >> new [
 	^ self basicNew
 		initializeWith: (self
 			primCreateWidth: 1
@@ -29,7 +29,7 @@ SkiaOffscreenCanvas class >> new [
 ]
 
 { #category : #accessing }
-SkiaOffscreenCanvas class >> uniqueInstance [
+MozSkiaOffscreenCanvas class >> uniqueInstance [
 	^ uniqueInstance
 		ifNil: [ uniqueInstance := self new ]
 		ifNotNil: [ :aCanvas | aCanvas isValid
@@ -38,14 +38,14 @@ SkiaOffscreenCanvas class >> uniqueInstance [
 ]
 
 { #category : #initialization }
-SkiaOffscreenCanvas >> initializeWith: aHandle [
+MozSkiaOffscreenCanvas >> initializeWith: aHandle [
 	
 	handle := aHandle.
 	session := Smalltalk session
 ]
 
 { #category : #testing }
-SkiaOffscreenCanvas >> isValid [
+MozSkiaOffscreenCanvas >> isValid [
 	^ session == Smalltalk session and: [
 		handle isNull not and: [
 			super isValid ] ]

@@ -2,17 +2,17 @@
 Possible 3D APIs that may be used by Skia
 "
 Class {
-	#name : #SkiaBackend,
+	#name : #MozSkiaBackend,
 	#superclass : #MozEnum,
 	#classVars : [
 		'kOpenGL_GrBackend',
 		'kVulkan_GrBackend'
 	],
-	#category : 'Sparta-Moz2D-Skia'
+	#category : #'Sparta-Moz2D-Skia'
 }
 
 { #category : #'enum declaration' }
-SkiaBackend class >> enumDecl [
+MozSkiaBackend class >> enumDecl [
 	"
 	self rebuildEnumAccessors
 	"
@@ -24,28 +24,28 @@ SkiaBackend class >> enumDecl [
 ]
 
 { #category : #accessing }
-SkiaBackend class >> externalEnum [
+MozSkiaBackend class >> externalEnum [
 	^ #GrBackend
 ]
 
 { #category : #accessing }
-SkiaBackend class >> externalType [
+MozSkiaBackend class >> externalType [
 	^ FFIUInt32 new
 ]
 
 { #category : #initialization }
-SkiaBackend class >> initialize [
+MozSkiaBackend class >> initialize [
 	super initialize
 ]
 
 { #category : #'accessing enum' }
-SkiaBackend class >> kOpenGL_GrBackend [
+MozSkiaBackend class >> kOpenGL_GrBackend [
 	"This method was automatically generated"
 	^ kOpenGL_GrBackend
 ]
 
 { #category : #'accessing enum' }
-SkiaBackend class >> kVulkan_GrBackend [
+MozSkiaBackend class >> kVulkan_GrBackend [
 	"This method was automatically generated"
 	^ kVulkan_GrBackend
 ]
