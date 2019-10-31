@@ -62,6 +62,7 @@ SkiaImageInfo >> gtInforFor: aView [
 		#colorType -> self colorType.
 		#bytesPerPixel -> self bytesPerPixel.
 		#shiftPerPixel -> self shiftPerPixel.
+		#minRowBytes -> self minRowBytes.
 		#byteSize -> self byteSize
 	 } asOrderedDictionary gtItemsFor: aView)
 			title: 'Info';
