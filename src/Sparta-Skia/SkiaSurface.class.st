@@ -32,6 +32,13 @@ SkiaSurface class >> primRelease: aHandle [
 ]
 
 { #category : #accessing }
+SkiaSurface >> asForm [
+	<return: #Form>
+	
+	^ self data asForm
+]
+
+{ #category : #accessing }
 SkiaSurface >> canvas [
 	<return: #SkiaSurfaceCanvas>
 
@@ -69,6 +76,15 @@ SkiaSurface >> gtInforFor: aView [
 	^ (self imageInfo gtInforFor: aView)
 		title: 'Info';
 		priority: 2
+]
+
+{ #category : #'gt-extension' }
+SkiaSurface >> gtPreviewFor: aView [
+	<gtView>
+	^ aView explicit
+		title: 'Preview';
+		priority: 1;
+		stencil: [ self asForm asElement asScalableElement ]
 ]
 
 { #category : #accessing }
