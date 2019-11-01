@@ -86,6 +86,21 @@ SpartaPathPainter >> composeColor [
 ]
 
 { #category : #'composition operators' }
+SpartaPathPainter >> composeColorBurn [
+	self drawOptions composeColorBurn
+]
+
+{ #category : #'composition operators' }
+SpartaPathPainter >> composeColorDodge [
+	self drawOptions composeColorDodge
+]
+
+{ #category : #'composition operators' }
+SpartaPathPainter >> composeDarken [
+	self drawOptions composeDarken
+]
+
+{ #category : #'composition operators' }
 SpartaPathPainter >> composeDestAtop [
 	self drawOptions composeDestAtop
 ]
@@ -116,8 +131,28 @@ SpartaPathPainter >> composeExclusion [
 ]
 
 { #category : #'composition operators' }
+SpartaPathPainter >> composeHardLight [
+	self drawOptions composeHardLight
+]
+
+{ #category : #'composition operators' }
+SpartaPathPainter >> composeHue [
+	self drawOptions composeHue
+]
+
+{ #category : #'composition operators' }
 SpartaPathPainter >> composeIn [
 	self drawOptions composeIn
+]
+
+{ #category : #'composition operators' }
+SpartaPathPainter >> composeLighten [
+	self drawOptions composeLighten
+]
+
+{ #category : #'composition operators' }
+SpartaPathPainter >> composeLuminosity [
+	self drawOptions composeLuminosity
 ]
 
 { #category : #'composition operators' }
@@ -133,6 +168,26 @@ SpartaPathPainter >> composeOut [
 { #category : #'composition operators' }
 SpartaPathPainter >> composeOver [
 	self drawOptions composeOver
+]
+
+{ #category : #'composition operators' }
+SpartaPathPainter >> composeOverlay [
+	self drawOptions composeOverlay
+]
+
+{ #category : #'composition operators' }
+SpartaPathPainter >> composeSaturation [
+	self drawOptions composeSaturation
+]
+
+{ #category : #'composition operators' }
+SpartaPathPainter >> composeScreen [
+	self drawOptions composeScreen
+]
+
+{ #category : #'composition operators' }
+SpartaPathPainter >> composeSoftLight [
+	self drawOptions composeSoftLight
 ]
 
 { #category : #'composition operators' }
