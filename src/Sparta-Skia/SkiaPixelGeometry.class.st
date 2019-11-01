@@ -63,10 +63,5 @@ SkiaPixelGeometry class >> externalType [
 
 { #category : #'private - ffi' }
 SkiaPixelGeometry >> primRealName: aBoxerString [
-	^ self ffiCall: #(void skia_surface_props_pixel_geometry_to_string(self, GtBoxerString aBoxerString))
-]
-
-{ #category : #'private - ffi' }
-SkiaPixelGeometry >> primRealValue [
-	^ self ffiCall: #(int32 skia_surface_props_pixel_geometry_to_int(self))
+	^ self ffiCall: #(void skia_enums_pixel_geometry_to_string(self, GtBoxerString aBoxerString))
 ]

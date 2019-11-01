@@ -255,10 +255,5 @@ SkiaBlendMode class >> externalType [
 
 { #category : #'private - ffi' }
 SkiaBlendMode >> primRealName: aBoxerString [
-	^ self ffiCall: #(void skia_blend_mode_to_string(self, GtBoxerString aBoxerString))
-]
-
-{ #category : #'private - ffi' }
-SkiaBlendMode >> primRealValue [
-	^ self ffiCall: #(int32 skia_blend_mode_to_int(self))
+	^ self ffiCall: #(void skia_enums_blend_mode_to_string(self, GtBoxerString aBoxerString))
 ]
