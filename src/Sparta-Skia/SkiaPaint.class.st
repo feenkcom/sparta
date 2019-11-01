@@ -29,6 +29,13 @@ SkiaPaint >> antiAlias: aBoolean [
 ]
 
 { #category : #accessing }
+SkiaPaint >> color [
+	<return: #Color>
+
+	^ self primGetColor asColor
+]
+
+{ #category : #accessing }
 SkiaPaint >> color: aColor [
 	| aRed aGreen aBlue anAlpha |
 
@@ -74,6 +81,7 @@ SkiaPaint >> gtInforFor: aView [
 
 	^ ({ 
 		#antiAlias -> self antiAlias.
+		#color -> self color.
 		#dither -> self dither.
 		#paintStyle -> self paintStyle.
 		#strokeWidth -> self strokeWidth.
@@ -92,6 +100,11 @@ SkiaPaint >> paintStyle [
 { #category : #accessing }
 SkiaPaint >> paintStyle: aSkiaPaintStyle [	
 	self primSetPaintStyle: aSkiaPaintStyle
+]
+
+{ #category : #'private - ffi' }
+SkiaPaint >> primGetColor [
+	self ffiCall: #(SkiaColor skia_paint_get_color(self))
 ]
 
 { #category : #'private - ffi' }
@@ -131,7 +144,7 @@ SkiaPaint >> primSetDither: isDither [
 
 { #category : #'private - ffi' }
 SkiaPaint >> primSetPaintStyle: aPaintStyle [
-	self ffiCall: #(void skia_paint_style(self, SkiaPaintStyle aPaintStyle))
+	self ffiCall: #(void skia_paint_set_style(self, SkiaPaintStyle aPaintStyle))
 ]
 
 { #category : #'private - ffi' }
@@ -141,7 +154,7 @@ SkiaPaint >> primSetR: r g: g b: b a: a [
 
 { #category : #'private - ffi' }
 SkiaPaint >> primSetStrokeWidth: aWidth [
-	self ffiCall: #(void skia_paint_stroke_width(self, float32 aWidth))
+	self ffiCall: #(void skia_paint_set_stroke_width(self, float32 aWidth))
 ]
 
 { #category : #accessing }

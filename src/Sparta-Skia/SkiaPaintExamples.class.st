@@ -14,6 +14,7 @@ SkiaPaintExamples >> default [
 	self assert: aPaint dither not.
 	self assert: aPaint paintStyle equals: SkiaPaintStyle Fill.
 	self assert: aPaint strokeWidth equals: 0.0.
+	self assert: aPaint color equals: Color black.
 	
 	^ aPaint
 ]

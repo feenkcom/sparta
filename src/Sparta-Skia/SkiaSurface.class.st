@@ -35,7 +35,7 @@ SkiaSurface class >> primRelease: aHandle [
 SkiaSurface >> asForm [
 	<return: #Form>
 	
-	^ self data asForm
+	^ Form extent: self extent depth: 32 bits: self data asBitmap
 ]
 
 { #category : #accessing }

@@ -44,9 +44,61 @@ SkiaSurfaceCanvas >> drawColor: aColor blendMode: aBlendMode [
 	self primDrawColorR: aRed g: aGreen b: aBlue a: anAlpha blendMode: aBlendMode
 ]
 
+{ #category : #'api - drawing' }
+SkiaSurfaceCanvas >> drawLine: aSpartaLine paint: aSkiaPaint [	
+	self
+		primDrawLineFromX: aSpartaLine from x y: aSpartaLine from y
+		toX: aSpartaLine to x y: aSpartaLine to y
+		paint: aSkiaPaint
+]
+
+{ #category : #'api - drawing' }
+SkiaSurfaceCanvas >> drawPaint: aSkiaPaint [
+	self primDrawPaint: aSkiaPaint
+]
+
+{ #category : #'api - drawing' }
+SkiaSurfaceCanvas >> drawRectangle: aRectangle paint: aSkiaPaint [	
+	self
+		primDrawRectangleLeft: aRectangle left top: aRectangle top right: aRectangle right bottom: aRectangle bottom
+		paint: aSkiaPaint
+]
+
+{ #category : #'api - state' }
+SkiaSurfaceCanvas >> flush [
+	self primFlush
+]
+
 { #category : #'private - ffi' }
 SkiaSurfaceCanvas >> primDrawColorR: r g: g b: b a: a blendMode: aBlendMode [
 	^ self ffiCall: #(void skia_canvas_draw_color(self,
 		uint8 r, uint8 g, uint8 b, uint8 a,
 		SkiaBlendMode aBlendMode))
+]
+
+{ #category : #'private - ffi' }
+SkiaSurfaceCanvas >> primDrawLineFromX: aFromX y: aFromY toX: aToX y: aToY paint: aSkiaPaint [
+	self ffiCall: #(void skia_canvas_draw_line(self, scalar aFromX, scalar aFromY, scalar aToX, scalar aToY, SkiaPaint aSkiaPaint))
+]
+
+{ #category : #'private - ffi' }
+SkiaSurfaceCanvas >> primDrawPaint: aSkiaPaint [
+	self ffiCall: #(void skia_canvas_draw_paint(self, SkiaPaint aSkiaPaint))
+]
+
+{ #category : #'private - ffi' }
+SkiaSurfaceCanvas >> primDrawPoint: aBoxerPointF32 paint: aSkiaPaint [
+	self ffiCall: #(void skia_canvas_draw_point(self, GtBoxerPointF32 aBoxerPointF32, SkiaPaint aSkiaPaint))
+]
+
+{ #category : #'private - ffi' }
+SkiaSurfaceCanvas >> primDrawRectangleLeft: aLeft top: aTop right: aRight bottom: aBottom paint: aSkiaPaint [
+	self ffiCall: #(void skia_canvas_draw_rectangle(self,
+		scalar aLeft, scalar aTop, scalar aRight, scalar aBottom,
+		SkiaPaint aSkiaPaint))
+]
+
+{ #category : #'private - ffi' }
+SkiaSurfaceCanvas >> primFlush [
+	self ffiCall: #(void skia_canvas_flush(self))
 ]
