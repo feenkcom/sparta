@@ -27,6 +27,11 @@ SkiaPath >> asByteArray [
 	^ aBoxerArray asByteArray
 ]
 
+{ #category : #'api - path' }
+SkiaPath >> close [
+	self primClose
+]
+
 { #category : #'gt-extension' }
 SkiaPath >> gtPointsFor: aView [
 	<gtView>
@@ -72,6 +77,11 @@ SkiaPath >> pointsCount [
 	<return: #Number>
 	
 	^ self primPointsCount
+]
+
+{ #category : #'private - ffi' }
+SkiaPath >> primClose [
+	^ self ffiCall: #(size_t skia_path_close(self))
 ]
 
 { #category : #'private - ffi' }

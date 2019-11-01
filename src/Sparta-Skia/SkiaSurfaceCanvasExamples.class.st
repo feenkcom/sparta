@@ -220,6 +220,32 @@ SkiaSurfaceCanvasExamples >> drawPaintBlack [
 	^ aSurface
 ]
 
+{ #category : #'examples - draw path' }
+SkiaSurfaceCanvasExamples >> drawPathTriangleWithGrayFill [
+	<gtExample>
+	| aSurface aCanvas aPath aPaint |
+	
+	aSurface := SkiaSurface newRasterPremultipled: 70@50.
+	
+	aPath := SkiaPath new
+		moveTo: 10@40;
+		lineTo: 35@10;
+		lineTo: 60@40;
+		close.
+
+	aPaint := SkiaPaint new
+		antiAlias: true;
+		color: Color lightGray;
+		paintStyle: SkiaPaintStyle Fill.
+	
+	aCanvas := aSurface canvas.
+	aCanvas drawPath: aPath paint: aPaint.
+	aCanvas flush.
+	aCanvas release.
+	
+	^ aSurface
+]
+
 { #category : #'examples - draw point' }
 SkiaSurfaceCanvasExamples >> drawPointBlack [
 	<gtExample>

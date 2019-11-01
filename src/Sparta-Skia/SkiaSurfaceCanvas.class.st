@@ -73,6 +73,11 @@ SkiaSurfaceCanvas >> drawPaint: aSkiaPaint [
 ]
 
 { #category : #'api - drawing' }
+SkiaSurfaceCanvas >> drawPath: aSkiaPath paint: aSkiaPaint [
+	self primDrawPath: aSkiaPath paint: aSkiaPaint
+]
+
+{ #category : #'api - drawing' }
 SkiaSurfaceCanvas >> drawPoint: aPoint paint: aSkiaPaint [
 	self
 		primDrawPointX: aPoint x
@@ -121,6 +126,11 @@ SkiaSurfaceCanvas >> primDrawOvalLeft: aLeft top: aTop right: aRight bottom: aBo
 { #category : #'private - ffi' }
 SkiaSurfaceCanvas >> primDrawPaint: aSkiaPaint [
 	self ffiCall: #(void skia_canvas_draw_paint(self, SkiaPaint aSkiaPaint))
+]
+
+{ #category : #'private - ffi' }
+SkiaSurfaceCanvas >> primDrawPath: aSkiaPath paint: aSkiaPaint [
+	self ffiCall: #(void skia_canvas_draw_path(self, SkiaPath aSkiaPath, SkiaPaint aSkiaPaint))
 ]
 
 { #category : #'private - ffi' }
