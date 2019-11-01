@@ -211,6 +211,41 @@ TSpartaExamples >> donut [
 	^ canvas
 ]
 
+{ #category : #'examples - fill rectangle' }
+TSpartaExamples >> fillRectangleWithGrayColor [
+	<gtExample>
+	| aCanvas |
+
+	aCanvas := self class canvas: 400@300.
+	
+	aCanvas fill
+		path: (100@100 corner: 300@200);
+		paint: Color lightGray;
+		draw.
+
+	^ aCanvas
+]
+
+{ #category : #'examples - fill rectangle' }
+TSpartaExamples >> fillTwoRectanglesWithSemiTransparentColors [
+	<gtExample>
+	| aCanvas |
+
+	aCanvas := self class canvas: 400@300.
+	
+	aCanvas fill
+		path: (50@50 corner: 200@150);
+		paint: (Color blue alpha: 0.5);
+		draw.
+		
+	aCanvas fill
+		path: (100@100 corner: 250@200);
+		paint: (Color red alpha: 0.5);
+		draw.
+
+	^ aCanvas
+]
+
 { #category : #examples }
 TSpartaExamples >> mario [
 	<gtExample>

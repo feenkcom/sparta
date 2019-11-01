@@ -27,14 +27,8 @@ Internal Representation and Key Implementation Points.
 Class {
 	#name : #MozPaintProvider,
 	#superclass : #SpartaPaintProvider,
-	#category : 'Sparta-Moz2D-Builders'
+	#category : #'Sparta-Moz2D-Builders'
 }
-
-{ #category : #paints }
-MozPaintProvider >> color: aColor [
-	"A color is already a paint in Sparta"
-	^ aColor
-]
 
 { #category : #paints }
 MozPaintProvider >> form: aForm [

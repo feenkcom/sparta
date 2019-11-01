@@ -29,7 +29,9 @@ Class {
 
 { #category : #paints }
 SpartaPaintProvider >> color: aColor [
-	^ self subclassResponsibility
+	"A Color is already a paint in Sparta"
+
+	^ aColor
 ]
 
 { #category : #paints }

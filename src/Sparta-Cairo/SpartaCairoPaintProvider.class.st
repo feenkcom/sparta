@@ -1,14 +1,8 @@
 Class {
 	#name : #SpartaCairoPaintProvider,
 	#superclass : #SpartaPaintProvider,
-	#category : 'Sparta-Cairo-Builders'
+	#category : #'Sparta-Cairo-Builders'
 }
-
-{ #category : #paints }
-SpartaCairoPaintProvider >> color: aColor [
-	"A color is already a paint in Sparta"
-	^ aColor
-]
 
 { #category : #paints }
 SpartaCairoPaintProvider >> form: aForm [
