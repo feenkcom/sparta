@@ -11,6 +11,58 @@ SkiaSurfaceCanvas class >> primRelease: aHandle [
 	self ffiCall: #(void skia_canvas_drop(void* aHandle))
 ]
 
+{ #category : #'api - clip' }
+SkiaSurfaceCanvas >> clipDeviceBounds [
+	<return: #Rectangle>
+	| aRectangleI32 |
+	
+	aRectangleI32 := SkiaRectangleI32 new.
+	self primClipGetDeviceBounds: aRectangleI32.
+	^ aRectangleI32 asRectangle
+]
+
+{ #category : #'api - clip' }
+SkiaSurfaceCanvas >> clipLocalBounds [
+	<return: #Rectangle>
+	| aRectangleF32 |
+	
+	aRectangleF32 := SkiaRectangleF32 new.
+	self primClipGetLocalBounds: aRectangleF32.
+	^ aRectangleF32 asRectangle
+]
+
+{ #category : #'api - clip' }
+SkiaSurfaceCanvas >> clipPath: aSkiaPath [
+	self
+		clipPath: aSkiaPath
+		clipOp: SkiaClipOp Intersect
+		antiAlias: true
+]
+
+{ #category : #'api - clip' }
+SkiaSurfaceCanvas >> clipPath: aSkiaPath clipOp: aSkiaClipOp antiAlias: isAntiAlias [
+	self
+		primClipPath: aSkiaPath
+		clipOp: aSkiaClipOp
+		antiAlias: isAntiAlias
+]
+
+{ #category : #'api - clip' }
+SkiaSurfaceCanvas >> clipRectangle: aSpartaRectangle [
+	self
+		clipRectangle: aSpartaRectangle
+		clipOp: SkiaClipOp Intersect
+		antiAlias: true
+]
+
+{ #category : #'api - clip' }
+SkiaSurfaceCanvas >> clipRectangle: aSpartaRectangle clipOp: aSkiaClipOp antiAlias: isAntiAlias [
+	self
+		primClipRectangleLeft: aSpartaRectangle left top: aSpartaRectangle top right: aSpartaRectangle right bottom: aSpartaRectangle bottom
+		clipOp: aSkiaClipOp
+		antiAlias: isAntiAlias
+]
+
 { #category : #'api - drawing' }
 SkiaSurfaceCanvas >> drawCircle: aSpartaCircle paint: aSkiaPaint [
 	self
@@ -95,6 +147,32 @@ SkiaSurfaceCanvas >> drawRectangle: aSpartaRectangle paint: aSkiaPaint [
 { #category : #'api - state' }
 SkiaSurfaceCanvas >> flush [
 	self primFlush
+]
+
+{ #category : #'private - ffi' }
+SkiaSurfaceCanvas >> primClipGetDeviceBounds: aSkiaRectangleI32 [
+	self ffiCall: #(void skia_canvas_device_clip_bounds(self, SkiaRectangleI32 aSkiaRectangleI32))
+]
+
+{ #category : #'private - ffi' }
+SkiaSurfaceCanvas >> primClipGetLocalBounds: aSkiaRectangleF32 [
+	self ffiCall: #(void skia_canvas_local_clip_bounds(self, SkiaRectangleF32 aSkiaRectangleF32))
+]
+
+{ #category : #'private - ffi' }
+SkiaSurfaceCanvas >> primClipPath: aSkiaPath clipOp: aSkiaClipOp antiAlias: isAntiAlias [
+	self ffiCall: #(void skia_canvas_clip_path(self,
+		SkiaPath aSkiaPath,
+		SkiaClipOp aSkiaClipOp,
+		bool isAntiAlias))
+]
+
+{ #category : #'private - ffi' }
+SkiaSurfaceCanvas >> primClipRectangleLeft: aLeft top: aTop right: aRight bottom: aBottom clipOp: aSkiaClipOp antiAlias: isAntiAlias [
+	self ffiCall: #(void skia_canvas_clip_rect(self,
+		scalar aLeft, scalar aTop, scalar aRight, scalar aBottom,
+		SkiaClipOp aSkiaClipOp,
+		bool isAntiAlias))
 ]
 
 { #category : #'private - ffi' }

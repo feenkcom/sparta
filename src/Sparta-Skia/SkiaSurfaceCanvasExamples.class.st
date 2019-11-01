@@ -4,6 +4,29 @@ Class {
 	#category : #'Sparta-Skia-Examples'
 }
 
+{ #category : #'examples - clip rectangle' }
+SkiaSurfaceCanvasExamples >> clipRectangle [
+	<gtExample>
+	| aSurface aCanvas aRectangle |
+	
+	aSurface := SkiaSurface newRasterPremultipled: 70@50.
+	
+	aRectangle := SpartaRectangle fromRectangle: (10@10 corner: 60@40).
+	
+	aCanvas := aSurface canvas.
+	aCanvas clipRectangle: aRectangle.
+	
+	self assert: aCanvas clipLocalBounds equals: (9@9 corner: 61@41).
+	self assert: aCanvas clipDeviceBounds equals: (10@10 corner: 60@40).
+	
+	aCanvas drawPaint: (SkiaPaint new color: Color lightGray).
+	
+	aCanvas flush.
+	aCanvas release.
+	
+	^ aSurface
+]
+
 { #category : #'examples - draw circle' }
 SkiaSurfaceCanvasExamples >> drawCircleWithGrayFill [
 	<gtExample>
