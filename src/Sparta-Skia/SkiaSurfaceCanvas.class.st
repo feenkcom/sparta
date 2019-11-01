@@ -12,6 +12,14 @@ SkiaSurfaceCanvas class >> primRelease: aHandle [
 ]
 
 { #category : #'api - drawing' }
+SkiaSurfaceCanvas >> drawCircle: aSpartaCircle paint: aSkiaPaint [
+	self
+		primDrawCircleX: aSpartaCircle center x y: aSpartaCircle center y
+		radius: aSpartaCircle radius
+		paint: aSkiaPaint
+]
+
+{ #category : #'api - drawing' }
 SkiaSurfaceCanvas >> drawColor: aColor [
 	self drawColor: aColor blendMode: SkiaBlendMode SrcOver
 ]
@@ -53,20 +61,42 @@ SkiaSurfaceCanvas >> drawLine: aSpartaLine paint: aSkiaPaint [
 ]
 
 { #category : #'api - drawing' }
+SkiaSurfaceCanvas >> drawOval: aSpartaRectangle paint: aSkiaPaint [	
+	self
+		primDrawOvalLeft: aSpartaRectangle left top: aSpartaRectangle top right: aSpartaRectangle right bottom: aSpartaRectangle bottom
+		paint: aSkiaPaint
+]
+
+{ #category : #'api - drawing' }
 SkiaSurfaceCanvas >> drawPaint: aSkiaPaint [
 	self primDrawPaint: aSkiaPaint
 ]
 
 { #category : #'api - drawing' }
-SkiaSurfaceCanvas >> drawRectangle: aRectangle paint: aSkiaPaint [	
+SkiaSurfaceCanvas >> drawPoint: aPoint paint: aSkiaPaint [
 	self
-		primDrawRectangleLeft: aRectangle left top: aRectangle top right: aRectangle right bottom: aRectangle bottom
+		primDrawPointX: aPoint x
+		y: aPoint y
+		paint: aSkiaPaint
+]
+
+{ #category : #'api - drawing' }
+SkiaSurfaceCanvas >> drawRectangle: aSpartaRectangle paint: aSkiaPaint [	
+	self
+		primDrawRectangleLeft: aSpartaRectangle left top: aSpartaRectangle top right: aSpartaRectangle right bottom: aSpartaRectangle bottom
 		paint: aSkiaPaint
 ]
 
 { #category : #'api - state' }
 SkiaSurfaceCanvas >> flush [
 	self primFlush
+]
+
+{ #category : #'private - ffi' }
+SkiaSurfaceCanvas >> primDrawCircleX: aX y: aY radius: aRadius paint: aSkiaPaint [
+	self ffiCall: #(void skia_canvas_draw_circle(self,
+		scalar aX, scalar aY, scalar aRadius,
+		SkiaPaint aSkiaPaint))
 ]
 
 { #category : #'private - ffi' }
@@ -82,13 +112,20 @@ SkiaSurfaceCanvas >> primDrawLineFromX: aFromX y: aFromY toX: aToX y: aToY paint
 ]
 
 { #category : #'private - ffi' }
+SkiaSurfaceCanvas >> primDrawOvalLeft: aLeft top: aTop right: aRight bottom: aBottom paint: aSkiaPaint [
+	self ffiCall: #(void skia_canvas_draw_oval(self,
+		scalar aLeft, scalar aTop, scalar aRight, scalar aBottom,
+		SkiaPaint aSkiaPaint))
+]
+
+{ #category : #'private - ffi' }
 SkiaSurfaceCanvas >> primDrawPaint: aSkiaPaint [
 	self ffiCall: #(void skia_canvas_draw_paint(self, SkiaPaint aSkiaPaint))
 ]
 
 { #category : #'private - ffi' }
-SkiaSurfaceCanvas >> primDrawPoint: aBoxerPointF32 paint: aSkiaPaint [
-	self ffiCall: #(void skia_canvas_draw_point(self, GtBoxerPointF32 aBoxerPointF32, SkiaPaint aSkiaPaint))
+SkiaSurfaceCanvas >> primDrawPointX: aX y: aY paint: aSkiaPaint [
+	self ffiCall: #(void skia_canvas_draw_point(self, scalar aX, scalar aY, SkiaPaint aSkiaPaint))
 ]
 
 { #category : #'private - ffi' }

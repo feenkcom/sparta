@@ -21,9 +21,7 @@ Internal Representation and Key Implementation Points.
 "
 Class {
 	#name : #SpartaLine,
-	#superclass : #Object,
-	#traits : 'TSpartaPath',
-	#classTraits : 'TSpartaPath classTrait',
+	#superclass : #SpartaGeometry,
 	#instVars : [
 		'from',
 		'to',
@@ -37,12 +35,6 @@ SpartaLine class >> from: fromPoint to: toPoint [
 	^ self new
 		from: fromPoint to: toPoint;
 		yourself
-]
-
-{ #category : #converting }
-SpartaLine >> asSpartaPathOn: aSpartaCanvas [
-	"I am polymorphic with TSpartaPath and can be used directly"
-	^ self
 ]
 
 { #category : #'geometry - testing' }

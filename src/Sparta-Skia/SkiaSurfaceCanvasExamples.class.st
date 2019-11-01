@@ -4,6 +4,29 @@ Class {
 	#category : #'Sparta-Skia-Examples'
 }
 
+{ #category : #'examples - draw circle' }
+SkiaSurfaceCanvasExamples >> drawCircleWithGrayFill [
+	<gtExample>
+	| aSurface aCanvas aCircle aPaint |
+	
+	aSurface := SkiaSurface newRasterPremultipled: 70@50.
+	
+	aCircle := SpartaCircle center: 35@25 radius: 20.
+
+	aPaint := SkiaPaint new
+		antiAlias: true;
+		color: Color lightGray;
+		paintStyle: SkiaPaintStyle Fill.
+	
+	aCanvas := aSurface canvas.
+	aCanvas drawCircle: aCircle paint: aPaint.
+	
+	aCanvas flush.
+	aCanvas release.
+	
+	^ aSurface
+]
+
 { #category : #'examples - draw color' }
 SkiaSurfaceCanvasExamples >> drawColorBlack [
 	<gtExample>
@@ -155,6 +178,29 @@ SkiaSurfaceCanvasExamples >> drawLineBlackWithAntiAlias [
 	^ aSurface
 ]
 
+{ #category : #'examples - draw oval' }
+SkiaSurfaceCanvasExamples >> drawOvalWithGrayFill [
+	<gtExample>
+	| aSurface aCanvas aRectangle aPaint |
+	
+	aSurface := SkiaSurface newRasterPremultipled: 70@50.
+	
+	aRectangle := SpartaRectangle fromRectangle: (10@10 corner: 60@40).
+
+	aPaint := SkiaPaint new
+		antiAlias: true;
+		color: Color lightGray;
+		paintStyle: SkiaPaintStyle Fill.
+	
+	aCanvas := aSurface canvas.
+	aCanvas drawOval: aRectangle paint: aPaint.
+	
+	aCanvas flush.
+	aCanvas release.
+	
+	^ aSurface
+]
+
 { #category : #'examples - draw paint' }
 SkiaSurfaceCanvasExamples >> drawPaintBlack [
 	<gtExample>
@@ -174,25 +220,41 @@ SkiaSurfaceCanvasExamples >> drawPaintBlack [
 	^ aSurface
 ]
 
+{ #category : #'examples - draw point' }
+SkiaSurfaceCanvasExamples >> drawPointBlack [
+	<gtExample>
+	| aSurface aCanvas aPaint |
+	
+	aSurface := SkiaSurface newRasterPremultipled: 50@50.
+	
+	aPaint := SkiaPaint new
+		color: Color black;
+		paintStyle: SkiaPaintStyle Fill.
+	
+	aCanvas := aSurface canvas.
+	aCanvas drawPoint: 25@25 paint: aPaint.
+	aCanvas flush.
+	aCanvas release.
+	
+	^ aSurface
+]
+
 { #category : #'examples - draw rectangle' }
-SkiaSurfaceCanvasExamples >> fillRectangleWithGray [
+SkiaSurfaceCanvasExamples >> drawRectangleWithGrayFill [
 	<gtExample>
 	| aSurface aCanvas aRectangle aPaint |
 	
 	aSurface := SkiaSurface newRasterPremultipled: 70@50.
 	
-	aRectangle := (10@10 corner: 60@40).
+	aRectangle := SpartaRectangle fromRectangle: (10@10 corner: 60@40).
+
 	aPaint := SkiaPaint new
 		color: Color lightGray;
 		paintStyle: SkiaPaintStyle Fill.
 	
 	aCanvas := aSurface canvas.
 	aCanvas drawRectangle: aRectangle paint: aPaint.
-	
-	"this one is to show the actual rectangle path"
-	aPaint strokeWidth: 1; color: Color black; paintStyle: SkiaPaintStyle Stroke.
-	aCanvas drawRectangle: aRectangle paint: aPaint.
-	
+
 	aCanvas flush.
 	aCanvas release.
 	
@@ -200,39 +262,14 @@ SkiaSurfaceCanvasExamples >> fillRectangleWithGray [
 ]
 
 { #category : #'examples - draw rectangle' }
-SkiaSurfaceCanvasExamples >> strokeAndFillRectangleWithGray [
+SkiaSurfaceCanvasExamples >> drawRectangleWithGrayStroke [
 	<gtExample>
 	| aSurface aCanvas aRectangle aPaint |
 	
 	aSurface := SkiaSurface newRasterPremultipled: 70@50.
 	
-	aRectangle := (10@10 corner: 60@40).
-	aPaint := SkiaPaint new
-		color: Color lightGray;
-		strokeWidth: 6;
-		paintStyle: SkiaPaintStyle StrokeAndFill.
-	
-	aCanvas := aSurface canvas.
-	aCanvas drawRectangle: aRectangle paint: aPaint.
-	
-	"this one is to show the actual rectangle path"
-	aPaint strokeWidth: 1; color: Color black; paintStyle: SkiaPaintStyle Stroke.
-	aCanvas drawRectangle: aRectangle paint: aPaint.
-	
-	aCanvas flush.
-	aCanvas release.
-	
-	^ aSurface
-]
+	aRectangle := SpartaRectangle fromRectangle: (10@10 corner: 60@40).
 
-{ #category : #'examples - draw rectangle' }
-SkiaSurfaceCanvasExamples >> strokeRectangleWithGray [
-	<gtExample>
-	| aSurface aCanvas aRectangle aPaint |
-	
-	aSurface := SkiaSurface newRasterPremultipled: 70@50.
-	
-	aRectangle := (10@10 corner: 60@40).
 	aPaint := SkiaPaint new
 		color: Color lightGray;
 		strokeWidth: 7;
@@ -243,6 +280,33 @@ SkiaSurfaceCanvasExamples >> strokeRectangleWithGray [
 	
 	"this one is to show the actual rectangle path"
 	aPaint strokeWidth: 1; color: Color black.
+	aCanvas drawRectangle: aRectangle paint: aPaint.
+	
+	aCanvas flush.
+	aCanvas release.
+	
+	^ aSurface
+]
+
+{ #category : #'examples - draw rectangle' }
+SkiaSurfaceCanvasExamples >> drawRectangleWithGrayStrokeAndFill [
+	<gtExample>
+	| aSurface aCanvas aRectangle aPaint |
+	
+	aSurface := SkiaSurface newRasterPremultipled: 70@50.
+	
+	aRectangle := SpartaRectangle fromRectangle: (10@10 corner: 60@40).
+
+	aPaint := SkiaPaint new
+		color: Color lightGray;
+		strokeWidth: 7;
+		paintStyle: SkiaPaintStyle StrokeAndFill.
+	
+	aCanvas := aSurface canvas.
+	aCanvas drawRectangle: aRectangle paint: aPaint.
+	
+	"this one is to show the actual rectangle path"
+	aPaint strokeWidth: 1; color: Color black; paintStyle: SkiaPaintStyle Stroke.
 	aCanvas drawRectangle: aRectangle paint: aPaint.
 	
 	aCanvas flush.
