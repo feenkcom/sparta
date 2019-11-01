@@ -229,6 +229,11 @@ SkiaSurfaceCanvas >> primFlush [
 ]
 
 { #category : #'private - ffi' }
+SkiaSurfaceCanvas >> primGetSaveCount [
+	self ffiCall: #(size_t skia_canvas_save_count(self))
+]
+
+{ #category : #'private - ffi' }
 SkiaSurfaceCanvas >> primQuickRejectPath: aSkiaPath [
 	self ffiCall: #(bool skia_canvas_quick_reject_path (SkiaPath aSkiaPath))
 ]
@@ -236,6 +241,21 @@ SkiaSurfaceCanvas >> primQuickRejectPath: aSkiaPath [
 { #category : #'private - ffi' }
 SkiaSurfaceCanvas >> primQuickRejectRectangleLeft: aLeft top: aTop right: aRight bottom: aBottom [
 	self ffiCall: #(bool skia_canvas_quick_reject_rectangle (self,scalar aLeft, scalar aTop, scalar aRight, scalar aBottom))
+]
+
+{ #category : #'private - ffi' }
+SkiaSurfaceCanvas >> primRestore [
+	self ffiCall: #(void skia_canvas_restore(self))
+]
+
+{ #category : #'private - ffi' }
+SkiaSurfaceCanvas >> primRestoreToCount: aNumber [
+	self ffiCall: #(void skia_canvas_restore_to_count(self, size_t aNumber))
+]
+
+{ #category : #'private - ffi' }
+SkiaSurfaceCanvas >> primSave [
+	self ffiCall: #(size_t skia_canvas_save(self))
 ]
 
 { #category : #'api - clip' }
@@ -247,4 +267,25 @@ SkiaSurfaceCanvas >> quickRejectPath: aSkiaPath [
 SkiaSurfaceCanvas >> quickRejectRectangle: aSpartaRectangle [
 	^ self
 		primQuickRejectRectangleLeft: aSpartaRectangle left top: aSpartaRectangle top right: aSpartaRectangle right bottom: aSpartaRectangle bottom
+]
+
+{ #category : #'api - state' }
+SkiaSurfaceCanvas >> restore [
+	self primRestore
+]
+
+{ #category : #'api - state' }
+SkiaSurfaceCanvas >> restoreToCount: aNumber [
+	self primRestoreToCount: aNumber
+]
+
+{ #category : #'api - state' }
+SkiaSurfaceCanvas >> save [
+	self primSave
+]
+
+{ #category : #'api - state' }
+SkiaSurfaceCanvas >> saveCount [
+	<return: #Number>
+	^ self primGetSaveCount
 ]
