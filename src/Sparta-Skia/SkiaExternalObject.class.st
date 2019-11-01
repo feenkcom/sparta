@@ -20,7 +20,9 @@ SkiaExternalObject class >> finalizeResourceData: aHandle [
 
 { #category : #'instance creation' }
 SkiaExternalObject class >> fromHandle: aHandle [
-	^ self basicNew setHandle: aHandle
+	^ self basicNew
+		initialize;
+		setHandle: aHandle
 ]
 
 { #category : #'instance creation' }
