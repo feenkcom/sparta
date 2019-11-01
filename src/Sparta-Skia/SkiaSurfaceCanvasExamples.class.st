@@ -363,3 +363,51 @@ SkiaSurfaceCanvasExamples >> drawRectangleWithGrayStrokeAndFill [
 	
 	^ aSurface
 ]
+
+{ #category : #'examples - quick reject' }
+SkiaSurfaceCanvasExamples >> quickAcceptRectangle [
+	<gtExample>
+	| aSurface aCanvas aRectangle |
+	
+	aSurface := SkiaSurface newRasterPremultipled: 50@50.
+	
+	aRectangle := SpartaRectangle fromRectangle: (10@10 corner: 20@20).
+	
+	aCanvas := aSurface canvas.
+	aCanvas clipRectangle: aRectangle.
+	
+	self assert: aCanvas clipLocalBounds equals: (9@9 corner: 21@21).
+	self assert: aCanvas clipDeviceBounds equals: (10@10 corner: 20@20).
+	
+	"this rectangle is partially inside of the clip area -> it is accepted"
+	self assert: (aCanvas quickRejectRectangle: (15@15 corner: 40@40)) not.
+	
+	aCanvas flush.
+	aCanvas release.
+	
+	^ aSurface
+]
+
+{ #category : #'examples - quick reject' }
+SkiaSurfaceCanvasExamples >> quickRejectRectangle [
+	<gtExample>
+	| aSurface aCanvas aRectangle |
+	
+	aSurface := SkiaSurface newRasterPremultipled: 50@50.
+	
+	aRectangle := SpartaRectangle fromRectangle: (10@10 corner: 20@20).
+	
+	aCanvas := aSurface canvas.
+	aCanvas clipRectangle: aRectangle.
+	
+	self assert: aCanvas clipLocalBounds equals: (9@9 corner: 21@21).
+	self assert: aCanvas clipDeviceBounds equals: (10@10 corner: 20@20).
+	
+	"this rectangle is outside of the clip area -> it is rejected"
+	self assert: (aCanvas quickRejectRectangle: (25@25 corner: 40@40)).
+	
+	aCanvas flush.
+	aCanvas release.
+	
+	^ aSurface
+]

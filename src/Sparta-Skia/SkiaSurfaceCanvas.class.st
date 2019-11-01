@@ -227,3 +227,24 @@ SkiaSurfaceCanvas >> primDrawRectangleLeft: aLeft top: aTop right: aRight bottom
 SkiaSurfaceCanvas >> primFlush [
 	self ffiCall: #(void skia_canvas_flush(self))
 ]
+
+{ #category : #'private - ffi' }
+SkiaSurfaceCanvas >> primQuickRejectPath: aSkiaPath [
+	self ffiCall: #(bool skia_canvas_quick_reject_path (SkiaPath aSkiaPath))
+]
+
+{ #category : #'private - ffi' }
+SkiaSurfaceCanvas >> primQuickRejectRectangleLeft: aLeft top: aTop right: aRight bottom: aBottom [
+	self ffiCall: #(bool skia_canvas_quick_reject_rectangle (self,scalar aLeft, scalar aTop, scalar aRight, scalar aBottom))
+]
+
+{ #category : #'api - clip' }
+SkiaSurfaceCanvas >> quickRejectPath: aSkiaPath [
+	^ self primQuickRejectPath: aSkiaPath
+]
+
+{ #category : #'api - clip' }
+SkiaSurfaceCanvas >> quickRejectRectangle: aSpartaRectangle [
+	^ self
+		primQuickRejectRectangleLeft: aSpartaRectangle left top: aSpartaRectangle top right: aSpartaRectangle right bottom: aSpartaRectangle bottom
+]
