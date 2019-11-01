@@ -1,6 +1,6 @@
 Class {
 	#name : #SkiaColorSpaceExamples,
-	#superclass : #Object,
+	#superclass : #SkiaExternalObjectExamples,
 	#category : #'Sparta-Skia-Examples'
 }
 

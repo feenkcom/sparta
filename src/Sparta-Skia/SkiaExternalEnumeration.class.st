@@ -87,7 +87,7 @@ SkiaExternalEnumeration class >> initialize [
 SkiaExternalEnumeration class >> realLayout [
 	<return: #Dictionary>
 
-	^ (self variants collect: [ :eachVariant | eachVariant realItem -> eachVariant realValue ]) asOrderedDictionary
+	^ (self variants collect: [ :eachVariant | eachVariant realItem -> eachVariant value ]) asOrderedDictionary
 ]
 
 { #category : #private }
@@ -119,25 +119,9 @@ SkiaExternalEnumeration >> primRealName: aBoxerString [
 	^ self subclassResponsibility
 ]
 
-{ #category : #'private - ffi' }
-SkiaExternalEnumeration >> primRealValue [
-	"
-	^ self ffiCall: #(int32 skia_image_info_alpha_type_to_int(self))
-	"
-	
-	^ self subclassResponsibility
-]
-
 { #category : #accessing }
 SkiaExternalEnumeration >> realItem [
 	<return: #Symbol>
 
 	^ (GtBoxerString getStringFrom: [ :aBoxerString | self primRealName: aBoxerString ]) asSymbol
-]
-
-{ #category : #accessing }
-SkiaExternalEnumeration >> realValue [
-	<return: #Number>
-
-	^ self primRealValue
 ]

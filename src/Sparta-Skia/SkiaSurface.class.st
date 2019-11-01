@@ -32,6 +32,20 @@ SkiaSurface class >> primRelease: aHandle [
 ]
 
 { #category : #accessing }
+SkiaSurface >> asForm [
+	<return: #Form>
+	
+	^ Form extent: self extent depth: 32 bits: self data asBitmap
+]
+
+{ #category : #accessing }
+SkiaSurface >> canvas [
+	<return: #SkiaSurfaceCanvas>
+
+	^ SkiaSurfaceCanvas fromNativeHandle: self primGetCanvas
+]
+
+{ #category : #accessing }
 SkiaSurface >> data [
 	<return: #GtBoxerArrayU8>
 	| anImageInfo anArray |
@@ -64,11 +78,25 @@ SkiaSurface >> gtInforFor: aView [
 		priority: 2
 ]
 
+{ #category : #'gt-extension' }
+SkiaSurface >> gtPreviewFor: aView [
+	<gtView>
+	^ aView explicit
+		title: 'Preview';
+		priority: 1;
+		stencil: [ self asForm asElement asScalableElement ]
+]
+
 { #category : #accessing }
 SkiaSurface >> imageInfo [
 	<return: #SkiaImageInfo>
 
 	^ SkiaImageInfo fromNativeHandle: self primGetImageInfo
+]
+
+{ #category : #'private - ffi' }
+SkiaSurface >> primGetCanvas [
+	^ self ffiCall: #(void* skia_surface_get_canvas(self))
 ]
 
 { #category : #'private - ffi' }

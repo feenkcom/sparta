@@ -60,11 +60,5 @@ SkiaAlphaType class >> initialize [
 
 { #category : #'private - ffi' }
 SkiaAlphaType >> primRealName: aBoxerString [
-
-	^ self ffiCall: #(void skia_image_info_alpha_type_to_string(self, GtBoxerString aBoxerString))
-]
-
-{ #category : #'private - ffi' }
-SkiaAlphaType >> primRealValue [
-	^ self ffiCall: #(int32 skia_image_info_alpha_type_to_int(self))
+	^ self ffiCall: #(void skia_enums_alpha_type_to_string(self, GtBoxerString aBoxerString))
 ]

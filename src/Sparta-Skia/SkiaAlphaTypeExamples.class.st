@@ -1,6 +1,6 @@
 Class {
 	#name : #SkiaAlphaTypeExamples,
-	#superclass : #Object,
+	#superclass : #SkiaExternalEnumerationExamples,
 	#category : #'Sparta-Skia-Examples'
 }
 

@@ -127,10 +127,5 @@ SkiaColorType class >> externalType [
 
 { #category : #'private - ffi' }
 SkiaColorType >> primRealName: aBoxerString [
-	^ self ffiCall: #(void skia_image_info_color_type_to_string(self, GtBoxerString aBoxerString))
-]
-
-{ #category : #'private - ffi' }
-SkiaColorType >> primRealValue [
-	^ self ffiCall: #(int32 skia_image_info_color_type_to_int(self))
+	^ self ffiCall: #(void skia_enums_color_type_to_string(self, GtBoxerString aBoxerString))
 ]

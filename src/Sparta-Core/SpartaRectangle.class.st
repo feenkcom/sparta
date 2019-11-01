@@ -3,14 +3,14 @@ I am mutable implementation of Rectangle which stores coordinates as Numbers and
 "
 Class {
 	#name : #SpartaRectangle,
-	#superclass : #Object,
+	#superclass : #SpartaGeometry,
 	#instVars : [
 		'left',
 		'top',
 		'right',
 		'bottom'
 	],
-	#category : #'Sparta-Core-Math'
+	#category : #'Sparta-Core-Path'
 }
 
 { #category : #'instance creation' }
@@ -42,12 +42,6 @@ SpartaRectangle >> asRectangle [
 	a rectangle from set of numbers (faster than Point#>>corner:)"
 
 	^ Rectangle left: left right: right top: top bottom: bottom
-]
-
-{ #category : #converting }
-SpartaRectangle >> asSpartaPathOn: aSpartaCanvas [
-	"I am polymorphic with TSpartaPath and can be used directly"
-	^ self
 ]
 
 { #category : #accessing }

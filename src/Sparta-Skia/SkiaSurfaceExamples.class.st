@@ -1,6 +1,6 @@
 Class {
 	#name : #SkiaSurfaceExamples,
-	#superclass : #Object,
+	#superclass : #SkiaExternalObjectExamples,
 	#category : #'Sparta-Skia-Examples'
 }
 
