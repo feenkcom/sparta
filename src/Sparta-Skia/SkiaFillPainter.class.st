@@ -4,8 +4,8 @@ Class {
 	#category : #'Sparta-Skia-Core'
 }
 
-{ #category : #drawing }
-SkiaFillPainter >> fillPath: aPath withSolidColor: aColor [
+{ #category : #private }
+SkiaFillPainter >> createPaintForColor: aColor [
 	| aSkiaPaint theDrawOptions |
 	
 	theDrawOptions := self ensuredDrawOptions.
@@ -15,25 +15,20 @@ SkiaFillPainter >> fillPath: aPath withSolidColor: aColor [
 		color: (aColor alpha: aColor alpha * theDrawOptions alpha);
 		antialias: theDrawOptions antialias;
 		blendMode: theDrawOptions blendMode.
+		
+	^ aSkiaPaint
+]
 
+{ #category : #drawing }
+SkiaFillPainter >> fillPath: aPath withSolidColor: aColor [
 	canvas surfaceCanvas
 		drawPath: aPath
-		paint: aSkiaPaint
+		paint: (self createPaintForColor: aColor)
 ]
 
 { #category : #drawing }
 SkiaFillPainter >> fillRectangle: aRectangle withSolidColor: aColor [
-	| aSkiaPaint theDrawOptions |
-	
-	theDrawOptions := self ensuredDrawOptions.
-
-	aSkiaPaint := SkiaPaint new.
-	aSkiaPaint
-		color: (aColor alpha: aColor alpha * theDrawOptions alpha);
-		antialias: theDrawOptions antialias;
-		blendMode: theDrawOptions blendMode.
-
 	canvas surfaceCanvas
-		drawRectangle: aRectangle
-		paint: aSkiaPaint
+		drawPath: aRectangle
+		paint: (self createPaintForColor: aColor)
 ]

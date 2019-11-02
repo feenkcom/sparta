@@ -47,5 +47,5 @@ SkiaCapStyle class >> externalType [
 
 { #category : #'private - ffi' }
 SkiaCapStyle >> primRealName: aBoxerString [
-	^ self ffiCall: #(void skia_enums_cap_style_string(self, GtBoxerString aBoxerString))
+	^ self ffiCall: #(void skia_enums_cap_style_to_string(self, GtBoxerString aBoxerString))
 ]
