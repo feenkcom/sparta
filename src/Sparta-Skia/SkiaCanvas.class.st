@@ -18,6 +18,11 @@ SkiaCanvas class >> extent: anExtent [
 	^ self new initializeWith: (SkiaSurface newRasterPremultipled: anExtent)
 ]
 
+{ #category : #accessing }
+SkiaCanvas class >> strokeOptions [
+	^ SkiaStrokeOptions
+]
+
 { #category : #converting }
 SkiaCanvas >> asForm [
 	^ self surface asForm
