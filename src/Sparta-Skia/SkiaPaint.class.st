@@ -17,15 +17,54 @@ SkiaPaint class >> primRelease: aHandle [
 ]
 
 { #category : #accessing }
-SkiaPaint >> antiAlias [
+SkiaPaint >> alpha [
+	"A float between 0 and 1"
+	<return: #Number>
+
+	^ self primGetAlpha min: 1.0 max: 0.0
+]
+
+{ #category : #accessing }
+SkiaPaint >> alpha: aFloat [
+	"A float between 0 and 1"
+
+	self primSetAlpha: (aFloat min: 1 max: 0)
+]
+
+{ #category : #accessing }
+SkiaPaint >> antialias [
 	<return: #Boolean>
 	
 	^ self primIsAntiAlias
 ]
 
 { #category : #accessing }
-SkiaPaint >> antiAlias: aBoolean [	
+SkiaPaint >> antialias: aBoolean [	
 	self primSetAntiAlias: aBoolean
+]
+
+{ #category : #accessing }
+SkiaPaint >> blendMode [
+	<return: #SkiaBlendMode>
+	
+	^ self primGetBlendMode
+]
+
+{ #category : #accessing }
+SkiaPaint >> blendMode: aSkiaBlendMode [
+	self primSetBlendMode: aSkiaBlendMode
+]
+
+{ #category : #accessing }
+SkiaPaint >> capStyle [
+	<return: #SkiaCapStyle>
+
+	^ self primGetStrokeCap
+]
+
+{ #category : #accessing }
+SkiaPaint >> capStyle: aSkiaCapStyle [
+	self primSetStrokeCap: aSkiaCapStyle
 ]
 
 { #category : #accessing }
@@ -79,15 +118,32 @@ SkiaPaint >> dither: aBoolean [
 SkiaPaint >> gtInforFor: aView [
 	<gtView>
 
-	^ ({ 
-		#antiAlias -> self antiAlias.
+	^ ({
+		#alpha -> self alpha.
+		#antialias -> self antialias.
+		#blendMode -> self blendMode.
+		#capStyle -> self capStyle.
 		#color -> self color.
 		#dither -> self dither.
+		#joinStyle -> self joinStyle.
 		#paintStyle -> self paintStyle.
+		#strokeMiter -> self strokeMiter.
 		#strokeWidth -> self strokeWidth.
 	 } asOrderedDictionary gtItemsFor: aView)
 			title: 'Info';
 			priority: 2
+]
+
+{ #category : #accessing }
+SkiaPaint >> joinStyle [
+	<return: #SkiaJoinStyle>
+
+	^ self primGetStrokeJoin
+]
+
+{ #category : #accessing }
+SkiaPaint >> joinStyle: aSkiaJoinStyle [
+	self primSetStrokeJoin: aSkiaJoinStyle
 ]
 
 { #category : #accessing }
@@ -103,18 +159,43 @@ SkiaPaint >> paintStyle: aSkiaPaintStyle [
 ]
 
 { #category : #'private - ffi' }
+SkiaPaint >> primGetAlpha [
+	^ self ffiCall: #(float32 skia_paint_get_alpha_f(self))
+]
+
+{ #category : #'private - ffi' }
+SkiaPaint >> primGetBlendMode [
+	self ffiCall: #(SkiaBlendMode skia_paint_get_blend_mode(self))
+]
+
+{ #category : #'private - ffi' }
 SkiaPaint >> primGetColor [
 	self ffiCall: #(SkiaColor skia_paint_get_color(self))
 ]
 
 { #category : #'private - ffi' }
 SkiaPaint >> primGetPaintStyle [
-	self ffiCall: #(SkiaPaintStyle skia_paint_style(self))
+	self ffiCall: #(SkiaPaintStyle skia_paint_get_style(self))
+]
+
+{ #category : #'private - ffi' }
+SkiaPaint >> primGetStrokeCap [
+	self ffiCall: #(SkiaCapStyle skia_paint_get_stroke_cap(self))
+]
+
+{ #category : #'private - ffi' }
+SkiaPaint >> primGetStrokeJoin [
+	self ffiCall: #(SkiaJoinStyle skia_paint_get_stroke_join(self))
+]
+
+{ #category : #'private - ffi' }
+SkiaPaint >> primGetStrokeMiter [
+	self ffiCall: #(scalar skia_paint_get_stroke_miter(self))
 ]
 
 { #category : #'private - ffi' }
 SkiaPaint >> primGetStrokeWidth [
-	self ffiCall: #(float32 skia_paint_stroke_width(self))
+	self ffiCall: #(float32 skia_paint_get_stroke_width(self))
 ]
 
 { #category : #'private - ffi' }
@@ -133,8 +214,18 @@ SkiaPaint >> primReset [
 ]
 
 { #category : #'private - ffi' }
+SkiaPaint >> primSetAlpha: anAlpha [
+	self ffiCall: #(void skia_paint_set_alpha_f(self, float32 anAlpha))
+]
+
+{ #category : #'private - ffi' }
 SkiaPaint >> primSetAntiAlias: isAntiAlias [
 	self ffiCall: #(void skia_paint_set_anti_alias(self, bool isAntiAlias))
+]
+
+{ #category : #'private - ffi' }
+SkiaPaint >> primSetBlendMode: aSkiaBlendMode [
+	self ffiCall: #(void skia_paint_set_blend_mode(self, SkiaBlendMode aSkiaBlendMode))
 ]
 
 { #category : #'private - ffi' }
@@ -153,6 +244,21 @@ SkiaPaint >> primSetR: r g: g b: b a: a [
 ]
 
 { #category : #'private - ffi' }
+SkiaPaint >> primSetStrokeCap: aSkiaCapStyle [
+	self ffiCall: #(void skia_paint_set_stroke_cap(self, SkiaCapStyle aSkiaCapStyle))
+]
+
+{ #category : #'private - ffi' }
+SkiaPaint >> primSetStrokeJoin: aSkiaJoinStyle [
+	self ffiCall: #(void skia_paint_set_stroke_join(self, SkiaJoinStyle aSkiaJoinStyle))
+]
+
+{ #category : #'private - ffi' }
+SkiaPaint >> primSetStrokeMiter: aStrokeMiter [
+	self ffiCall: #(void skia_paint_set_stroke_miter(self, scalar aStrokeMiter))
+]
+
+{ #category : #'private - ffi' }
 SkiaPaint >> primSetStrokeWidth: aWidth [
 	self ffiCall: #(void skia_paint_set_stroke_width(self, float32 aWidth))
 ]
@@ -160,6 +266,18 @@ SkiaPaint >> primSetStrokeWidth: aWidth [
 { #category : #accessing }
 SkiaPaint >> reset [
 	self primReset
+]
+
+{ #category : #accessing }
+SkiaPaint >> strokeMiter [
+	<return: #Float>
+	
+	^ self primGetStrokeMiter
+]
+
+{ #category : #accessing }
+SkiaPaint >> strokeMiter: aFloat [
+	self primSetStrokeMiter: aFloat
 ]
 
 { #category : #accessing }

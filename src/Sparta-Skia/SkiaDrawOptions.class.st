@@ -8,8 +8,21 @@ Class {
 		'blendMode',
 		'antialias'
 	],
+	#classInstVars : [
+		'default'
+	],
 	#category : #'Sparta-Skia-Core'
 }
+
+{ #category : #cleanup }
+SkiaDrawOptions class >> cleanUp [
+	default := nil
+]
+
+{ #category : #accessing }
+SkiaDrawOptions class >> default [
+	^ default ifNil: [ default := self new ]
+]
 
 { #category : #accessing }
 SkiaDrawOptions >> alpha [
@@ -193,4 +206,14 @@ SkiaDrawOptions >> composeSource [
 { #category : #'composition operators' }
 SkiaDrawOptions >> composeXor [
 	self blendMode: SkiaBlendMode Xor
+]
+
+{ #category : #initialization }
+SkiaDrawOptions >> initialize [
+	super initialize.
+
+	"Setting default values"
+	self alpha: 1.
+	self antialiasDefault.
+	self composeOver
 ]

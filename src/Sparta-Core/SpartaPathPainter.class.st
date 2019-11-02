@@ -210,6 +210,11 @@ SpartaPathPainter >> drawOptions: aDrawOptions [
 	drawOptions := aDrawOptions
 ]
 
+{ #category : #'private - accessing' }
+SpartaPathPainter >> ensuredDrawOptions [
+	^ drawOptions ifNil: [ canvas defaultDrawOptions ]
+]
+
 { #category : #accessing }
 SpartaPathPainter >> paint: aPaint [
 	paint := aPaint asSpartaPaintOn: canvas

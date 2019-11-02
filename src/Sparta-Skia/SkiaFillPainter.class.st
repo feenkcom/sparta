@@ -6,18 +6,34 @@ Class {
 
 { #category : #drawing }
 SkiaFillPainter >> fillPath: aPath withSolidColor: aColor [
-	| aPaint |
+	| aSkiaPaint theDrawOptions |
+	
+	theDrawOptions := self ensuredDrawOptions.
 
-	aPaint := SkiaPaint new color: aColor.
+	aSkiaPaint := SkiaPaint new.
+	aSkiaPaint
+		color: (aColor alpha: aColor alpha * theDrawOptions alpha);
+		antialias: theDrawOptions antialias;
+		blendMode: theDrawOptions blendMode.
+
 	canvas surfaceCanvas
-		drawPath: aPath paint: aPaint
+		drawPath: aPath
+		paint: aSkiaPaint
 ]
 
 { #category : #drawing }
 SkiaFillPainter >> fillRectangle: aRectangle withSolidColor: aColor [
-	| aPaint |
+	| aSkiaPaint theDrawOptions |
+	
+	theDrawOptions := self ensuredDrawOptions.
 
-	aPaint := SkiaPaint new color: aColor.
+	aSkiaPaint := SkiaPaint new.
+	aSkiaPaint
+		color: (aColor alpha: aColor alpha * theDrawOptions alpha);
+		antialias: theDrawOptions antialias;
+		blendMode: theDrawOptions blendMode.
+
 	canvas surfaceCanvas
-		drawRectangle: aRectangle paint: aPaint
+		drawRectangle: aRectangle
+		paint: aSkiaPaint
 ]
