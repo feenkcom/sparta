@@ -862,8 +862,10 @@ SpartaCanvas >> transformFilter [
 
 { #category : #builders }
 SpartaCanvas >> transformationBuilder [
-	self subclassResponsibility.
-	^ SpartaTransformationBuilder new
+	"Return a new instance of the backend specific ${class:SpartaTransformationBuilder}$"
+
+	true ifFalse: [ ^ self subclassResponsibility ].
+	^ SpartaUnimplementedTransformationBuilder new
 ]
 
 { #category : #filters }
