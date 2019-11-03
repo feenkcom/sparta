@@ -426,6 +426,54 @@ TSpartaExamples >> mario [
 	^ canvas
 ]
 
+{ #category : #'examples - transformation' }
+TSpartaExamples >> rotateFillRectangle [
+	<gtExample>
+	| aCanvas |
+
+	aCanvas := self class canvas: 400@300.
+	aCanvas fill
+		path: (50@50 extent: 100@75);
+		paint: (Color gray alpha: 0.4);
+		draw.
+
+	aCanvas transform
+		by: [ :t | t rotateByDegrees: 10 ]
+		during: [
+			aCanvas fill
+				path: (50@50 extent: 100@75);
+				paint: (Color red alpha: 0.4);
+				draw ].
+
+	^ aCanvas
+	
+	
+]
+
+{ #category : #'examples - transformation' }
+TSpartaExamples >> scaleFillRectangle [
+	<gtExample>
+	| aCanvas |
+
+	aCanvas := self class canvas: 400@300.
+	aCanvas fill
+		path: (50@50 extent: 100@75);
+		paint: (Color gray alpha: 0.4);
+		draw.
+
+	aCanvas transform
+		by: [ :t | t scaleBy: 1.5 ]
+		during: [
+			aCanvas fill
+				path: (50@50 extent: 100@75);
+				paint: (Color red alpha: 0.4);
+				draw ].
+
+	^ aCanvas
+	
+	
+]
+
 { #category : #examples }
 TSpartaExamples >> shadow [
 	<gtExample>
@@ -581,6 +629,30 @@ TSpartaExamples >> strokeTriangleWithGrayColor [
 		draw.
 
 	^ aCanvas
+]
+
+{ #category : #'examples - transformation' }
+TSpartaExamples >> translateFillRectangle [
+	<gtExample>
+	| aCanvas |
+
+	aCanvas := self class canvas: 400@300.
+	aCanvas fill
+		path: (50@50 extent: 100@75);
+		paint: (Color gray alpha: 0.4);
+		draw.
+		
+	aCanvas transform
+		by: [ :t | t translateBy: 50@25 ]
+		during: [
+			aCanvas fill
+				path: (50@50 extent: 100@75);
+				paint: (Color red alpha: 0.4);
+				draw ].
+
+	^ aCanvas
+	
+	
 ]
 
 { #category : #'examples - path' }
