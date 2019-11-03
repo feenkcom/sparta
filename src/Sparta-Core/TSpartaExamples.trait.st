@@ -214,6 +214,7 @@ TSpartaExamples >> donut [
 { #category : #'examples - fill rectangle' }
 TSpartaExamples >> fillRectangleWithGrayColor [
 	<gtExample>
+	<label: 'The simplest drawing. A gray rectangle in the middle of the canvas'>
 	| aCanvas |
 
 	aCanvas := self class canvas: 400@300.
@@ -227,8 +228,56 @@ TSpartaExamples >> fillRectangleWithGrayColor [
 ]
 
 { #category : #'examples - fill rectangle' }
-TSpartaExamples >> fillTwoRectanglesWithSemiTransparentColors [
+TSpartaExamples >> fillTwoRectanglesWithColorsAndAlpha [
 	<gtExample>
+	<label: 'Additional alpha can be specified in draw options, in which case it is multiplied with the color alpha'>
+	| aCanvas |
+
+	aCanvas := self class canvas: 400@300.
+	
+	aCanvas fill
+		path: (50@50 corner: 200@150);
+		paint: (Color blue alpha: 0.5);
+		alpha: 0.5;
+		draw.
+		
+	aCanvas fill
+		path: (100@100 corner: 250@200);
+		paint: Color red;
+		alpha: 0.5;
+		draw.
+
+	^ aCanvas
+]
+
+{ #category : #'examples - fill rectangle' }
+TSpartaExamples >> fillTwoRectanglesWithColorsAndAlphaComposeSource [
+	<gtExample>
+	<label: 'When the composition operator is `source` the second rectangle is rendered like there is nothing there'>
+	| aCanvas |
+
+	aCanvas := self class canvas: 400@300.
+	
+	aCanvas fill
+		path: (50@50 corner: 200@150);
+		paint: (Color blue alpha: 0.5);
+		alpha: 0.5;
+		draw.
+		
+	aCanvas fill
+		path: (100@100 corner: 250@200);
+		paint: Color red;
+		composeSource;
+		alpha: 0.5;
+		draw.
+
+	^ aCanvas
+]
+
+{ #category : #'examples - fill rectangle' }
+TSpartaExamples >> fillTwoRectanglesWithColorsSemiTransparent [
+	<gtExample>
+	<label: 'Two slightly overlapping rectangles of different semi-transparent colors'>
 	| aCanvas |
 
 	aCanvas := self class canvas: 400@300.

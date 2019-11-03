@@ -8,9 +8,19 @@ Class {
 	#category : #'Sparta-Skia-Core'
 }
 
+{ #category : #accessing }
+SkiaCanvas class >> drawOptions [
+	^ SkiaDrawOptions
+]
+
 { #category : #'api - instance creation' }
 SkiaCanvas class >> extent: anExtent [
 	^ self new initializeWith: (SkiaSurface newRasterPremultipled: anExtent)
+]
+
+{ #category : #accessing }
+SkiaCanvas class >> strokeOptions [
+	^ SkiaStrokeOptions
 ]
 
 { #category : #converting }

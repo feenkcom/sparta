@@ -37,7 +37,7 @@ SkiaSurfaceCanvasExamples >> drawCircleWithGrayFill [
 	aCircle := SpartaCircle center: 35@25 radius: 20.
 
 	aPaint := SkiaPaint new
-		antiAlias: true;
+		antialias: true;
 		color: Color lightGray;
 		paintStyle: SkiaPaintStyle Fill.
 	
@@ -188,7 +188,7 @@ SkiaSurfaceCanvasExamples >> drawLineBlackWithAntiAlias [
 	
 	aLine := SpartaLine from: 10@10 to: 40@40.
 	aPaint := SkiaPaint new
-		antiAlias: true;
+		antialias: true;
 		color: Color black;
 		strokeWidth: 6;
 		paintStyle: SkiaPaintStyle StrokeAndFill.
@@ -211,7 +211,7 @@ SkiaSurfaceCanvasExamples >> drawOvalWithGrayFill [
 	aRectangle := SpartaRectangle fromRectangle: (10@10 corner: 60@40).
 
 	aPaint := SkiaPaint new
-		antiAlias: true;
+		antialias: true;
 		color: Color lightGray;
 		paintStyle: SkiaPaintStyle Fill.
 	
@@ -257,7 +257,7 @@ SkiaSurfaceCanvasExamples >> drawPathTriangleWithGrayFill [
 		close.
 
 	aPaint := SkiaPaint new
-		antiAlias: true;
+		antialias: true;
 		color: Color lightGray;
 		paintStyle: SkiaPaintStyle Fill.
 	
