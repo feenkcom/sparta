@@ -62,6 +62,19 @@ SkiaStrokeOptions >> dashPattern: anArrayOfFloats [
 	dashPattern := anArrayOfFloats
 ]
 
+{ #category : #initialization }
+SkiaStrokeOptions >> initialize [
+	super initialize.
+
+	"Setting default values according to backend specification"
+	self width: self class defaultWidth.
+	self joinMiterOrBevel.
+	self capButt.
+	self miterLimit: 10.0.
+	self dashOffset: 0.
+	self dashPattern: #()
+]
+
 { #category : #'join styles' }
 SkiaStrokeOptions >> joinBevel [
 	self joinStyle: SkiaJoinStyle Bevel
@@ -93,8 +106,18 @@ SkiaStrokeOptions >> joinStyle: aJoinStyle [
 ]
 
 { #category : #accessing }
+SkiaStrokeOptions >> miterLimit [
+	^ miterLimit
+]
+
+{ #category : #accessing }
 SkiaStrokeOptions >> miterLimit: aFloat [
 	miterLimit := aFloat
+]
+
+{ #category : #accessing }
+SkiaStrokeOptions >> width [
+	^ width
 ]
 
 { #category : #accessing }

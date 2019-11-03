@@ -5,7 +5,7 @@ Class {
 		'CAIRO_FILL_RULE_EVEN_ODD',
 		'CAIRO_FILL_RULE_WINDING'
 	],
-	#category : 'Sparta-Cairo-Enums'
+	#category : #'Sparta-Cairo-Enums'
 }
 
 { #category : #'accessing enum' }
@@ -35,14 +35,4 @@ SpartaCairoFillRule class >> enumDecl [
 { #category : #initialization }
 SpartaCairoFillRule class >> initialize [
 	super initialize
-]
-
-{ #category : #'instance creation' }
-SpartaCairoFillRule class >> named: aFillRuleSymbol [
-	aFillRuleSymbol = #nonzero
-		ifTrue: [ ^ self CAIRO_FILL_RULE_WINDING ].
-	aFillRuleSymbol = #evenodd
-		ifTrue: [ ^ self CAIRO_FILL_RULE_EVEN_ODD ].
-		
-	self error: 'Unknown fill rule type'
 ]

@@ -10,8 +10,18 @@ Class {
 		'lastControlPoint',
 		'fillRule'
 	],
-	#category : 'Sparta-Cairo-Path'
+	#category : #'Sparta-Cairo-Path'
 }
+
+{ #category : #'instance creation' }
+SpartaCairoPathBuilder class >> evenOdd: aSpartaCanvas [
+	^ SpartaCairoPathBuilder new fillRule: (SpartaCairoFillRule CAIRO_FILL_RULE_EVEN_ODD)
+]
+
+{ #category : #'instance creation' }
+SpartaCairoPathBuilder class >> winding: aSpartaCanvas [
+	^ SpartaCairoPathBuilder new fillRule: (SpartaCairoFillRule CAIRO_FILL_RULE_WINDING)
+]
 
 { #category : #'path commands' }
 SpartaCairoPathBuilder >> absolute [

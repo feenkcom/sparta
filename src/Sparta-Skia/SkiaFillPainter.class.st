@@ -1,7 +1,7 @@
 Class {
 	#name : #SkiaFillPainter,
 	#superclass : #SpartaFillPainter,
-	#category : #'Sparta-Skia-Core'
+	#category : #'Sparta-Skia-Builders'
 }
 
 { #category : #private }
@@ -29,6 +29,6 @@ SkiaFillPainter >> fillPath: aPath withSolidColor: aColor [
 { #category : #drawing }
 SkiaFillPainter >> fillRectangle: aRectangle withSolidColor: aColor [
 	canvas surfaceCanvas
-		drawPath: aRectangle
+		drawRectangle: aRectangle
 		paint: (self createPaintForColor: aColor)
 ]

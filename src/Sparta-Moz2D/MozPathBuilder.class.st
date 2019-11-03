@@ -9,8 +9,18 @@ Class {
 	#pools : [
 		'MozSharedPool'
 	],
-	#category : 'Sparta-Moz2D-Path'
+	#category : #'Sparta-Moz2D-Path'
 }
+
+{ #category : #'instance creation' }
+MozPathBuilder class >> evenOdd: aSpartaCanvas [
+	^ (aSpartaCanvas primCreatePathBuilder: (MozFillRule FILL_EVEN_ODD)) autoRelease
+]
+
+{ #category : #'instance creation' }
+MozPathBuilder class >> winding: aSpartaCanvas [
+	^ (aSpartaCanvas primCreatePathBuilder: (MozFillRule FILL_WINDING)) autoRelease
+]
 
 { #category : #'path commands' }
 MozPathBuilder >> absolute [

@@ -1,7 +1,7 @@
 Class {
 	#name : #SkiaPaintProvider,
 	#superclass : #SpartaPaintProvider,
-	#category : #'Sparta-Skia-Core'
+	#category : #'Sparta-Skia-Builders'
 }
 
 { #category : #paints }

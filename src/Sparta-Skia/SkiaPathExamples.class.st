@@ -12,6 +12,7 @@ SkiaPathExamples >> default [
 	aPath := SkiaPath new.
 	self assert: aPath pointsCount equals: 0.
 	self assert: aPath points isEmpty.
+	self assert: aPath fillType equals: SkiaPathFillType Winding.
 	
 	^ aPath
 ]

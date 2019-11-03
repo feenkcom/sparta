@@ -86,6 +86,9 @@ SpartaTransformationBuilder >> by: aTransformationBlock during: aDuringBlock [
 
 { #category : #accessing }
 SpartaTransformationBuilder >> current [
+	"Return a current transformation matrix of the canvas"
+	<return: #SpartaMatrix>
+
 	^ self subclassResponsibility
 ]
 

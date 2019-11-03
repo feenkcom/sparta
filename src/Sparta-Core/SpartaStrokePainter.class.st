@@ -98,6 +98,11 @@ SpartaStrokePainter >> draw [
 	path spartaStrokeOn: canvas with: self
 ]
 
+{ #category : #'private - accessing' }
+SpartaStrokePainter >> ensuredStrokeOptions [
+	^ strokeOptions ifNil: [ canvas defaultStrokeOptions ]
+]
+
 { #category : #'join styles' }
 SpartaStrokePainter >> joinBevel [
 	self strokeOptions joinBevel
@@ -137,27 +142,27 @@ SpartaStrokePainter >> strokeLine: aLine [
 
 { #category : #drawing }
 SpartaStrokePainter >> strokeLine: aLine withForm: aForm [
-	^ self subclassResponsibility
+	true ifFalse: [ self subclassResponsibility ]
 ]
 
 { #category : #drawing }
 SpartaStrokePainter >> strokeLine: aLine withLinearGradient: aSpartaLinearGradient [
-	^ self subclassResponsibility
+	true ifFalse: [ self subclassResponsibility ]
 ]
 
 { #category : #drawing }
 SpartaStrokePainter >> strokeLine: aLine withRadialGradient: aSpartaRadialGradient [
-	^ self subclassResponsibility
+	true ifFalse: [ self subclassResponsibility ]
 ]
 
 { #category : #drawing }
 SpartaStrokePainter >> strokeLine: aLine withSolidColor: aColor [
-	^ self subclassResponsibility
+	true ifFalse: [ self subclassResponsibility ]
 ]
 
 { #category : #drawing }
 SpartaStrokePainter >> strokeLine: aLine withSurface: aSpartaSurfacePaint [
-	^ self subclassResponsibility
+	true ifFalse: [ self subclassResponsibility ]
 ]
 
 { #category : #accessing }
@@ -177,17 +182,17 @@ SpartaStrokePainter >> strokePath: aPath [
 
 { #category : #drawing }
 SpartaStrokePainter >> strokePath: aPath withForm: aForm [
-	self subclassResponsibility
+	true ifFalse: [ self subclassResponsibility ]
 ]
 
 { #category : #drawing }
 SpartaStrokePainter >> strokePath: aPath withLinearGradient: aSpartaLinearGradient [
-	^ self subclassResponsibility
+	true ifFalse: [ self subclassResponsibility ]
 ]
 
 { #category : #drawing }
 SpartaStrokePainter >> strokePath: aPath withRadialGradient: aSpartaRadialGradient [
-	^ self subclassResponsibility
+	true ifFalse: [ self subclassResponsibility ]
 ]
 
 { #category : #drawing }
@@ -202,17 +207,17 @@ SpartaStrokePainter >> strokeRectangle: aRectangle [
 
 { #category : #drawing }
 SpartaStrokePainter >> strokeRectangle: aRectangle withForm: aForm [
-	^ self subclassResponsibility
+	true ifFalse: [ self subclassResponsibility ]
 ]
 
 { #category : #drawing }
 SpartaStrokePainter >> strokeRectangle: aRectangle withLinearGradient: aSpartaLinearGradient [
-	^ self subclassResponsibility
+	true ifFalse: [ self subclassResponsibility ]
 ]
 
 { #category : #drawing }
 SpartaStrokePainter >> strokeRectangle: aRectangle withRadialGradient: aSpartaRadialGradient [
-	^ self subclassResponsibility
+	true ifFalse: [ self subclassResponsibility ]
 ]
 
 { #category : #drawing }
@@ -222,7 +227,7 @@ SpartaStrokePainter >> strokeRectangle: aRectangle withSolidColor: aColor [
 
 { #category : #drawing }
 SpartaStrokePainter >> strokeRectangle: aRectangle withSurface: aSpartaSurfacePaint [
-	^ self subclassResponsibility
+	true ifFalse: [ self subclassResponsibility ]
 ]
 
 { #category : #accessing }

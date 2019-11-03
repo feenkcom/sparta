@@ -385,8 +385,8 @@ MozCanvas >> paintProvider [
 ]
 
 { #category : #builders }
-MozCanvas >> pathBuilder: aFillRuleSymbol [
-	^ (self primCreatePathBuilder: (MozFillRule named: aFillRuleSymbol)) autoRelease
+MozCanvas >> pathBuilderClass [
+	^ MozPathBuilder
 ]
 
 { #category : #api }

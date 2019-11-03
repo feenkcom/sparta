@@ -1,18 +1,18 @@
 Class {
-	#name : #MozExamples,
+	#name : #MozCanvasExamples,
 	#superclass : #Object,
 	#traits : 'TSpartaExamples',
 	#classTraits : 'TSpartaExamples classTrait',
-	#category : 'Sparta-Moz2D-Examples'
+	#category : #'Sparta-Moz2D-Examples'
 }
 
 { #category : #'instance creation' }
-MozExamples class >> canvas: anExtent [
+MozCanvasExamples class >> canvas: anExtent [
 	^ MozCanvas extent: anExtent
 ]
 
 { #category : #private }
-MozExamples class >> clear: aCanvas [
+MozCanvasExamples class >> clear: aCanvas [
 	aCanvas fill
 		paint: Color white;
 		path: (0@0 extent: aCanvas extent);
@@ -27,7 +27,7 @@ MozExamples class >> clear: aCanvas [
 ]
 
 { #category : #examples }
-MozExamples class >> exampleDisplacementMap [
+MozCanvasExamples class >> exampleDisplacementMap [
 	| path canvas |	
 		
 	canvas := MozCanvas extent: 500@500.
@@ -70,7 +70,7 @@ MozExamples class >> exampleDisplacementMap [
 ]
 
 { #category : #examples }
-MozExamples class >> exampleGaussianBlur [
+MozCanvasExamples class >> exampleGaussianBlur [
 	|radial path canvas |	
 	
 	canvas := MozCanvas extent: 400@400.
@@ -117,7 +117,7 @@ MozExamples class >> exampleGaussianBlur [
 ]
 
 { #category : #examples }
-MozExamples class >> exampleMultilanguageText [
+MozCanvasExamples class >> exampleMultilanguageText [
 	|canvas font |
 	canvas := MozCanvas extent: 700@200.
 
@@ -149,7 +149,7 @@ MozExamples class >> exampleMultilanguageText [
 ]
 
 { #category : #examples }
-MozExamples class >> exampleNeonFilter [
+MozCanvasExamples class >> exampleNeonFilter [
 	| canvas neonFilter font surfacePaint |
 	canvas := MozCanvas extent: 800@500.
 
@@ -193,7 +193,7 @@ MozExamples class >> exampleNeonFilter [
 ]
 
 { #category : #examples }
-MozExamples class >> exampleStrokePath [
+MozCanvasExamples class >> exampleStrokePath [
 	| canvas path |
 
 	canvas := MozCanvas extent: 400@400.
@@ -223,7 +223,7 @@ MozExamples class >> exampleStrokePath [
 ]
 
 { #category : #examples }
-MozExamples class >> exampleTextDutch [
+MozCanvasExamples class >> exampleTextDutch [
 	|canvas font |
 	canvas := MozCanvas extent: 700@200.
 
@@ -255,7 +255,7 @@ MozExamples class >> exampleTextDutch [
 ]
 
 { #category : #'examples - text' }
-MozExamples class >> exampleTextHorizontal [
+MozCanvasExamples class >> exampleTextHorizontal [
 	<gtExample>
 	|canvas font |
 	canvas := MozCanvas extent: 700@200.
@@ -288,7 +288,7 @@ MozExamples class >> exampleTextHorizontal [
 ]
 
 { #category : #examples }
-MozExamples class >> exampleTextSmall [
+MozCanvasExamples class >> exampleTextSmall [
 	|canvas font |
 	canvas := MozCanvas extent: 700@200.
 
@@ -317,7 +317,7 @@ MozExamples class >> exampleTextSmall [
 ]
 
 { #category : #'examples - text' }
-MozExamples class >> exampleTextVerticalMixed [
+MozCanvasExamples class >> exampleTextVerticalMixed [
 	<gtExample>
 	|canvas font |
 	canvas := MozCanvas extent: 200@700.
@@ -348,7 +348,7 @@ MozExamples class >> exampleTextVerticalMixed [
 ]
 
 { #category : #'examples - text' }
-MozExamples class >> exampleTextVerticalSidewaysLeft [
+MozCanvasExamples class >> exampleTextVerticalSidewaysLeft [
 	<gtExample>
 	|canvas font |
 	canvas := MozCanvas extent: 200@700.
@@ -379,7 +379,7 @@ MozExamples class >> exampleTextVerticalSidewaysLeft [
 ]
 
 { #category : #'examples - text' }
-MozExamples class >> exampleTextVerticalSidewaysRight [
+MozCanvasExamples class >> exampleTextVerticalSidewaysRight [
 	<gtExample>
 	|canvas font |
 	canvas := MozCanvas extent: 200@700.
@@ -410,7 +410,7 @@ MozExamples class >> exampleTextVerticalSidewaysRight [
 ]
 
 { #category : #'examples - text' }
-MozExamples class >> exampleTextVerticalUpRight [
+MozCanvasExamples class >> exampleTextVerticalUpRight [
 	<gtExample> 
 	|canvas font |
 	canvas := MozCanvas extent: 200@700.
@@ -441,7 +441,7 @@ MozExamples class >> exampleTextVerticalUpRight [
 ]
 
 { #category : #examples }
-MozExamples class >> exampleTurbulence [
+MozCanvasExamples class >> exampleTurbulence [
 	| canvas |
 
 	canvas := MozCanvas extent: 400@400.
@@ -464,7 +464,7 @@ MozExamples class >> exampleTurbulence [
 ]
 
 { #category : #'instance creation' }
-MozExamples class >> neonFilterOn: canvas [
+MozCanvasExamples class >> neonFilterOn: canvas [
 
 | sourceAlpha colGreenL colGreenM colGreenD colRedL colRedD colTransparent
 	greenBevelLow10 greenBevelLow20 greenBevelLow30

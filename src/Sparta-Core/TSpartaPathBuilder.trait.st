@@ -45,6 +45,16 @@ Trait {
 	#category : #'Sparta-Core-Path'
 }
 
+{ #category : #'instance creation' }
+TSpartaPathBuilder classSide >> evenOdd: aSpartaCanvas [
+	^ self explicitRequirement
+]
+
+{ #category : #'instance creation' }
+TSpartaPathBuilder classSide >> winding: aSpartaCanvas [
+	^ self explicitRequirement
+]
+
 { #category : #'path commands' }
 TSpartaPathBuilder >> absolute [
 	^ self explicitRequirement
