@@ -180,6 +180,76 @@ TSpartaExamples classSide >> exampleFillRectangle [
 	canvas asForm asMorph openInWindow
 ]
 
+{ #category : #'examples - clip rectangle' }
+TSpartaExamples >> clipRectangleOnce [
+	<gtExample>
+	| aCanvas |
+	
+	aCanvas := self class canvas: 400@300.
+
+	self assert: aCanvas clip globalBounds equals: aCanvas bounds.
+	
+	"no clip"
+	aCanvas fill
+		path: aCanvas bounds;
+		paint: (Color gray alpha: 0.1);
+		draw.
+	
+	aCanvas clip
+		by: (0@0 extent: 300@250)
+		during: [
+			self assert: aCanvas clip globalBounds equals: (0@0 extent: 300@250).
+	
+			"root clip"
+			aCanvas fill
+				path: aCanvas bounds;
+				paint: (Color gray alpha: 0.3);
+				draw ].
+
+	^ aCanvas
+]
+
+{ #category : #'examples - clip rectangle' }
+TSpartaExamples >> clipRectangleTwice [
+	<gtExample>
+	<label: 'I fill the the whole canvas with color having different clip areas'>
+	| aCanvas |
+	
+	aCanvas := self class canvas: 400@300.
+	
+	self assert: aCanvas clip globalBounds equals: aCanvas bounds.
+
+	"no clip"
+	aCanvas fill
+		path: aCanvas bounds;
+		paint: (Color gray alpha: 0.1);
+		draw.
+	
+	aCanvas clip
+		by: (0@0 extent: 300@250)
+		during: [
+			self assert: aCanvas clip globalBounds equals: (0@0 extent: 300@250).
+
+			"root clip"
+			aCanvas fill
+				path: aCanvas bounds;
+				paint: (Color gray alpha: 0.3);
+				draw.
+			
+			aCanvas clip
+				by: (50@50 extent: 300@250)
+				during: [
+					self assert: aCanvas clip globalBounds equals: (50@50 extent: 250@200).
+					
+					"nested clip"
+					aCanvas fill
+						path: aCanvas bounds;
+						paint: (Color gray alpha: 0.3);
+						draw ] ].
+
+	^ aCanvas
+]
+
 { #category : #examples }
 TSpartaExamples >> donut [
 	<gtExample>

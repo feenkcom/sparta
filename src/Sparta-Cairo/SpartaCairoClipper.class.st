@@ -3,7 +3,7 @@ Class {
 	#superclass : #SpartaClipper,
 	#traits : 'TSpartaCairoLibrary + TSpartaCairoContext',
 	#classTraits : 'TSpartaCairoLibrary classTrait + TSpartaCairoContext classTrait',
-	#category : 'Sparta-Cairo-Builders'
+	#category : #'Sparta-Cairo-Builders'
 }
 
 { #category : #testing }
@@ -32,6 +32,7 @@ SpartaCairoClipper >> globalBounds [
 
 { #category : #geometry }
 SpartaCairoClipper >> localBounds [
+	<return: #Rectangle>
 	| anOriginX anOriginY aCornerX aCornerY aDoubleSize aRectangle |
 
 	aDoubleSize := (FFIExternalType resolveType: 'double') externalTypeSize.

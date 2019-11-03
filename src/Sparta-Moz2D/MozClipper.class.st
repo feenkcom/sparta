@@ -3,7 +3,7 @@ Class {
 	#superclass : #SpartaClipper,
 	#traits : 'TMozLibrary',
 	#classTraits : 'TMozLibrary classTrait',
-	#category : 'Sparta-Moz2D-Builders'
+	#category : #'Sparta-Moz2D-Builders'
 }
 
 { #category : #testing }
@@ -34,6 +34,8 @@ MozClipper >> globalBounds [
 
 { #category : #geometry }
 MozClipper >> localBounds [
+	<return: #Rectangle>
+
 	|externalRectangle|
 	externalRectangle := MozNativeRect new.
 	self primGetClipLocal: externalRectangle.

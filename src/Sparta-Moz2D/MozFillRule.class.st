@@ -5,7 +5,7 @@ Class {
 		'FILL_EVEN_ODD',
 		'FILL_WINDING'
 	],
-	#category : 'Sparta-Moz2D-Enums'
+	#category : #'Sparta-Moz2D-Enums'
 }
 
 { #category : #'accessing enum' }
@@ -45,14 +45,4 @@ MozFillRule class >> externalType [
 { #category : #'class initialization' }
 MozFillRule class >> initialize [
 	super initialize
-]
-
-{ #category : #'instance creation' }
-MozFillRule class >> named: aFillRuleSymbol [
-	aFillRuleSymbol = #nonzero
-		ifTrue: [ ^ self FILL_WINDING ].
-	aFillRuleSymbol = #evenodd
-		ifTrue: [ ^ self FILL_EVEN_ODD ].
-		
-	self error: 'Unknown fill rule type'
 ]

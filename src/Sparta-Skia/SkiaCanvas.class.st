@@ -29,6 +29,22 @@ SkiaCanvas >> asForm [
 ]
 
 { #category : #builders }
+SkiaCanvas >> clipBuilder [
+	"Return a new instance of the backend specific ${class:SpartaClipper}$"
+
+	^ SkiaClipper new
+]
+
+{ #category : #accessing }
+SkiaCanvas >> extent [
+	"Return my extent as point (width @ height).
+	extent can not be nil"
+	<return: #Point>
+	
+	^ skiaSurface extent
+]
+
+{ #category : #builders }
 SkiaCanvas >> fillPainter [
 	^ SkiaFillPainter new
 ]
@@ -42,6 +58,11 @@ SkiaCanvas >> initializeWith: aSkiaSurface [
 { #category : #builders }
 SkiaCanvas >> paintProvider [
 	^ SkiaPaintProvider new
+]
+
+{ #category : #builders }
+SkiaCanvas >> pathBuilderClass [
+	^ SkiaPathBuilder
 ]
 
 { #category : #accessing }

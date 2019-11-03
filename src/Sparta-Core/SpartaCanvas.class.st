@@ -335,8 +335,10 @@ SpartaCanvas >> clip [
 
 { #category : #builders }
 SpartaCanvas >> clipBuilder [
-	self subclassResponsibility.
-	^ SpartaClipper new
+	"Return a new instance of the backend specific ${class:SpartaClipper}$"
+
+	true ifFalse: [ ^ self subclassResponsibility ].
+	^ SpartaUnimplementedClipper new
 ]
 
 { #category : #filters }
@@ -417,6 +419,15 @@ SpartaCanvas >> drawOptions [
 	^ self class drawOptions new
 		in: [ :aDrawOptions | composeOperators ifNotEmpty: [ :theOperators | aDrawOptions perform: theOperators top ] ];
 		yourself
+]
+
+{ #category : #accessing }
+SpartaCanvas >> extent [
+	"Return my extent as point (width @ height).
+	extent can not be nil"
+	<return: #Point>
+	
+	^ self subclassResponsibility
 ]
 
 { #category : #api }
@@ -655,7 +666,7 @@ SpartaCanvas >> paintProvider [
 
 { #category : #api }
 SpartaCanvas >> path [
-	"Start building a vector path with nonzero(default) fill rule.
+	"Start building a vector path with non-zero winding(default) fill rule.
 	User gets a path builder responsible for path creation.
 	See !TSpartaPathBuilder for available api.
 	
@@ -668,23 +679,23 @@ SpartaCanvas >> path [
 	"
 	<return: #TSpartaPathBuilder>
 
-	^ self path: #nonzero
+	^ self path: SpartaFillRule winding
 ]
 
 { #category : #api }
-SpartaCanvas >> path: aFillRuleSymbol [
+SpartaCanvas >> path: aSpartaFillRule [
 	"Start building a vector path with a provided fill rule as a symbol.
 	User gets a path builder responsible for path creation.
 	See !TSpartaPathBuilder for available api.
 	
-	(canvas path: #nonzero)
+	(canvas path: SpartaFillRule winding)
 		moveTo: 150@50;
 		lineTo: 250@250;
 		curveVia: 150@300 to: 50@250;
 		close;
 		finish.
 		
-	(canvas path: #evenodd)
+	(canvas path: SpartaFillRule evenOdd)
 		moveTo: 150@50;
 		lineTo: 250@250;
 		curveVia: 150@300 to: 50@250;
@@ -693,14 +704,18 @@ SpartaCanvas >> path: aFillRuleSymbol [
 	"
 	<return: #TSpartaPathBuilder>
 
-	^ (self pathBuilder: aFillRuleSymbol)
+	self
+		assert: [ aSpartaFillRule isKindOf: SpartaFillRule ]
+		description: [ 'I must be an instance of `SpartaFillRule`' ].
+
+	^ (aSpartaFillRule newPathBuilder: self pathBuilderClass canvas: self)
 		reset;
 		canvas: self;
 		yourself
 ]
 
 { #category : #builders }
-SpartaCanvas >> pathBuilder: aFillRuleSymbol [
+SpartaCanvas >> pathBuilderClass [
 	^ self subclassResponsibility
 ]
 

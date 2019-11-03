@@ -73,22 +73,28 @@ SpartaClipper >> localBounds [
 	^ self subclassResponsibility
 ]
 
-{ #category : #clipping }
+{ #category : #'private - clipping' }
 SpartaClipper >> pop [
+	"I pop the previously pushed clip area.
+	I am a part of the internal API and should not be used directly"
+
 	self subclassResponsibility
 ]
 
-{ #category : #clipping }
+{ #category : #'private - clipping' }
 SpartaClipper >> push: aSpartaPath [
+	"I push a new clip area on top of the existing clip.
+	I am a part of the internal API and should not be used directly"
+
 	aSpartaPath spartaClipOn: canvas with: self
 ]
 
-{ #category : #clipping }
+{ #category : #'private - clipping' }
 SpartaClipper >> pushPath: aSpartaPath [
 	self subclassResponsibility
 ]
 
-{ #category : #clipping }
+{ #category : #'private - clipping' }
 SpartaClipper >> pushRectangle: aRectangle [
 	self subclassResponsibility
 ]

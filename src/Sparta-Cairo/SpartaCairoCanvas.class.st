@@ -9,7 +9,7 @@ Class {
 		'transformationStack',
 		'layerStack'
 	],
-	#category : 'Sparta-Cairo'
+	#category : #'Sparta-Cairo'
 }
 
 { #category : #converting }
@@ -230,8 +230,8 @@ SpartaCairoCanvas >> paintProvider [
 ]
 
 { #category : #builders }
-SpartaCairoCanvas >> pathBuilder: aFillRuleSymbol [
-	^ SpartaCairoPathBuilder new fillRule: (SpartaCairoFillRule named: aFillRuleSymbol)
+SpartaCairoCanvas >> pathBuilderClass [
+	^ SpartaCairoPathBuilder
 ]
 
 { #category : #api }

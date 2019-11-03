@@ -32,6 +32,18 @@ SkiaPath >> close [
 	self primClose
 ]
 
+{ #category : #'api - path' }
+SkiaPath >> fillType [
+	<return: #SkiaPathFillType>
+	
+	^ self primGetFillType
+]
+
+{ #category : #'api - path' }
+SkiaPath >> fillType: aSkiaPathFillType [
+	self primSetFillType: aSkiaPathFillType
+]
+
 { #category : #'gt-extension' }
 SkiaPath >> gtPointsFor: aView [
 	<gtView>
@@ -85,6 +97,11 @@ SkiaPath >> primClose [
 ]
 
 { #category : #'private - ffi' }
+SkiaPath >> primGetFillType [
+	^ self ffiCall: #(SkiaPathFillType skia_path_get_fill_type(self))
+]
+
+{ #category : #'private - ffi' }
 SkiaPath >> primGetPoints: aBoxerArrayPointF32 [
 	^ self ffiCall: #(size_t skia_path_get_points(self, GtBoxerArrayPointF32 aBoxerArrayPointF32))
 ]
@@ -107,4 +124,9 @@ SkiaPath >> primPointsCount [
 { #category : #'private - ffi' }
 SkiaPath >> primSerialize: aBoxerArrayU8 [
 	^ self ffiCall: #(void skia_path_serialize(self, GtBoxerArrayU8 aBoxerArrayU8))
+]
+
+{ #category : #'private - ffi' }
+SkiaPath >> primSetFillType: aSkiaPathFillType [
+	^ self ffiCall: #(void skia_path_set_fill_type(self, SkiaPathFillType aSkiaPathFillType))
 ]
