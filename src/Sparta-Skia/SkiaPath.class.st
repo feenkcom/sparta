@@ -1,6 +1,8 @@
 Class {
 	#name : #SkiaPath,
 	#superclass : #SkiaExternalObject,
+	#traits : 'TSpartaPath',
+	#classTraits : 'TSpartaPath classTrait',
 	#category : #'Sparta-Skia-External'
 }
 
@@ -55,7 +57,7 @@ SkiaPath >> gtPointsFor: aView [
 ]
 
 { #category : #'api - path' }
-SkiaPath >> linBy: aPoint [
+SkiaPath >> lineBy: aPoint [
 	self primLineToX: aPoint x Y: aPoint y absolute: false
 ]
 

@@ -212,7 +212,6 @@ TSpartaExamples >> clipRectangleOnce [
 { #category : #'examples - clip rectangle' }
 TSpartaExamples >> clipRectangleTwice [
 	<gtExample>
-	<label: 'I fill the the whole canvas with color having different clip areas'>
 	| aCanvas |
 	
 	aCanvas := self class canvas: 400@300.
@@ -284,7 +283,6 @@ TSpartaExamples >> donut [
 { #category : #'examples - fill rectangle' }
 TSpartaExamples >> fillRectangleWithGrayColor [
 	<gtExample>
-	<label: 'The simplest drawing. A gray rectangle in the middle of the canvas'>
 	| aCanvas |
 
 	aCanvas := self class canvas: 400@300.
@@ -297,10 +295,32 @@ TSpartaExamples >> fillRectangleWithGrayColor [
 	^ aCanvas
 ]
 
+{ #category : #'examples - fill triangle' }
+TSpartaExamples >> fillTriangleWithGrayColor [
+	<gtExample>
+	| aCanvas aPath |
+
+	aCanvas := self class canvas: 400@300.
+	
+	aPath := aCanvas path
+		absolute;
+		moveTo: 200@50;
+		lineTo: 350@250;
+		lineTo: 50@250;
+		close;
+		build.
+	
+	aCanvas fill
+		path: aPath;
+		paint: Color lightGray;
+		draw.
+
+	^ aCanvas
+]
+
 { #category : #'examples - fill rectangle' }
 TSpartaExamples >> fillTwoRectanglesWithColorsAndAlpha [
 	<gtExample>
-	<label: 'Additional alpha can be specified in draw options, in which case it is multiplied with the color alpha'>
 	| aCanvas |
 
 	aCanvas := self class canvas: 400@300.
@@ -323,7 +343,6 @@ TSpartaExamples >> fillTwoRectanglesWithColorsAndAlpha [
 { #category : #'examples - fill rectangle' }
 TSpartaExamples >> fillTwoRectanglesWithColorsAndAlphaComposeSource [
 	<gtExample>
-	<label: 'When the composition operator is `source` the second rectangle is rendered like there is nothing there'>
 	| aCanvas |
 
 	aCanvas := self class canvas: 400@300.
@@ -347,7 +366,6 @@ TSpartaExamples >> fillTwoRectanglesWithColorsAndAlphaComposeSource [
 { #category : #'examples - fill rectangle' }
 TSpartaExamples >> fillTwoRectanglesWithColorsSemiTransparent [
 	<gtExample>
-	<label: 'Two slightly overlapping rectangles of different semi-transparent colors'>
 	| aCanvas |
 
 	aCanvas := self class canvas: 400@300.
@@ -434,4 +452,169 @@ TSpartaExamples >> shadow [
 		draw.
 
 	^ canvas
+]
+
+{ #category : #'examples - stroke line' }
+TSpartaExamples >> strokeLineWithGrayColor [
+	<gtExample>
+	| aCanvas aLine |
+
+	aCanvas := self class canvas: 400@300.
+	aLine := SpartaLine from: 50@150 to: 350 @ 150.
+
+	aCanvas stroke
+		path: aLine;
+		paint: Color lightGray;
+		width: 20;
+		draw.
+
+	^ aCanvas
+]
+
+{ #category : #'examples - stroke line' }
+TSpartaExamples >> strokeLineWithGrayColorCapButt [
+	<gtExample>
+	| aCanvas aLine |
+
+	aCanvas := self class canvas: 400@300.
+	aLine := SpartaLine from: 50@150 to: 350 @ 150.
+
+	aCanvas stroke
+		path: aLine;
+		paint: Color lightGray;
+		width: 20;
+		capButt;
+		draw.
+		
+	aCanvas stroke
+		path: aLine;
+		paint: Color black;
+		width: 1;
+		draw.
+
+	^ aCanvas
+]
+
+{ #category : #'examples - stroke line' }
+TSpartaExamples >> strokeLineWithGrayColorCapRound [
+	<gtExample>
+	| aCanvas aLine |
+
+	aCanvas := self class canvas: 400@300.
+	aLine := SpartaLine from: 50@150 to: 350 @ 150.
+
+	aCanvas stroke
+		path: aLine;
+		paint: Color lightGray;
+		width: 20;
+		capRound;
+		draw.
+		
+	aCanvas stroke
+		path: aLine;
+		paint: Color black;
+		width: 1;
+		draw.
+
+	^ aCanvas
+]
+
+{ #category : #'examples - stroke line' }
+TSpartaExamples >> strokeLineWithGrayColorCapSquare [
+	<gtExample>
+	| aCanvas aLine |
+
+	aCanvas := self class canvas: 400@300.
+	aLine := SpartaLine from: 50@150 to: 350 @ 150.
+
+	aCanvas stroke
+		path: aLine;
+		paint: Color lightGray;
+		width: 20;
+		capSquare;
+		draw.
+		
+	aCanvas stroke
+		path: aLine;
+		paint: Color black;
+		width: 1;
+		draw.
+
+	^ aCanvas
+]
+
+{ #category : #'examples - stroke rectangle' }
+TSpartaExamples >> strokeRectangleWithGrayColor [
+	<gtExample>
+	| aCanvas |
+
+	aCanvas := self class canvas: 400@300.
+
+	aCanvas stroke
+		path: (100@100 corner: 300@200);
+		paint: Color lightGray;
+		width: 5;
+		draw.
+
+	^ aCanvas
+]
+
+{ #category : #'examples - stroke triangle' }
+TSpartaExamples >> strokeTriangleWithGrayColor [
+	<gtExample>
+	| aCanvas aPath |
+
+	aCanvas := self class canvas: 400@300.
+	
+	aPath := aCanvas path
+		absolute;
+		moveTo: 200@50;
+		lineTo: 350@250;
+		lineTo: 50@250;
+		close;
+		build.
+	
+	aCanvas stroke
+		path: aPath;
+		paint: Color lightGray;
+		width: 10;
+		draw.
+
+	^ aCanvas
+]
+
+{ #category : #'examples - path' }
+TSpartaExamples >> trianglePathAbsolute [
+	<gtExample>
+	| aCanvas aPath |
+
+	aCanvas := self class canvas: 400@300.
+	
+	aPath := aCanvas path
+		absolute;
+		moveTo: 200@50;
+		lineTo: 350@250;
+		lineTo: 50@250;
+		close;
+		build.
+
+	^ aPath
+]
+
+{ #category : #'examples - path' }
+TSpartaExamples >> trianglePathRelative [
+	<gtExample>
+	| aCanvas aPath |
+
+	aCanvas := self class canvas: 400@300.
+	
+	aPath := aCanvas path
+		relative;
+		moveTo: 200@50;
+		lineTo: 150@200;
+		lineTo: -300@0;
+		close;
+		build.
+
+	^ aPath
 ]

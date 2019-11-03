@@ -58,12 +58,16 @@ SkiaPathBuilder >> initialize [
 
 { #category : #'path commands' }
 SkiaPathBuilder >> lineTo: aPoint [
-	path lineTo: aPoint absolute: isAbsolute
+	isAbsolute
+		ifTrue: [ path lineTo: aPoint ]
+		ifFalse: [ path lineBy: aPoint ]
 ]
 
 { #category : #'path commands' }
 SkiaPathBuilder >> moveTo: aPoint [
-	path moveTo: aPoint absolute: isAbsolute
+	isAbsolute
+		ifTrue: [ path moveTo: aPoint ]
+		ifFalse: [ path moveBy: aPoint ]
 ]
 
 { #category : #'path commands' }

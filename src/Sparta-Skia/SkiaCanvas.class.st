@@ -65,6 +65,11 @@ SkiaCanvas >> pathBuilderClass [
 	^ SkiaPathBuilder
 ]
 
+{ #category : #builders }
+SkiaCanvas >> strokePainter [
+	^ SkiaStrokePainter new
+]
+
 { #category : #accessing }
 SkiaCanvas >> surface [
 	"Return a copy of a surface I used to draw on.
