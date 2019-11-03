@@ -63,6 +63,14 @@ SkiaSurfaceCanvas >> clipRectangle: aSpartaRectangle clipOp: aSkiaClipOp antiAli
 		antiAlias: isAntiAlias
 ]
 
+{ #category : #'api - transformation' }
+SkiaSurfaceCanvas >> concatMatrix: aSpartaMatrix [
+	| aSkiaMatrix |
+	
+	aSkiaMatrix := SkiaMatrix fromSpartaMatrix: aSpartaMatrix.
+	self primConcatMatrix: aSkiaMatrix
+]
+
 { #category : #'api - drawing' }
 SkiaSurfaceCanvas >> drawCircle: aSpartaCircle paint: aSkiaPaint [
 	self
@@ -149,6 +157,16 @@ SkiaSurfaceCanvas >> flush [
 	self primFlush
 ]
 
+{ #category : #'api - transformation' }
+SkiaSurfaceCanvas >> getMatrix [
+	<return: #SpartaMatrix>
+	| aSkiaMatrix |
+	
+	aSkiaMatrix := SkiaMatrix new.
+	self primGetMatrix: aSkiaMatrix.
+	^ aSkiaMatrix asSpartaMatrix
+]
+
 { #category : #'private - ffi' }
 SkiaSurfaceCanvas >> primClipGetDeviceBounds: aSkiaRectangleI32 [
 	self ffiCall: #(void skia_canvas_device_clip_bounds(self, SkiaRectangleI32 aSkiaRectangleI32))
@@ -173,6 +191,11 @@ SkiaSurfaceCanvas >> primClipRectangleLeft: aLeft top: aTop right: aRight bottom
 		scalar aLeft, scalar aTop, scalar aRight, scalar aBottom,
 		SkiaClipOp aSkiaClipOp,
 		bool isAntiAlias))
+]
+
+{ #category : #'private - ffi' }
+SkiaSurfaceCanvas >> primConcatMatrix: aSkiaMatrix [
+	^ self ffiCall: #(void skia_canvas_concat_matrix(self, SkiaMatrix aSkiaMatrix))
 ]
 
 { #category : #'private - ffi' }
@@ -229,6 +252,11 @@ SkiaSurfaceCanvas >> primFlush [
 ]
 
 { #category : #'private - ffi' }
+SkiaSurfaceCanvas >> primGetMatrix: aSkiaMatrix [
+	^ self ffiCall: #(void skia_canvas_get_matrix(self, SkiaMatrix aSkiaMatrix))
+]
+
+{ #category : #'private - ffi' }
 SkiaSurfaceCanvas >> primGetSaveCount [
 	self ffiCall: #(size_t skia_canvas_save_count(self))
 ]
@@ -254,8 +282,33 @@ SkiaSurfaceCanvas >> primRestoreToCount: aNumber [
 ]
 
 { #category : #'private - ffi' }
+SkiaSurfaceCanvas >> primRotate: theDegrees x: aX y: aY [
+	^ self ffiCall: #(void skia_canvas_skew(self, scalar theDegrees, scalar aX, scalar aY))
+]
+
+{ #category : #'private - ffi' }
 SkiaSurfaceCanvas >> primSave [
 	self ffiCall: #(size_t skia_canvas_save(self))
+]
+
+{ #category : #'private - ffi' }
+SkiaSurfaceCanvas >> primScaleX: aX y: aY [
+	^ self ffiCall: #(void skia_canvas_scale(self, scalar aX, scalar aY))
+]
+
+{ #category : #'private - ffi' }
+SkiaSurfaceCanvas >> primSetMatrix: aSkiaMatrix [
+	^ self ffiCall: #(void skia_canvas_set_matrix(self, SkiaMatrix aSkiaMatrix))
+]
+
+{ #category : #'private - ffi' }
+SkiaSurfaceCanvas >> primSkewX: aX y: aY [
+	^ self ffiCall: #(void skia_canvas_skew(self, scalar aX, scalar aY))
+]
+
+{ #category : #'private - ffi' }
+SkiaSurfaceCanvas >> primTranslateX: aX y: aY [
+	^ self ffiCall: #(void skia_canvas_translate(self, scalar aX, scalar aY))
 ]
 
 { #category : #'api - clip' }
@@ -279,6 +332,11 @@ SkiaSurfaceCanvas >> restoreToCount: aNumber [
 	self primRestoreToCount: aNumber
 ]
 
+{ #category : #'api - transformation' }
+SkiaSurfaceCanvas >> rotate: theDegree around: aPoint [
+	self primRotate: theDegree x: aPoint x y: aPoint y
+]
+
 { #category : #'api - state' }
 SkiaSurfaceCanvas >> save [
 	self primSave
@@ -288,4 +346,27 @@ SkiaSurfaceCanvas >> save [
 SkiaSurfaceCanvas >> saveCount [
 	<return: #Number>
 	^ self primGetSaveCount
+]
+
+{ #category : #'api - transformation' }
+SkiaSurfaceCanvas >> scale: aPoint [
+	self primScaleX: aPoint x y: aPoint y
+]
+
+{ #category : #'api - transformation' }
+SkiaSurfaceCanvas >> setMatrix: aSpartaMatrix [
+	| aSkiaMatrix |
+	
+	aSkiaMatrix := SkiaMatrix fromSpartaMatrix: aSpartaMatrix.
+	self primSetMatrix: aSkiaMatrix
+]
+
+{ #category : #'api - transformation' }
+SkiaSurfaceCanvas >> skew: aPoint [
+	self primSkewX: aPoint x y: aPoint y
+]
+
+{ #category : #'api - transformation' }
+SkiaSurfaceCanvas >> translate: aPoint [
+	self primTranslateX: aPoint x y: aPoint y
 ]

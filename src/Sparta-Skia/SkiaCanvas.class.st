@@ -88,3 +88,10 @@ SkiaCanvas >> surfaceCanvas [
 
 	 ^ skiaSurfaceCanvas
 ]
+
+{ #category : #builders }
+SkiaCanvas >> transformationBuilder [
+	"Return a new instance of the backend specific ${class:SpartaTransformationBuilder}$"
+
+	^ SkiaTransformationBuilder new
+]
