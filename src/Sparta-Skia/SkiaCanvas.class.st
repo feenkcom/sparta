@@ -96,6 +96,12 @@ SkiaCanvas >> surfaceCanvas [
 ]
 
 { #category : #builders }
+SkiaCanvas >> textPainter [
+	<return: #SpartaTextPainter>
+	^ SkiaTextPainter new
+]
+
+{ #category : #builders }
 SkiaCanvas >> transformationBuilder [
 	"Return a new instance of the backend specific ${class:SpartaTransformationBuilder}$"
 
