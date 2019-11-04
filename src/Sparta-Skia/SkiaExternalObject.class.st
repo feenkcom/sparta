@@ -49,6 +49,7 @@ SkiaExternalObject class >> primCreate [
 SkiaExternalObject class >> primRelease: aHandle [
 	
 	"Plain pointers must be deleted using delete(), all users must implement a specific method"
+	"self ffiCall: #(void skia_object_drop(void* aHandle))"
 	self subclassResponsibility
 ]
 
