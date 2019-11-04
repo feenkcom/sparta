@@ -12,3 +12,13 @@ SkiaTextBlobExamples >> default [
 	aTextBlob := SkiaTextBlob new.
 	^ aTextBlob
 ]
+
+{ #category : #accessing }
+SkiaTextBlobExamples >> fromStringAndFont [
+	<gtExample>
+	| aTextBlob aFont |
+	
+	aFont := SkiaFont new.
+	aTextBlob := SkiaTextBlob string: 'Hello' font: aFont.
+	^ aTextBlob
+]

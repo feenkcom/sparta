@@ -386,6 +386,29 @@ SkiaSurfaceCanvasExamples >> drawRectangleWithGrayStrokeAndFill [
 	^ aSurface
 ]
 
+{ #category : #'examples - draw text blob' }
+SkiaSurfaceCanvasExamples >> drawTextBlobHelloWorld [
+	<gtExample>
+	| aSurface aCanvas aFont aTextBlob aPaint |
+	
+	aSurface := SkiaSurface newRasterPremultipled: 400@300.
+	
+	aFont := SkiaFont size: 30.
+	
+	aTextBlob := SkiaTextBlob string: 'Hello World!' font: aFont.
+	aPaint := SkiaPaint new
+		color: Color lightGray;
+		paintStyle: SkiaPaintStyle Fill.
+	
+	aCanvas := aSurface canvas.
+	aCanvas drawTextBlob: aTextBlob at: 50@100 paint: aPaint.
+
+	aCanvas flush.
+	aCanvas release.
+	
+	^ aSurface
+]
+
 { #category : #'examples - quick reject' }
 SkiaSurfaceCanvasExamples >> quickAcceptRectangle [
 	<gtExample>

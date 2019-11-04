@@ -10,10 +10,25 @@ SkiaFont class >> primCreate [
 ]
 
 { #category : #'private - ffi' }
+SkiaFont class >> primNewTypeface: aSkiaTypeface size: aSize [
+	^ self ffiCall: #(void* skia_font_from_typeface(SkiaTypeface aSkiaTypeface, scalar aSize))
+]
+
+{ #category : #'private - ffi' }
 SkiaFont class >> primRelease: aHandle [
 	
 	"Plain pointers must be deleted using delete(), all users must implement a specific method"
 	self ffiCall: #(void skia_font_drop(void* aHandle))
+]
+
+{ #category : #'instance creation' }
+SkiaFont class >> size: aSize [
+	^ self typeface: SkiaTypeface new size: aSize
+]
+
+{ #category : #'instance creation' }
+SkiaFont class >> typeface: aSkiaTypeface size: aSize [
+	^ self fromNativeHandle: (self primNewTypeface: aSkiaTypeface size: aSize)
 ]
 
 { #category : #accessing }
@@ -46,6 +61,9 @@ SkiaFont >> gtInforFor: aView [
 		#isForceAutoHinting -> self isForceAutoHinting.
 		#isLinearMetrics -> self isLinearMetrics.
 		#isSubpixel -> self isSubpixel.
+		#scale -> self scale.
+		#size -> self size.
+		#skew -> self skew.
 	 } asOrderedDictionary gtItemsFor: aView)
 			title: 'Info';
 			priority: 2

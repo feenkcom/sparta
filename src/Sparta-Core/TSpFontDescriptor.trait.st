@@ -32,6 +32,11 @@ TSpFontDescriptor >> stretchNormal [
 ]
 
 { #category : #stretch }
+TSpFontDescriptor >> stretchReset [
+	^ self subclassResponsibility
+]
+
+{ #category : #stretch }
 TSpFontDescriptor >> stretchSemiCondensed [
 	^ self subclassResponsibility
 ]
@@ -66,6 +71,11 @@ TSpFontDescriptor >> styleOblique [
 	^ self subclassResponsibility
 ]
 
+{ #category : #style }
+TSpFontDescriptor >> styleReset [
+	self subclassResponsibility
+]
+
 { #category : #weight }
 TSpFontDescriptor >> weight: aWeight [
 	self explicitRequirement
@@ -79,6 +89,11 @@ TSpFontDescriptor >> weightBold [
 { #category : #weight }
 TSpFontDescriptor >> weightNormal [
 	^ self subclassResponsibility
+]
+
+{ #category : #weight }
+TSpFontDescriptor >> weightReset [
+	self subclassResponsibility
 ]
 
 { #category : #weight }

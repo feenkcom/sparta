@@ -49,6 +49,12 @@ SkiaCanvas >> fillPainter [
 	^ SkiaFillPainter new
 ]
 
+{ #category : #builders }
+SkiaCanvas >> fontBuilder [
+	<return: #SpartaFontBuilder>
+	^ SkiaFontBuilder new
+]
+
 { #category : #initialization }
 SkiaCanvas >> initializeWith: aSkiaSurface [
 	skiaSurface := aSkiaSurface.

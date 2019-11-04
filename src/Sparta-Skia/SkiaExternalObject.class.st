@@ -1,8 +1,8 @@
 Class {
 	#name : #SkiaExternalObject,
 	#superclass : #FFIExternalObject,
-	#classVars : [
-		'scalar'
+	#pools : [
+		'SkiaTypes'
 	],
 	#category : #'Sparta-Skia-External'
 }
@@ -28,11 +28,6 @@ SkiaExternalObject class >> fromHandle: aHandle [
 { #category : #'instance creation' }
 SkiaExternalObject class >> fromNativeHandle: anExternalData [
 	^ (self fromHandle: (anExternalData getHandle)) autoRelease
-]
-
-{ #category : #'class initialization' }
-SkiaExternalObject class >> initialize [
-	scalar := #float32
 ]
 
 { #category : #'instance creation' }
