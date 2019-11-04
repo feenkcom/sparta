@@ -5,6 +5,23 @@ Class {
 }
 
 { #category : #accessing }
+SkiaFontStyleExamples >> custom [
+	<gtExample>
+	| aFontStyle |
+	
+	aFontStyle := SkiaFontStyle
+		weight: 800
+		width: SkiaFontStyleWidth UltraExpanded
+		slant: SkiaFontStyleSlant Italic.
+
+	self assert: aFontStyle slant equals: SkiaFontStyleSlant Italic.
+	self assert: aFontStyle weight equals: 800.
+	self assert: aFontStyle width equals: SkiaFontStyleWidth UltraExpanded.
+	
+	^ aFontStyle
+]
+
+{ #category : #accessing }
 SkiaFontStyleExamples >> default [
 	<gtExample>
 	| aFontStyle |

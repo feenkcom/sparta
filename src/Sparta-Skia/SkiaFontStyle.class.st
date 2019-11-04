@@ -10,10 +10,23 @@ SkiaFontStyle class >> primCreate [
 ]
 
 { #category : #'private - ffi' }
+SkiaFontStyle class >> primNewWeight: aWeight width: aSkiaFontStyleWidth slant: aSkiaFontStyleSlant [
+	^ self ffiCall: #(void* skia_font_style_new(
+		int32 aWeight,
+		SkiaFontStyleWidth aSkiaFontStyleWidth,
+		SkiaFontStyleSlant aSkiaFontStyleSlant))
+]
+
+{ #category : #'private - ffi' }
 SkiaFontStyle class >> primRelease: aHandle [
 	
 	"Plain pointers must be deleted using delete(), all users must implement a specific method"
 	self ffiCall: #(void skia_font_style_drop(void* aHandle))
+]
+
+{ #category : #'instance creation' }
+SkiaFontStyle class >> weight: aWeight width: aSkiaFontStyleWidth slant: aSkiaFontStyleSlant [
+	^ self fromNativeHandle: (self primNewWeight: aWeight width: aSkiaFontStyleWidth slant: aSkiaFontStyleSlant)
 ]
 
 { #category : #'gt-extension' }
@@ -42,6 +55,24 @@ SkiaFontStyle >> primGetWeight [
 { #category : #'private - ffi' }
 SkiaFontStyle >> primGetWidth [
 	^ self ffiCall: #(SkiaFontStyleWidth skia_font_style_get_width(self))
+]
+
+{ #category : #printing }
+SkiaFontStyle >> printOn: aStream [
+	"Append a sequence of characters to aStream that identify the receiver."
+
+	aStream
+		nextPut: ${;
+		nextPutAll: ' width: ';
+		print: self width.
+	aStream
+		nextPutAll: ' slant: ';
+		print: self slant.
+	aStream
+		nextPutAll: ' weight: ';
+		print: self weight;
+		space;
+		nextPut: $}
 ]
 
 { #category : #accessing }
