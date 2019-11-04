@@ -1,51 +1,51 @@
 Class {
-	#name : #SkiaCapStyle,
+	#name : #SkiaFontEdging,
 	#superclass : #SkiaExternalEnumeration,
 	#classVars : [
-		'Butt',
-		'Round',
-		'Square'
+		'Alias',
+		'AntiAlias',
+		'SubpixelAntiAlias'
 	],
 	#category : #'Sparta-Skia-External'
 }
 
 { #category : #'accessing enum' }
-SkiaCapStyle class >> Butt [
+SkiaFontEdging class >> Alias [
 	"This method was automatically generated"
-	^ Butt
+	^ Alias
 ]
 
 { #category : #'accessing enum' }
-SkiaCapStyle class >> Round [
+SkiaFontEdging class >> AntiAlias [
 	"This method was automatically generated"
-	^ Round
+	^ AntiAlias
 ]
 
 { #category : #'accessing enum' }
-SkiaCapStyle class >> Square [
+SkiaFontEdging class >> SubpixelAntiAlias [
 	"This method was automatically generated"
-	^ Square
+	^ SubpixelAntiAlias
 ]
 
 { #category : #'enum declaration' }
-SkiaCapStyle class >> externalDeclaration [
+SkiaFontEdging class >> externalDeclaration [
 	"
 	self rebuildEnumAccessors
 	"
 
 	^ #(
-		Butt,
-		Round,
-		Square,
+		Alias,
+		AntiAlias,
+		SubpixelAntiAlias,
 	)
 ]
 
 { #category : #accessing }
-SkiaCapStyle class >> externalType [
+SkiaFontEdging class >> externalType [
 	^ FFIInt32 new
 ]
 
 { #category : #'private - ffi' }
-SkiaCapStyle >> primRealName: aBoxerString [
-	^ self ffiCall: #(void skia_enums_cap_style_to_string(self, GtBoxerString aBoxerString))
+SkiaFontEdging >> primRealName: aBoxerString [
+	^ self ffiCall: #(void skia_enums_font_edging_to_string(self, GtBoxerString aBoxerString))
 ]

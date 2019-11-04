@@ -33,6 +33,5 @@ SkiaTypefaceExamples >> fromFamilyNameAndFontStyle [
 	self assert: aCustomTypeface isFixedPitch equals: aDefaultTypeface isFixedPitch.
 	self assert: aCustomTypeface isItalic equals: aDefaultTypeface isItalic.
 	
-	
 	^ aCustomTypeface
 ]

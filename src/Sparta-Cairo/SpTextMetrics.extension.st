@@ -12,5 +12,5 @@ SpTextMetrics >> cairoInitializeFrom: aCairoTextMetrics [
 	height := aCairoTextMetrics height.
 	
 	ascent := top negated.
-	descent := (top + width) negated
+	descent := (top + height) negated
 ]

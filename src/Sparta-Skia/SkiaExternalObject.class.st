@@ -1,8 +1,8 @@
 Class {
 	#name : #SkiaExternalObject,
 	#superclass : #FFIExternalObject,
-	#classVars : [
-		'scalar'
+	#pools : [
+		'SkiaTypes'
 	],
 	#category : #'Sparta-Skia-External'
 }
@@ -30,11 +30,6 @@ SkiaExternalObject class >> fromNativeHandle: anExternalData [
 	^ (self fromHandle: (anExternalData getHandle)) autoRelease
 ]
 
-{ #category : #'class initialization' }
-SkiaExternalObject class >> initialize [
-	scalar := #float32
-]
-
 { #category : #'instance creation' }
 SkiaExternalObject class >> new [
 	^ self fromNativeHandle: self primCreate
@@ -49,6 +44,7 @@ SkiaExternalObject class >> primCreate [
 SkiaExternalObject class >> primRelease: aHandle [
 	
 	"Plain pointers must be deleted using delete(), all users must implement a specific method"
+	"self ffiCall: #(void skia_object_drop(void* aHandle))"
 	self subclassResponsibility
 ]
 

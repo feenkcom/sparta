@@ -177,11 +177,6 @@ SpartaFontBuilder >> stretch: aNumber [
 	stretch := aNumber value
 ]
 
-{ #category : #stretch }
-SpartaFontBuilder >> stretchReset [
-	^ self subclassResponsibility
-]
-
 { #category : #accessing }
 SpartaFontBuilder >> style [
 	^ style
@@ -190,11 +185,6 @@ SpartaFontBuilder >> style [
 { #category : #accessing }
 SpartaFontBuilder >> style: aNumber [
 	style := aNumber value
-]
-
-{ #category : #style }
-SpartaFontBuilder >> styleReset [
-	^ self subclassResponsibility
 ]
 
 { #category : #'instance creation' }
@@ -210,9 +200,4 @@ SpartaFontBuilder >> weight [
 { #category : #weight }
 SpartaFontBuilder >> weight: aWeight [
 	weight := aWeight value
-]
-
-{ #category : #weight }
-SpartaFontBuilder >> weightReset [
-	^ self subclassResponsibility
 ]
