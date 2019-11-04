@@ -152,6 +152,11 @@ SkiaSurfaceCanvas >> drawRectangle: aSpartaRectangle paint: aSkiaPaint [
 		paint: aSkiaPaint
 ]
 
+{ #category : #'api - drawing' }
+SkiaSurfaceCanvas >> drawTextBlob: aTextBlob at: anOriginPoint paint: aSkiaPaint [
+	self primDrawTextBlob: aTextBlob x: anOriginPoint x y: anOriginPoint y paint: aSkiaPaint
+]
+
 { #category : #'api - state' }
 SkiaSurfaceCanvas >> flush [
 	self primFlush
@@ -243,6 +248,14 @@ SkiaSurfaceCanvas >> primDrawPointX: aX y: aY paint: aSkiaPaint [
 SkiaSurfaceCanvas >> primDrawRectangleLeft: aLeft top: aTop right: aRight bottom: aBottom paint: aSkiaPaint [
 	self ffiCall: #(void skia_canvas_draw_rectangle(self,
 		scalar aLeft, scalar aTop, scalar aRight, scalar aBottom,
+		SkiaPaint aSkiaPaint))
+]
+
+{ #category : #'private - ffi' }
+SkiaSurfaceCanvas >> primDrawTextBlob: aSkiaTextBlob x: aX y: aY paint: aSkiaPaint [
+	self ffiCall: #(void skia_canvas_draw_text_blob(self,
+		SkiaTextBlob aSkiaTextBlob,
+		scalar aX, scalar aY,
 		SkiaPaint aSkiaPaint))
 ]
 

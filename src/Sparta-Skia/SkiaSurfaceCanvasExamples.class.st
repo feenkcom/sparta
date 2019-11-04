@@ -158,6 +158,28 @@ SkiaSurfaceCanvasExamples >> drawColorWhite [
 	^ aSurface
 ]
 
+{ #category : #'examples - draw text blob' }
+SkiaSurfaceCanvasExamples >> drawDefaultTextBlob [
+	<gtExample>
+	| aSurface aCanvas aTextBlob aPaint |
+	
+	aSurface := SkiaSurface newRasterPremultipled: 70@50.
+	
+	aTextBlob := SkiaTextBlob new.
+
+	aPaint := SkiaPaint new
+		color: Color lightGray;
+		paintStyle: SkiaPaintStyle Fill.
+	
+	aCanvas := aSurface canvas.
+	aCanvas drawTextBlob: aTextBlob at: 10@10 paint: aPaint.
+
+	aCanvas flush.
+	aCanvas release.
+	
+	^ aSurface
+]
+
 { #category : #'examples - draw line' }
 SkiaSurfaceCanvasExamples >> drawLineBlack [
 	<gtExample>

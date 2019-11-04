@@ -745,7 +745,9 @@ SpartaCanvas >> shape [
 { #category : #builders }
 SpartaCanvas >> shapeFactory [
 	<return: #SpartaShapeFactory>
-	^ self subclassResponsibility
+
+	true ifFalse: [ self subclassResponsibility ].
+	^ SpartaShapeFactory new
 ]
 
 { #category : #'instance creation' }
