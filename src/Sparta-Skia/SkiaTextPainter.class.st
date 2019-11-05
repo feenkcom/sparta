@@ -23,8 +23,6 @@ SkiaTextPainter >> breakWordWrap [
 
 { #category : #drawing }
 SkiaTextPainter >> fillString: aString withColor: aFillColor strokeColor: aStrokeColor [
-
-	self halt.
 ]
 
 { #category : #drawing }
@@ -33,6 +31,25 @@ SkiaTextPainter >> fillString: aString withColor: aFillColor strokePaint: aStrok
 
 { #category : #'accessing - orientation' }
 SkiaTextPainter >> horizontal [
+]
+
+{ #category : #'instance creation' }
+SkiaTextPainter >> metricsProvider [
+	"Instantiate and return a backend specific metrics provider that handles SpMetrics request.
+	Note: metrics provider is created according to current font and text properties and therefore
+	should be instantiated only after text painter is fully configured"
+	<return: #SpMetricsProvider>
+
+	^ SkiaMetricsProvider new font: font
+]
+
+{ #category : #'instance creation' }
+SkiaTextPainter >> textRun [
+	"Instantiate and return a text run containing glyphs for current string according
+	to choosen font and various text properties"
+	<return: #TSpTextRun>
+	
+	^ (SkiaTextRun fromString: text font: font) metricsProvider: self metricsProvider
 ]
 
 { #category : #'accessing - orientation' }
