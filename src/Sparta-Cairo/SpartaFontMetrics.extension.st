@@ -6,7 +6,7 @@ SpartaFontMetrics >> cairoInitializeFrom: aCairoFontMetrics [
 	
 	fontSize := aCairoFontMetrics height.
 	
-	ascent := aCairoFontMetrics ascent.
+	ascent := aCairoFontMetrics ascent negated.
 	descent := aCairoFontMetrics descent.
 	leading := aCairoFontMetrics height - ascent abs - descent abs.
 	
@@ -15,8 +15,8 @@ SpartaFontMetrics >> cairoInitializeFrom: aCairoFontMetrics [
 	capHeight := 0.
 	xHeight := fontSize.
 	
-	strikeoutOffset := (ascent / 3.0).
+	strikeoutOffset := (fontSize / 3.0) negated.
 	strikeoutSize := 1.
-	underlineOffset := (ascent / 2.0) negated.
+	underlineOffset := fontSize / 20.
 	underlineSize := 1
 ]

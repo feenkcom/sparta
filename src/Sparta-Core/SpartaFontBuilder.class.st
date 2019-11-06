@@ -198,6 +198,6 @@ SpartaFontBuilder >> weight [
 ]
 
 { #category : #weight }
-SpartaFontBuilder >> weight: aWeight [
-	weight := aWeight value
+SpartaFontBuilder >> weight: aSpartaFontWeightOrNumber [
+	weight := aSpartaFontWeightOrNumber value
 ]

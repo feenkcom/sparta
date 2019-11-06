@@ -7,7 +7,7 @@ Class {
 { #category : #private }
 SkiaFillPainter >> createPaintForColor: aColor [
 	| aSkiaPaint theDrawOptions |
-	
+
 	theDrawOptions := self ensuredDrawOptions.
 
 	aSkiaPaint := SkiaPaint new.
@@ -15,7 +15,7 @@ SkiaFillPainter >> createPaintForColor: aColor [
 		color: (aColor alpha: aColor alpha * theDrawOptions alpha);
 		antialias: theDrawOptions antialias;
 		blendMode: theDrawOptions blendMode.
-		
+
 	^ aSkiaPaint
 ]
 

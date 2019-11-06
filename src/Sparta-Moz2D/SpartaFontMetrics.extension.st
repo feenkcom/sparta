@@ -6,8 +6,8 @@ SpartaFontMetrics >> mozInitializeFrom: aMozFontMetrics [
 
 	fontSize := aMozFontMetrics emHeight.
 	
-	ascent := aMozFontMetrics maxAscent.
-	descent := aMozFontMetrics maxDescent.
+	ascent := aMozFontMetrics emAscent negated.
+	descent := aMozFontMetrics emDescent.
 	leading := aMozFontMetrics externalLeading.
 	
 	averageCharWidth := aMozFontMetrics aveCharWidth.
@@ -15,9 +15,9 @@ SpartaFontMetrics >> mozInitializeFrom: aMozFontMetrics [
 	capHeight := aMozFontMetrics capHeight.
 	xHeight := aMozFontMetrics xHeight.	
 
-	strikeoutOffset := aMozFontMetrics strikeoutOffset.
+	strikeoutOffset := aMozFontMetrics strikeoutOffset negated.
 	strikeoutSize := aMozFontMetrics strikeoutSize.
-	underlineOffset := aMozFontMetrics underlineOffset.
+	underlineOffset := aMozFontMetrics underlineOffset negated.
 	underlineSize := aMozFontMetrics underlineSize.
 ]
 
@@ -35,9 +35,15 @@ SpartaFontMetrics >> skiaInitializeFrom: aSkiaFontMetrics [
 	maxCharacterWidth := aSkiaFontMetrics maxCharWidth.
 	capHeight := aSkiaFontMetrics capHeight.
 	xHeight := aSkiaFontMetrics xHeight.
-	
-	strikeoutOffset := aSkiaFontMetrics strikeoutPosition.
-	strikeoutSize := aSkiaFontMetrics strikeoutThickness.
+		
 	underlineOffset := aSkiaFontMetrics underlinePosition.
 	underlineSize := aSkiaFontMetrics underlineThickness.
+
+	strikeoutOffset := aSkiaFontMetrics strikeoutPosition.
+	strikeoutSize := aSkiaFontMetrics strikeoutThickness.
+	strikeoutSize isZero
+		ifTrue: [
+			strikeoutOffset := (xHeight / 2.0) negated.
+			strikeoutSize := underlineSize ].	
+
 ]

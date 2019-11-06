@@ -25,8 +25,8 @@ SkiaFontStyle class >> primRelease: aHandle [
 ]
 
 { #category : #'instance creation' }
-SkiaFontStyle class >> weight: aWeight width: aSkiaFontStyleWidth slant: aSkiaFontStyleSlant [
-	^ self fromNativeHandle: (self primNewWeight: aWeight width: aSkiaFontStyleWidth slant: aSkiaFontStyleSlant)
+SkiaFontStyle class >> weight: aWeightNumber width: aSkiaFontStyleWidth slant: aSkiaFontStyleSlant [
+	^ self fromNativeHandle: (self primNewWeight: aWeightNumber width: aSkiaFontStyleWidth slant: aSkiaFontStyleSlant)
 ]
 
 { #category : #'gt-extension' }

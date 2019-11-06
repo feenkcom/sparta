@@ -4,6 +4,11 @@ Class {
 	#category : #'Sparta-Skia-External'
 }
 
+{ #category : #'instance creation' }
+SkiaFont class >> default [
+	^ self new
+]
+
 { #category : #'private - ffi' }
 SkiaFont class >> primCreate [
 	^ self ffiCall: #(void* skia_font_default())
@@ -36,6 +41,13 @@ SkiaFont >> edging [
 	<return: #SkiaFontEdging>
 
 	^ self primGetEdging
+]
+
+{ #category : #accessing }
+SkiaFont >> familyName [
+	<return: #String>
+
+	^ self typeface familyName
 ]
 
 { #category : #'gt-extension' }

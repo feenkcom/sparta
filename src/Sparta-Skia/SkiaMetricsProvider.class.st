@@ -26,7 +26,7 @@ SkiaMetricsProvider >> measure: aSpartaTextRun in: aSpartaMetrics [
 	and store text and font measurement in aSpMetrics"
 	| theSkiaTextMetrics theSkiaFontMetrics |
 
-	theSkiaTextMetrics := font measureText: 'Hello' paint: paint.
+	theSkiaTextMetrics := font measureText: aSpartaTextRun characters paint: paint.
 	theSkiaFontMetrics := font metrics.
 	
 	aSpartaMetrics textMetrics: theSkiaTextMetrics asSpartaMetrics.

@@ -24,8 +24,8 @@ SkiaTextMetrics >> asSpartaMetrics [
 		advance: advance;
 		left: bounds left;
 		top: bounds top;
-		right: bounds right;
-		bottom: bounds bottom
+		width: bounds right - bounds left;
+		height: bounds bottom - bounds top
 ]
 
 { #category : #accessing }
