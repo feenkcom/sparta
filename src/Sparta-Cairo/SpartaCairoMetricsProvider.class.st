@@ -1,9 +1,9 @@
 Class {
 	#name : #SpartaCairoMetricsProvider,
-	#superclass : #SpMetricsProvider,
+	#superclass : #SpartaMetricsProvider,
 	#traits : 'TSpartaCairoLibrary',
 	#classTraits : 'TSpartaCairoLibrary classTrait',
-	#category : 'Sparta-Cairo-Text'
+	#category : #'Sparta-Cairo-Text'
 }
 
 { #category : #measurement }

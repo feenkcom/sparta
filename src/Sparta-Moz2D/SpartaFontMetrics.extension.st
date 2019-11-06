@@ -1,7 +1,7 @@
-Extension { #name : #SpFontMetrics }
+Extension { #name : #SpartaFontMetrics }
 
 { #category : #'*Sparta-Moz2D' }
-SpFontMetrics >> mozInitializeFrom: aMozFontMetrics [
+SpartaFontMetrics >> mozInitializeFrom: aMozFontMetrics [
 	"Initialize me from external structure"
 	
 	aveCharWidth := aMozFontMetrics aveCharWidth.

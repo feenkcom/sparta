@@ -4,7 +4,7 @@ I represent a metrics request.
 I hold all neccessary information that is needed by metrics provider in order to measure provided text run.
 "
 Class {
-	#name : #SpMetrics,
+	#name : #SpartaMetrics,
 	#superclass : #Object,
 	#instVars : [
 		'orientation',
@@ -30,42 +30,42 @@ Class {
 }
 
 { #category : #accessing }
-SpMetrics >> boxType [
+SpartaMetrics >> boxType [
 	^ boxType
 ]
 
 { #category : #accessing }
-SpMetrics >> boxType: aBoundingBoxType [
+SpartaMetrics >> boxType: aBoundingBoxType [
 	boxType := aBoundingBoxType
 ]
 
 { #category : #accessing }
-SpMetrics >> breakPriority [
+SpartaMetrics >> breakPriority [
 	^ breakPriority
 ]
 
 { #category : #accessing }
-SpMetrics >> breakPriority: anObject [
+SpartaMetrics >> breakPriority: anObject [
 	breakPriority := anObject
 ]
 
 { #category : #accessing }
-SpMetrics >> canvas [
+SpartaMetrics >> canvas [
 	^ canvas
 ]
 
 { #category : #accessing }
-SpMetrics >> canvas: aSpartaCanvas [
+SpartaMetrics >> canvas: aSpartaCanvas [
 	canvas := aSpartaCanvas
 ]
 
 { #category : #metrics }
-SpMetrics >> fontMetrics [
+SpartaMetrics >> fontMetrics [
 	^ fontMetrics
 ]
 
 { #category : #metrics }
-SpMetrics >> fontMetrics: aSpFontMetrics [
+SpartaMetrics >> fontMetrics: aSpFontMetrics [
 
 	self
 		assert: [ measureFont ]
@@ -75,7 +75,7 @@ SpMetrics >> fontMetrics: aSpFontMetrics [
 ]
 
 { #category : #initialization }
-SpMetrics >> initialize [
+SpartaMetrics >> initialize [
 	super initialize.
 	
 	measureFont := true.
@@ -84,22 +84,22 @@ SpMetrics >> initialize [
 ]
 
 { #category : #accessing }
-SpMetrics >> isVertical [
+SpartaMetrics >> isVertical [
 	^ isVertical
 ]
 
 { #category : #accessing }
-SpMetrics >> isVertical: anObject [
+SpartaMetrics >> isVertical: anObject [
 	isVertical := anObject
 ]
 
 { #category : #accessing }
-SpMetrics >> length [
+SpartaMetrics >> length [
 	^ length
 ]
 
 { #category : #accessing }
-SpMetrics >> length: aNumber [
+SpartaMetrics >> length: aNumber [
 	"Set amount of glyphs starting from #start that should be measured.
 	If length is greater than amoung of glyphs in text run, it will be measured until the end.
 	Note: one character can be represented by 1 or 2 glyphs depending on encoding"
@@ -112,19 +112,19 @@ SpMetrics >> length: aNumber [
 ]
 
 { #category : #accessing }
-SpMetrics >> lineBreakBefore [
+SpartaMetrics >> lineBreakBefore [
 	^ lineBreakBefore
 ]
 
 { #category : #accessing }
-SpMetrics >> lineBreakBefore: aBoolean [
+SpartaMetrics >> lineBreakBefore: aBoolean [
 	"Set to true if and only if there is an actual line break at the start of the text run"
 
 	lineBreakBefore := aBoolean
 ]
 
 { #category : #accessing }
-SpMetrics >> measureFont [
+SpartaMetrics >> measureFont [
 	"Return true if main font of textRun should be measured, false otherwise"
 	<return: #Boolean>
 
@@ -132,12 +132,12 @@ SpMetrics >> measureFont [
 ]
 
 { #category : #accessing }
-SpMetrics >> measureFont: aBoolean [
+SpartaMetrics >> measureFont: aBoolean [
 	measureFont := aBoolean
 ]
 
 { #category : #accessing }
-SpMetrics >> measureText [
+SpartaMetrics >> measureText [
 	"Return true if textRun should be measured, false otherwise"
 	<return: #Boolean>
 
@@ -145,69 +145,69 @@ SpMetrics >> measureText [
 ]
 
 { #category : #accessing }
-SpMetrics >> measureText: aBoolean [
+SpartaMetrics >> measureText: aBoolean [
 	measureText := aBoolean
 ]
 
 { #category : #accessing }
-SpMetrics >> orientation [
+SpartaMetrics >> orientation [
 	^ orientation
 ]
 
 { #category : #accessing }
-SpMetrics >> orientation: anObject [
+SpartaMetrics >> orientation: anObject [
 	orientation := anObject
 ]
 
 { #category : #accessing }
-SpMetrics >> propertyProvider [
+SpartaMetrics >> propertyProvider [
 	^ propertyProvider
 ]
 
 { #category : #accessing }
-SpMetrics >> propertyProvider: anObject [
+SpartaMetrics >> propertyProvider: anObject [
 	"Optional. Ask metrics provider to use custom provided property provider"
 
 	propertyProvider := anObject
 ]
 
 { #category : #accessing }
-SpMetrics >> spacing [
+SpartaMetrics >> spacing [
 	^ spacing
 ]
 
 { #category : #accessing }
-SpMetrics >> spacing: aNumber [
+SpartaMetrics >> spacing: aNumber [
 	spacing := aNumber
 ]
 
 { #category : #accessing }
-SpMetrics >> start [
+SpartaMetrics >> start [
 	^ start
 ]
 
 { #category : #accessing }
-SpMetrics >> start: aNumber [
+SpartaMetrics >> start: aNumber [
 	start := aNumber
 ]
 
 { #category : #accessing }
-SpMetrics >> suppressBreaks [
+SpartaMetrics >> suppressBreaks [
 	^ suppressBreaks
 ]
 
 { #category : #accessing }
-SpMetrics >> suppressBreaks: aSuppressBreaks [
+SpartaMetrics >> suppressBreaks: aSuppressBreaks [
 	suppressBreaks := aSuppressBreaks
 ]
 
 { #category : #metrics }
-SpMetrics >> textMetrics [
+SpartaMetrics >> textMetrics [
 	^ textMetrics
 ]
 
 { #category : #metrics }
-SpMetrics >> textMetrics: aSpTextMetrics [
+SpartaMetrics >> textMetrics: aSpTextMetrics [
 	
 	self
 		assert: [ measureText ]
@@ -217,22 +217,22 @@ SpMetrics >> textMetrics: aSpTextMetrics [
 ]
 
 { #category : #accessing }
-SpMetrics >> textRun [
+SpartaMetrics >> textRun [
 	^ textRun
 ]
 
 { #category : #accessing }
-SpMetrics >> textRun: anObject [
+SpartaMetrics >> textRun: anObject [
 	textRun := anObject
 ]
 
 { #category : #accessing }
-SpMetrics >> width [
+SpartaMetrics >> width [
 	^ width
 ]
 
 { #category : #accessing }
-SpMetrics >> width: aNumber [
+SpartaMetrics >> width: aNumber [
 	"Metrics will be calculated assuming that space is limited to width.
 	Setting width less than text width may result in word wrapping.
 	Setting width to Float infinity results in no limit"
@@ -241,12 +241,12 @@ SpMetrics >> width: aNumber [
 ]
 
 { #category : #metrics }
-SpMetrics >> wrappedEnd [
+SpartaMetrics >> wrappedEnd [
 	^ self wrappedLength + start - 1
 ]
 
 { #category : #metrics }
-SpMetrics >> wrappedLength [
+SpartaMetrics >> wrappedLength [
 	"Return the longest measured text run that will fit into the given width.
 	Note: one character can be represented by 1 or 2 glyphs depending on encoding"
 
@@ -254,7 +254,7 @@ SpMetrics >> wrappedLength [
 ]
 
 { #category : #metrics }
-SpMetrics >> wrappedLength: aNumber [
+SpartaMetrics >> wrappedLength: aNumber [
 
 	self
 		assert: [ measureText ]

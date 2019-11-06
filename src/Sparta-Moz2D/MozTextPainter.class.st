@@ -8,7 +8,7 @@ Class {
 		'orientation',
 		'breakPriority'
 	],
-	#category : 'Sparta-Moz2D-Builders'
+	#category : #'Sparta-Moz2D-Builders'
 }
 
 { #category : #'accessing - breaks' }
@@ -215,7 +215,7 @@ MozTextPainter >> measure [
 MozTextPainter >> metrics [
 	| aMetrics |
 
-	aMetrics := SpMetrics new.
+	aMetrics := SpartaMetrics new.
 	aMetrics boxType: MozTextBoundingBoxType TIGHT_INK_EXTENTS.
 	aMetrics breakPriority: breakPriority.
 	aMetrics canvas: canvas.

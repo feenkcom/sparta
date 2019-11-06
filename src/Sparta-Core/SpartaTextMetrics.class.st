@@ -1,5 +1,5 @@
 Class {
-	#name : #SpTextMetrics,
+	#name : #SpartaTextMetrics,
 	#superclass : #Object,
 	#instVars : [
 		'ascent',
@@ -14,13 +14,13 @@ Class {
 }
 
 { #category : #converting }
-SpTextMetrics class >> asExternalTypeOn: generator [
+SpartaTextMetrics class >> asExternalTypeOn: generator [
 	"use handle ivar to hold my instance"
 	^ FFIExternalObjectType objectClass: self
 ]
 
 { #category : #'field definition' }
-SpTextMetrics class >> fieldsDesc [
+SpartaTextMetrics class >> fieldsDesc [
 	"
 	self rebuildFieldAccessors
 	"
@@ -36,7 +36,7 @@ SpTextMetrics class >> fieldsDesc [
 ]
 
 { #category : #accessing }
-SpTextMetrics >> advance [
+SpartaTextMetrics >> advance [
 	"Return advance width"
 	<return: #Number>
 
@@ -44,23 +44,23 @@ SpTextMetrics >> advance [
 ]
 
 { #category : #accessing }
-SpTextMetrics >> ascent [
+SpartaTextMetrics >> ascent [
 	^ ascent
 ]
 
 { #category : #accessing }
-SpTextMetrics >> bounds [
+SpartaTextMetrics >> bounds [
 
 	^ self left @ self top extent: self width @ self height
 ]
 
 { #category : #accessing }
-SpTextMetrics >> descent [
+SpartaTextMetrics >> descent [
 	^ descent
 ]
 
 { #category : #accessing }
-SpTextMetrics >> height [
+SpartaTextMetrics >> height [
 	"Return height of bounding box"
 	<return: #Number>
 
@@ -68,7 +68,7 @@ SpTextMetrics >> height [
 ]
 
 { #category : #accessing }
-SpTextMetrics >> left [
+SpartaTextMetrics >> left [
 	"Return x component of the bounding box's origin"
 	<return: #Number>
 
@@ -76,7 +76,7 @@ SpTextMetrics >> left [
 ]
 
 { #category : #accessing }
-SpTextMetrics >> top [
+SpartaTextMetrics >> top [
 	"Return y component of the bounding box's origin"
 	<return: #Number>
 
@@ -84,7 +84,7 @@ SpTextMetrics >> top [
 ]
 
 { #category : #accessing }
-SpTextMetrics >> width [
+SpartaTextMetrics >> width [
 	"Return width of bounding box"
 	<return: #Number>
 

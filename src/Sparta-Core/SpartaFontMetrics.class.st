@@ -1,5 +1,5 @@
 Class {
-	#name : #SpFontMetrics,
+	#name : #SpartaFontMetrics,
 	#superclass : #Object,
 	#instVars : [
 		'aveCharWidth',
@@ -25,32 +25,32 @@ Class {
 }
 
 { #category : #accessing }
-SpFontMetrics >> aveCharWidth [
+SpartaFontMetrics >> aveCharWidth [
 	^ aveCharWidth
 ]
 
 { #category : #accessing }
-SpFontMetrics >> capHeight [
+SpartaFontMetrics >> capHeight [
 	^ capHeight
 ]
 
 { #category : #accessing }
-SpFontMetrics >> emAscent [
+SpartaFontMetrics >> emAscent [
 	^ emAscent
 ]
 
 { #category : #accessing }
-SpFontMetrics >> emDescent [
+SpartaFontMetrics >> emDescent [
 	^ emDescent
 ]
 
 { #category : #accessing }
-SpFontMetrics >> emHeight [
+SpartaFontMetrics >> emHeight [
 	^ emHeight
 ]
 
 { #category : #accessing }
-SpFontMetrics >> externalLeading [
+SpartaFontMetrics >> externalLeading [
 	"Describes how much extra space the font designer expects the application to leave between rows of the font,
 	basically it is another name for the line gap"
 	<return: #Number>
@@ -59,7 +59,7 @@ SpFontMetrics >> externalLeading [
 ]
 
 { #category : #accessing }
-SpFontMetrics >> internalLeading [
+SpartaFontMetrics >> internalLeading [
 	"Describes how much space has been left inside the font bitmap for diacritical marks (accents).
 	It is usually (but not necessarily) computed as internal leading = ascent - descent - EM size"
 	<return: #Number>
@@ -68,56 +68,56 @@ SpFontMetrics >> internalLeading [
 ]
 
 { #category : #accessing }
-SpFontMetrics >> maxAdvance [
+SpartaFontMetrics >> maxAdvance [
 	^ maxAdvance
 ]
 
 { #category : #accessing }
-SpFontMetrics >> maxAscent [
+SpartaFontMetrics >> maxAscent [
 	^ maxAscent
 ]
 
 { #category : #accessing }
-SpFontMetrics >> maxDescent [
+SpartaFontMetrics >> maxDescent [
 	^ maxDescent
 ]
 
 { #category : #accessing }
-SpFontMetrics >> maxHeight [
+SpartaFontMetrics >> maxHeight [
 	^ maxHeight
 ]
 
 { #category : #accessing }
-SpFontMetrics >> spaceWidth [
+SpartaFontMetrics >> spaceWidth [
 	^ spaceWidth
 ]
 
 { #category : #accessing }
-SpFontMetrics >> strikeoutOffset [
+SpartaFontMetrics >> strikeoutOffset [
 	^ strikeoutOffset
 ]
 
 { #category : #accessing }
-SpFontMetrics >> strikeoutSize [
+SpartaFontMetrics >> strikeoutSize [
 	^ strikeoutSize
 ]
 
 { #category : #accessing }
-SpFontMetrics >> underlineOffset [
+SpartaFontMetrics >> underlineOffset [
 	^ underlineOffset
 ]
 
 { #category : #accessing }
-SpFontMetrics >> underlineSize [
+SpartaFontMetrics >> underlineSize [
 	^ underlineSize
 ]
 
 { #category : #accessing }
-SpFontMetrics >> xHeight [
+SpartaFontMetrics >> xHeight [
 	^ xHeight
 ]
 
 { #category : #accessing }
-SpFontMetrics >> zeroOrAveCharWidth [
+SpartaFontMetrics >> zeroOrAveCharWidth [
 	^ zeroOrAveCharWidth
 ]

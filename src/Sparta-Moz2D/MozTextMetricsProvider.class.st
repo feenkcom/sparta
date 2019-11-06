@@ -1,15 +1,12 @@
 Class {
 	#name : #MozTextMetricsProvider,
-	#superclass : #SpMetricsProvider,
+	#superclass : #SpartaMetricsProvider,
 	#traits : 'TMozLibrary',
 	#classTraits : 'TMozLibrary classTrait',
 	#instVars : [
-		'trimWhitespace',
 		'textMetrics',
 		'propertyProvider',
-		'lastBreak',
 		'fontMetrics',
-		'usedHyphenation',
 		'session'
 	],
 	#classVars : [
@@ -18,13 +15,13 @@ Class {
 	#classInstVars : [
 		'default'
 	],
-	#category : 'Sparta-Moz2D-Text-Metrics'
+	#category : #'Sparta-Moz2D-Text-Metrics'
 }
 
 { #category : #cleanup }
 MozTextMetricsProvider class >> cleanUp [
 	super cleanUp.
-	
+
 	default := nil
 ]
 
@@ -54,66 +51,6 @@ MozTextMetricsProvider >> autoRelease [
 	^ self class finalizationRegistry add: self
 ]
 
-{ #category : #'advanced options' }
-MozTextMetricsProvider >> disableFontMetrics [
-
-	fontMetrics := MozNativeFontMetrics externalNew.
-	fontMetrics free
-]
-
-{ #category : #'advanced options' }
-MozTextMetricsProvider >> disableTextMetrics [
-
-	textMetrics := MozNativeTextMetrics externalNew.
-	textMetrics free
-]
-
-{ #category : #'advanced options' }
-MozTextMetricsProvider >> enableFontMetrics [
-
-	fontMetrics := MozNativeFontMetrics externalNew.
-	fontMetrics
-		aveCharWidth: 0;
-		emAscent: 0;
-		emDescent: 0;
-		emHeight: 0;
-		externalLeading: 0;
-		internalLeading: 0;
-		maxAdvance: 0;
-		maxAscent: 0;
-		maxDescent: 0;
-		maxHeight: 0;
-		spaceWidth: 0;
-		strikeoutOffset: 0;
-		strikeoutSize: 0;
-		underlineOffset: 0;
-		underlineSize: 0;
-		xHeight: 0;
-		zeroOrAveCharWidth: 0
-]
-
-{ #category : #'advanced options' }
-MozTextMetricsProvider >> enablePropertyProvider [
-	"Note, property provider is not 'autoRelease'd.
-	Memory management is done on the level of metrics provider"
-
-	propertyProvider := MozTextPropertyProvider new
-]
-
-{ #category : #'advanced options' }
-MozTextMetricsProvider >> enableTextMetrics [
-
-	textMetrics := MozNativeTextMetrics externalNew.
-	textMetrics
-		advanceWidth: 0;
-		ascent: 0;
-		boundingBoxHeight: 0;
-		boundingBoxWidth: 0;
-		boundingBoxX: 0;
-		boundingBoxY: 0;
-		descent: 0
-]
-
 { #category : #'library path' }
 MozTextMetricsProvider >> ffiLibraryName [
 	^ self class ffiLibraryName
@@ -121,10 +58,6 @@ MozTextMetricsProvider >> ffiLibraryName [
 
 { #category : #finalization }
 MozTextMetricsProvider >> finalize [
-	
-	self finalizeLastBreak.
-	self finalizeTrimWhitespace.
-	self finalizeUsedHyphenation.
 	self finalizeTextMetrics.
 	self finalizeFontMetrics.
 	self finalizePropertyProvider.
@@ -139,15 +72,6 @@ MozTextMetricsProvider >> finalizeFontMetrics [
 	(fontMetrics isNotNil and: [ fontMetrics isNull not ])
 		ifTrue: [ fontMetrics free ].
 	fontMetrics := nil
-]
-
-{ #category : #finalization }
-MozTextMetricsProvider >> finalizeLastBreak [
-	"Free space allocated for last break, used during measurement process"
-
-	(lastBreak isNotNil and: [ lastBreak isNull not ])
-		ifTrue: [ lastBreak free ].
-	lastBreak := nil
 ]
 
 { #category : #finalization }
@@ -170,60 +94,63 @@ MozTextMetricsProvider >> finalizeTextMetrics [
 	textMetrics := nil
 ]
 
-{ #category : #finalization }
-MozTextMetricsProvider >> finalizeTrimWhitespace [
-	"Free space allocated for trimmed whitespace, used during measurement process"
-
-	(trimWhitespace isNotNil and: [ trimWhitespace isNull not ])
-		ifTrue: [ trimWhitespace free ].
-	trimWhitespace := nil
-]
-
-{ #category : #finalization }
-MozTextMetricsProvider >> finalizeUsedHyphenation [
-	"Free space allocated for used hyphenation, used during measurement process"
-
-	(usedHyphenation isNotNil and: [ usedHyphenation isNull not ])
-		ifTrue: [ usedHyphenation free ].
-	usedHyphenation := nil
-]
-
-{ #category : #'accessing - metrics' }
-MozTextMetricsProvider >> fontMetrics [
-	^ fontMetrics
-]
-
-{ #category : #'advanced options' }
-MozTextMetricsProvider >> ignoreLastBreak [
-	lastBreak := ExternalAddress allocate: (FFIUInt32 externalTypeSize).
-	lastBreak free
-]
-
-{ #category : #'advanced options' }
-MozTextMetricsProvider >> ignoreTrimmedWhitespace [
-	trimWhitespace := nil
-]
-
-{ #category : #'advanced options' }
-MozTextMetricsProvider >> ignoreUsedHyphenation [
-	usedHyphenation := ExternalAddress allocate: (FFIBool externalTypeSize).
-	usedHyphenation free
-]
-
 { #category : #initialization }
 MozTextMetricsProvider >> initialize [
 	super initialize.
 	
 	session := Smalltalk session.
 
-	self enableTextMetrics.
-	self enableFontMetrics.
-	self enablePropertyProvider.
-	self recordLastBreak.
-	self recordUsedHyphenation.
-	self ignoreTrimmedWhitespace.
+	self initializeTextMetrics.
+	self initializeFontMetrics.
+	self initializePropertyProvider.
 
 	self autoRelease
+]
+
+{ #category : #initialization }
+MozTextMetricsProvider >> initializeFontMetrics [
+
+	fontMetrics := MozNativeFontMetrics externalNew.
+	fontMetrics
+		aveCharWidth: 0;
+		emAscent: 0;
+		emDescent: 0;
+		emHeight: 0;
+		externalLeading: 0;
+		internalLeading: 0;
+		maxAdvance: 0;
+		maxAscent: 0;
+		maxDescent: 0;
+		maxHeight: 0;
+		spaceWidth: 0;
+		strikeoutOffset: 0;
+		strikeoutSize: 0;
+		underlineOffset: 0;
+		underlineSize: 0;
+		xHeight: 0;
+		zeroOrAveCharWidth: 0
+]
+
+{ #category : #initialization }
+MozTextMetricsProvider >> initializePropertyProvider [
+	"Note, property provider is not 'autoRelease'd.
+	Memory management is done on the level of metrics provider"
+
+	propertyProvider := MozTextPropertyProvider new
+]
+
+{ #category : #initialization }
+MozTextMetricsProvider >> initializeTextMetrics [
+
+	textMetrics := MozNativeTextMetrics externalNew.
+	textMetrics
+		advanceWidth: 0;
+		ascent: 0;
+		boundingBoxHeight: 0;
+		boundingBoxWidth: 0;
+		boundingBoxX: 0;
+		boundingBoxY: 0;
+		descent: 0
 ]
 
 { #category : #testing }
@@ -232,14 +159,6 @@ MozTextMetricsProvider >> isValid [
 	<return: #Boolean>
 
 	^ session == Smalltalk session
-]
-
-{ #category : #'accessing - metrics' }
-MozTextMetricsProvider >> lastBreak [
-
-	^ lastBreak isNull
-		ifTrue: [ SmallInteger maxVal ]
-		ifFalse: [ lastBreak unsignedLongAt: 1 ]
 ]
 
 { #category : #measurement }
@@ -291,12 +210,12 @@ MozTextMetricsProvider >> measure: aTextRun in: aMetrics [
 			w: aWidth
 			p: aPropertyProvider
 			s: aSuppressBreaks
-			w: trimWhitespace
+			w: Nullptr
 			m: textMetrics "computed text metrics will be loaded in textMetrics"
 			b: aBoxType
 			c: aCanvas
-			h: usedHyphenation
-			l: lastBreak
+			h: Nullptr
+			l: Nullptr
 			w: aWordWrap
 			b: aBreakPriorityPointer.
 		
@@ -357,51 +276,7 @@ MozTextMetricsProvider >> primSet: aPropertyProvider hyphensOption: aHyphensOpti
 		MozTextHyphensOption aHyphensOption ) )
 ]
 
-{ #category : #accessing }
+{ #category : #private }
 MozTextMetricsProvider >> propertyProvider [
 	^ propertyProvider
-]
-
-{ #category : #'advanced options' }
-MozTextMetricsProvider >> recordLastBreak [
-	lastBreak := ExternalAddress allocate: (FFIUInt32 externalTypeSize).
-	lastBreak unsignedLongAt: 1 put: 4294967295 "uint32 maxValue"
-]
-
-{ #category : #'advanced options' }
-MozTextMetricsProvider >> recordTrimmedWhitespace [
-	trimWhitespace := ExternalAddress allocate: FFIFloat64 externalTypeSize.
-	trimWhitespace doubleAt: 1 put: 0
-]
-
-{ #category : #'advanced options' }
-MozTextMetricsProvider >> recordUsedHyphenation [
-	usedHyphenation := ExternalAddress allocate: (FFIBool externalTypeSize).
-	usedHyphenation booleanAt: 1 put: false
-]
-
-{ #category : #'accessing - metrics' }
-MozTextMetricsProvider >> textMetrics [
-	"Return text metrics.
-	Note, that you must never strong refer returned text metrics, because it is
-	an external object and memory is managed by TextMetricsProvider manually for
-	performance reasons."
-
-	^ textMetrics
-]
-
-{ #category : #'accessing - metrics' }
-MozTextMetricsProvider >> trimmedWhiteSpace [
-	"Return the width of the trimmed spaces will be returned in aTrimWhitespace."
-	^ trimWhitespace isNull
-		ifTrue: [ 0 ]
-		ifFalse: [ trimWhitespace doubleAt: 1 ]
-]
-
-{ #category : #'accessing - metrics' }
-MozTextMetricsProvider >> usedHyphenation [
-
-	^ usedHyphenation isNull
-		ifTrue: [ false ]
-		ifFalse: [ usedHyphenation booleanAt: 1 ]
 ]

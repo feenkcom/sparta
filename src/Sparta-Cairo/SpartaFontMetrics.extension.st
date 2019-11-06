@@ -1,7 +1,7 @@
-Extension { #name : #SpFontMetrics }
+Extension { #name : #SpartaFontMetrics }
 
 { #category : #'*Sparta-Cairo' }
-SpFontMetrics >> cairoInitializeFrom: aCairoFontMetrics [
+SpartaFontMetrics >> cairoInitializeFrom: aCairoFontMetrics [
 	"Initialize me from external structure"
 	
 	aveCharWidth := 0.

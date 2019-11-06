@@ -26,7 +26,7 @@ Class {
 		'OFFSET_HEIGHT',
 		'OFFSET_WIDTH'
 	],
-	#category : 'Sparta-Cairo-Text'
+	#category : #'Sparta-Cairo-Text'
 }
 
 { #category : #'field definition' }
@@ -70,7 +70,7 @@ SpartaCairoTextMetrics >> advanceY: anObject [
 
 { #category : #converting }
 SpartaCairoTextMetrics >> asTextMetrics [
-	^ SpTextMetrics new cairoInitializeFrom: self
+	^ SpartaTextMetrics new cairoInitializeFrom: self
 ]
 
 { #category : #'accessing structure variables' }

@@ -11,7 +11,7 @@ Class {
 		'scaledFont',
 		'metricsProvider'
 	],
-	#category : 'Sparta-Cairo-Text'
+	#category : #'Sparta-Cairo-Text'
 }
 
 { #category : #'external resource management' }
@@ -79,7 +79,7 @@ SpartaCairoTextRun >> length: anObject [
 { #category : #accessing }
 SpartaCairoTextRun >> metricsProvider [
 	"Return a metrics provider that is used to measure this text run"
-	<return: #SpMetricsProvider>
+	<return: #SpartaMetricsProvider>
 
 	^ metricsProvider
 ]

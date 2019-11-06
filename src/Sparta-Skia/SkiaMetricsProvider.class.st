@@ -1,6 +1,6 @@
 Class {
 	#name : #SkiaMetricsProvider,
-	#superclass : #SpMetricsProvider,
+	#superclass : #SpartaMetricsProvider,
 	#instVars : [
 		'font'
 	],

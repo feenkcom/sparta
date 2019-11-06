@@ -1,7 +1,7 @@
-Extension { #name : #SpTextMetrics }
+Extension { #name : #SpartaTextMetrics }
 
 { #category : #'*Sparta-Cairo' }
-SpTextMetrics >> cairoInitializeFrom: aCairoTextMetrics [
+SpartaTextMetrics >> cairoInitializeFrom: aCairoTextMetrics [
 	"Initialize me from external structure"
 
 	advance := aCairoTextMetrics advanceX.

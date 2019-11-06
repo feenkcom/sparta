@@ -1,7 +1,7 @@
-Extension { #name : #SpTextMetrics }
+Extension { #name : #SpartaTextMetrics }
 
 { #category : #'*Sparta-Moz2D' }
-SpTextMetrics >> mozInitializeFrom: aMozTextMetrics [
+SpartaTextMetrics >> mozInitializeFrom: aMozTextMetrics [
 	"Initialize me from external structure"
 
 	advance := aMozTextMetrics advanceWidth.
