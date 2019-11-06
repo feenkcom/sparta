@@ -127,7 +127,7 @@ TSpartaTextExamples classSide >> exampleTextMeasure [
 	|canvas font aMetrics textPainter |
 	<gtExample>
 
-	canvas := self canvas: 1100@520.
+	canvas := self canvas: 900@450.
 
 	canvas fill
 		paint: Color white;
@@ -138,7 +138,7 @@ TSpartaTextExamples classSide >> exampleTextMeasure [
 		by: [ :t | t translateBy: self canvasOffset ]
 		during: [
 			font := canvas font
-				size: 300;
+				size: 240;
 				weightThin;
 				build.
 
