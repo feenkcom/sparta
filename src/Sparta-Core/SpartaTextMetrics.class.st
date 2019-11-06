@@ -2,8 +2,6 @@ Class {
 	#name : #SpartaTextMetrics,
 	#superclass : #Object,
 	#instVars : [
-		'ascent',
-		'descent',
 		'top',
 		'left',
 		'width',
@@ -44,8 +42,13 @@ SpartaTextMetrics >> advance [
 ]
 
 { #category : #accessing }
+SpartaTextMetrics >> advance: aNumber [
+	advance := aNumber
+]
+
+{ #category : #accessing }
 SpartaTextMetrics >> ascent [
-	^ ascent
+	self deprecated: 'Use font metrics instead!'
 ]
 
 { #category : #accessing }
@@ -56,7 +59,7 @@ SpartaTextMetrics >> bounds [
 
 { #category : #accessing }
 SpartaTextMetrics >> descent [
-	^ descent
+	self deprecated: 'Use font metrics instead!'
 ]
 
 { #category : #accessing }
@@ -68,11 +71,21 @@ SpartaTextMetrics >> height [
 ]
 
 { #category : #accessing }
+SpartaTextMetrics >> height: anObject [
+	height := anObject
+]
+
+{ #category : #accessing }
 SpartaTextMetrics >> left [
 	"Return x component of the bounding box's origin"
 	<return: #Number>
 
 	^ left
+]
+
+{ #category : #accessing }
+SpartaTextMetrics >> left: anObject [
+	left := anObject
 ]
 
 { #category : #accessing }
@@ -84,9 +97,19 @@ SpartaTextMetrics >> top [
 ]
 
 { #category : #accessing }
+SpartaTextMetrics >> top: anObject [
+	top := anObject
+]
+
+{ #category : #accessing }
 SpartaTextMetrics >> width [
 	"Return width of bounding box"
 	<return: #Number>
 
 	^ width
+]
+
+{ #category : #accessing }
+SpartaTextMetrics >> width: anObject [
+	width := anObject
 ]

@@ -106,9 +106,7 @@ SpartaCairoTextPainter >> primShowGlyphs: aGlyphsArray num: aNumberOfGlyphs [
 
 { #category : #'instance creation' }
 SpartaCairoTextPainter >> textRun [
-	^ ((font scaledFontFor: canvas transform current) makeTextRunNoRelease: text)
-		metricsProvider: self metricsProvider; "do not forget to set a default metrics provider"
-		yourself
+	^ (font scaledFontFor: canvas transform current) makeTextRunNoRelease: text
 ]
 
 { #category : #'accessing - orientation' }

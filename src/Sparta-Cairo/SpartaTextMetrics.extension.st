@@ -9,8 +9,5 @@ SpartaTextMetrics >> cairoInitializeFrom: aCairoTextMetrics [
 	left := aCairoTextMetrics bearingX.
 	top := aCairoTextMetrics bearingY.
 	width := aCairoTextMetrics width.
-	height := aCairoTextMetrics height.
-	
-	ascent := top negated.
-	descent := (top + height) negated
+	height := aCairoTextMetrics height
 ]

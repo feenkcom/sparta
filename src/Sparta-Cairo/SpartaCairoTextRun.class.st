@@ -8,8 +8,7 @@ Class {
 		'buffer',
 		'bits',
 		'length',
-		'scaledFont',
-		'metricsProvider'
+		'scaledFont'
 	],
 	#category : #'Sparta-Cairo-Text'
 }
@@ -74,19 +73,6 @@ SpartaCairoTextRun >> length [
 { #category : #accessing }
 SpartaCairoTextRun >> length: anObject [
 	length := anObject
-]
-
-{ #category : #accessing }
-SpartaCairoTextRun >> metricsProvider [
-	"Return a metrics provider that is used to measure this text run"
-	<return: #SpartaMetricsProvider>
-
-	^ metricsProvider
-]
-
-{ #category : #accessing }
-SpartaCairoTextRun >> metricsProvider: aMetricsProvider [
-	metricsProvider := aMetricsProvider
 ]
 
 { #category : #'external resource management' }

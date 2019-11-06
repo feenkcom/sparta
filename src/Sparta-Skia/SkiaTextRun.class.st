@@ -5,11 +5,10 @@ Class {
 	#classTraits : 'TSpTextRun classTrait',
 	#instVars : [
 		'boxerString',
-		'metricsProvider',
 		'buffer',
 		'textBlob'
 	],
-	#category : #'Sparta-Skia-Builders'
+	#category : #'Sparta-Skia-Text'
 }
 
 { #category : #'instance creation' }
@@ -33,6 +32,13 @@ SkiaTextRun >> buffer [
 	^ buffer
 ]
 
+{ #category : #accessing }
+SkiaTextRun >> characters [
+	<return: #GtBoxerString>
+
+	^ boxerString
+]
+
 { #category : #initialization }
 SkiaTextRun >> initializeWith: aString font: aFont [
 	boxerString := GtBoxerString fromString: aString.
@@ -48,19 +54,4 @@ SkiaTextRun >> length [
 	<return: #Number>
 	
 	^ boxerString length
-]
-
-{ #category : #accessing }
-SkiaTextRun >> metricsProvider [
-	"Return a metrics provider that is used to measure this text run"
-	<return: #SpartaMetricsProvider>
-
-	^ metricsProvider
-]
-
-{ #category : #accessing }
-SkiaTextRun >> metricsProvider: aSpMetricsProvider [
-	"Change metrics provider that should be used to measure this text run"
-
-	metricsProvider := aSpMetricsProvider
 ]

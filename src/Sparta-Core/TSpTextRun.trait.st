@@ -91,21 +91,6 @@ TSpTextRun >> measureOn: aSpMetrics [
 	self metricsProvider measure: self in: aSpMetrics
 ]
 
-{ #category : #accessing }
-TSpTextRun >> metricsProvider [
-	"Return a metrics provider that is used to measure this text run"
-	<return: #SpartaMetricsProvider>
-
-	^ self explicitRequirement
-]
-
-{ #category : #accessing }
-TSpTextRun >> metricsProvider: aSpMetricsProvider [
-	"Change metrics provider that should be used to measure this text run"
-
-	self explicitRequirement
-]
-
 { #category : #dispatch }
 TSpTextRun >> spartaFillOn: aSpartaCanvas with: aTextPainter [
 	aTextPainter fillTextRun: self

@@ -3,23 +3,41 @@ Extension { #name : #SpartaFontMetrics }
 { #category : #'*Sparta-Moz2D' }
 SpartaFontMetrics >> mozInitializeFrom: aMozFontMetrics [
 	"Initialize me from external structure"
+
+	fontSize := aMozFontMetrics emHeight.
 	
-	aveCharWidth := aMozFontMetrics aveCharWidth.
+	ascent := aMozFontMetrics maxAscent.
+	descent := aMozFontMetrics maxDescent.
+	leading := aMozFontMetrics externalLeading.
+	
+	averageCharWidth := aMozFontMetrics aveCharWidth.
+	maxCharacterWidth := aMozFontMetrics maxAdvance.
 	capHeight := aMozFontMetrics capHeight.
-	emAscent := aMozFontMetrics emAscent.
-	emDescent := aMozFontMetrics emDescent.
-	emHeight := aMozFontMetrics emHeight.
-	externalLeading := aMozFontMetrics externalLeading.
-	internalLeading := aMozFontMetrics internalLeading.
-	maxAdvance := aMozFontMetrics maxAdvance.
-	maxAscent := aMozFontMetrics maxAscent.
-	maxDescent := aMozFontMetrics maxDescent.
-	maxHeight := aMozFontMetrics maxHeight.
-	spaceWidth := aMozFontMetrics spaceWidth.
+	xHeight := aMozFontMetrics xHeight.	
+
 	strikeoutOffset := aMozFontMetrics strikeoutOffset.
 	strikeoutSize := aMozFontMetrics strikeoutSize.
 	underlineOffset := aMozFontMetrics underlineOffset.
 	underlineSize := aMozFontMetrics underlineSize.
-	xHeight := aMozFontMetrics xHeight.
-	zeroOrAveCharWidth := aMozFontMetrics zeroOrAveCharWidth
+]
+
+{ #category : #'*Sparta-Moz2D' }
+SpartaFontMetrics >> skiaInitializeFrom: aSkiaFontMetrics [
+	"Initialize me from external structure"
+	
+	fontSize := aSkiaFontMetrics emHeight.
+
+	ascent := aSkiaFontMetrics ascent.
+	descent := aSkiaFontMetrics descent.
+	leading := aSkiaFontMetrics leading.
+	
+	averageCharWidth := aSkiaFontMetrics averageCharWidth.
+	maxCharacterWidth := aSkiaFontMetrics maxCharWidth.
+	capHeight := aSkiaFontMetrics capHeight.
+	xHeight := aSkiaFontMetrics xHeight.
+	
+	strikeoutOffset := aSkiaFontMetrics strikeoutPosition.
+	strikeoutSize := aSkiaFontMetrics strikeoutThickness.
+	underlineOffset := aSkiaFontMetrics underlinePosition.
+	underlineSize := aSkiaFontMetrics underlineThickness.
 ]

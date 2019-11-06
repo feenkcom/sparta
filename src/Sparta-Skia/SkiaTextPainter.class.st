@@ -49,7 +49,7 @@ SkiaTextPainter >> textRun [
 	to choosen font and various text properties"
 	<return: #TSpTextRun>
 	
-	^ (SkiaTextRun fromString: text font: font) metricsProvider: self metricsProvider
+	^ SkiaTextRun fromString: text font: font
 ]
 
 { #category : #'accessing - orientation' }

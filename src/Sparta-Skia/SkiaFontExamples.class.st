@@ -27,6 +27,34 @@ SkiaFontExamples >> default [
 ]
 
 { #category : #accessing }
+SkiaFontExamples >> fontMetrics [
+	<gtExample>
+	| aFont aFontMetrics |
+
+	aFont := self default.
+	aFontMetrics := aFont metrics.
+
+	"Return the recommended spacing between lines: the sum of metrics descent, ascent, and leading."
+	self assert: (aFontMetrics ascent abs + aFontMetrics descent abs + aFontMetrics leading abs closeTo: aFont lineSpacing).
+	
+	"em height is a font size"
+	self assert: aFontMetrics emHeight equals: aFont size.
+
+	^ aFontMetrics
+]
+
+{ #category : #accessing }
+SkiaFontExamples >> fontMetricsAsSparta [
+	<gtExample>
+	| aFont aFontMetrics |
+
+	aFont := self default.
+	aFontMetrics := aFont metrics asSpartaMetrics.
+
+	^ aFontMetrics
+]
+
+{ #category : #accessing }
 SkiaFontExamples >> fromTypefaceAndSize [
 	<gtExample>
 	| aTypeface aFont |
@@ -56,16 +84,16 @@ SkiaFontExamples >> fromTypefaceAndSize [
 { #category : #accessing }
 SkiaFontExamples >> measureHelloWorld [
 	<gtExample>
-	| aFont aPaint theMeasurement |
+	| aFont aPaint theTextMetrics |
 	
 	aFont := self default.
 	aPaint := SkiaPaint new color: Color black.
-	theMeasurement := aFont measureString: 'Hello' paint: aPaint.
+	theTextMetrics := aFont measureString: 'Hello' paint: aPaint.
 	
-	self assert: theMeasurement first > 0.
-	self assert: theMeasurement second hasPositiveExtent.
+	self assert: theTextMetrics advance > 0.
+	self assert: theTextMetrics bounds hasPositiveExtent.
 	
-	^ theMeasurement
+	^ theTextMetrics
 ]
 
 { #category : #accessing }
