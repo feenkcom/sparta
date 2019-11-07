@@ -73,7 +73,7 @@ SpartaFontMetrics >> leading [
 SpartaFontMetrics >> lineSpacing [
 	"Return the recommended spacing between lines: the sum of metrics descent, ascent, and leading.
 	Genrally, line spacing is the space between each line in a paragraph. Typical word processors allows you to customize the line spacing to be single spaced (one line high), double spaced (two lines high), or any other amount you want"
-	<return: #Numnber>
+	<return: #Number>
 
 	^ self ascent abs + self descent abs + self leading
 ]
