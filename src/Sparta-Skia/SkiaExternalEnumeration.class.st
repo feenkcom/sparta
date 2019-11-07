@@ -92,6 +92,11 @@ SkiaExternalEnumeration class >> realLayout [
 
 { #category : #private }
 SkiaExternalEnumeration class >> rebuildEnumAccessors [
+
+	"Skip initialization of root class"
+	self = SkiaExternalEnumeration
+		ifTrue: [ ^ self ].
+
 	self initializeEnumeration.
 	representationType := self externalType.
 
