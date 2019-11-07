@@ -12,7 +12,7 @@ SkiaFontExamples >> default [
 	aFont := SkiaFont new.
 	self assert: aFont edging equals: SkiaFontEdging AntiAlias.
 	self assert: aFont hinting equals: SkiaFontHinting Normal.
-	self assert: aFont lineSpacing equals: 12.0.
+	self assert: aFont lineSpacing > 0.
 	self assert: aFont isBaselineSnap.
 	self assert: aFont isEmbeddedBitmaps not.
 	self assert: aFont isEmbolden not.
@@ -67,7 +67,7 @@ SkiaFontExamples >> fromTypefaceAndSize [
 	
 	self assert: aFont edging equals: SkiaFontEdging AntiAlias.
 	self assert: aFont hinting equals: SkiaFontHinting Normal.
-	self assert: aFont lineSpacing equals: 20.0.
+	self assert: aFont lineSpacing > 0.
 	self assert: aFont isBaselineSnap.
 	self assert: aFont isEmbeddedBitmaps not.
 	self assert: aFont isEmbolden not.
