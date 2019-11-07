@@ -4,6 +4,22 @@ Class {
 	#category : #'Sparta-Skia-Library'
 }
 
+{ #category : #installation }
+SkiaLibrary class >> install [
+	<script: 'self install'>
+	| installer |
+
+	installer := GtLibraryInstaller new.
+	installer library: 'Skia'.
+	installer version: 'development'.
+	installer icon: (Form extent: 1@1 depth: 32).
+	installer binary: 'libSkia'.
+	installer url: 'https://dl.feenk.com/{library}/{platform}/{version}/{arch}/{binary}.{extension}'.
+	installer works: [ SkiaLibrary uniqueInstance hasModule ].
+
+	installer run
+]
+
 { #category : #'accessing platform' }
 SkiaLibrary >> detectLibrary: aFileName [
 	^ ({ Smalltalk imageDirectory . Smalltalk vmDirectory . FileSystem workingDirectory }

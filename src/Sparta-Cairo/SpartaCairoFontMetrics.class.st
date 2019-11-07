@@ -10,7 +10,7 @@ Class {
 		'OFFSET_MAXADVANCEX',
 		'OFFSET_MAXADVANCEY'
 	],
-	#category : 'Sparta-Cairo-Text'
+	#category : #'Sparta-Cairo-Text'
 }
 
 { #category : #'field definition' }
@@ -29,7 +29,7 @@ SpartaCairoFontMetrics class >> fieldsDesc [
 
 { #category : #converting }
 SpartaCairoFontMetrics >> asFontMetrics [
-	^ SpFontMetrics new cairoInitializeFrom: self
+	^ SpartaFontMetrics new cairoInitializeFrom: self
 ]
 
 { #category : #'accessing structure variables' }

@@ -30,17 +30,17 @@ TSpartaTextExamples classSide >> drawAdvanceWidth: aMetricsProvider on: aCanvas 
 ]
 
 { #category : #'text - measurement' }
-TSpartaTextExamples classSide >> drawAscent: aMetricsProvider on: aCanvas [
+TSpartaTextExamples classSide >> drawAscent: aSpartaMetrics on: aCanvas [
 
 	self
-		drawLineAt: aMetricsProvider fontMetrics maxAscent negated
+		drawLineAt: aSpartaMetrics fontMetrics ascent
 		named: 'Ascent'
 		color: Color blue
 		on: aCanvas
 ]
 
 { #category : #'text - measurement' }
-TSpartaTextExamples classSide >> drawBaseline: aMetricsProvider on: aCanvas [
+TSpartaTextExamples classSide >> drawBaseline: aSpartaMetrics on: aCanvas [
 	
 	self
 		drawLineAt: 0
@@ -50,10 +50,10 @@ TSpartaTextExamples classSide >> drawBaseline: aMetricsProvider on: aCanvas [
 ]
 
 { #category : #'text - measurement' }
-TSpartaTextExamples classSide >> drawDescent: aMetricsProvider on: aCanvas [
+TSpartaTextExamples classSide >> drawDescent: aSpartaMetrics on: aCanvas [
 	
 	self
-		drawLineAt: aMetricsProvider fontMetrics maxDescent
+		drawLineAt: aSpartaMetrics fontMetrics descent
 		named: 'Descent'
 		color: Color blue
 		on: aCanvas
@@ -81,20 +81,20 @@ TSpartaTextExamples classSide >> drawLineAt: offsetY named: aName color: aColor 
 ]
 
 { #category : #'text - measurement' }
-TSpartaTextExamples classSide >> drawStrikeoutOffset: aMetricsProvider on: aCanvas [
+TSpartaTextExamples classSide >> drawStrikeoutOffset: aSpartaMetrics on: aCanvas [
 	
 	self
-		drawLineAt: aMetricsProvider fontMetrics strikeoutOffset negated
+		drawLineAt: aSpartaMetrics fontMetrics strikeoutOffset
 		named: 'Strikeout offset'
 		color: Color blue
 		on: aCanvas
 ]
 
 { #category : #'text - measurement' }
-TSpartaTextExamples classSide >> drawUnderlineOffset: aMetricsProvider on: aCanvas [
+TSpartaTextExamples classSide >> drawUnderlineOffset: aSpartaMetrics on: aCanvas [
 	
 	self
-		drawLineAt: aMetricsProvider fontMetrics underlineOffset negated
+		drawLineAt: aSpartaMetrics fontMetrics underlineOffset
 		named: 'Underline offset'
 		color: Color blue
 		on: aCanvas
@@ -122,84 +122,12 @@ TSpartaTextExamples classSide >> drawVerticalLineAt: offsetX named: aName color:
 		draw
 ]
 
-{ #category : #'examples - attributes' }
-TSpartaTextExamples classSide >> exampleBackground [
-	| aCanvas aText |
-	aCanvas := self canvas: 700 @ 500.
-	aCanvas fill
-		paint: Color white;
-		path: aCanvas bounds;
-		draw.
-	aCanvas transform
-		translateBy: 200 @ 200;
-		apply.
-
-	aText := SpText fromString: 'Background'.
-	aText attributes: {
-			SpTextBackgroundAttribute paint: Color yellow.
-			SpFontSizeAttribute size: 41 }.
-	
-	aCanvas text
-		text: aText;
-		draw.
-	
-	aCanvas asForm asMorph openInWindow
-]
-
-{ #category : #'examples - attributes' }
-TSpartaTextExamples classSide >> exampleForeground [
-	| aCanvas aText |
-	aCanvas := self canvas: 700 @ 500.
-	aCanvas fill
-		paint: Color white;
-		path: aCanvas bounds;
-		draw.
-	aCanvas transform
-		translateBy: 200 @ 200;
-		apply.
-
-	aText := SpText fromString: 'Foreground'.
-	aText attributes: {
-			SpTextForegroundAttribute paint: Color blue.
-			SpFontSizeAttribute size: 40 }.
-	
-	aCanvas text
-		text: aText;
-		draw.
-	
-	aCanvas asForm asMorph openInWindow
-]
-
-{ #category : #'examples - attributes' }
-TSpartaTextExamples classSide >> exampleStrikethrough [
-	| aCanvas aText |
-	aCanvas := self canvas: 700 @ 500.
-	aCanvas fill
-		paint: Color white;
-		path: aCanvas bounds;
-		draw.
-	aCanvas transform
-		translateBy: 200 @ 200;
-		apply.
-
-	aText := SpText fromString: 'Strikethrough'.
-	aText attributes: {
-			SpTextStrikethroughAttribute new.
-			SpFontSizeAttribute size: 40 }.
-	
-	aCanvas text
-		text: aText;
-		draw.
-	
-	aCanvas asForm asMorph openInWindow
-]
-
 { #category : #'examples - text' }
 TSpartaTextExamples classSide >> exampleTextMeasure [
 	|canvas font aMetrics textPainter |
 	<gtExample>
 
-	canvas := self canvas: 1100@520.
+	canvas := self canvas: 900@450.
 
 	canvas fill
 		paint: Color white;
@@ -207,37 +135,35 @@ TSpartaTextExamples classSide >> exampleTextMeasure [
 		draw.
 
 	canvas transform
-		translateBy: self canvasOffset;
-		apply.
+		by: [ :t | t translateBy: self canvasOffset ]
+		during: [
+			font := canvas font
+				size: 240;
+				weightThin;
+				build.
 
-	font := canvas font
-		serif;
-		size: 300;
-		weightThin;
-		build.
+			textPainter := canvas text
+				paint: (Color black alpha: 0.5);
+				string: 'Sparta';
+				font: font;
+				yourself.
 
-	textPainter := canvas text
-		paint: (Color black alpha: 0.5);
-		string: 'Sparta';
-		font: font;
-		yourself.
+			aMetrics := textPainter measure.
+			"render text"
+			textPainter draw.
 
-	aMetrics := textPainter measure.
-	"render text"
-	textPainter draw.
+			"bounding box"
+			canvas stroke
+				paint: (Color red alpha: 0.4);
+				path: aMetrics textMetrics bounds;
+				draw.
 
-	"bounding box"
-	canvas stroke
-		paint: (Color red alpha: 0.4);
-		path: aMetrics textMetrics bounds;
-		draw.
-
-	self drawBaseline: aMetrics on: canvas.
-	self drawAscent: aMetrics on: canvas.
-	self drawDescent: aMetrics on: canvas.
-	self drawUnderlineOffset: aMetrics on: canvas.
-	self drawAdvanceWidth: aMetrics on: canvas.
-	self drawStrikeoutOffset: aMetrics on: canvas.
+			self drawBaseline: aMetrics on: canvas.
+			self drawAscent: aMetrics on: canvas.
+			self drawDescent: aMetrics on: canvas.
+			self drawUnderlineOffset: aMetrics on: canvas.
+			self drawAdvanceWidth: aMetrics on: canvas.
+			self drawStrikeoutOffset: aMetrics on: canvas ].
 
 	^ canvas
 ]
@@ -333,88 +259,4 @@ TSpartaTextExamples classSide >> exampleTextMeasureItalic [
 	self drawStrikeoutOffset: aMetrics on: canvas.
 
 	canvas asForm asMorph openInWindowLabeled: 'Metrics'
-]
-
-{ #category : #'examples - attributes' }
-TSpartaTextExamples classSide >> exampleWeightBold [
-	| aCanvas aRope aTextLayout |
-
-	aCanvas := self canvas: 700@500.
-	aCanvas fill
-		paint: Color white;
-		path: aCanvas bounds;
-		draw.
-
-	aCanvas transform
-		translateBy: 200@200;
-		apply.
-
-	aRope := SpRope from: 'Bold'.
-	aRope := aRope
-		attributes: {
-			SpFontWeightAttribute bold.
-			SpFontSizeAttribute size: 40 }
-		from: 1
-		to: aRope size.
-
-	aTextLayout := SpMultilineTextLayout rope: aRope.
-	aTextLayout renderOn: aCanvas.
-
-	aCanvas asForm asMorph openInWindow
-]
-
-{ #category : #'examples - attributes' }
-TSpartaTextExamples classSide >> exampleWeightNormal [
-	| aCanvas aRope aTextLayout |
-
-	aCanvas := self canvas: 700@500.
-	aCanvas fill
-		paint: Color white;
-		path: aCanvas bounds;
-		draw.
-
-	aCanvas transform
-		translateBy: 200@200;
-		apply.
-
-	aRope := SpRope from: 'Normal'.
-	aRope := aRope
-		attributes: {
-			SpFontWeightAttribute normal.
-			SpFontSizeAttribute size: 40 }
-		from: 1
-		to: aRope size.
-
-	aTextLayout := SpMultilineTextLayout rope: aRope.
-	aTextLayout renderOn: aCanvas.
-
-	aCanvas asForm asMorph openInWindow
-]
-
-{ #category : #'examples - attributes' }
-TSpartaTextExamples classSide >> exampleWeightThin [
-	| aCanvas aRope aTextLayout |
-
-	aCanvas := self canvas: 700@500.
-	aCanvas fill
-		paint: Color white;
-		path: aCanvas bounds;
-		draw.
-
-	aCanvas transform
-		translateBy: 200@200;
-		apply.
-
-	aRope := SpRope from: 'Thin'.
-	aRope := aRope
-		attributes: {
-			SpFontWeightAttribute thin.
-			SpFontSizeAttribute size: 40 }
-		from: 1
-		to: aRope size.
-
-	aTextLayout := SpMultilineTextLayout rope: aRope.
-	aTextLayout renderOn: aCanvas.
-
-	aCanvas asForm asMorph openInWindow
 ]

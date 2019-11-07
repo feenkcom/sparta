@@ -13,7 +13,7 @@ SkiaImageInfoExamples >> default [
 	self assert: anImageInfo width equals: 50.
 	self assert: anImageInfo height equals: 50.
 	self assert: anImageInfo alphaType equals: SkiaAlphaType Unpremul.
-	self assert: anImageInfo colorType equals: SkiaColorType RGBA8888.
+	self assert: ({ SkiaColorType RGBA8888. SkiaColorType BGRA8888. } includes: anImageInfo colorType).
 	self assert: anImageInfo bytesPerPixel equals: 4.
 	self assert: anImageInfo shiftPerPixel equals: 2.
 	self assert: anImageInfo minRowBytes equals: 200.

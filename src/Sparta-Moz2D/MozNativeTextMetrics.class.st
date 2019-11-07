@@ -12,7 +12,7 @@ Class {
 		'OFFSET_BOUNDINGBOXY',
 		'OFFSET_DESCENT'
 	],
-	#category : 'Sparta-Moz2D-External'
+	#category : #'Sparta-Moz2D-External'
 }
 
 { #category : #converting }
@@ -56,7 +56,7 @@ MozNativeTextMetrics >> advanceWidth: anObject [
 
 { #category : #converting }
 MozNativeTextMetrics >> asTextMetrics [
-	^ SpTextMetrics new mozInitializeFrom: self
+	^ SpartaTextMetrics new mozInitializeFrom: self
 ]
 
 { #category : #'accessing structure variables' }

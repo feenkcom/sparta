@@ -5,6 +5,11 @@ Class {
 }
 
 { #category : #'instance creation' }
+SkiaTypeface class >> default [
+	^ self new
+]
+
+{ #category : #'instance creation' }
 SkiaTypeface class >> familyName: aFamilyName fontStyle: aSkiaFontStyle [
 	| aBoxerString |
 	

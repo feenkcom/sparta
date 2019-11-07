@@ -19,7 +19,7 @@ SkiaSurfaceExamples >> default [
 	self assert: anImageInfo width equals: 600.
 	self assert: anImageInfo height equals: 400.
 	self assert: anImageInfo alphaType equals: SkiaAlphaType Premul.
-	self assert: anImageInfo colorType equals: SkiaColorType RGBA8888.
+	self assert: ({ SkiaColorType RGBA8888. SkiaColorType BGRA8888. } includes: anImageInfo colorType).
 	self assert: anImageInfo bytesPerPixel equals: 4.
 	self assert: anImageInfo shiftPerPixel equals: 2.
 	self assert: anImageInfo minRowBytes equals: 2400.
@@ -46,7 +46,7 @@ SkiaSurfaceExamples >> newRasterPremultipledSizeOne [
 	self assert: anImageInfo width equals: 1.
 	self assert: anImageInfo height equals: 1.
 	self assert: anImageInfo alphaType equals: SkiaAlphaType Premul.
-	self assert: anImageInfo colorType equals: SkiaColorType RGBA8888.
+	self assert: ({ SkiaColorType RGBA8888. SkiaColorType BGRA8888. } includes: anImageInfo colorType).
 	self assert: anImageInfo bytesPerPixel equals: 4.
 	self assert: anImageInfo shiftPerPixel equals: 2.
 	self assert: anImageInfo minRowBytes equals: 4.

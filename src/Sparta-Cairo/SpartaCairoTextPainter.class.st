@@ -3,7 +3,7 @@ Class {
 	#superclass : #SpartaTextPainter,
 	#traits : 'TSpartaCairoLibrary + TSpartaCairoContext',
 	#classTraits : 'TSpartaCairoLibrary classTrait + TSpartaCairoContext classTrait',
-	#category : 'Sparta-Cairo-Builders'
+	#category : #'Sparta-Cairo-Builders'
 }
 
 { #category : #'accessing - breaks' }
@@ -69,7 +69,7 @@ SpartaCairoTextPainter >> measure [
 SpartaCairoTextPainter >> metrics [
 	| aMetrics |
 
-	aMetrics := SpMetrics new.
+	aMetrics := SpartaMetrics new.
 	aMetrics canvas: canvas.
 	aMetrics length: end - start + 1.
 	aMetrics lineBreakBefore: false.
@@ -106,9 +106,7 @@ SpartaCairoTextPainter >> primShowGlyphs: aGlyphsArray num: aNumberOfGlyphs [
 
 { #category : #'instance creation' }
 SpartaCairoTextPainter >> textRun [
-	^ ((font scaledFontFor: canvas transform current) makeTextRunNoRelease: text)
-		metricsProvider: self metricsProvider; "do not forget to set a default metrics provider"
-		yourself
+	^ (font scaledFontFor: canvas transform current) makeTextRunNoRelease: text
 ]
 
 { #category : #'accessing - orientation' }

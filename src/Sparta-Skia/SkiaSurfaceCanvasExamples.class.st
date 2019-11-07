@@ -71,8 +71,12 @@ SkiaSurfaceCanvasExamples >> drawColorBlack [
 { #category : #'examples - draw color' }
 SkiaSurfaceCanvasExamples >> drawColorBlue [
 	<gtExample>
-	| aSurface aCanvas thePixels |
-	
+	"This example is currently platform specific.
+	noTest should be removed once a platform independent color matching api has been added."
+	<noTest>
+	| imageInfo aSurface aCanvas thePixels |
+
+	imageInfo := 
 	aSurface := SkiaSurfaceExamples new newRasterPremultipledSizeOne.
 	
 	aCanvas := aSurface canvas.
@@ -107,6 +111,9 @@ SkiaSurfaceCanvasExamples >> drawColorGreen [
 { #category : #'examples - draw color' }
 SkiaSurfaceCanvasExamples >> drawColorRed [
 	<gtExample>
+	"This example is currently platform specific.
+	noTest should be removed once a platform independent color matching api has been added."
+	<noTest>
 	| aSurface aCanvas thePixels |
 	
 	aSurface := SkiaSurfaceExamples new newRasterPremultipledSizeOne.

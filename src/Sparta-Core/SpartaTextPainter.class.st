@@ -247,7 +247,7 @@ SpartaTextPainter >> measure [
 { #category : #'instance creation' }
 SpartaTextPainter >> metrics [
 	"Instantiate and return a metrics container object used during text mearument process"
-	<return: #SpMetrics>
+	<return: #SpartaMetrics>
 	
 	^ self subclassResponsibility
 ]
@@ -257,7 +257,7 @@ SpartaTextPainter >> metricsProvider [
 	"Instantiate and return a backend specific metrics provider that handles SpMetrics request.
 	Note: metrics provider is created according to current font and text properties and therefore
 	should be instantiated only after text painter is fully configured"
-	<return: #SpMetricsProvider>
+	<return: #SpartaMetricsProvider>
 
 	^ self subclassResponsibility
 ]

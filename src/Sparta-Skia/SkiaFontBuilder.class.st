@@ -16,7 +16,7 @@ SkiaFontBuilder >> build [
 		width: SkiaFontStyleWidth Normal
 		slant: SkiaFontStyleSlant Upright.
 
-	aTypeface := SkiaTypeface familyName: familyName fontStyle: aFontStyle.
+	aTypeface := SkiaTypeface familyName: (familyName ifNil: [ SkiaTypeface default familyName  ]) fontStyle: aFontStyle.
 
 	aFont := SkiaFont typeface: aTypeface size: size.
 	^ aFont
@@ -71,5 +71,21 @@ SkiaFontBuilder >> variable [
 ]
 
 { #category : #weight }
+SkiaFontBuilder >> weightBold [
+	self weight: SpartaFontWeight bold
+]
+
+{ #category : #weight }
+SkiaFontBuilder >> weightNormal [
+	self weight: SpartaFontWeight normal
+]
+
+{ #category : #weight }
 SkiaFontBuilder >> weightReset [
+	self weightNormal
+]
+
+{ #category : #weight }
+SkiaFontBuilder >> weightThin [
+	self weight: SpartaFontWeight thin
 ]

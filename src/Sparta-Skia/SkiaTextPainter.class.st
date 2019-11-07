@@ -21,10 +21,29 @@ SkiaTextPainter >> breakWordWrap [
 	there are no other break opportunities in the line."
 ]
 
+{ #category : #private }
+SkiaTextPainter >> createPaintForColor: aColor [
+	| aSkiaPaint theDrawOptions |
+
+	theDrawOptions := drawOptions ifNil: [ canvas defaultDrawOptions ].
+
+	aSkiaPaint := SkiaPaint new.
+	aSkiaPaint
+		color: (aColor alpha: aColor alpha * theDrawOptions alpha);
+		antialias: theDrawOptions antialias;
+		blendMode: theDrawOptions blendMode.
+
+	^ aSkiaPaint
+]
+
 { #category : #drawing }
 SkiaTextPainter >> fillString: aString withColor: aFillColor strokeColor: aStrokeColor [
+	| aSkiaPaint aSkiaTextBlob |
 
-	self halt.
+	aSkiaTextBlob := SkiaTextBlob string: aString font: font.
+	aSkiaPaint := self createPaintForColor: aFillColor.
+	
+	canvas surfaceCanvas drawTextBlob: aSkiaTextBlob at: baseline paint: aSkiaPaint
 ]
 
 { #category : #drawing }
@@ -33,6 +52,44 @@ SkiaTextPainter >> fillString: aString withColor: aFillColor strokePaint: aStrok
 
 { #category : #'accessing - orientation' }
 SkiaTextPainter >> horizontal [
+]
+
+{ #category : #measurement }
+SkiaTextPainter >> measure [
+	| aMetrics aMetricsProvider aTextRun |
+	aMetrics := self metrics.
+	aMetricsProvider := self metricsProvider.
+	aTextRun := self textRun.
+	aMetricsProvider measure: aTextRun in: aMetrics.
+	aTextRun release.
+	^ aMetrics
+]
+
+{ #category : #'instance creation' }
+SkiaTextPainter >> metrics [
+	"Instantiate and return a metrics container object used during text mearument process"
+	<return: #SpartaMetrics>
+	
+	^ SpartaMetrics new
+]
+
+{ #category : #'instance creation' }
+SkiaTextPainter >> metricsProvider [
+	"Instantiate and return a backend specific metrics provider that handles SpMetrics request.
+	Note: metrics provider is created according to current font and text properties and therefore
+	should be instantiated only after text painter is fully configured"
+	<return: #SpartaMetricsProvider>
+
+	^ SkiaMetricsProvider new font: font; paint: (self createPaintForColor: paint)
+]
+
+{ #category : #'instance creation' }
+SkiaTextPainter >> textRun [
+	"Instantiate and return a text run containing glyphs for current string according
+	to choosen font and various text properties"
+	<return: #TSpTextRun>
+	
+	^ SkiaTextRun fromString: text font: font
 ]
 
 { #category : #'accessing - orientation' }

@@ -23,7 +23,7 @@ Class {
 		'OFFSET_XHEIGHT',
 		'OFFSET_ZEROORAVECHARWIDTH'
 	],
-	#category : 'Sparta-Moz2D-External'
+	#category : #'Sparta-Moz2D-External'
 }
 
 { #category : #converting }
@@ -69,7 +69,7 @@ MozNativeFontMetrics class >> fieldsDesc [
 
 { #category : #converting }
 MozNativeFontMetrics >> asFontMetrics [
-	^ SpFontMetrics new mozInitializeFrom: self
+	^ SpartaFontMetrics new mozInitializeFrom: self
 ]
 
 { #category : #'accessing structure variables' }

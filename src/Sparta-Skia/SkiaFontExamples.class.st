@@ -12,7 +12,7 @@ SkiaFontExamples >> default [
 	aFont := SkiaFont new.
 	self assert: aFont edging equals: SkiaFontEdging AntiAlias.
 	self assert: aFont hinting equals: SkiaFontHinting Normal.
-	self assert: aFont lineSpacing equals: 12.0.
+	self assert: aFont lineSpacing > 0.
 	self assert: aFont isBaselineSnap.
 	self assert: aFont isEmbeddedBitmaps not.
 	self assert: aFont isEmbolden not.
@@ -24,6 +24,34 @@ SkiaFontExamples >> default [
 	self assert: aFont skew equals: 0.0.
 	
 	^ aFont
+]
+
+{ #category : #accessing }
+SkiaFontExamples >> fontMetrics [
+	<gtExample>
+	| aFont aFontMetrics |
+
+	aFont := self default.
+	aFontMetrics := aFont metrics.
+
+	"Return the recommended spacing between lines: the sum of metrics descent, ascent, and leading."
+	self assert: (aFontMetrics ascent abs + aFontMetrics descent abs + aFontMetrics leading abs closeTo: aFont lineSpacing).
+	
+	"em height is a font size"
+	self assert: aFontMetrics emHeight equals: aFont size.
+
+	^ aFontMetrics
+]
+
+{ #category : #accessing }
+SkiaFontExamples >> fontMetricsAsSparta [
+	<gtExample>
+	| aFont aFontMetrics |
+
+	aFont := self default.
+	aFontMetrics := aFont metrics asSpartaMetrics.
+
+	^ aFontMetrics
 ]
 
 { #category : #accessing }
@@ -39,7 +67,7 @@ SkiaFontExamples >> fromTypefaceAndSize [
 	
 	self assert: aFont edging equals: SkiaFontEdging AntiAlias.
 	self assert: aFont hinting equals: SkiaFontHinting Normal.
-	self assert: aFont lineSpacing equals: 20.0.
+	self assert: aFont lineSpacing > 0.
 	self assert: aFont isBaselineSnap.
 	self assert: aFont isEmbeddedBitmaps not.
 	self assert: aFont isEmbolden not.
@@ -56,16 +84,16 @@ SkiaFontExamples >> fromTypefaceAndSize [
 { #category : #accessing }
 SkiaFontExamples >> measureHelloWorld [
 	<gtExample>
-	| aFont aPaint theMeasurement |
+	| aFont aPaint theTextMetrics |
 	
 	aFont := self default.
 	aPaint := SkiaPaint new color: Color black.
-	theMeasurement := aFont measureString: 'Hello' paint: aPaint.
+	theTextMetrics := aFont measureString: 'Hello' paint: aPaint.
 	
-	self assert: theMeasurement first > 0.
-	self assert: theMeasurement second hasPositiveExtent.
+	self assert: theTextMetrics advance > 0.
+	self assert: theTextMetrics bounds hasPositiveExtent.
 	
-	^ theMeasurement
+	^ theTextMetrics
 ]
 
 { #category : #accessing }

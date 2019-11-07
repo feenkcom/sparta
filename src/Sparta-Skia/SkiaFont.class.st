@@ -4,6 +4,11 @@ Class {
 	#category : #'Sparta-Skia-External'
 }
 
+{ #category : #'instance creation' }
+SkiaFont class >> default [
+	^ self new
+]
+
 { #category : #'private - ffi' }
 SkiaFont class >> primCreate [
 	^ self ffiCall: #(void* skia_font_default())
@@ -36,6 +41,22 @@ SkiaFont >> edging [
 	<return: #SkiaFontEdging>
 
 	^ self primGetEdging
+]
+
+{ #category : #accessing }
+SkiaFont >> familyName [
+	<return: #String>
+
+	^ self typeface familyName
+]
+
+{ #category : #'gt-extension' }
+SkiaFont >> gtFontMetricsFor: aView [
+	<gtView>
+
+	^ (self metrics gtInforFor: aView)
+			title: 'Metrics';
+			priority: 1
 ]
 
 { #category : #'gt-extension' }
@@ -117,6 +138,9 @@ SkiaFont >> isSubpixel [
 
 { #category : #accessing }
 SkiaFont >> lineSpacing [
+	"Return the recommended spacing between lines: the sum of metrics descent, ascent, and leading.
+	Genrally, line spacing is the space between each line in a paragraph. Typical word processors allows you to customize the line spacing to be single spaced (one line high), double spaced (two lines high), or any other amount you want"
+
 	^ self primGetLineSpacing
 ]
 
@@ -137,7 +161,16 @@ SkiaFont >> measureText: aGtBoxerString paint: aSkiaPaint [
 		paint: aSkiaPaint
 		bounds: aSkiaRectangle.
 
-	^ { aWidth . aSkiaRectangle asRectangle }
+	^ SkiaTextMetrics new
+		advance: aWidth;
+		bounds: aSkiaRectangle asRectangle
+]
+
+{ #category : #accessing }
+SkiaFont >> metrics [
+	<return: #SkiaFontMetrics>
+
+	^ (SkiaFontMetrics fromNativeHandle: self primGetMetrics) emHeight: self size
 ]
 
 { #category : #'private - ffi' }
