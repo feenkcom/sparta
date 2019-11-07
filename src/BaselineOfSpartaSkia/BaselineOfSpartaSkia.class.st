@@ -10,17 +10,16 @@ Class {
 { #category : #baseline }
 BaselineOfSpartaSkia >> baseline: spec [
 	<baseline>
-	spec
-		for: #common
-		do: [ spec postLoadDoIt: #postLoadSkia:.
-			spec
-				baseline: 'SpartaCore'
-					with: [ spec repository: 'github://feenkcom/Sparta/src' ];
-				baseline: 'GToolkitInstaller'
-					with: [ spec repository: 'github://feenkcom/gtoolkit-installer/src' ].
-			spec
-				package: 'Sparta-Skia'
-				with: [ spec requires: #('SpartaCore' 'GToolkitInstaller') ] ]
+	spec for: #'common' do: [
+		spec postLoadDoIt: #'postLoadSkia:'.
+		spec 
+			baseline: 'SpartaCore' with: [
+				spec repository: 'github://feenkcom/Sparta:v0.7.30/src' ];
+			baseline: 'GToolkitInstaller' with: [
+				spec repository: 'github://feenkcom/gtoolkit-installer:v0.7.9/src' ].
+		spec package: 'Sparta-Skia' with: [
+				spec requires: #('SpartaCore' 'GToolkitInstaller' ). ]. ].
+
 ]
 
 { #category : #baseline }
