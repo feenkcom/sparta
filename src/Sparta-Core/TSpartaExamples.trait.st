@@ -10,7 +10,6 @@ TSpartaExamples classSide >> canvas: anExtent [
 
 { #category : #examples }
 TSpartaExamples classSide >> example18plus [
-	<gtExample>
 	| canvas path linear stroke sphere radial |
 	
 	canvas := self canvas: 500@500.
@@ -251,7 +250,6 @@ TSpartaExamples >> clipRectangleTwice [
 
 { #category : #examples }
 TSpartaExamples >> donut [
-	<gtExample>
 	| path canvas |
 	
 	canvas := self class canvas: 400@400.
@@ -533,7 +531,6 @@ TSpartaExamples >> scaleFillRectangle [
 
 { #category : #examples }
 TSpartaExamples >> shadow [
-	<gtExample>
 	| canvas floating |
 
 	canvas := self class canvas: 500@300.
