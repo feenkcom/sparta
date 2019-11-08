@@ -5,6 +5,26 @@ Class {
 }
 
 { #category : #public }
+SkiaGradientShaderExamples >> conicalGradient [
+	<gtExample>
+	| aShader |
+
+	aShader := SkiaConicalGradientShader
+		start: 200@200 radius: 150
+		end: 200@50 radius: 50
+		colors: { Color black . Color white }
+		positions: { 0 . 1 }
+		mode: SkiaTileMode Clamp
+		flags: 0
+		matrix: SpartaMatrix new.
+
+	self assert: aShader isOpaque not.
+	self assert: aShader isImage not.
+	
+	^ aShader
+]
+
+{ #category : #public }
 SkiaGradientShaderExamples >> linearGradient [
 	<gtExample>
 	| aShader |
@@ -59,28 +79,6 @@ SkiaGradientShaderExamples >> sweepGradient [
 		matrix: SpartaMatrix new.
 
 	self assert: aShader isOpaque.
-	self assert: aShader isImage not.
-	
-	^ aShader
-]
-
-{ #category : #public }
-SkiaGradientShaderExamples >> twoPointConicalGradient [
-	<gtExample>
-	| aShader |
-
-	aShader := SkiaConicalGradientShader
-		start: 50@50
-		radius: 20
-		end: 200@200
-		radius: 50
-		colors: { Color black . Color white }
-		positions: { 0 . 1 }
-		mode: SkiaTileMode Clamp
-		flags: 0
-		matrix: SpartaMatrix new.
-
-	self assert: aShader isOpaque not.
 	self assert: aShader isImage not.
 	
 	^ aShader
