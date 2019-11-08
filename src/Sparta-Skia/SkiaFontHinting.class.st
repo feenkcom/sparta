@@ -53,6 +53,11 @@ SkiaFontHinting class >> externalType [
 	^ FFIInt32 new
 ]
 
+{ #category : #'class initialization' }
+SkiaFontHinting class >> initialize [
+	super initialize
+]
+
 { #category : #'private - ffi' }
 SkiaFontHinting >> primRealName: aBoxerString [
 	^ self ffiCall: #(void skia_enums_font_hinting_to_string(self, GtBoxerString aBoxerString))

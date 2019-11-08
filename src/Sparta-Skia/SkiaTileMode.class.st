@@ -53,6 +53,11 @@ SkiaTileMode class >> externalType [
 	^ FFIInt32 new
 ]
 
+{ #category : #'class initialization' }
+SkiaTileMode class >> initialize [
+	super initialize
+]
+
 { #category : #'private - ffi' }
 SkiaTileMode >> primRealName: aBoxerString [
 	^ self ffiCall: #(void skia_enums_tile_mode_to_string(self, GtBoxerString aBoxerString))

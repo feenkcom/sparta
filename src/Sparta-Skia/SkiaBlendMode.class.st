@@ -253,6 +253,11 @@ SkiaBlendMode class >> externalType [
 	^ FFIInt32 new
 ]
 
+{ #category : #'class initialization' }
+SkiaBlendMode class >> initialize [
+	super initialize
+]
+
 { #category : #'private - ffi' }
 SkiaBlendMode >> primRealName: aBoxerString [
 	^ self ffiCall: #(void skia_enums_blend_mode_to_string(self, GtBoxerString aBoxerString))

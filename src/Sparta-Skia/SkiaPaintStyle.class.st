@@ -45,6 +45,11 @@ SkiaPaintStyle class >> externalType [
 	^ FFIUInt8 new
 ]
 
+{ #category : #'class initialization' }
+SkiaPaintStyle class >> initialize [
+	super initialize
+]
+
 { #category : #'private - ffi' }
 SkiaPaintStyle >> primRealName: aBoxerString [
 	^ self ffiCall: #(void skia_enums_paint_style_to_string(self, GtBoxerString aBoxerString))

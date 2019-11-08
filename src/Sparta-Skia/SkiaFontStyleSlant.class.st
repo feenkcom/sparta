@@ -45,6 +45,11 @@ SkiaFontStyleSlant class >> externalType [
 	^ FFIInt32 new
 ]
 
+{ #category : #'class initialization' }
+SkiaFontStyleSlant class >> initialize [
+	super initialize
+]
+
 { #category : #'private - ffi' }
 SkiaFontStyleSlant >> primRealName: aBoxerString [
 	^ self ffiCall: #(void skia_enums_font_style_slant_to_string(self, GtBoxerString aBoxerString))

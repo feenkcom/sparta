@@ -45,6 +45,11 @@ SkiaJoinStyle class >> externalType [
 	^ FFIUInt8 new
 ]
 
+{ #category : #'class initialization' }
+SkiaJoinStyle class >> initialize [
+	super initialize
+]
+
 { #category : #'private - ffi' }
 SkiaJoinStyle >> primRealName: aBoxerString [
 	^ self ffiCall: #(void skia_enums_join_style_to_string(self, GtBoxerString aBoxerString))

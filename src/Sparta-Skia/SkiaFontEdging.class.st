@@ -45,6 +45,11 @@ SkiaFontEdging class >> externalType [
 	^ FFIInt32 new
 ]
 
+{ #category : #'class initialization' }
+SkiaFontEdging class >> initialize [
+	super initialize
+]
+
 { #category : #'private - ffi' }
 SkiaFontEdging >> primRealName: aBoxerString [
 	^ self ffiCall: #(void skia_enums_font_edging_to_string(self, GtBoxerString aBoxerString))

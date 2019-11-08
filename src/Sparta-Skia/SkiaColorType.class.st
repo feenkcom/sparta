@@ -125,6 +125,11 @@ SkiaColorType class >> externalType [
 	^ FFIInt32 new
 ]
 
+{ #category : #'class initialization' }
+SkiaColorType class >> initialize [
+	super initialize
+]
+
 { #category : #'private - ffi' }
 SkiaColorType >> primRealName: aBoxerString [
 	^ self ffiCall: #(void skia_enums_color_type_to_string(self, GtBoxerString aBoxerString))

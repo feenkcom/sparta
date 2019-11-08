@@ -93,6 +93,11 @@ SkiaFontStyleWidth class >> externalType [
 	^ FFIInt32 new
 ]
 
+{ #category : #'class initialization' }
+SkiaFontStyleWidth class >> initialize [
+	super initialize
+]
+
 { #category : #'private - ffi' }
 SkiaFontStyleWidth >> primRealName: aBoxerString [
 	^ self ffiCall: #(void skia_enums_font_style_width_to_string(self, GtBoxerString aBoxerString))
