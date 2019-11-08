@@ -112,6 +112,11 @@ SkiaColor >> primGetRed [
 	^ self ffiCall: #(uint8 skia_color_get_red(self))
 ]
 
+{ #category : #printing }
+SkiaColor >> printOn: aStream [
+	aStream print: self asColor
+]
+
 { #category : #accessing }
 SkiaColor >> red [
 	^ self primGetRed
