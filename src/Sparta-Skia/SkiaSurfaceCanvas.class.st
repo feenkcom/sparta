@@ -153,6 +153,19 @@ SkiaSurfaceCanvas >> drawRectangle: aSpartaRectangle paint: aSkiaPaint [
 ]
 
 { #category : #'api - drawing' }
+SkiaSurfaceCanvas >> drawShadowPath: aSkiaPath zPlane: aZPlane lightPos: aLightPos lightRadius: aRadius ambientColor: anAmbientColor spotColor: aSpotColor flags: theFlagBits [
+
+	self
+		primDrawShadowPath: aSkiaPath
+		zPlane: aZPlane
+		lightPos: aLightPos
+		lightRadius: aRadius
+		ambientColor: (SkiaColor fromColor: anAmbientColor)
+		spotColor: (SkiaColor fromColor: aSpotColor)
+		flags: theFlagBits
+]
+
+{ #category : #'api - drawing' }
 SkiaSurfaceCanvas >> drawTextBlob: aTextBlob at: anOriginPoint paint: aSkiaPaint [
 	self primDrawTextBlob: aTextBlob x: anOriginPoint x y: anOriginPoint y paint: aSkiaPaint
 ]
@@ -249,6 +262,18 @@ SkiaSurfaceCanvas >> primDrawRectangleLeft: aLeft top: aTop right: aRight bottom
 	self ffiCall: #(void skia_canvas_draw_rectangle(self,
 		scalar aLeft, scalar aTop, scalar aRight, scalar aBottom,
 		SkiaPaint aSkiaPaint))
+]
+
+{ #category : #'private - ffi' }
+SkiaSurfaceCanvas >> primDrawShadowPath: aSkiaPath zPlane: aZPlane lightPos: aLightPos lightRadius: aRadius ambientColor: anAmbientColor spotColor: aSpotColor flags: theFlagBits [
+	^ self ffiCall: #(void skia_canvas_draw_shadow(self,
+		SkiaPath aSkiaPath,
+		GtBoxerPoint3F32 aZPlane,
+		GtBoxerPoint3F32 aLightPos,
+		scalar aRadius,
+		SkiaColor anAmbientColor,
+		SkiaColor aSpotColor,
+		uint32 theFlagBits))
 ]
 
 { #category : #'private - ffi' }

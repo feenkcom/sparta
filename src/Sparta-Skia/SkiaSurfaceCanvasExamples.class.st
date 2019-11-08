@@ -416,6 +416,44 @@ SkiaSurfaceCanvasExamples >> drawTextBlobHelloWorld [
 	^ aSurface
 ]
 
+{ #category : #'examples - draw shadow' }
+SkiaSurfaceCanvasExamples >> drawTriangleShadow [
+	<gtExample>
+	| aSurface aCanvas aPath aPaint |
+	
+	aSurface := SkiaSurface newRasterPremultipled: 800@500.
+	
+	aPath := SkiaPath new
+		moveTo: 100@400;
+		lineTo: 350@100;
+		lineTo: 600@400;
+		close.
+	
+	aCanvas := aSurface canvas.
+	
+	aCanvas
+		drawShadowPath: aPath
+		zPlane: (GtBoxerPoint3F32 x: 0.1 y: 0.2 z: 0.1)
+		lightPos: (GtBoxerPoint3F32 x: 350 y: 350 z: 10)
+		lightRadius: 0
+		ambientColor: (Color black alpha: 1)
+		spotColor: (Color white alpha: 1)
+		flags: 0.
+		
+	aPaint := SkiaPaint new
+		antialias: true;
+		color: Color white;
+		strokeWidth: 1;
+		paintStyle: SkiaPaintStyle Stroke.
+		
+	aCanvas drawPath: aPath paint: aPaint.
+	
+	aCanvas flush.
+	aCanvas release.
+	
+	^ aSurface
+]
+
 { #category : #'examples - quick reject' }
 SkiaSurfaceCanvasExamples >> quickAcceptRectangle [
 	<gtExample>
