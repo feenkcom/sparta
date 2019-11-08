@@ -1,69 +1,51 @@
 Class {
 	#name : #SkiaLinearGradient,
-	#superclass : #Object,
-	#traits : 'TSpartaPaint + TSpartaGradientPaint + TSpartaLinearGradientPaint',
-	#classTraits : 'TSpartaPaint classTrait + TSpartaGradientPaint classTrait + TSpartaLinearGradientPaint classTrait',
+	#superclass : #SkiaGradient,
+	#traits : 'TSpartaLinearGradientPaint',
+	#classTraits : 'TSpartaLinearGradientPaint classTrait',
 	#instVars : [
 		'begin',
-		'end',
-		'stops',
-		'transformation',
-		'extend'
+		'end'
 	],
-	#category : #'Sparta-Skia-Core'
+	#category : #'Sparta-Skia-Paints'
 }
+
+{ #category : #converting }
+SkiaLinearGradient >> asShader [
+	| theColors thePositions |
+	
+	theColors := self stops collect: #value.
+	thePositions := self stops collect: #key.
+
+	^ SkiaLinearGradientShader
+		from: self begin to: self end
+		colors: theColors
+		positions: thePositions
+		mode: self tileMode
+		flags: 0
+		matrix: self transformation
+]
+
+{ #category : #accessing }
+SkiaLinearGradient >> begin [
+	<return: #Point>
+
+	^ begin
+]
 
 { #category : #accessing }
 SkiaLinearGradient >> begin: aPoint [
 	begin := aPoint
 ]
 
-{ #category : #'extend modes' }
-SkiaLinearGradient >> clamp [
-	"Do not repeat"
-	extend := #clamp
+{ #category : #accessing }
+SkiaLinearGradient >> end [
+	<return: #Point>
+
+	^ end
 ]
 
 { #category : #accessing }
 SkiaLinearGradient >> end: aPoint [
 	end := aPoint
-]
-
-{ #category : #'extend modes' }
-SkiaLinearGradient >> reflect [
-	"Mirror the image"
-	extend := #reflect
-]
-
-{ #category : #'extend modes' }
-SkiaLinearGradient >> repeat [
-	"Repeat in both axis"
-	extend := #repeat
-]
-
-{ #category : #'extend modes' }
-SkiaLinearGradient >> repeatX [
-	"Only X axis"
-	extend := #repeatX
-]
-
-{ #category : #'extend modes' }
-SkiaLinearGradient >> repeatY [
-	"Only Y axis"
-	extend := #repeatY
-]
-
-{ #category : #accessing }
-SkiaLinearGradient >> stops: anArrayOfStops [
-	stops := anArrayOfStops
-]
-
-{ #category : #accessing }
-SkiaLinearGradient >> transformation [
-	^ transformation ifNil: [ transformation := SpartaMatrix new ]
-]
-
-{ #category : #accessing }
-SkiaLinearGradient >> transformation: aMatrix [
-	transformation := aMatrix
 ]

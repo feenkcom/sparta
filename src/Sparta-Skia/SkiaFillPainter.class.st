@@ -19,11 +19,33 @@ SkiaFillPainter >> createPaintForColor: aColor [
 	^ aSkiaPaint
 ]
 
+{ #category : #private }
+SkiaFillPainter >> createPaintForLinearGradient: aLinearGradient [
+	| aSkiaPaint theDrawOptions |
+
+	theDrawOptions := self ensuredDrawOptions.
+
+	aSkiaPaint := SkiaPaint new.
+	aSkiaPaint
+		shader: aLinearGradient asShader;
+		antialias: theDrawOptions antialias;
+		blendMode: theDrawOptions blendMode.
+
+	^ aSkiaPaint
+]
+
 { #category : #drawing }
 SkiaFillPainter >> fillPath: aPath withSolidColor: aColor [
 	canvas surfaceCanvas
 		drawPath: aPath
 		paint: (self createPaintForColor: aColor)
+]
+
+{ #category : #drawing }
+SkiaFillPainter >> fillRectangle: aRectangle withLinearGradient: aSpartaLinearGradient [
+	canvas surfaceCanvas
+		drawRectangle: aRectangle
+		paint: (self createPaintForLinearGradient: aSpartaLinearGradient)
 ]
 
 { #category : #drawing }
