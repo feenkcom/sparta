@@ -42,7 +42,7 @@ SkiaArrayColor >> at: anIndex [
 
 { #category : #accessing }
 SkiaArrayColor >> at: anIndex put: aColor [
-	self primAt: anIndex - 1 put: (SkiaColor fromColor: aColor)
+	super at: anIndex put: (SkiaColor fromColor: aColor)
 ]
 
 { #category : #'private - ffi' }

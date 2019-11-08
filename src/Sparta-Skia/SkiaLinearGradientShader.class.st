@@ -4,22 +4,35 @@ Class {
 	#category : #'Sparta-Skia-External'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : #'instance creation' }
+SkiaLinearGradientShader class >> from: aFromPoint to: aToPoint colors: theColors positions: thePositions mode: aTileMode flags: theBitFlags matrix: aSpartaMatrixOrNil [
+	| theSkiaColors theSkiaPositions |
+	
+	theSkiaColors := SkiaArrayColor new: theColors size withAll: SkiaColor new.
+	theColors withIndexDo: [ :eachColor :eachIndex | theSkiaColors at: eachIndex put: eachColor ].
+	
+	theSkiaPositions := GtBoxerArrayF32 new: thePositions size withAll: 0.
+	thePositions withIndexDo: [ :eachPosition :eachIndex | theSkiaPositions at: eachIndex put: eachPosition ].
+	
+	^ self fromNativeHandle: (self
+		primCreateFrom: (GtBoxerPointF32 fromPoint: aFromPoint)
+		to: (GtBoxerPointF32 fromPoint: aToPoint)
+		colors: theSkiaColors
+		positions: theSkiaPositions
+		mode: aTileMode
+		flags: theBitFlags
+		matrix: (aSpartaMatrixOrNil ifNil: [ SkiaMatrix null ] ifNotNil:  [ SkiaMatrix fromSpartaMatrix: aSpartaMatrixOrNil ]))
+]
+
+{ #category : #'private - ffi' }
 SkiaLinearGradientShader class >> primCreateFrom: aFromPoint to: aToPoint colors: theColors positions: thePositions mode: aTileMode flags: theBitFlags matrix: anOptionalMatrix [
 	^ self ffiCall: #(void* skia_gradient_linear_create(
 		GtBoxerPointF32 aFromPoint,
 		GtBoxerPointF32 aToPoint,
-		 
+		SkiaArrayColor theColors,
+		GtBoxerArrayF32 thePositions,
+		SkiaTileMode aTileMode,
+		uint32 theBitFlags,
+		SkiaMatrix anOptionalMatrix
 	))
-
-
-	"pub fn skia_gradient_linear_create(
-    _from_point_ptr: *mut ValueBox<Point>,
-    _to_point_ptr: *mut ValueBox<Point>,
-    _colors_ptr: *mut ValueBox<BoxerArray<Color>>,
-    _positions_ptr: *mut ValueBox<BoxerArray<scalar>>,
-    _mode: TileMode,
-    _bit_flags: u32,
-    _matrix_ptr: *mut ValueBox<Matrix>
-)"
 ]
