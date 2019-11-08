@@ -5,23 +5,15 @@ Class {
 }
 
 { #category : #'instance creation' }
-SkiaLinearGradientShader class >> from: aFromPoint to: aToPoint colors: theColors positions: thePositions mode: aTileMode flags: theBitFlags matrix: aSpartaMatrixOrNil [
-	| theSkiaColors theSkiaPositions |
-	
-	theSkiaColors := SkiaArrayColor new: theColors size withAll: SkiaColor new.
-	theColors withIndexDo: [ :eachColor :eachIndex | theSkiaColors at: eachIndex put: eachColor ].
-	
-	theSkiaPositions := GtBoxerArrayF32 new: thePositions size withAll: 0.
-	thePositions withIndexDo: [ :eachPosition :eachIndex | theSkiaPositions at: eachIndex put: eachPosition ].
-	
+SkiaLinearGradientShader class >> from: aFromPoint to: aToPoint colors: theColors positions: thePositions mode: aTileMode flags: theBitFlags matrix: aSpartaMatrixOrNil [	
 	^ self fromNativeHandle: (self
 		primCreateFrom: (GtBoxerPointF32 fromPoint: aFromPoint)
 		to: (GtBoxerPointF32 fromPoint: aToPoint)
-		colors: theSkiaColors
-		positions: theSkiaPositions
+		colors: (SkiaArrayColor fromColors: theColors)
+		positions: (GtBoxerArrayF32 withAll: thePositions)
 		mode: aTileMode
 		flags: theBitFlags
-		matrix: (aSpartaMatrixOrNil ifNil: [ SkiaMatrix null ] ifNotNil:  [ SkiaMatrix fromSpartaMatrix: aSpartaMatrixOrNil ]))
+		matrix: (SkiaMatrix fromSpartaMatrix: aSpartaMatrixOrNil))
 ]
 
 { #category : #'private - ffi' }

@@ -9,6 +9,16 @@ SkiaArrayColor class >> ffiLibraryName [
 	^ SkiaLibrary
 ]
 
+{ #category : #'instance creation' }
+SkiaArrayColor class >> fromColors: aCollectionOfColors [
+	| theSkiaColors |
+
+	theSkiaColors := SkiaArrayColor new: aCollectionOfColors size withAll: SkiaColor new.
+	aCollectionOfColors withIndexDo: [ :eachColor :eachIndex | theSkiaColors at: eachIndex put: eachColor ].
+
+	^ theSkiaColors
+]
+
 { #category : #'private - ffi' }
 SkiaArrayColor class >> primCreate [
 	^ self ffiCall: #(void* skia_color_array_default())

@@ -317,6 +317,37 @@ SkiaSurfaceCanvasExamples >> drawPointBlack [
 	^ aSurface
 ]
 
+{ #category : #'examples - gradient conical' }
+SkiaSurfaceCanvasExamples >> drawRectangleWithConicalGradient [
+	<gtExample>
+	| aSurface aCanvas aRectangle aPaint aShader |
+
+	aSurface := SkiaSurface newRasterPremultipled: 400@400.
+	aRectangle := SpartaRectangle fromRectangle: (50@50 corner: 350@350).
+
+	"gradient should be given in local coordinates of the canvas"
+	aShader := SkiaConicalGradientShader
+		start: 200@200 radius: 150
+		end: 200@60 radius: 10 
+		colors: { Color blue . Color red }
+		positions: { 0 . 1 }
+		mode: SkiaTileMode Clamp
+		flags: 0
+		matrix: SpartaMatrix new.
+
+	aPaint := SkiaPaint new
+		shader: aShader;
+		paintStyle: SkiaPaintStyle Fill.
+	
+	aCanvas := aSurface canvas.
+	aCanvas drawRectangle: aRectangle paint: aPaint.
+
+	aCanvas flush.
+	aCanvas release.
+	
+	^ aSurface
+]
+
 { #category : #'examples - draw rectangle' }
 SkiaSurfaceCanvasExamples >> drawRectangleWithGrayFill [
 	<gtExample>
@@ -387,6 +418,100 @@ SkiaSurfaceCanvasExamples >> drawRectangleWithGrayStrokeAndFill [
 	aPaint strokeWidth: 1; color: Color black; paintStyle: SkiaPaintStyle Stroke.
 	aCanvas drawRectangle: aRectangle paint: aPaint.
 	
+	aCanvas flush.
+	aCanvas release.
+	
+	^ aSurface
+]
+
+{ #category : #'examples - gradient linear' }
+SkiaSurfaceCanvasExamples >> drawRectangleWithLinearGradient [
+	<gtExample>
+	| aSurface aCanvas aRectangle aPaint aShader |
+
+	aSurface := SkiaSurface newRasterPremultipled: 400@400.
+	aRectangle := SpartaRectangle fromRectangle: (50@50 corner: 350@350).
+
+	"gradient should be given in local coordinates of the canvas"
+	aShader := SkiaLinearGradientShader
+		from: aRectangle origin to: aRectangle corner
+		colors: { Color blue . Color red }
+		positions: { 0 . 1 }
+		mode: SkiaTileMode Clamp
+		flags: 0
+		matrix: SpartaMatrix new.
+
+	aPaint := SkiaPaint new
+		shader: aShader;
+		paintStyle: SkiaPaintStyle Fill.
+	
+	aCanvas := aSurface canvas.
+	aCanvas drawRectangle: aRectangle paint: aPaint.
+
+	aCanvas flush.
+	aCanvas release.
+	
+	^ aSurface
+]
+
+{ #category : #'examples - gradient radial' }
+SkiaSurfaceCanvasExamples >> drawRectangleWithRadialGradient [
+	<gtExample>
+	| aSurface aCanvas aRectangle aPaint aShader |
+	
+	aSurface := SkiaSurface newRasterPremultipled: 400@400.
+	
+	aRectangle := SpartaRectangle fromRectangle: (50@50 corner: 350@350).
+
+	"gradient should be given in local coordinates of the canvas"
+	aShader := SkiaRadialGradientShader
+		center: 200@200
+		radius: 200
+		colors: { Color blue . Color red }
+		positions: { 0 . 1 }
+		mode: SkiaTileMode Clamp
+		flags: 0
+		matrix: SpartaMatrix new.
+
+	aPaint := SkiaPaint new
+		shader: aShader;
+		paintStyle: SkiaPaintStyle Fill.
+	
+	aCanvas := aSurface canvas.
+	aCanvas drawRectangle: aRectangle paint: aPaint.
+
+	aCanvas flush.
+	aCanvas release.
+	
+	^ aSurface
+]
+
+{ #category : #'examples - gradient sweep' }
+SkiaSurfaceCanvasExamples >> drawRectangleWithSweepGradient [
+	<gtExample>
+	| aSurface aCanvas aRectangle aPaint aShader |
+
+	aSurface := SkiaSurface newRasterPremultipled: 400@400.
+	aRectangle := SpartaRectangle fromRectangle: (50@50 corner: 350@350).
+
+	"gradient should be given in local coordinates of the canvas"
+	aShader := SkiaSweepGradientShader
+		center: 200@200
+		startAngle: 0
+		endAngle: 200
+		colors: { Color blue . Color red }
+		positions: { 0 . 1 }
+		mode: SkiaTileMode Clamp
+		flags: 0
+		matrix: SpartaMatrix new.
+
+	aPaint := SkiaPaint new
+		shader: aShader;
+		paintStyle: SkiaPaintStyle Fill.
+	
+	aCanvas := aSurface canvas.
+	aCanvas drawRectangle: aRectangle paint: aPaint.
+
 	aCanvas flush.
 	aCanvas release.
 	
