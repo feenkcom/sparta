@@ -9,7 +9,7 @@ Class {
 		'outerCenter',
 		'outerRadius'
 	],
-	#category : 'Sparta-Cairo-Paints'
+	#category : #'Sparta-Cairo-Paints'
 }
 
 { #category : #converting }
@@ -30,7 +30,7 @@ SpartaCairoRadialGradientPaint >> innerCenter [
 	^ innerCenter
 ]
 
-{ #category : #accessing }
+{ #category : #'as yet unclassified' }
 SpartaCairoRadialGradientPaint >> innerCenter: aPoint [
 	innerCenter := aPoint
 ]
@@ -40,7 +40,7 @@ SpartaCairoRadialGradientPaint >> innerRadius [
 	^ innerRadius
 ]
 
-{ #category : #accessing }
+{ #category : #'as yet unclassified' }
 SpartaCairoRadialGradientPaint >> innerRadius: aNumber [
 	innerRadius := aNumber
 ]
@@ -50,7 +50,7 @@ SpartaCairoRadialGradientPaint >> outerCenter [
 	^ outerCenter
 ]
 
-{ #category : #accessing }
+{ #category : #'as yet unclassified' }
 SpartaCairoRadialGradientPaint >> outerCenter: aPoint [
 	outerCenter := aPoint
 ]
@@ -60,7 +60,7 @@ SpartaCairoRadialGradientPaint >> outerRadius [
 	^ outerRadius
 ]
 
-{ #category : #accessing }
+{ #category : #'as yet unclassified' }
 SpartaCairoRadialGradientPaint >> outerRadius: aNumber [
 	outerRadius := aNumber
 ]

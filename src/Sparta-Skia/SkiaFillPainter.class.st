@@ -20,18 +20,32 @@ SkiaFillPainter >> createPaintForColor: aColor [
 ]
 
 { #category : #private }
-SkiaFillPainter >> createPaintForLinearGradient: aLinearGradient [
+SkiaFillPainter >> createPaintForGradient: aSkiaGradient [
 	| aSkiaPaint theDrawOptions |
 
 	theDrawOptions := self ensuredDrawOptions.
 
 	aSkiaPaint := SkiaPaint new.
 	aSkiaPaint
-		shader: aLinearGradient asShader;
+		shader: aSkiaGradient asShader;
 		antialias: theDrawOptions antialias;
 		blendMode: theDrawOptions blendMode.
 
 	^ aSkiaPaint
+]
+
+{ #category : #drawing }
+SkiaFillPainter >> fillPath: aPath withLinearGradient: aSpartaLinearGradient [
+	canvas surfaceCanvas
+		drawPath: aPath
+		paint: (self createPaintForGradient: aSpartaLinearGradient)
+]
+
+{ #category : #drawing }
+SkiaFillPainter >> fillPath: aPath withRadialGradient: aSpartaRadialGradient [
+	canvas surfaceCanvas
+		drawPath: aPath
+		paint: (self createPaintForGradient: aSpartaRadialGradient)
 ]
 
 { #category : #drawing }
@@ -45,7 +59,14 @@ SkiaFillPainter >> fillPath: aPath withSolidColor: aColor [
 SkiaFillPainter >> fillRectangle: aRectangle withLinearGradient: aSpartaLinearGradient [
 	canvas surfaceCanvas
 		drawRectangle: aRectangle
-		paint: (self createPaintForLinearGradient: aSpartaLinearGradient)
+		paint: (self createPaintForGradient: aSpartaLinearGradient)
+]
+
+{ #category : #drawing }
+SkiaFillPainter >> fillRectangle: aRectangle withRadialGradient: aSpartaRadialGradient [
+	canvas surfaceCanvas
+		drawRectangle: aRectangle
+		paint: (self createPaintForGradient: aSpartaRadialGradient)
 ]
 
 { #category : #drawing }

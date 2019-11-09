@@ -8,3 +8,8 @@ Class {
 SkiaPaintProvider >> linearGradient [
 	^ SkiaLinearGradient new
 ]
+
+{ #category : #paints }
+SkiaPaintProvider >> radialGradient [
+	^ SkiaRadialGradient new
+]
