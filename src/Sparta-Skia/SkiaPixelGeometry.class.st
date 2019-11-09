@@ -61,6 +61,11 @@ SkiaPixelGeometry class >> externalType [
 	^ FFIInt32 new
 ]
 
+{ #category : #'class initialization' }
+SkiaPixelGeometry class >> initialize [
+	super initialize
+]
+
 { #category : #'private - ffi' }
 SkiaPixelGeometry >> primRealName: aBoxerString [
 	^ self ffiCall: #(void skia_enums_pixel_geometry_to_string(self, GtBoxerString aBoxerString))

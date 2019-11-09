@@ -4,9 +4,33 @@ Class {
 	#category : #'Sparta-Skia-External'
 }
 
+{ #category : #'instance creation' }
+SkiaColor class >> argb: aNumber [	
+	^ self fromNativeHandle: (self primCreateArgb: aNumber)
+]
+
+{ #category : #'instance creation' }
+SkiaColor class >> fromColor: aColor [
+	^ self argb: (aColor pixelValueForDepth: 32)
+]
+
 { #category : #'private - ffi' }
 SkiaColor class >> primCreate [
 	^ self ffiCall: #(void* skia_color_default())
+]
+
+{ #category : #'private - ffi' }
+SkiaColor class >> primCreateArgb: aNumber [
+	^ self ffiCall: #(void* skia_color_create_argb(uint32 aNumber))
+]
+
+{ #category : #'private - ffi' }
+SkiaColor class >> primCreateR: aRed g: aGreen b: aBlue a: anAlpha [
+	^ self ffiCall: #(void* skia_color_create(
+		uint8 aRed,
+		uint8 aGreen,
+		uint8 aBlue,
+		uint8 anAlpha))
 ]
 
 { #category : #'private - ffi' }
@@ -14,6 +38,13 @@ SkiaColor class >> primRelease: aHandle [
 	
 	"Plain pointers must be deleted using delete(), all users must implement a specific method"
 	self ffiCall: #(void skia_color_drop(void* aHandle))
+]
+
+{ #category : #'instance creation' }
+SkiaColor class >> r: aRed g: aGreen b: aBlue a: anAlpha [
+	"All color channel values are [0..255]"
+	
+	^ self fromNativeHandle: (self primCreateR: aRed g: aGreen b: aBlue a: anAlpha)
 ]
 
 { #category : #accessing }
@@ -79,6 +110,11 @@ SkiaColor >> primGetGreen [
 { #category : #'private - ffi' }
 SkiaColor >> primGetRed [
 	^ self ffiCall: #(uint8 skia_color_get_red(self))
+]
+
+{ #category : #printing }
+SkiaColor >> printOn: aStream [
+	aStream print: self asColor
 ]
 
 { #category : #accessing }

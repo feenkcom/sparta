@@ -35,9 +35,19 @@ SkiaExternalObject class >> new [
 	^ self fromNativeHandle: self primCreate
 ]
 
+{ #category : #'instance creation' }
+SkiaExternalObject class >> null [
+	^ self fromHandle: self primNullPtr
+]
+
 { #category : #'private - ffi' }
 SkiaExternalObject class >> primCreate [
 	^ self subclassResponsibility
+]
+
+{ #category : #'private - ffi' }
+SkiaExternalObject class >> primNullPtr [
+	^ self ffiCall: #(void* skia_null_ptr())
 ]
 
 { #category : #'private - ffi' }

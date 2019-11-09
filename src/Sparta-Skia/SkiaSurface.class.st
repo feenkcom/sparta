@@ -96,7 +96,7 @@ SkiaSurface >> gtPreviewFor: aView [
 	^ aView explicit
 		title: 'Preview';
 		priority: 1;
-		stencil: [ self asForm asElement asScalableElement ]
+		stencil: [ self asForm asElement ]
 ]
 
 { #category : #accessing }

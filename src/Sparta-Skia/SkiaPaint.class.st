@@ -127,6 +127,7 @@ SkiaPaint >> gtInforFor: aView [
 		#dither -> self dither.
 		#joinStyle -> self joinStyle.
 		#paintStyle -> self paintStyle.
+		#shader -> self shader.
 		#strokeMiter -> self strokeMiter.
 		#strokeWidth -> self strokeWidth.
 	 } asOrderedDictionary gtItemsFor: aView)
@@ -176,6 +177,11 @@ SkiaPaint >> primGetColor [
 { #category : #'private - ffi' }
 SkiaPaint >> primGetPaintStyle [
 	self ffiCall: #(SkiaPaintStyle skia_paint_get_style(self))
+]
+
+{ #category : #'private - ffi' }
+SkiaPaint >> primGetShader [
+	self ffiCall: #(SkiaShader skia_paint_get_shader(self))
 ]
 
 { #category : #'private - ffi' }
@@ -244,6 +250,11 @@ SkiaPaint >> primSetR: r g: g b: b a: a [
 ]
 
 { #category : #'private - ffi' }
+SkiaPaint >> primSetShader: aSkiaShader [
+	self ffiCall: #(void skia_paint_set_shader(self, SkiaShader aSkiaShader))
+]
+
+{ #category : #'private - ffi' }
 SkiaPaint >> primSetStrokeCap: aSkiaCapStyle [
 	self ffiCall: #(void skia_paint_set_stroke_cap(self, SkiaCapStyle aSkiaCapStyle))
 ]
@@ -266,6 +277,18 @@ SkiaPaint >> primSetStrokeWidth: aWidth [
 { #category : #accessing }
 SkiaPaint >> reset [
 	self primReset
+]
+
+{ #category : #accessing }
+SkiaPaint >> shader [
+	<return: #SkiaShader>
+	
+	^ SkiaShader fromNativeHandle: self primGetShader
+]
+
+{ #category : #accessing }
+SkiaPaint >> shader: aSkiaShader [
+	self primSetShader: aSkiaShader
 ]
 
 { #category : #accessing }

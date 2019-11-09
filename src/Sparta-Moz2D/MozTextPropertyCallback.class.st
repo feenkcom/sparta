@@ -12,7 +12,7 @@ Class {
 	#classInstVars : [
 		'uniqueInstance'
 	],
-	#category : 'Sparta-Moz2D-Text-Callbacks'
+	#category : #'Sparta-Moz2D-Text-Callbacks'
 }
 
 { #category : #cleanup }
@@ -80,5 +80,5 @@ MozTextPropertyCallback >> isValid [
 	<return: #Boolean>
 
 	^ session == Smalltalk session
-		and: [ thunk isNull not ]
+		and: [ self thunk isNull not ]
 ]

@@ -17,6 +17,7 @@ SkiaPaintExamples >> default [
 	self assert: aPaint dither not.
 	self assert: aPaint joinStyle equals: SkiaJoinStyle Miter.
 	self assert: aPaint paintStyle equals: SkiaPaintStyle Fill.
+	self assert: aPaint shader isNull.
 	self assert: aPaint strokeWidth equals: 0.0.
 	self assert: aPaint strokeMiter equals: 4.0.
 	self assert: aPaint color equals: Color black.
@@ -112,6 +113,32 @@ SkiaPaintExamples >> setPaintStyle [
 	
 	self assert: aPaint paintStyle equals: SkiaPaintStyle StrokeAndFill.
 	
+	^ aPaint
+]
+
+{ #category : #'examples - paint' }
+SkiaPaintExamples >> setShader [
+	<gtExample>
+	| aPaint aShader |
+	
+	aShader := SkiaLinearGradientShader
+		from: (0@0) to: (50@50)
+		colors: { Color black . Color white }
+		positions: { 0 . 1 }
+		mode: SkiaTileMode Clamp
+		flags: 0
+		matrix: SpartaMatrix new.
+	
+	aPaint := self default.
+
+	"initially no shader"
+	self assert: aPaint shader isNull.
+	aPaint shader: aShader.
+	self assert: aPaint shader isNull not.
+	
+	"paint consumes shader which makes boxed pointer to be null"
+	self assert: (GtBoxerValueBox boxedPointerOf: aShader) isNull.
+
 	^ aPaint
 ]
 

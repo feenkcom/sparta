@@ -45,6 +45,11 @@ SkiaPointMode class >> externalType [
 	^ FFIInt32 new
 ]
 
+{ #category : #'class initialization' }
+SkiaPointMode class >> initialize [
+	super initialize
+]
+
 { #category : #'private - ffi' }
 SkiaPointMode >> primRealName: aBoxerString [
 	^ self ffiCall: #(void skia_enums_point_mode_to_string(self, GtBoxerString aBoxerString))

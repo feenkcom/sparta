@@ -53,6 +53,11 @@ SkiaPathFillType class >> externalType [
 	^ FFIInt32 new
 ]
 
+{ #category : #'class initialization' }
+SkiaPathFillType class >> initialize [
+	super initialize
+]
+
 { #category : #'private - ffi' }
 SkiaPathFillType >> primRealName: aBoxerString [
 	^ self ffiCall: #(void skia_enums_path_fill_type_to_string(self, GtBoxerString aBoxerString))

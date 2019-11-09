@@ -53,6 +53,11 @@ SkiaFilterQuality class >> externalType [
 	^ FFIInt32 new
 ]
 
+{ #category : #'class initialization' }
+SkiaFilterQuality class >> initialize [
+	super initialize
+]
+
 { #category : #'private - ffi' }
 SkiaFilterQuality >> primRealName: aBoxerString [
 	^ self ffiCall: #(void skia_enums_filter_quality_to_string(self, GtBoxerString aBoxerString))

@@ -10,7 +10,6 @@ TSpartaExamples classSide >> canvas: anExtent [
 
 { #category : #examples }
 TSpartaExamples classSide >> example18plus [
-	<gtExample>
 	| canvas path linear stroke sphere radial |
 	
 	canvas := self canvas: 500@500.
@@ -251,7 +250,6 @@ TSpartaExamples >> clipRectangleTwice [
 
 { #category : #examples }
 TSpartaExamples >> donut [
-	<gtExample>
 	| path canvas |
 	
 	canvas := self class canvas: 400@400.
@@ -278,6 +276,63 @@ TSpartaExamples >> donut [
 		draw.
 		
 	^ canvas
+]
+
+{ #category : #'examples - gradient linear' }
+TSpartaExamples >> drawLinearGradient [
+	<gtExample>
+	| aCanvas aGradient |
+
+	aCanvas := self class canvas: 400@400.
+	aGradient := aCanvas paint linearGradient
+		begin: 0@0;
+		end: 400@400;
+		stops: { 0 -> Color blue . 1 -> Color red }.
+	
+	aCanvas fill
+		path: aCanvas bounds;
+		paint: aGradient;
+		draw.
+
+	^ aCanvas
+]
+
+{ #category : #'examples - gradient linear' }
+TSpartaExamples >> drawLinearGradientMiddleStops [
+	<gtExample>
+	| aCanvas aGradient |
+
+	aCanvas := self class canvas: 400@400.
+	aGradient := aCanvas paint linearGradient
+		begin: 0@0;
+		end: 400@400;
+		stops: { 0.2 -> Color blue . 0.6 -> Color red }.
+	
+	aCanvas fill
+		path: aCanvas bounds;
+		paint: aGradient;
+		draw.
+
+	^ aCanvas
+]
+
+{ #category : #'examples - gradient linear' }
+TSpartaExamples >> drawLinearGradientPartial [
+	<gtExample>
+	| aCanvas aGradient |
+
+	aCanvas := self class canvas: 400@400.
+	aGradient := aCanvas paint linearGradient
+		begin: 0@0;
+		end: 400@400;
+		stops: { 0 -> Color blue . 1 -> Color red }.
+	
+	aCanvas fill
+		path: (100@100 corner: 300@300);
+		paint: aGradient;
+		draw.
+
+	^ aCanvas
 ]
 
 { #category : #'examples - fill rectangle' }
@@ -476,7 +531,6 @@ TSpartaExamples >> scaleFillRectangle [
 
 { #category : #examples }
 TSpartaExamples >> shadow [
-	<gtExample>
 	| canvas floating |
 
 	canvas := self class canvas: 500@300.

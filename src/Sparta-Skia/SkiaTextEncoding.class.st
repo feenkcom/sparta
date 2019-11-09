@@ -53,6 +53,11 @@ SkiaTextEncoding class >> externalType [
 	^ FFIInt32 new
 ]
 
+{ #category : #'class initialization' }
+SkiaTextEncoding class >> initialize [
+	super initialize
+]
+
 { #category : #'private - ffi' }
 SkiaTextEncoding >> primRealName: aBoxerString [
 	^ self ffiCall: #(void skia_enums_text_encoding_to_string(self, GtBoxerString aBoxerString))

@@ -45,6 +45,11 @@ SkiaCapStyle class >> externalType [
 	^ FFIInt32 new
 ]
 
+{ #category : #'class initialization' }
+SkiaCapStyle class >> initialize [
+	super initialize
+]
+
 { #category : #'private - ffi' }
 SkiaCapStyle >> primRealName: aBoxerString [
 	^ self ffiCall: #(void skia_enums_cap_style_to_string(self, GtBoxerString aBoxerString))
