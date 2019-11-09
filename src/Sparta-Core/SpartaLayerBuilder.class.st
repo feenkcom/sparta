@@ -36,7 +36,7 @@ SpartaLayerBuilder >> copy: aBoolean [
 	shouldCopy := aBoolean
 ]
 
-{ #category : #layer }
+{ #category : #'api - layer' }
 SpartaLayerBuilder >> during: aBlock [
 
 	self push.
@@ -58,12 +58,12 @@ SpartaLayerBuilder >> opaque: aBoolean [
 	isOpaque := aBoolean
 ]
 
-{ #category : #layer }
+{ #category : #'api - layer' }
 SpartaLayerBuilder >> pop [
 	^ self subclassResponsibility
 ]
 
-{ #category : #layer }
+{ #category : #'api - layer' }
 SpartaLayerBuilder >> push [
 	^ self subclassResponsibility
 ]
@@ -87,7 +87,7 @@ SpartaLayerBuilder >> transformation [
 	^ transformation
 ]
 
-{ #category : #layer }
+{ #category : #'api - layer' }
 SpartaLayerBuilder >> when: aWhenBlock during: aBlock [
 	"Create a new virtual layout only if when block evaluates to true"
 
