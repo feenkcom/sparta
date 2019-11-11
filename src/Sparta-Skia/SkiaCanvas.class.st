@@ -62,6 +62,13 @@ SkiaCanvas >> initializeWith: aSkiaSurface [
 ]
 
 { #category : #builders }
+SkiaCanvas >> layerBuilder [
+	"Return a new instance of the backend specific ${class:SpartaLayerBuilder}$"
+
+	^ SkiaLayerBuilder new
+]
+
+{ #category : #builders }
 SkiaCanvas >> paintProvider [
 	^ SkiaPaintProvider new
 ]

@@ -626,3 +626,70 @@ SkiaSurfaceCanvasExamples >> quickRejectRectangle [
 	
 	^ aSurface
 ]
+
+{ #category : #'examples - state' }
+SkiaSurfaceCanvasExamples >> saveAndRestoreLayer [
+	<gtExample>
+	| aSurface aCanvas aSaveLayerRec |
+	
+	aSurface := SkiaSurface newRasterPremultipled: 70@50.
+	
+	aCanvas := aSurface canvas.
+	self assert: aCanvas saveCount equals: 1.
+	
+	aSaveLayerRec := SkiaSaveLayerRec new.
+	
+	aCanvas saveLayer: aSaveLayerRec.
+	self assert: aCanvas saveCount equals: 2.
+	
+	aCanvas restore.
+	self assert: aCanvas saveCount equals: 1.
+	
+	aCanvas release.
+	
+	^ aSurface
+]
+
+{ #category : #'examples - state' }
+SkiaSurfaceCanvasExamples >> saveAndRestoreState [
+	<gtExample>
+	| aSurface aCanvas |
+	
+	aSurface := SkiaSurface newRasterPremultipled: 70@50.
+	
+	aCanvas := aSurface canvas.
+	self assert: aCanvas saveCount equals: 1.
+	
+	aCanvas save.
+	self assert: aCanvas saveCount equals: 2.
+	
+	aCanvas restore.
+	self assert: aCanvas saveCount equals: 1.
+	
+	
+	aCanvas release.
+	
+	^ aSurface
+]
+
+{ #category : #'examples - state' }
+SkiaSurfaceCanvasExamples >> saveAndRestoreToCountState [
+	<gtExample>
+	| aSurface aCanvas |
+	
+	aSurface := SkiaSurface newRasterPremultipled: 70@50.
+	
+	aCanvas := aSurface canvas.
+	self assert: aCanvas saveCount equals: 1.
+	
+	aCanvas save; save; save.
+	self assert: aCanvas saveCount equals: 4.
+	
+	aCanvas restoreToCount: 1.
+	self assert: aCanvas saveCount equals: 1.
+	
+	
+	aCanvas release.
+	
+	^ aSurface
+]
