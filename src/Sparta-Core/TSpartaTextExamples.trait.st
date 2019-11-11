@@ -109,7 +109,6 @@ TSpartaTextExamples classSide >> drawVerticalLineAt: offsetX named: aName color:
 		draw.
 
 	textPainter := aCanvas text
-		verticalSidewaysLeft;
 		string: aName;
 		paint: aColor;
 		font: (aCanvas font

@@ -5,7 +5,6 @@ Class {
 	#classTraits : 'TMozLibrary classTrait',
 	#instVars : [
 		'textMetrics',
-		'propertyProvider',
 		'fontMetrics',
 		'session'
 	],
@@ -60,7 +59,6 @@ MozTextMetricsProvider >> ffiLibraryName [
 MozTextMetricsProvider >> finalize [
 	self finalizeTextMetrics.
 	self finalizeFontMetrics.
-	self finalizePropertyProvider.
 	
 	session := nil
 ]
@@ -72,17 +70,6 @@ MozTextMetricsProvider >> finalizeFontMetrics [
 	(fontMetrics isNotNil and: [ fontMetrics isNull not ])
 		ifTrue: [ fontMetrics free ].
 	fontMetrics := nil
-]
-
-{ #category : #finalization }
-MozTextMetricsProvider >> finalizePropertyProvider [
-	"Release property provider property.
-	Note: property provider supports smart pointer with counter,
-	so it is ok to pass it to Moz2D external functions"
-
-	propertyProvider 
-		ifNotNil: [ :aPropertyProvider | aPropertyProvider release ].
-	propertyProvider := nil
 ]
 
 { #category : #finalization }
@@ -102,7 +89,6 @@ MozTextMetricsProvider >> initialize [
 
 	self initializeTextMetrics.
 	self initializeFontMetrics.
-	self initializePropertyProvider.
 
 	self autoRelease
 ]
@@ -132,14 +118,6 @@ MozTextMetricsProvider >> initializeFontMetrics [
 ]
 
 { #category : #initialization }
-MozTextMetricsProvider >> initializePropertyProvider [
-	"Note, property provider is not 'autoRelease'd.
-	Memory management is done on the level of metrics provider"
-
-	propertyProvider := MozTextPropertyProvider new
-]
-
-{ #category : #initialization }
 MozTextMetricsProvider >> initializeTextMetrics [
 
 	textMetrics := MozNativeTextMetrics externalNew.
@@ -163,72 +141,34 @@ MozTextMetricsProvider >> isValid [
 
 { #category : #measurement }
 MozTextMetricsProvider >> measure: aTextRun in: aMetrics [
-
+	| aCanvas |
 	self
 		assert: [ aTextRun isNotNil ]
 		description: [ 'Text run to measure must not be nil' ].
 
-	"We measure text only if it is requested"
-	aMetrics measureText ifTrue: [
-		| aBreakPriorityPointer aPropertyProvider aStart aLength aWidth aLineBreakBefore aSpacing aBreakPriority aBoxType aCanvas aWordWrap aSuppressBreaks aWrappedLength |
+	aCanvas := aMetrics canvas.
+	
+	self
+		primMeasure: aTextRun
+		s: 0
+		l: 4294967295
+		b: false
+		w: 4294967295
+		p: Nullptr
+		s: MozTextSuppressBreak eSuppressAllBreaks
+		w: Nullptr
+		m: textMetrics "computed text metrics will be loaded in textMetrics"
+		b: MozTextBoundingBoxType TIGHT_INK_EXTENTS
+		c: aCanvas
+		h: Nullptr
+		l: Nullptr
+		w: false
+		b: Nullptr.
 
-		"In C++ array index starts from 0"
-		aStart := 0.
-		aLength := 4294967295. "limit to max of uint32"
-		aWidth := 4294967295.
-		aLineBreakBefore := aMetrics lineBreakBefore.
-		aBreakPriority := aMetrics breakPriority.
-		aSuppressBreaks := aMetrics suppressBreaks.
-		aSpacing := aMetrics spacing.
-		aBoxType := aMetrics boxType.
-		aCanvas := aMetrics canvas.
-		aWordWrap := aBreakPriority canWrapWord.
-
-		aBreakPriorityPointer := ExternalAddress allocate: FFIUInt32 externalTypeSize.
-		aBreakPriorityPointer unsignedLongAt: 1 put: aBreakPriority value.
-
-		"Choose which property provider we want to use. Users may provide
-		a custom property provider in the request.
-		If it is not provided we use default one"
-		aPropertyProvider := aMetrics propertyProvider.
-		aPropertyProvider ifNil: [ aPropertyProvider := propertyProvider ].
-
-		self
-			assert: [ aPropertyProvider isNotNil ]
-			description: [ 'Property provider used for measurement must not be nil!' ].
-
-		"Next we need to pre-configure property provider according to request"
-		aPropertyProvider spacing: aSpacing.
-		aPropertyProvider breakPriority: aBreakPriority.
-		aPropertyProvider textRun: aTextRun.
-		
-		aWrappedLength := self
-			primMeasure: aTextRun
-			s: aStart
-			l: aLength
-			b: aLineBreakBefore
-			w: aWidth
-			p: aPropertyProvider
-			s: aSuppressBreaks
-			w: Nullptr
-			m: textMetrics "computed text metrics will be loaded in textMetrics"
-			b: aBoxType
-			c: aCanvas
-			h: Nullptr
-			l: Nullptr
-			w: aWordWrap
-			b: aBreakPriorityPointer.
-		
-		"text run is measured, clean state"
-		aPropertyProvider textRun: nil.
-		aBreakPriorityPointer free.
-
-		aMetrics textMetrics: textMetrics asTextMetrics ].
-
-	"We measure font only if it is requested"
-	aMetrics measureFont ifTrue: [
-		self primFontMetrics: fontMetrics textRun: aTextRun.
-		aMetrics fontMetrics: fontMetrics asFontMetrics ]
+	aMetrics textMetrics: textMetrics asTextMetrics.
+	
+	self primFontMetrics: fontMetrics textRun: aTextRun.
+	aMetrics fontMetrics: fontMetrics asFontMetrics
 ]
 
 { #category : #'private - ffi' }
@@ -255,7 +195,7 @@ MozTextMetricsProvider >> primMeasure: aTextRun s: aStart l: aMaxLength b: aLine
 		uint32 aMaxLength,
 		bool aLineBreakBefore,
 		double aWidth,
-		MozTextPropertyProvider aProvider,
+		ExternalAddress aProvider,
 		MozTextSuppressBreak aSuppressBreak,
 		ExternalAddress aTrimWhitespace,
 		MozNativeTextMetrics aMetrics,
@@ -265,17 +205,4 @@ MozTextMetricsProvider >> primMeasure: aTextRun s: aStart l: aMaxLength b: aLine
 		ExternalAddress aLastBreak,
 		bool aCanWordWrap,
 		ExternalAddress aBreakPriorityPointer))
-]
-
-{ #category : #'private - ffi' }
-MozTextMetricsProvider >> primSet: aPropertyProvider hyphensOption: aHyphensOption [
-
-	^ self ffiCall: #(void moz2d_text_run_property_provider_set_hyphens_option (
-		MozTextPropertyProvider aPropertyProvider,
-		MozTextHyphensOption aHyphensOption ) )
-]
-
-{ #category : #private }
-MozTextMetricsProvider >> propertyProvider [
-	^ propertyProvider
 ]

@@ -73,11 +73,7 @@ Class {
 		'paint',
 		'strokePaint',
 		'baseline',
-		'start',
-		'end',
 		'spacing',
-		'maxWidth',
-		'clip',
 		'text'
 	],
 	#category : #'Sparta-Core-Builders'
@@ -89,31 +85,6 @@ SpartaTextPainter >> baseline: aPoint [
 	baseline := aPoint
 ]
 
-{ #category : #'accessing - breaks' }
-SpartaTextPainter >> breakNone [
-	"The line has no break opportunities"
-	self subclassResponsibility
-]
-
-{ #category : #'accessing - breaks' }
-SpartaTextPainter >> breakNormal [
-	"The line has a break opportunity determined by the standard line-breaking algorithm."
-	self subclassResponsibility
-]
-
-{ #category : #'accessing - breaks' }
-SpartaTextPainter >> breakWordWrap [
-	"The line has a break opportunity only within a word.
-	With break-word-wrap we will break at this point only if
-	there are no other break opportunities in the line."
-	self subclassResponsibility
-]
-
-{ #category : #'accessing - breaks' }
-SpartaTextPainter >> clip [
-	clip := true
-]
-
 { #category : #drawing }
 SpartaTextPainter >> draw [
 	text spartaFillOn: canvas with: self
@@ -122,18 +93,6 @@ SpartaTextPainter >> draw [
 { #category : #accessing }
 SpartaTextPainter >> drawOptions: aDrawOptions [
 	drawOptions := aDrawOptions
-]
-
-{ #category : #accessing }
-SpartaTextPainter >> end [
-	^ end
-]
-
-{ #category : #accessing }
-SpartaTextPainter >> end: anIndex [
-	"end is defined in glyph coordinates. one character
-	can be represented by multiple glyphs"
-	end := anIndex
 ]
 
 { #category : #accessing }
@@ -229,16 +188,6 @@ SpartaTextPainter >> font: aFontGroup [
 	font := aFontGroup
 ]
 
-{ #category : #'accessing - orientation' }
-SpartaTextPainter >> horizontal [
-	^ self subclassResponsibility
-]
-
-{ #category : #'accessing - breaks' }
-SpartaTextPainter >> maxWidth: aNumber [
-	maxWidth := aNumber
-]
-
 { #category : #measurement }
 SpartaTextPainter >> measure [
 	^ self subclassResponsibility
@@ -278,23 +227,12 @@ SpartaTextPainter >> reset [
 	strokePaint := Color transparent.
 	baseline := 0@0.
 	text := nil.
-	start := nil.
-	end := nil.
-	spacing := 0.
-	clip := false.
-	maxWidth := Float infinity.
-	self horizontal.
-	self breakNormal
+	spacing := 0
 ]
 
 { #category : #accessing }
 SpartaTextPainter >> spacing: aNumber [
 	spacing := aNumber
-]
-
-{ #category : #accessing }
-SpartaTextPainter >> start: anIndex [
-	start := anIndex
 ]
 
 { #category : #accessing }
@@ -309,11 +247,6 @@ SpartaTextPainter >> string: aString [
 
 { #category : #accessing }
 SpartaTextPainter >> stroke [
-	^ self subclassResponsibility
-]
-
-{ #category : #accessing }
-SpartaTextPainter >> strokeBelow [
 	^ self subclassResponsibility
 ]
 
@@ -339,10 +272,7 @@ SpartaTextPainter >> text [
 
 { #category : #accessing }
 SpartaTextPainter >> text: aText [
-	text := aText.
-	start := 1.
-	"Float infinity means that we render untill the end of the text"
-	end := SmallInteger maxVal
+	text := aText
 ]
 
 { #category : #'instance creation' }
@@ -351,26 +281,6 @@ SpartaTextPainter >> textRun [
 	to choosen font and various text properties"
 	<return: #TSpTextRun>
 	
-	^ self subclassResponsibility
-]
-
-{ #category : #'accessing - orientation' }
-SpartaTextPainter >> verticalMixed [
-	^ self subclassResponsibility
-]
-
-{ #category : #'accessing - orientation' }
-SpartaTextPainter >> verticalSidewaysLeft [
-	^ self subclassResponsibility
-]
-
-{ #category : #'accessing - orientation' }
-SpartaTextPainter >> verticalSidewaysRight [
-	^ self subclassResponsibility
-]
-
-{ #category : #'accessing - orientation' }
-SpartaTextPainter >> verticalUpright [
 	^ self subclassResponsibility
 ]
 
