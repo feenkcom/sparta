@@ -13,7 +13,7 @@ Class {
 }
 
 { #category : #'api - instance creation' }
-SkiaCanvas class >> createForData: aData extent: aPoint stride: stride format: aSkiaColorType [
+SkiaCanvas class >> createForData: aData extent: aPoint stride: aStride format: aSkiaColorType [
 	| anImageData aSurface thePixels |
 	
 	anImageData := SkiaImageInfo
@@ -22,14 +22,14 @@ SkiaCanvas class >> createForData: aData extent: aPoint stride: stride format: a
 		colorType: aSkiaColorType
 		alphaType: SkiaAlphaType Unpremul.
 	
-	thePixels := GtBoxerArrayU8 new.
+	thePixels := GtBoxerArrayU8 fromHandle: aData size: aStride * aPoint y.
 	
 	aSurface := SkiaSurface
 		newRasterDirectImageInfo: anImageData
 		pixels: thePixels
-		stride: stride.
+		stride: aStride.
 		
-	
+	^ self new initializeWith: aSurface
 ]
 
 { #category : #accessing }
@@ -82,6 +82,13 @@ SkiaCanvas >> fillPainter [
 	^ SkiaFillPainter new
 ]
 
+{ #category : #accessing }
+SkiaCanvas >> flush [
+	"Ensure that the backend has flushed all drawing operations to this canvas"
+
+	skiaSurfaceCanvas flush
+]
+
 { #category : #builders }
 SkiaCanvas >> fontBuilder [
 	<return: #SpartaFontBuilder>
@@ -121,6 +128,13 @@ SkiaCanvas >> paintProvider [
 { #category : #builders }
 SkiaCanvas >> pathBuilderClass [
 	^ SkiaPathBuilder
+]
+
+{ #category : #accessing }
+SkiaCanvas >> stride [
+	<return: #Number>
+
+	^ skiaSurface imageInfo minRowBytes
 ]
 
 { #category : #builders }
