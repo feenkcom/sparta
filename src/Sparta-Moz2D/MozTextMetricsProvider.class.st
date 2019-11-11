@@ -173,9 +173,9 @@ MozTextMetricsProvider >> measure: aTextRun in: aMetrics [
 		| aBreakPriorityPointer aPropertyProvider aStart aLength aWidth aLineBreakBefore aSpacing aBreakPriority aBoxType aCanvas aWordWrap aSuppressBreaks aWrappedLength |
 
 		"In C++ array index starts from 0"
-		aStart := (aMetrics start - 1) max: 0.
-		aLength := aMetrics length min: 4294967295. "limit to max of uint32"
-		aWidth := aMetrics width.
+		aStart := 0.
+		aLength := 4294967295. "limit to max of uint32"
+		aWidth := 4294967295.
 		aLineBreakBefore := aMetrics lineBreakBefore.
 		aBreakPriority := aMetrics breakPriority.
 		aSuppressBreaks := aMetrics suppressBreaks.
@@ -222,8 +222,7 @@ MozTextMetricsProvider >> measure: aTextRun in: aMetrics [
 		"text run is measured, clean state"
 		aPropertyProvider textRun: nil.
 		aBreakPriorityPointer free.
-	
-		aMetrics wrappedLength: aWrappedLength.
+
 		aMetrics textMetrics: textMetrics asTextMetrics ].
 
 	"We measure font only if it is requested"

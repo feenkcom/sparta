@@ -6,10 +6,16 @@ Class {
 	#instVars : [
 		'boxerString',
 		'buffer',
-		'textBlob'
+		'textBlob',
+		'metricsProvider'
 	],
 	#category : #'Sparta-Skia-Text'
 }
+
+{ #category : #'instance creation' }
+SkiaTextRun class >> fromString: aString [
+	^ self fromString: aString font: SkiaFont new
+]
 
 { #category : #'instance creation' }
 SkiaTextRun class >> fromString: aString font: aFont [
@@ -42,16 +48,47 @@ SkiaTextRun >> characters [
 { #category : #initialization }
 SkiaTextRun >> initializeWith: aString font: aFont [
 	boxerString := GtBoxerString fromString: aString.
-	buffer := boxerString asArray.
+	buffer := boxerString asArray asByteArray.
 	textBlob := SkiaTextBlob text: boxerString font: aFont
+]
+
+{ #category : #testing }
+SkiaTextRun >> isNull [
+	<return: #Boolean>
+
+	^ boxerString isNull
 ]
 
 { #category : #accessing }
 SkiaTextRun >> length [
-	"Return amount of glyphs that build this text run.
-	Note: in UTF encoding a character may be represented by 1-4 glyphs depending on char's code,
-	it is recommended to use #iterator for text run enumeration"
+	"Return how many characters (not glyphs) are behind this text run"
+	<return: #Number>
+	
+	^ boxerString size
+]
+
+{ #category : #accessing }
+SkiaTextRun >> metricsProvider [
+	^ metricsProvider
+]
+
+{ #category : #accessing }
+SkiaTextRun >> metricsProvider: aMetricsProvider [
+	metricsProvider := aMetricsProvider
+]
+
+{ #category : #accessing }
+SkiaTextRun >> size [
+	"Return a number of glyphs that build this text.
+	Note: in UTF encoding a character may be represented by 1-4 glyphs depending on char's code"
 	<return: #Number>
 	
 	^ boxerString length
+]
+
+{ #category : #accessing }
+SkiaTextRun >> textBlob [
+	<return: #SkiaTextBlob>
+
+	^ textBlob
 ]

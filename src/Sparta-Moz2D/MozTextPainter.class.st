@@ -219,16 +219,13 @@ MozTextPainter >> metrics [
 	aMetrics boxType: MozTextBoundingBoxType TIGHT_INK_EXTENTS.
 	aMetrics breakPriority: breakPriority.
 	aMetrics canvas: canvas.
-	aMetrics length: end - start + 1.
 	aMetrics lineBreakBefore: false.
 	aMetrics measureFont: true.
 	aMetrics measureText: true.
 	aMetrics orientation: orientation.
 	aMetrics isVertical: orientation isVertical.
 	aMetrics spacing: spacing.
-	aMetrics start: start.
 	aMetrics suppressBreaks: MozTextSuppressBreak eSuppressInitialBreak.
-	aMetrics width: maxWidth.
 
 	^ aMetrics
 ]
@@ -307,6 +304,7 @@ MozTextPainter >> textRun [
 		canvas: canvas
 		flags: self flags)
 			metricsProvider: self metricsProvider; "do not forget to set a default metrics provider"
+			autoRelease;
 			yourself
 ]
 

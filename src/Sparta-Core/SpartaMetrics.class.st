@@ -10,10 +10,7 @@ Class {
 		'orientation',
 		'breakPriority',
 		'spacing',
-		'start',
-		'length',
 		'textRun',
-		'width',
 		'propertyProvider',
 		'lineBreakBefore',
 		'suppressBreaks',
@@ -22,7 +19,6 @@ Class {
 		'fontMetrics',
 		'textMetrics',
 		'boxType',
-		'wrappedLength',
 		'canvas',
 		'isVertical'
 	],
@@ -91,24 +87,6 @@ SpartaMetrics >> isVertical [
 { #category : #accessing }
 SpartaMetrics >> isVertical: anObject [
 	isVertical := anObject
-]
-
-{ #category : #accessing }
-SpartaMetrics >> length [
-	^ length
-]
-
-{ #category : #accessing }
-SpartaMetrics >> length: aNumber [
-	"Set amount of glyphs starting from #start that should be measured.
-	If length is greater than amoung of glyphs in text run, it will be measured until the end.
-	Note: one character can be represented by 1 or 2 glyphs depending on encoding"
-	
-	self
-		assert: [ aNumber >= 0 ]
-		description: [ 'Length can not be negative' ].
-	
-	length := aNumber
 ]
 
 { #category : #accessing }
@@ -182,16 +160,6 @@ SpartaMetrics >> spacing: aNumber [
 ]
 
 { #category : #accessing }
-SpartaMetrics >> start [
-	^ start
-]
-
-{ #category : #accessing }
-SpartaMetrics >> start: aNumber [
-	start := aNumber
-]
-
-{ #category : #accessing }
 SpartaMetrics >> suppressBreaks [
 	^ suppressBreaks
 ]
@@ -224,41 +192,4 @@ SpartaMetrics >> textRun [
 { #category : #accessing }
 SpartaMetrics >> textRun: anObject [
 	textRun := anObject
-]
-
-{ #category : #accessing }
-SpartaMetrics >> width [
-	^ width
-]
-
-{ #category : #accessing }
-SpartaMetrics >> width: aNumber [
-	"Metrics will be calculated assuming that space is limited to width.
-	Setting width less than text width may result in word wrapping.
-	Setting width to Float infinity results in no limit"
-
-	width := aNumber
-]
-
-{ #category : #metrics }
-SpartaMetrics >> wrappedEnd [
-	^ self wrappedLength + start - 1
-]
-
-{ #category : #metrics }
-SpartaMetrics >> wrappedLength [
-	"Return the longest measured text run that will fit into the given width.
-	Note: one character can be represented by 1 or 2 glyphs depending on encoding"
-
-	^ wrappedLength
-]
-
-{ #category : #metrics }
-SpartaMetrics >> wrappedLength: aNumber [
-
-	self
-		assert: [ measureText ]
-		description: [ 'I must have been requested text metrics in order to computed wrapped length' ].
-
-	wrappedLength := aNumber
 ]
