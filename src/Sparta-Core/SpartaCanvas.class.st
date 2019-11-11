@@ -534,8 +534,9 @@ SpartaCanvas >> fontFace [
 
 { #category : #builders }
 SpartaCanvas >> fontFaceBuilder [
-	self subclassResponsibility.
-	^ SpartaFontFaceBuilder new
+
+	true ifFalse: [ ^ self subclassResponsibility ].
+	^ SpartaUnimplementedFontFaceBuilder new
 ]
 
 { #category : #filters }

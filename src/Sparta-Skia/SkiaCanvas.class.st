@@ -3,10 +3,34 @@ Class {
 	#superclass : #SpartaCanvas,
 	#instVars : [
 		'skiaSurface',
-		'skiaSurfaceCanvas'
+		'skiaSurfaceCanvas',
+		'session'
+	],
+	#classInstVars : [
+		'offscreen'
 	],
 	#category : #'Sparta-Skia-Core'
 }
+
+{ #category : #'api - instance creation' }
+SkiaCanvas class >> createForData: aData extent: aPoint stride: stride format: aSkiaColorType [
+	| anImageData aSurface thePixels |
+	
+	anImageData := SkiaImageInfo
+		width: aPoint x
+		height: aPoint y
+		colorType: aSkiaColorType
+		alphaType: SkiaAlphaType Unpremul.
+	
+	thePixels := GtBoxerArrayU8 new.
+	
+	aSurface := SkiaSurface
+		newRasterDirectImageInfo: anImageData
+		pixels: thePixels
+		stride: stride.
+		
+	
+]
 
 { #category : #accessing }
 SkiaCanvas class >> drawOptions [
@@ -16,6 +40,15 @@ SkiaCanvas class >> drawOptions [
 { #category : #'api - instance creation' }
 SkiaCanvas class >> extent: anExtent [
 	^ self new initializeWith: (SkiaSurface newRasterPremultipled: anExtent)
+]
+
+{ #category : #accessing }
+SkiaCanvas class >> offscreen [
+	^ offscreen
+		ifNil: [ offscreen := self extent: 1@1 ]
+		ifNotNil: [ :aCanvas | aCanvas isValid
+			ifTrue: [ offscreen ]
+			ifFalse: [ offscreen := self new ] ]
 ]
 
 { #category : #accessing }
@@ -58,7 +91,19 @@ SkiaCanvas >> fontBuilder [
 { #category : #initialization }
 SkiaCanvas >> initializeWith: aSkiaSurface [
 	skiaSurface := aSkiaSurface.
-	skiaSurfaceCanvas := skiaSurface canvas
+	skiaSurfaceCanvas := skiaSurface canvas.
+	session := Smalltalk session
+]
+
+{ #category : #testing }
+SkiaCanvas >> isValid [
+	"Return true if canvas is correctly initialized (not a null pointer)
+	and is actually valid that is determined by a backend"
+	<return: #Boolean>
+
+	^ session == Smalltalk session
+		and: [ skiaSurface isNull not
+			and: [ skiaSurfaceCanvas isNull not ] ]
 ]
 
 { #category : #builders }

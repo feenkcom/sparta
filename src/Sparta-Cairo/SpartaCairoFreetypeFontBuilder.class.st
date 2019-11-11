@@ -4,7 +4,7 @@ Class {
 	#instVars : [
 		'fontList'
 	],
-	#category : 'Sparta-Cairo-Builders'
+	#category : #'Sparta-Cairo-Builders'
 }
 
 { #category : #accessing }
@@ -151,24 +151,4 @@ SpartaCairoFreetypeFontBuilder >> styleReset [
 { #category : #'instance creation' }
 SpartaCairoFreetypeFontBuilder >> variable [
 	SpartaUnsupported signal
-]
-
-{ #category : #weight }
-SpartaCairoFreetypeFontBuilder >> weightBold [
-	self weight: LogicalFont weightBold
-]
-
-{ #category : #weight }
-SpartaCairoFreetypeFontBuilder >> weightNormal [
-	self weight: LogicalFont weightMedium
-]
-
-{ #category : #weight }
-SpartaCairoFreetypeFontBuilder >> weightReset [
-	self weightNormal
-]
-
-{ #category : #weight }
-SpartaCairoFreetypeFontBuilder >> weightThin [
-	self weight: LogicalFont weightThin
 ]
