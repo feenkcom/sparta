@@ -195,14 +195,14 @@ MozTextMetricsProvider >> primMeasure: aTextRun s: aStart l: aMaxLength b: aLine
 		uint32 aMaxLength,
 		bool aLineBreakBefore,
 		double aWidth,
-		ExternalAddress aProvider,
+		void* aProvider,
 		MozTextSuppressBreak aSuppressBreak,
-		ExternalAddress aTrimWhitespace,
+		void* aTrimWhitespace,
 		MozNativeTextMetrics aMetrics,
 		MozTextBoundingBoxType aBoundingBoxType,
 		MozCanvas aCanvas,
-		ExternalAddress aUsedHyphenation,
-		ExternalAddress aLastBreak,
+		void* aUsedHyphenation,
+		void* aLastBreak,
 		bool aCanWordWrap,
-		ExternalAddress aBreakPriorityPointer))
+		void* aBreakPriorityPointer))
 ]
