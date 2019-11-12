@@ -113,6 +113,16 @@ SkiaSurfaceCanvas >> drawColor: aColor blendMode: aBlendMode [
 ]
 
 { #category : #'api - drawing' }
+SkiaSurfaceCanvas >> drawImage: aSkiaImage at: anOriginPoint [
+	self drawImage: aSkiaImage at: anOriginPoint paint: SkiaPaint null
+]
+
+{ #category : #'api - drawing' }
+SkiaSurfaceCanvas >> drawImage: aSkiaImage at: anOriginPoint paint: aSkiaPaint [
+	self primDrawImage: aSkiaImage x: anOriginPoint x y: anOriginPoint y paint: aSkiaPaint
+]
+
+{ #category : #'api - drawing' }
 SkiaSurfaceCanvas >> drawLine: aSpartaLine paint: aSkiaPaint [	
 	self
 		primDrawLineFromX: aSpartaLine from x y: aSpartaLine from y
@@ -228,6 +238,14 @@ SkiaSurfaceCanvas >> primDrawColorR: r g: g b: b a: a blendMode: aBlendMode [
 	^ self ffiCall: #(void skia_canvas_draw_color(self,
 		uint8 r, uint8 g, uint8 b, uint8 a,
 		SkiaBlendMode aBlendMode))
+]
+
+{ #category : #'private - ffi' }
+SkiaSurfaceCanvas >> primDrawImage: aSkiaImage x: aX y: aY paint: aSkiaPaint [
+	self ffiCall: #(void skia_canvas_draw_image(self,
+		SkiaImage aSkiaImage,
+		scalar aX, scalar aY,
+		SkiaPaint aSkiaPaint))
 ]
 
 { #category : #'private - ffi' }

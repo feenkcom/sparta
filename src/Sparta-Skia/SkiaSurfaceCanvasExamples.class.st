@@ -187,6 +187,46 @@ SkiaSurfaceCanvasExamples >> drawDefaultTextBlob [
 	^ aSurface
 ]
 
+{ #category : #'examples - draw image' }
+SkiaSurfaceCanvasExamples >> drawImage [
+	<gtExample>
+	| aWhiteSurface aWhiteCanvas aWhiteImage aSurface  aCanvas |
+	
+	"we draw a white image 1@1 that we will draw on top of the black surface"
+	aWhiteSurface := SkiaSurfaceExamples new newRasterPremultipledSizeOne.
+	
+	aWhiteCanvas := aWhiteSurface canvas.
+	aWhiteCanvas drawColor: Color white.
+	aWhiteCanvas flush.
+	aWhiteCanvas release.
+	
+	aWhiteImage := aWhiteSurface snapshot.
+
+	self assert: aWhiteSurface data asArray equals: #(255 255 255 255).
+	self assert: aWhiteImage data asArray equals: #(255 255 255 255).
+	
+	"create a black surface"
+	aSurface := SkiaSurfaceExamples new newRasterPremultipledSizeOne.
+	
+	aCanvas := aSurface canvas.
+	aCanvas drawColor: Color black.
+	aCanvas flush.
+	aCanvas release.
+	
+	self assert: aSurface data asArray equals: #(0 0 0 255).
+	
+	"we draw a white image on top of the black surface"
+	aCanvas := aSurface canvas.
+	aCanvas drawImage: aWhiteImage at: 0@0.
+	aCanvas flush.
+	aCanvas release.
+	
+	"it becomes white"
+	self assert: aSurface data asArray equals: #(255 255 255 255).
+	
+	^ aSurface
+]
+
 { #category : #'examples - draw line' }
 SkiaSurfaceCanvasExamples >> drawLineBlack [
 	<gtExample>

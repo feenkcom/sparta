@@ -50,7 +50,7 @@ SkiaSurface class >> release: aSkiaSurface [
 	super release: aSkiaSurface getHandle
 ]
 
-{ #category : #accessing }
+{ #category : #converting }
 SkiaSurface >> asForm [
 	<return: #Form>
 	
@@ -139,6 +139,11 @@ SkiaSurface >> primGetImageInfo [
 ]
 
 { #category : #'private - ffi' }
+SkiaSurface >> primGetImageSnapshot [
+	^ self ffiCall: #(void* skia_surface_get_image_snapshot(self))
+]
+
+{ #category : #'private - ffi' }
 SkiaSurface >> primGetWidth [
 	^ self ffiCall: #(int32 skia_surface_get_width(self))
 ]
@@ -156,4 +161,11 @@ SkiaSurface >> registeredCanvasesDo: aBlock [
 { #category : #'external resource management' }
 SkiaSurface >> resourceData [
 	^ self
+]
+
+{ #category : #accessing }
+SkiaSurface >> snapshot [
+	<return: #SkiaImage>
+
+	^ SkiaImage fromNativeHandle: self primGetImageSnapshot
 ]
