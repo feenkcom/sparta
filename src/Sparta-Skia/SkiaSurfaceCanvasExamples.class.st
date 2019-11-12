@@ -226,6 +226,24 @@ SkiaSurfaceCanvasExamples >> drawImage [
 	^ aSurface
 ]
 
+{ #category : #'examples - image filter blur' }
+SkiaSurfaceCanvasExamples >> drawImageWithBlur [
+	<gtExample>
+	| aSurface aCanvas anImage aPaint |
+	
+	aSurface := SkiaSurface newRasterPremultipled: 70@50.
+
+	aPaint := SkiaPaint new imageFilter: (SkiaImageFilterBlur sigma: 3@3).
+	anImage := self drawPathTriangleWithGrayFill snapshot.
+	
+	aCanvas := aSurface canvas.
+	aCanvas drawImage: anImage at: 0@0 paint: aPaint.
+	aCanvas flush.
+	aCanvas release.
+	
+	^ aSurface
+]
+
 { #category : #'examples - draw line' }
 SkiaSurfaceCanvasExamples >> drawLineBlack [
 	<gtExample>

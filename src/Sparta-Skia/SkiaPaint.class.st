@@ -136,6 +136,18 @@ SkiaPaint >> gtInforFor: aView [
 ]
 
 { #category : #accessing }
+SkiaPaint >> imageFilter [
+	<return: #SkiaImageFilter>
+	
+	^ SkiaImageFilter fromNativeHandle: self primGetImageFilter
+]
+
+{ #category : #accessing }
+SkiaPaint >> imageFilter: aSkiaImageFilter [
+	self primSetImageFilter: aSkiaImageFilter
+]
+
+{ #category : #accessing }
 SkiaPaint >> joinStyle [
 	<return: #SkiaJoinStyle>
 
@@ -175,13 +187,18 @@ SkiaPaint >> primGetColor [
 ]
 
 { #category : #'private - ffi' }
+SkiaPaint >> primGetImageFilter [
+	self ffiCall: #(void* skia_paint_get_image_filter(self))
+]
+
+{ #category : #'private - ffi' }
 SkiaPaint >> primGetPaintStyle [
 	self ffiCall: #(SkiaPaintStyle skia_paint_get_style(self))
 ]
 
 { #category : #'private - ffi' }
 SkiaPaint >> primGetShader [
-	self ffiCall: #(SkiaShader skia_paint_get_shader(self))
+	self ffiCall: #(void* skia_paint_get_shader(self))
 ]
 
 { #category : #'private - ffi' }
@@ -237,6 +254,11 @@ SkiaPaint >> primSetBlendMode: aSkiaBlendMode [
 { #category : #'private - ffi' }
 SkiaPaint >> primSetDither: isDither [
 	self ffiCall: #(void skia_paint_set_dither(self, bool isDither))
+]
+
+{ #category : #'private - ffi' }
+SkiaPaint >> primSetImageFilter: aSkiaImageFilter [
+	self ffiCall: #(void skia_paint_set_image_filter(self, SkiaImageFilter aSkiaImageFilter))
 ]
 
 { #category : #'private - ffi' }
