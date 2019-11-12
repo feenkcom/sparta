@@ -50,6 +50,14 @@ SkiaTextPainter >> fillString: aString withColor: aFillColor strokeColor: aStrok
 SkiaTextPainter >> fillString: aString withColor: aFillColor strokePaint: aStrokePaint [
 ]
 
+{ #category : #drawing }
+SkiaTextPainter >> fillTextRun: aTextRun withColor: aFillColor strokeColor: aStrokeColor [	
+	canvas surfaceCanvas
+		drawTextBlob: aTextRun textBlob
+		at: baseline
+		paint: (self createPaintForColor: aFillColor)
+]
+
 { #category : #'accessing - orientation' }
 SkiaTextPainter >> horizontal [
 ]
@@ -89,7 +97,7 @@ SkiaTextPainter >> textRun [
 	to choosen font and various text properties"
 	<return: #TSpTextRun>
 	
-	^ SkiaTextRun fromString: text font: font
+	^ (SkiaTextRun fromString: text font: font) metricsProvider: self metricsProvider
 ]
 
 { #category : #'accessing - orientation' }

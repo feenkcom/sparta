@@ -534,8 +534,9 @@ SpartaCanvas >> fontFace [
 
 { #category : #builders }
 SpartaCanvas >> fontFaceBuilder [
-	self subclassResponsibility.
-	^ SpartaFontFaceBuilder new
+
+	true ifFalse: [ ^ self subclassResponsibility ].
+	^ SpartaUnimplementedFontFaceBuilder new
 ]
 
 { #category : #filters }
@@ -599,8 +600,10 @@ SpartaCanvas >> layer [
 
 { #category : #builders }
 SpartaCanvas >> layerBuilder [
-	self subclassResponsibility.
-	^ SpartaLayerBuilder new
+	"Return a new instance of the backend specific ${class:SpartaLayerBuilder}$"
+
+	true ifFalse: [ ^ self subclassResponsibility ].
+	^ SpartaUnimplementedLayerBuilder new
 ]
 
 { #category : #filters }
@@ -729,8 +732,10 @@ SpartaCanvas >> shadow [
 
 { #category : #builders }
 SpartaCanvas >> shadowPainter [
-	self subclassResponsibility.
-	^ SpartaShadowPainter new
+	"Return a new instance of the backend specific ${class:SpartaShadowPainter}$"
+
+	true ifFalse: [ ^ self subclassResponsibility ].
+	^ SpartaUnimplementedShadowPainter new
 ]
 
 { #category : #api }

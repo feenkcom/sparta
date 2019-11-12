@@ -8,32 +8,26 @@ Class {
 
 { #category : #measurement }
 SpartaCairoMetricsProvider >> measure: aSpTextRun in: aSpMetrics [
-	
-	"We measure text only if it is requested"
-	aSpMetrics measureText ifTrue: [
-		| aTextMetrics |
-		aTextMetrics := SpartaCairoTextMetrics new.
-		
-		self primSetScaledFont: aSpTextRun scaledFont canvas: aSpMetrics canvas.
-		self
-			primGlyphExtents: aSpTextRun glyphs
-			num: aSpTextRun glyphs size
-			metrics: aTextMetrics
-			canvas: aSpMetrics canvas.
+	| aTextMetrics  aFontMetrics |
 
-		aSpMetrics wrappedLength: aSpTextRun glyphs size.
-		aSpMetrics textMetrics: aTextMetrics asTextMetrics
-	].
+	aTextMetrics := SpartaCairoTextMetrics new.
 	
-	"We measure font only if it is requested"
-	aSpMetrics measureFont ifTrue: [
-		| aFontMetrics |
-		aFontMetrics := SpartaCairoFontMetrics new.
-		
-		self primSetScaledFont: aSpTextRun scaledFont canvas: aSpMetrics canvas.
-		self primFontExtents: aFontMetrics canvas: aSpMetrics canvas.
-		
-		aSpMetrics fontMetrics: aFontMetrics asFontMetrics ]
+	self primSetScaledFont: aSpTextRun scaledFont canvas: aSpMetrics canvas.
+	self
+		primGlyphExtents: aSpTextRun glyphs
+		num: aSpTextRun glyphs size
+		metrics: aTextMetrics
+		canvas: aSpMetrics canvas.
+
+	aSpMetrics wrappedLength: aSpTextRun glyphs size.
+	aSpMetrics textMetrics: aTextMetrics asTextMetrics.
+	
+	aFontMetrics := SpartaCairoFontMetrics new.
+	
+	self primSetScaledFont: aSpTextRun scaledFont canvas: aSpMetrics canvas.
+	self primFontExtents: aFontMetrics canvas: aSpMetrics canvas.
+	
+	aSpMetrics fontMetrics: aFontMetrics asFontMetrics
 ]
 
 { #category : #'private - ffi' }

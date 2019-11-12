@@ -83,20 +83,20 @@ TSpFontDescriptor >> weight: aWeight [
 
 { #category : #weight }
 TSpFontDescriptor >> weightBold [
-	^ self subclassResponsibility
+	self weight: SpartaFontWeight bold
 ]
 
 { #category : #weight }
 TSpFontDescriptor >> weightNormal [
-	^ self subclassResponsibility
+	self weight: SpartaFontWeight normal
 ]
 
 { #category : #weight }
 TSpFontDescriptor >> weightReset [
-	self subclassResponsibility
+	self weightNormal
 ]
 
 { #category : #weight }
 TSpFontDescriptor >> weightThin [
-	^ self subclassResponsibility
+	self weight: SpartaFontWeight thin
 ]

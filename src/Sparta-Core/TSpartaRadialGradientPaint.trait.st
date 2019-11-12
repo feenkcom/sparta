@@ -53,22 +53,12 @@ Trait {
 }
 
 { #category : #accessing }
-TSpartaRadialGradientPaint >> innerCenter: aPoint [
+TSpartaRadialGradientPaint >> center: aPoint [
 	^ self explicitRequirement
 ]
 
 { #category : #accessing }
-TSpartaRadialGradientPaint >> innerRadius: aNumber [
-	^ self explicitRequirement
-]
-
-{ #category : #accessing }
-TSpartaRadialGradientPaint >> outerCenter: aPoint [
-	^ self explicitRequirement
-]
-
-{ #category : #accessing }
-TSpartaRadialGradientPaint >> outerRadius: aNumber [
+TSpartaRadialGradientPaint >> radius: aNumber [
 	^ self explicitRequirement
 ]
 

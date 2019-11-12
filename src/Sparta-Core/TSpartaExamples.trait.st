@@ -335,6 +335,63 @@ TSpartaExamples >> drawLinearGradientPartial [
 	^ aCanvas
 ]
 
+{ #category : #'examples - gradient radial' }
+TSpartaExamples >> drawRadialGradient [
+	<gtExample>
+	| aCanvas aGradient |
+
+	aCanvas := self class canvas: 400@400.
+	aGradient := aCanvas paint radialGradient
+		center: 200@200;
+		radius: 200;
+		stops: { 0 -> Color blue . 1 -> Color red }.
+	
+	aCanvas fill
+		path: aCanvas bounds;
+		paint: aGradient;
+		draw.
+
+	^ aCanvas
+]
+
+{ #category : #'examples - gradient radial' }
+TSpartaExamples >> drawRadialGradientMiddleStops [
+	<gtExample>
+	| aCanvas aGradient |
+
+	aCanvas := self class canvas: 400@400.
+	aGradient := aCanvas paint radialGradient
+		center: 200@200;
+		radius: 200;
+		stops: { 0.2 -> Color blue . 0.6 -> Color red }.
+	
+	aCanvas fill
+		path: aCanvas bounds;
+		paint: aGradient;
+		draw.
+
+	^ aCanvas
+]
+
+{ #category : #'examples - gradient radial' }
+TSpartaExamples >> drawRadialGradientPartial [
+	<gtExample>
+	| aCanvas aGradient |
+
+	aCanvas := self class canvas: 400@400.
+	aGradient := aCanvas paint radialGradient
+		center: 200@200;
+		radius: 200;
+		stops: { 0 -> Color blue . 1 -> Color red }.
+	
+	aCanvas fill
+		path: (100@100 corner: 300@300);
+		paint: aGradient;
+		draw.
+
+	^ aCanvas
+]
+
 { #category : #'examples - fill rectangle' }
 TSpartaExamples >> fillRectangleWithGrayColor [
 	<gtExample>
@@ -345,6 +402,46 @@ TSpartaExamples >> fillRectangleWithGrayColor [
 	aCanvas fill
 		path: (100@100 corner: 300@200);
 		paint: Color lightGray;
+		draw.
+
+	^ aCanvas
+]
+
+{ #category : #'examples - fill rectangle' }
+TSpartaExamples >> fillRectangleWithLRadialGradient [
+	<gtExample>
+	| aCanvas aPaint |
+
+	aCanvas := self class canvas: 400@300.
+	
+	aPaint := aCanvas paint radialGradient
+		center: 200@150;
+		radius: 150;
+		stops: { 0 -> Color blue . 1 -> Color red }.
+	
+	aCanvas fill
+		path: (50@50 corner: 350@250);
+		paint: aPaint;
+		draw.
+
+	^ aCanvas
+]
+
+{ #category : #'examples - fill rectangle' }
+TSpartaExamples >> fillRectangleWithLinearGradient [
+	<gtExample>
+	| aCanvas aPaint |
+
+	aCanvas := self class canvas: 400@300.
+	
+	aPaint := aCanvas paint linearGradient
+		begin: 50@50;
+		end: 300@200;
+		stops: { 0 -> Color blue . 1 -> Color red }.
+	
+	aCanvas fill
+		path: (50@50 corner: 350@250);
+		paint: aPaint;
 		draw.
 
 	^ aCanvas
@@ -368,6 +465,62 @@ TSpartaExamples >> fillTriangleWithGrayColor [
 	aCanvas fill
 		path: aPath;
 		paint: Color lightGray;
+		draw.
+
+	^ aCanvas
+]
+
+{ #category : #'examples - fill triangle' }
+TSpartaExamples >> fillTriangleWithLinearGradient [
+	<gtExample>
+	| aCanvas aPath aPaint |
+
+	aCanvas := self class canvas: 400@300.
+	
+	aPath := aCanvas path
+		absolute;
+		moveTo: 200@50;
+		lineTo: 350@250;
+		lineTo: 50@250;
+		close;
+		build.
+
+	aPaint := aCanvas paint linearGradient
+		begin: 50@250;
+		end: 275@150;
+		stops: { 0 -> Color blue . 1 -> Color red }.
+	
+	aCanvas fill
+		path: aPath;
+		paint: aPaint;
+		draw.
+
+	^ aCanvas
+]
+
+{ #category : #'examples - fill triangle' }
+TSpartaExamples >> fillTriangleWithRadialGradient [
+	<gtExample>
+	| aCanvas aPath aPaint |
+
+	aCanvas := self class canvas: 400@300.
+	
+	aPath := aCanvas path
+		absolute;
+		moveTo: 200@50;
+		lineTo: 350@250;
+		lineTo: 50@250;
+		close;
+		build.
+
+	aPaint := aCanvas paint radialGradient
+		center: 200@170;
+		radius: 125;
+		stops: { 0 -> Color blue . 1 -> Color red }.
+	
+	aCanvas fill
+		path: aPath;
+		paint: aPaint;
 		draw.
 
 	^ aCanvas

@@ -9,12 +9,23 @@ Class {
 		'outerCenter',
 		'outerRadius'
 	],
-	#category : 'Sparta-Moz2D-Paints'
+	#category : #'Sparta-Moz2D-Paints'
 }
 
 { #category : #converting }
 MozRadialGradientPaint >> asMozPatternOn: aMozCanvas [
 	^ aMozCanvas pattern radialGradient: self
+]
+
+{ #category : #accessing }
+MozRadialGradientPaint >> center [
+	^ innerCenter
+]
+
+{ #category : #accessing }
+MozRadialGradientPaint >> center: aPoint [
+	innerCenter := aPoint.
+	outerCenter := aPoint
 ]
 
 { #category : #converting }
@@ -67,5 +78,11 @@ MozRadialGradientPaint >> outerRadius [
 
 { #category : #accessing }
 MozRadialGradientPaint >> outerRadius: aNumber [
+	outerRadius := aNumber
+]
+
+{ #category : #accessing }
+MozRadialGradientPaint >> radius: aNumber [
+	innerRadius := 0.
 	outerRadius := aNumber
 ]

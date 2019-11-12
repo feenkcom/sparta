@@ -10,10 +10,24 @@ SkiaImageInfo class >> primCreate [
 ]
 
 { #category : #'private - ffi' }
+SkiaImageInfo class >> primCreateWidth: aWidth height: aHeight colorType: aColorType alphaType: anAlphaType [
+	^ self ffiCall: #(void* skia_image_info_new(
+		int32 aWidth,
+		int32 aHeight,
+		SkiaColorType aColorType,
+		SkiaAlphaType anAlphaType))
+]
+
+{ #category : #'private - ffi' }
 SkiaImageInfo class >> primRelease: aHandle [
 	
 	"Plain pointers must be deleted using delete(), all users must implement a specific method"
 	self ffiCall: #(void skia_image_info_drop(void* aHandle))
+]
+
+{ #category : #'instance creation' }
+SkiaImageInfo class >> width: aWidth height: aHeight colorType: aColorType alphaType: anAlphaType [
+	^ self fromNativeHandle: (self primCreateWidth: aWidth height: aHeight colorType: aColorType alphaType: anAlphaType)
 ]
 
 { #category : #accessing }

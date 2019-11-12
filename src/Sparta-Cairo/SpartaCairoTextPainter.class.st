@@ -71,13 +71,7 @@ SpartaCairoTextPainter >> metrics [
 
 	aMetrics := SpartaMetrics new.
 	aMetrics canvas: canvas.
-	aMetrics length: end - start + 1.
-	aMetrics lineBreakBefore: false.
-	aMetrics measureFont: true.
-	aMetrics measureText: true.
 	aMetrics spacing: spacing.
-	aMetrics start: start.
-	aMetrics width: maxWidth.
 
 	^ aMetrics
 ]
@@ -106,7 +100,9 @@ SpartaCairoTextPainter >> primShowGlyphs: aGlyphsArray num: aNumberOfGlyphs [
 
 { #category : #'instance creation' }
 SpartaCairoTextPainter >> textRun [
-	^ (font scaledFontFor: canvas transform current) makeTextRunNoRelease: text
+	^ ((font scaledFontFor: canvas transform current)
+		makeTextRunNoRelease: text)
+			autoRelease
 ]
 
 { #category : #'accessing - orientation' }

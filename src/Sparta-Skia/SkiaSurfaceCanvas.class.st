@@ -330,6 +330,11 @@ SkiaSurfaceCanvas >> primSave [
 ]
 
 { #category : #'private - ffi' }
+SkiaSurfaceCanvas >> primSaveLayer: aSkiaSaveLayerRec [
+	^ self ffiCall: #(size_t skia_canvas_save_layer(self, SkiaSaveLayerRec aSkiaSaveLayerRec))
+]
+
+{ #category : #'private - ffi' }
 SkiaSurfaceCanvas >> primScaleX: aX y: aY [
 	^ self ffiCall: #(void skia_canvas_scale(self, scalar aX, scalar aY))
 ]
@@ -384,6 +389,11 @@ SkiaSurfaceCanvas >> save [
 SkiaSurfaceCanvas >> saveCount [
 	<return: #Number>
 	^ self primGetSaveCount
+]
+
+{ #category : #'api - state' }
+SkiaSurfaceCanvas >> saveLayer: aSkiaSaveLayerRec [
+	self primSaveLayer: aSkiaSaveLayerRec
 ]
 
 { #category : #'api - transformation' }

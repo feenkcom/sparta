@@ -49,3 +49,11 @@ SkiaLinearGradient >> end [
 SkiaLinearGradient >> end: aPoint [
 	end := aPoint
 ]
+
+{ #category : #initialization }
+SkiaLinearGradient >> initialize [
+	super initialize.
+	
+	begin := 0@0.
+	end := 0@0
+]

@@ -10,7 +10,7 @@ Class {
 		'cache',
 		'session'
 	],
-	#category : 'Sparta-Moz2D-Builders'
+	#category : #'Sparta-Moz2D-Builders'
 }
 
 { #category : #accessing }
@@ -188,9 +188,4 @@ MozFontBuilder >> styleReset [
 { #category : #'instance creation' }
 MozFontBuilder >> variable [
 	self fontListAdd: MozFontFamilyType variable
-]
-
-{ #category : #weight }
-MozFontBuilder >> weightReset [
-	self weightNormal
 ]

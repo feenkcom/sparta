@@ -10,6 +10,11 @@ Class {
 }
 
 { #category : #'instance creation' }
+SkiaSurface class >> newRasterDirectImageInfo: aSkiaImageInfo pixels: thePixels stride: aStride [
+	^ self fromNativeHandle: (self primNewRasterDirectImageInfo: aSkiaImageInfo pixels: thePixels stride: aStride)
+]
+
+{ #category : #'instance creation' }
 SkiaSurface class >> newRasterPremultipled: anExtent [
 	| anIntegerExtent |
 	
@@ -25,6 +30,11 @@ SkiaSurface class >> primCreate [
 { #category : #'private - ffi' }
 SkiaSurface class >> primNewRaster32PremultipliedWidth: aWidth height: aHeight [
 	^ self ffiCall: #(void* skia_surface_new_raster_n32_premul(int32 aWidth, int32 aHeight))
+]
+
+{ #category : #'private - ffi' }
+SkiaSurface class >> primNewRasterDirectImageInfo: aSkiaImageInfo pixels: thePixels stride: aStride [
+	^ self ffiCall: #(void* skia_surface_new_raster_direct(SkiaImageInfo aSkiaImageInfo, GtBoxerArrayU8 thePixels, size_t aStride))
 ]
 
 { #category : #'private - ffi' }

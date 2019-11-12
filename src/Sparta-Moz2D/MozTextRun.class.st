@@ -9,7 +9,7 @@ Class {
 		'length',
 		'bits'
 	],
-	#category : 'Sparta-Moz2D-Text'
+	#category : #'Sparta-Moz2D-Text'
 }
 
 { #category : #'instance creation' }
@@ -61,7 +61,7 @@ MozTextRun >> buffer: aByteArray [
 
 { #category : #accessing }
 MozTextRun >> length [
-	"Return how many characters (not glyphs) are nehind this text run"
+	"Return how many characters (not glyphs) are behind this text run"
 	<return: #Number>
 
 	^ length

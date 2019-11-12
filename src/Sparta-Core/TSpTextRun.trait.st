@@ -10,6 +10,10 @@ Trait {
 	#category : #'Sparta-Core-Text'
 }
 
+{ #category : #'external resource management' }
+TSpTextRun >> autoRelease [
+]
+
 { #category : #accessing }
 TSpTextRun >> bits [
 	"Return how many bits one character takes"
@@ -61,23 +65,16 @@ TSpTextRun >> isNotEmpty [
 	^ self length > 0
 ]
 
-{ #category : #enumeration }
-TSpTextRun >> iterator [
+{ #category : #testing }
+TSpTextRun >> isNull [
+	<return: #Boolean>
 
-	^ self is8Bit
-		ifTrue: [ SpTextRunIterator8Bit on: self ]
-		ifFalse: [ self is16Bit
-			ifTrue: [ SpTextRunIterator16Bit on: self ]
-			ifFalse: [ self is32Bit
-				ifTrue: [ SpTextRunIterator32Bit on: self ]
-				ifFalse: [ self error: 'Unknown UTF type: ', self bits asString ] ] ]
+	^ self explicitRequirement
 ]
 
 { #category : #accessing }
 TSpTextRun >> length [
-	"Return amount of glyphs that build this text run.
-	Note: in UTF encoding a character may be represented by 1-4 glyphs depending on char's code,
-	it is recommended to use #iterator for text run enumeration"
+	"Return how many characters (not glyphs) are behind this text run"
 	<return: #Number>
 	
 	^ self explicitRequirement
@@ -89,6 +86,15 @@ TSpTextRun >> measureOn: aSpMetrics [
 	parameters specified in aSpMetrics and store measurement results in it"
 	
 	self metricsProvider measure: self in: aSpMetrics
+]
+
+{ #category : #accessing }
+TSpTextRun >> size [
+	"Return a number of glyphs that build this text.
+	Note: in UTF encoding a character may be represented by 1-4 glyphs depending on char's code"
+	<return: #Number>
+	
+	^ self explicitRequirement
 ]
 
 { #category : #dispatch }

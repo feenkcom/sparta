@@ -3,10 +3,34 @@ Class {
 	#superclass : #SpartaCanvas,
 	#instVars : [
 		'skiaSurface',
-		'skiaSurfaceCanvas'
+		'skiaSurfaceCanvas',
+		'session'
+	],
+	#classInstVars : [
+		'offscreen'
 	],
 	#category : #'Sparta-Skia-Core'
 }
+
+{ #category : #'api - instance creation' }
+SkiaCanvas class >> createForData: aData extent: aPoint stride: aStride format: aSkiaColorType [
+	| anImageData aSurface thePixels |
+	
+	anImageData := SkiaImageInfo
+		width: aPoint x
+		height: aPoint y
+		colorType: aSkiaColorType
+		alphaType: SkiaAlphaType Unpremul.
+	
+	thePixels := GtBoxerArrayU8 fromHandle: aData size: aStride * aPoint y.
+	
+	aSurface := SkiaSurface
+		newRasterDirectImageInfo: anImageData
+		pixels: thePixels
+		stride: aStride.
+		
+	^ self new initializeWith: aSurface
+]
 
 { #category : #accessing }
 SkiaCanvas class >> drawOptions [
@@ -16,6 +40,15 @@ SkiaCanvas class >> drawOptions [
 { #category : #'api - instance creation' }
 SkiaCanvas class >> extent: anExtent [
 	^ self new initializeWith: (SkiaSurface newRasterPremultipled: anExtent)
+]
+
+{ #category : #accessing }
+SkiaCanvas class >> offscreen [
+	^ offscreen
+		ifNil: [ offscreen := self extent: 1@1 ]
+		ifNotNil: [ :aCanvas | aCanvas isValid
+			ifTrue: [ offscreen ]
+			ifFalse: [ offscreen := self new ] ]
 ]
 
 { #category : #accessing }
@@ -49,6 +82,13 @@ SkiaCanvas >> fillPainter [
 	^ SkiaFillPainter new
 ]
 
+{ #category : #accessing }
+SkiaCanvas >> flush [
+	"Ensure that the backend has flushed all drawing operations to this canvas"
+
+	skiaSurfaceCanvas flush
+]
+
 { #category : #builders }
 SkiaCanvas >> fontBuilder [
 	<return: #SpartaFontBuilder>
@@ -58,7 +98,26 @@ SkiaCanvas >> fontBuilder [
 { #category : #initialization }
 SkiaCanvas >> initializeWith: aSkiaSurface [
 	skiaSurface := aSkiaSurface.
-	skiaSurfaceCanvas := skiaSurface canvas
+	skiaSurfaceCanvas := skiaSurface canvas.
+	session := Smalltalk session
+]
+
+{ #category : #testing }
+SkiaCanvas >> isValid [
+	"Return true if canvas is correctly initialized (not a null pointer)
+	and is actually valid that is determined by a backend"
+	<return: #Boolean>
+
+	^ session == Smalltalk session
+		and: [ skiaSurface isNull not
+			and: [ skiaSurfaceCanvas isNull not ] ]
+]
+
+{ #category : #builders }
+SkiaCanvas >> layerBuilder [
+	"Return a new instance of the backend specific ${class:SpartaLayerBuilder}$"
+
+	^ SkiaLayerBuilder new
 ]
 
 { #category : #builders }
@@ -69,6 +128,13 @@ SkiaCanvas >> paintProvider [
 { #category : #builders }
 SkiaCanvas >> pathBuilderClass [
 	^ SkiaPathBuilder
+]
+
+{ #category : #accessing }
+SkiaCanvas >> stride [
+	<return: #Number>
+
+	^ skiaSurface imageInfo minRowBytes
 ]
 
 { #category : #builders }
