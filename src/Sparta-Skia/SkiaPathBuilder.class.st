@@ -53,6 +53,42 @@ SkiaPathBuilder >> arcAround: aCenterPoint radius: aRadius startAngle: aStartAng
 	path arcTo: aRectangle start: (anEndAngle - theRestAngle) radiansToDegrees sweep: theRestAngle radiansToDegrees forceMove: false absolute: isAbsolute
 ]
 
+{ #category : #private }
+SkiaPathBuilder >> arcTo: aToPoint angle: anAngle cw: aBool [
+	"Add a clockwise arc segment, starting from current path endpoint and
+	ending at andPt. Angle should be specified in radians"
+	| aCurrentPoint aTargetPoint aMiddlePoint aCenter aRadius aStartAngle aCenterNormal aCenterAngle |
+	
+	aCurrentPoint := 0@0.
+	path lastPointDo: [ :aPoint | aCurrentPoint := aPoint ].
+	
+	aTargetPoint := isAbsolute
+		ifTrue: [ aToPoint ]
+		ifFalse: [ aCurrentPoint + aToPoint ].
+		
+	aMiddlePoint := aCurrentPoint + ((aTargetPoint - aCurrentPoint) / 2.0).
+	
+	aCenterAngle := anAngle % (Float pi * anAngle sign).
+	aCenterNormal := (aMiddlePoint - aCurrentPoint) normal.
+	anAngle abs > Float pi
+		ifTrue: [ aCenterNormal := aCenterNormal negated ].
+
+	aCenter := aMiddlePoint + (aCenterNormal * (aCurrentPoint distanceTo: aMiddlePoint) / (aCenterAngle / 2.0) tan).
+	
+	aRadius := aCenter distanceTo: aTargetPoint.
+	aStartAngle := (1 - (((aCurrentPoint distanceTo: (aCenter + (aRadius @ 0))) raisedTo: 2) / (2 * aRadius * aRadius))) arcCos.
+
+	aStartAngle := aStartAngle negated.
+	
+	self
+		arcAround: (isAbsolute
+			ifTrue: [ aCenter ]
+			ifFalse: [ aCenter - aCurrentPoint ])
+		radius: aRadius
+		startAngle: aStartAngle
+		endAngle: aStartAngle + anAngle
+]
+
 { #category : #accessing }
 SkiaPathBuilder >> canvas: aCanvas [
 	"we don't need canvas"
@@ -64,6 +100,16 @@ SkiaPathBuilder >> close [
  	from the current point to the starting point for the current figure"
 	
 	path close
+]
+
+{ #category : #'path commands' }
+SkiaPathBuilder >> currentPoint [
+	"Point the current subpath is at - or where the next subpath will start
+	if there is no active subpath."
+	<return: #Point>
+
+	path lastPointDo: [ :aPoint | ^ aPoint ].
+	^ 0@0
 ]
 
 { #category : #accessing }
