@@ -179,6 +179,266 @@ TSpartaExamples classSide >> exampleFillRectangle [
 	canvas asForm asMorph openInWindow
 ]
 
+{ #category : #'examples - path arc around' }
+TSpartaExamples >> arc_0_to_0 [
+	<gtExample>
+	| aCanvas aPath |
+
+	aCanvas := self class canvas: 400@300.
+	
+	aPath := aCanvas path
+		absolute;
+		arcAround: 100@100 radius: 50 startAngle: 0 endAngle: 0;
+		build.
+
+	aCanvas fill
+		paint: (Color gray alpha: 0.2);
+		path: aPath;
+		draw.
+
+	aCanvas stroke
+		paint: Color black;
+		path: aPath;
+		width: 2;
+		draw.
+
+	^ aCanvas
+]
+
+{ #category : #'examples - path arc around' }
+TSpartaExamples >> arc_0_to_180 [
+	<gtExample>
+	| aCanvas aPath |
+
+	aCanvas := self class canvas: 400@300.
+	
+	aPath := aCanvas path
+		absolute;
+		arcAround: 100@100 radius: 50 startAngle: 0 endAngle: Float pi;
+		build.
+
+	aCanvas fill
+		paint: (Color gray alpha: 0.2);
+		path: aPath;
+		draw.
+
+	aCanvas stroke
+		paint: Color black;
+		path: aPath;
+		width: 2;
+		draw.
+
+	^ aCanvas
+]
+
+{ #category : #'examples - path arc around' }
+TSpartaExamples >> arc_0_to_270 [
+	<gtExample>
+	| aCanvas aPath |
+
+	aCanvas := self class canvas: 400@300.
+	
+	aPath := aCanvas path
+		absolute;
+		arcAround: 100@100 radius: 50 startAngle: 0 endAngle: Float pi * (3.0 / 2.0);
+		build.
+
+	aCanvas fill
+		paint: (Color gray alpha: 0.2);
+		path: aPath;
+		draw.
+
+	aCanvas stroke
+		paint: Color black;
+		path: aPath;
+		width: 2;
+		draw.
+
+	^ aCanvas
+]
+
+{ #category : #'examples - path arc around' }
+TSpartaExamples >> arc_0_to_360 [
+	<gtExample>
+	| aCanvas aPath |
+
+	aCanvas := self class canvas: 400@300.
+	
+	aPath := aCanvas path
+		absolute;
+		arcAround: 100@100 radius: 50 startAngle: 0 endAngle: Float pi * 2;
+		build.
+
+	aCanvas fill
+		paint: (Color gray alpha: 0.2);
+		path: aPath;
+		draw.
+	
+	aCanvas stroke
+		paint: Color black;
+		path: aPath;
+		width: 2;
+		draw.
+
+	^ aCanvas
+]
+
+{ #category : #'examples - path arc around' }
+TSpartaExamples >> arc_0_to_450 [
+	<gtExample>
+	| aCanvas aPath |
+
+	aCanvas := self class canvas: 400@300.
+	
+	aPath := aCanvas path
+		absolute;
+		arcAround: 100@100 radius: 50 startAngle: 0 endAngle: Float pi * (5.0 /2.0);
+		build.
+		
+	aCanvas fill
+		paint: (Color gray alpha: 0.2);
+		path: aPath;
+		draw.
+
+	aCanvas stroke
+		paint: Color black;
+		path: aPath;
+		width: 2;
+		draw.
+
+	^ aCanvas
+]
+
+{ #category : #'examples - path arc around' }
+TSpartaExamples >> arc_0_to_90 [
+	<gtExample>
+	| aCanvas aPath |
+
+	aCanvas := self class canvas: 400@300.
+	
+	aPath := aCanvas path
+		absolute;
+		arcAround: 100@100 radius: 50 startAngle: 0 endAngle: Float pi / 2.0;
+		build.
+
+	aCanvas fill
+		paint: (Color gray alpha: 0.2);
+		path: aPath;
+		draw.
+
+	aCanvas stroke
+		paint: Color black;
+		path: aPath;
+		width: 2;
+		draw.
+
+	^ aCanvas
+]
+
+{ #category : #'examples - path arc around' }
+TSpartaExamples >> arc_0_to_minus_270 [
+	<gtExample>
+	| aCanvas aPath |
+
+	aCanvas := self class canvas: 400@300.
+	
+	aPath := aCanvas path
+		absolute;
+		arcAround: 100@100 radius: 50 startAngle: 0 endAngle: Float pi * (3.0 / 2.0) negated;
+		build.
+
+	aCanvas fill
+		paint: (Color gray alpha: 0.2);
+		path: aPath;
+		draw.
+
+	aCanvas stroke
+		paint: Color black;
+		path: aPath;
+		width: 2;
+		draw.
+
+	^ aCanvas
+]
+
+{ #category : #'examples - path arc around' }
+TSpartaExamples >> arc_0_to_minus_360 [
+	<gtExample>
+	| aCanvas aPath |
+
+	aCanvas := self class canvas: 400@300.
+	
+	aPath := aCanvas path
+		absolute;
+		arcAround: 100@100 radius: 50 startAngle: 0 endAngle: (Float pi * 2) negated;
+		build.
+
+	aCanvas fill
+		paint: (Color gray alpha: 0.2);
+		path: aPath;
+		draw.
+	
+	aCanvas stroke
+		paint: Color black;
+		path: aPath;
+		width: 2;
+		draw.
+
+	^ aCanvas
+]
+
+{ #category : #'examples - path arc around' }
+TSpartaExamples >> arc_0_to_minus_90 [
+	<gtExample>
+	| aCanvas aPath |
+
+	aCanvas := self class canvas: 400@300.
+	
+	aPath := aCanvas path
+		absolute;
+		arcAround: 100@100 radius: 50 startAngle: 0 endAngle: (Float pi / 2.0) negated;
+		build.
+
+	aCanvas fill
+		paint: (Color gray alpha: 0.2);
+		path: aPath;
+		draw.
+
+	aCanvas stroke
+		paint: Color black;
+		path: aPath;
+		width: 2;
+		draw.
+
+	^ aCanvas
+]
+
+{ #category : #'examples - path arc around' }
+TSpartaExamples >> arc_90_to_180 [
+	<gtExample>
+	| aCanvas aPath |
+
+	aCanvas := self class canvas: 400@300.
+	
+	aPath := aCanvas path
+		absolute;
+		arcAround: 100@100 radius: 50 startAngle: Float pi / 2.0 endAngle: Float pi;
+		build.
+
+	aCanvas fill
+		paint: (Color gray alpha: 0.2);
+		path: aPath;
+		draw.
+
+	aCanvas stroke
+		paint: Color black;
+		path: aPath;
+		width: 2;
+		draw.
+
+	^ aCanvas
+]
+
 { #category : #'examples - clip rectangle' }
 TSpartaExamples >> clipRectangleOnce [
 	<gtExample>

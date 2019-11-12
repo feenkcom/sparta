@@ -25,6 +25,34 @@ SkiaPathBuilder >> absolute [
 	isAbsolute := true
 ]
 
+{ #category : #'path commands' }
+SkiaPathBuilder >> arcAround: aCenterPoint radius: aRadius startAngle: aStartAngle endAngle: anEndAngle [
+	| aRectangle aSweepAngle amountOfArcs theRestAngle aSignedPi |
+	
+	aRectangle := (aCenterPoint - aRadius asPoint) extent: (aRadius * 2) asPoint.
+	aSweepAngle := anEndAngle - aStartAngle.
+	
+	"within interval (-360; 360) we can draw arc directly"
+	(aSweepAngle abs < (Float pi * 2))
+		ifTrue: [ ^ path arcTo: aRectangle start: aStartAngle radiansToDegrees sweep: aSweepAngle radiansToDegrees forceMove: false absolute: isAbsolute ].
+	
+	"requred to support negative sweep angles"
+	aSignedPi := Float pi * aSweepAngle sign.
+	
+	"otherwise we should draw multiple arcs with sweep angle 180"
+	amountOfArcs := aSweepAngle // aSignedPi.
+	theRestAngle := aSweepAngle % aSignedPi.
+	
+	1 to: amountOfArcs do: [ :anArcIndex |
+		| aCurrentStart |
+		aCurrentStart := (anArcIndex - 1) * aSignedPi + aStartAngle.
+		path arcTo: aRectangle start: aCurrentStart radiansToDegrees sweep: aSignedPi radiansToDegrees forceMove: false absolute: isAbsolute ].
+
+	(theRestAngle closeTo: 0.0)
+		ifTrue: [ ^ self ].
+	path arcTo: aRectangle start: (anEndAngle - theRestAngle) radiansToDegrees sweep: theRestAngle radiansToDegrees forceMove: false absolute: isAbsolute
+]
+
 { #category : #accessing }
 SkiaPathBuilder >> canvas: aCanvas [
 	"we don't need canvas"
