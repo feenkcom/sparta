@@ -74,9 +74,8 @@ SkiaSurfaceCanvasExamples >> drawColorBlue [
 	"This example is currently platform specific.
 	noTest should be removed once a platform independent color matching api has been added."
 	<noTest>
-	| imageInfo aSurface aCanvas thePixels |
+	| aSurface aCanvas thePixels |
 
-	imageInfo := 
 	aSurface := SkiaSurfaceExamples new newRasterPremultipledSizeOne.
 	
 	aCanvas := aSurface canvas.
