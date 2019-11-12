@@ -18,6 +18,45 @@ SkiaPath class >> primRelease: aHandle [
 	self ffiCall: #(void skia_path_drop(void* aHandle))
 ]
 
+{ #category : #'api - path' }
+SkiaPath >> arcBy: aRectangle start: aStartAngle sweep: aSweepAngle forceMove: isForceMoveTo [
+	self
+		primArcToLeft: aRectangle left
+		top: aRectangle top
+		right: aRectangle right
+		bottom: aRectangle bottom
+		start: aStartAngle
+		sweep: aSweepAngle
+		forceMove: isForceMoveTo
+		absolute: false
+]
+
+{ #category : #'api - path' }
+SkiaPath >> arcTo: aRectangle start: aStartAngle sweep: aSweepAngle forceMove: isForceMoveTo [
+	self
+		primArcToLeft: aRectangle left
+		top: aRectangle top
+		right: aRectangle right
+		bottom: aRectangle bottom
+		start: aStartAngle
+		sweep: aSweepAngle
+		forceMove: isForceMoveTo
+		absolute: true
+]
+
+{ #category : #'api - path' }
+SkiaPath >> arcTo: aRectangle start: aStartAngle sweep: aSweepAngle forceMove: isForceMoveTo absolute: isAbsolute [
+	self
+		primArcToLeft: aRectangle left
+		top: aRectangle top
+		right: aRectangle right
+		bottom: aRectangle bottom
+		start: aStartAngle
+		sweep: aSweepAngle
+		forceMove: isForceMoveTo
+		absolute: isAbsolute
+]
+
 { #category : #accessing }
 SkiaPath >> asByteArray [
 	"Serialzie this path as a byte array"
@@ -32,6 +71,14 @@ SkiaPath >> asByteArray [
 { #category : #'api - path' }
 SkiaPath >> close [
 	self primClose
+]
+
+{ #category : #'geometry - testing' }
+SkiaPath >> containsPoint: aPoint on: aSpartaCanvas [
+	"Return true if a given point lies within this path as if it would be filled"
+	<return: #Boolean>
+
+	^ false
 ]
 
 { #category : #'api - path' }
@@ -54,6 +101,28 @@ SkiaPath >> gtPointsFor: aView [
 		title: 'Points';
 		priority: 2;
 		items: [ self points ]
+]
+
+{ #category : #testing }
+SkiaPath >> hasLastPoint [
+	<return: #Boolean>
+	| aBoxerPoint |
+	
+	aBoxerPoint := GtBoxerPointF32 new.
+	^ [ self primGetLastPoint: aBoxerPoint ]
+		ensure: [ aBoxerPoint release ]
+]
+
+{ #category : #accessing }
+SkiaPath >> lastPointDo: aBlock [
+	"Evaluate a given block with the last point of this path (if there is any) as an argument"
+	| aBoxerPoint hasLastPoint aLastPoint |
+	
+	aBoxerPoint := GtBoxerPointF32 new.
+	hasLastPoint := self primGetLastPoint: aBoxerPoint.
+	aLastPoint := [ aBoxerPoint asPoint ] ensure: [ aBoxerPoint release ].
+	hasLastPoint
+		ifTrue: [ aBlock value: aLastPoint ]
 ]
 
 { #category : #'api - path' }
@@ -94,6 +163,14 @@ SkiaPath >> pointsCount [
 ]
 
 { #category : #'private - ffi' }
+SkiaPath >> primArcToLeft: aLeft top: aTop right: aRight bottom: aBottom start: aStartAngle sweep: aSweepAngle forceMove: isForceMoveTo absolute: isAbsolute [
+	^ self ffiCall: #(void skia_path_arc_to(self,
+		scalar aLeft, scalar aTop, scalar aRight, scalar aBottom,
+		scalar aStartAngle, scalar aSweepAngle,
+		bool isForceMoveTo, bool isAbsolute))
+]
+
+{ #category : #'private - ffi' }
 SkiaPath >> primClose [
 	^ self ffiCall: #(size_t skia_path_close(self))
 ]
@@ -104,18 +181,23 @@ SkiaPath >> primGetFillType [
 ]
 
 { #category : #'private - ffi' }
+SkiaPath >> primGetLastPoint: aGtBoxerPoint [
+	^ self ffiCall: #(bool skia_path_get_last_point(self, GtBoxerPointF32 aGtBoxerPoint))
+]
+
+{ #category : #'private - ffi' }
 SkiaPath >> primGetPoints: aBoxerArrayPointF32 [
 	^ self ffiCall: #(size_t skia_path_get_points(self, GtBoxerArrayPointF32 aBoxerArrayPointF32))
 ]
 
 { #category : #'private - ffi' }
 SkiaPath >> primLineToX: aX Y: aY absolute: isAbsolute [
-	self ffiCall: #(void skia_path_line_to(self, scalar aX, scalar aY, bool isAbsolute))
+	^ self ffiCall: #(void skia_path_line_to(self, scalar aX, scalar aY, bool isAbsolute))
 ]
 
 { #category : #'private - ffi' }
 SkiaPath >> primMoveToX: aX Y: aY absolute: isAbsolute [
-	self ffiCall: #(void skia_path_move_to(self, scalar aX, scalar aY, bool isAbsolute))
+	^ self ffiCall: #(void skia_path_move_to(self, scalar aX, scalar aY, bool isAbsolute))
 ]
 
 { #category : #'private - ffi' }
@@ -131,4 +213,21 @@ SkiaPath >> primSerialize: aBoxerArrayU8 [
 { #category : #'private - ffi' }
 SkiaPath >> primSetFillType: aSkiaPathFillType [
 	^ self ffiCall: #(void skia_path_set_fill_type(self, SkiaPathFillType aSkiaPathFillType))
+]
+
+{ #category : #'geometry - testing' }
+SkiaPath >> strokeContainsPoint: aPoint options: aStrokeOptions on: aSpartaCanvas [
+	"Return true if a given point lies within this path as if it would be stroked with provided stroke options"
+	<return: #Boolean>
+
+	^ false
+]
+
+{ #category : #'geometry - accessing' }
+SkiaPath >> strokedBoundsOn: aSpartaCanvas with: aStrokeOptions [
+	"Return the bounds of the stroke of this path using the specified strokeoptions.
+	These bounds are not guaranteed to be tight."
+	<return: #Rectangle>
+
+	^ (0@0 extent: 0@0)
 ]

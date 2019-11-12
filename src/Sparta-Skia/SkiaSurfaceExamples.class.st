@@ -57,3 +57,20 @@ SkiaSurfaceExamples >> newRasterPremultipledSizeOne [
 	
 	^ aSurface
 ]
+
+{ #category : #accessing }
+SkiaSurfaceExamples >> snapshot [
+	<gtExample>
+	| aSurface aCanvas aSnapshot |
+	
+	aSurface := SkiaSurface newRasterPremultipled: 100@100.
+	
+	aCanvas := aSurface canvas.
+	aCanvas drawRectangle: (20@20 corner: 80@80) paint: (SkiaPaint new color: Color gray).	
+	aCanvas flush.
+	aCanvas release.
+	
+	aSnapshot := aSurface snapshot.
+	
+	^ aSnapshot
+]

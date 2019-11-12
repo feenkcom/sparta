@@ -55,6 +55,11 @@ TSpartaSurface >> height [
 	^ self extent y
 ]
 
+{ #category : #accessing }
+TSpartaSurface >> snapshot [
+	^ self
+]
+
 { #category : #dispatch }
 TSpartaSurface >> spartaMaskOn: aSpartaCanvas with: aMaskPainter [
 

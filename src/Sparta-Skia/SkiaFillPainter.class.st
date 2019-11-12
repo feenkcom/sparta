@@ -34,6 +34,21 @@ SkiaFillPainter >> createPaintForGradient: aSkiaGradient [
 	^ aSkiaPaint
 ]
 
+{ #category : #private }
+SkiaFillPainter >> createPaintForSurface: aSurface [
+	| aSkiaPaint theDrawOptions |
+
+	theDrawOptions := self ensuredDrawOptions.
+
+	aSkiaPaint := SkiaPaint new.
+	aSkiaPaint
+		alpha: theDrawOptions alpha;
+		antialias: theDrawOptions antialias;
+		blendMode: theDrawOptions blendMode.
+
+	^ aSkiaPaint
+]
+
 { #category : #drawing }
 SkiaFillPainter >> fillPath: aPath withLinearGradient: aSpartaLinearGradient [
 	canvas surfaceCanvas
@@ -74,4 +89,19 @@ SkiaFillPainter >> fillRectangle: aRectangle withSolidColor: aColor [
 	canvas surfaceCanvas
 		drawRectangle: aRectangle
 		paint: (self createPaintForColor: aColor)
+]
+
+{ #category : #drawing }
+SkiaFillPainter >> fillRectangle: aRectangle withSurface: aSpartaSurfacePaint [
+
+	aSpartaSurfacePaint needsShader
+		ifTrue: [ ^ self ].
+		
+	(aRectangle extent ~= aSpartaSurfacePaint image extent)
+		ifTrue: [ ^ self ].
+		
+	canvas surfaceCanvas
+		drawImage: aSpartaSurfacePaint image
+		at: aRectangle origin
+		paint: (self createPaintForSurface: aSpartaSurfacePaint)
 ]

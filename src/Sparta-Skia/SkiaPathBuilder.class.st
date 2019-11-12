@@ -25,6 +25,86 @@ SkiaPathBuilder >> absolute [
 	isAbsolute := true
 ]
 
+{ #category : #'path commands' }
+SkiaPathBuilder >> arcAround: aCenterPoint radius: aRadius startAngle: aStartAngle endAngle: anEndAngle [
+	| aRectangle aSweepAngle amountOfArcs theRestAngle aSignedPi |
+	
+	aRectangle := (aCenterPoint - aRadius asPoint) extent: (aRadius * 2) asPoint.
+	aSweepAngle := anEndAngle - aStartAngle.
+	
+	"within interval (-360; 360) we can draw arc directly"
+	(aSweepAngle abs < (Float pi * 2))
+		ifTrue: [ ^ path arcTo: aRectangle start: aStartAngle radiansToDegrees sweep: aSweepAngle radiansToDegrees forceMove: false absolute: isAbsolute ].
+	
+	"requred to support negative sweep angles"
+	aSignedPi := Float pi * aSweepAngle sign.
+	
+	"otherwise we should draw multiple arcs with sweep angle 180"
+	amountOfArcs := aSweepAngle // aSignedPi.
+	theRestAngle := aSweepAngle % aSignedPi.
+	
+	1 to: amountOfArcs do: [ :anArcIndex |
+		| aCurrentStart |
+		aCurrentStart := (anArcIndex - 1) * aSignedPi + aStartAngle.
+		path arcTo: aRectangle start: aCurrentStart radiansToDegrees sweep: aSignedPi radiansToDegrees forceMove: false absolute: isAbsolute ].
+
+	(theRestAngle closeTo: 0.0)
+		ifTrue: [ ^ self ].
+	path arcTo: aRectangle start: (anEndAngle - theRestAngle) radiansToDegrees sweep: theRestAngle radiansToDegrees forceMove: false absolute: isAbsolute
+]
+
+{ #category : #private }
+SkiaPathBuilder >> arcTo: aToPoint angle: anAngle cw: isClockwise [
+	"Add a clockwise arc segment, starting from current path endpoint and
+	ending at andPt. Angle should be specified in radians"
+	| aCurrentPoint aTargetPoint aMiddlePoint aCenter aRadius aStartAngle aCenterNormal aCenterAngle anEndAngle |
+	
+	aCurrentPoint := 0@0.
+	path lastPointDo: [ :aPoint | aCurrentPoint := aPoint ].
+	
+	aTargetPoint := isAbsolute
+		ifTrue: [ aToPoint ]
+		ifFalse: [ aCurrentPoint + aToPoint ].
+	
+	"an arc to the same point is ambiguous and therefore ignored"
+	(aTargetPoint closeTo: aCurrentPoint)
+		ifTrue: [ ^ self ].
+
+	aMiddlePoint := aCurrentPoint + ((aTargetPoint - aCurrentPoint) / 2.0).
+	
+	"180 angles are supported"
+	aCenterAngle := anAngle abs > Float pi
+		ifTrue: [ anAngle % (Float pi * anAngle sign) ]
+		ifFalse: [ anAngle ].
+
+	aCenterNormal := (aMiddlePoint - aCurrentPoint) normal.
+	anAngle abs > Float pi
+		ifTrue: [ aCenterNormal := aCenterNormal negated ].
+
+	aCenter := aMiddlePoint + (aCenterNormal * (aCurrentPoint distanceTo: aMiddlePoint) / (aCenterAngle / 2.0) tan).
+	
+	aRadius := aCenter distanceTo: aTargetPoint.
+	aStartAngle := (1 - (((aCurrentPoint distanceTo: (aCenter + (aRadius @ 0))) raisedTo: 2) / (2 * aRadius * aRadius))) arcCos.
+
+	aCurrentPoint y <= aCenter y
+		ifTrue: [ aStartAngle := aStartAngle negated ].
+
+	anEndAngle := isClockwise
+		ifTrue: [ aStartAngle + anAngle ]
+		ifFalse: [
+			anAngle abs < Float pi
+				ifTrue: [ aStartAngle - (aCenterAngle + Float pi) ]
+				ifFalse: [ aStartAngle - aCenterAngle ] ].
+	
+	self
+		arcAround: (isAbsolute
+			ifTrue: [ aCenter ]
+			ifFalse: [ aCenter - aCurrentPoint ])
+		radius: aRadius
+		startAngle: aStartAngle
+		endAngle: anEndAngle
+]
+
 { #category : #accessing }
 SkiaPathBuilder >> canvas: aCanvas [
 	"we don't need canvas"
@@ -36,6 +116,21 @@ SkiaPathBuilder >> close [
  	from the current point to the starting point for the current figure"
 	
 	path close
+]
+
+{ #category : #'path commands' }
+SkiaPathBuilder >> currentPoint [
+	"Point the current subpath is at - or where the next subpath will start
+	if there is no active subpath."
+	<return: #Point>
+
+	path lastPointDo: [ :aPoint | ^ aPoint ].
+	^ 0@0
+]
+
+{ #category : #'path commands' }
+SkiaPathBuilder >> curveVia: aControlPoint to: anEndPoint [
+	
 ]
 
 { #category : #accessing }

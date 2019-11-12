@@ -13,3 +13,8 @@ SkiaPaintProvider >> linearGradient [
 SkiaPaintProvider >> radialGradient [
 	^ SkiaRadialGradient new
 ]
+
+{ #category : #paints }
+SkiaPaintProvider >> surface [
+	^ SkiaSurfacePaint new
+]

@@ -591,6 +591,24 @@ MozCanvas >> similar: aPoint [
 		autoRelease
 ]
 
+{ #category : #accessing }
+MozCanvas >> snapshot [
+	"Return a copy of a surface I used to draw on.
+	A surface is a snapshot of my current drawing state.
+	It can be used as paint, mask, as input source in a filter
+	and can be blended differently on me or another canvas (with shadow,
+	3d transformation, composition mode or directly)
+	
+	Every surface access increases refCount by one.
+	On first call refCount equals 2, since surface is referenced by
+	draw target, plus one our reference. As soon as surface is not
+	referenced on image side its refCount must be decreased by one
+	calling Release() on the reference within finalizeResourceData:"
+	<return: #TSpartaSurface>
+
+	^ self primSnapshot autoRelease
+]
+
 { #category : #filters }
 MozCanvas >> specularDistantLightFilter [
 	^ MozSpecularDistantLightFilter createOn: self
@@ -619,19 +637,6 @@ MozCanvas >> strokeOptions [
 { #category : #builders }
 MozCanvas >> strokePainter [
 	^ MozStrokePainter new
-]
-
-{ #category : #accessing }
-MozCanvas >> surface [
-	"Return a snapshot of the surface.
-	
-	Every surface access increases refCount by one.
-	On first call refCount equals 2, since surface is referenced by
-	draw target, plus one our reference. As soon as surface is not
-	referenced on image side its refCount must be decreased by one
-	calling Release() on the reference within finalizeResourceData:"
-	
-	^ self primSnapshot autoRelease
 ]
 
 { #category : #filters }
