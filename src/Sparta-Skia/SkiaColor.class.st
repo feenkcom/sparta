@@ -5,7 +5,7 @@ Class {
 }
 
 { #category : #'instance creation' }
-SkiaColor class >> argb: aNumber [	
+SkiaColor class >> argb: aNumber [
 	^ self fromNativeHandle: (self primCreateArgb: aNumber)
 ]
 

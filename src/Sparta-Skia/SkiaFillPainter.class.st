@@ -86,9 +86,19 @@ SkiaFillPainter >> fillRectangle: aRectangle withRadialGradient: aSpartaRadialGr
 
 { #category : #drawing }
 SkiaFillPainter >> fillRectangle: aRectangle withSolidColor: aColor [
-	canvas surfaceCanvas
+	| aPaint |
+
+	"blend mode = SrcOver, alpha = 1, antialias = true"
+	drawOptions ifNil: [
+		^ self
+			optimizedFillRectangle: aRectangle
+			withColor: aColor
+			antialias: true ].
+		
+	aPaint := self createPaintForColor: aColor.
+	[ canvas surfaceCanvas
 		drawRectangle: aRectangle
-		paint: (self createPaintForColor: aColor)
+		paint: (self createPaintForColor: aColor) ] ensure: [ aPaint release ]
 ]
 
 { #category : #drawing }
@@ -104,4 +114,24 @@ SkiaFillPainter >> fillRectangle: aRectangle withSurface: aSpartaSurfacePaint [
 		drawImage: aSpartaSurfacePaint image
 		at: aRectangle origin
 		paint: (self createPaintForSurface: aSpartaSurfacePaint)
+]
+
+{ #category : #'private - drawing' }
+SkiaFillPainter >> optimizedFillRectangle: aRectangle withColor: aColor antialias: isAntialias [
+	aColor = Color black
+		ifTrue: [
+			^ canvas surfaceCanvas
+				drawRectangleBlack: aRectangle
+				antialias: isAntialias ].
+			
+	aColor = Color white
+		ifTrue: [
+			^ canvas surfaceCanvas
+				drawRectangleWhite: aRectangle
+				antialias: isAntialias ].
+	
+	^ canvas surfaceCanvas
+			drawRectangle: aRectangle
+			color: aColor
+			antialias: isAntialias
 ]

@@ -129,6 +129,11 @@ SkiaPathBuilder >> currentPoint [
 ]
 
 { #category : #'path commands' }
+SkiaPathBuilder >> curveVia: cp1 and: cp2 to: aPoint [
+	
+]
+
+{ #category : #'path commands' }
 SkiaPathBuilder >> curveVia: aControlPoint to: anEndPoint [
 	
 ]
