@@ -1,6 +1,8 @@
 Class {
 	#name : #SkiaImage,
 	#superclass : #SkiaExternalObject,
+	#traits : 'TSpartaSurface',
+	#classTraits : 'TSpartaSurface classTrait',
 	#category : #'Sparta-Skia-External'
 }
 

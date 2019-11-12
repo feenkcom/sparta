@@ -278,7 +278,7 @@ SpartaCanvas >> asForm [
 
 { #category : #converting }
 SpartaCanvas >> asSpartaPaintOn: aCanvas [
-	^ self surface asSpartaPaintOn: aCanvas
+	^ self snapshot asSpartaPaintOn: aCanvas
 ]
 
 { #category : #api }
@@ -301,8 +301,9 @@ SpartaCanvas >> bitmap [
 
 { #category : #builders }
 SpartaCanvas >> bitmapBuilder [
-	self subclassResponsibility.
-	^ SpartaBitmapBuilder new
+
+	true ifFalse: [ ^ self subclassResponsibility ].
+	^ SpartaUnimplementedBitmapBuilder new
 ]
 
 { #category : #api }
@@ -764,6 +765,18 @@ SpartaCanvas >> similar: anExtent [
 	^ self subclassResponsibility
 ]
 
+{ #category : #accessing }
+SpartaCanvas >> snapshot [
+	"Return a copy of a surface I used to draw on.
+	A surface is a snapshot of my current drawing state.
+	It can be used as paint, mask, as input source in a filter
+	and can be blended differently on me or another canvas (with shadow,
+	3d transformation, composition mode or directly)"
+	<return: #TSpartaSurface>
+
+	^ self subclassResponsibility
+]
+
 { #category : #dispatch }
 SpartaCanvas >> spartaMaskOn: aSpartaCanvas with: aMaskPainter [
 
@@ -830,7 +843,8 @@ SpartaCanvas >> surface [
 	3d transformation, composition mode or directly)"
 	<return: #TSpartaSurface>
 
-	^ self subclassResponsibility
+	self deprecated: 'Use #snapshot instead.' transformWith: '`@receiver surface' -> '`@receiver snapshot'.
+	^ self snapshot
 ]
 
 { #category : #filters }

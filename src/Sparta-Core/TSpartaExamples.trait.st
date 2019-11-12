@@ -896,6 +896,27 @@ TSpartaExamples >> drawRadialGradientPartial [
 ]
 
 { #category : #'examples - fill rectangle' }
+TSpartaExamples >> fillRectangleSurface [
+	<gtExample>
+	| aCanvas anImageCanvas |
+
+	aCanvas := self class canvas: 400@300.
+	
+	anImageCanvas := self class canvas: 200@100.
+	anImageCanvas fill
+		path: anImageCanvas bounds;
+		paint: Color red;
+		draw.
+	
+	aCanvas fill
+		path: (100@100 corner: 300@200);
+		paint: anImageCanvas;
+		draw.
+
+	^ aCanvas
+]
+
+{ #category : #'examples - fill rectangle' }
 TSpartaExamples >> fillRectangleWithGrayColor [
 	<gtExample>
 	| aCanvas |

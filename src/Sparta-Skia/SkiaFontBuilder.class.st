@@ -62,6 +62,18 @@ SkiaFontBuilder >> stretchReset [
 ]
 
 { #category : #style }
+SkiaFontBuilder >> styleItalic [
+]
+
+{ #category : #style }
+SkiaFontBuilder >> styleNormal [
+]
+
+{ #category : #style }
+SkiaFontBuilder >> styleOblique [
+]
+
+{ #category : #style }
 SkiaFontBuilder >> styleReset [
 	
 ]

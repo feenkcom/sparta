@@ -58,7 +58,7 @@ SkiaCanvas class >> strokeOptions [
 
 { #category : #converting }
 SkiaCanvas >> asForm [
-	^ self surface asForm
+	^ self snapshot asForm
 ]
 
 { #category : #builders }
@@ -130,6 +130,27 @@ SkiaCanvas >> pathBuilderClass [
 	^ SkiaPathBuilder
 ]
 
+{ #category : #'instance creation' }
+SkiaCanvas >> similar: anExtent [
+	"Create a new empty canvas of the same type and format with a given size.
+	anExtent must not be nil"
+	<return: #SpartaCanvas>
+
+	^ self class extent: anExtent
+]
+
+{ #category : #accessing }
+SkiaCanvas >> snapshot [
+	"Return a copy of a surface I used to draw on.
+	A surface is a snapshot of my current drawing state.
+	It can be used as paint, mask, as input source in a filter
+	and can be blended differently on me or another canvas (with shadow,
+	3d transformation, composition mode or directly)"
+	<return: #TSpartaSurface>
+
+	^ skiaSurface snapshot
+]
+
 { #category : #accessing }
 SkiaCanvas >> stride [
 	<return: #Number>
@@ -140,18 +161,6 @@ SkiaCanvas >> stride [
 { #category : #builders }
 SkiaCanvas >> strokePainter [
 	^ SkiaStrokePainter new
-]
-
-{ #category : #accessing }
-SkiaCanvas >> surface [
-	"Return a copy of a surface I used to draw on.
-	A surface is a snapshot of my current drawing state.
-	It can be used as paint, mask, as input source in a filter
-	and can be blended differently on me or another canvas (with shadow,
-	3d transformation, composition mode or directly)"
-	<return: #TSpartaSurface>
-
-	^ skiaSurface
 ]
 
 { #category : #accessing }

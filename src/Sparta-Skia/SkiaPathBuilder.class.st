@@ -128,6 +128,11 @@ SkiaPathBuilder >> currentPoint [
 	^ 0@0
 ]
 
+{ #category : #'path commands' }
+SkiaPathBuilder >> curveVia: aControlPoint to: anEndPoint [
+	
+]
+
 { #category : #accessing }
 SkiaPathBuilder >> fillType: aSkiaPathFillType [
 	path fillType: aSkiaPathFillType
