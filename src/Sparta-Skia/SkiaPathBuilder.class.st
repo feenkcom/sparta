@@ -54,10 +54,10 @@ SkiaPathBuilder >> arcAround: aCenterPoint radius: aRadius startAngle: aStartAng
 ]
 
 { #category : #private }
-SkiaPathBuilder >> arcTo: aToPoint angle: anAngle cw: aBool [
+SkiaPathBuilder >> arcTo: aToPoint angle: anAngle cw: isClockwise [
 	"Add a clockwise arc segment, starting from current path endpoint and
 	ending at andPt. Angle should be specified in radians"
-	| aCurrentPoint aTargetPoint aMiddlePoint aCenter aRadius aStartAngle aCenterNormal aCenterAngle |
+	| aCurrentPoint aTargetPoint aMiddlePoint aCenter aRadius aStartAngle aCenterNormal aCenterAngle anEndAngle |
 	
 	aCurrentPoint := 0@0.
 	path lastPointDo: [ :aPoint | aCurrentPoint := aPoint ].
@@ -65,10 +65,18 @@ SkiaPathBuilder >> arcTo: aToPoint angle: anAngle cw: aBool [
 	aTargetPoint := isAbsolute
 		ifTrue: [ aToPoint ]
 		ifFalse: [ aCurrentPoint + aToPoint ].
-		
+	
+	"an arc to the same point is ambiguous and therefore ignored"
+	(aTargetPoint closeTo: aCurrentPoint)
+		ifTrue: [ ^ self ].
+
 	aMiddlePoint := aCurrentPoint + ((aTargetPoint - aCurrentPoint) / 2.0).
 	
-	aCenterAngle := anAngle % (Float pi * anAngle sign).
+	"180 angles are supported"
+	aCenterAngle := anAngle abs > Float pi
+		ifTrue: [ anAngle % (Float pi * anAngle sign) ]
+		ifFalse: [ anAngle ].
+
 	aCenterNormal := (aMiddlePoint - aCurrentPoint) normal.
 	anAngle abs > Float pi
 		ifTrue: [ aCenterNormal := aCenterNormal negated ].
@@ -78,7 +86,15 @@ SkiaPathBuilder >> arcTo: aToPoint angle: anAngle cw: aBool [
 	aRadius := aCenter distanceTo: aTargetPoint.
 	aStartAngle := (1 - (((aCurrentPoint distanceTo: (aCenter + (aRadius @ 0))) raisedTo: 2) / (2 * aRadius * aRadius))) arcCos.
 
-	aStartAngle := aStartAngle negated.
+	aCurrentPoint y <= aCenter y
+		ifTrue: [ aStartAngle := aStartAngle negated ].
+
+	anEndAngle := isClockwise
+		ifTrue: [ aStartAngle + anAngle ]
+		ifFalse: [
+			anAngle abs < Float pi
+				ifTrue: [ aStartAngle - (aCenterAngle + Float pi) ]
+				ifFalse: [ aStartAngle - aCenterAngle ] ].
 	
 	self
 		arcAround: (isAbsolute
@@ -86,7 +102,7 @@ SkiaPathBuilder >> arcTo: aToPoint angle: anAngle cw: aBool [
 			ifFalse: [ aCenter - aCurrentPoint ])
 		radius: aRadius
 		startAngle: aStartAngle
-		endAngle: aStartAngle + anAngle
+		endAngle: anEndAngle
 ]
 
 { #category : #accessing }
