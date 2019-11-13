@@ -62,6 +62,11 @@ SkiaCanvas >> asForm [
 ]
 
 { #category : #builders }
+SkiaCanvas >> bitmapBuilder [
+	^ SkiaBitmapBuilder new
+]
+
+{ #category : #builders }
 SkiaCanvas >> clipBuilder [
 	"Return a new instance of the backend specific ${class:SpartaClipper}$"
 

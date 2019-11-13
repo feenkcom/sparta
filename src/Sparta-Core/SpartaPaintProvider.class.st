@@ -36,7 +36,9 @@ SpartaPaintProvider >> color: aColor [
 
 { #category : #paints }
 SpartaPaintProvider >> form: aForm [
-	^ self subclassResponsibility
+	"A form is already a paint in Sparta"
+
+	^ aForm
 ]
 
 { #category : #paints }
