@@ -89,7 +89,7 @@ MozCrashTests >> testFilter [
 		
 	canvas filter
 		area: (0@0 extent: 300@350);
-		type: (canvas gaussianBlurFilter
+		type: (canvas filters blur
 			stdDeviation: 5;
 			source: canvas surface);
 		drawOptions: (canvas drawOptions

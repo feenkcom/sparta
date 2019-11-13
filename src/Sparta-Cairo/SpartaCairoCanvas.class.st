@@ -182,6 +182,11 @@ SpartaCairoCanvas >> filterPainter [
 	^ SpartaCairoFilterPainter new
 ]
 
+{ #category : #builders }
+SpartaCairoCanvas >> filtersFactory [
+	^ SpartaCairoFiltersFactory new
+]
+
 { #category : #accessing }
 SpartaCairoCanvas >> flush [
 	self surface flush
@@ -190,11 +195,6 @@ SpartaCairoCanvas >> flush [
 { #category : #builders }
 SpartaCairoCanvas >> fontBuilder [
 	^ SpartaCairoFreetypeFontBuilder new
-]
-
-{ #category : #filters }
-SpartaCairoCanvas >> gaussianBlurFilter [
-	^ SpartaCairoGaussianBlurFilter new
 ]
 
 { #category : #'private - ffi' }

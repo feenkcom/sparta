@@ -986,6 +986,23 @@ TSpartaExamples >> donut [
 	^ canvas
 ]
 
+{ #category : #'examples - image filter blur' }
+TSpartaExamples >> drawCanvasWithBlurTo [
+	<gtExample>
+	| aSourceCanvas aDestinationCanvas |
+	aSourceCanvas := self fillTriangleWithLinearGradient.
+	
+	aDestinationCanvas := self class canvas: 600@500.
+	aDestinationCanvas filter
+		type: (aDestinationCanvas filters blur
+			source: aSourceCanvas;
+			stdDeviation: 20);
+		to: 100@50;
+		draw.
+
+	^ aDestinationCanvas
+]
+
 { #category : #'examples - gradient linear' }
 TSpartaExamples >> drawLinearGradient [
 	<gtExample>

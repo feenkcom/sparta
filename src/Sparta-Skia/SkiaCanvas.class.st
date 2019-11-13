@@ -82,6 +82,16 @@ SkiaCanvas >> fillPainter [
 	^ SkiaFillPainter new
 ]
 
+{ #category : #builders }
+SkiaCanvas >> filterPainter [
+	^ SkiaFilterPainter new
+]
+
+{ #category : #builders }
+SkiaCanvas >> filtersFactory [
+	^ SkiaFiltersFactory new
+]
+
 { #category : #accessing }
 SkiaCanvas >> flush [
 	"Ensure that the backend has flushed all drawing operations to this canvas"

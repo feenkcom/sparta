@@ -23,6 +23,13 @@ Class {
 	#category : #'Sparta-Core-Builders'
 }
 
+{ #category : #accessing }
+SpartaFiltersFactory >> blur [
+	<return: #TSpartaGaussianBlurFilter>
+	
+	^ self subclassResponsibility
+]
+
 { #category : #filters }
 SpartaFiltersFactory >> brannan: aSurface [
 	|gradient extent vignetteCanvas sourceAfterCurves sourceBelow50 sourceAbove50
