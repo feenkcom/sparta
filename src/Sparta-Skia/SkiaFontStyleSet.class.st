@@ -1,0 +1,73 @@
+Class {
+	#name : #SkiaFontStyleSet,
+	#superclass : #SkiaExternalObject,
+	#category : #'Sparta-Skia-External'
+}
+
+{ #category : #'private - ffi' }
+SkiaFontStyleSet class >> primCreate [
+	^ self ffiCall: #(void* skia_font_style_set_default())
+]
+
+{ #category : #'private - ffi' }
+SkiaFontStyleSet class >> primRelease: aHandle [
+	
+	"Plain pointers must be deleted using delete(), all users must implement a specific method"
+	self ffiCall: #(void skia_font_style_set_drop(void* aHandle))
+]
+
+{ #category : #accessing }
+SkiaFontStyleSet >> fontStyleAt: anIndex [
+	<return: #SkiaFontStyle>
+
+	^ SkiaFontStyle fromNativeHandle: (self primFontStyleAt: anIndex - 1)
+]
+
+{ #category : #accessing }
+SkiaFontStyleSet >> fontStyleNameAt: anIndex [
+	<return: #String>
+	
+	^ GtBoxerString getStringFrom: [ :aBoxerString | self primStyleName: aBoxerString at: anIndex - 1 ]
+]
+
+{ #category : #accessing }
+SkiaFontStyleSet >> fontStylesWithNames [
+	^ (1 to: self size) collect: [ :anIndex |
+		(self fontStyleAt: anIndex) -> (self fontStyleNameAt: anIndex) ]
+]
+
+{ #category : #accessing }
+SkiaFontStyleSet >> gtFontStylesFor: aView [
+	<gtView>
+	
+	^ aView columnedList
+		title: 'Styles' translated;
+		priority: 10;
+		items: [ self fontStylesWithNames ];
+		column: 'Name' item: [ :each | each value ] width: 100;
+		column: 'Weight' item: [ :each | each key weight ] width: 50;
+		column: 'Slant' item: [ :each | each key slant item ] width: 100;
+		column: 'Width' item: [ :each | each key width item ] width: 100
+]
+
+{ #category : #'private - ffi' }
+SkiaFontStyleSet >> primCount [
+	^ self ffiCall: #(size_t skia_font_style_set_count(self))
+]
+
+{ #category : #'private - ffi' }
+SkiaFontStyleSet >> primFontStyleAt: anIndex [
+	^ self ffiCall: #(void* skia_font_style_set_style_at(self, size_t anIndex))
+]
+
+{ #category : #'private - ffi' }
+SkiaFontStyleSet >> primStyleName: aGtBoxerString at: anIndex [
+	^ self ffiCall: #(void skia_font_style_set_name_at(self, size_t anIndex, GtBoxerString aGtBoxerString))
+]
+
+{ #category : #accessing }
+SkiaFontStyleSet >> size [
+	<return: #Number>
+
+	^ self primCount
+]
