@@ -15,12 +15,12 @@ SkiaImageFilterBlur class >> primCreateSigmaX: aSigmaX sigmaY: aSigmaY tileMode:
 
 { #category : #'instance creation' }
 SkiaImageFilterBlur class >> sigma: aPoint [
-	^ self sigma:aPoint  tileMode: SkiaTileMode Clamp
+	^ self sigma: aPoint tileMode: SkiaTileMode Clamp
 ]
 
 { #category : #'instance creation' }
 SkiaImageFilterBlur class >> sigma: aPoint tileMode: aSkiaTileMode [
-	^ self sigma:aPoint  tileMode: aSkiaTileMode input: SkiaImageFilter null
+	^ self sigma: aPoint tileMode: aSkiaTileMode input: SkiaImageFilter null
 ]
 
 { #category : #'instance creation' }

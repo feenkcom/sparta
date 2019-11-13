@@ -155,11 +155,36 @@ SkiaSurfaceCanvas >> drawPoint: aPoint paint: aSkiaPaint [
 		paint: aSkiaPaint
 ]
 
+{ #category : #'api - drawing optimized' }
+SkiaSurfaceCanvas >> drawRectangle: aSpartaRectangle color: aColor antialias: isAntialias [
+	self
+		primDrawRectangleLeft: aSpartaRectangle left top: aSpartaRectangle top right: aSpartaRectangle right bottom: aSpartaRectangle bottom
+		r: (aColor red * 255) asInteger
+		g: (aColor green * 255) asInteger
+		b: (aColor blue * 255) asInteger
+		a: (aColor alpha * 255) asInteger
+		antialias: isAntialias
+]
+
 { #category : #'api - drawing' }
 SkiaSurfaceCanvas >> drawRectangle: aSpartaRectangle paint: aSkiaPaint [	
 	self
 		primDrawRectangleLeft: aSpartaRectangle left top: aSpartaRectangle top right: aSpartaRectangle right bottom: aSpartaRectangle bottom
 		paint: aSkiaPaint
+]
+
+{ #category : #'api - drawing optimized' }
+SkiaSurfaceCanvas >> drawRectangleBlack: aSpartaRectangle antialias: isAntialias [
+	self
+		primDrawRectangleBlackLeft: aSpartaRectangle left top: aSpartaRectangle top right: aSpartaRectangle right bottom: aSpartaRectangle bottom
+		antialias: isAntialias
+]
+
+{ #category : #'api - drawing optimized' }
+SkiaSurfaceCanvas >> drawRectangleWhite: aSpartaRectangle antialias: isAntialias [
+	self
+		primDrawRectangleWhiteLeft: aSpartaRectangle left top: aSpartaRectangle top right: aSpartaRectangle right bottom: aSpartaRectangle bottom
+		antialias: isAntialias
 ]
 
 { #category : #'api - drawing' }
@@ -175,9 +200,31 @@ SkiaSurfaceCanvas >> drawShadowPath: aSkiaPath zPlane: aZPlane lightPos: aLightP
 		flags: theFlagBits
 ]
 
+{ #category : #'api - drawing optimized' }
+SkiaSurfaceCanvas >> drawTextBlob: aTextBlob at: anOriginPoint color: aColor antialias: isAntialias [
+	self
+		primDrawTextBlob: aTextBlob
+		x: anOriginPoint x
+		y: anOriginPoint y
+		r: (aColor red * 255) asInteger
+		g: (aColor green * 255) asInteger
+		b: (aColor blue * 255) asInteger
+		a: (aColor alpha * 255) asInteger
+		antialias: isAntialias
+]
+
 { #category : #'api - drawing' }
 SkiaSurfaceCanvas >> drawTextBlob: aTextBlob at: anOriginPoint paint: aSkiaPaint [
 	self primDrawTextBlob: aTextBlob x: anOriginPoint x y: anOriginPoint y paint: aSkiaPaint
+]
+
+{ #category : #'api - drawing optimized' }
+SkiaSurfaceCanvas >> drawTextBlobBlack: aTextBlob at: anOriginPoint antialias: isAntialias [
+	self
+		primDrawTextBlobBlack: aTextBlob
+		x: anOriginPoint x
+		y: anOriginPoint y
+		antialias: isAntialias
 ]
 
 { #category : #'api - state' }
@@ -275,11 +322,33 @@ SkiaSurfaceCanvas >> primDrawPointX: aX y: aY paint: aSkiaPaint [
 	self ffiCall: #(void skia_canvas_draw_point(self, scalar aX, scalar aY, SkiaPaint aSkiaPaint))
 ]
 
+{ #category : #'private - ffi optimized' }
+SkiaSurfaceCanvas >> primDrawRectangleBlackLeft: aLeft top: aTop right: aRight bottom: aBottom antialias: isAntialias [
+	self ffiCall: #(void skia_canvas_draw_rectangle_with_black_color(self,
+		scalar aLeft, scalar aTop, scalar aRight, scalar aBottom,
+		bool isAntialias))
+]
+
 { #category : #'private - ffi' }
 SkiaSurfaceCanvas >> primDrawRectangleLeft: aLeft top: aTop right: aRight bottom: aBottom paint: aSkiaPaint [
 	self ffiCall: #(void skia_canvas_draw_rectangle(self,
 		scalar aLeft, scalar aTop, scalar aRight, scalar aBottom,
 		SkiaPaint aSkiaPaint))
+]
+
+{ #category : #'private - ffi optimized' }
+SkiaSurfaceCanvas >> primDrawRectangleLeft: aLeft top: aTop right: aRight bottom: aBottom r: aRed g: aGreen b: aBlue a: anAlpha antialias: isAntialias [
+	self ffiCall: #(void skia_canvas_draw_rectangle_with_color(self,
+		scalar aLeft, scalar aTop, scalar aRight, scalar aBottom,
+		uint8 aRed, uint8 aGreen, uint8 aBlue, uint8 anAlpha,
+		bool isAntialias))
+]
+
+{ #category : #'private - ffi optimized' }
+SkiaSurfaceCanvas >> primDrawRectangleWhiteLeft: aLeft top: aTop right: aRight bottom: aBottom antialias: isAntialias [
+	self ffiCall: #(void skia_canvas_draw_rectangle_with_white_color(self,
+		scalar aLeft, scalar aTop, scalar aRight, scalar aBottom,
+		bool isAntialias))
 ]
 
 { #category : #'private - ffi' }
@@ -300,6 +369,23 @@ SkiaSurfaceCanvas >> primDrawTextBlob: aSkiaTextBlob x: aX y: aY paint: aSkiaPai
 		SkiaTextBlob aSkiaTextBlob,
 		scalar aX, scalar aY,
 		SkiaPaint aSkiaPaint))
+]
+
+{ #category : #'private - ffi optimized' }
+SkiaSurfaceCanvas >> primDrawTextBlob: aSkiaTextBlob x: aX y: aY r: aRed g: aGreen b: aBlue a: anAlpha antialias: isAntialias [
+	self ffiCall: #(void skia_canvas_draw_text_blob_with_color(self,
+		SkiaTextBlob aSkiaTextBlob,
+		scalar aX, scalar aY,
+		uint8 aRed, uint8 aGreen, uint8 aBlue, uint8 anAlpha,
+		bool isAntialias))
+]
+
+{ #category : #'private - ffi optimized' }
+SkiaSurfaceCanvas >> primDrawTextBlobBlack: aSkiaTextBlob x: aX y: aY antialias: isAntialias [
+	self ffiCall: #(void skia_canvas_draw_text_blob_with_black_color(self,
+		SkiaTextBlob aSkiaTextBlob,
+		scalar aX, scalar aY,
+		bool isAntialias))
 ]
 
 { #category : #'private - ffi' }

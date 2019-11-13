@@ -62,6 +62,11 @@ SkiaCanvas >> asForm [
 ]
 
 { #category : #builders }
+SkiaCanvas >> bitmapBuilder [
+	^ SkiaBitmapBuilder new
+]
+
+{ #category : #builders }
 SkiaCanvas >> clipBuilder [
 	"Return a new instance of the backend specific ${class:SpartaClipper}$"
 
@@ -80,6 +85,16 @@ SkiaCanvas >> extent [
 { #category : #builders }
 SkiaCanvas >> fillPainter [
 	^ SkiaFillPainter new
+]
+
+{ #category : #builders }
+SkiaCanvas >> filterPainter [
+	^ SkiaFilterPainter new
+]
+
+{ #category : #builders }
+SkiaCanvas >> filtersFactory [
+	^ SkiaFiltersFactory new
 ]
 
 { #category : #accessing }

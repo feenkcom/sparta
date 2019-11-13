@@ -31,12 +31,6 @@ Class {
 }
 
 { #category : #paints }
-MozPaintProvider >> form: aForm [
-	"A form is already a paint in Sparta"
-	^ aForm
-]
-
-{ #category : #paints }
 MozPaintProvider >> linearGradient [
 	"Generally, gradients are backend specific because of the way
 	how extend mode and gradient stops are represented"

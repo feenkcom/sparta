@@ -302,6 +302,11 @@ MozCanvas >> filterPainter [
 	^ filterPainter ifNil: [ filterPainter := MozFilterPainter new ]
 ]
 
+{ #category : #builders }
+MozCanvas >> filtersFactory [
+	^ MozFiltersFactory new
+]
+
 { #category : #filters }
 MozCanvas >> floodFilter [
 	^ MozFloodFilter createOn: self
@@ -326,11 +331,6 @@ MozCanvas >> fontFaceBuilder [
 { #category : #filters }
 MozCanvas >> gammaTransferFilter [
 	^ MozGammaTransferFilter createOn: self
-]
-
-{ #category : #filters }
-MozCanvas >> gaussianBlurFilter [
-	^ MozGaussianBlurFilter createOn: self
 ]
 
 { #category : #'private - ffi' }

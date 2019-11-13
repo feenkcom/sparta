@@ -682,6 +682,211 @@ TSpartaExamples >> arc_cw_from_100_200_to_50_150_angle_90 [
 	^ aCanvas
 ]
 
+{ #category : #benchmarks }
+TSpartaExamples >> benchmarkClipRectangle [
+	<gtExample>
+	<noTest>
+	| aCanvas aRectangle |
+
+	aCanvas := self class canvas: 300@200.
+	aCanvas fill
+		path: aCanvas bounds;
+		paint: Color white;
+		draw.
+
+	aRectangle := 50@50 corner: 250@150.
+		
+	^ [ aCanvas clip
+			by: aRectangle
+			during: [  ] ] benchFor: 2 seconds
+]
+
+{ #category : #benchmarks }
+TSpartaExamples >> benchmarkClipSubRectangle [
+	<gtExample>
+	<noTest>
+	| aCanvas aRectangle aSubRectangle |
+
+	aCanvas := self class canvas: 300@200.
+	aCanvas fill
+		path: aCanvas bounds;
+		paint: Color white;
+		draw.
+
+	aRectangle := 50@50 corner: 250@150.
+	aSubRectangle := 100@100 corner: 400@300.
+		
+	^ [ aCanvas clip
+			by: aRectangle
+			during: [
+				aCanvas clip
+					by: aSubRectangle
+					during: [  ] ] ] benchFor: 2 seconds
+]
+
+{ #category : #benchmarks }
+TSpartaExamples >> benchmarkDrawTextWithBlackColor [
+	<gtExample>
+	<noTest>
+	| aCanvas aFont aText |
+
+	aCanvas := self class canvas: 300@200.
+	aCanvas fill
+		path: aCanvas bounds;
+		paint: Color white;
+		draw.
+
+	aFont := aCanvas font build.
+
+	aText := aCanvas text
+		font: aFont;
+		string: 'Hello world! Hello world! Hello world!';
+		textRun.
+		
+	^ [ aCanvas text
+		baseline: 10@50;
+		font: aFont;
+		text: aText;
+		paint: Color black;
+		draw ] benchFor: 2 seconds
+]
+
+{ #category : #benchmarks }
+TSpartaExamples >> benchmarkDrawTextWithOpaqueColor [
+	<gtExample>
+	<noTest>
+	| aCanvas aFont aText |
+
+	aCanvas := self class canvas: 300@200.
+	aCanvas fill
+		path: aCanvas bounds;
+		paint: Color white;
+		draw.
+
+	aFont := aCanvas font build.
+
+	aText := aCanvas text
+		font: aFont;
+		string: 'Hello world! Hello world! Hello world!';
+		textRun.
+		
+	^ [ aCanvas text
+		baseline: 10@50;
+		font: aFont;
+		text: aText;
+		paint: (Color brown);
+		draw ] benchFor: 2 seconds
+]
+
+{ #category : #benchmarks }
+TSpartaExamples >> benchmarkDrawTextWithSemiTransparentColor [
+	<gtExample>
+	<noTest>
+	| aCanvas aFont aText |
+
+	aCanvas := self class canvas: 300@200.
+	aCanvas fill
+		path: aCanvas bounds;
+		paint: Color white;
+		draw.
+
+	aFont := aCanvas font build.
+
+	aText := aCanvas text
+		font: aFont;
+		string: 'Hello world! Hello world! Hello world!';
+		textRun.
+		
+	^ [ aCanvas text
+		baseline: 10@50;
+		font: aFont;
+		text: aText;
+		paint: (Color red alpha: 0.4);
+		draw ] benchFor: 2 seconds
+]
+
+{ #category : #benchmarks }
+TSpartaExamples >> benchmarkFillRectangleWithBlackColor [
+	<gtExample>
+	<noTest>
+	| aCanvas aRectangle aColor |
+
+	aCanvas := self class canvas: 300@200.
+	aCanvas fill
+		path: aCanvas bounds;
+		paint: Color white;
+		draw.
+
+	aRectangle := 50@50 corner: 250@150.
+	aColor := Color black.
+		
+	^ [ aCanvas fill
+		path: aRectangle;
+		paint: aColor;
+		draw ] benchFor: 2 seconds
+]
+
+{ #category : #benchmarks }
+TSpartaExamples >> benchmarkFillRectangleWithOpaqueColor [
+	<gtExample>
+	<noTest>
+	| aCanvas aRectangle aColor |
+
+	aCanvas := self class canvas: 300@200.
+	aCanvas fill
+		path: aCanvas bounds;
+		paint: Color white;
+		draw.
+		
+	aRectangle := 50@50 corner: 250@150.
+	aColor := Color brown.
+		
+	^ [ aCanvas fill
+		path: aRectangle;
+		paint: aColor;
+		draw ] benchFor: 2 seconds
+]
+
+{ #category : #benchmarks }
+TSpartaExamples >> benchmarkFillRectangleWithWhiteColor [
+	<gtExample>
+	<noTest>
+	| aCanvas aRectangle aColor |
+
+	aCanvas := self class canvas: 300@200.
+	aCanvas fill
+		path: aCanvas bounds;
+		paint: Color white;
+		draw.
+		
+	aRectangle := 50@50 corner: 250@150.
+	aColor := Color white.
+		
+	^ [ aCanvas fill
+		path: aRectangle;
+		paint: aColor;
+		draw ] benchFor: 2 seconds
+]
+
+{ #category : #benchmarks }
+TSpartaExamples >> benchmarkTransformTranslateBy [
+	<gtExample>
+	<noTest>
+	| aCanvas aDelta |
+
+	aCanvas := self class canvas: 300@200.
+	aCanvas fill
+		path: aCanvas bounds;
+		paint: Color white;
+		draw.
+
+	aDelta := 100@50.
+		
+	^ [ aCanvas transform
+			by: [ :t | t translateBy: aDelta ]
+			during: [  ] ] benchFor: 2 seconds
+]
+
 { #category : #'examples - clip rectangle' }
 TSpartaExamples >> clipRectangleOnce [
 	<gtExample>
@@ -779,6 +984,23 @@ TSpartaExamples >> donut [
 		draw.
 		
 	^ canvas
+]
+
+{ #category : #'examples - image filter blur' }
+TSpartaExamples >> drawCanvasWithBlurTo [
+	<gtExample>
+	| aSourceCanvas aDestinationCanvas |
+	aSourceCanvas := self fillTriangleWithLinearGradient.
+	
+	aDestinationCanvas := self class canvas: 600@500.
+	aDestinationCanvas filter
+		type: (aDestinationCanvas filters blur
+			source: aSourceCanvas;
+			stdDeviation: 20);
+		to: 100@50;
+		draw.
+
+	^ aDestinationCanvas
 ]
 
 { #category : #'examples - gradient linear' }

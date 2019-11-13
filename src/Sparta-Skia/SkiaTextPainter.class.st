@@ -38,20 +38,55 @@ SkiaTextPainter >> createPaintForColor: aColor [
 
 { #category : #drawing }
 SkiaTextPainter >> fillString: aString withColor: aFillColor strokeColor: aStrokeColor [
-	| aSkiaPaint aSkiaTextBlob |
-
-	aSkiaTextBlob := SkiaTextBlob string: aString font: font.
-	aSkiaPaint := self createPaintForColor: aFillColor.
-	
-	canvas surfaceCanvas drawTextBlob: aSkiaTextBlob at: baseline paint: aSkiaPaint
+	self
+		fillTextRun: (SkiaTextBlob string: aString font: font)
+		withColor: aFillColor
+		strokeColor: aStrokeColor
 ]
 
 { #category : #drawing }
 SkiaTextPainter >> fillString: aString withColor: aFillColor strokePaint: aStrokePaint [
 ]
 
+{ #category : #'private - drawing' }
+SkiaTextPainter >> fillTextBlob: aTextBlob withColor: aColor antialias: isAntialias [
+	aColor = Color black
+		ifTrue: [
+			^ canvas surfaceCanvas
+				drawTextBlobBlack: aTextBlob
+				at: baseline
+				antialias: isAntialias ].
+			
+	canvas surfaceCanvas
+		drawTextBlob: aTextBlob
+		at: baseline
+		color: aColor
+		antialias: isAntialias
+]
+
 { #category : #drawing }
-SkiaTextPainter >> fillTextRun: aTextRun withColor: aFillColor strokeColor: aStrokeColor [	
+SkiaTextPainter >> fillTextRun: aTextRun withColor: aFillColor strokeColor: aStrokeColor [
+
+	"blend mode = SrcOver, alpha = 1, antialias = true"
+	drawOptions ifNil: [
+		^ self
+			fillTextBlob: aTextRun textBlob
+			withColor: aFillColor
+			antialias: true ].
+
+	drawOptions blendMode = SkiaBlendMode SrcOver
+		ifTrue: [
+			| aColor |
+			
+			aColor := (drawOptions alpha closeTo: 1.0)
+				ifTrue: [ aFillColor ]
+				ifFalse: [ aFillColor alpha: aFillColor alpha * drawOptions alpha ].
+				
+			^ self
+				fillTextBlob: aTextRun textBlob
+				withColor: aColor
+				antialias: drawOptions antialias ].
+
 	canvas surfaceCanvas
 		drawTextBlob: aTextRun textBlob
 		at: baseline

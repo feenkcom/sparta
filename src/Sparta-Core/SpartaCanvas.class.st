@@ -482,8 +482,9 @@ SpartaCanvas >> filter [
 
 { #category : #builders }
 SpartaCanvas >> filterPainter [
-	self subclassResponsibility.
-	^ SpartaFilterPainter new
+
+	true ifFalse: [ ^ self subclassResponsibility ].
+	^ SpartaUnimplementedFilterPainter new
 ]
 
 { #category : #api }
@@ -542,11 +543,6 @@ SpartaCanvas >> fontFaceBuilder [
 
 { #category : #filters }
 SpartaCanvas >> gammaTransferFilter [
-	^ self subclassResponsibility
-]
-
-{ #category : #filters }
-SpartaCanvas >> gaussianBlurFilter [
 	^ self subclassResponsibility
 ]
 
