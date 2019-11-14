@@ -59,39 +59,6 @@ SkiaSurfaceExamples >> newRasterPremultipledSizeOne [
 ]
 
 { #category : #accessing }
-SkiaSurfaceExamples >> newRenderTarget [
-	<gtExample>
-	| aSurface anImageInfo thePixels |
-	
-	anImageInfo := SkiaImageInfo
-		width: 300
-		height: 200
-		colorType: SkiaColorType BGRA8888
-		alphaType: SkiaAlphaType Unpremul.
-	
-	aSurface := SkiaSurface newRenderTargetImageInfo: anImageInfo.
-	
-	"self assert: aSurface width equals: 1.
-	self assert: aSurface height equals: 1.
-	
-	anImageInfo := aSurface imageInfo. 
-	
-	self assert: anImageInfo width equals: 1.
-	self assert: anImageInfo height equals: 1.
-	self assert: anImageInfo alphaType equals: SkiaAlphaType Premul.
-	self assert: ({ SkiaColorType RGBA8888. SkiaColorType BGRA8888. } includes: anImageInfo colorType).
-	self assert: anImageInfo bytesPerPixel equals: 4.
-	self assert: anImageInfo shiftPerPixel equals: 2.
-	self assert: anImageInfo minRowBytes equals: 4.
-	self assert: anImageInfo byteSize equals: 4.
-	
-	thePixels := aSurface data asArray.
-	self assert: thePixels equals: (Array new: 4 withAll: 0)."
-	
-	^ aSurface
-]
-
-{ #category : #accessing }
 SkiaSurfaceExamples >> snapshot [
 	<gtExample>
 	| aSurface aCanvas aSnapshot |

@@ -24,7 +24,18 @@ SkiaSurface class >> newRasterPremultipled: anExtent [
 
 { #category : #'instance creation' }
 SkiaSurface class >> newRenderTargetImageInfo: aSkiaImageInfo [
-	^ self fromNativeHandle: (self primNewRenderTargetImageInfo: aSkiaImageInfo)
+	| aSkiaContext |
+
+	aSkiaContext := SkiaContext new.
+	
+	NonInteractiveTranscript stdout show: 'colorType '; show: aSkiaImageInfo colorType; cr.
+	NonInteractiveTranscript stdout show: 'maxTextureSize: '; show: aSkiaContext maxTextureSize; cr.
+	NonInteractiveTranscript stdout show: 'maxRenderTargetSize: '; show: aSkiaContext maxRenderTargetSize; cr.
+	NonInteractiveTranscript stdout show: 'maxSurfaceSampleCount: '; show: (aSkiaContext maxSurfaceSampleCountForColorType: aSkiaImageInfo colorType); cr.
+	NonInteractiveTranscript stdout show: 'isColorTypeSupportedAsImage: '; show: (aSkiaContext isColorTypeSupportedAsImage: aSkiaImageInfo colorType); cr.
+	NonInteractiveTranscript stdout show: 'isColorTypeSupportedAsSurface: '; show: (aSkiaContext isColorTypeSupportedAsSurface: aSkiaImageInfo colorType); cr.
+
+	^ self fromNativeHandle: (self primNewRenderTargetContext: aSkiaContext imageInfo: aSkiaImageInfo)
 ]
 
 { #category : #'private - ffi' }
@@ -43,8 +54,8 @@ SkiaSurface class >> primNewRasterDirectImageInfo: aSkiaImageInfo pixels: thePix
 ]
 
 { #category : #'private - ffi' }
-SkiaSurface class >> primNewRenderTargetImageInfo: aSkiaImageInfo [
-	^ self ffiCall: #(void* skia_surface_new_render_target(SkiaImageInfo aSkiaImageInfo))
+SkiaSurface class >> primNewRenderTargetContext: aSkiaContext imageInfo: aSkiaImageInfo [
+	^ self ffiCall: #(void* skia_surface_new_render_target(SkiaImageInfo aSkiaImageInfo, SkiaContext aSkiaContext))
 ]
 
 { #category : #'private - ffi' }
