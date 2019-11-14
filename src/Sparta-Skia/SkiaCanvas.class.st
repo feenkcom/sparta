@@ -32,6 +32,21 @@ SkiaCanvas class >> createForData: aData extent: aPoint stride: aStride format: 
 	^ self new initializeWith: aSurface
 ]
 
+{ #category : #'api - instance creation' }
+SkiaCanvas class >> createForRenderTargetExtent: aPoint format: aSkiaColorType [
+	| anImageInfo aSurface |
+	
+	anImageInfo := SkiaImageInfo
+		width: aPoint x
+		height: aPoint y
+		colorType: aSkiaColorType
+		alphaType: SkiaAlphaType Premul.
+	
+	aSurface := SkiaSurface newRenderTargetImageInfo: anImageInfo.
+		
+	^ self new initializeWith: aSurface
+]
+
 { #category : #accessing }
 SkiaCanvas class >> drawOptions [
 	^ SkiaDrawOptions
