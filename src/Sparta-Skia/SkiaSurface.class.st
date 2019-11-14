@@ -22,6 +22,11 @@ SkiaSurface class >> newRasterPremultipled: anExtent [
 	^ self fromNativeHandle: (self primNewRaster32PremultipliedWidth: anIntegerExtent x height: anIntegerExtent y)
 ]
 
+{ #category : #'instance creation' }
+SkiaSurface class >> newRenderTargetImageInfo: aSkiaImageInfo [
+	^ self fromNativeHandle: (self primNewRenderTargetImageInfo: aSkiaImageInfo)
+]
+
 { #category : #'private - ffi' }
 SkiaSurface class >> primCreate [
 	^ self ffiCall: #(void* skia_surface_new_default())
@@ -35,6 +40,11 @@ SkiaSurface class >> primNewRaster32PremultipliedWidth: aWidth height: aHeight [
 { #category : #'private - ffi' }
 SkiaSurface class >> primNewRasterDirectImageInfo: aSkiaImageInfo pixels: thePixels stride: aStride [
 	^ self ffiCall: #(void* skia_surface_new_raster_direct(SkiaImageInfo aSkiaImageInfo, GtBoxerArrayU8 thePixels, size_t aStride))
+]
+
+{ #category : #'private - ffi' }
+SkiaSurface class >> primNewRenderTargetImageInfo: aSkiaImageInfo [
+	^ self ffiCall: #(void* skia_surface_new_render_target(SkiaImageInfo aSkiaImageInfo))
 ]
 
 { #category : #'private - ffi' }
