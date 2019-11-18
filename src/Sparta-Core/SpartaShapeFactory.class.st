@@ -91,14 +91,19 @@ SpartaShapeFactory >> polygon: aCollectionOfPoints [
 ]
 
 { #category : #shapes }
-SpartaShapeFactory >> roundedRectangle: aRectangle radii: cornerRadii [
+SpartaShapeFactory >> roundedRectangle: aRectangle radii: anArrayOfCornerRadii [
+	"anArrayOfCornerRadii must contain 4 numbers representing corner radii:
+	{
+		topLeft, topRight, bottomRight, bottomLeft
+	}"
+
 	| min tlr trr brr blr x y right bottom |
 
 	min := (aRectangle width min: aRectangle height) / 2.0.
-	tlr := cornerRadii topLeft min: min.
-	trr := cornerRadii topRight min: min.
-	brr := cornerRadii bottomRight min: min.
-	blr := cornerRadii bottomLeft min: min.
+	tlr := anArrayOfCornerRadii first min: min.
+	trr := anArrayOfCornerRadii second min: min.
+	brr := anArrayOfCornerRadii third min: min.
+	blr := anArrayOfCornerRadii fourth min: min.
 	
 	x := aRectangle left.
 	y := aRectangle top.

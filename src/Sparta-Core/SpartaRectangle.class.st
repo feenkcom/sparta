@@ -348,17 +348,17 @@ SpartaRectangle >> scaleX: aX Y: aY [
 	bottom := bottom * aY
 ]
 
-{ #category : #dispatch }
+{ #category : #'api - sparta path' }
 SpartaRectangle >> spartaClipOn: aSpartaCanvas with: aSpartaClipper [
 	aSpartaClipper pushRectangle: self
 ]
 
-{ #category : #dispatch }
+{ #category : #'api - sparta path' }
 SpartaRectangle >> spartaFillOn: aSpartaCanvas with: aSpartaFiller [
 	aSpartaFiller fillRectangle: self
 ]
 
-{ #category : #dispatch }
+{ #category : #'api - sparta path' }
 SpartaRectangle >> spartaStrokeOn: aSpartaCanvas with: aSpartaStrokePainter [
 	aSpartaStrokePainter strokeRectangle: self
 ]

@@ -169,6 +169,13 @@ SkiaCanvas >> pathBuilderClass [
 	^ SkiaPathBuilder
 ]
 
+{ #category : #builders }
+SkiaCanvas >> shapeFactory [
+	<return: #SpartaShapeFactory>
+
+	^ SkiaShapeFactory new
+]
+
 { #category : #'instance creation' }
 SkiaCanvas >> similar: anExtent [
 	"Create a new empty canvas of the same type and format with a given size.

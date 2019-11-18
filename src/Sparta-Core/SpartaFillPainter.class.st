@@ -117,3 +117,33 @@ SpartaFillPainter >> fillRectangle: aRectangle withSolidColor: aColor [
 SpartaFillPainter >> fillRectangle: aRectangle withSurface: aSpartaSurfacePaint [
 	^ self subclassResponsibility
 ]
+
+{ #category : #drawing }
+SpartaFillPainter >> fillRoundedRectangle: aRectangle [
+	paint spartaFillRoundedRectangle: aRectangle with: self
+]
+
+{ #category : #drawing }
+SpartaFillPainter >> fillRoundedRectangle: aSpartaRounedRectangle withForm: aForm [
+	^ self subclassResponsibility
+]
+
+{ #category : #drawing }
+SpartaFillPainter >> fillRoundedRectangle: aSpartaRounedRectangle withLinearGradient: aSpartaLinearGradient [
+	^ self subclassResponsibility
+]
+
+{ #category : #drawing }
+SpartaFillPainter >> fillRoundedRectangle: aSpartaRounedRectangle withRadialGradient: aSpartaRadialGradient [
+	^ self subclassResponsibility
+]
+
+{ #category : #drawing }
+SpartaFillPainter >> fillRoundedRectangle: aSpartaRounedRectangle withSolidColor: aColor [
+	^ self subclassResponsibility
+]
+
+{ #category : #drawing }
+SpartaFillPainter >> fillRoundedRectangle: aSpartaRounedRectangle withSurface: aSpartaSurfacePaint [
+	^ self subclassResponsibility
+]

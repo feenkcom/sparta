@@ -14,12 +14,12 @@ Trait {
 	#category : #'Sparta-Core-Path'
 }
 
-{ #category : #converting }
+{ #category : #'api - sparta path' }
 TSpartaPath >> asSpartaPathOn: aSpartaCanvas [
 	^ self
 ]
 
-{ #category : #'geometry - testing' }
+{ #category : #'api - sparta path' }
 TSpartaPath >> containsPoint: aPoint on: aSpartaCanvas [
 	"Return true if a given point lies within this path as if it would be filled"
 	<return: #Boolean>
@@ -27,22 +27,22 @@ TSpartaPath >> containsPoint: aPoint on: aSpartaCanvas [
 	^ self explicitRequirement
 ]
 
-{ #category : #dispatch }
+{ #category : #'api - sparta path' }
 TSpartaPath >> spartaClipOn: aSpartaCanvas with: aSpartaClipper [
 	aSpartaClipper pushPath: self
 ]
 
-{ #category : #dispatch }
+{ #category : #'api - sparta path' }
 TSpartaPath >> spartaFillOn: aSpartaCanvas with: aSpartaPainter [
 	aSpartaPainter fillPath: self
 ]
 
-{ #category : #dispatch }
+{ #category : #'api - sparta path' }
 TSpartaPath >> spartaStrokeOn: aSpartaCanvas with: aSpartaFiller [
 	aSpartaFiller strokePath: self
 ]
 
-{ #category : #'geometry - testing' }
+{ #category : #'api - sparta path' }
 TSpartaPath >> strokeContainsPoint: aPoint options: aStrokeOptions on: aSpartaCanvas [
 	"Return true if a given point lies within this path as if it would be stroked with provided stroke options"
 	<return: #Boolean>
@@ -50,7 +50,7 @@ TSpartaPath >> strokeContainsPoint: aPoint options: aStrokeOptions on: aSpartaCa
 	^ self explicitRequirement
 ]
 
-{ #category : #'geometry - accessing' }
+{ #category : #'api - sparta path' }
 TSpartaPath >> strokedBoundsOn: aSpartaCanvas with: aStrokeOptions [
 	"Return the bounds of the stroke of this path using the specified strokeoptions.
 	These bounds are not guaranteed to be tight."

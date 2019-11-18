@@ -3,7 +3,7 @@ Class {
 	#superclass : #SpartaShapeFactory,
 	#traits : 'TMozLibrary',
 	#classTraits : 'TMozLibrary classTrait',
-	#category : 'Sparta-Moz2D-Builders'
+	#category : #'Sparta-Moz2D-Builders'
 }
 
 { #category : #shapes }
@@ -48,17 +48,17 @@ MozShapeFactory >> primRoundedRectangleX: x y: y width: width height: height tlr
 ]
 
 { #category : #shapes }
-MozShapeFactory >> roundedRectangle: aRectangle radii: cornerRadii [
+MozShapeFactory >> roundedRectangle: aRectangle radii: anArrayOfCornerRadii [
 	
 	^ (self
 		primRoundedRectangleX: aRectangle left
 		y: aRectangle top
 		width: aRectangle width
 		height: aRectangle height
-		tlr: cornerRadii topLeft
-		trr: cornerRadii topRight
-		brr: cornerRadii bottomRight
-		blr: cornerRadii bottomLeft
+		tlr: anArrayOfCornerRadii first
+		trr: anArrayOfCornerRadii second
+		brr: anArrayOfCornerRadii third
+		blr: anArrayOfCornerRadii fourth
 		fr: MozFillRule FILL_WINDING)
 			initialize;
 			autoRelease

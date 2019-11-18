@@ -44,6 +44,11 @@ TSpartaSurfacePaint >> spartaFillRectangle: aRectangle with: aFillPainter [
 ]
 
 { #category : #dispatch }
+TSpartaSurfacePaint >> spartaFillRoundedRectangle: aRectangle with: aFillPainter [
+	aFillPainter fillRoundedRectangle: aRectangle withSurface: self
+]
+
+{ #category : #dispatch }
 TSpartaSurfacePaint >> spartaStrokeLine: aLine with: aStrokePainter [
 	aStrokePainter strokeLine: aLine withSurface: self
 ]

@@ -71,6 +71,11 @@ TSpartaLinearGradientPaint >> spartaFillRectangle: aPath with: aFillPainter [
 ]
 
 { #category : #dispatch }
+TSpartaLinearGradientPaint >> spartaFillRoundedRectangle: aPath with: aFillPainter [
+	aFillPainter fillRoundedRectangle: aPath withLinearGradient: self
+]
+
+{ #category : #dispatch }
 TSpartaLinearGradientPaint >> spartaStrokeLine: aLine with: aStrokePainter [
 	aStrokePainter strokeLine: aLine withLinearGradient: self
 ]

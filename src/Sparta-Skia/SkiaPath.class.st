@@ -73,7 +73,7 @@ SkiaPath >> close [
 	self primClose
 ]
 
-{ #category : #'geometry - testing' }
+{ #category : #'api - sparta path' }
 SkiaPath >> containsPoint: aPoint on: aSpartaCanvas [
 	"Return true if a given point lies within this path as if it would be filled"
 	<return: #Boolean>
@@ -215,7 +215,7 @@ SkiaPath >> primSetFillType: aSkiaPathFillType [
 	^ self ffiCall: #(void skia_path_set_fill_type(self, SkiaPathFillType aSkiaPathFillType))
 ]
 
-{ #category : #'geometry - testing' }
+{ #category : #'api - sparta path' }
 SkiaPath >> strokeContainsPoint: aPoint options: aStrokeOptions on: aSpartaCanvas [
 	"Return true if a given point lies within this path as if it would be stroked with provided stroke options"
 	<return: #Boolean>
@@ -223,7 +223,7 @@ SkiaPath >> strokeContainsPoint: aPoint options: aStrokeOptions on: aSpartaCanva
 	^ false
 ]
 
-{ #category : #'geometry - accessing' }
+{ #category : #'api - sparta path' }
 SkiaPath >> strokedBoundsOn: aSpartaCanvas with: aStrokeOptions [
 	"Return the bounds of the stroke of this path using the specified strokeoptions.
 	These bounds are not guaranteed to be tight."
