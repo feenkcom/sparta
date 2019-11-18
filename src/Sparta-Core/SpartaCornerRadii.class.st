@@ -41,12 +41,19 @@ SpartaCornerRadii >> bottomRight [
 	^ bottomRight
 ]
 
-{ #category : #accessing }
-SpartaCornerRadii >> topLeft [	
-	self
-		assert: [ topLeft isNil ]
-		description: [ 'I am immutable' ].
+{ #category : #testing }
+SpartaCornerRadii >> isUniform [
+	"Return true if all corner radii are same"
+	<return: #Boolean>
 
+	^ (topLeft closeTo: topRight)
+		and: [ (topRight closeTo: bottomRight)
+			and: [ (bottomRight closeTo: bottomLeft)
+				and: [ bottomLeft closeTo: topLeft ] ] ]
+]
+
+{ #category : #accessing }
+SpartaCornerRadii >> topLeft [
 	^ topLeft
 ]
 
@@ -73,9 +80,5 @@ SpartaCornerRadii >> topLeft: aTopLeft topRight: aTopRight bottomRight: aBottomR
 
 { #category : #accessing }
 SpartaCornerRadii >> topRight [
-	self
-		assert: [ topRight isNil ]
-		description: [ 'I am immutable' ].
-
 	^ topRight
 ]

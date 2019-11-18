@@ -869,6 +869,69 @@ TSpartaExamples >> benchmarkFillRectangleWithWhiteColor [
 ]
 
 { #category : #benchmarks }
+TSpartaExamples >> benchmarkFillRoundedRectangleWithOpaqueColorNoPathCache [
+	<gtExample>
+	<noTest>
+	| aCanvas aRectangle aColor |
+
+	aCanvas := self class canvas: 300@200.
+	aCanvas fill
+		path: aCanvas bounds;
+		paint: Color white;
+		draw.
+		
+	aRectangle := 50@50 corner: 250@150.
+	aColor := Color brown.
+		
+	^ [ aCanvas fill
+		path: (aCanvas shape roundedRectangle: aRectangle radii: #(20 30 40 50));
+		paint: aColor;
+		draw ] benchFor: 2 seconds
+]
+
+{ #category : #benchmarks }
+TSpartaExamples >> benchmarkFillSimpleRoundedRectangleWithOpaqueColor [
+	<gtExample>
+	<noTest>
+	| aCanvas aRectangle aColor |
+
+	aCanvas := self class canvas: 300@200.
+	aCanvas fill
+		path: aCanvas bounds;
+		paint: Color white;
+		draw.
+		
+	aRectangle := aCanvas shape roundedRectangle: (50@50 corner: 250@150) radii: #(20 20 20 20).
+	aColor := Color brown.
+		
+	^ [ aCanvas fill
+		path: aRectangle;
+		paint: aColor;
+		draw ] benchFor: 2 seconds
+]
+
+{ #category : #benchmarks }
+TSpartaExamples >> benchmarkFillSimpleRoundedRectangleWithOpaqueColorNoPathCache [
+	<gtExample>
+	<noTest>
+	| aCanvas aRectangle aColor |
+
+	aCanvas := self class canvas: 300@200.
+	aCanvas fill
+		path: aCanvas bounds;
+		paint: Color white;
+		draw.
+		
+	aRectangle := 50@50 corner: 250@150.
+	aColor := Color brown.
+		
+	^ [ aCanvas fill
+		path: (aCanvas shape roundedRectangle: aRectangle radii: #(20 20 20 20));
+		paint: aColor;
+		draw ] benchFor: 2 seconds
+]
+
+{ #category : #benchmarks }
 TSpartaExamples >> benchmarkTransformTranslateBy [
 	<gtExample>
 	<noTest>
