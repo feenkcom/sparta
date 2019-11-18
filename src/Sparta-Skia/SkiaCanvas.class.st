@@ -33,7 +33,15 @@ SkiaCanvas class >> createForData: aData extent: aPoint stride: aStride format: 
 ]
 
 { #category : #'api - instance creation' }
-SkiaCanvas class >> createForRenderTargetExtent: aPoint format: aSkiaColorType [
+SkiaCanvas class >> createFromRenderTarget: aSkiaBackendRenderTarget format: aSkiaColorType [
+	| aSurface |
+		
+	aSurface := SkiaSurface fromRenderTarget: aSkiaBackendRenderTarget colorType: aSkiaColorType.
+	^ self new initializeWith: aSurface
+]
+
+{ #category : #'api - instance creation' }
+SkiaCanvas class >> createNewRenderTargetExtent: aPoint format: aSkiaColorType [
 	| anImageInfo aSurface |
 	
 	anImageInfo := SkiaImageInfo
@@ -116,7 +124,8 @@ SkiaCanvas >> filtersFactory [
 SkiaCanvas >> flush [
 	"Ensure that the backend has flushed all drawing operations to this canvas"
 
-	skiaSurfaceCanvas flush
+	skiaSurfaceCanvas flush.
+	skiaSurface flush
 ]
 
 { #category : #builders }
