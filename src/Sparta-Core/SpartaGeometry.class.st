@@ -6,7 +6,7 @@ Class {
 	#category : #'Sparta-Core-Path'
 }
 
-{ #category : #'geometry - testing' }
+{ #category : #'api - sparta path' }
 SpartaGeometry >> containsPoint: aPoint on: aSpartaCanvas [
 	"Return true if a given point lies within this path as if it would be filled"
 	<return: #Boolean>
@@ -14,22 +14,22 @@ SpartaGeometry >> containsPoint: aPoint on: aSpartaCanvas [
 	^ self subclassResponsibility
 ]
 
-{ #category : #dispatch }
+{ #category : #'api - sparta path' }
 SpartaGeometry >> spartaClipOn: aSpartaCanvas with: aSpartaClipper [
 	self subclassResponsibility
 ]
 
-{ #category : #dispatch }
+{ #category : #'api - sparta path' }
 SpartaGeometry >> spartaFillOn: aSpartaCanvas with: aSpartaPainter [
 	self subclassResponsibility
 ]
 
-{ #category : #dispatch }
+{ #category : #'api - sparta path' }
 SpartaGeometry >> spartaStrokeOn: aSpartaCanvas with: aSpartaFiller [
 	self subclassResponsibility
 ]
 
-{ #category : #'geometry - testing' }
+{ #category : #'api - sparta path' }
 SpartaGeometry >> strokeContainsPoint: aPoint options: aStrokeOptions on: aSpartaCanvas [
 	"Return true if a given point lies within this path as if it would be stroked with provided stroke options"
 	<return: #Boolean>
@@ -37,7 +37,7 @@ SpartaGeometry >> strokeContainsPoint: aPoint options: aStrokeOptions on: aSpart
 	^ self subclassResponsibility
 ]
 
-{ #category : #'geometry - accessing' }
+{ #category : #'api - sparta path' }
 SpartaGeometry >> strokedBoundsOn: aSpartaCanvas with: aStrokeOptions [
 	"Return the bounds of the stroke of this path using the specified strokeoptions.
 	These bounds are not guaranteed to be tight."

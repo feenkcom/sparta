@@ -9,7 +9,7 @@ Class {
 	#pools : [
 		'MozSharedPool'
 	],
-	#category : 'Sparta-Moz2D-Path'
+	#category : #'Sparta-Moz2D-Path'
 }
 
 { #category : #comparing }
@@ -43,7 +43,7 @@ MozPath >> asForm [
 	^ canvas asForm
 ]
 
-{ #category : #'geometry - testing' }
+{ #category : #'api - sparta path' }
 MozPath >> containsPoint: aPoint on: aSpartaCanvas [
 	"Return true if a given point lies within this path as if it would be filled"
 	<return: #Boolean>
@@ -81,7 +81,7 @@ MozPath >> primStrokeContainsPointX: aX Y: aY options: aStrokeOptions [
 	^ self ffiCall: #(bool moz2d_path_stroke_contains_point(self, float aX, float aY, MozStrokeOptions aStrokeOptions))
 ]
 
-{ #category : #'geometry - testing' }
+{ #category : #'api - sparta path' }
 MozPath >> strokeContainsPoint: aPoint options: aStrokeOptions on: aSpartaCanvas [
 	"Return true if a given point lies within this path as if it would be stroked with provided stroke options"
 	<return: #Boolean>
@@ -101,7 +101,7 @@ MozPath >> strokedBounds: aStrokeOptions [
 	^ extRect asRectangle
 ]
 
-{ #category : #'geometry - accessing' }
+{ #category : #'api - sparta path' }
 MozPath >> strokedBoundsOn: aSpartaCanvas with: aStrokeOptions [
 	"Return the bounds of the stroke of this path using the specified strokeoptions.
 	These bounds are not guaranteed to be tight."

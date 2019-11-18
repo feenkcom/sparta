@@ -1193,6 +1193,21 @@ TSpartaExamples >> fillRectangleWithLinearGradient [
 	^ aCanvas
 ]
 
+{ #category : #'examples - fill rounded rectangle' }
+TSpartaExamples >> fillRoundedRectangleWithGrayColor [
+	<gtExample>
+	| aCanvas |
+
+	aCanvas := self class canvas: 400@300.
+	
+	aCanvas fill
+		path: (aCanvas shape roundedRectangle: (100@100 corner: 300@200) radii: #(20 30 40 50));
+		paint: Color lightGray;
+		draw.
+
+	^ aCanvas
+]
+
 { #category : #'examples - fill triangle' }
 TSpartaExamples >> fillTriangleWithGrayColor [
 	<gtExample>

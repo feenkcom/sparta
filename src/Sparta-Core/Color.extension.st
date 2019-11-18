@@ -16,6 +16,11 @@ Color >> spartaFillRectangle: aRectangle with: aFillPainter [
 ]
 
 { #category : #'*Sparta-Core' }
+Color >> spartaFillRoundedRectangle: aRectangle with: aFillPainter [
+	aFillPainter fillRoundedRectangle: aRectangle withSolidColor: self
+]
+
+{ #category : #'*Sparta-Core' }
 Color >> spartaFillString: aString with: aTextPainter [
 	aTextPainter fillString: aString withSolidColor: self
 ]

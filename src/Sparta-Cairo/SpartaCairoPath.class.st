@@ -6,7 +6,7 @@ Class {
 	#instVars : [
 		'fillRule'
 	],
-	#category : 'Sparta-Cairo-Path'
+	#category : #'Sparta-Cairo-Path'
 }
 
 { #category : #finalization }
@@ -16,7 +16,7 @@ SpartaCairoPath class >> primRelease: aHandle [
 	^ self ffiCall: #(void cairo_path_destroy ( void* aHandle ) )
 ]
 
-{ #category : #'geometry - testing' }
+{ #category : #'api - sparta path' }
 SpartaCairoPath >> containsPoint: aPoint on: aSpartaCanvas [
 	"Return true if a given point lies within this path as if it would be filled"
 	<return: #Boolean>
@@ -91,7 +91,7 @@ SpartaCairoPath >> setOnCanvas: aSpartaCairoCanvas [
 		primAppendPath: self on: aSpartaCairoCanvas.
 ]
 
-{ #category : #'geometry - testing' }
+{ #category : #'api - sparta path' }
 SpartaCairoPath >> strokeContainsPoint: aPoint options: aStrokeOptions on: aSpartaCairoCanvas [
 	"Return true if a given point lies within this path as if it would be stroked with provided stroke options"
 	<return: #Boolean>
@@ -165,7 +165,7 @@ SpartaCairoPath >> strokedBounds: aStrokeOptions [
 	^ bounds
 ]
 
-{ #category : #'geometry - accessing' }
+{ #category : #'api - sparta path' }
 SpartaCairoPath >> strokedBoundsOn: aSpartaCairoCanvas with: aStrokeOptions [
 	"Return the bounds of the stroke of this path using the specified strokeoptions.
 	These bounds are not guaranteed to be tight."

@@ -73,6 +73,11 @@ TSpartaRadialGradientPaint >> spartaFillRectangle: aRectangle with: aFillPainter
 ]
 
 { #category : #dispatch }
+TSpartaRadialGradientPaint >> spartaFillRoundedRectangle: aRectangle with: aFillPainter [
+	aFillPainter fillRoundedRectangle: aRectangle withRadialGradient: self
+]
+
+{ #category : #dispatch }
 TSpartaRadialGradientPaint >> spartaStrokeLine: aLine with: aStrokePainter [
 	aStrokePainter strokeLine: aLine withRadialGradient: self
 ]

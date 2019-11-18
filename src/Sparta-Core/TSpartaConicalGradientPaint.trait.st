@@ -34,6 +34,11 @@ TSpartaConicalGradientPaint >> spartaFillRectangle: aRectangle with: aFillPainte
 ]
 
 { #category : #dispatch }
+TSpartaConicalGradientPaint >> spartaFillRoundedRectangle: aRectangle with: aFillPainter [
+	aFillPainter fillRoundedRectangle: aRectangle withConicalGradient: self
+]
+
+{ #category : #dispatch }
 TSpartaConicalGradientPaint >> spartaStrokeLine: aLine with: aStrokePainter [
 	aStrokePainter strokeLine: aLine withConicalGradient: self
 ]

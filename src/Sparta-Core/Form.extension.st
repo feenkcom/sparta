@@ -20,6 +20,11 @@ Form >> spartaFillRectangle: aRectangle with: aFillPainter [
 ]
 
 { #category : #'*Sparta-Core' }
+Form >> spartaFillRoundedRectangle: aRectangle with: aFillPainter [
+	aFillPainter fillRoundedRectangle: aRectangle withForm: self
+]
+
+{ #category : #'*Sparta-Core' }
 Form >> spartaFillString: aString with: aTextPainter [
 	aTextPainter fillString: aString withForm: self
 ]

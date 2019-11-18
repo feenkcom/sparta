@@ -10,5 +10,5 @@ Class {
 
 { #category : #accessing }
 SpartaFillEvenOddRule >> newPathBuilder: aPathBuilderClass canvas: aSpartaCanvas [
-	^ aPathBuilderClass eventOdd: aSpartaCanvas
+	^ aPathBuilderClass evenOdd: aSpartaCanvas
 ]
