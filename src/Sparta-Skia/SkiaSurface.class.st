@@ -4,10 +4,28 @@ Class {
 	#traits : 'TSpartaSurface',
 	#classTraits : 'TSpartaSurface classTrait',
 	#instVars : [
-		'registeredCanvases'
+		'registeredCanvases',
+		'gpuContext'
 	],
 	#category : #'Sparta-Skia-External'
 }
+
+{ #category : #'instance creation' }
+SkiaSurface class >> fromRenderTarget: aSkiaBackendRenderTarget colorType: aSkiaColorType [
+	| aSkiaContext |
+
+	aSkiaContext := SkiaContext new.
+	
+	NonInteractiveTranscript stdout show: 'colorType '; show: aSkiaColorType; cr.
+	NonInteractiveTranscript stdout show: 'maxTextureSize: '; show: aSkiaContext maxTextureSize; cr.
+	NonInteractiveTranscript stdout show: 'maxRenderTargetSize: '; show: aSkiaContext maxRenderTargetSize; cr.
+	NonInteractiveTranscript stdout show: 'maxSurfaceSampleCount: '; show: (aSkiaContext maxSurfaceSampleCountForColorType: aSkiaColorType); cr.
+	NonInteractiveTranscript stdout show: 'isColorTypeSupportedAsImage: '; show: (aSkiaContext isColorTypeSupportedAsImage: aSkiaColorType); cr.
+	NonInteractiveTranscript stdout show: 'isColorTypeSupportedAsSurface: '; show: (aSkiaContext isColorTypeSupportedAsSurface: aSkiaColorType); cr.
+	
+	^ (self fromNativeHandle: (self primFromRenderTarget: aSkiaBackendRenderTarget context: aSkiaContext colorType: aSkiaColorType))
+		gpuContext: aSkiaContext
+]
 
 { #category : #'instance creation' }
 SkiaSurface class >> newRasterDirectImageInfo: aSkiaImageInfo pixels: thePixels stride: aStride [
@@ -35,12 +53,21 @@ SkiaSurface class >> newRenderTargetImageInfo: aSkiaImageInfo [
 	NonInteractiveTranscript stdout show: 'isColorTypeSupportedAsImage: '; show: (aSkiaContext isColorTypeSupportedAsImage: aSkiaImageInfo colorType); cr.
 	NonInteractiveTranscript stdout show: 'isColorTypeSupportedAsSurface: '; show: (aSkiaContext isColorTypeSupportedAsSurface: aSkiaImageInfo colorType); cr.
 
-	^ self fromNativeHandle: (self primNewRenderTargetContext: aSkiaContext imageInfo: aSkiaImageInfo)
+	^ (self fromNativeHandle: (self primNewRenderTargetContext: aSkiaContext imageInfo: aSkiaImageInfo))
+		gpuContext: aSkiaContext
 ]
 
 { #category : #'private - ffi' }
 SkiaSurface class >> primCreate [
 	^ self ffiCall: #(void* skia_surface_new_default())
+]
+
+{ #category : #'private - ffi' }
+SkiaSurface class >> primFromRenderTarget: aSkiaBackendRenderTarget context: aSkiaContext colorType: aSkiaColorType [
+	^ self ffiCall: #(void* skia_surface_from_render_target(
+		SkiaBackendRenderTarget aSkiaBackendRenderTarget,
+		SkiaContext aSkiaContext,
+		SkiaColorType aSkiaColorType))
 ]
 
 { #category : #'private - ffi' }
@@ -112,6 +139,22 @@ SkiaSurface >> extent [
 	^ aWidth @ aHeight
 ]
 
+{ #category : #accessing }
+SkiaSurface >> flush [
+	self primFlush.
+	gpuContext ifNotNil: #flush
+]
+
+{ #category : #accessing }
+SkiaSurface >> gpuContext [
+	^ gpuContext
+]
+
+{ #category : #accessing }
+SkiaSurface >> gpuContext: anObject [
+	gpuContext := anObject
+]
+
 { #category : #'gt-extension' }
 SkiaSurface >> gtInforFor: aView [
 	<gtView>
@@ -142,6 +185,11 @@ SkiaSurface >> initialize [
 	super initialize.
 
 	registeredCanvases := WeakIdentitySet new
+]
+
+{ #category : #'private - ffi' }
+SkiaSurface >> primFlush [
+	self ffiCall: #(void skia_surface_flush(self))
 ]
 
 { #category : #'private - ffi' }

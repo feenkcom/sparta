@@ -16,6 +16,11 @@ SkiaContext class >> primRelease: aHandle [
 	self ffiCall: #(void skia_context_drop(void* aHandle))
 ]
 
+{ #category : #accessing }
+SkiaContext >> flush [
+	self primFlush
+]
+
 { #category : #testing }
 SkiaContext >> isColorTypeSupportedAsImage: aSkiaColorType [
 	<return: #Boolean>
@@ -49,6 +54,11 @@ SkiaContext >> maxTextureSize [
 	<return: #Number>
 
 	^ self primGetMaxTextureSize
+]
+
+{ #category : #'private - ffi' }
+SkiaContext >> primFlush [
+	^ self ffiCall: #(bool skia_context_flush(self))
 ]
 
 { #category : #'private - ffi' }
