@@ -11,10 +11,9 @@ SkiaLayerBuilder >> pop [
 
 { #category : #'api - layer' }
 SkiaLayerBuilder >> push [
-	| aSkiaSaveLayerRec |
-	
-	aSkiaSaveLayerRec := SkiaSaveLayerRec new.
-	aSkiaSaveLayerRec paint: (SkiaPaint new alpha: alpha).
-	
-	canvas surfaceCanvas saveLayer: aSkiaSaveLayerRec
+	SkiaPaint newDuring: [ :aSkiaPaint |
+		aSkiaPaint alpha: alpha.
+		SkiaSaveLayerRec newDuring: [ :aSkiaSaveLayerRec |
+			aSkiaSaveLayerRec paint: aSkiaPaint.	
+			canvas surfaceCanvas saveLayer: aSkiaSaveLayerRec  ] ]
 ]

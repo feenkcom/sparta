@@ -4,23 +4,6 @@ Class {
 	#category : #'Sparta-Skia-Builders'
 }
 
-{ #category : #'accessing - breaks' }
-SkiaTextPainter >> breakNone [
-	"The line has no break opportunities"
-]
-
-{ #category : #'accessing - breaks' }
-SkiaTextPainter >> breakNormal [
-	"The line has a break opportunity determined by the standard line-breaking algorithm."
-]
-
-{ #category : #'accessing - breaks' }
-SkiaTextPainter >> breakWordWrap [
-	"The line has a break opportunity only within a word.
-	With break-word-wrap we will break at this point only if
-	there are no other break opportunities in the line."
-]
-
 { #category : #private }
 SkiaTextPainter >> createPaintForColor: aColor [
 	| aSkiaPaint theDrawOptions |
@@ -93,10 +76,6 @@ SkiaTextPainter >> fillTextRun: aTextRun withColor: aFillColor strokeColor: aStr
 		paint: (self createPaintForColor: aFillColor)
 ]
 
-{ #category : #'accessing - orientation' }
-SkiaTextPainter >> horizontal [
-]
-
 { #category : #measurement }
 SkiaTextPainter >> measure [
 	| aMetrics aMetricsProvider aTextRun |
@@ -133,20 +112,4 @@ SkiaTextPainter >> textRun [
 	<return: #TSpTextRun>
 	
 	^ (SkiaTextRun fromString: text font: font) metricsProvider: self metricsProvider
-]
-
-{ #category : #'accessing - orientation' }
-SkiaTextPainter >> verticalMixed [
-]
-
-{ #category : #'accessing - orientation' }
-SkiaTextPainter >> verticalSidewaysLeft [
-]
-
-{ #category : #'accessing - orientation' }
-SkiaTextPainter >> verticalSidewaysRight [
-]
-
-{ #category : #'accessing - orientation' }
-SkiaTextPainter >> verticalUpright [
 ]
