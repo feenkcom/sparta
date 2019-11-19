@@ -32,6 +32,13 @@ SpartaTransformation >> isIdentity [
 	^ operations allSatisfy: #isIdentity
 ]
 
+{ #category : #testing }
+SpartaTransformation >> isReversable [
+	<return: #Boolean>
+
+	^ operations allSatisfy: #isReversable
+]
+
 { #category : #'api - transformations' }
 SpartaTransformation >> multiplyBy: aMatrix [
 	operations add: (SpartaTransformationConcatenation new matrix: aMatrix)

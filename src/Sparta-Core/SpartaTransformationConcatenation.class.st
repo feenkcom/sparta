@@ -25,6 +25,13 @@ SpartaTransformationConcatenation >> isIdentity [
 	^ matrix isIdentity
 ]
 
+{ #category : #testing }
+SpartaTransformationConcatenation >> isReversable [
+	<return: #Boolean>
+	
+	^ false
+]
+
 { #category : #accessing }
 SpartaTransformationConcatenation >> matrix [
 	^ matrix
@@ -33,4 +40,10 @@ SpartaTransformationConcatenation >> matrix [
 { #category : #accessing }
 SpartaTransformationConcatenation >> matrix: aSpartaMatrix [
 	matrix := aSpartaMatrix
+]
+
+{ #category : #enumerating }
+SpartaTransformationConcatenation >> reverseConcatenationDo: aBlock [
+	self isIdentity
+		ifFalse: [ aBlock value: matrix inverted ]
 ]

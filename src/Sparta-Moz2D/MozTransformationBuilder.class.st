@@ -43,7 +43,7 @@ MozTransformationBuilder >> drawSurface: aSpartaSurface transformed: aMatrix3D [
 ]
 
 { #category : #transformation }
-MozTransformationBuilder >> pop [
+MozTransformationBuilder >> pop: aSpartaTransformation [
 	self primPopTransform
 ]
 

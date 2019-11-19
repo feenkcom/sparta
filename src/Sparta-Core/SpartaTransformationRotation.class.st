@@ -29,6 +29,19 @@ SpartaTransformationRotation >> isIdentity [
 	^ degrees isZero
 ]
 
+{ #category : #testing }
+SpartaTransformationRotation >> isReversable [
+	<return: #Boolean>
+	
+	^ true
+]
+
+{ #category : #enumerating }
+SpartaTransformationRotation >> reverseRotationDo: aBlock [
+	self isIdentity
+		ifFalse: [ aBlock value: degrees negated ]
+]
+
 { #category : #enumerating }
 SpartaTransformationRotation >> rotationDo: aBlock [
 	self isIdentity

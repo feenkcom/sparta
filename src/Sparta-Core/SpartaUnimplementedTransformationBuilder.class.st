@@ -13,7 +13,7 @@ SpartaUnimplementedTransformationBuilder >> current [
 ]
 
 { #category : #transformation }
-SpartaUnimplementedTransformationBuilder >> pop [
+SpartaUnimplementedTransformationBuilder >> pop: aSpartaTransformation [
 ]
 
 { #category : #transformation }

@@ -40,6 +40,19 @@ SpartaTransformationTranslation >> isIdentity [
 	^ deltaX isZero and: [ deltaY isZero ]
 ]
 
+{ #category : #testing }
+SpartaTransformationTranslation >> isReversable [
+	<return: #Boolean>
+	
+	^ true
+]
+
+{ #category : #enumerating }
+SpartaTransformationTranslation >> reverseTranslationDo: aBlock [
+	self isIdentity
+		ifFalse: [ aBlock value: deltaX negated value: deltaY negated ]
+]
+
 { #category : #enumerating }
 SpartaTransformationTranslation >> translationDo: aBlock [
 	self isIdentity

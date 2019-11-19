@@ -21,6 +21,22 @@ SpartaTransformationOperation >> isIdentity [
 ]
 
 { #category : #enumerating }
+SpartaTransformationOperation >> reverseConcatenationDo: aBlock [
+]
+
+{ #category : #enumerating }
+SpartaTransformationOperation >> reverseRotationDo: aBlock [
+]
+
+{ #category : #enumerating }
+SpartaTransformationOperation >> reverseScaleDo: aBlock [
+]
+
+{ #category : #enumerating }
+SpartaTransformationOperation >> reverseTranslationDo: aBlock [
+]
+
+{ #category : #enumerating }
 SpartaTransformationOperation >> rotationDo: aBlock [
 ]
 

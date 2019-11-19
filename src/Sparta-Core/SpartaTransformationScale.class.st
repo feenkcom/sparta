@@ -20,6 +20,19 @@ SpartaTransformationScale >> isIdentity [
 	^ (scaleX closeTo: 1.0) and: [ scaleY closeTo: 1.0 ]
 ]
 
+{ #category : #testing }
+SpartaTransformationScale >> isReversable [
+	<return: #Boolean>
+	
+	^ true
+]
+
+{ #category : #enumerating }
+SpartaTransformationScale >> reverseScaleDo: aBlock [
+	self isIdentity
+		ifFalse: [ aBlock value: 1.0 / scaleX value: 1.0 / scaleY ]
+]
+
 { #category : #enumerating }
 SpartaTransformationScale >> scaleDo: aBlock [
 	self isIdentity
@@ -33,6 +46,10 @@ SpartaTransformationScale >> scaleX [
 
 { #category : #accessing }
 SpartaTransformationScale >> scaleX: aNumber [
+	self
+		assert: [ aNumber isZero not ]
+		description: [ 'Scale must not be zero' ].
+
 	scaleX := aNumber asFloat
 ]
 
@@ -43,5 +60,9 @@ SpartaTransformationScale >> scaleY [
 
 { #category : #accessing }
 SpartaTransformationScale >> scaleY: aNumber [
+	self
+		assert: [ aNumber isZero not ]
+		description: [ 'Scale must not be zero' ].
+
 	scaleY := aNumber asFloat
 ]

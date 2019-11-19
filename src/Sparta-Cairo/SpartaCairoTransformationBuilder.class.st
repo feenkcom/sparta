@@ -23,7 +23,7 @@ SpartaCairoTransformationBuilder >> current [
 ]
 
 { #category : #transformation }
-SpartaCairoTransformationBuilder >> pop [
+SpartaCairoTransformationBuilder >> pop: aSpartaTransformation [
 	self primSetTransform: (SpartaCairoMatrix fromSpartaMatrix: canvas popTransform)
 ]
 

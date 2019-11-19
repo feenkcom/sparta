@@ -13,8 +13,19 @@ SkiaTransformationBuilder >> current [
 ]
 
 { #category : #transformation }
-SkiaTransformationBuilder >> pop [
-	canvas surfaceCanvas restore
+SkiaTransformationBuilder >> pop: aSpartaTransformation [
+	| aSurfaceCanvas |
+	
+	aSurfaceCanvas := canvas surfaceCanvas.
+
+	aSpartaTransformation isReversable
+		ifFalse: [ ^ aSurfaceCanvas restore ].
+
+	aSpartaTransformation operationsDo: [ :eachOperation |
+		eachOperation reverseTranslationDo: [ :x :y | aSurfaceCanvas translateX: x Y: y ].
+		eachOperation reverseScaleDo: [ :x :y | aSurfaceCanvas scaleX: x Y: y ].
+		eachOperation reverseRotationDo: [ :degrees | ].
+		eachOperation reverseConcatenationDo: [ :matrix | aSurfaceCanvas concatMatrix: matrix ] ]
 ]
 
 { #category : #transformation }
@@ -23,7 +34,8 @@ SkiaTransformationBuilder >> push: aSpartaTransformation [
 	
 	aSurfaceCanvas := canvas surfaceCanvas.
 	
-	aSurfaceCanvas save.
+	aSpartaTransformation isReversable
+		ifFalse: [ aSurfaceCanvas save ].
 	
 	aSpartaTransformation operationsDo: [ :eachOperation |
 		eachOperation translationDo: [ :x :y | aSurfaceCanvas translateX: x Y: y ].

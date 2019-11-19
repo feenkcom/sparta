@@ -92,7 +92,12 @@ SpartaTransformationBuilder >> multiplyBy: aMatrix [
 
 { #category : #transformation }
 SpartaTransformationBuilder >> pop [
-	^ self subclassResponsibility
+	self pop: transformation
+]
+
+{ #category : #transformation }
+SpartaTransformationBuilder >> pop: aSpartaTransformation [
+	self subclassResponsibility
 ]
 
 { #category : #transformation }
@@ -102,7 +107,7 @@ SpartaTransformationBuilder >> push [
 
 { #category : #transformation }
 SpartaTransformationBuilder >> push: aSpartaTransformation [
-	^ self subclassResponsibility
+	self subclassResponsibility
 ]
 
 { #category : #accessing }
