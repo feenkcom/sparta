@@ -8,3 +8,8 @@ Class {
 SpartaTransformationOperation >> applyOn: aSpartaMatrix [
 	self subclassResponsibility
 ]
+
+{ #category : #testing }
+SpartaTransformationOperation >> isIdentity [
+	^ false
+]

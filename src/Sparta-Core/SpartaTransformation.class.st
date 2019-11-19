@@ -24,6 +24,14 @@ SpartaTransformation >> initialize [
 	operations := OrderedCollection new
 ]
 
+{ #category : #testing }
+SpartaTransformation >> isIdentity [
+	operations
+		ifEmpty: [ ^ true ].
+
+	^ operations allSatisfy: #isIdentity
+]
+
 { #category : #'api - transformations' }
 SpartaTransformation >> multiplyBy: aMatrix [
 	operations add: (SpartaTransformationConcatenation new matrix: aMatrix)
