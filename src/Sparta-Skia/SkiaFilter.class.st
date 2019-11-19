@@ -7,7 +7,7 @@ Class {
 }
 
 { #category : #converting }
-SkiaFilter >> asSkiaImageFilterOn: aSkiaFilterPainter [
+SkiaFilter >> asSkiaImageFilterOn: aSkiaFilterPainter during: aBlock [
 	^ self subclassResponsibility
 ]
 

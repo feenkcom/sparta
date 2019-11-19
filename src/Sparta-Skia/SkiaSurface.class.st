@@ -224,3 +224,8 @@ SkiaSurface >> snapshot [
 
 	^ SkiaImage fromNativeHandle: self primGetImageSnapshot
 ]
+
+{ #category : #accessing }
+SkiaSurface >> snapshotDuring: aBlock [
+	SkiaImage fromNativeHandle: self primGetImageSnapshot during: aBlock
+]

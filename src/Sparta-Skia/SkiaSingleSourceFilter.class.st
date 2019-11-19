@@ -19,28 +19,29 @@ SkiaSingleSourceFilter >> drawOn: aSkiaFilterPainter [
 
 { #category : #drawing }
 SkiaSingleSourceFilter >> drawOn: aSkiaFilterPainter canvasSource: aSkiaCanvasSource [
-	| aSkiaImageFilter aSkiaPaint |
 
-	aSkiaImageFilter := self asSkiaImageFilterOn: aSkiaFilterPainter.
-	aSkiaPaint := SkiaPaint new imageFilter: aSkiaImageFilter.
-
-	aSkiaFilterPainter canvas surfaceCanvas
-		drawImage: aSkiaCanvasSource canvas snapshot
-		at: aSkiaFilterPainter destinationTopLeft
-		paint: aSkiaPaint
+	self asSkiaImageFilterOn: aSkiaFilterPainter during: [ :aSkiaImageFilter |
+		aSkiaCanvasSource canvas snapshotDuring: [ :aSkiaImage |
+			SkiaPaint newDuring: [ :aSkiaPaint |
+				aSkiaPaint imageFilter: aSkiaImageFilter.
+				
+				aSkiaFilterPainter canvas surfaceCanvas
+					drawImage: aSkiaImage
+					at: aSkiaFilterPainter destinationTopLeft
+					paint: aSkiaPaint ] ] ]
 ]
 
 { #category : #drawing }
 SkiaSingleSourceFilter >> drawOn: aSkiaFilterPainter imageSource: aSkiaImageSource [
-	| aSkiaImageFilter aSkiaPaint |
 
-	aSkiaImageFilter := self asSkiaImageFilterOn: aSkiaFilterPainter.
-	aSkiaPaint := SkiaPaint new imageFilter: aSkiaImageFilter.
-
-	aSkiaFilterPainter canvas surfaceCanvas
-		drawImage: aSkiaImageSource image
-		at: aSkiaFilterPainter destinationTopLeft
-		paint: aSkiaPaint
+	self asSkiaImageFilterOn: aSkiaFilterPainter during: [ :aSkiaImageFilter |
+		SkiaPaint newDuring: [ :aSkiaPaint |
+			aSkiaPaint imageFilter: aSkiaImageFilter.
+			
+			aSkiaFilterPainter canvas surfaceCanvas
+				drawImage: aSkiaImageSource image
+				at: aSkiaFilterPainter destinationTopLeft
+				paint: aSkiaPaint ] ]
 ]
 
 { #category : #dispatch }

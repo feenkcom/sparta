@@ -10,8 +10,8 @@ Class {
 }
 
 { #category : #converting }
-SkiaGaussianBlurFilter >> asSkiaImageFilterOn: aSkiaFilterPainter [
-	^ SkiaImageFilterBlur sigma: sigma asPoint
+SkiaGaussianBlurFilter >> asSkiaImageFilterOn: aSkiaFilterPainter during: aBlock [
+	SkiaImageFilterBlur sigma: sigma asPoint during: aBlock
 ]
 
 { #category : #initialization }
