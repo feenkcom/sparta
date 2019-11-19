@@ -773,6 +773,15 @@ SpartaCanvas >> snapshot [
 	^ self subclassResponsibility
 ]
 
+{ #category : #accessing }
+SpartaCanvas >> snapshotDuring: aBlock [
+	"I am similar to #snaphot but I guarantee that snapshot is not auto-released
+	and is destroyed after evaluation of the block.
+	Default implementation simply passes snaphot to the block"
+
+	aBlock value: self snapshot
+]
+
 { #category : #dispatch }
 SpartaCanvas >> spartaMaskOn: aSpartaCanvas with: aMaskPainter [
 

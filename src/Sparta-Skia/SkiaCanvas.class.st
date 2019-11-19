@@ -206,6 +206,14 @@ SkiaCanvas >> snapshot [
 ]
 
 { #category : #accessing }
+SkiaCanvas >> snapshotDuring: aBlock [
+	"I am similar to #snaphot but I guarantee that snapshot is not auto-released
+	and is destroyed after evaluation of the block."
+
+	skiaSurface snapshotDuring: aBlock
+]
+
+{ #category : #accessing }
 SkiaCanvas >> stride [
 	<return: #Number>
 
