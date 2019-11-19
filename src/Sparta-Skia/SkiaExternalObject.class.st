@@ -36,6 +36,20 @@ SkiaExternalObject class >> new [
 ]
 
 { #category : #'instance creation' }
+SkiaExternalObject class >> newDuring: aBlock [
+	"I create a new instance of me without auto-release for to evaluate a given block
+	and then destroy me"
+	| anExternalInstance |
+	
+	"Object understand release"
+	anExternalInstance := Object new.
+	[
+		anExternalInstance := self fromHandle: (self primCreate getHandle).
+		aBlock value: anExternalInstance ]
+	ensure: [ anExternalInstance release ]
+]
+
+{ #category : #'instance creation' }
 SkiaExternalObject class >> null [
 	^ self fromHandle: self primNullPtr
 ]
