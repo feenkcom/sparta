@@ -42,6 +42,11 @@ MozTransformationBuilder >> drawSurface: aSpartaSurface transformed: aMatrix3D [
 	anArray free
 ]
 
+{ #category : #'library path' }
+MozTransformationBuilder >> ffiLibraryName [
+	^ self class ffiLibraryName
+]
+
 { #category : #transformation }
 MozTransformationBuilder >> pop: aSpartaTransformation [
 	self primPopTransform
