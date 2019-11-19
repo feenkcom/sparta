@@ -13,6 +13,19 @@ SpartaTransformationScale >> applyOn: aSpartaMatrix [
 	aSpartaMatrix scaleX: scaleX Y: scaleY
 ]
 
+{ #category : #testing }
+SpartaTransformationScale >> isIdentity [
+	<return: #Boolean>
+
+	^ (scaleX closeTo: 1.0) and: [ scaleY closeTo: 1.0 ]
+]
+
+{ #category : #enumerating }
+SpartaTransformationScale >> scaleDo: aBlock [
+	self isIdentity
+		ifFalse: [ aBlock value: scaleX value: scaleY ]
+]
+
 { #category : #accessing }
 SpartaTransformationScale >> scaleX [
 	^ scaleX

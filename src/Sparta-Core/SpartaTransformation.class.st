@@ -37,6 +37,11 @@ SpartaTransformation >> multiplyBy: aMatrix [
 	operations add: (SpartaTransformationConcatenation new matrix: aMatrix)
 ]
 
+{ #category : #enumerating }
+SpartaTransformation >> operationsDo: aBlock [
+	operations do: aBlock
+]
+
 { #category : #'api - transformations' }
 SpartaTransformation >> rotateByDegrees: anAngle [
 	operations add: (SpartaTransformationRotation new degrees: anAngle)

@@ -21,3 +21,16 @@ SpartaTransformationRotation >> degrees [
 SpartaTransformationRotation >> degrees: anObject [
 	degrees := anObject
 ]
+
+{ #category : #testing }
+SpartaTransformationRotation >> isIdentity [
+	<return: #Boolean>
+
+	^ degrees isZero
+]
+
+{ #category : #enumerating }
+SpartaTransformationRotation >> rotationDo: aBlock [
+	self isIdentity
+		ifFalse: [ aBlock value: degrees ]
+]

@@ -9,7 +9,25 @@ SpartaTransformationOperation >> applyOn: aSpartaMatrix [
 	self subclassResponsibility
 ]
 
+{ #category : #enumerating }
+SpartaTransformationOperation >> concatenationDo: aBlock [
+]
+
 { #category : #testing }
 SpartaTransformationOperation >> isIdentity [
-	^ false
+	<return: #Boolean>
+
+	^ self subclassResponsibility
+]
+
+{ #category : #enumerating }
+SpartaTransformationOperation >> rotationDo: aBlock [
+]
+
+{ #category : #enumerating }
+SpartaTransformationOperation >> scaleDo: aBlock [
+]
+
+{ #category : #enumerating }
+SpartaTransformationOperation >> translationDo: aBlock [
 ]

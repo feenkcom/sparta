@@ -9,7 +9,20 @@ Class {
 
 { #category : #dispatch }
 SpartaTransformationConcatenation >> applyOn: aSpartaMatrix [
-	aSpartaMatrix spartaMultiplyWith: matrix
+	matrix spartaMultiplyWith: aSpartaMatrix
+]
+
+{ #category : #enumerating }
+SpartaTransformationConcatenation >> concatenationDo: aBlock [
+	self isIdentity
+		ifFalse: [ aBlock value: matrix ]
+]
+
+{ #category : #testing }
+SpartaTransformationConcatenation >> isIdentity [
+	<return: #Boolean>
+
+	^ matrix isIdentity
 ]
 
 { #category : #accessing }
@@ -18,6 +31,6 @@ SpartaTransformationConcatenation >> matrix [
 ]
 
 { #category : #accessing }
-SpartaTransformationConcatenation >> matrix: anObject [
-	matrix := anObject
+SpartaTransformationConcatenation >> matrix: aSpartaMatrix [
+	matrix := aSpartaMatrix
 ]

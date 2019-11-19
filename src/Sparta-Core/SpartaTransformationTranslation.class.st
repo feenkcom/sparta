@@ -32,3 +32,16 @@ SpartaTransformationTranslation >> deltaY [
 SpartaTransformationTranslation >> deltaY: anObject [
 	deltaY := anObject
 ]
+
+{ #category : #testing }
+SpartaTransformationTranslation >> isIdentity [
+	<return: #Boolean>
+
+	^ deltaX isZero and: [ deltaY isZero ]
+]
+
+{ #category : #enumerating }
+SpartaTransformationTranslation >> translationDo: aBlock [
+	self isIdentity
+		ifFalse: [ aBlock value: deltaX value: deltaY ]
+]
