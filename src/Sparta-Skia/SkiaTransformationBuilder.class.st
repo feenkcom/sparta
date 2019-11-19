@@ -18,8 +18,8 @@ SkiaTransformationBuilder >> pop [
 ]
 
 { #category : #transformation }
-SkiaTransformationBuilder >> push: aSpartaMatrix [
+SkiaTransformationBuilder >> push: aSpartaTransformation [
 	canvas surfaceCanvas
 		save;
-		concatMatrix: aSpartaMatrix
+		concatMatrix: aSpartaTransformation asMatrix
 ]

@@ -62,18 +62,11 @@ canvas transform during: [
 Class {
 	#name : #SpartaTransformationBuilder,
 	#superclass : #SpartaAbstractBuilder,
-	#traits : 'TSpartaTransformable',
-	#classTraits : 'TSpartaTransformable classTrait',
 	#instVars : [
 		'transformation'
 	],
 	#category : #'Sparta-Core-Builders'
 }
-
-{ #category : #transformation }
-SpartaTransformationBuilder >> apply [
-	self deprecated: 'Use `push` instead'
-]
 
 { #category : #transformation }
 SpartaTransformationBuilder >> by: aTransformationBlock during: aDuringBlock [
@@ -92,28 +85,9 @@ SpartaTransformationBuilder >> current [
 	^ self subclassResponsibility
 ]
 
-{ #category : #drawing }
-SpartaTransformationBuilder >> drawSurface: aSpartaSurface transformed: aMatrix4x4 [
-	"Default implementation does not take 3D transformation matrix into account"
-	self canvas fill
-		paint: aSpartaSurface;
-		path: aSpartaSurface bounds;
-		draw
-]
-
-{ #category : #transformation }
-SpartaTransformationBuilder >> during: aBlock [
-	self deprecated: 'Use `by:during:` instead'.
-
-	self push.
-	[ aBlock cull: self ] ensure: [
-		self pop ]
-]
-
-{ #category : #transformation }
-SpartaTransformationBuilder >> matrix [
-
-	^ transformation
+{ #category : #'api - transformations' }
+SpartaTransformationBuilder >> multiplyBy: aMatrix [
+	transformation multiplyBy: aMatrix
 ]
 
 { #category : #transformation }
@@ -127,23 +101,28 @@ SpartaTransformationBuilder >> push [
 ]
 
 { #category : #transformation }
-SpartaTransformationBuilder >> push: aSpartaMatrix [
+SpartaTransformationBuilder >> push: aSpartaTransformation [
 	^ self subclassResponsibility
 ]
 
 { #category : #accessing }
 SpartaTransformationBuilder >> reset [
 	super reset.
-	transformation := SpartaMatrix new
+
+	transformation := SpartaTransformation new
 ]
 
-{ #category : #transformations }
-SpartaTransformationBuilder >> set: aMatrix [
-
-	transformation := SpartaMatrix new loadAffineTransform: aMatrix
+{ #category : #'api - transformations' }
+SpartaTransformationBuilder >> rotateByDegrees: anAngle [
+	transformation rotateByDegrees: anAngle
 ]
 
-{ #category : #accessing }
-SpartaTransformationBuilder >> transformation [
-	^ transformation
+{ #category : #'api - transformations' }
+SpartaTransformationBuilder >> scaleBy: aPointOrNumber [
+	transformation scaleBy: aPointOrNumber
+]
+
+{ #category : #'api - transformations' }
+SpartaTransformationBuilder >> translateBy: aPointOrNumber [
+	transformation translateBy: aPointOrNumber
 ]

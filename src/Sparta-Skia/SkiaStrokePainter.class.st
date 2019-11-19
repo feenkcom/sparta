@@ -25,23 +25,60 @@ SkiaStrokePainter >> createPaintForColor: aColor [
 	^ aSkiaPaint
 ]
 
+{ #category : #'private - drawing' }
+SkiaStrokePainter >> optimizedStrokeRectangle: aRectangle withColor: aColor width: aWidth antialias: isAntialias [
+	canvas surfaceCanvas
+		strokeRectangle: aRectangle
+		color: aColor
+		width: aWidth
+		antialias: isAntialias
+]
+
+{ #category : #'private - drawing' }
+SkiaStrokePainter >> optimizedStrokeRoundedRectangle: aSpartaRoundedRectangle withColor: aColor width: aWidth antialias: isAntialias [
+	canvas surfaceCanvas
+		strokeRoundedRectangle: aSpartaRoundedRectangle
+		color: aColor
+		width: aWidth
+		antialias: isAntialias
+]
+
 { #category : #drawing }
 SkiaStrokePainter >> strokeLine: aLine withSolidColor: aColor [
-	canvas surfaceCanvas
+	| aPaint |
+	
+	aPaint := self createPaintForColor: aColor.
+	[ canvas surfaceCanvas
 		drawLine: aLine
-		paint: (self createPaintForColor: aColor)
+		paint: aPaint ] ensure: [ aPaint release ]
 ]
 
 { #category : #drawing }
 SkiaStrokePainter >> strokePath: aPath withSolidColor: aColor [
-	canvas surfaceCanvas
+	| aPaint |
+	
+	aPaint := self createPaintForColor: aColor.
+	[ canvas surfaceCanvas
 		drawPath: aPath
-		paint: (self createPaintForColor: aColor)
+		paint: aPaint ] ensure: [ aPaint release ]
 ]
 
 { #category : #drawing }
 SkiaStrokePainter >> strokeRectangle: aRectangle withSolidColor: aColor [
-	canvas surfaceCanvas
+	| aPaint |
+	
+	aPaint := self createPaintForColor: aColor.
+	[ canvas surfaceCanvas
 		drawRectangle: aRectangle
-		paint: (self createPaintForColor: aColor)
+		paint: aPaint ] ensure: [ aPaint release ]
+]
+
+{ #category : #drawing }
+SkiaStrokePainter >> strokeRoundedRectangle: aSpartaRectangle withSolidColor: aColor [
+	| aPaint |
+	
+	aPaint := self createPaintForColor: aColor.
+	[ canvas surfaceCanvas
+		drawRoundedRectangle: aSpartaRectangle
+		paint: aPaint ] ensure: [ aPaint release ]
 ]

@@ -17,5 +17,5 @@ SpartaUnimplementedTransformationBuilder >> pop [
 ]
 
 { #category : #transformation }
-SpartaUnimplementedTransformationBuilder >> push: aSpartaMatrix [
+SpartaUnimplementedTransformationBuilder >> push: aSpartaTransformation [
 ]

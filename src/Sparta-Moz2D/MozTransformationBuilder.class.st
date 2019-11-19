@@ -3,7 +3,7 @@ Class {
 	#superclass : #SpartaTransformationBuilder,
 	#traits : 'TMozLibrary',
 	#classTraits : 'TMozLibrary classTrait',
-	#category : 'Sparta-Moz2D-Builders'
+	#category : #'Sparta-Moz2D-Builders'
 }
 
 { #category : #accessing }
@@ -86,12 +86,14 @@ MozTransformationBuilder >> privGetTransform [
 ]
 
 { #category : #transformation }
-MozTransformationBuilder >> push: aSpartaMatrix [
-
+MozTransformationBuilder >> push: aSpartaTransformation [
+	| aSpartaMatrix |
 	self primPushTransform.
 	
-	aSpartaMatrix isIdentity
+	aSpartaTransformation isIdentity
 		ifTrue: [ ^ self ].
+
+	aSpartaMatrix := aSpartaTransformation asMatrix.
 
 	self
 		primConcatenateTransformA11: aSpartaMatrix sx

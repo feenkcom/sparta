@@ -1,9 +1,8 @@
 Class {
 	#name : #SpartaCairoTransformationBuilder,
 	#superclass : #SpartaTransformationBuilder,
-	#traits : 'TSpartaCairoLibrary',
 	#classTraits : 'TSpartaCairoLibrary classTrait',
-	#category : 'Sparta-Cairo-Builders'
+	#category : #'Sparta-Cairo-Builders'
 }
 
 { #category : #accessing }
@@ -53,11 +52,11 @@ SpartaCairoTransformationBuilder >> primSetTransform: aCairoMatrix [
 ]
 
 { #category : #transformation }
-SpartaCairoTransformationBuilder >> push: aSpartaMatrix [
+SpartaCairoTransformationBuilder >> push: aSpartaTransformation [
 
 	"save current"
 	canvas pushTransform: self current.
 
 	"then set new"
-	self primApplyTransform: (SpartaCairoMatrix fromSpartaMatrix: aSpartaMatrix)
+	self primApplyTransform: (SpartaCairoMatrix fromSpartaMatrix: aSpartaTransformation asMatrix)
 ]

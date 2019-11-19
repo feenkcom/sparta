@@ -7,7 +7,7 @@ Class {
 		'matrix',
 		'extendMode'
 	],
-	#category : 'Sparta-Cairo-Paints'
+	#category : #'Sparta-Cairo-Paints'
 }
 
 { #category : #converting }
@@ -73,7 +73,7 @@ SpartaCairoPaint >> initialize [
 	self clamp
 ]
 
-{ #category : #transformations }
+{ #category : #'api - transformations' }
 SpartaCairoPaint >> multiplyBy: aMatrix [
 	aMatrix spartaMultiplyWith: self transformation
 ]
@@ -102,25 +102,25 @@ SpartaCairoPaint >> repeatY [
 	SpartaUnsupported signal
 ]
 
-{ #category : #transformations }
+{ #category : #'api - transformations' }
 SpartaCairoPaint >> rotateByDegrees: angle [
 
 	self transformation rotateByDegrees: angle
 ]
 
-{ #category : #transformations }
+{ #category : #'api - transformations' }
 SpartaCairoPaint >> rotateByRadians: angle [
 
 	self transformation rotateByRadians: angle
 ]
 
-{ #category : #transformations }
+{ #category : #'api - transformations' }
 SpartaCairoPaint >> scaleBy: aPointOrNumber [
 
 	self transformation scaleBy: aPointOrNumber
 ]
 
-{ #category : #transformations }
+{ #category : #'api - transformations' }
 SpartaCairoPaint >> scaleX: aX Y: aY [
 
 	self transformation scaleX: aX Y: aY
@@ -171,13 +171,13 @@ SpartaCairoPaint >> transformation: aMatrix [
 	matrix := aMatrix
 ]
 
-{ #category : #transformations }
+{ #category : #'api - transformations' }
 SpartaCairoPaint >> translateBy: aPointOrNumber [
 
 	self transformation translateBy: aPointOrNumber asPoint
 ]
 
-{ #category : #transformations }
+{ #category : #'api - transformations' }
 SpartaCairoPaint >> translateX: aX Y: aY [
 
 	self transformation translateX: aX Y: aY
