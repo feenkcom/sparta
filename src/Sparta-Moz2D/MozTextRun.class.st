@@ -63,7 +63,7 @@ MozTextRun >> buffer: aByteArray [
 	buffer := aByteArray
 ]
 
-{ #category : #accessing }
+{ #category : #'as yet unclassified' }
 MozTextRun >> length [
 	"Return how many characters (not glyphs) are behind this text run"
 	<return: #Number>

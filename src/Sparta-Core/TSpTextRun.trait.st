@@ -21,21 +21,13 @@ TSpTextRun >> isEmpty [
 
 { #category : #testing }
 TSpTextRun >> isNotEmpty [
-	^ self length > 0
+	^ self isEmpty not
 ]
 
 { #category : #testing }
 TSpTextRun >> isNull [
 	<return: #Boolean>
 
-	^ self explicitRequirement
-]
-
-{ #category : #accessing }
-TSpTextRun >> length [
-	"Return how many characters (not glyphs) are behind this text run"
-	<return: #Number>
-	
 	^ self explicitRequirement
 ]
 
