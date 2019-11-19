@@ -91,3 +91,8 @@ TSpartaRadialGradientPaint >> spartaStrokePath: aPath with: aStrokePainter [
 TSpartaRadialGradientPaint >> spartaStrokeRectangle: aPath with: aStrokePainter [
 	aStrokePainter strokeRectangle: aPath withRadialGradient: self
 ]
+
+{ #category : #dispatch }
+TSpartaRadialGradientPaint >> spartaStrokeRoundedRectangle: aRoundedRectangle with: aStrokePainter [
+	aStrokePainter strokeRoundedRectangle: aRoundedRectangle withRadialGradient: self
+]

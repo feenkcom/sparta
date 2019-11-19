@@ -53,3 +53,10 @@ SkiaClipper >> pushRectangle: aRectangle [
 		save;
 		clipRectangle: aRectangle
 ]
+
+{ #category : #'private - clipping' }
+SkiaClipper >> pushRoundedRectangle: aSpartaRoundedRectangle [
+	canvas surfaceCanvas
+		save;
+		clipRoundedRectangle: aSpartaRoundedRectangle
+]

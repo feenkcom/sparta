@@ -99,6 +99,13 @@ SpartaClipper >> pushRectangle: aRectangle [
 	self subclassResponsibility
 ]
 
+{ #category : #'private - clipping' }
+SpartaClipper >> pushRoundedRectangle: aSpartaRoundedRectangle [
+	"Note: I am sent only when rounded rectangle is supported by the shape factory"
+	
+	self subclassResponsibility
+]
+
 { #category : #clipping }
 SpartaClipper >> when: aWhenBlock by: aPathBlock during: aBlock [
 	"Clip canvas by a given path only if when block evaluates to true"

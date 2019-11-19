@@ -38,8 +38,8 @@ TSpartaPath >> spartaFillOn: aSpartaCanvas with: aSpartaPainter [
 ]
 
 { #category : #'api - sparta path' }
-TSpartaPath >> spartaStrokeOn: aSpartaCanvas with: aSpartaFiller [
-	aSpartaFiller strokePath: self
+TSpartaPath >> spartaStrokeOn: aSpartaCanvas with: aSpartaStrokePainter [
+	aSpartaStrokePainter strokePath: self
 ]
 
 { #category : #'api - sparta path' }

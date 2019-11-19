@@ -78,7 +78,7 @@ SpartaStrokePainter >> containsPoint: aPoint [
 	"Return true if a given point lies within a path as if it would be stroked with current stroke paint configuration"
 	<return: #Boolean>
 	
-	path ifNil: [ self error: 'Path must be set before texting if it contains a point' ].
+	path ifNil: [ self error: 'Path must be set before testing if it contains a point' ].
 
 	^ path strokeContainsPoint: aPoint options: self strokeOptions on: self canvas
 ]
@@ -222,11 +222,41 @@ SpartaStrokePainter >> strokeRectangle: aRectangle withRadialGradient: aSpartaRa
 
 { #category : #drawing }
 SpartaStrokePainter >> strokeRectangle: aRectangle withSolidColor: aColor [
-	^ self subclassResponsibility
+	true ifFalse: [ self subclassResponsibility ]
 ]
 
 { #category : #drawing }
 SpartaStrokePainter >> strokeRectangle: aRectangle withSurface: aSpartaSurfacePaint [
+	true ifFalse: [ self subclassResponsibility ]
+]
+
+{ #category : #drawing }
+SpartaStrokePainter >> strokeRoundedRectangle: aRectangle [
+	paint spartaStrokeRoundedRectangle: aRectangle with: self
+]
+
+{ #category : #drawing }
+SpartaStrokePainter >> strokeRoundedRectangle: aRoundedRectangle withForm: aForm [
+	true ifFalse: [ self subclassResponsibility ]
+]
+
+{ #category : #drawing }
+SpartaStrokePainter >> strokeRoundedRectangle: aRoundedRectangle withLinearGradient: aSpartaLinearGradient [
+	true ifFalse: [ self subclassResponsibility ]
+]
+
+{ #category : #drawing }
+SpartaStrokePainter >> strokeRoundedRectangle: aRoundedRectangle withRadialGradient: aSpartaRadialGradient [
+	true ifFalse: [ self subclassResponsibility ]
+]
+
+{ #category : #drawing }
+SpartaStrokePainter >> strokeRoundedRectangle: aRoundedRectangle withSolidColor: aColor [
+	true ifFalse: [ self subclassResponsibility ]
+]
+
+{ #category : #drawing }
+SpartaStrokePainter >> strokeRoundedRectangle: aRoundedRectangle withSurface: aSpartaSurfacePaint [
 	true ifFalse: [ self subclassResponsibility ]
 ]
 

@@ -63,6 +63,19 @@ SkiaSurfaceCanvas >> clipRectangle: aSpartaRectangle clipOp: aSkiaClipOp antiAli
 		antiAlias: isAntiAlias
 ]
 
+{ #category : #'api - clip' }
+SkiaSurfaceCanvas >> clipRoundedRectangle: aSpartaRoundedRectangle [
+	self
+		primClipRoundedRectangleLeft: aSpartaRoundedRectangle left
+		top: aSpartaRoundedRectangle top
+		right: aSpartaRoundedRectangle right
+		bottom: aSpartaRoundedRectangle bottom
+		radiusTopLeft: aSpartaRoundedRectangle topLeftRadius
+		topRight: aSpartaRoundedRectangle topRightRadius
+		bottomRight: aSpartaRoundedRectangle bottomRightRadius
+		bottomLeft: aSpartaRoundedRectangle bottomLeftRadius
+]
+
 { #category : #'api - transformation' }
 SkiaSurfaceCanvas >> concatMatrix: aSpartaMatrix [
 	| aSkiaMatrix |
@@ -289,6 +302,13 @@ SkiaSurfaceCanvas >> primClipRectangleLeft: aLeft top: aTop right: aRight bottom
 		scalar aLeft, scalar aTop, scalar aRight, scalar aBottom,
 		SkiaClipOp aSkiaClipOp,
 		bool isAntiAlias))
+]
+
+{ #category : #'private - ffi optimized' }
+SkiaSurfaceCanvas >> primClipRoundedRectangleLeft: aLeft top: aTop right: aRight bottom: aBottom radiusTopLeft: aTopLeftRadius topRight: aTopRightRadius bottomRight: aBottomRightRadius bottomLeft: aBottomLeftRadius [
+	self ffiCall: #(void skia_canvas_clip_rounded_rectangle(self,
+		scalar aLeft, scalar aTop, scalar aRight, scalar aBottom,
+		scalar aTopLeftRadius, scalar aTopRightRadius, scalar aBottomRightRadius, scalar aBottomLeftRadius))
 ]
 
 { #category : #'private - ffi' }

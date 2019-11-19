@@ -1019,6 +1019,35 @@ TSpartaExamples >> clipRectangleTwice [
 	^ aCanvas
 ]
 
+{ #category : #'examples - clip rounded rectangle' }
+TSpartaExamples >> clipRoundedRectangle [
+	<gtExample>
+	| aCanvas |
+	
+	aCanvas := self class canvas: 400@300.
+
+	self assert: aCanvas clip globalBounds equals: aCanvas bounds.
+	
+	"no clip"
+	aCanvas fill
+		path: aCanvas bounds;
+		paint: (Color gray alpha: 0.1);
+		draw.
+	
+	aCanvas clip
+		by: (aCanvas shape roundedRectangle: (0@0 extent: 300@250) radii: #(30 30 30 30))
+		during: [
+			self assert: aCanvas clip globalBounds equals: (0@0 extent: 300@250).
+	
+			"root clip"
+			aCanvas fill
+				path: aCanvas bounds;
+				paint: (Color gray alpha: 0.3);
+				draw ].
+
+	^ aCanvas
+]
+
 { #category : #examples }
 TSpartaExamples >> donut [
 	| path canvas |
