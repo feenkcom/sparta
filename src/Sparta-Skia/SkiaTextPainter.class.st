@@ -76,17 +76,6 @@ SkiaTextPainter >> fillTextRun: aTextRun withColor: aFillColor strokeColor: aStr
 		paint: (self createPaintForColor: aFillColor)
 ]
 
-{ #category : #measurement }
-SkiaTextPainter >> measure [
-	| aMetrics aMetricsProvider aTextRun |
-	aMetrics := self metrics.
-	aMetricsProvider := self metricsProvider.
-	aTextRun := self textRun.
-	aMetricsProvider measure: aTextRun in: aMetrics.
-	aTextRun release.
-	^ aMetrics
-]
-
 { #category : #'instance creation' }
 SkiaTextPainter >> metrics [
 	"Instantiate and return a metrics container object used during text mearument process"
@@ -111,5 +100,5 @@ SkiaTextPainter >> textRun [
 	to choosen font and various text properties"
 	<return: #TSpTextRun>
 	
-	^ (SkiaTextRun fromString: text font: font) metricsProvider: self metricsProvider
+	^ SkiaTextRun fromString: text font: font
 ]

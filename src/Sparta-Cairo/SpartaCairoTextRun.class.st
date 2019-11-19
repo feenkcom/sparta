@@ -18,7 +18,7 @@ SpartaCairoTextRun >> autoRelease [
 	glyphs autoRelease
 ]
 
-{ #category : #accessing }
+{ #category : #'as yet unclassified' }
 SpartaCairoTextRun >> bits [
 	"Return how many bits one character takes"
 	<return: #Number>
@@ -31,7 +31,7 @@ SpartaCairoTextRun >> bits: aNumber [
 	bits := aNumber
 ]
 
-{ #category : #accessing }
+{ #category : #'as yet unclassified' }
 SpartaCairoTextRun >> buffer [
 	"Return a byte buffer that is represented by this text run"
 	<return: #ArrayedCollection>

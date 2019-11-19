@@ -14,47 +14,6 @@ Trait {
 TSpTextRun >> autoRelease [
 ]
 
-{ #category : #accessing }
-TSpTextRun >> bits [
-	"Return how many bits one character takes"
-	<return: #Number>
-	
-	^ self explicitRequirement
-]
-
-{ #category : #accessing }
-TSpTextRun >> buffer [
-	"Return a byte buffer that is represented by this text run"
-	<return: #ArrayedCollection>
-	
-	^ self explicitRequirement
-]
-
-{ #category : #testing }
-TSpTextRun >> is16Bit [
-	"Return true if text run is build only from 16bit characters, false otherwise"
-	<return: #Boolean>
-
-	^ self bits = 16
-]
-
-{ #category : #testing }
-TSpTextRun >> is32Bit [
-	"Return true if text run is build only from characters that may be represented
-	by 1-4 glyphs (or take 8/16/32 bits in the memory), false otherwise"
-	<return: #Boolean>
-
-	^ self bits = 32
-]
-
-{ #category : #testing }
-TSpTextRun >> is8Bit [
-	"Return true if text run is build only from 8bit characters, false otherwise"
-	<return: #Boolean>
-
-	^ self bits = 8
-]
-
 { #category : #testing }
 TSpTextRun >> isEmpty [
 	^ self length isZero
@@ -78,14 +37,6 @@ TSpTextRun >> length [
 	<return: #Number>
 	
 	^ self explicitRequirement
-]
-
-{ #category : #measuring }
-TSpTextRun >> measureOn: aSpMetrics [
-	"Measure me with the help of current #metricsProvider based on
-	parameters specified in aSpMetrics and store measurement results in it"
-	
-	self metricsProvider measure: self in: aSpMetrics
 ]
 
 { #category : #accessing }
