@@ -204,6 +204,11 @@ SkiaSurface >> primGetWidth [
 ]
 
 { #category : #'private - ffi' }
+SkiaSurface >> primNewSimilarWidth: aWidth height: aHeight [
+	^ self ffiCall: #(void* skia_surface_new_similar(self, int32 aWidth, int32 aHeight))
+]
+
+{ #category : #'private - ffi' }
 SkiaSurface >> primReadAllPixels: aBoxerArrayU8 [
 	^ self ffiCall: #(bool skia_surface_read_all_pixels(self, GtBoxerArrayU8 aBoxerArrayU8))
 ]
@@ -216,6 +221,14 @@ SkiaSurface >> registeredCanvasesDo: aBlock [
 { #category : #'external resource management' }
 SkiaSurface >> resourceData [
 	^ self
+]
+
+{ #category : #accessing }
+SkiaSurface >> similar: anExtent [
+	| anIntegerExtent |
+	
+	anIntegerExtent := anExtent ceiling asIntegerPoint.
+	^ SkiaSurface fromNativeHandle: (self primNewSimilarWidth: anIntegerExtent x height: anIntegerExtent y)
 ]
 
 { #category : #accessing }

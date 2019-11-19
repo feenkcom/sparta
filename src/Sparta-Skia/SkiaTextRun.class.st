@@ -6,8 +6,7 @@ Class {
 	#instVars : [
 		'boxerString',
 		'buffer',
-		'textBlob',
-		'metricsProvider'
+		'textBlob'
 	],
 	#category : #'Sparta-Skia-Text'
 }
@@ -20,22 +19,6 @@ SkiaTextRun class >> fromString: aString [
 { #category : #'instance creation' }
 SkiaTextRun class >> fromString: aString font: aFont [
 	^ self new initializeWith: aString font: aFont
-]
-
-{ #category : #accessing }
-SkiaTextRun >> bits [
-	"Return how many bits one character takes"
-	<return: #Number>
-	
-	^ 32
-]
-
-{ #category : #accessing }
-SkiaTextRun >> buffer [
-	"Return a byte buffer that is represented by this text run"
-	<return: #ArrayedCollection>
-	
-	^ buffer
 ]
 
 { #category : #accessing }
@@ -65,16 +48,6 @@ SkiaTextRun >> length [
 	<return: #Number>
 	
 	^ boxerString size
-]
-
-{ #category : #accessing }
-SkiaTextRun >> metricsProvider [
-	^ metricsProvider
-]
-
-{ #category : #accessing }
-SkiaTextRun >> metricsProvider: aMetricsProvider [
-	metricsProvider := aMetricsProvider
 ]
 
 { #category : #accessing }

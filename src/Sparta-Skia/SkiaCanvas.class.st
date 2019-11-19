@@ -189,8 +189,8 @@ SkiaCanvas >> similar: anExtent [
 	"Create a new empty canvas of the same type and format with a given size.
 	anExtent must not be nil"
 	<return: #SpartaCanvas>
-
-	^ self class extent: anExtent
+	
+	^ self class new initializeWith: (skiaSurface similar: anExtent)
 ]
 
 { #category : #accessing }

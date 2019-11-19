@@ -22,7 +22,7 @@ MozTextPainter >> fill [
 
 { #category : #drawing }
 MozTextPainter >> fillString: aString withColor: aFillColor strokeColor: aStrokeColor [
-	| aMetricsProvider aTextRun |
+	| aTextRun |
 	self
 		assert: [ aString isNotNil ]
 		description: [ 'String must not be nil' ].
@@ -31,13 +31,8 @@ MozTextPainter >> fillString: aString withColor: aFillColor strokeColor: aStroke
 		assert: [ font isNotNil ]
 		description: [ 'Font must not be nil' ].
 
-	aMetricsProvider := self metricsProvider.
 	aTextRun := self textRun.
-	aTextRun metricsProvider: aMetricsProvider.
-	
 	self fillTextRun: aTextRun withColor: aFillColor strokeColor: aStrokeColor.
-	
-	aTextRun metricsProvider: nil.
 	aTextRun release
 ]
 
@@ -58,7 +53,7 @@ MozTextPainter >> fillString: aString withPaint: aFillPaint strokePaint: aStroke
 
 { #category : #drawing }
 MozTextPainter >> fillString: aString withPattern: aFillPattern strokePattern: aStrokePattern [
-	| aMetricsProvider aTextRun |
+	| aTextRun |
 	self
 		assert: [ aString isNotNil ]
 		description: [ 'String must not be nil' ].
@@ -67,21 +62,15 @@ MozTextPainter >> fillString: aString withPattern: aFillPattern strokePattern: a
 		assert: [ font isNotNil ]
 		description: [ 'Font must not be nil' ].
 
-	aMetricsProvider := self metricsProvider.
 	aTextRun := self textRun.
-	aTextRun metricsProvider: aMetricsProvider.
-	
 	self fillTextRun: aTextRun withPattern: aFillPattern strokePattern: aStrokePattern.
-	
-	aTextRun metricsProvider: nil.
 	aTextRun release
 ]
 
 { #category : #drawing }
 MozTextPainter >> fillTextRun: aTextRun withColor: aFillColor strokeColor: aStrokeColor [
-	| aMetricsProvider aDrawMode |
-	aMetricsProvider := aTextRun metricsProvider.
-	aMetricsProvider ifNil: [ aMetricsProvider := self metricsProvider ].
+	| aDrawMode |
+	
 	aDrawMode := drawMode ifNil: [ MozTextDrawMode GLYPH_FILL value ].
 	aStrokeColor isTransparent
 		ifFalse: [ aDrawMode := aDrawMode | MozTextDrawMode GLYPH_STROKE value ].
@@ -121,12 +110,10 @@ MozTextPainter >> fillTextRun: aTextRun withPaint: aFillPaint strokePaint: aStro
 
 { #category : #drawing }
 MozTextPainter >> fillTextRun: aTextRun withPattern: aFillPattern strokePattern: aStrokePattern [
-	| aMetricsProvider aDrawMode |
+	| aDrawMode |
 	self
 		assert: [ aTextRun isNotNil ]
 		description: [ 'A text run must not be nil' ].
-	aMetricsProvider := aTextRun metricsProvider.
-	aMetricsProvider ifNil: [ aMetricsProvider := self metricsProvider ].
 	aDrawMode := drawMode ifNil: [ MozTextDrawMode GLYPH_FILL value ].
 	aDrawMode := aDrawMode | MozTextDrawMode GLYPH_STROKE value.
 	self
@@ -152,17 +139,6 @@ MozTextPainter >> flags [
 	spacing isZero
 		ifFalse: [ theFlags := theFlags |  MozTextFlags TEXT_ENABLE_SPACING value ].
 	^ theFlags
-]
-
-{ #category : #measurement }
-MozTextPainter >> measure [
-	| aMetrics aMetricsProvider aTextRun |
-	aMetrics := self metrics.
-	aMetricsProvider := self metricsProvider.
-	aTextRun := self textRun.
-	aMetricsProvider measure: aTextRun in: aMetrics.
-	aTextRun release.
-	^ aMetrics
 ]
 
 { #category : #'instance creation' }
@@ -237,12 +213,10 @@ MozTextPainter >> stroke [
 
 { #category : #'instance creation' }
 MozTextPainter >> textRun [
-
 	^ (font
 		makeTextRunNoRelease: text
 		canvas: canvas
 		flags: self flags)
-			metricsProvider: self metricsProvider; "do not forget to set a default metrics provider"
 			autoRelease;
 			yourself
 ]

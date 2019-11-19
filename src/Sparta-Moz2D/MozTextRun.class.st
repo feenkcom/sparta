@@ -4,13 +4,17 @@ Class {
 	#traits : 'TSpTextRun + TMozLibrary + TMozInlineRefPtr + TMozDebug',
 	#classTraits : 'TSpTextRun classTrait + TMozLibrary classTrait + TMozInlineRefPtr classTrait + TMozDebug classTrait',
 	#instVars : [
-		'metricsProvider',
 		'buffer',
 		'length',
 		'bits'
 	],
 	#category : #'Sparta-Moz2D-Text'
 }
+
+{ #category : #'library path' }
+MozTextRun class >> ffiLibraryName [
+	^ MozLibrary
+]
 
 { #category : #'instance creation' }
 MozTextRun class >> fromString: aString [
@@ -36,7 +40,7 @@ MozTextRun class >> primRelease: aHandle [
 	^ self ffiCall: #( void moz2d_text_run_release ( void* aHandle ) )
 ]
 
-{ #category : #accessing }
+{ #category : #'as yet unclassified' }
 MozTextRun >> bits [
 	"Return how many bits one character takes"
 	<return: #Number>
@@ -49,7 +53,7 @@ MozTextRun >> bits: aNumber [
 	bits := aNumber
 ]
 
-{ #category : #accessing }
+{ #category : #'as yet unclassified' }
 MozTextRun >> buffer [
 	^ buffer
 ]
@@ -71,16 +75,6 @@ MozTextRun >> length [
 MozTextRun >> length: aNumber [
 	
 	length := aNumber
-]
-
-{ #category : #accessing }
-MozTextRun >> metricsProvider [
-	^ metricsProvider
-]
-
-{ #category : #accessing }
-MozTextRun >> metricsProvider: aMetricsProvider [
-	metricsProvider := aMetricsProvider
 ]
 
 { #category : #'private - ffi' }
