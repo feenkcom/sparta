@@ -18,8 +18,8 @@ SpartaTransformationRotation >> degrees [
 ]
 
 { #category : #accessing }
-SpartaTransformationRotation >> degrees: anObject [
-	degrees := anObject
+SpartaTransformationRotation >> degrees: aNumber [
+	degrees := aNumber asFloat
 ]
 
 { #category : #testing }

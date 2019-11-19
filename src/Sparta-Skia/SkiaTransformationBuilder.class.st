@@ -19,7 +19,15 @@ SkiaTransformationBuilder >> pop [
 
 { #category : #transformation }
 SkiaTransformationBuilder >> push: aSpartaTransformation [
-	canvas surfaceCanvas
-		save;
-		concatMatrix: aSpartaTransformation asMatrix
+	| aSurfaceCanvas |
+	
+	aSurfaceCanvas := canvas surfaceCanvas.
+	
+	aSurfaceCanvas save.
+	
+	aSpartaTransformation operationsDo: [ :eachOperation |
+		eachOperation translationDo: [ :x :y | aSurfaceCanvas translateX: x Y: y ].
+		eachOperation scaleDo: [ :x :y | aSurfaceCanvas scaleX: x Y: y ].
+		eachOperation rotationDo: [ :degrees | ].
+		eachOperation concatenationDo: [ :matrix | aSurfaceCanvas concatMatrix: matrix ] ]
 ]

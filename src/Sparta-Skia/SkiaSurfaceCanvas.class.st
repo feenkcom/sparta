@@ -566,6 +566,11 @@ SkiaSurfaceCanvas >> scale: aPoint [
 ]
 
 { #category : #'api - transformation' }
+SkiaSurfaceCanvas >> scaleX: aX Y: aY [
+	self primScaleX: aX y: aY
+]
+
+{ #category : #'api - transformation' }
 SkiaSurfaceCanvas >> setMatrix: aSpartaMatrix [
 	| aSkiaMatrix |
 	
@@ -612,4 +617,9 @@ SkiaSurfaceCanvas >> strokeRoundedRectangle: aSpartaRoundedRectangle color: aCol
 { #category : #'api - transformation' }
 SkiaSurfaceCanvas >> translate: aPoint [
 	self primTranslateX: aPoint x y: aPoint y
+]
+
+{ #category : #'api - transformation' }
+SkiaSurfaceCanvas >> translateX: aX Y: aY [
+	self primTranslateX: aX y: aY
 ]

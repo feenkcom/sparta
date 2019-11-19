@@ -19,8 +19,8 @@ SpartaTransformationTranslation >> deltaX [
 ]
 
 { #category : #accessing }
-SpartaTransformationTranslation >> deltaX: anObject [
-	deltaX := anObject
+SpartaTransformationTranslation >> deltaX: aNumber [
+	deltaX := aNumber asFloat
 ]
 
 { #category : #accessing }
@@ -29,8 +29,8 @@ SpartaTransformationTranslation >> deltaY [
 ]
 
 { #category : #accessing }
-SpartaTransformationTranslation >> deltaY: anObject [
-	deltaY := anObject
+SpartaTransformationTranslation >> deltaY: aNumber [
+	deltaY := aNumber asFloat
 ]
 
 { #category : #testing }

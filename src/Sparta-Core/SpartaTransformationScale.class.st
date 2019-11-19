@@ -32,8 +32,8 @@ SpartaTransformationScale >> scaleX [
 ]
 
 { #category : #accessing }
-SpartaTransformationScale >> scaleX: anObject [
-	scaleX := anObject
+SpartaTransformationScale >> scaleX: aNumber [
+	scaleX := aNumber asFloat
 ]
 
 { #category : #accessing }
@@ -42,6 +42,6 @@ SpartaTransformationScale >> scaleY [
 ]
 
 { #category : #accessing }
-SpartaTransformationScale >> scaleY: anObject [
-	scaleY := anObject
+SpartaTransformationScale >> scaleY: aNumber [
+	scaleY := aNumber asFloat
 ]
