@@ -50,6 +50,11 @@ Form >> spartaStrokeRectangle: aRectangle with: aStrokePainter [
 ]
 
 { #category : #'*Sparta-Core' }
+Form >> spartaStrokeRoundedRectangle: aRoundedRectangle with: aStrokePainter [
+	aStrokePainter strokeRoundedRectangle: aRoundedRectangle withForm: self
+]
+
+{ #category : #'*Sparta-Core' }
 Form >> spartaStrokeString: aString fillColor: aFillColor with: aTextPainter [
 	aTextPainter fillString: aString withColor: aFillColor strokeForm: self
 ]

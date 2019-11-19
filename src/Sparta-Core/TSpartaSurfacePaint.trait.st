@@ -62,3 +62,8 @@ TSpartaSurfacePaint >> spartaStrokePath: aPath with: aStrokePainter [
 TSpartaSurfacePaint >> spartaStrokeRectangle: aPath with: aStrokePainter [
 	aStrokePainter strokeRectangle: aPath withSurface: self
 ]
+
+{ #category : #dispatch }
+TSpartaSurfacePaint >> spartaStrokeRoundedRectangle: aRoundedRectangle with: aStrokePainter [
+	aStrokePainter strokeRoundedRectangle: aRoundedRectangle withSurface: self
+]

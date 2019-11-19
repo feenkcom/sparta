@@ -52,3 +52,8 @@ TSpartaConicalGradientPaint >> spartaStrokePath: aPath with: aStrokePainter [
 TSpartaConicalGradientPaint >> spartaStrokeRectangle: aPath with: aStrokePainter [
 	aStrokePainter strokeRectangle: aPath withConicalGradient: self
 ]
+
+{ #category : #dispatch }
+TSpartaConicalGradientPaint >> spartaStrokeRoundedRectangle: aRoundedRectangle with: aStrokePainter [
+	aStrokePainter strokeRoundedRectangle: aRoundedRectangle withConicalGradient: self
+]

@@ -89,8 +89,18 @@ SpartaRoundedRectangle >> right [
 ]
 
 { #category : #'api - sparta path' }
+SpartaRoundedRectangle >> spartaClipOn: aSpartaCanvas with: aSpartaClipper [
+	aSpartaClipper pushRoundedRectangle: self
+]
+
+{ #category : #'api - sparta path' }
 SpartaRoundedRectangle >> spartaFillOn: aSpartaCanvas with: aSpartaFiller [
 	aSpartaFiller fillRoundedRectangle: self
+]
+
+{ #category : #'api - sparta path' }
+SpartaRoundedRectangle >> spartaStrokeOn: aSpartaCanvas with: aSpartaStrokePainter [
+	aSpartaStrokePainter strokeRoundedRectangle: self
 ]
 
 { #category : #accessing }

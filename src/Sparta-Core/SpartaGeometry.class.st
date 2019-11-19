@@ -25,7 +25,7 @@ SpartaGeometry >> spartaFillOn: aSpartaCanvas with: aSpartaPainter [
 ]
 
 { #category : #'api - sparta path' }
-SpartaGeometry >> spartaStrokeOn: aSpartaCanvas with: aSpartaFiller [
+SpartaGeometry >> spartaStrokeOn: aSpartaCanvas with: aSpartaStrokePainter [
 	self subclassResponsibility
 ]
 
