@@ -42,6 +42,12 @@ Class {
 
 { #category : #accessing }
 SpartaPathPainter >> alpha: aFloat [
+	
+	"The default alpha value is 1.0 so if we set it alpha to 1.0 while draw options
+	are not set we don't have to do anything"
+	(drawOptions isNil and: [ (aFloat closeTo: 1.0) ])
+		ifTrue: [ ^ self ].
+
 	self drawOptions alpha: aFloat
 ]
 

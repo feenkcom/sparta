@@ -1,10 +1,13 @@
 Class {
 	#name : #MozTransformationBuilder,
 	#superclass : #SpartaTransformationBuilder,
-	#traits : 'TMozLibrary',
-	#classTraits : 'TMozLibrary classTrait',
-	#category : 'Sparta-Moz2D-Builders'
+	#category : #'Sparta-Moz2D-Builders'
 }
+
+{ #category : #'library path' }
+MozTransformationBuilder class >> ffiLibraryName [
+	^ MozLibrary
+]
 
 { #category : #accessing }
 MozTransformationBuilder >> current [
@@ -39,8 +42,13 @@ MozTransformationBuilder >> drawSurface: aSpartaSurface transformed: aMatrix3D [
 	anArray free
 ]
 
+{ #category : #'library path' }
+MozTransformationBuilder >> ffiLibraryName [
+	^ self class ffiLibraryName
+]
+
 { #category : #transformation }
-MozTransformationBuilder >> pop [
+MozTransformationBuilder >> pop: aSpartaTransformation [
 	self primPopTransform
 ]
 
@@ -86,12 +94,14 @@ MozTransformationBuilder >> privGetTransform [
 ]
 
 { #category : #transformation }
-MozTransformationBuilder >> push: aSpartaMatrix [
-
+MozTransformationBuilder >> push: aSpartaTransformation [
+	| aSpartaMatrix |
 	self primPushTransform.
 	
-	aSpartaMatrix isIdentity
+	aSpartaTransformation isIdentity
 		ifTrue: [ ^ self ].
+
+	aSpartaMatrix := aSpartaTransformation asMatrix.
 
 	self
 		primConcatenateTransformA11: aSpartaMatrix sx

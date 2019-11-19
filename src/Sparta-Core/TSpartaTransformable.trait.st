@@ -3,30 +3,31 @@ Trait {
 	#category : #'Sparta-Core-Math'
 }
 
-{ #category : #transformations }
+{ #category : #'api - transformations' }
 TSpartaTransformable >> multiplyBy: aMatrix [
 	aMatrix spartaMultiplyWith: self transformation
 ]
 
-{ #category : #transformations }
+{ #category : #'api - transformations' }
 TSpartaTransformable >> rotateByDegrees: angle [
-
-	self transformation rotateByDegrees: angle
+	self rotateByRadians: angle degreesToRadians
 ]
 
-{ #category : #transformations }
+{ #category : #'api - transformations' }
 TSpartaTransformable >> rotateByRadians: angle [
 
 	self transformation rotateByRadians: angle
 ]
 
-{ #category : #transformations }
+{ #category : #'api - transformations' }
 TSpartaTransformable >> scaleBy: aPointOrNumber [
 
-	self transformation scaleBy: aPointOrNumber
+	aPointOrNumber isPoint
+		ifTrue: [ self scaleX: aPointOrNumber x Y: aPointOrNumber y ]
+		ifFalse: [ self scaleX: aPointOrNumber Y: aPointOrNumber ]
 ]
 
-{ #category : #transformations }
+{ #category : #'api - transformations' }
 TSpartaTransformable >> scaleX: aX Y: aY [
 
 	self transformation scaleX: aX Y: aY
@@ -39,13 +40,15 @@ TSpartaTransformable >> transformation [
 	^ self explicitRequirement
 ]
 
-{ #category : #transformations }
+{ #category : #'api - transformations' }
 TSpartaTransformable >> translateBy: aPointOrNumber [
 
-	self transformation translateBy: aPointOrNumber asPoint
+	aPointOrNumber isPoint
+		ifTrue: [ self translateX: aPointOrNumber x Y: aPointOrNumber y ]
+		ifFalse: [ self translateX: aPointOrNumber Y: aPointOrNumber ]
 ]
 
-{ #category : #transformations }
+{ #category : #'api - transformations' }
 TSpartaTransformable >> translateX: aX Y: aY [
 
 	self transformation translateX: aX Y: aY

@@ -51,37 +51,52 @@ SkiaFillPainter >> createPaintForSurface: aSurface [
 
 { #category : #drawing }
 SkiaFillPainter >> fillPath: aPath withLinearGradient: aSpartaLinearGradient [
-	canvas surfaceCanvas
+	| aPaint  |
+	
+	aPaint := self createPaintForGradient: aSpartaLinearGradient.
+	[ canvas surfaceCanvas
 		drawPath: aPath
-		paint: (self createPaintForGradient: aSpartaLinearGradient)
+		paint: aPaint ] ensure: [ aPaint release ]
 ]
 
 { #category : #drawing }
 SkiaFillPainter >> fillPath: aPath withRadialGradient: aSpartaRadialGradient [
-	canvas surfaceCanvas
+	| aPaint  |
+	
+	aPaint := self createPaintForGradient: aSpartaRadialGradient.
+	[ canvas surfaceCanvas
 		drawPath: aPath
-		paint: (self createPaintForGradient: aSpartaRadialGradient)
+		paint: aPaint ] ensure: [ aPaint release ]
 ]
 
 { #category : #drawing }
 SkiaFillPainter >> fillPath: aPath withSolidColor: aColor [
-	canvas surfaceCanvas
+	| aPaint |
+	
+	aPaint := self createPaintForColor: aColor.
+	[ canvas surfaceCanvas
 		drawPath: aPath
-		paint: (self createPaintForColor: aColor)
+		paint: aPaint ] ensure: [ aPaint release ]
 ]
 
 { #category : #drawing }
 SkiaFillPainter >> fillRectangle: aRectangle withLinearGradient: aSpartaLinearGradient [
-	canvas surfaceCanvas
+	| aPaint |
+	
+	aPaint := self createPaintForGradient: aSpartaLinearGradient.
+	[ canvas surfaceCanvas
 		drawRectangle: aRectangle
-		paint: (self createPaintForGradient: aSpartaLinearGradient)
+		paint: aPaint ] ensure: [ aPaint release ]
 ]
 
 { #category : #drawing }
 SkiaFillPainter >> fillRectangle: aRectangle withRadialGradient: aSpartaRadialGradient [
-	canvas surfaceCanvas
+	| aPaint |
+	
+	aPaint := self createPaintForGradient: aSpartaRadialGradient.
+	[ canvas surfaceCanvas
 		drawRectangle: aRectangle
-		paint: (self createPaintForGradient: aSpartaRadialGradient)
+		paint: aPaint ] ensure: [ aPaint release ]
 ]
 
 { #category : #drawing }
@@ -94,7 +109,7 @@ SkiaFillPainter >> fillRectangle: aRectangle withSolidColor: aColor [
 			optimizedFillRectangle: aRectangle
 			withColor: aColor
 			antialias: true ].
-		
+
 	aPaint := self createPaintForColor: aColor.
 	[ canvas surfaceCanvas
 		drawRectangle: aRectangle
@@ -103,46 +118,42 @@ SkiaFillPainter >> fillRectangle: aRectangle withSolidColor: aColor [
 
 { #category : #drawing }
 SkiaFillPainter >> fillRectangle: aRectangle withSurface: aSpartaSurfacePaint [
+	| aPaint |
 
 	aSpartaSurfacePaint needsShader
 		ifTrue: [ ^ self ].
 		
 	(aRectangle extent ~= aSpartaSurfacePaint image extent)
 		ifTrue: [ ^ self ].
-		
-	canvas surfaceCanvas
+
+	aPaint := (self createPaintForSurface: aSpartaSurfacePaint).
+	[ canvas surfaceCanvas
 		drawImage: aSpartaSurfacePaint image
 		at: aRectangle origin
-		paint: (self createPaintForSurface: aSpartaSurfacePaint)
+		paint: aPaint ] ensure: [ aPaint release ]
 ]
 
 { #category : #drawing }
 SkiaFillPainter >> fillRoundedRectangle: aSpartaRounedRectangle withSolidColor: aColor [
+	| aPaint |
 
 	"blend mode = SrcOver, alpha = 1, antialias = true"
 	drawOptions ifNil: [
 		^ self
 			optimizedFillRoundedRectangle: aSpartaRounedRectangle
 			withColor: aColor
-			antialias: true ]
+			antialias: true ].
+		
+	aPaint := self createPaintForColor: aColor.
+	[ canvas surfaceCanvas
+		drawRoundedRectangle: aSpartaRounedRectangle
+		paint: (self createPaintForColor: aColor) ] ensure: [ aPaint release ]
 ]
 
 { #category : #'private - drawing' }
 SkiaFillPainter >> optimizedFillRectangle: aRectangle withColor: aColor antialias: isAntialias [
-	aColor = Color black
-		ifTrue: [
-			^ canvas surfaceCanvas
-				drawRectangleBlack: aRectangle
-				antialias: isAntialias ].
-			
-	aColor = Color white
-		ifTrue: [
-			^ canvas surfaceCanvas
-				drawRectangleWhite: aRectangle
-				antialias: isAntialias ].
-	
 	canvas surfaceCanvas
-		drawRectangle: aRectangle
+		fillRectangle: aRectangle
 		color: aColor
 		antialias: isAntialias
 ]
@@ -150,7 +161,7 @@ SkiaFillPainter >> optimizedFillRectangle: aRectangle withColor: aColor antialia
 { #category : #'private - drawing' }
 SkiaFillPainter >> optimizedFillRoundedRectangle: aSpartaRoundedRectangle withColor: aColor antialias: isAntialias [
 	canvas surfaceCanvas
-		drawRoundedRectangle: aSpartaRoundedRectangle
+		fillRoundedRectangle: aSpartaRoundedRectangle
 		color: aColor
 		antialias: isAntialias
 ]

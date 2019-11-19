@@ -287,16 +287,9 @@ SpartaMatrix >> scaleBy: factor [
 
 "	
 	factor isPoint ifTrue: [
-		sx := sx*factor x.
-		shx := shx*factor y.
-		sy := sy*factor y.
-		shy := shy*factor x. 		
+		self scaleX: factor x Y: factor y
 	] ifFalse: [
-		sx := sx*factor.
-		shx := shx*factor.
-		sy := sy*factor.
-		shy := shy*factor. ]
-
+		self scaleX: factor Y: factor ]
 ]
 
 { #category : #transformations }

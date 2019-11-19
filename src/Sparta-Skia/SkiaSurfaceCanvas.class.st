@@ -79,7 +79,7 @@ SkiaSurfaceCanvas >> clipRoundedRectangle: aSpartaRoundedRectangle [
 { #category : #'api - transformation' }
 SkiaSurfaceCanvas >> concatMatrix: aSpartaMatrix [
 	| aSkiaMatrix |
-	
+
 	aSkiaMatrix := SkiaMatrix fromSpartaMatrix: aSpartaMatrix.
 	self primConcatMatrix: aSkiaMatrix
 ]
@@ -168,17 +168,6 @@ SkiaSurfaceCanvas >> drawPoint: aPoint paint: aSkiaPaint [
 		paint: aSkiaPaint
 ]
 
-{ #category : #'api - drawing optimized' }
-SkiaSurfaceCanvas >> drawRectangle: aSpartaRectangle color: aColor antialias: isAntialias [
-	self
-		primDrawRectangleLeft: aSpartaRectangle left top: aSpartaRectangle top right: aSpartaRectangle right bottom: aSpartaRectangle bottom
-		r: (aColor red * 255) asInteger
-		g: (aColor green * 255) asInteger
-		b: (aColor blue * 255) asInteger
-		a: (aColor alpha * 255) asInteger
-		antialias: isAntialias
-]
-
 { #category : #'api - drawing' }
 SkiaSurfaceCanvas >> drawRectangle: aSpartaRectangle paint: aSkiaPaint [	
 	self
@@ -186,41 +175,18 @@ SkiaSurfaceCanvas >> drawRectangle: aSpartaRectangle paint: aSkiaPaint [
 		paint: aSkiaPaint
 ]
 
-{ #category : #'api - drawing optimized' }
-SkiaSurfaceCanvas >> drawRectangleBlack: aSpartaRectangle antialias: isAntialias [
+{ #category : #'api - drawing' }
+SkiaSurfaceCanvas >> drawRoundedRectangle: aSpartaRoundedRectangle paint: aSkiaPaint [
 	self
-		primDrawRectangleBlackLeft: aSpartaRectangle left top: aSpartaRectangle top right: aSpartaRectangle right bottom: aSpartaRectangle bottom
-		antialias: isAntialias
-]
-
-{ #category : #'api - drawing optimized' }
-SkiaSurfaceCanvas >> drawRectangleWhite: aSpartaRectangle antialias: isAntialias [
-	self
-		primDrawRectangleWhiteLeft: aSpartaRectangle left top: aSpartaRectangle top right: aSpartaRectangle right bottom: aSpartaRectangle bottom
-		antialias: isAntialias
-]
-
-{ #category : #'api - drawing optimized' }
-SkiaSurfaceCanvas >> drawRoundedRectangle: aSpartaRoundedRectangle color: aColor antialias: isAntialias [
-	aSpartaRoundedRectangle isUniform
-		ifTrue: [
-			self
-				primDrawRoundedRectangleLeft: aSpartaRoundedRectangle left top: aSpartaRoundedRectangle top right: aSpartaRoundedRectangle right bottom: aSpartaRoundedRectangle bottom
-				radiusX: aSpartaRoundedRectangle radius y: aSpartaRoundedRectangle radius
-				r: (aColor red * 255) asInteger
-				g: (aColor green * 255) asInteger
-				b: (aColor blue * 255) asInteger
-				a: (aColor alpha * 255) asInteger
-				antialias: isAntialias ]
-		ifFalse: [
-			self
-				primDrawRoundedRectangleLeft: aSpartaRoundedRectangle left top: aSpartaRoundedRectangle top right: aSpartaRoundedRectangle right bottom: aSpartaRoundedRectangle bottom
-				radiusTopLeft: aSpartaRoundedRectangle topLeftRadius topRight: aSpartaRoundedRectangle topRightRadius bottomRight: aSpartaRoundedRectangle bottomRightRadius bottomLeft: aSpartaRoundedRectangle bottomLeftRadius 
-				r: (aColor red * 255) asInteger
-				g: (aColor green * 255) asInteger
-				b: (aColor blue * 255) asInteger
-				a: (aColor alpha * 255) asInteger
-				antialias: isAntialias ]
+		primDrawRoundedRectangleLeft: aSpartaRoundedRectangle left
+		top: aSpartaRoundedRectangle top
+		right: aSpartaRoundedRectangle right
+		bottom: aSpartaRoundedRectangle bottom
+		radiusTopLeft: aSpartaRoundedRectangle topLeftRadius
+		topRight: aSpartaRoundedRectangle topRightRadius
+		bottomRight: aSpartaRoundedRectangle bottomRightRadius
+		bottomLeft: aSpartaRoundedRectangle bottomLeftRadius 
+		paint: aSkiaPaint
 ]
 
 { #category : #'api - drawing' }
@@ -260,6 +226,35 @@ SkiaSurfaceCanvas >> drawTextBlobBlack: aTextBlob at: anOriginPoint antialias: i
 		primDrawTextBlobBlack: aTextBlob
 		x: anOriginPoint x
 		y: anOriginPoint y
+		antialias: isAntialias
+]
+
+{ #category : #'api - drawing optimized' }
+SkiaSurfaceCanvas >> fillRectangle: aSpartaRectangle color: aColor antialias: isAntialias [
+	self
+		primFillRectangleLeft: aSpartaRectangle left top: aSpartaRectangle top right: aSpartaRectangle right bottom: aSpartaRectangle bottom
+		r: (aColor red * 255) asInteger
+		g: (aColor green * 255) asInteger
+		b: (aColor blue * 255) asInteger
+		a: (aColor alpha * 255) asInteger
+		antialias: isAntialias
+]
+
+{ #category : #'api - drawing optimized' }
+SkiaSurfaceCanvas >> fillRoundedRectangle: aSpartaRoundedRectangle color: aColor antialias: isAntialias [
+	self
+		primFillRoundedRectangleLeft: aSpartaRoundedRectangle left
+		top: aSpartaRoundedRectangle top
+		right: aSpartaRoundedRectangle right
+		bottom: aSpartaRoundedRectangle bottom
+		radiusTopLeft: aSpartaRoundedRectangle topLeftRadius
+		topRight: aSpartaRoundedRectangle topRightRadius
+		bottomRight: aSpartaRoundedRectangle bottomRightRadius
+		bottomLeft: aSpartaRoundedRectangle bottomLeftRadius 
+		r: (aColor red * 255) asInteger
+		g: (aColor green * 255) asInteger
+		b: (aColor blue * 255) asInteger
+		a: (aColor alpha * 255) asInteger
 		antialias: isAntialias
 ]
 
@@ -365,13 +360,6 @@ SkiaSurfaceCanvas >> primDrawPointX: aX y: aY paint: aSkiaPaint [
 	self ffiCall: #(void skia_canvas_draw_point(self, scalar aX, scalar aY, SkiaPaint aSkiaPaint))
 ]
 
-{ #category : #'private - ffi optimized' }
-SkiaSurfaceCanvas >> primDrawRectangleBlackLeft: aLeft top: aTop right: aRight bottom: aBottom antialias: isAntialias [
-	self ffiCall: #(void skia_canvas_draw_rectangle_with_black_color(self,
-		scalar aLeft, scalar aTop, scalar aRight, scalar aBottom,
-		bool isAntialias))
-]
-
 { #category : #'private - ffi' }
 SkiaSurfaceCanvas >> primDrawRectangleLeft: aLeft top: aTop right: aRight bottom: aBottom paint: aSkiaPaint [
 	self ffiCall: #(void skia_canvas_draw_rectangle(self,
@@ -379,37 +367,12 @@ SkiaSurfaceCanvas >> primDrawRectangleLeft: aLeft top: aTop right: aRight bottom
 		SkiaPaint aSkiaPaint))
 ]
 
-{ #category : #'private - ffi optimized' }
-SkiaSurfaceCanvas >> primDrawRectangleLeft: aLeft top: aTop right: aRight bottom: aBottom r: aRed g: aGreen b: aBlue a: anAlpha antialias: isAntialias [
-	self ffiCall: #(void skia_canvas_draw_rectangle_with_color(self,
-		scalar aLeft, scalar aTop, scalar aRight, scalar aBottom,
-		uint8 aRed, uint8 aGreen, uint8 aBlue, uint8 anAlpha,
-		bool isAntialias))
-]
-
-{ #category : #'private - ffi optimized' }
-SkiaSurfaceCanvas >> primDrawRectangleWhiteLeft: aLeft top: aTop right: aRight bottom: aBottom antialias: isAntialias [
-	self ffiCall: #(void skia_canvas_draw_rectangle_with_white_color(self,
-		scalar aLeft, scalar aTop, scalar aRight, scalar aBottom,
-		bool isAntialias))
-]
-
-{ #category : #'private - ffi optimized' }
-SkiaSurfaceCanvas >> primDrawRoundedRectangleLeft: aLeft top: aTop right: aRight bottom: aBottom radiusTopLeft: aTopLeftRadius topRight: aTopRightRadius bottomRight: aBottomRightRadius bottomLeft: aBottomLeftRadius r: aRed g: aGreen b: aBlue a: anAlpha antialias: isAntialias [
-	self ffiCall: #(void skia_canvas_draw_rounded_rectangle_complex_with_color(self,
+{ #category : #'private - ffi' }
+SkiaSurfaceCanvas >> primDrawRoundedRectangleLeft: aLeft top: aTop right: aRight bottom: aBottom radiusTopLeft: aTopLeftRadius topRight: aTopRightRadius bottomRight: aBottomRightRadius bottomLeft: aBottomLeftRadius paint: aSkiaPaint [
+	self ffiCall: #(void skia_canvas_draw_rounded_rectangle(self,
 		scalar aLeft, scalar aTop, scalar aRight, scalar aBottom,
 		scalar aTopLeftRadius, scalar aTopRightRadius, scalar aBottomRightRadius, scalar aBottomLeftRadius,
-		uint8 aRed, uint8 aGreen, uint8 aBlue, uint8 anAlpha,
-		bool isAntialias))
-]
-
-{ #category : #'private - ffi optimized' }
-SkiaSurfaceCanvas >> primDrawRoundedRectangleLeft: aLeft top: aTop right: aRight bottom: aBottom radiusX: radiusX y: radiusY r: aRed g: aGreen b: aBlue a: anAlpha antialias: isAntialias [
-	self ffiCall: #(void skia_canvas_draw_rounded_rectangle_with_color(self,
-		scalar aLeft, scalar aTop, scalar aRight, scalar aBottom,
-		scalar radiusX, scalar radiusY,
-		uint8 aRed, uint8 aGreen, uint8 aBlue, uint8 anAlpha,
-		bool isAntialias))
+		SkiaPaint aSkiaPaint))
 ]
 
 { #category : #'private - ffi' }
@@ -446,6 +409,23 @@ SkiaSurfaceCanvas >> primDrawTextBlobBlack: aSkiaTextBlob x: aX y: aY antialias:
 	self ffiCall: #(void skia_canvas_draw_text_blob_with_black_color(self,
 		SkiaTextBlob aSkiaTextBlob,
 		scalar aX, scalar aY,
+		bool isAntialias))
+]
+
+{ #category : #'private - ffi optimized' }
+SkiaSurfaceCanvas >> primFillRectangleLeft: aLeft top: aTop right: aRight bottom: aBottom r: aRed g: aGreen b: aBlue a: anAlpha antialias: isAntialias [
+	self ffiCall: #(void skia_canvas_fill_rectangle_with_color(self,
+		scalar aLeft, scalar aTop, scalar aRight, scalar aBottom,
+		uint8 aRed, uint8 aGreen, uint8 aBlue, uint8 anAlpha,
+		bool isAntialias))
+]
+
+{ #category : #'private - ffi optimized' }
+SkiaSurfaceCanvas >> primFillRoundedRectangleLeft: aLeft top: aTop right: aRight bottom: aBottom radiusTopLeft: aTopLeftRadius topRight: aTopRightRadius bottomRight: aBottomRightRadius bottomLeft: aBottomLeftRadius r: aRed g: aGreen b: aBlue a: anAlpha antialias: isAntialias [
+	self ffiCall: #(void skia_canvas_fill_rounded_rectangle_with_color(self,
+		scalar aLeft, scalar aTop, scalar aRight, scalar aBottom,
+		scalar aTopLeftRadius, scalar aTopRightRadius, scalar aBottomRightRadius, scalar aBottomLeftRadius,
+		uint8 aRed, uint8 aGreen, uint8 aBlue, uint8 anAlpha,
 		bool isAntialias))
 ]
 
@@ -514,6 +494,25 @@ SkiaSurfaceCanvas >> primSkewX: aX y: aY [
 	^ self ffiCall: #(void skia_canvas_skew(self, scalar aX, scalar aY))
 ]
 
+{ #category : #'private - ffi optimized' }
+SkiaSurfaceCanvas >> primStrokeRectangleLeft: aLeft top: aTop right: aRight bottom: aBottom r: aRed g: aGreen b: aBlue a: anAlpha width: aWidth antialias: isAntialias [
+	self ffiCall: #(void skia_canvas_stroke_rectangle_with_color(self,
+		scalar aLeft, scalar aTop, scalar aRight, scalar aBottom,
+		uint8 aRed, uint8 aGreen, uint8 aBlue, uint8 anAlpha,
+		scalar aWidth,
+		bool isAntialias))
+]
+
+{ #category : #'private - ffi optimized' }
+SkiaSurfaceCanvas >> primStrokeRoundedRectangleLeft: aLeft top: aTop right: aRight bottom: aBottom radiusTopLeft: aTopLeftRadius topRight: aTopRightRadius bottomRight: aBottomRightRadius bottomLeft: aBottomLeftRadius r: aRed g: aGreen b: aBlue a: anAlpha width: aWidth antialias: isAntialias [
+	self ffiCall: #(void skia_canvas_stroke_rounded_rectangle_with_color(self,
+		scalar aLeft, scalar aTop, scalar aRight, scalar aBottom,
+		scalar aTopLeftRadius, scalar aTopRightRadius, scalar aBottomRightRadius, scalar aBottomLeftRadius,
+		uint8 aRed, uint8 aGreen, uint8 aBlue, uint8 anAlpha,
+		scalar aWidth,
+		bool isAntialias))
+]
+
 { #category : #'private - ffi' }
 SkiaSurfaceCanvas >> primTranslateX: aX y: aY [
 	^ self ffiCall: #(void skia_canvas_translate(self, scalar aX, scalar aY))
@@ -567,6 +566,11 @@ SkiaSurfaceCanvas >> scale: aPoint [
 ]
 
 { #category : #'api - transformation' }
+SkiaSurfaceCanvas >> scaleX: aX Y: aY [
+	self primScaleX: aX y: aY
+]
+
+{ #category : #'api - transformation' }
 SkiaSurfaceCanvas >> setMatrix: aSpartaMatrix [
 	| aSkiaMatrix |
 	
@@ -579,7 +583,43 @@ SkiaSurfaceCanvas >> skew: aPoint [
 	self primSkewX: aPoint x y: aPoint y
 ]
 
+{ #category : #'api - drawing optimized' }
+SkiaSurfaceCanvas >> strokeRectangle: aSpartaRectangle color: aColor width: aWidth antialias: isAntialias [
+	self
+		primStrokeRectangleLeft: aSpartaRectangle left top: aSpartaRectangle top right: aSpartaRectangle right bottom: aSpartaRectangle bottom
+		r: (aColor red * 255) asInteger
+		g: (aColor green * 255) asInteger
+		b: (aColor blue * 255) asInteger
+		a: (aColor alpha * 255) asInteger
+		width: aWidth
+		antialias: isAntialias
+]
+
+{ #category : #'api - drawing optimized' }
+SkiaSurfaceCanvas >> strokeRoundedRectangle: aSpartaRoundedRectangle color: aColor width: aWidth antialias: isAntialias [
+	self
+		primStrokeRoundedRectangleLeft: aSpartaRoundedRectangle left
+		top: aSpartaRoundedRectangle top
+		right: aSpartaRoundedRectangle right
+		bottom: aSpartaRoundedRectangle bottom
+		radiusTopLeft: aSpartaRoundedRectangle topLeftRadius
+		topRight: aSpartaRoundedRectangle topRightRadius
+		bottomRight: aSpartaRoundedRectangle bottomRightRadius
+		bottomLeft: aSpartaRoundedRectangle bottomLeftRadius 
+		r: (aColor red * 255) asInteger
+		g: (aColor green * 255) asInteger
+		b: (aColor blue * 255) asInteger
+		a: (aColor alpha * 255) asInteger
+		width: aWidth
+		antialias: isAntialias
+]
+
 { #category : #'api - transformation' }
 SkiaSurfaceCanvas >> translate: aPoint [
 	self primTranslateX: aPoint x y: aPoint y
+]
+
+{ #category : #'api - transformation' }
+SkiaSurfaceCanvas >> translateX: aX Y: aY [
+	self primTranslateX: aX y: aY
 ]

@@ -169,6 +169,14 @@ SkiaCanvas >> pathBuilderClass [
 	^ SkiaPathBuilder
 ]
 
+{ #category : #dependencies }
+SkiaCanvas >> release [
+	skiaSurfaceCanvas release.
+	skiaSurfaceCanvas := nil.
+	skiaSurface release.
+	skiaSurface := nil 
+]
+
 { #category : #builders }
 SkiaCanvas >> shapeFactory [
 	<return: #SpartaShapeFactory>
