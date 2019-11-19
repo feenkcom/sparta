@@ -1,10 +1,13 @@
 Class {
 	#name : #MozTransformationBuilder,
 	#superclass : #SpartaTransformationBuilder,
-	#traits : 'TMozLibrary',
-	#classTraits : 'TMozLibrary classTrait',
 	#category : #'Sparta-Moz2D-Builders'
 }
+
+{ #category : #'library path' }
+MozTransformationBuilder class >> ffiLibraryName [
+	^ MozLibrary
+]
 
 { #category : #accessing }
 MozTransformationBuilder >> current [
