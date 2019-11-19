@@ -5,7 +5,6 @@ Class {
 	#classTraits : 'TSpTextRun classTrait',
 	#instVars : [
 		'boxerString',
-		'buffer',
 		'textBlob'
 	],
 	#category : #'Sparta-Skia-Text'
@@ -31,7 +30,6 @@ SkiaTextRun >> characters [
 { #category : #initialization }
 SkiaTextRun >> initializeWith: aString font: aFont [
 	boxerString := GtBoxerString fromString: aString.
-	buffer := boxerString asArray asByteArray.
 	textBlob := SkiaTextBlob text: boxerString font: aFont
 ]
 
@@ -40,14 +38,6 @@ SkiaTextRun >> isNull [
 	<return: #Boolean>
 
 	^ boxerString isNull
-]
-
-{ #category : #accessing }
-SkiaTextRun >> length [
-	"Return how many characters (not glyphs) are behind this text run"
-	<return: #Number>
-	
-	^ boxerString size
 ]
 
 { #category : #accessing }

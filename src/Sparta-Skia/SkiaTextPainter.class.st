@@ -69,11 +69,12 @@ SkiaTextPainter >> fillTextRun: aTextRun withColor: aFillColor strokeColor: aStr
 				fillTextBlob: aTextRun textBlob
 				withColor: aColor
 				antialias: drawOptions antialias ].
-
-	canvas surfaceCanvas
-		drawTextBlob: aTextRun textBlob
-		at: baseline
-		paint: (self createPaintForColor: aFillColor)
+			
+	SkiaPaint newDuring: [ :aSkiaPaint |
+		canvas surfaceCanvas
+			drawTextBlob: aTextRun textBlob
+			at: baseline
+			paint: (self setPaint: aSkiaPaint forColor: aFillColor) ]
 ]
 
 { #category : #'instance creation' }
@@ -94,6 +95,19 @@ SkiaTextPainter >> metricsProvider [
 	^ SkiaMetricsProvider new font: font; paint: (self createPaintForColor: paint)
 ]
 
+{ #category : #private }
+SkiaTextPainter >> setPaint: aSkiaPaint forColor: aColor [
+	| theDrawOptions |
+
+	theDrawOptions := drawOptions ifNil: [ canvas defaultDrawOptions ].
+	aSkiaPaint
+		color: (aColor alpha: aColor alpha * theDrawOptions alpha);
+		antialias: theDrawOptions antialias;
+		blendMode: theDrawOptions blendMode.
+
+	^ aSkiaPaint
+]
+
 { #category : #'instance creation' }
 SkiaTextPainter >> textRun [
 	"Instantiate and return a text run containing glyphs for current string according
@@ -101,4 +115,30 @@ SkiaTextPainter >> textRun [
 	<return: #TSpTextRun>
 	
 	^ SkiaTextRun fromString: text font: font
+]
+
+{ #category : #'instance creation' }
+SkiaTextPainter >> textRunWithMetrics: aSpartaMetrics [
+	"Instantiate and return a text run containing glyphs for current string according
+	to choosen font and various text properties while measuring the text run in given sparta metrics"
+	<return: #TSpTextRun>
+	| aTextRun |
+
+	aTextRun := self textRun.
+
+	self
+		assert: [ aTextRun isNull not ]
+		description: [ 'Created text run must not be nullptr' ].
+
+	aSpartaMetrics
+		canvas: canvas;
+		spacing: spacing.
+		
+	SkiaPaint newDuring: [ :aSkiaPaint |
+		SkiaMetricsProvider new
+			font: font;
+			paint: (self setPaint: aSkiaPaint forColor: paint);
+			measure: aTextRun in: aSpartaMetrics ].
+
+	^ aTextRun
 ]

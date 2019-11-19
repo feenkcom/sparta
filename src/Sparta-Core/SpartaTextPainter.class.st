@@ -308,7 +308,7 @@ SpartaTextPainter >> textRunWithMetrics: aSpartaMetrics [
 	aSpartaMetrics
 		canvas: canvas;
 		spacing: spacing.
-	
+
 	self metricsProvider measure: aTextRun in: aSpartaMetrics.
 
 	^ aTextRun
