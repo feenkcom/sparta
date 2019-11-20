@@ -22,11 +22,13 @@ SkiaTextPainter >> fillGlyphs: aByteArray font: aSkiaFont withColor: aColor anti
 ]
 
 { #category : #drawing }
-SkiaTextPainter >> fillString: aString withColor: aFillColor strokeColor: aStrokeColor [
-	self
-		fillTextRun: (SkiaTextBlob string: aString font: font)
-		withColor: aFillColor
-		strokeColor: aStrokeColor
+SkiaTextPainter >> fillString: aString withColor: aFillColor strokeColor: aStrokeColor [	
+	SkiaPaint newDuring: [ :aSkiaPaint |
+		SkiaTextBlob string: aString font: font during: [ :aTextBlob |
+			canvas surfaceCanvas
+				drawTextBlob: aTextBlob
+				at: baseline
+				paint: (self setPaint: aSkiaPaint forColor: aFillColor) ] ]
 ]
 
 { #category : #drawing }

@@ -1,6 +1,9 @@
 Class {
 	#name : #SkiaExternalObject,
 	#superclass : #FFIExternalObject,
+	#instVars : [
+		'isAutoRelease'
+	],
 	#pools : [
 		'SkiaTypes'
 	],
@@ -100,16 +103,30 @@ SkiaExternalObject class >> warning: aMessageBlock [
 	Transcript show: message; cr"
 ]
 
+{ #category : #'external resource management' }
+SkiaExternalObject >> autoRelease [
+	"Note, subclasses should implement #resourceData
+	and #finalizeResourceData: on class side"
+
+	isAutoRelease := true.
+	super autoRelease
+]
+
 { #category : #dependencies }
 SkiaExternalObject >> ffiLibraryName [
 	^ self class ffiLibraryName
 ]
 
 { #category : #dependencies }
-SkiaExternalObject >> release [	
+SkiaExternalObject >> release [
 	"#release is sent manually, so we want to make sure that resource is no longer
 	added to weak registry - performance improvement"
-	(FFIExternalResourceManager uniqueInstance instVarNamed: #registry) remove: self ifAbsent: [ ].
+	
+	"we compare with true because isAutoRelease is nil be default"
+	isAutoRelease == true
+		ifTrue: [
+			FFIExternalResourceManager uniqueInstance removeResource: self.
+			isAutoRelease := false ].
 
 	self class release: self resourceData
 ]
