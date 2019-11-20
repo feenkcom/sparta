@@ -96,11 +96,11 @@ SkiaSurfacePaint >> samplingPoint [
 
 { #category : #accessing }
 SkiaSurfacePaint >> source: aSurface [
-	skiaImage := aSurface snapshot.
-	
+	skiaImage := aSurface.
+
 	self
-		assert: [ skiaImage isKindOf: SkiaImage ]
-		description: [ 'Only skia image can be used as a source for the paint' ].
+		assert: [ (skiaImage isKindOf: SkiaImage) or: [ skiaImage isKindOf: SkiaCanvas ] ]
+		description: [ 'Only skia image or canvas can be used as a source for the paint' ].
 ]
 
 { #category : #accessing }
