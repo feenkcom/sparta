@@ -598,6 +598,32 @@ SkiaSurfaceCanvasExamples >> drawTextBlobHelloWorld [
 	^ aSurface
 ]
 
+{ #category : #'examples - draw text blob' }
+SkiaSurfaceCanvasExamples >> drawTextBlobHelloWorldFromGlyphs [
+	<gtExample>
+	| aSurface aCanvas aFont theGlyphs aPaint |
+	
+	aSurface := SkiaSurface newRasterPremultipled: 400@300.
+	
+	aFont := SkiaFont size: 30.
+	theGlyphs := aFont stringToGlyphsArray: 'Hello World!'.
+	
+	aPaint := SkiaPaint new
+		color: Color lightGray;
+		paintStyle: SkiaPaintStyle Fill.
+	
+	aCanvas := aSurface canvas.
+	
+	SkiaTextBlob glyphs: theGlyphs font: aFont during: [ :aTextBlob |
+		aCanvas drawTextBlob: aTextBlob at: 50@100 paint: aPaint.
+	].
+
+	aCanvas flush.
+	aCanvas release.
+	
+	^ aSurface
+]
+
 { #category : #'examples - draw shadow' }
 SkiaSurfaceCanvasExamples >> drawTriangleShadow [
 	<gtExample>

@@ -4,9 +4,31 @@ Class {
 	#category : #'Sparta-Skia-External'
 }
 
+{ #category : #'instance creation' }
+SkiaTextBlob class >> glyphs: aByteArray font: aSkiaFont [
+	<return: #SkiaTextBlob>	
+	
+	^ GtBoxerArrayU16 fromByteArray: aByteArray during: [ :aGtBoxerArrayU16 |
+		self fromNativeHandle: (self primNewFromGlyphs: aGtBoxerArrayU16 font: aSkiaFont) ]
+]
+
+{ #category : #'instance creation' }
+SkiaTextBlob class >> glyphs: aByteArray font: aSkiaFont during: aBlock [
+	
+	^ GtBoxerArrayU16 fromByteArray: aByteArray during: [ :aGtBoxerArrayU16 |
+		self fromNativeHandle: (self primNewFromGlyphs: aGtBoxerArrayU16 font: aSkiaFont) during: aBlock ]
+]
+
 { #category : #'private - ffi' }
 SkiaTextBlob class >> primCreate [
 	^ self ffiCall: #(void* skia_text_blob_default())
+]
+
+{ #category : #'private - ffi' }
+SkiaTextBlob class >> primNewFromGlyphs: aGtBoxerArrayU16 font: aSkiaFont [
+	^ self ffiCall: #(void* skia_text_blob_from_glyphs(
+		GtBoxerArrayU16 aGtBoxerArrayU16,
+		SkiaFont aSkiaFont ))
 ]
 
 { #category : #'private - ffi' }

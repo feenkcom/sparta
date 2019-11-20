@@ -190,14 +190,11 @@ SpartaTextPainter >> font: aFontGroup [
 
 { #category : #measurement }
 SpartaTextPainter >> measure [
-	<return: #SpartaTextMetrics>
-	| aMetrics aMetricsProvider aTextRun |
+	<return: #SpartaMetrics>
+	| aMetrics |
 
 	aMetrics := self metrics.
-	aMetricsProvider := self metricsProvider.
-	aTextRun := self textRun.
-	aMetricsProvider measure: aTextRun in: aMetrics.
-	aTextRun release.
+	self textRunWithMetrics: aMetrics.
 	^ aMetrics
 ]
 
@@ -206,7 +203,7 @@ SpartaTextPainter >> metrics [
 	"Instantiate and return a metrics container object used during text mearument process"
 	<return: #SpartaMetrics>
 	
-	^ self subclassResponsibility
+	^ SpartaMetrics new
 ]
 
 { #category : #'instance creation' }

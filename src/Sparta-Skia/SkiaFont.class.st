@@ -264,11 +264,13 @@ SkiaFont >> primMeasureText: aGtBoxerString encoding: aSkiaTextEncoding paint: a
 ]
 
 { #category : #'private - ffi' }
-SkiaFont >> primText: aGtBoxerString toGlyphs: aGtBoxerArrayU16 encoding: aSkiaTextEncoding [
-	^ self ffiCall: #(void skia_font_text_to_glyphs(self,
+SkiaFont >> primText: aGtBoxerString toGlyphs: aGtBoxerArrayU16 encoding: aSkiaTextEncoding paint: aSkiaPaint bounds: aSkiaRectangleF32 [
+	^ self ffiCall: #(scalar skia_font_text_to_glyphs(self,
 		GtBoxerString aGtBoxerString,
 		SkiaTextEncoding aSkiaTextEncoding,
-		GtBoxerArrayU16 aGtBoxerArrayU16))
+		GtBoxerArrayU16 aGtBoxerArrayU16,
+		SkiaPaint aSkiaPaint,
+		SkiaRectangleF32 aSkiaRectangleF32))
 ]
 
 { #category : #accessing }
@@ -292,12 +294,72 @@ SkiaFont >> stringToGlyphs: aString [
 ]
 
 { #category : #text }
+SkiaFont >> stringToGlyphsArray: aString [
+	<return: #ByteArray>
+
+	^ GtBoxerString fromString: aString during: [ :aBoxerString | self textToGlyphsArray: aBoxerString ]
+]
+
+{ #category : #text }
+SkiaFont >> stringToTextRun: aString paint: aSkiaPaint [
+	<return: #SkiaTextRun>
+
+	^ GtBoxerString fromString: aString during: [ :aBoxerString | self textToTextRun: aBoxerString paint: aSkiaPaint ]
+]
+
+{ #category : #text }
 SkiaFont >> textToGlyphs: aGtBoxerString [
 	| theGlyphs |
 	
 	theGlyphs := GtBoxerArrayU16 new.
-	self primText: aGtBoxerString toGlyphs: theGlyphs encoding: SkiaTextEncoding UTF8.
+	self
+		primText: aGtBoxerString
+		toGlyphs: theGlyphs
+		encoding: SkiaTextEncoding UTF8
+		paint: SkiaPaint null
+		bounds: SkiaRectangleF32 null.
+
 	^ theGlyphs
+]
+
+{ #category : #text }
+SkiaFont >> textToGlyphsArray: aGtBoxerString [
+	"Return an in-image byte array holding glyphs"
+	<return: #ByteArray>
+
+	^ GtBoxerArrayU16 newDuring: [ :aBoxerArrayU16 |
+		self
+			primText: aGtBoxerString
+			toGlyphs: aBoxerArrayU16
+			encoding: SkiaTextEncoding UTF8
+			paint: SkiaPaint null
+			bounds: SkiaRectangleF32 null.
+		aBoxerArrayU16 asByteArray ]
+]
+
+{ #category : #text }
+SkiaFont >> textToTextRun: aGtBoxerString paint: aSkiaPaint [
+	"Return a measured text run"
+	<return: #SkiaTextRun>
+
+	^ GtBoxerArrayU16 newDuring: [ :aBoxerArrayU16 |
+		SkiaRectangleF32 newDuring: [ :aSkiaRectangle |
+			| theGlyphs aWidth aBounds |
+			aWidth := self
+				primText: aGtBoxerString
+				toGlyphs: aBoxerArrayU16
+				encoding: SkiaTextEncoding UTF8
+				paint: aSkiaPaint
+				bounds: aSkiaRectangle.
+			
+			aBounds := aSkiaRectangle asRectangle.
+			theGlyphs := aBoxerArrayU16 asByteArray.
+			
+			SkiaTextRun new
+				font: self;
+				glyphs: theGlyphs;
+				advance: aWidth;
+				bounds: aBounds ] ]
 ]
 
 { #category : #accessing }

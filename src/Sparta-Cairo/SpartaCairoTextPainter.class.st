@@ -55,17 +55,6 @@ SpartaCairoTextPainter >> horizontal [
 ]
 
 { #category : #'instance creation' }
-SpartaCairoTextPainter >> metrics [
-	| aMetrics |
-
-	aMetrics := SpartaMetrics new.
-	aMetrics canvas: canvas.
-	aMetrics spacing: spacing.
-
-	^ aMetrics
-]
-
-{ #category : #'instance creation' }
 SpartaCairoTextPainter >> metricsProvider [
 	^ SpartaCairoMetricsProvider new
 ]

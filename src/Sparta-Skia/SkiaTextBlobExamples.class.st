@@ -28,6 +28,20 @@ SkiaTextBlobExamples >> fromEmptyString [
 ]
 
 { #category : #accessing }
+SkiaTextBlobExamples >> fromGlyphsAndFont [
+	<gtExample>
+	| aTextBlob theGlyphs aFont |
+	
+	aFont := SkiaFont new.
+	theGlyphs := aFont stringToGlyphsArray: 'Hello'.
+	
+	aTextBlob := SkiaTextBlob glyphs: theGlyphs font: aFont.
+	self assert: aTextBlob isNull not.
+
+	^ aTextBlob
+]
+
+{ #category : #accessing }
 SkiaTextBlobExamples >> fromStringAndFont [
 	<gtExample>
 	| aTextBlob aFont |

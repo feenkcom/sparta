@@ -22,10 +22,7 @@ SkiaTextMetrics >> advance: anObject [
 SkiaTextMetrics >> asSpartaMetrics [
 	^ SpartaTextMetrics new
 		advance: advance;
-		left: bounds left;
-		top: bounds top;
-		width: bounds right - bounds left;
-		height: bounds bottom - bounds top
+		bounds: bounds
 ]
 
 { #category : #accessing }

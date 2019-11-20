@@ -38,7 +38,7 @@ SkiaExternalObject class >> fromNativeHandle: anExternalData during: aBlock [
 	
 	"Object understand release"
 	anExternalInstance := Object new.
-	[
+	^ [
 		anExternalInstance := self fromHandle: (anExternalData getHandle).
 		aBlock value: anExternalInstance ]
 	ensure: [ anExternalInstance release ]
@@ -54,7 +54,7 @@ SkiaExternalObject class >> newDuring: aBlock [
 	"I create a new instance of me without auto-release for to evaluate a given block
 	and then destroy me"
 
-	self fromNativeHandle: self primCreate during: aBlock
+	^ self fromNativeHandle: self primCreate during: aBlock
 ]
 
 { #category : #'instance creation' }

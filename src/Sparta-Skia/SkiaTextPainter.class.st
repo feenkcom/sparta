@@ -4,19 +4,21 @@ Class {
 	#category : #'Sparta-Skia-Builders'
 }
 
-{ #category : #private }
-SkiaTextPainter >> createPaintForColor: aColor [
-	| aSkiaPaint theDrawOptions |
+{ #category : #'private - drawing' }
+SkiaTextPainter >> fillGlyphs: aByteArray font: aSkiaFont withColor: aColor antialias: isAntialias [
+	SkiaTextBlob glyphs: aByteArray font: aSkiaFont during: [ :aTextBlob |
+		aColor = Color black
+			ifTrue: [
+				^ canvas surfaceCanvas
+					drawTextBlobBlack: aTextBlob
+					at: baseline
+					antialias: isAntialias ].
 
-	theDrawOptions := drawOptions ifNil: [ canvas defaultDrawOptions ].
-
-	aSkiaPaint := SkiaPaint new.
-	aSkiaPaint
-		color: (aColor alpha: aColor alpha * theDrawOptions alpha);
-		antialias: theDrawOptions antialias;
-		blendMode: theDrawOptions blendMode.
-
-	^ aSkiaPaint
+		canvas surfaceCanvas
+			drawTextBlob: aTextBlob
+			at: baseline
+			color: aColor
+			antialias: isAntialias ]
 ]
 
 { #category : #drawing }
@@ -31,29 +33,14 @@ SkiaTextPainter >> fillString: aString withColor: aFillColor strokeColor: aStrok
 SkiaTextPainter >> fillString: aString withColor: aFillColor strokePaint: aStrokePaint [
 ]
 
-{ #category : #'private - drawing' }
-SkiaTextPainter >> fillTextBlob: aTextBlob withColor: aColor antialias: isAntialias [
-	aColor = Color black
-		ifTrue: [
-			^ canvas surfaceCanvas
-				drawTextBlobBlack: aTextBlob
-				at: baseline
-				antialias: isAntialias ].
-			
-	canvas surfaceCanvas
-		drawTextBlob: aTextBlob
-		at: baseline
-		color: aColor
-		antialias: isAntialias
-]
-
 { #category : #drawing }
 SkiaTextPainter >> fillTextRun: aTextRun withColor: aFillColor strokeColor: aStrokeColor [
 
 	"blend mode = SrcOver, alpha = 1, antialias = true"
 	drawOptions ifNil: [
 		^ self
-			fillTextBlob: aTextRun textBlob
+			fillGlyphs: aTextRun glyphs
+			font: aTextRun font
 			withColor: aFillColor
 			antialias: true ].
 
@@ -66,23 +53,17 @@ SkiaTextPainter >> fillTextRun: aTextRun withColor: aFillColor strokeColor: aStr
 				ifFalse: [ aFillColor alpha: aFillColor alpha * drawOptions alpha ].
 				
 			^ self
-				fillTextBlob: aTextRun textBlob
+				fillGlyphs: aTextRun glyphs
+				font: aTextRun font
 				withColor: aColor
 				antialias: drawOptions antialias ].
 			
 	SkiaPaint newDuring: [ :aSkiaPaint |
-		canvas surfaceCanvas
-			drawTextBlob: aTextRun textBlob
-			at: baseline
-			paint: (self setPaint: aSkiaPaint forColor: aFillColor) ]
-]
-
-{ #category : #'instance creation' }
-SkiaTextPainter >> metrics [
-	"Instantiate and return a metrics container object used during text mearument process"
-	<return: #SpartaMetrics>
-	
-	^ SpartaMetrics new
+		SkiaTextBlob glyphs: aTextRun glyphs font: aTextRun font during: [ :aTextBlob |
+			canvas surfaceCanvas
+				drawTextBlob: aTextBlob
+				at: baseline
+				paint: (self setPaint: aSkiaPaint forColor: aFillColor) ] ]
 ]
 
 { #category : #'instance creation' }
@@ -92,7 +73,7 @@ SkiaTextPainter >> metricsProvider [
 	should be instantiated only after text painter is fully configured"
 	<return: #SpartaMetricsProvider>
 
-	^ SkiaMetricsProvider new font: font; paint: (self createPaintForColor: paint)
+	^ SkiaMetricsProvider new font: font
 ]
 
 { #category : #private }
@@ -108,37 +89,24 @@ SkiaTextPainter >> setPaint: aSkiaPaint forColor: aColor [
 	^ aSkiaPaint
 ]
 
+{ #category : #private }
+SkiaTextPainter >> setPaintForMeasurement: aSkiaPaint [
+	| theDrawOptions |
+
+	theDrawOptions := drawOptions ifNil: [ canvas defaultDrawOptions ].
+	aSkiaPaint
+		antialias: theDrawOptions antialias;
+		blendMode: theDrawOptions blendMode.
+
+	^ aSkiaPaint
+]
+
 { #category : #'instance creation' }
 SkiaTextPainter >> textRun [
 	"Instantiate and return a text run containing glyphs for current string according
 	to choosen font and various text properties"
 	<return: #TSpTextRun>
 	
-	^ SkiaTextRun fromString: text font: font
-]
-
-{ #category : #'instance creation' }
-SkiaTextPainter >> textRunWithMetrics: aSpartaMetrics [
-	"Instantiate and return a text run containing glyphs for current string according
-	to choosen font and various text properties while measuring the text run in given sparta metrics"
-	<return: #TSpTextRun>
-	| aTextRun |
-
-	aTextRun := self textRun.
-
-	self
-		assert: [ aTextRun isNull not ]
-		description: [ 'Created text run must not be nullptr' ].
-
-	aSpartaMetrics
-		canvas: canvas;
-		spacing: spacing.
-		
-	SkiaPaint newDuring: [ :aSkiaPaint |
-		SkiaMetricsProvider new
-			font: font;
-			paint: (self setPaint: aSkiaPaint forColor: paint);
-			measure: aTextRun in: aSpartaMetrics ].
-
-	^ aTextRun
+	^ SkiaPaint newDuring: [ :aSkiaPaint |
+		SkiaTextRun fromString: text font: font paint: (self setPaintForMeasurement: aSkiaPaint) ]
 ]

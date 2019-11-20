@@ -2,8 +2,7 @@ Class {
 	#name : #SkiaMetricsProvider,
 	#superclass : #SpartaMetricsProvider,
 	#instVars : [
-		'font',
-		'paint'
+		'font'
 	],
 	#category : #'Sparta-Skia-Text'
 }
@@ -24,22 +23,9 @@ SkiaMetricsProvider >> font: aSkiaFont [
 SkiaMetricsProvider >> measure: aSpartaTextRun in: aSpartaMetrics [
 	"Measure a given text run according to provided requested properties in aSpMetrics
 	and store text and font measurement in aSpMetrics"
-	| theSkiaTextMetrics |
 
-	theSkiaTextMetrics := font measureText: aSpartaTextRun characters paint: paint.
-
-	aSpartaMetrics textMetrics: theSkiaTextMetrics asSpartaMetrics.
+	aSpartaMetrics textMetrics: (SpartaTextMetrics new
+		advance: aSpartaTextRun advance;
+		bounds: aSpartaTextRun bounds).
 	aSpartaMetrics fontMetrics: font metrics
-]
-
-{ #category : #accessing }
-SkiaMetricsProvider >> paint [
-	<return: #SkiaPaint>
-
-	^ paint
-]
-
-{ #category : #accessing }
-SkiaMetricsProvider >> paint: aSkiaPaint [
-	paint := aSkiaPaint
 ]
