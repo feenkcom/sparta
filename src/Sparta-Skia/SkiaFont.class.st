@@ -1,6 +1,9 @@
 Class {
 	#name : #SkiaFont,
 	#superclass : #SkiaExternalObject,
+	#instVars : [
+		'metrics'
+	],
 	#category : #'Sparta-Skia-External'
 }
 
@@ -151,26 +154,34 @@ SkiaFont >> measureString: aString paint: aSkiaPaint [
 
 { #category : #text }
 SkiaFont >> measureText: aGtBoxerString paint: aSkiaPaint [
-	| aSkiaRectangle aWidth |
+	<return: #SkiaTextMetrics>
+	| aWidth aBounds |
 	
-	aSkiaRectangle := SkiaRectangleF32 new.
-	
-	aWidth := self
-		primMeasureText: aGtBoxerString
-		encoding: SkiaTextEncoding UTF8
-		paint: aSkiaPaint
-		bounds: aSkiaRectangle.
+	SkiaRectangleF32 newDuring: [ :aSkiaRectangle |
+		aWidth := self
+			primMeasureText: aGtBoxerString
+			encoding: SkiaTextEncoding UTF8
+			paint: aSkiaPaint
+			bounds: aSkiaRectangle.
+
+		aBounds := aSkiaRectangle asRectangle ].
 
 	^ SkiaTextMetrics new
 		advance: aWidth;
-		bounds: aSkiaRectangle asRectangle
+		bounds: aBounds
 ]
 
 { #category : #accessing }
 SkiaFont >> metrics [
-	<return: #SkiaFontMetrics>
-
-	^ (SkiaFontMetrics fromNativeHandle: self primGetMetrics) emHeight: self size
+	"Return sparta font metrics for this font. The metrics are cached to not measure the font each time
+	metrics are requested"
+	<return: #SpartaFontMetrics>
+	
+	^ metrics ifNil: [
+		SkiaFontMetrics
+			fromNativeHandle: self primGetMetrics
+			during: [ :aSkiaFontMetrics | metrics := (aSkiaFontMetrics emHeight: self size) asSpartaMetrics ].
+		metrics ]
 ]
 
 { #category : #'private - ffi' }

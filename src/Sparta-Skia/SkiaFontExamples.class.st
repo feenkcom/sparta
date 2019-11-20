@@ -38,18 +38,7 @@ SkiaFontExamples >> fontMetrics [
 	self assert: (aFontMetrics ascent abs + aFontMetrics descent abs + aFontMetrics leading abs closeTo: aFont lineSpacing).
 	
 	"em height is a font size"
-	self assert: aFontMetrics emHeight equals: aFont size.
-
-	^ aFontMetrics
-]
-
-{ #category : #accessing }
-SkiaFontExamples >> fontMetricsAsSparta [
-	<gtExample>
-	| aFont aFontMetrics |
-
-	aFont := self default.
-	aFontMetrics := aFont metrics asSpartaMetrics.
+	self assert: aFontMetrics fontSize equals: aFont size.
 
 	^ aFontMetrics
 ]

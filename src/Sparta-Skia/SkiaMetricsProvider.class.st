@@ -24,13 +24,12 @@ SkiaMetricsProvider >> font: aSkiaFont [
 SkiaMetricsProvider >> measure: aSpartaTextRun in: aSpartaMetrics [
 	"Measure a given text run according to provided requested properties in aSpMetrics
 	and store text and font measurement in aSpMetrics"
-	| theSkiaTextMetrics theSkiaFontMetrics |
+	| theSkiaTextMetrics |
 
 	theSkiaTextMetrics := font measureText: aSpartaTextRun characters paint: paint.
-	theSkiaFontMetrics := font metrics.
 
 	aSpartaMetrics textMetrics: theSkiaTextMetrics asSpartaMetrics.
-	aSpartaMetrics fontMetrics: theSkiaFontMetrics asSpartaMetrics
+	aSpartaMetrics fontMetrics: font metrics
 ]
 
 { #category : #accessing }
