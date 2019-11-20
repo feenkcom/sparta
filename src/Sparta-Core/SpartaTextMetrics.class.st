@@ -47,19 +47,17 @@ SpartaTextMetrics >> advance: aNumber [
 ]
 
 { #category : #accessing }
-SpartaTextMetrics >> ascent [
-	self deprecated: 'Use font metrics instead!'
-]
-
-{ #category : #accessing }
 SpartaTextMetrics >> bounds [
 
 	^ self left @ self top extent: self width @ self height
 ]
 
 { #category : #accessing }
-SpartaTextMetrics >> descent [
-	self deprecated: 'Use font metrics instead!'
+SpartaTextMetrics >> bounds: aRectangle [
+	left := aRectangle left.
+	top := aRectangle top.
+	width := aRectangle width.
+	height := aRectangle height
 ]
 
 { #category : #accessing }

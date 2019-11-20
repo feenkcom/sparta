@@ -6,7 +6,7 @@ Class {
 	#instVars : [
 		'userFontSet'
 	],
-	#category : 'Sparta-Moz2D-Builders'
+	#category : #'Sparta-Moz2D-Builders'
 }
 
 { #category : #building }
@@ -20,13 +20,12 @@ MozFontFaceBuilder >> build [
 		assert: [ source isNotNil ]
 		description: [ 'Source is required' ].
 		
-	aFontFace := SpUserFontFace new
+	aFontFace := SpartaFontFace new
 		familyName: familyName;
 		source: source asSpartaFontSource;
 		style: style;
 		weight: weight;
-		stretch: stretch;
-		unicodeRange: unicodeRange.
+		stretch: stretch.
 
 	self userFontSet add: aFontFace
 ]

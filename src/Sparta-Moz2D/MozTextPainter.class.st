@@ -142,16 +142,6 @@ MozTextPainter >> flags [
 ]
 
 { #category : #'instance creation' }
-MozTextPainter >> metrics [
-	| aMetrics |
-
-	aMetrics := SpartaMetrics new.
-	aMetrics canvas: canvas.
-	aMetrics spacing: spacing.
-	^ aMetrics
-]
-
-{ #category : #'instance creation' }
 MozTextPainter >> metricsProvider [
 	^ MozTextMetricsProvider default
 ]

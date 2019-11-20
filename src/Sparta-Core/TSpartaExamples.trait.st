@@ -932,6 +932,23 @@ TSpartaExamples >> benchmarkFillSimpleRoundedRectangleWithOpaqueColorNoPathCache
 ]
 
 { #category : #benchmarks }
+TSpartaExamples >> benchmarkTextRunWithMetrics [
+	<gtExample>
+	<noTest>
+	| aCanvas aFont aString |
+
+	aCanvas := self class canvas: 300@200.
+	aFont := aCanvas font build.
+	aString := 'Hello world!'.
+	
+	^ [ 
+		| aTextPainter |
+		aTextPainter := aCanvas text font: aFont; string: aString.
+		aTextPainter textRunWithMetrics: aTextPainter metrics
+	 ] benchFor: 2 seconds
+]
+
+{ #category : #benchmarks }
 TSpartaExamples >> benchmarkTransformTranslateBy [
 	<gtExample>
 	<noTest>
@@ -1689,6 +1706,19 @@ TSpartaExamples >> strokeTriangleWithGrayColor [
 		draw.
 
 	^ aCanvas
+]
+
+{ #category : #'examples - text run' }
+TSpartaExamples >> textRunWithMetrics [
+	<gtExample>
+	| aCanvas |
+	
+	aCanvas := self class canvas: 50@50.
+	
+	^ aCanvas text
+		font: aCanvas font build;
+		string: 'Hello world!';
+		textRunWithMetrics
 ]
 
 { #category : #'examples - transformation' }

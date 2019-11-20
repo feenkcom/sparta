@@ -4,54 +4,88 @@ Class {
 	#traits : 'TSpTextRun',
 	#classTraits : 'TSpTextRun classTrait',
 	#instVars : [
-		'boxerString',
-		'textBlob'
+		'bounds',
+		'glyphs',
+		'advance',
+		'font'
 	],
 	#category : #'Sparta-Skia-Text'
 }
 
 { #category : #'instance creation' }
 SkiaTextRun class >> fromString: aString [
-	^ self fromString: aString font: SkiaFont new
+	<return: #SkiaTextRun>
+
+	^ SkiaFont newDuring: [ :aSkiaFont | self fromString: aString font: aSkiaFont ]
 ]
 
 { #category : #'instance creation' }
-SkiaTextRun class >> fromString: aString font: aFont [
-	^ self new initializeWith: aString font: aFont
+SkiaTextRun class >> fromString: aString font: aSkiaFont [
+	<return: #SkiaTextRun>
+
+	^ SkiaPaint newDuring: [ :aSkiaPaint | self fromString: aString font: aSkiaFont paint: aSkiaPaint ]
+]
+
+{ #category : #'instance creation' }
+SkiaTextRun class >> fromString: aString font: aSkiaFont paint: aSkiaPaint [
+	<return: #SkiaTextRun>
+
+	^ aSkiaFont stringToTextRun: aString paint: aSkiaPaint
 ]
 
 { #category : #accessing }
-SkiaTextRun >> characters [
-	<return: #GtBoxerString>
-
-	^ boxerString
+SkiaTextRun >> advance [
+	^ advance
 ]
 
-{ #category : #initialization }
-SkiaTextRun >> initializeWith: aString font: aFont [
-	boxerString := GtBoxerString fromString: aString.
-	textBlob := SkiaTextBlob text: boxerString font: aFont
+{ #category : #'private - accessing' }
+SkiaTextRun >> advance: anObject [
+	advance := anObject
+]
+
+{ #category : #accessing }
+SkiaTextRun >> bounds [
+	^ bounds
+]
+
+{ #category : #'private - accessing' }
+SkiaTextRun >> bounds: anObject [
+	bounds := anObject
+]
+
+{ #category : #accessing }
+SkiaTextRun >> font [
+	<return: #SkiaFont>
+
+	^ font
+]
+
+{ #category : #'private - accessing' }
+SkiaTextRun >> font: anObject [
+	font := anObject
+]
+
+{ #category : #accessing }
+SkiaTextRun >> glyphs [
+	^ glyphs
+]
+
+{ #category : #'private - accessing' }
+SkiaTextRun >> glyphs: anObject [
+	glyphs := anObject
 ]
 
 { #category : #testing }
 SkiaTextRun >> isNull [
 	<return: #Boolean>
 
-	^ boxerString isNull
+	^ false
 ]
 
 { #category : #accessing }
 SkiaTextRun >> size [
-	"Return a number of glyphs that build this text.
-	Note: in UTF encoding a character may be represented by 1-4 glyphs depending on char's code"
+	"Return a number of glyphs that build this text"
 	<return: #Number>
-	
-	^ boxerString length
-]
 
-{ #category : #accessing }
-SkiaTextRun >> textBlob [
-	<return: #SkiaTextBlob>
-
-	^ textBlob
+	^ glyphs size // 2
 ]

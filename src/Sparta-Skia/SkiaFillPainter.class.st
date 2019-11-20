@@ -69,15 +69,16 @@ SkiaFillPainter >> fillRectangle: aRectangle withSurface: aSpartaSurfacePaint [
 
 	aSpartaSurfacePaint needsShader
 		ifTrue: [ ^ self ].
-		
+
 	(aRectangle extent ~= aSpartaSurfacePaint image extent)
 		ifTrue: [ ^ self ].
 
 	SkiaPaint newDuring: [ :aSkiaPaint |
-		canvas surfaceCanvas
-			drawImage: aSpartaSurfacePaint image
-			at: aRectangle origin
-			paint: (self setPaint: aSkiaPaint forSurface: aSpartaSurfacePaint) ]
+		aSpartaSurfacePaint image snapshotDuring: [ :aSkiaImage |
+			canvas surfaceCanvas
+				drawImage: aSkiaImage
+				at: aRectangle origin
+				paint: (self setPaint: aSkiaPaint forSurface: aSpartaSurfacePaint) ] ]
 ]
 
 { #category : #drawing }

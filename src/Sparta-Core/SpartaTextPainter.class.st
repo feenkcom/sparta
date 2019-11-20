@@ -190,14 +190,11 @@ SpartaTextPainter >> font: aFontGroup [
 
 { #category : #measurement }
 SpartaTextPainter >> measure [
-	<return: #SpartaTextMetrics>
-	| aMetrics aMetricsProvider aTextRun |
+	<return: #SpartaMetrics>
+	| aMetrics |
 
 	aMetrics := self metrics.
-	aMetricsProvider := self metricsProvider.
-	aTextRun := self textRun.
-	aMetricsProvider measure: aTextRun in: aMetrics.
-	aTextRun release.
+	self textRunWithMetrics: aMetrics.
 	^ aMetrics
 ]
 
@@ -206,7 +203,7 @@ SpartaTextPainter >> metrics [
 	"Instantiate and return a metrics container object used during text mearument process"
 	<return: #SpartaMetrics>
 	
-	^ self subclassResponsibility
+	^ SpartaMetrics new
 ]
 
 { #category : #'instance creation' }
@@ -290,6 +287,29 @@ SpartaTextPainter >> textRun [
 	<return: #TSpTextRun>
 	
 	^ self subclassResponsibility
+]
+
+{ #category : #'instance creation' }
+SpartaTextPainter >> textRunWithMetrics [
+	"Instantiate and return a text run containing glyphs for current string according
+	to choosen font and various text properties while measuring the text run in given sparta metrics"
+	<return: #TSpTextRun and: #SpartaMetrics>
+
+	| aTextRun aSpartaMetrics |
+	aTextRun := self textRun.
+
+	self
+		assert: [ aTextRun isNull not ]
+		description: [ 'Created text run must not be nullptr' ].
+
+	aSpartaMetrics := self metrics.
+	aSpartaMetrics
+		canvas: canvas;
+		spacing: spacing.
+
+	self metricsProvider measure: aTextRun in: aSpartaMetrics.
+
+	^ aTextRun -> aSpartaMetrics
 ]
 
 { #category : #'instance creation' }

@@ -38,18 +38,7 @@ SkiaFontExamples >> fontMetrics [
 	self assert: (aFontMetrics ascent abs + aFontMetrics descent abs + aFontMetrics leading abs closeTo: aFont lineSpacing).
 	
 	"em height is a font size"
-	self assert: aFontMetrics emHeight equals: aFont size.
-
-	^ aFontMetrics
-]
-
-{ #category : #accessing }
-SkiaFontExamples >> fontMetricsAsSparta [
-	<gtExample>
-	| aFont aFontMetrics |
-
-	aFont := self default.
-	aFontMetrics := aFont metrics asSpartaMetrics.
+	self assert: aFontMetrics fontSize equals: aFont size.
 
 	^ aFontMetrics
 ]
@@ -102,9 +91,12 @@ SkiaFontExamples >> toGlyphsHelloWorld [
 	| aFont theGlyphs |
 	
 	aFont := self default.
-	theGlyphs := (aFont stringToGlyphs: 'Hello') asArray.
 	
-	self assert: theGlyphs equals: #(43 72 79 79 82).
+	theGlyphs := (aFont stringToGlyphs: 'Hello') asByteArray.
+	self assert: theGlyphs equals: #[43 0 72 0 79 0 79 0 82 0].
+	
+	theGlyphs := aFont stringToGlyphsArray: 'Hello'.
+	self assert: theGlyphs equals: #[43 0 72 0 79 0 79 0 82 0].
 
 	^ theGlyphs
 ]

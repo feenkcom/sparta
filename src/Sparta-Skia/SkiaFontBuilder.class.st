@@ -4,22 +4,71 @@ Class {
 	#instVars : [
 		'familyName'
 	],
+	#classInstVars : [
+		'cache',
+		'session'
+	],
 	#category : #'Sparta-Skia-Builders'
 }
 
 { #category : #accessing }
+SkiaFontBuilder class >> cache [
+
+	session == Smalltalk session
+		ifFalse: [
+			cache := nil.
+			session := Smalltalk session ].
+
+	^ cache ifNil: [ cache := self defaultFontCache ]
+]
+
+{ #category : #cleanup }
+SkiaFontBuilder class >> cleanUp [
+	super cleanUp.
+	
+	cache := nil.
+	session := nil
+]
+
+{ #category : #'instance creation' }
+SkiaFontBuilder class >> defaultFontCache [
+	^ SpartaFontCache new
+		maximumWeight: 50 "how many different font faces we cache";
+		yourself
+]
+
+{ #category : #accessing }
 SkiaFontBuilder >> build [
-	| aFontStyle aTypeface aFont |
+	| aSpartaFontFace theFontsDictionary |
+	
+	aSpartaFontFace := SpartaFontFace new
+		familyName: (familyName ifNil: [ 'Helvetica' ]);
+		weight: weight;
+		stretch: SkiaFontStyleWidth Normal;
+		style: SkiaFontStyleSlant Upright.
 
-	aFontStyle := SkiaFontStyle
-		weight: weight
-		width: SkiaFontStyleWidth Normal
-		slant: SkiaFontStyleSlant Upright.
+	theFontsDictionary := self class cache
+		at: aSpartaFontFace
+		ifAbsentPut: [ Dictionary new ].
 
-	aTypeface := SkiaTypeface familyName: (familyName ifNil: [ SkiaTypeface default familyName  ]) fontStyle: aFontStyle.
-
-	aFont := SkiaFont typeface: aTypeface size: size.
-	^ aFont
+	^ theFontsDictionary
+		at: size
+		ifAbsentPut: [
+			| aSkiaTypeface |
+			aSkiaTypeface := SkiaFontManager default
+				matchFamilyName: aSpartaFontFace familyName
+				weight: aSpartaFontFace weight
+				width: aSpartaFontFace stretch
+				slant: aSpartaFontFace style
+				ifFound: #yourself
+				ifNone: [
+					SkiaTypeface
+						familyName: aSpartaFontFace familyName
+						fontStyle: (SkiaFontStyle
+							weight: aSpartaFontFace weight
+							width: aSpartaFontFace stretch
+							slant: aSpartaFontFace style) ].
+			SkiaFont typeface: aSkiaTypeface size: size ]
 ]
 
 { #category : #'instance creation' }

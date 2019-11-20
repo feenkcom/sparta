@@ -60,6 +60,15 @@ TSpartaSurface >> snapshot [
 	^ self
 ]
 
+{ #category : #accessing }
+TSpartaSurface >> snapshotDuring: aBlock [
+	"I am similar to #snaphot but I guarantee that snapshot is not auto-released
+	and is destroyed after evaluation of the block.
+	Default implementation simply passes snaphot to the block"
+
+	aBlock value: self snapshot
+]
+
 { #category : #dispatch }
 TSpartaSurface >> spartaMaskOn: aSpartaCanvas with: aMaskPainter [
 

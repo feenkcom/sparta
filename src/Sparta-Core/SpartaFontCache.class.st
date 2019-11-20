@@ -7,7 +7,7 @@ Class {
 	#instVars : [
 		'previousAssociation'
 	],
-	#category : #'Sparta-Core-Utils'
+	#category : #'Sparta-Core-Text'
 }
 
 { #category : #accessing }
