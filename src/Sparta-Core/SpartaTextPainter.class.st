@@ -290,6 +290,29 @@ SpartaTextPainter >> textRun [
 ]
 
 { #category : #'instance creation' }
+SpartaTextPainter >> textRunWithMetrics [
+	"Instantiate and return a text run containing glyphs for current string according
+	to choosen font and various text properties while measuring the text run in given sparta metrics"
+	<return: #TSpTextRun and: #SpartaMetrics>
+
+	| aTextRun aSpartaMetrics |
+	aTextRun := self textRun.
+
+	self
+		assert: [ aTextRun isNull not ]
+		description: [ 'Created text run must not be nullptr' ].
+
+	aSpartaMetrics := self metrics.
+	aSpartaMetrics
+		canvas: canvas;
+		spacing: spacing.
+
+	self metricsProvider measure: aTextRun in: aSpartaMetrics.
+
+	^ aTextRun -> aSpartaMetrics
+]
+
+{ #category : #'instance creation' }
 SpartaTextPainter >> textRunWithMetrics: aSpartaMetrics [
 	"Instantiate and return a text run containing glyphs for current string according
 	to choosen font and various text properties while measuring the text run in given sparta metrics"
