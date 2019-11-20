@@ -56,6 +56,20 @@ SkiaTextBlob class >> string: aString font: aSkiaFont [
 ]
 
 { #category : #'instance creation' }
+SkiaTextBlob class >> string: aString font: aSkiaFont during: aBlock [	
+	^ GtBoxerString
+		fromString: aString
+		during: [ :aBoxerString | self text: aBoxerString font: aSkiaFont during: aBlock ]
+]
+
+{ #category : #'instance creation' }
 SkiaTextBlob class >> text: aGtBoxerString font: aSkiaFont [
 	^ self fromNativeHandle: (self primNewFromText: aGtBoxerString encoding: SkiaTextEncoding UTF8 font: aSkiaFont)
+]
+
+{ #category : #'instance creation' }
+SkiaTextBlob class >> text: aGtBoxerString font: aSkiaFont during: aBlock [
+	^ self
+		fromNativeHandle: (self primNewFromText: aGtBoxerString encoding: SkiaTextEncoding UTF8 font: aSkiaFont)
+		during: aBlock
 ]
