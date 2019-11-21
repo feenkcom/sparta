@@ -232,6 +232,14 @@ SkiaSurface >> similar: anExtent [
 ]
 
 { #category : #accessing }
+SkiaSurface >> similar: anExtent during: aBlock [
+	| anIntegerExtent |
+	
+	anIntegerExtent := anExtent ceiling asIntegerPoint.
+	^ SkiaSurface fromNativeHandle: (self primNewSimilarWidth: anIntegerExtent x height: anIntegerExtent y) during: aBlock
+]
+
+{ #category : #accessing }
 SkiaSurface >> snapshot [
 	<return: #SkiaImage>
 

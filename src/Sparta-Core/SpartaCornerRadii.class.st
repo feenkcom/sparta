@@ -31,6 +31,19 @@ SpartaCornerRadii class >> fromArray: anArrayOfCornerRadii [
 		bottomLeft: anArrayOfCornerRadii fourth
 ]
 
+{ #category : #comparing }
+SpartaCornerRadii >> = anObject [
+	"Answer whether the receiver and anObject represent the same object."
+
+	self == anObject
+		ifTrue: [ ^ true ].
+	self class = anObject class
+		ifFalse: [ ^ false ].
+	^ bottomLeft = anObject bottomLeft
+		and: [ bottomRight = anObject bottomRight
+				and: [ topLeft = anObject topLeft and: [ topRight = anObject topRight ] ] ]
+]
+
 { #category : #accessing }
 SpartaCornerRadii >> bottomLeft [
 	^ bottomLeft
@@ -39,6 +52,14 @@ SpartaCornerRadii >> bottomLeft [
 { #category : #accessing }
 SpartaCornerRadii >> bottomRight [
 	^ bottomRight
+]
+
+{ #category : #comparing }
+SpartaCornerRadii >> hash [
+	"Answer an integer value that is related to the identity of the receiver."
+
+	^ bottomLeft hash
+		bitXor: (bottomRight hash bitXor: (topLeft hash bitXor: topRight hash))
 ]
 
 { #category : #testing }

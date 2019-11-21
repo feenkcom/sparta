@@ -193,6 +193,19 @@ SkiaCanvas >> similar: anExtent [
 	^ self class new initializeWith: (skiaSurface similar: anExtent)
 ]
 
+{ #category : #'instance creation' }
+SkiaCanvas >> similar: anExtent during: aBlock [
+	"Create a new empty canvas of the same type and format with a given size.
+	The canvas lives during evaluation of a given block
+	anExtent must not be nil"
+	
+	^ skiaSurface similar: anExtent during: [ :aSimilarSurface |
+		| aSimilarCanvas |
+
+		aSimilarCanvas := self class new initializeWith: aSimilarSurface.
+		[ aBlock value: aSimilarCanvas ] ensure: [ aSimilarCanvas release ] ]
+]
+
 { #category : #accessing }
 SkiaCanvas >> snapshot [
 	"Return a copy of a surface I used to draw on.

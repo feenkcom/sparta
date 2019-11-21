@@ -18,6 +18,20 @@ SpartaRoundedRectangle class >> rectangle: aRectangle radii: aSpartaCornerRadii 
 		radii: aSpartaCornerRadii
 ]
 
+{ #category : #comparing }
+SpartaRoundedRectangle >> = anObject [
+	"Answer whether the receiver and anObject represent the same object."
+
+	self == anObject
+		ifTrue: [ ^ true ].
+	self class = anObject class
+		ifFalse: [ ^ false ].
+	^ bottom = anObject bottom
+		and: [ cornerRadii = anObject cornerRadii
+				and: [ left = anObject left
+						and: [ right = anObject right and: [ top = anObject top ] ] ] ]
+]
+
 { #category : #accessing }
 SpartaRoundedRectangle >> bottom [
 	^ bottom
@@ -40,6 +54,16 @@ SpartaRoundedRectangle >> bottomRightRadius [
 { #category : #'accessing - radii' }
 SpartaRoundedRectangle >> cornerRadii [
 	^ cornerRadii
+]
+
+{ #category : #comparing }
+SpartaRoundedRectangle >> hash [
+	"Answer an integer value that is related to the identity of the receiver."
+
+	^ bottom hash
+		bitXor:
+			(cornerRadii hash
+				bitXor: (left hash bitXor: (right hash bitXor: top hash)))
 ]
 
 { #category : #initialization }

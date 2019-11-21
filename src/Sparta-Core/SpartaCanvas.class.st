@@ -761,6 +761,16 @@ SpartaCanvas >> similar: anExtent [
 	^ self subclassResponsibility
 ]
 
+{ #category : #'instance creation' }
+SpartaCanvas >> similar: anExtent during: aBlock [
+	"Create a new empty canvas of the same type and format with a given size.
+	The canvas lives during evaluation of a given block
+	anExtent must not be nil"
+	<return: #SpartaCanvas>
+
+	^ aBlock value: (self similar: anExtent)
+]
+
 { #category : #accessing }
 SpartaCanvas >> snapshot [
 	"Return a copy of a surface I used to draw on.
