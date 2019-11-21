@@ -256,7 +256,7 @@ SkiaSurface >> similar: anExtent [
 		width: anIntegerExtent x
 		height: anIntegerExtent y
 		colorType: self colorType
-		alphaType: SkiaAlphaType Unpremul
+		alphaType: self alphaType
 		during: [ :aSkiaImageInfo | SkiaSurface fromNativeHandle: (self primNewSimilar: aSkiaImageInfo) ]
 ]
 

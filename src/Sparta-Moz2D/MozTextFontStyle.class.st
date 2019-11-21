@@ -48,7 +48,7 @@ MozTextFontStyle class >> fromSpartaSlant: aSpartaFontSlant [
 
 { #category : #'class initialization' }
 MozTextFontStyle class >> initialize [
-	self initializeEnumeration.
+	super initialize.
 	
 	Styles := { 
 		SpartaFontSlant normal -> self NORMAL.
