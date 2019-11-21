@@ -55,19 +55,27 @@ SkiaFontBuilder >> build [
 		at: size
 		ifAbsentPut: [
 			| aSkiaTypeface |
-			aSkiaTypeface := SkiaFontManager default
+			aSkiaTypeface := SpartaUserFonts default
 				matchFamilyName: aSpartaFontFace familyName
 				weight: aSpartaFontFace weight
-				width: aSpartaFontFace stretch
-				slant: aSpartaFontFace style
-				ifFound: #yourself
+				stretch: aSpartaFontFace stretch asSpartaFontStretch
+				slant: aSpartaFontFace style asSpartaFontSlant
+				ifFound: [ :aSpartaUserFont | SkiaFontManager default newTypeface: aSpartaUserFont source fontContents ]
 				ifNone: [
-					SkiaTypeface
-						familyName: aSpartaFontFace familyName
-						fontStyle: (SkiaFontStyle
-							weight: aSpartaFontFace weight
-							width: aSpartaFontFace stretch
-							slant: aSpartaFontFace style) ].
+					SkiaFontManager default
+						matchFamilyName: aSpartaFontFace familyName
+						weight: aSpartaFontFace weight value
+						width: aSpartaFontFace stretch
+						slant: aSpartaFontFace style
+						ifFound: #yourself
+						ifNone: [
+							SkiaTypeface
+								familyName: aSpartaFontFace familyName
+								fontStyle: (SkiaFontStyle
+									weight: aSpartaFontFace weight value
+									width: aSpartaFontFace stretch
+									slant: aSpartaFontFace style) ] ].
+			
 			SkiaFont typeface: aSkiaTypeface size: size ]
 ]
 
@@ -107,23 +115,6 @@ SkiaFontBuilder >> special [
 
 { #category : #stretch }
 SkiaFontBuilder >> stretchReset [
-	
-]
-
-{ #category : #style }
-SkiaFontBuilder >> styleItalic [
-]
-
-{ #category : #style }
-SkiaFontBuilder >> styleNormal [
-]
-
-{ #category : #style }
-SkiaFontBuilder >> styleOblique [
-]
-
-{ #category : #style }
-SkiaFontBuilder >> styleReset [
 	
 ]
 

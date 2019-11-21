@@ -3,7 +3,7 @@ I implement typical font configuration methods
 "
 Trait {
 	#name : #TMozFontDescriptor,
-	#category : 'Sparta-Moz2D-Text'
+	#category : #'Sparta-Moz2D-Text'
 }
 
 { #category : #stretch }
@@ -65,34 +65,4 @@ TMozFontDescriptor >> styleNormal [
 { #category : #style }
 TMozFontDescriptor >> styleOblique [
 	self style: self style | MozTextFontStyle OBLIQUE value
-]
-
-{ #category : #weight }
-TMozFontDescriptor >> weightBlack [
-	self weight: MozTextFontWeight BLACK
-]
-
-{ #category : #weight }
-TMozFontDescriptor >> weightBold [
-	self weight: MozTextFontWeight BOLD
-]
-
-{ #category : #weight }
-TMozFontDescriptor >> weightLight [
-	self weight: MozTextFontWeight LIGHT
-]
-
-{ #category : #weight }
-TMozFontDescriptor >> weightMedium [
-	self weight: MozTextFontWeight MEDIUM
-]
-
-{ #category : #weight }
-TMozFontDescriptor >> weightNormal [
-	self weight: MozTextFontWeight NORMAL
-]
-
-{ #category : #weight }
-TMozFontDescriptor >> weightThin [
-	self weight: MozTextFontWeight THIN
 ]

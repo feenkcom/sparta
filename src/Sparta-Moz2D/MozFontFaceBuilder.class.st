@@ -20,7 +20,7 @@ MozFontFaceBuilder >> build [
 		assert: [ source isNotNil ]
 		description: [ 'Source is required' ].
 		
-	aFontFace := SpartaFontFace new
+	aFontFace := SpartaUserFontFace new
 		familyName: familyName;
 		source: source asSpartaFontSource;
 		style: style;

@@ -25,7 +25,7 @@ SpartaCairoFreetypeFontBuilder >> build [
 		fallbackFamilyNames: theFallbackFonts
 		pointSize: size
 		stretchValue: stretch
-		weightValue: weight
+		weightValue: weight value
 		slantValue: style.
 		
 	^ SpartaCairoFreetypeFontFace create: aLogicalFont asFreetypeFont

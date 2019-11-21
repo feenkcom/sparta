@@ -71,7 +71,7 @@ SkiaCanvas class >> offscreen [
 		ifNil: [ offscreen := self extent: 1@1 ]
 		ifNotNil: [ :aCanvas | aCanvas isValid
 			ifTrue: [ offscreen ]
-			ifFalse: [ offscreen := self new ] ]
+			ifFalse: [ offscreen := self extent: 1@1 ] ]
 ]
 
 { #category : #accessing }
@@ -132,6 +132,11 @@ SkiaCanvas >> flush [
 SkiaCanvas >> fontBuilder [
 	<return: #SpartaFontBuilder>
 	^ SkiaFontBuilder new
+]
+
+{ #category : #builders }
+SkiaCanvas >> fontFaceBuilder [
+	^ SkiaFontFaceBuilder new
 ]
 
 { #category : #initialization }

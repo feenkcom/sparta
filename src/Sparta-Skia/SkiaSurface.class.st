@@ -84,6 +84,13 @@ SkiaSurface class >> release: aSkiaSurface [
 	super release: aSkiaSurface getHandle
 ]
 
+{ #category : #accessing }
+SkiaSurface >> alphaType [
+	<return: #SkiaAlphaType>
+
+	^ self primGetAlphaType
+]
+
 { #category : #converting }
 SkiaSurface >> asForm [
 	<return: #Form>
@@ -99,6 +106,13 @@ SkiaSurface >> canvas [
 	aCanvas := SkiaSurfaceCanvas fromNativeHandle: self primGetCanvas.
 	registeredCanvases add: aCanvas.
 	^ aCanvas
+]
+
+{ #category : #accessing }
+SkiaSurface >> colorType [
+	<return: #SkiaColorType>
+
+	^ self primGetColorType
 ]
 
 { #category : #accessing }
@@ -179,8 +193,18 @@ SkiaSurface >> primFlush [
 ]
 
 { #category : #'private - ffi' }
+SkiaSurface >> primGetAlphaType [
+	^ self ffiCall: #(SkiaAlphaType skia_surface_get_alpha_type(self))
+]
+
+{ #category : #'private - ffi' }
 SkiaSurface >> primGetCanvas [
 	^ self ffiCall: #(void* skia_surface_get_canvas(self))
+]
+
+{ #category : #'private - ffi' }
+SkiaSurface >> primGetColorType [
+	^ self ffiCall: #(SkiaColorType skia_surface_get_color_type(self))
 ]
 
 { #category : #'private - ffi' }
@@ -204,8 +228,8 @@ SkiaSurface >> primGetWidth [
 ]
 
 { #category : #'private - ffi' }
-SkiaSurface >> primNewSimilarWidth: aWidth height: aHeight [
-	^ self ffiCall: #(void* skia_surface_new_similar(self, int32 aWidth, int32 aHeight))
+SkiaSurface >> primNewSimilar: aSkiaImageInfo [
+	^ self ffiCall: #(void* skia_surface_new_similar(self, SkiaImageInfo aSkiaImageInfo))
 ]
 
 { #category : #'private - ffi' }
@@ -228,7 +252,12 @@ SkiaSurface >> similar: anExtent [
 	| anIntegerExtent |
 	
 	anIntegerExtent := anExtent ceiling asIntegerPoint.
-	^ SkiaSurface fromNativeHandle: (self primNewSimilarWidth: anIntegerExtent x height: anIntegerExtent y)
+	^ SkiaImageInfo
+		width: anIntegerExtent x
+		height: anIntegerExtent y
+		colorType: self colorType
+		alphaType: SkiaAlphaType Unpremul
+		during: [ :aSkiaImageInfo | SkiaSurface fromNativeHandle: (self primNewSimilar: aSkiaImageInfo) ]
 ]
 
 { #category : #accessing }
@@ -236,7 +265,14 @@ SkiaSurface >> similar: anExtent during: aBlock [
 	| anIntegerExtent |
 	
 	anIntegerExtent := anExtent ceiling asIntegerPoint.
-	^ SkiaSurface fromNativeHandle: (self primNewSimilarWidth: anIntegerExtent x height: anIntegerExtent y) during: aBlock
+	
+	^ SkiaImageInfo
+		width: anIntegerExtent x
+		height: anIntegerExtent y
+		colorType: self colorType
+		alphaType: self alphaType
+		during: [ :aSkiaImageInfo |
+			SkiaSurface fromNativeHandle: (self primNewSimilar: aSkiaImageInfo) during: aBlock ]
 ]
 
 { #category : #accessing }
@@ -248,5 +284,5 @@ SkiaSurface >> snapshot [
 
 { #category : #accessing }
 SkiaSurface >> snapshotDuring: aBlock [
-	SkiaImage fromNativeHandle: self primGetImageSnapshot during: aBlock
+	^ SkiaImage fromNativeHandle: self primGetImageSnapshot during: aBlock
 ]

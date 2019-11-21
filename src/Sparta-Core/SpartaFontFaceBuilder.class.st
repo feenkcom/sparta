@@ -65,12 +65,26 @@ SpartaFontFaceBuilder >> source: anObject [
 
 { #category : #accessing }
 SpartaFontFaceBuilder >> stretch [
+	<return: #SpartaFontStretch>
+
 	^ stretch
 ]
 
 { #category : #accessing }
+SpartaFontFaceBuilder >> stretch: aSpartaFontStretch [
+	stretch := aSpartaFontStretch
+]
+
+{ #category : #accessing }
 SpartaFontFaceBuilder >> style [
+	<return: #SpartaFontSlant>
+
 	^ style
+]
+
+{ #category : #accessing }
+SpartaFontFaceBuilder >> style: aSpartaFontSlant [
+	style := aSpartaFontSlant
 ]
 
 { #category : #accessing }
@@ -91,10 +105,12 @@ SpartaFontFaceBuilder >> unicodeRange: aString [
 
 { #category : #accessing }
 SpartaFontFaceBuilder >> weight [
+	<return: #SpartaFontWeight>
+
 	^ weight
 ]
 
 { #category : #weight }
-SpartaFontFaceBuilder >> weight: aWeight [
-	weight := aWeight
+SpartaFontFaceBuilder >> weight: aSpartaFontWeight [
+	weight := aSpartaFontWeight
 ]

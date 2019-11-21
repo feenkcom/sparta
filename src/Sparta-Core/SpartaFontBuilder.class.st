@@ -194,10 +194,15 @@ SpartaFontBuilder >> variable [
 
 { #category : #accessing }
 SpartaFontBuilder >> weight [
+	<return: #SpartaFontWeight>
+
 	^ weight
 ]
 
 { #category : #weight }
 SpartaFontBuilder >> weight: aSpartaFontWeightOrNumber [
-	weight := aSpartaFontWeightOrNumber value
+
+	weight := aSpartaFontWeightOrNumber isNumber
+		ifTrue: [ SpartaFontWeight fromNumber: aSpartaFontWeightOrNumber ]
+		ifFalse: [ aSpartaFontWeightOrNumber ]
 ]

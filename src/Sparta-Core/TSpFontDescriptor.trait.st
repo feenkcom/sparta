@@ -28,12 +28,12 @@ TSpFontDescriptor >> stretchExtraExpanded [
 
 { #category : #stretch }
 TSpFontDescriptor >> stretchNormal [
-	^ self subclassResponsibility
+	self stretch: SpartaFontStretch normal
 ]
 
 { #category : #stretch }
 TSpFontDescriptor >> stretchReset [
-	^ self subclassResponsibility
+	self stretchNormal
 ]
 
 { #category : #stretch }
@@ -58,32 +58,62 @@ TSpFontDescriptor >> stretchUltraExpanded [
 
 { #category : #style }
 TSpFontDescriptor >> styleItalic [
-	^ self subclassResponsibility
+	self style: SpartaFontSlant italic
 ]
 
 { #category : #style }
 TSpFontDescriptor >> styleNormal [
-	^ self subclassResponsibility
+	self style: SpartaFontSlant normal
 ]
 
 { #category : #style }
 TSpFontDescriptor >> styleOblique [
-	^ self subclassResponsibility
+	self style: SpartaFontSlant oblique
 ]
 
 { #category : #style }
 TSpFontDescriptor >> styleReset [
-	self subclassResponsibility
+	self styleNormal
 ]
 
 { #category : #weight }
-TSpFontDescriptor >> weight: aWeight [
+TSpFontDescriptor >> weight: aSpartaFontWeight [
 	self explicitRequirement
+]
+
+{ #category : #weight }
+TSpFontDescriptor >> weightBlack [
+	self weight: SpartaFontWeight black
 ]
 
 { #category : #weight }
 TSpFontDescriptor >> weightBold [
 	self weight: SpartaFontWeight bold
+]
+
+{ #category : #weight }
+TSpFontDescriptor >> weightExtraBlack [
+	self weight: SpartaFontWeight extraBlack
+]
+
+{ #category : #weight }
+TSpFontDescriptor >> weightExtraBold [
+	self weight: SpartaFontWeight extraBold
+]
+
+{ #category : #weight }
+TSpFontDescriptor >> weightExtraLight [
+	self weight: SpartaFontWeight extraLight
+]
+
+{ #category : #weight }
+TSpFontDescriptor >> weightLight [
+	self weight: SpartaFontWeight light
+]
+
+{ #category : #weight }
+TSpFontDescriptor >> weightMedium [
+	self weight: SpartaFontWeight medium
 ]
 
 { #category : #weight }
@@ -94,6 +124,11 @@ TSpFontDescriptor >> weightNormal [
 { #category : #weight }
 TSpFontDescriptor >> weightReset [
 	self weightNormal
+]
+
+{ #category : #weight }
+TSpFontDescriptor >> weightSemiBold [
+	self weight: SpartaFontWeight semiBold
 ]
 
 { #category : #weight }

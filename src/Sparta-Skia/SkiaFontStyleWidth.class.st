@@ -98,6 +98,11 @@ SkiaFontStyleWidth class >> initialize [
 	super initialize
 ]
 
+{ #category : #converting }
+SkiaFontStyleWidth >> asSpartaFontStretch [
+	^ SpartaFontStretch normal
+]
+
 { #category : #'private - ffi' }
 SkiaFontStyleWidth >> primRealName: aBoxerString [
 	^ self ffiCall: #(void skia_enums_font_style_width_to_string(self, GtBoxerString aBoxerString))

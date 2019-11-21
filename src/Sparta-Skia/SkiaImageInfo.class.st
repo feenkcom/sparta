@@ -30,6 +30,11 @@ SkiaImageInfo class >> width: aWidth height: aHeight colorType: aColorType alpha
 	^ self fromNativeHandle: (self primCreateWidth: aWidth height: aHeight colorType: aColorType alphaType: anAlphaType)
 ]
 
+{ #category : #'instance creation' }
+SkiaImageInfo class >> width: aWidth height: aHeight colorType: aColorType alphaType: anAlphaType during: aBlock [
+	^ self fromNativeHandle: (self primCreateWidth: aWidth height: aHeight colorType: aColorType alphaType: anAlphaType) during: aBlock
+]
+
 { #category : #accessing }
 SkiaImageInfo >> alphaType [
 	<return: #SkiaAlphaType>
