@@ -121,12 +121,27 @@ SkiaImage >> extent [
 ]
 
 { #category : #'gt-extension' }
-SkiaImage >> gtInforFor: aView [
+SkiaImage >> gtImageInforFor: aView [
 	<gtView>
 
 	^ (self imageInfo gtInforFor: aView)
-		title: 'Info';
+		title: 'Image Info';
 		priority: 2
+]
+
+{ #category : #'gt-extension' }
+SkiaImage >> gtInforFor: aView [
+	<gtView>
+
+	^ ({
+		#extent -> self extent.
+		#uniqueId -> self uniqueId.
+		#isAlphaOnly -> self isAlphaOnly.
+		#isOpaque -> self isOpaque.
+		#isTextureBackend -> self isTextureBackend
+	 } asOrderedDictionary gtItemsFor: aView)
+			title: 'Info';
+			priority: 2
 ]
 
 { #category : #'gt-extension' }
@@ -150,6 +165,27 @@ SkiaImage >> imageInfo [
 	^ SkiaImageInfo fromNativeHandle: self primGetImageInfo
 ]
 
+{ #category : #testing }
+SkiaImage >> isAlphaOnly [
+	<return: #Boolean>
+	
+	^ self primIsAlphaOnly
+]
+
+{ #category : #testing }
+SkiaImage >> isOpaque [
+	<return: #Boolean>
+	
+	^ self primIsOpaque
+]
+
+{ #category : #testing }
+SkiaImage >> isTextureBackend [
+	<return: #Boolean>
+	
+	^ self primIsTextureBackend
+]
+
 { #category : #'private - ffi' }
 SkiaImage >> primGetHeight [
 	^ self ffiCall: #(int32 skia_image_get_height(self))
@@ -168,6 +204,21 @@ SkiaImage >> primGetUniqueId [
 { #category : #'private - ffi' }
 SkiaImage >> primGetWidth [
 	^ self ffiCall: #(int32 skia_image_get_width(self))
+]
+
+{ #category : #'private - ffi' }
+SkiaImage >> primIsAlphaOnly [
+	^ self ffiCall: #(bool skia_image_is_alpha_only(self))
+]
+
+{ #category : #'private - ffi' }
+SkiaImage >> primIsOpaque [
+	^ self ffiCall: #(bool skia_image_is_opaque(self))
+]
+
+{ #category : #'private - ffi' }
+SkiaImage >> primIsTextureBackend [
+	^ self ffiCall: #(bool skia_image_is_texture_backed(self))
 ]
 
 { #category : #'private - ffi' }
