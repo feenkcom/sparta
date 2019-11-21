@@ -44,6 +44,42 @@ SkiaImage class >> fromForm: aForm [
 	^ anImage
 ]
 
+{ #category : #'instance creation' }
+SkiaImage class >> fromForm: aForm during: aBlock [
+	| aForm32 theBits aGtBoxerArrayU8 blueIndex greenIndex redIndex alphaIndex alpha red green blue |
+	
+	aForm32 := aForm unhibernate; asFormOfDepth: 32.
+	theBits := aForm32 bits asByteArray.
+		
+	aGtBoxerArrayU8 := GtBoxerArrayU8 new: theBits size withAll: 0.
+	
+	"We should convert ARGB to RGBA"	
+	1 to: theBits size // 4 do: [ :index |
+		blueIndex := 4 * index.
+		greenIndex := blueIndex - 1.
+		redIndex := greenIndex - 1.
+		alphaIndex := redIndex - 1.
+		
+		"read ARGB"
+		alpha := theBits at: alphaIndex.
+		red := theBits at: redIndex.
+		green := theBits at: greenIndex.
+		blue := theBits at: blueIndex.
+		
+		"write RGBA"
+		aGtBoxerArrayU8 at: alphaIndex put: red.
+		aGtBoxerArrayU8 at: redIndex put: green.
+		aGtBoxerArrayU8 at: greenIndex put: blue.
+		aGtBoxerArrayU8 at: blueIndex put: alpha ].
+	
+	^ self fromNativeHandle: (self
+		primFromPixels: aGtBoxerArrayU8
+		width: aForm32 width
+		height: aForm32 height
+		rowBytes: theBits size // aForm32 height
+		colorType: SkiaColorType RGBA8888) during: aBlock
+]
+
 { #category : #'private - ffi' }
 SkiaImage class >> primFromPixels: aGtBoxerArrayU8 width: aWidth height: aHeight rowBytes: anAmountOfBytesPerRow colorType: aColorType [
 	^ self ffiCall: #(void* skia_image_from_pixels(

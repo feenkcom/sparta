@@ -32,6 +32,17 @@ SkiaFillPainter >> fillPath: aPath withSolidColor: aColor [
 ]
 
 { #category : #drawing }
+SkiaFillPainter >> fillRectangle: aRectangle withForm: aForm [
+	
+	SkiaPaint newDuring: [ :aSkiaPaint |
+		SkiaImage fromForm: aForm during: [ :aSkiaImage |
+			canvas surfaceCanvas
+				drawImage: aSkiaImage
+				at: aRectangle origin
+				paint: (self setPaint: aSkiaPaint forForm: aForm) ] ]
+]
+
+{ #category : #drawing }
 SkiaFillPainter >> fillRectangle: aRectangle withLinearGradient: aSpartaLinearGradient [
 	
 	SkiaPaint newDuring: [ :aSkiaPaint |
@@ -120,6 +131,19 @@ SkiaFillPainter >> setPaint: aSkiaPaint forColor: aColor [
 	theDrawOptions := self ensuredDrawOptions.
 	aSkiaPaint
 		color: (aColor alpha: aColor alpha * theDrawOptions alpha);
+		antialias: theDrawOptions antialias;
+		blendMode: theDrawOptions blendMode.
+
+	^ aSkiaPaint
+]
+
+{ #category : #private }
+SkiaFillPainter >> setPaint: aSkiaPaint forForm: aSurface [
+	| theDrawOptions |
+
+	theDrawOptions := self ensuredDrawOptions.
+	aSkiaPaint
+		alpha: theDrawOptions alpha;
 		antialias: theDrawOptions antialias;
 		blendMode: theDrawOptions blendMode.
 
