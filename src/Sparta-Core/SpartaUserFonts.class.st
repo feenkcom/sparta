@@ -59,12 +59,12 @@ SpartaUserFonts >> matchFamilyName: aFamilyName weight: aFontStyleWeight stretch
 	"style is more important than precise weight"
 	matchingStyle ifNotEmpty: [
 		"we should find a font face with as close weight as possible"
-		^ matchingStyle detectMin: [ :eachFontFace | (eachFontFace weight value - aFontStyleWeight value) abs ] ].
+		^ aFoundBlock value: (matchingStyle detectMin: [ :eachFontFace | (eachFontFace weight value - aFontStyleWeight value) abs ]) ].
 
 	"no corresponding style found, let's match weight first"
 	matchingWeight ifNotEmpty: [
 		"we should find a font face with as close style as possible"
-		^ matchingWeight detectMin: [ :eachFontFace | (eachFontFace style value - aFontStyleSlant value) abs ] ].
+		^ aFoundBlock value: (matchingWeight detectMin: [ :eachFontFace | (eachFontFace style value - aFontStyleSlant value) abs ]) ].
 
 	^ aNotFoundBlock value
 ]
