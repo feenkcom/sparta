@@ -44,8 +44,8 @@ SkiaFontBuilder >> build [
 	aSpartaFontFace := SpartaFontFace new
 		familyName: (familyName ifNil: [ 'Helvetica' ]);
 		weight: weight;
-		stretch: SkiaFontStyleWidth Normal;
-		style: SkiaFontStyleSlant Upright.
+		stretch: stretch;
+		style: style.
 
 	theFontsDictionary := self class cache
 		at: aSpartaFontFace
@@ -56,25 +56,22 @@ SkiaFontBuilder >> build [
 		ifAbsentPut: [
 			| aSkiaTypeface |
 			aSkiaTypeface := SpartaUserFonts default
-				matchFamilyName: aSpartaFontFace familyName
-				weight: aSpartaFontFace weight
-				stretch: aSpartaFontFace stretch asSpartaFontStretch
-				slant: aSpartaFontFace style asSpartaFontSlant
+				matchFontFace: aSpartaFontFace
 				ifFound: [ :aSpartaUserFont | SkiaFontManager default newTypeface: aSpartaUserFont source fontContents ]
 				ifNone: [
 					SkiaFontManager default
 						matchFamilyName: aSpartaFontFace familyName
 						weight: aSpartaFontFace weight value
-						width: aSpartaFontFace stretch
-						slant: aSpartaFontFace style
+						width: (SkiaFontStyleWidth fromSpartaStretch: aSpartaFontFace stretch)
+						slant: (SkiaFontStyleSlant fromSpartaSlant: aSpartaFontFace style)
 						ifFound: #yourself
 						ifNone: [
 							SkiaTypeface
 								familyName: aSpartaFontFace familyName
 								fontStyle: (SkiaFontStyle
 									weight: aSpartaFontFace weight value
-									width: aSpartaFontFace stretch
-									slant: aSpartaFontFace style) ] ].
+									width: (SkiaFontStyleWidth fromSpartaStretch: aSpartaFontFace stretch)
+									slant: (SkiaFontStyleSlant fromSpartaSlant: aSpartaFontFace style)) ] ].
 			
 			SkiaFont typeface: aSkiaTypeface size: size ]
 ]
@@ -111,11 +108,6 @@ SkiaFontBuilder >> serif [
 
 { #category : #'instance creation' }
 SkiaFontBuilder >> special [
-]
-
-{ #category : #stretch }
-SkiaFontBuilder >> stretchReset [
-	
 ]
 
 { #category : #'instance creation' }

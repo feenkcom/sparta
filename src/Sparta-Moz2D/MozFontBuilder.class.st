@@ -1,8 +1,8 @@
 Class {
 	#name : #MozFontBuilder,
 	#superclass : #SpartaFontBuilder,
-	#traits : 'TMozLibrary + TMozFontDescriptor',
-	#classTraits : 'TMozLibrary classTrait + TMozFontDescriptor classTrait',
+	#traits : 'TMozLibrary',
+	#classTraits : 'TMozLibrary classTrait',
 	#instVars : [
 		'fontList'
 	],
@@ -91,7 +91,7 @@ MozFontBuilder >> createFontList [
 MozFontBuilder >> createFontStyle [
 
 	^ MozFontStyle
-		style: style value
+		style: (MozTextFontStyle fromSpartaSlant: style) value
 		weight: weight value
 		stretch: stretch value
 		size: size
@@ -173,16 +173,6 @@ MozFontBuilder >> serif [
 { #category : #'instance creation' }
 MozFontBuilder >> special [
 	self fontListAdd: MozFontFamilyType special
-]
-
-{ #category : #stretch }
-MozFontBuilder >> stretchReset [
-	self stretchNormal
-]
-
-{ #category : #style }
-MozFontBuilder >> styleReset [
-	self style: MozTextFontStyle NORMAL value
 ]
 
 { #category : #'instance creation' }

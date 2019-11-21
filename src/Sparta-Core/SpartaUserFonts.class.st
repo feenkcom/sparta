@@ -33,30 +33,39 @@ SpartaUserFonts >> initialize [
 ]
 
 { #category : #private }
-SpartaUserFonts >> matchFamilyName: aFamilyName weight: aWeight stretch: aFontStyleStretch slant: aFontStyleSlant ifFound: aFoundBlock ifNone: aNotFoundBlock [
-	| theFontFaces matchingWeightAndStyle |
+SpartaUserFonts >> matchFamilyName: aFamilyName weight: aFontStyleWeight stretch: aFontStyleStretch slant: aFontStyleSlant ifFound: aFoundBlock ifNone: aNotFoundBlock [
+	| theFontFaces matchingWeightAndStyle matchingStyle matchingWeight |
 
 	theFontFaces := fontFaces select: [ :eachFontFace | eachFontFace familyName = aFamilyName ].
+	theFontFaces ifEmpty: [ ^ aNotFoundBlock value ].
 	
 	matchingWeightAndStyle := theFontFaces select: [ :eachFontFace |
-		eachFontFace weight = aWeight
+		eachFontFace weight = aFontStyleWeight
 			and: [ eachFontFace style = aFontStyleSlant ] ].
-		
+
+	"stretch is not that much important, so we check it first"		
 	matchingWeightAndStyle
 		detect: [ :eachFontFace | eachFontFace stretch = aFontStyleStretch ]
 		ifFound: [ :eachFontFace | ^ aFoundBlock value: eachFontFace ].
 		
+	"if there are multiple fonts matching weight and style return any one for now"
 	matchingWeightAndStyle
 		ifNotEmpty: [ ^ aFoundBlock value: matchingWeightAndStyle anyOne ].
-		
-	theFontFaces
-		detect: [ :eachFontFace | eachFontFace style = aFontStyleSlant ]
-		ifFound: [ :eachFontFace | ^ aFoundBlock value: eachFontFace ].
-		
-	theFontFaces
-		detect: [ :eachFontFace | eachFontFace weight = aWeight ]
-		ifFound: [ :eachFontFace | ^ aFoundBlock value: eachFontFace ].
-		
+
+	"at this point we know that there is no font face that matches weight and style"
+	matchingStyle := theFontFaces select: [ :eachFontFace | eachFontFace style = aFontStyleSlant ].
+	matchingWeight := theFontFaces select: [ :eachFontFace | eachFontFace weight = aFontStyleWeight ].
+
+	"style is more important than precise weight"
+	matchingStyle ifNotEmpty: [
+		"we should find a font face with as close weight as possible"
+		^ matchingStyle detectMin: [ :eachFontFace | (eachFontFace weight value - aFontStyleWeight value) abs ] ].
+
+	"no corresponding style found, let's match weight first"
+	matchingWeight ifNotEmpty: [
+		"we should find a font face with as close style as possible"
+		^ matchingWeight detectMin: [ :eachFontFace | (eachFontFace style value - aFontStyleSlant value) abs ] ].
+
 	^ aNotFoundBlock value
 ]
 

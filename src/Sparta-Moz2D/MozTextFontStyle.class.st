@@ -4,9 +4,10 @@ Class {
 	#classVars : [
 		'ITALIC',
 		'NORMAL',
-		'OBLIQUE'
+		'OBLIQUE',
+		'Styles'
 	],
-	#category : 'Sparta-Moz2D-Text-Enums'
+	#category : #'Sparta-Moz2D-Text-Enums'
 }
 
 { #category : #'accessing enum' }
@@ -41,6 +42,17 @@ MozTextFontStyle class >> enumDecl [
 ]
 
 { #category : #'class initialization' }
+MozTextFontStyle class >> fromSpartaSlant: aSpartaFontSlant [
+	^ Styles at: aSpartaFontSlant ifAbsent: [ self NORMAL ]
+]
+
+{ #category : #'class initialization' }
 MozTextFontStyle class >> initialize [
-	self initializeEnumeration
+	self initializeEnumeration.
+	
+	Styles := { 
+		SpartaFontSlant normal -> self NORMAL.
+		SpartaFontSlant italic -> self ITALIC.
+		SpartaFontSlant oblique -> self OBLIQUE
+	} asDictionary
 ]

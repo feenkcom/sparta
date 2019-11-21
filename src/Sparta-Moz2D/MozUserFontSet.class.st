@@ -78,7 +78,7 @@ MozUserFontSet >> add: aUserFontFace [
 	aBuffer pinInMemory.
 
 	aFontStyle := MozFontStyle
-		style: aUserFontFace style value
+		style: (MozTextFontStyle fromSpartaSlant: aUserFontFace style) value
 		weight: aUserFontFace weight value
 		stretch: aUserFontFace stretch value.
 

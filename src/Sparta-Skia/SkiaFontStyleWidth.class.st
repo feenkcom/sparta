@@ -10,7 +10,8 @@ Class {
 		'SemiCondensed',
 		'SemiExpanded',
 		'UltraCondensed',
-		'UltraExpanded'
+		'UltraExpanded',
+		'Widths'
 	],
 	#category : #'Sparta-Skia-External'
 }
@@ -93,14 +94,26 @@ SkiaFontStyleWidth class >> externalType [
 	^ FFIInt32 new
 ]
 
-{ #category : #'class initialization' }
-SkiaFontStyleWidth class >> initialize [
-	super initialize
+{ #category : #'instance creation' }
+SkiaFontStyleWidth class >> fromSpartaStretch: aSpartaFontStretch [
+	^ Widths at: aSpartaFontStretch ifAbsent: [ self Normal ]
 ]
 
-{ #category : #converting }
-SkiaFontStyleWidth >> asSpartaFontStretch [
-	^ SpartaFontStretch normal
+{ #category : #'class initialization' }
+SkiaFontStyleWidth class >> initialize [
+	super initialize.
+	
+	Widths := { 
+		SpartaFontStretch condensed -> self Condensed.
+		SpartaFontStretch expanded -> self Expanded.
+		SpartaFontStretch extraCondensed -> self ExtraCondensed.
+		SpartaFontStretch extraExpanded -> self ExtraExpanded.
+		SpartaFontStretch normal -> self Normal.
+		SpartaFontStretch semiCondensed -> self SemiCondensed.
+		SpartaFontStretch semiExpanded -> self SemiExpanded.
+		SpartaFontStretch ultraCondensed -> self UltraCondensed.
+		SpartaFontStretch ultraExpanded -> self UltraExpanded.
+	} asDictionary
 ]
 
 { #category : #'private - ffi' }

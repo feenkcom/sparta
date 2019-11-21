@@ -81,8 +81,12 @@ SpartaFontFace >> style [
 ]
 
 { #category : #accessing }
-SpartaFontFace >> style: anObject [
-	style := anObject
+SpartaFontFace >> style: aSpartaFontSlant [
+	self
+		assert: [ aSpartaFontSlant isKindOf: SpartaFontSlant ]
+		description: [ 'Slant must be a refined object' ].
+
+	style := aSpartaFontSlant
 ]
 
 { #category : #accessing }

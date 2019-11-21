@@ -4,6 +4,7 @@ Class {
 	#classVars : [
 		'Italic',
 		'Oblique',
+		'Slants',
 		'Upright'
 	],
 	#category : #'Sparta-Skia-External'
@@ -45,23 +46,20 @@ SkiaFontStyleSlant class >> externalType [
 	^ FFIInt32 new
 ]
 
-{ #category : #'class initialization' }
-SkiaFontStyleSlant class >> initialize [
-	super initialize
+{ #category : #'instance creation' }
+SkiaFontStyleSlant class >> fromSpartaSlant: aSpartaFontSlant [
+	^ Slants at: aSpartaFontSlant ifAbsent: [ self Upright ]
 ]
 
-{ #category : #converting }
-SkiaFontStyleSlant >> asSpartaFontSlant [
-	self = Upright
-		ifTrue: [ ^ SpartaFontSlant normal ].
-
-	self = Italic
-		ifTrue: [ ^ SpartaFontSlant italic ].
-		
-	self == Oblique
-		ifTrue: [ ^ SpartaFontSlant oblique ].
-		
-	^ SpartaFontSlant normal
+{ #category : #'class initialization' }
+SkiaFontStyleSlant class >> initialize [
+	super initialize.
+	
+	Slants := { 
+		SpartaFontSlant normal -> self Upright.
+		SpartaFontSlant italic -> self Italic.
+		SpartaFontSlant oblique -> self Oblique
+	} asDictionary
 ]
 
 { #category : #'private - ffi' }

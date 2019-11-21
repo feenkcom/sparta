@@ -5,11 +5,7 @@ Class {
 	#classTraits : 'TSpFontDescriptor classTrait',
 	#instVars : [
 		'familyName',
-		'source',
-		'stretch',
-		'style',
-		'weight',
-		'unicodeRange'
+		'source'
 	],
 	#category : #'Sparta-Core-Builders'
 }
@@ -35,9 +31,7 @@ SpartaFontFaceBuilder >> initialize [
 	
 	self styleNormal.
 	self weightNormal.
-	self stretchNormal.
-	
-	unicodeRange := nil "range is not defined"
+	self stretchNormal
 ]
 
 { #category : #'initialize-release' }
@@ -46,7 +40,6 @@ SpartaFontFaceBuilder >> reset [
 	
 	familyName := nil.
 	source := nil.
-	unicodeRange := nil.
 	
 	self styleNormal.
 	self weightNormal.
@@ -61,56 +54,4 @@ SpartaFontFaceBuilder >> source [
 { #category : #accessing }
 SpartaFontFaceBuilder >> source: anObject [
 	source := anObject
-]
-
-{ #category : #accessing }
-SpartaFontFaceBuilder >> stretch [
-	<return: #SpartaFontStretch>
-
-	^ stretch
-]
-
-{ #category : #accessing }
-SpartaFontFaceBuilder >> stretch: aSpartaFontStretch [
-	stretch := aSpartaFontStretch
-]
-
-{ #category : #accessing }
-SpartaFontFaceBuilder >> style [
-	<return: #SpartaFontSlant>
-
-	^ style
-]
-
-{ #category : #accessing }
-SpartaFontFaceBuilder >> style: aSpartaFontSlant [
-	style := aSpartaFontSlant
-]
-
-{ #category : #accessing }
-SpartaFontFaceBuilder >> unicodeRange [
-	^ unicodeRange
-]
-
-{ #category : #accessing }
-SpartaFontFaceBuilder >> unicodeRange: aString [
-	"Example:
-	
-	range: 'U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215'
-	
-	"
-
-	unicodeRange := aString
-]
-
-{ #category : #accessing }
-SpartaFontFaceBuilder >> weight [
-	<return: #SpartaFontWeight>
-
-	^ weight
-]
-
-{ #category : #weight }
-SpartaFontFaceBuilder >> weight: aSpartaFontWeight [
-	weight := aSpartaFontWeight
 ]
