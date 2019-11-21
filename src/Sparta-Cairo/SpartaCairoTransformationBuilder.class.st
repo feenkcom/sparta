@@ -1,9 +1,13 @@
 Class {
 	#name : #SpartaCairoTransformationBuilder,
 	#superclass : #SpartaTransformationBuilder,
-	#classTraits : 'TSpartaCairoLibrary classTrait',
 	#category : #'Sparta-Cairo-Builders'
 }
+
+{ #category : #'library path' }
+SpartaCairoTransformationBuilder class >> ffiLibraryName [
+	^ SpartaCairoLibrary
+]
 
 { #category : #accessing }
 SpartaCairoTransformationBuilder >> current [
@@ -20,6 +24,11 @@ SpartaCairoTransformationBuilder >> current [
 		shy: aCairoMatrix shy.
 		
 	^ aSpartaMatrix
+]
+
+{ #category : #'library path' }
+SpartaCairoTransformationBuilder >> ffiLibraryName [
+	^ self class ffiLibraryName
 ]
 
 { #category : #transformation }

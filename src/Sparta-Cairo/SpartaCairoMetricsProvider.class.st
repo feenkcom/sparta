@@ -19,7 +19,6 @@ SpartaCairoMetricsProvider >> measure: aSpTextRun in: aSpMetrics [
 		metrics: aTextMetrics
 		canvas: aSpMetrics canvas.
 
-	aSpMetrics wrappedLength: aSpTextRun glyphs size.
 	aSpMetrics textMetrics: aTextMetrics asTextMetrics.
 	
 	aFontMetrics := SpartaCairoFontMetrics new.

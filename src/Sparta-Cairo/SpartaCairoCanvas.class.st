@@ -149,7 +149,7 @@ SpartaCairoCanvas class >> svg: aFileName extent: aPoint [
 
 { #category : #converting }
 SpartaCairoCanvas >> asForm [
-	^ self surface asForm
+	^ self snapshot asForm
 ]
 
 { #category : #'private - ffi' }
@@ -169,7 +169,7 @@ SpartaCairoCanvas >> clipBuilder [
 
 { #category : #accessing }
 SpartaCairoCanvas >> extent [
-	^ self surface extent
+	^ self snapshot extent
 ]
 
 { #category : #builders }
@@ -189,7 +189,7 @@ SpartaCairoCanvas >> filtersFactory [
 
 { #category : #accessing }
 SpartaCairoCanvas >> flush [
-	self surface flush
+	self snapshot flush
 ]
 
 { #category : #builders }
