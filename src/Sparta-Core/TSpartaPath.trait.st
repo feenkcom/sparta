@@ -33,8 +33,8 @@ TSpartaPath >> spartaClipOn: aSpartaCanvas with: aSpartaClipper [
 ]
 
 { #category : #'api - sparta path' }
-TSpartaPath >> spartaFillOn: aSpartaCanvas with: aSpartaPainter [
-	aSpartaPainter fillPath: self
+TSpartaPath >> spartaFillOn: aSpartaCanvas with: aSpartaFillPainter [
+	aSpartaFillPainter fillPath: self
 ]
 
 { #category : #'api - sparta path' }

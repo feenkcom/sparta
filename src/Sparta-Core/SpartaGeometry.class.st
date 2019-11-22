@@ -20,7 +20,7 @@ SpartaGeometry >> spartaClipOn: aSpartaCanvas with: aSpartaClipper [
 ]
 
 { #category : #'api - sparta path' }
-SpartaGeometry >> spartaFillOn: aSpartaCanvas with: aSpartaPainter [
+SpartaGeometry >> spartaFillOn: aSpartaCanvas with: aSpartaFillPainter [
 	self subclassResponsibility
 ]
 

@@ -5,6 +5,33 @@ Class {
 }
 
 { #category : #drawing }
+SkiaFillPainter >> fillCircle: aSpartaCircle withLinearGradient: aSpartaLinearGradient [
+
+	SkiaPaint newDuring: [ :aSkiaPaint |
+		canvas surfaceCanvas
+			drawCircle: aSpartaCircle
+			paint: (self setPaint: aSkiaPaint forGradient: aSpartaLinearGradient) ]
+]
+
+{ #category : #drawing }
+SkiaFillPainter >> fillCircle: aSpartaCircle withRadialGradient: aSpartaRadialGradient [
+
+	SkiaPaint newDuring: [ :aSkiaPaint |
+		canvas surfaceCanvas
+			drawCircle: aSpartaCircle
+			paint: (self setPaint: aSkiaPaint forGradient: aSpartaRadialGradient) ]
+]
+
+{ #category : #drawing }
+SkiaFillPainter >> fillCircle: aSpartaCircle withSolidColor: aColor [
+		
+	SkiaPaint newDuring: [ :aSkiaPaint |
+		canvas surfaceCanvas
+			drawCircle: aSpartaCircle
+			paint: (self setPaint: aSkiaPaint forColor: aColor) ]
+]
+
+{ #category : #drawing }
 SkiaFillPainter >> fillPath: aPath withLinearGradient: aSpartaLinearGradient [
 
 	SkiaPaint newDuring: [ :aSkiaPaint |
@@ -90,6 +117,24 @@ SkiaFillPainter >> fillRectangle: aRectangle withSurface: aSpartaSurfacePaint [
 				drawImage: aSkiaImage
 				at: aRectangle origin
 				paint: (self setPaint: aSkiaPaint forSurface: aSpartaSurfacePaint) ] ]
+]
+
+{ #category : #drawing }
+SkiaFillPainter >> fillRoundedRectangle: aSpartaRounedRectangle withLinearGradient: aSpartaLinearGradient [
+
+	SkiaPaint newDuring: [ :aSkiaPaint |
+		canvas surfaceCanvas
+			drawRoundedRectangle: aSpartaRounedRectangle
+			paint: (self setPaint: aSkiaPaint forGradient: aSpartaLinearGradient) ]
+]
+
+{ #category : #drawing }
+SkiaFillPainter >> fillRoundedRectangle: aSpartaRounedRectangle withRadialGradient: aSpartaRadialGradient [
+
+	SkiaPaint newDuring: [ :aSkiaPaint |
+		canvas surfaceCanvas
+			drawRoundedRectangle: aSpartaRounedRectangle
+			paint: (self setPaint: aSkiaPaint forGradient: aSpartaRadialGradient) ]
 ]
 
 { #category : #drawing }

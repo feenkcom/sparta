@@ -90,6 +90,13 @@ SpartaClipper >> push: aSpartaPath [
 ]
 
 { #category : #'private - clipping' }
+SpartaClipper >> pushCircle: aSpartaCircle [
+	"Note: I am sent only when circle is supported by the shape factory"
+	
+	self subclassResponsibility
+]
+
+{ #category : #'private - clipping' }
 SpartaClipper >> pushPath: aSpartaPath [
 	self subclassResponsibility
 ]

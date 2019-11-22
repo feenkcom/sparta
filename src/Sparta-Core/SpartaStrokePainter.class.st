@@ -136,6 +136,36 @@ SpartaStrokePainter >> reset [
 ]
 
 { #category : #drawing }
+SpartaStrokePainter >> strokeCircle: aSpartaCircle [
+	paint spartaStrokeCircle: aSpartaCircle with: self
+]
+
+{ #category : #drawing }
+SpartaStrokePainter >> strokeCircle: aSpartaCircle withForm: aForm [
+	true ifFalse: [ self subclassResponsibility ]
+]
+
+{ #category : #drawing }
+SpartaStrokePainter >> strokeCircle: aSpartaCircle withLinearGradient: aSpartaLinearGradient [
+	true ifFalse: [ self subclassResponsibility ]
+]
+
+{ #category : #drawing }
+SpartaStrokePainter >> strokeCircle: aSpartaCircle withRadialGradient: aSpartaRadialGradient [
+	true ifFalse: [ self subclassResponsibility ]
+]
+
+{ #category : #drawing }
+SpartaStrokePainter >> strokeCircle: aSpartaCircle withSolidColor: aColor [
+	true ifFalse: [ self subclassResponsibility ]
+]
+
+{ #category : #drawing }
+SpartaStrokePainter >> strokeCircle: aSpartaCircle withSurface: aSpartaSurfacePaint [
+	true ifFalse: [ self subclassResponsibility ]
+]
+
+{ #category : #drawing }
 SpartaStrokePainter >> strokeLine: aLine [
 	paint spartaStrokeLine: aLine with: self
 ]
@@ -197,7 +227,7 @@ SpartaStrokePainter >> strokePath: aPath withRadialGradient: aSpartaRadialGradie
 
 { #category : #drawing }
 SpartaStrokePainter >> strokePath: aPath withSolidColor: aColor [
-	^ self subclassResponsibility
+	true ifFalse: [ self subclassResponsibility ]
 ]
 
 { #category : #drawing }

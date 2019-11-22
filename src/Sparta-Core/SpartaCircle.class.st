@@ -46,3 +46,18 @@ SpartaCircle >> radius [
 SpartaCircle >> radius: aNumber [
 	radius := aNumber
 ]
+
+{ #category : #'api - sparta path' }
+SpartaCircle >> spartaClipOn: aSpartaCanvas with: aSpartaClipper [
+	aSpartaClipper pushCircle: self
+]
+
+{ #category : #'api - sparta path' }
+SpartaCircle >> spartaFillOn: aSpartaCanvas with: aSpartaFillPainter [
+	aSpartaFillPainter fillCircle: self
+]
+
+{ #category : #'api - sparta path' }
+SpartaCircle >> spartaStrokeOn: aSpartaCanvas with: aSpartaStrokePainter [
+	aSpartaStrokePainter strokeCircle: self
+]

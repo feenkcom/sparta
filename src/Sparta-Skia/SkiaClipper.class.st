@@ -41,6 +41,13 @@ SkiaClipper >> pop [
 ]
 
 { #category : #'private - clipping' }
+SkiaClipper >> pushCircle: aSpartaCircle [
+	canvas surfaceCanvas
+		save;
+		clipCircle: aSpartaCircle
+]
+
+{ #category : #'private - clipping' }
 SkiaClipper >> pushPath: aSpartaPath [
 	canvas surfaceCanvas
 		save;
