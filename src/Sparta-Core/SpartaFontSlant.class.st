@@ -17,19 +17,19 @@ Class {
 { #category : #'instance creation' }
 SpartaFontSlant class >> fromNumber: aNumber [
 	<return: #SpartaFontSlant>
-
-	^ Slants
-		at: aNumber
-		ifAbsent: [ self weight: aNumber name: #custom ]
+	Slants
+		ifNil: [ Slants := (self classPool values
+				select: [ :eachValue | eachValue isKindOf: self ]
+				thenCollect: [ :eachSlant | eachSlant value -> eachSlant ])
+				as: Dictionary ].
+	^ Slants at: aNumber ifAbsent: [ self slant: aNumber name: #custom ]
 ]
 
 { #category : #'class initialization' }
 SpartaFontSlant class >> initialize [
 	Normal := self slant: 0 name: #normal.
 	Italic := self slant: 1 name: #italic.
-	Oblique := self slant: 2 name: #oblique.
-	
-	Slants := (self classPool values select: [ :eachValue | eachValue isKindOf: self ] thenCollect: [ :eachSlant | eachSlant value -> eachSlant ]) as: Dictionary
+	Oblique := self slant: 2 name: #oblique
 ]
 
 { #category : #accessing }

@@ -43,16 +43,16 @@ MozTextFontStyle class >> enumDecl [
 
 { #category : #'class initialization' }
 MozTextFontStyle class >> fromSpartaSlant: aSpartaFontSlant [
+	Styles ifNil: [ Styles := { 
+		SpartaFontSlant normal -> self NORMAL.
+		SpartaFontSlant italic -> self ITALIC.
+		SpartaFontSlant oblique -> self OBLIQUE
+	} asDictionary ].
+
 	^ Styles at: aSpartaFontSlant ifAbsent: [ self NORMAL ]
 ]
 
 { #category : #'class initialization' }
 MozTextFontStyle class >> initialize [
 	super initialize.
-	
-	Styles := { 
-		SpartaFontSlant normal -> self NORMAL.
-		SpartaFontSlant italic -> self ITALIC.
-		SpartaFontSlant oblique -> self OBLIQUE
-	} asDictionary
 ]

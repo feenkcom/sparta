@@ -96,14 +96,7 @@ SkiaFontStyleWidth class >> externalType [
 
 { #category : #'instance creation' }
 SkiaFontStyleWidth class >> fromSpartaStretch: aSpartaFontStretch [
-	^ Widths at: aSpartaFontStretch ifAbsent: [ self Normal ]
-]
-
-{ #category : #'class initialization' }
-SkiaFontStyleWidth class >> initialize [
-	super initialize.
-	
-	Widths := { 
+	Widths ifNil: [ Widths := { 
 		SpartaFontStretch condensed -> self Condensed.
 		SpartaFontStretch expanded -> self Expanded.
 		SpartaFontStretch extraCondensed -> self ExtraCondensed.
@@ -113,7 +106,13 @@ SkiaFontStyleWidth class >> initialize [
 		SpartaFontStretch semiExpanded -> self SemiExpanded.
 		SpartaFontStretch ultraCondensed -> self UltraCondensed.
 		SpartaFontStretch ultraExpanded -> self UltraExpanded.
-	} asDictionary
+	} asDictionary ].
+	^ Widths at: aSpartaFontStretch ifAbsent: [ self Normal ]
+]
+
+{ #category : #'class initialization' }
+SkiaFontStyleWidth class >> initialize [
+	super initialize.
 ]
 
 { #category : #'private - ffi' }

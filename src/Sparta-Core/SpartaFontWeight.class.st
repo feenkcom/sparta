@@ -50,7 +50,11 @@ SpartaFontWeight class >> extraLight [
 { #category : #'class initialization' }
 SpartaFontWeight class >> fromNumber: aNumber [
 	<return: #SpartaFontWeight>
-
+	Weights
+		ifNil: [ Weights := (self classPool values
+				select: [ :eachValue | eachValue isKindOf: self ]
+				thenCollect: [ :eachWeight | eachWeight value -> eachWeight ])
+				as: Dictionary ].
 	^ Weights
 		at: aNumber
 		ifAbsent: [ self weight: aNumber name: #custom ]
@@ -69,8 +73,6 @@ SpartaFontWeight class >> initialize [
 	ExtraBold := self weight: 800 name: #extraBold.
 	Black := self weight: 900 name: #black.
 	ExtraBlack := self weight: 1000 name: #extraBlack.
-	
-	Weights := (self classPool values select: [ :eachValue | eachValue isKindOf: self ] thenCollect: [ :eachWeight | eachWeight value -> eachWeight ]) as: Dictionary
 ]
 
 { #category : #accessing }
