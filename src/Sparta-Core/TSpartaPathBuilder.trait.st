@@ -113,7 +113,7 @@ TSpartaPathBuilder >> currentPoint [
 ]
 
 { #category : #'path commands' }
-TSpartaPathBuilder >> curveVia: cp1 and: cp2 to: aPoint [
+TSpartaPathBuilder >> curveVia: aControlPoint and: anOtherControlPoint to: anEndPoint [
 	^ self explicitRequirement
 ]
 

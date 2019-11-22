@@ -69,6 +69,18 @@ SkiaPath >> asByteArray [
 ]
 
 { #category : #'api - path' }
+SkiaPath >> cibucBy: aPoint via: aViaPoint and: anOtherViaPoint [
+	self
+		primCubicToX: aPoint x
+		Y: aPoint y
+		viaX: aViaPoint x
+		Y: aViaPoint y
+		andX: anOtherViaPoint x
+		Y: anOtherViaPoint y
+		absolute: false
+]
+
+{ #category : #'api - path' }
 SkiaPath >> close [
 	self primClose
 ]
@@ -79,6 +91,30 @@ SkiaPath >> containsPoint: aPoint on: aSpartaCanvas [
 	<return: #Boolean>
 
 	^ false
+]
+
+{ #category : #'api - path' }
+SkiaPath >> cubicBy: aPoint via: aViaPoint and: anOtherViaPoint [
+	self
+		primCubicToX: aPoint x
+		Y: aPoint y
+		viaX: aViaPoint x
+		Y: aViaPoint y
+		andX: anOtherViaPoint x
+		Y: anOtherViaPoint y
+		absolute: false
+]
+
+{ #category : #'api - path' }
+SkiaPath >> cubicTo: aPoint via: aViaPoint and: anOtherViaPoint [
+	self
+		primCubicToX: aPoint x
+		Y: aPoint y
+		viaX: aViaPoint x
+		Y: aViaPoint y
+		andX: anOtherViaPoint x
+		Y: anOtherViaPoint y
+		absolute: true
 ]
 
 { #category : #'api - path' }
@@ -176,6 +212,15 @@ SkiaPath >> primClose [
 ]
 
 { #category : #'private - ffi' }
+SkiaPath >> primCubicToX: aX Y: aY viaX: aViaX Y: aViaY andX: anOtherViaX Y: anOtherViaY absolute: isAbsolute [
+	^ self ffiCall: #(void skia_path_cubic_to(self,
+		scalar aViaX, scalar aViaY,
+		scalar anOtherViaX, scalar anOtherViaY,
+		scalar aX, scalar aY,
+		bool isAbsolute))
+]
+
+{ #category : #'private - ffi' }
 SkiaPath >> primGetFillType [
 	^ self ffiCall: #(SkiaPathFillType skia_path_get_fill_type(self))
 ]
@@ -206,6 +251,14 @@ SkiaPath >> primPointsCount [
 ]
 
 { #category : #'private - ffi' }
+SkiaPath >> primQuadToX: aX Y: aY viaX: aViaX Y: aViaY absolute: isAbsolute [
+	^ self ffiCall: #(void skia_path_quad_to(self,
+		scalar aViaX, scalar aViaY,
+		scalar aX, scalar aY,
+		bool isAbsolute))
+]
+
+{ #category : #'private - ffi' }
 SkiaPath >> primSerialize: aBoxerArrayU8 [
 	^ self ffiCall: #(void skia_path_serialize(self, GtBoxerArrayU8 aBoxerArrayU8))
 ]
@@ -213,6 +266,26 @@ SkiaPath >> primSerialize: aBoxerArrayU8 [
 { #category : #'private - ffi' }
 SkiaPath >> primSetFillType: aSkiaPathFillType [
 	^ self ffiCall: #(void skia_path_set_fill_type(self, SkiaPathFillType aSkiaPathFillType))
+]
+
+{ #category : #'api - path' }
+SkiaPath >> quadBy: aPoint via: aViaPoint [
+	self
+		primQuadToX: aPoint x
+		Y: aPoint y
+		viaX: aViaPoint x
+		Y: aViaPoint y
+		absolute: false
+]
+
+{ #category : #'api - path' }
+SkiaPath >> quadTo: aPoint via: aViaPoint [
+	self
+		primQuadToX: aPoint x
+		Y: aPoint y
+		viaX: aViaPoint x
+		Y: aViaPoint y
+		absolute: true
 ]
 
 { #category : #'api - sparta path' }
