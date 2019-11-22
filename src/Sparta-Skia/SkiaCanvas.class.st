@@ -20,7 +20,7 @@ SkiaCanvas class >> createForData: aData extent: aPoint stride: aStride format: 
 		width: aPoint x
 		height: aPoint y
 		colorType: aSkiaColorType
-		alphaType: SkiaAlphaType Unpremul.
+		alphaType: SkiaAlphaType Premul.
 	
 	thePixels := GtBoxerArrayU8 fromHandle: aData size: aStride * aPoint y.
 	
