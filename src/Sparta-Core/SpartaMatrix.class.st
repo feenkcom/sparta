@@ -273,7 +273,17 @@ SpartaMatrix >> rotateByRadians: angle [
 
 { #category : #accessing }
 SpartaMatrix >> scale [
-	^ sx@sy
+	<return: #Point>
+	| row0x row0y row1x row1y scaleX scaleY |
+	row0x := self sx.
+	row0y := self shy.
+	row1x := self shx.
+	row1y := self sy.
+	
+	scaleX := ((row0x * row0x) + (row0y * row0y)) sqrt.
+	scaleY := ((row1x * row1x) + (row1y * row1y)) sqrt.
+	
+	^ scaleX @ scaleY
 ]
 
 { #category : #transformations }

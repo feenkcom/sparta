@@ -26,21 +26,18 @@ SkiaMatrix class >> primRelease: aHandle [
 
 { #category : #converting }
 SkiaMatrix >> asSpartaMatrix [
-	| aBuffer anArray |
+	<return: #SpartaMatrix>
 	
-	aBuffer := GtBoxerArrayF32 new.
-	anArray := [
+	^ GtBoxerArrayF32 newDuring: [ :aBuffer |
 		self primGetAll: aBuffer.
-		aBuffer asArray ]
-			ensure: [ aBuffer release ].
-			
-	^ SpartaMatrix new
-		sx: (anArray at: 1);
-		shx: (anArray at: 2);
-		x: (anArray at: 3);
-		shy: (anArray at: 4);
-		sy: (anArray at: 5);
-		y: (anArray at: 6)
+		aBuffer dataDuring: [ :anArray |
+			SpartaMatrix new
+				sx: (anArray at: 1);
+				shx: (anArray at: 2);
+				x: (anArray at: 3);
+				shy: (anArray at: 4);
+				sy: (anArray at: 5);
+				y: (anArray at: 6) ] ]
 ]
 
 { #category : #'private - ffi' }

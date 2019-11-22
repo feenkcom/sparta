@@ -124,8 +124,7 @@ SkiaCanvas >> filtersFactory [
 SkiaCanvas >> flush [
 	"Ensure that the backend has flushed all drawing operations to this canvas"
 
-	skiaSurfaceCanvas flush.
-	skiaSurface flush
+	skiaSurfaceCanvas flush
 ]
 
 { #category : #builders }

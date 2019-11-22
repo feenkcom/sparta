@@ -949,6 +949,16 @@ TSpartaExamples >> benchmarkTextRunWithMetrics [
 ]
 
 { #category : #benchmarks }
+TSpartaExamples >> benchmarkTransformCurrentMatrix [
+	<gtExample>
+	<noTest>
+	| aCanvas |
+
+	aCanvas := self class canvas: 300@200.
+	^ [ aCanvas transform current ] benchFor: 2 seconds
+]
+
+{ #category : #benchmarks }
 TSpartaExamples >> benchmarkTransformTranslateBy [
 	<gtExample>
 	<noTest>

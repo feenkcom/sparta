@@ -274,11 +274,10 @@ SkiaSurfaceCanvas >> flush [
 { #category : #'api - transformation' }
 SkiaSurfaceCanvas >> getMatrix [
 	<return: #SpartaMatrix>
-	| aSkiaMatrix |
-	
-	aSkiaMatrix := SkiaMatrix new.
-	self primGetMatrix: aSkiaMatrix.
-	^ aSkiaMatrix asSpartaMatrix
+
+	^ SkiaMatrix newDuring: [ :aSkiaMatrix |
+		self primGetMatrix: aSkiaMatrix.
+		aSkiaMatrix asSpartaMatrix ]
 ]
 
 { #category : #'private - ffi clip' }
