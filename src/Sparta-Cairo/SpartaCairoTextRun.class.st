@@ -77,7 +77,8 @@ SpartaCairoTextRun >> length: anObject [
 
 { #category : #'external resource management' }
 SpartaCairoTextRun >> release [
-	glyphs free.
+	glyphs getHandle isNull
+		ifFalse: [ glyphs free ].
 	glyphs := nil.
 	scaledFont := nil
 ]

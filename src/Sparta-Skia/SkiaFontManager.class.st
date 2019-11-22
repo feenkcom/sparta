@@ -69,11 +69,11 @@ SkiaFontManager >> matchFamilyName: aFamilyName [
 ]
 
 { #category : #private }
-SkiaFontManager >> matchFamilyName: aFamilyName weight: aWeight width: aSkiaFontStyleWidth slant: aSkiaFontStyleSlant ifFound: aFoundBlock ifNone: aNotFoundBlock [
+SkiaFontManager >> matchFamilyName: aFamilyName weight: aWeightNumber width: aSkiaFontStyleWidth slant: aSkiaFontStyleSlant ifFound: aFoundBlock ifNone: aNotFoundBlock [
 	| aGtBoxerString aTypeface |
 	
 	aGtBoxerString := GtBoxerString fromString: aFamilyName.
-	aTypeface := SkiaTypeface fromNativeHandle: (self primMatchFamilyName: aGtBoxerString weight: aWeight width: aSkiaFontStyleWidth slant: aSkiaFontStyleSlant).
+	aTypeface := SkiaTypeface fromNativeHandle: (self primMatchFamilyName: aGtBoxerString weight: aWeightNumber value width: aSkiaFontStyleWidth slant: aSkiaFontStyleSlant).
 
 	^ aTypeface isNull
 		ifTrue: aNotFoundBlock 

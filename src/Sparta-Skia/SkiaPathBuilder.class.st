@@ -129,13 +129,17 @@ SkiaPathBuilder >> currentPoint [
 ]
 
 { #category : #'path commands' }
-SkiaPathBuilder >> curveVia: cp1 and: cp2 to: aPoint [
-	
+SkiaPathBuilder >> curveVia: aControlPoint and: anOtherControlPoint to: anEndPoint [
+	isAbsolute
+		ifTrue: [ path cubicTo: anEndPoint via: aControlPoint and: anOtherControlPoint ]
+		ifFalse: [ path cubicBy: anEndPoint via: aControlPoint and: anOtherControlPoint ]
 ]
 
 { #category : #'path commands' }
 SkiaPathBuilder >> curveVia: aControlPoint to: anEndPoint [
-	
+	isAbsolute
+		ifTrue: [ path quadTo: anEndPoint via: aControlPoint ]
+		ifFalse: [ path quadBy: anEndPoint via: aControlPoint ]
 ]
 
 { #category : #accessing }

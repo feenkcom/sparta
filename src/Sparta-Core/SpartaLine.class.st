@@ -74,7 +74,7 @@ SpartaLine >> spartaClipOn: aSpartaCanvas with: aSpartaClipper [
 ]
 
 { #category : #dispatch }
-SpartaLine >> spartaFillOn: aSpartaCanvas with: aSpartaFiller [
+SpartaLine >> spartaFillOn: aSpartaCanvas with: aSpartaFillPainter [
 	"Line can not be filled"
 ]
 

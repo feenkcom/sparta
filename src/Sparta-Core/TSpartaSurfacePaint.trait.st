@@ -34,6 +34,11 @@ TSpartaSurfacePaint >> source: aSurface [
 ]
 
 { #category : #dispatch }
+TSpartaSurfacePaint >> spartaFillCircle: aSpartaCircle with: aFillPainter [
+	aFillPainter fillCircle: aSpartaCircle withSurface: self
+]
+
+{ #category : #dispatch }
 TSpartaSurfacePaint >> spartaFillPath: aPath with: aFillPainter [
 	aFillPainter fillPath: aPath withSurface: self
 ]
@@ -46,6 +51,11 @@ TSpartaSurfacePaint >> spartaFillRectangle: aRectangle with: aFillPainter [
 { #category : #dispatch }
 TSpartaSurfacePaint >> spartaFillRoundedRectangle: aRectangle with: aFillPainter [
 	aFillPainter fillRoundedRectangle: aRectangle withSurface: self
+]
+
+{ #category : #dispatch }
+TSpartaSurfacePaint >> spartaStrokeCircle: aSpartaCircle with: aStrokePainter [
+	aStrokePainter strokeCircle: aSpartaCircle withSurface: self
 ]
 
 { #category : #dispatch }

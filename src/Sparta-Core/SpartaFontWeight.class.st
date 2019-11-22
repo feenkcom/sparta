@@ -16,7 +16,8 @@ Class {
 		'Medium',
 		'Normal',
 		'SemiBold',
-		'Thin'
+		'Thin',
+		'Weights'
 	],
 	#category : #'Sparta-Core-Text'
 }
@@ -47,6 +48,19 @@ SpartaFontWeight class >> extraLight [
 ]
 
 { #category : #'class initialization' }
+SpartaFontWeight class >> fromNumber: aNumber [
+	<return: #SpartaFontWeight>
+	Weights
+		ifNil: [ Weights := (self classPool values
+				select: [ :eachValue | eachValue isKindOf: self ]
+				thenCollect: [ :eachWeight | eachWeight value -> eachWeight ])
+				as: Dictionary ].
+	^ Weights
+		at: aNumber
+		ifAbsent: [ self weight: aNumber name: #custom ]
+]
+
+{ #category : #'class initialization' }
 SpartaFontWeight class >> initialize [
 	Invisible := self weight: 0 name: #invisible.
 	Thin := self weight: 100 name: #thin.
@@ -58,7 +72,7 @@ SpartaFontWeight class >> initialize [
 	Bold := self weight: 700 name: #bold.
 	ExtraBold := self weight: 800 name: #extraBold.
 	Black := self weight: 900 name: #black.
-	ExtraBlack := self weight: 1000 name: #extraBlack
+	ExtraBlack := self weight: 1000 name: #extraBlack.
 ]
 
 { #category : #accessing }
@@ -98,6 +112,24 @@ SpartaFontWeight class >> weight: aWeightValue name: aWeightName [
 		name: aWeightName
 ]
 
+{ #category : #comparing }
+SpartaFontWeight >> = anObject [
+	"Answer whether the receiver and anObject represent the same object."
+
+	self == anObject
+		ifTrue: [ ^ true ].
+	self class = anObject class
+		ifFalse: [ ^ false ].
+	^ value = anObject value
+]
+
+{ #category : #comparing }
+SpartaFontWeight >> hash [
+	"Answer an integer value that is related to the identity of the receiver."
+
+	^ value hash
+]
+
 { #category : #accessing }
 SpartaFontWeight >> name [
 	<return: #Symbol>
@@ -108,6 +140,19 @@ SpartaFontWeight >> name [
 { #category : #accessing }
 SpartaFontWeight >> name: aSymbol [
 	name := aSymbol
+]
+
+{ #category : #printing }
+SpartaFontWeight >> printOn: aStream [
+	"Append a sequence of characters to aStream that identify the receiver."
+
+	super printOn: aStream.
+	aStream
+		nextPutAll: ' value: ';
+		print: value.
+	aStream
+		nextPutAll: ' name: ';
+		print: name
 ]
 
 { #category : #accessing }

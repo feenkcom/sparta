@@ -43,6 +43,14 @@ SkiaStrokePainter >> setPaint: aSkiaPaint forColor: aColor [
 ]
 
 { #category : #drawing }
+SkiaStrokePainter >> strokeCircle: aSpartaCircle withSolidColor: aColor [
+	SkiaPaint newDuring: [ :aSkiaPaint |
+		canvas surfaceCanvas
+			drawCircle: aSpartaCircle
+			paint: (self setPaint: aSkiaPaint forColor: aColor) ]
+]
+
+{ #category : #drawing }
 SkiaStrokePainter >> strokeLine: aLine withSolidColor: aColor [
 	
 	SkiaPaint newDuring: [ :aSkiaPaint |

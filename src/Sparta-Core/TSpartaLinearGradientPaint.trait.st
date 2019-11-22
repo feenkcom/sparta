@@ -61,6 +61,11 @@ TSpartaLinearGradientPaint >> end: aPoint [
 ]
 
 { #category : #dispatch }
+TSpartaLinearGradientPaint >> spartaFillCircle: aSpartaCircle with: aFillPainter [
+	aFillPainter fillCircle: aSpartaCircle withLinearGradient: self
+]
+
+{ #category : #dispatch }
 TSpartaLinearGradientPaint >> spartaFillPath: aPath with: aFillPainter [
 	aFillPainter fillPath: aPath withLinearGradient: self
 ]
@@ -71,8 +76,13 @@ TSpartaLinearGradientPaint >> spartaFillRectangle: aPath with: aFillPainter [
 ]
 
 { #category : #dispatch }
-TSpartaLinearGradientPaint >> spartaFillRoundedRectangle: aPath with: aFillPainter [
-	aFillPainter fillRoundedRectangle: aPath withLinearGradient: self
+TSpartaLinearGradientPaint >> spartaFillRoundedRectangle: aRoundedRectangle with: aFillPainter [
+	aFillPainter fillRoundedRectangle: aRoundedRectangle withLinearGradient: self
+]
+
+{ #category : #dispatch }
+TSpartaLinearGradientPaint >> spartaStrokeCircle: aSpartaCircle with: aStrokePainter [
+	aStrokePainter strokeCircle: aSpartaCircle withLinearGradient: self
 ]
 
 { #category : #dispatch }

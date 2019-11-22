@@ -44,8 +44,8 @@ SkiaFontBuilder >> build [
 	aSpartaFontFace := SpartaFontFace new
 		familyName: (familyName ifNil: [ 'Helvetica' ]);
 		weight: weight;
-		stretch: SkiaFontStyleWidth Normal;
-		style: SkiaFontStyleSlant Upright.
+		stretch: stretch;
+		style: style.
 
 	theFontsDictionary := self class cache
 		at: aSpartaFontFace
@@ -55,19 +55,24 @@ SkiaFontBuilder >> build [
 		at: size
 		ifAbsentPut: [
 			| aSkiaTypeface |
-			aSkiaTypeface := SkiaFontManager default
-				matchFamilyName: aSpartaFontFace familyName
-				weight: aSpartaFontFace weight
-				width: aSpartaFontFace stretch
-				slant: aSpartaFontFace style
-				ifFound: #yourself
+			aSkiaTypeface := SpartaUserFonts default
+				matchFontFace: aSpartaFontFace
+				ifFound: [ :aSpartaUserFont | SkiaFontManager default newTypeface: aSpartaUserFont source fontContents ]
 				ifNone: [
-					SkiaTypeface
-						familyName: aSpartaFontFace familyName
-						fontStyle: (SkiaFontStyle
-							weight: aSpartaFontFace weight
-							width: aSpartaFontFace stretch
-							slant: aSpartaFontFace style) ].
+					SkiaFontManager default
+						matchFamilyName: aSpartaFontFace familyName
+						weight: aSpartaFontFace weight value
+						width: (SkiaFontStyleWidth fromSpartaStretch: aSpartaFontFace stretch)
+						slant: (SkiaFontStyleSlant fromSpartaSlant: aSpartaFontFace style)
+						ifFound: #yourself
+						ifNone: [
+							SkiaTypeface
+								familyName: aSpartaFontFace familyName
+								fontStyle: (SkiaFontStyle
+									weight: aSpartaFontFace weight value
+									width: (SkiaFontStyleWidth fromSpartaStretch: aSpartaFontFace stretch)
+									slant: (SkiaFontStyleSlant fromSpartaSlant: aSpartaFontFace style)) ] ].
+			
 			SkiaFont typeface: aSkiaTypeface size: size ]
 ]
 
@@ -103,28 +108,6 @@ SkiaFontBuilder >> serif [
 
 { #category : #'instance creation' }
 SkiaFontBuilder >> special [
-]
-
-{ #category : #stretch }
-SkiaFontBuilder >> stretchReset [
-	
-]
-
-{ #category : #style }
-SkiaFontBuilder >> styleItalic [
-]
-
-{ #category : #style }
-SkiaFontBuilder >> styleNormal [
-]
-
-{ #category : #style }
-SkiaFontBuilder >> styleOblique [
-]
-
-{ #category : #style }
-SkiaFontBuilder >> styleReset [
-	
 ]
 
 { #category : #'instance creation' }

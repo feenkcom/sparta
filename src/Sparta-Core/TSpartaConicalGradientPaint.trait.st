@@ -24,6 +24,11 @@ TSpartaConicalGradientPaint >> outerRadius: aNumber [
 ]
 
 { #category : #dispatch }
+TSpartaConicalGradientPaint >> spartaFillCircle: aSpartaCircle with: aFillPainter [
+	aFillPainter fillCircle: aSpartaCircle withConicalGradient: self
+]
+
+{ #category : #dispatch }
 TSpartaConicalGradientPaint >> spartaFillPath: aPath with: aFillPainter [
 	aFillPainter fillPath: aPath withConicalGradient: self
 ]
@@ -36,6 +41,11 @@ TSpartaConicalGradientPaint >> spartaFillRectangle: aRectangle with: aFillPainte
 { #category : #dispatch }
 TSpartaConicalGradientPaint >> spartaFillRoundedRectangle: aRectangle with: aFillPainter [
 	aFillPainter fillRoundedRectangle: aRectangle withConicalGradient: self
+]
+
+{ #category : #dispatch }
+TSpartaConicalGradientPaint >> spartaStrokeCircle: aSpartaCircle with: aStrokePainter [
+	aStrokePainter strokeCircle: aSpartaCircle withConicalGradient: self
 ]
 
 { #category : #dispatch }

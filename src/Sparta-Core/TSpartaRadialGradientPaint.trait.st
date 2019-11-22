@@ -63,6 +63,11 @@ TSpartaRadialGradientPaint >> radius: aNumber [
 ]
 
 { #category : #dispatch }
+TSpartaRadialGradientPaint >> spartaFillCircle: aSpartaCircle with: aFillPainter [
+	aFillPainter fillCircle: aSpartaCircle withRadialGradient: self
+]
+
+{ #category : #dispatch }
 TSpartaRadialGradientPaint >> spartaFillPath: aPath with: aFillPainter [
 	aFillPainter fillPath: aPath withRadialGradient: self
 ]
@@ -75,6 +80,11 @@ TSpartaRadialGradientPaint >> spartaFillRectangle: aRectangle with: aFillPainter
 { #category : #dispatch }
 TSpartaRadialGradientPaint >> spartaFillRoundedRectangle: aRectangle with: aFillPainter [
 	aFillPainter fillRoundedRectangle: aRectangle withRadialGradient: self
+]
+
+{ #category : #dispatch }
+TSpartaRadialGradientPaint >> spartaStrokeCircle: aSpartaCircle with: aStrokePainter [
+	aStrokePainter strokeCircle: aSpartaCircle withRadialGradient: self
 ]
 
 { #category : #dispatch }

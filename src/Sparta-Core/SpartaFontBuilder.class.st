@@ -56,10 +56,7 @@ Class {
 	#classTraits : 'TSpFontDescriptor classTrait',
 	#instVars : [
 		'size',
-		'weight',
-		'language',
-		'stretch',
-		'style'
+		'language'
 	],
 	#category : #'Sparta-Core-Builders'
 }
@@ -167,37 +164,7 @@ SpartaFontBuilder >> special [
 	^ self subclassResponsibility
 ]
 
-{ #category : #accessing }
-SpartaFontBuilder >> stretch [
-	^ stretch
-]
-
-{ #category : #accessing }
-SpartaFontBuilder >> stretch: aNumber [
-	stretch := aNumber value
-]
-
-{ #category : #accessing }
-SpartaFontBuilder >> style [
-	^ style
-]
-
-{ #category : #accessing }
-SpartaFontBuilder >> style: aNumber [
-	style := aNumber value
-]
-
 { #category : #'instance creation' }
 SpartaFontBuilder >> variable [
 	^ self subclassResponsibility
-]
-
-{ #category : #accessing }
-SpartaFontBuilder >> weight [
-	^ weight
-]
-
-{ #category : #weight }
-SpartaFontBuilder >> weight: aSpartaFontWeightOrNumber [
-	weight := aSpartaFontWeightOrNumber value
 ]

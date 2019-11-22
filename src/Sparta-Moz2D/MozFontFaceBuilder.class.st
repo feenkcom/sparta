@@ -1,8 +1,8 @@
 Class {
 	#name : #MozFontFaceBuilder,
 	#superclass : #SpartaFontFaceBuilder,
-	#traits : 'TMozLibrary + TMozFontDescriptor',
-	#classTraits : 'TMozLibrary classTrait + TMozFontDescriptor classTrait',
+	#traits : 'TMozLibrary',
+	#classTraits : 'TMozLibrary classTrait',
 	#instVars : [
 		'userFontSet'
 	],
@@ -15,12 +15,12 @@ MozFontFaceBuilder >> build [
 	self
 		assert: [ familyName isNotNil and: [ familyName isNotEmpty ] ]
 		description: [ 'Family name is required' ].
-		
+
 	self
 		assert: [ source isNotNil ]
 		description: [ 'Source is required' ].
-		
-	aFontFace := SpartaFontFace new
+
+	aFontFace := SpartaUserFontFace new
 		familyName: familyName;
 		source: source asSpartaFontSource;
 		style: style;
@@ -35,16 +35,6 @@ MozFontFaceBuilder >> initialize [
 	super initialize.
 
 	userFontSet := MozUserFontSet default
-]
-
-{ #category : #accessing }
-MozFontFaceBuilder >> stretch: aMozTextFontStretch [
-	stretch := aMozTextFontStretch
-]
-
-{ #category : #accessing }
-MozFontFaceBuilder >> style: aMozTextFontStyle [
-	style := aMozTextFontStyle
 ]
 
 { #category : #accessing }

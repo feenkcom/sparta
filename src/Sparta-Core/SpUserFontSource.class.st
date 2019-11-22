@@ -12,6 +12,11 @@ SpUserFontSource >> = anotherFontSource [
 	^ self subclassResponsibility
 ]
 
+{ #category : #converting }
+SpUserFontSource >> asSpartaFontSource [
+	^ self
+]
+
 { #category : #accessing }
 SpUserFontSource >> fontContents [
 	"Return a binary font face contents"

@@ -354,8 +354,8 @@ SpartaRectangle >> spartaClipOn: aSpartaCanvas with: aSpartaClipper [
 ]
 
 { #category : #'api - sparta path' }
-SpartaRectangle >> spartaFillOn: aSpartaCanvas with: aSpartaFiller [
-	aSpartaFiller fillRectangle: self
+SpartaRectangle >> spartaFillOn: aSpartaCanvas with: aSpartaFillPainter [
+	aSpartaFillPainter fillRectangle: self
 ]
 
 { #category : #'api - sparta path' }

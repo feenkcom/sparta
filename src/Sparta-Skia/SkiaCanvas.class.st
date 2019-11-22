@@ -20,7 +20,7 @@ SkiaCanvas class >> createForData: aData extent: aPoint stride: aStride format: 
 		width: aPoint x
 		height: aPoint y
 		colorType: aSkiaColorType
-		alphaType: SkiaAlphaType Unpremul.
+		alphaType: SkiaAlphaType Premul.
 	
 	thePixels := GtBoxerArrayU8 fromHandle: aData size: aStride * aPoint y.
 	
@@ -71,7 +71,7 @@ SkiaCanvas class >> offscreen [
 		ifNil: [ offscreen := self extent: 1@1 ]
 		ifNotNil: [ :aCanvas | aCanvas isValid
 			ifTrue: [ offscreen ]
-			ifFalse: [ offscreen := self new ] ]
+			ifFalse: [ offscreen := self extent: 1@1 ] ]
 ]
 
 { #category : #accessing }
@@ -124,14 +124,18 @@ SkiaCanvas >> filtersFactory [
 SkiaCanvas >> flush [
 	"Ensure that the backend has flushed all drawing operations to this canvas"
 
-	skiaSurfaceCanvas flush.
-	skiaSurface flush
+	skiaSurfaceCanvas flush
 ]
 
 { #category : #builders }
 SkiaCanvas >> fontBuilder [
 	<return: #SpartaFontBuilder>
 	^ SkiaFontBuilder new
+]
+
+{ #category : #builders }
+SkiaCanvas >> fontFaceBuilder [
+	^ SkiaFontFaceBuilder new
 ]
 
 { #category : #initialization }

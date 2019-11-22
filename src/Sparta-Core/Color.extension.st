@@ -6,6 +6,11 @@ Color >> asSpartaPaintOn: aSpartaCanvas [
 ]
 
 { #category : #'*Sparta-Core' }
+Color >> spartaFillCircle: aSpartaCircle with: aFillPainter [
+	aFillPainter fillCircle: aSpartaCircle withSolidColor: self
+]
+
+{ #category : #'*Sparta-Core' }
 Color >> spartaFillPath: aPath with: aFillPainter [
 	aFillPainter fillPath: aPath withSolidColor: self
 ]
@@ -34,6 +39,11 @@ Color >> spartaFillTextRun: aTextRun with: aTextPainter [
 Color >> spartaMaskOn: aSpartaCanvas with: aMaskPainter [
 
 	aMaskPainter maskPaint: self
+]
+
+{ #category : #'*Sparta-Core' }
+Color >> spartaStrokeCircle: aSpartaCircle with: aStrokePainter [
+	aStrokePainter strokeCircle: aSpartaCircle withSolidColor: self
 ]
 
 { #category : #'*Sparta-Core' }

@@ -9,8 +9,7 @@ Class {
 		'familyName',
 		'style',
 		'weight',
-		'stretch',
-		'source'
+		'stretch'
 	],
 	#category : #'Sparta-Core-Text'
 }
@@ -67,16 +66,6 @@ SpartaFontFace >> printOn: aStream [
 ]
 
 { #category : #accessing }
-SpartaFontFace >> source [
-	^ source
-]
-
-{ #category : #accessing }
-SpartaFontFace >> source: anObject [
-	source := anObject
-]
-
-{ #category : #accessing }
 SpartaFontFace >> stretch [
 	^ stretch
 ]
@@ -92,18 +81,27 @@ SpartaFontFace >> style [
 ]
 
 { #category : #accessing }
-SpartaFontFace >> style: anObject [
-	style := anObject
+SpartaFontFace >> style: aSpartaFontSlant [
+	self
+		assert: [ aSpartaFontSlant isKindOf: SpartaFontSlant ]
+		description: [ 'Slant must be a refined object' ].
+
+	style := aSpartaFontSlant
 ]
 
 { #category : #accessing }
 SpartaFontFace >> weight [
-	<return: #Number>
+	<return: #SpartaFontWeight>
 
 	^ weight
 ]
 
 { #category : #accessing }
-SpartaFontFace >> weight: aNumber [
-	weight := aNumber
+SpartaFontFace >> weight: aSpartaFontWeight [
+
+	self
+		assert: [ aSpartaFontWeight isKindOf: SpartaFontWeight ]
+		description: [ 'Weight must be a refined object' ].
+
+	weight := aSpartaFontWeight
 ]

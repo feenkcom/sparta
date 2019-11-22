@@ -10,6 +10,11 @@ Form >> asSpartaPaintOn: aSpartaCanvas [
 ]
 
 { #category : #'*Sparta-Core' }
+Form >> spartaFillCircle: aSpartaCircle with: aFillPainter [
+	aFillPainter fillCircle: aSpartaCircle withForm: self
+]
+
+{ #category : #'*Sparta-Core' }
 Form >> spartaFillPath: aPath with: aFillPainter [
 	aFillPainter fillPath: aPath withForm: self
 ]
@@ -32,6 +37,11 @@ Form >> spartaFillString: aString with: aTextPainter [
 { #category : #'*Sparta-Core' }
 Form >> spartaFillTextRun: aTextRun with: aTextPainter [
 	aTextPainter fillTextRun: aTextRun withForm: self
+]
+
+{ #category : #'*Sparta-Core' }
+Form >> spartaStrokeCircle: aSpartaCircle with: aStrokePainter [
+	aStrokePainter strokeCircle: aSpartaCircle withForm: self
 ]
 
 { #category : #'*Sparta-Core' }
