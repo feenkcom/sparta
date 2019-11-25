@@ -89,12 +89,12 @@ SkiaFillPainter >> fillRectangle: aRectangle withRadialGradient: aSpartaRadialGr
 
 { #category : #drawing }
 SkiaFillPainter >> fillRectangle: aRectangle withSolidColor: aColor [
-	"blend mode = SrcOver, alpha = 1, antialias = true"
-	drawOptions ifNil: [
+
+	self requiresPaintForColor ifFalse: [
 		^ self
 			optimizedFillRectangle: aRectangle
 			withColor: aColor
-			antialias: true ].
+			antialias: self getAntialias ].
 		
 	SkiaPaint newDuring: [ :aSkiaPaint |
 		canvas surfaceCanvas
@@ -110,6 +110,12 @@ SkiaFillPainter >> fillRectangle: aRectangle withSurface: aSpartaSurfacePaint [
 
 	(aRectangle extent ~= aSpartaSurfacePaint image extent)
 		ifTrue: [ ^ self ].
+
+	(self requiresPaintForSurface: aSpartaSurfacePaint)
+		ifFalse: [
+			^ self
+				optimizedFillRectangle: aRectangle
+				withSurface: aSpartaSurfacePaint ].
 
 	SkiaPaint newDuring: [ :aSkiaPaint |
 		aSpartaSurfacePaint image snapshotDuring: [ :aSkiaImage |
@@ -141,16 +147,34 @@ SkiaFillPainter >> fillRoundedRectangle: aSpartaRounedRectangle withRadialGradie
 SkiaFillPainter >> fillRoundedRectangle: aSpartaRounedRectangle withSolidColor: aColor [
 
 	"blend mode = SrcOver, alpha = 1, antialias = true"
-	drawOptions ifNil: [
+	self requiresPaintForColor ifFalse: [
 		^ self
 			optimizedFillRoundedRectangle: aSpartaRounedRectangle
 			withColor: aColor
-			antialias: true ].
+			antialias: self getAntialias ].
 		
 	SkiaPaint newDuring: [ :aSkiaPaint |
 		canvas surfaceCanvas
 			drawRoundedRectangle: aSpartaRounedRectangle
 			paint: (self setPaint: aSkiaPaint forColor: aColor) ]
+]
+
+{ #category : #'private - accessing' }
+SkiaFillPainter >> getAlpha [
+	<return: #Boolean>
+
+	^ drawOptions
+		ifNil: [ 1.0 ]
+		ifNotNil: [ drawOptions alpha ]
+]
+
+{ #category : #'private - accessing' }
+SkiaFillPainter >> getAntialias [
+	<return: #Boolean>
+
+	^ drawOptions
+		ifNil: [ true ]
+		ifNotNil: [ drawOptions antialias ]
 ]
 
 { #category : #'private - drawing' }
@@ -162,11 +186,43 @@ SkiaFillPainter >> optimizedFillRectangle: aRectangle withColor: aColor antialia
 ]
 
 { #category : #'private - drawing' }
+SkiaFillPainter >> optimizedFillRectangle: aRectangle withSurface: aSpartaSurfacePaint [
+	aSpartaSurfacePaint image snapshotDuring: [ :aSkiaImage |
+		canvas surfaceCanvas
+			fillImage: aSkiaImage
+			at: aRectangle origin ]
+]
+
+{ #category : #'private - drawing' }
 SkiaFillPainter >> optimizedFillRoundedRectangle: aSpartaRoundedRectangle withColor: aColor antialias: isAntialias [
 	canvas surfaceCanvas
 		fillRoundedRectangle: aSpartaRoundedRectangle
 		color: aColor
 		antialias: isAntialias
+]
+
+{ #category : #'private - drawing' }
+SkiaFillPainter >> requiresPaintForColor [
+	<return: #Boolean>
+	
+	drawOptions
+		ifNil: [ ^ false ].
+
+	^ drawOptions blendMode ~= SkiaBlendMode SrcOver
+		or: [ (drawOptions alpha closeTo: 1.0) not ]
+]
+
+{ #category : #'private - drawing' }
+SkiaFillPainter >> requiresPaintForSurface: aSkiaSurfacePaint [
+	<return: #Boolean>
+	
+	drawOptions
+		ifNil: [ ^ false ].
+
+	^ drawOptions blendMode ~= SkiaBlendMode SrcOver
+		or: [ (drawOptions alpha closeTo: 1.0) not
+			or: [ drawOptions antialias
+				or: [ aSkiaSurfacePaint filterQuality ~= SkiaPaint defaultFilterQuality ] ] ]
 ]
 
 { #category : #private }
@@ -209,14 +265,15 @@ SkiaFillPainter >> setPaint: aSkiaPaint forGradient: aSkiaGradient [
 ]
 
 { #category : #private }
-SkiaFillPainter >> setPaint: aSkiaPaint forSurface: aSurface [
+SkiaFillPainter >> setPaint: aSkiaPaint forSurface: aSkiaSurfacePaint [
 	| theDrawOptions |
 
 	theDrawOptions := self ensuredDrawOptions.
 	aSkiaPaint
 		alpha: theDrawOptions alpha;
 		antialias: theDrawOptions antialias;
-		blendMode: theDrawOptions blendMode.
+		blendMode: theDrawOptions blendMode;
+		filterQuality: aSkiaSurfacePaint filterQuality.
 
 	^ aSkiaPaint
 ]

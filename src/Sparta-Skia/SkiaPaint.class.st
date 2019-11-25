@@ -4,6 +4,11 @@ Class {
 	#category : #'Sparta-Skia-External'
 }
 
+{ #category : #accessing }
+SkiaPaint class >> defaultFilterQuality [
+	^ SkiaFilterQuality None
+]
+
 { #category : #'private - ffi' }
 SkiaPaint class >> primCreate [
 	^ self ffiCall: #(void* skia_paint_default())
@@ -114,6 +119,20 @@ SkiaPaint >> dither: aBoolean [
 	self primSetDither: aBoolean
 ]
 
+{ #category : #accessing }
+SkiaPaint >> filterQuality [
+	<return: #SkiaFilterQuality>
+	
+	^ self primGetFilterQuality
+]
+
+{ #category : #accessing }
+SkiaPaint >> filterQuality: aSkiaFilterQuality [
+	<return: #SkiaFilterQuality>
+	
+	self primSetFilterQuality: aSkiaFilterQuality
+]
+
 { #category : #'gt-extension' }
 SkiaPaint >> gtInforFor: aView [
 	<gtView>
@@ -125,6 +144,7 @@ SkiaPaint >> gtInforFor: aView [
 		#capStyle -> self capStyle.
 		#color -> self color.
 		#dither -> self dither.
+		#filterQuality -> self filterQuality.
 		#joinStyle -> self joinStyle.
 		#paintStyle -> self paintStyle.
 		#shader -> self shader.
@@ -184,6 +204,11 @@ SkiaPaint >> primGetBlendMode [
 { #category : #'private - ffi' }
 SkiaPaint >> primGetColor [
 	self ffiCall: #(SkiaColor skia_paint_get_color(self))
+]
+
+{ #category : #'private - ffi' }
+SkiaPaint >> primGetFilterQuality [
+	self ffiCall: #(SkiaFilterQuality skia_paint_get_filter_quality(self))
 ]
 
 { #category : #'private - ffi' }
@@ -254,6 +279,11 @@ SkiaPaint >> primSetBlendMode: aSkiaBlendMode [
 { #category : #'private - ffi' }
 SkiaPaint >> primSetDither: isDither [
 	self ffiCall: #(void skia_paint_set_dither(self, bool isDither))
+]
+
+{ #category : #'private - ffi' }
+SkiaPaint >> primSetFilterQuality: aSkiaFilterQuality [
+	self ffiCall: #(void skia_paint_set_filter_quality(self, SkiaFilterQuality aSkiaFilterQuality))
 ]
 
 { #category : #'private - ffi' }

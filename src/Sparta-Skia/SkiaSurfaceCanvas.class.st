@@ -238,6 +238,11 @@ SkiaSurfaceCanvas >> drawTextBlobBlack: aTextBlob at: anOriginPoint antialias: i
 ]
 
 { #category : #'api - drawing optimized' }
+SkiaSurfaceCanvas >> fillImage: aSkiaImage at: anOriginPoint [
+	self primFillImage: aSkiaImage x: anOriginPoint x y: anOriginPoint y
+]
+
+{ #category : #'api - drawing optimized' }
 SkiaSurfaceCanvas >> fillRectangle: aSpartaRectangle color: aColor antialias: isAntialias [
 	self
 		primFillRectangleLeft: aSpartaRectangle left top: aSpartaRectangle top right: aSpartaRectangle right bottom: aSpartaRectangle bottom
@@ -423,6 +428,13 @@ SkiaSurfaceCanvas >> primDrawTextBlobBlack: aSkiaTextBlob x: aX y: aY antialias:
 		SkiaTextBlob aSkiaTextBlob,
 		scalar aX, scalar aY,
 		bool isAntialias))
+]
+
+{ #category : #'private - ffi optimized' }
+SkiaSurfaceCanvas >> primFillImage: aSkiaImage x: aX y: aY [
+	self ffiCall: #(void skia_canvas_fill_image_without_paint(self,
+		SkiaImage aSkiaImage,
+		scalar aX, scalar aY))
 ]
 
 { #category : #'private - ffi optimized' }
