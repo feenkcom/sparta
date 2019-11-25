@@ -363,6 +363,15 @@ SpartaRectangle >> spartaStrokeOn: aSpartaCanvas with: aSpartaStrokePainter [
 	aSpartaStrokePainter strokeRectangle: self
 ]
 
+{ #category : #'api - sparta path' }
+SpartaRectangle >> strokedBoundsOn: aSpartaCanvas with: aStrokeOptions [
+	"Return the bounds of the stroke of this path using the specified strokeoptions.
+	These bounds are not guaranteed to be tight."
+	<return: #Rectangle>
+
+	^ (left @ top corner: right @ bottom) expandBy: aStrokeOptions width
+]
+
 { #category : #accessing }
 SpartaRectangle >> top [
 	^ top

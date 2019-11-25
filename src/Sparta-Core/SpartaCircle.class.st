@@ -27,6 +27,14 @@ SpartaCircle >> center: aPoint [
 	center := aPoint
 ]
 
+{ #category : #'api - sparta path' }
+SpartaCircle >> containsPoint: aPoint on: aSpartaCanvas [
+	"Return true if a given point lies within this path as if it would be filled"
+	<return: #Boolean>
+
+	^ ((aPoint x - center x) squared + (aPoint y - center y) squared) < radius squared
+]
+
 { #category : #initialization }
 SpartaCircle >> initialize [
 	super initialize.
@@ -60,4 +68,15 @@ SpartaCircle >> spartaFillOn: aSpartaCanvas with: aSpartaFillPainter [
 { #category : #'api - sparta path' }
 SpartaCircle >> spartaStrokeOn: aSpartaCanvas with: aSpartaStrokePainter [
 	aSpartaStrokePainter strokeCircle: self
+]
+
+{ #category : #'api - sparta path' }
+SpartaCircle >> strokedBoundsOn: aSpartaCanvas with: aStrokeOptions [
+	"Return the bounds of the stroke of this path using the specified strokeoptions.
+	These bounds are not guaranteed to be tight."
+	<return: #Rectangle>
+	| aStrokedRadius |
+	
+	aStrokedRadius := radius + (aStrokeOptions width / 2.0).
+	^ self center - aStrokedRadius corner: self center + aStrokedRadius
 ]
