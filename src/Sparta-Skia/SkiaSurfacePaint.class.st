@@ -21,6 +21,13 @@ SkiaSurfacePaint >> clamp [
 ]
 
 { #category : #accessing }
+SkiaSurfacePaint >> filterQuality [
+	<return: #SkiaFilterQuality>
+
+	^ filterQuality
+]
+
+{ #category : #accessing }
 SkiaSurfacePaint >> image [
 	^ skiaImage
 ]
@@ -39,6 +46,20 @@ SkiaSurfacePaint >> initialize [
 	matrix := nil.
 
 	filterQuality := SkiaFilterQuality Low
+]
+
+{ #category : #testing }
+SkiaSurfacePaint >> isCanvas [
+	<return: #Boolean>
+
+	^ skiaImage isKindOf: SkiaCanvas
+]
+
+{ #category : #testing }
+SkiaSurfacePaint >> isImage [
+	<return: #Boolean>
+
+	^ skiaImage isKindOf: SkiaSurface
 ]
 
 { #category : #testing }
