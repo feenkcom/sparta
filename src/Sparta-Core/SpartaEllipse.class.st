@@ -37,6 +37,44 @@ SpartaEllipse >> bottom [
 	^ bottom
 ]
 
+{ #category : #'api - sparta path' }
+SpartaEllipse >> containsPoint: aPoint on: aSpartaCanvas [
+	"Return true if a given point lies within this path as if it would be filled"
+	<return: #Boolean>
+	| w h x y center xRadius yRadius normalized |
+
+	x := left.
+	y := top.
+	
+	aPoint x < left
+		ifTrue: [ ^ false ].
+		
+	aPoint x > right
+		ifTrue: [ ^ false ].
+		
+	aPoint y < top
+		ifTrue: [ ^ false ].
+		
+	aPoint y > bottom
+		ifTrue: [ ^ false ].
+
+	w := right - left.
+	h := bottom - top.
+	
+	w isZero
+		ifTrue: [ ^ false ].
+		
+	h isZero
+		ifTrue: [ ^ false ].
+	
+	xRadius := w / 2.0.
+	yRadius := h / 2.0.
+	center := (x + xRadius) @ (y + yRadius).
+
+	normalized := (aPoint x - center x) @ (aPoint y - center y).
+	^ ((normalized x squared / xRadius squared) + (normalized y squared / yRadius squared)) <= 1.0
+]
+
 { #category : #initialization }
 SpartaEllipse >> initialize [
 	super initialize.
