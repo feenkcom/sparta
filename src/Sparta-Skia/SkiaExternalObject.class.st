@@ -107,6 +107,9 @@ SkiaExternalObject class >> warning: aMessageBlock [
 SkiaExternalObject >> autoRelease [
 	"Note, subclasses should implement #resourceData
 	and #finalizeResourceData: on class side"
+	
+	self isNull
+		ifTrue: [ ^ self ].
 
 	isAutoRelease := true.
 	super autoRelease
