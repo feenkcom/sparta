@@ -24,8 +24,7 @@ Class {
 	#superclass : #SpartaGeometry,
 	#instVars : [
 		'from',
-		'to',
-		'boundsCache'
+		'to'
 	],
 	#category : #'Sparta-Core-Path'
 }
@@ -58,13 +57,6 @@ SpartaLine >> from: aFromPoint to: aToPoint [
 
 	from := aFromPoint.
 	to := aToPoint
-]
-
-{ #category : #initialization }
-SpartaLine >> initialize [
-	super initialize.
-	
-	boundsCache := SpartaStrokedBoundsCache new
 ]
 
 { #category : #dispatch }
@@ -100,13 +92,7 @@ SpartaLine >> strokedBoundsOn: aSpartaCanvas with: aStrokeOptions [
 	These bounds are not guaranteed to be tight."
 	<return: #Rectangle>
 
-	^ boundsCache
-		strokedBounds: aStrokeOptions
-		ifAbsentPut: [
-			(aSpartaCanvas path
-				moveTo: self from;
-				lineTo: self to;
-				build) strokedBoundsOn: aSpartaCanvas with: aStrokeOptions ]
+	^ (Rectangle encompassing: { self from . self to }) expandBy: (aStrokeOptions width * 2 sqrt)
 ]
 
 { #category : #accessing }

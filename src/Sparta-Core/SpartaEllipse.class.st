@@ -117,6 +117,15 @@ SpartaEllipse >> spartaClipOn: aSpartaCanvas with: aSpartaClipper [
 	aSpartaClipper pushEllipse: self
 ]
 
+{ #category : #'api - sparta path' }
+SpartaEllipse >> strokedBoundsOn: aSpartaCanvas with: aStrokeOptions [
+	"Return the bounds of the stroke of this path using the specified strokeoptions.
+	These bounds are not guaranteed to be tight."
+	<return: #Rectangle>
+
+	^ (left @ top corner: right @ bottom) expandBy: aStrokeOptions width
+]
+
 { #category : #accessing }
 SpartaEllipse >> top [
 	^ top
