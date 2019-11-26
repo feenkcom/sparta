@@ -1,17 +1,17 @@
 "
-I cache fonts with font style a key
+I cache bitmaps created from forms
 "
 Class {
-	#name : #SpartaFontCache,
+	#name : #SpartaFormCache,
 	#superclass : #LRUCache,
 	#instVars : [
 		'previousAssociation'
 	],
-	#category : #'Sparta-Core-Text'
+	#category : #'Sparta-Core-Utils'
 }
 
 { #category : #accessing }
-SpartaFontCache >> at: key ifAbsentPut: block [
+SpartaFormCache >> at: key ifAbsentPut: block [
 	"If key is present in the cache, return the associated value.
 	This is a hit and makes that key/value pair the most recently used.
 	If key is absent, use block to compute a new value and cache it.
@@ -40,7 +40,7 @@ SpartaFontCache >> at: key ifAbsentPut: block [
 ]
 
 { #category : #accessing }
-SpartaFontCache >> at: key put: value [
+SpartaFormCache >> at: key put: value [
 	"Populate me by storing value for key. Return value. 
 	This is neither a hit nor a miss. Statistics remain unchanged.
 	Overwrite if already present without promotion. 
@@ -66,14 +66,14 @@ SpartaFontCache >> at: key put: value [
 ]
 
 { #category : #initialization }
-SpartaFontCache >> initialize [
+SpartaFormCache >> initialize [
 	super initialize.
 	
 	self beThreadSafe
 ]
 
 { #category : #removing }
-SpartaFontCache >> removeAll [
+SpartaFormCache >> removeAll [
 	"Remove all key/value pairs that I currently hold,
 	effectiley resetting me, but not my statistics."
 	
@@ -85,7 +85,7 @@ SpartaFontCache >> removeAll [
 ]
 
 { #category : #removing }
-SpartaFontCache >> removeKey: key ifAbsent: block [
+SpartaFormCache >> removeKey: key ifAbsent: block [
 	"If I currently cache key, remove the entry.
 	Execute block when key is currently absent.
 	Return the removed value."

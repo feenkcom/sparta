@@ -827,6 +827,36 @@ TSpartaExamples >> benchmarkFillRectangleWithBlackColor [
 ]
 
 { #category : #benchmarks }
+TSpartaExamples >> benchmarkFillRectangleWithForm [
+	<gtExample>
+	<noTest>
+	| aCanvas aRectangle aForm |
+	
+	aCanvas := self class canvas: 300@200.
+	aCanvas fill
+		path: aCanvas bounds;
+		paint: Color white;
+		draw.
+	
+	aRectangle := 50@50 corner: 250@150.
+	
+	aForm := Form extent: aRectangle extent depth: 32.
+	aForm fillColor: Color veryLightGray.
+	aForm fill: (aForm boundingBox insetBy: 25) fillColor: Color gray.	
+		
+	[ 10000 timesRepeat: [ aCanvas fill
+		path: aRectangle;
+		paint: aForm;
+		draw ] ] timeProfile.
+		
+	
+	^ [ aCanvas fill
+		path: aRectangle;
+		paint: aForm;
+		draw ] benchFor: 2 seconds
+]
+
+{ #category : #benchmarks }
 TSpartaExamples >> benchmarkFillRectangleWithOpaqueColor [
 	<gtExample>
 	<noTest>
