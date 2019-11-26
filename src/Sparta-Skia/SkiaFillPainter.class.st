@@ -60,13 +60,11 @@ SkiaFillPainter >> fillPath: aPath withSolidColor: aColor [
 
 { #category : #drawing }
 SkiaFillPainter >> fillRectangle: aRectangle withForm: aForm [
-	
 	SkiaPaint newDuring: [ :aSkiaPaint |
-		SkiaImage fromForm: aForm during: [ :aSkiaImage |
-			canvas surfaceCanvas
-				drawImage: aSkiaImage
-				at: aRectangle origin
-				paint: (self setPaint: aSkiaPaint forForm: aForm) ] ]
+		canvas surfaceCanvas
+			drawImage: (canvas bitmap fromForm: aForm)
+			at: aRectangle origin
+			paint: (self setPaint: aSkiaPaint forForm: aForm) ]
 ]
 
 { #category : #drawing }
