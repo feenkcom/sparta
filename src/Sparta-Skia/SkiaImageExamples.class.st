@@ -15,7 +15,10 @@ SkiaImageExamples >> fromEmptyForm [
 	aSkiaImage := SkiaImage fromForm: aForm.
 	
 	self assert: aSkiaImage extent equals: 0@0.
-	self assert: aSkiaImage asForm bits asByteArray equals: aForm bits asByteArray.
+	self assert: aSkiaImage isAlphaOnly not.
+	self assert: aSkiaImage isOpaque not.
+	self assert: aSkiaImage isTextureBackend not.
+	self assert: aSkiaImage asForm bits asByteArray equals: #[].
 	
 	^ aSkiaImage
 ]
@@ -64,6 +67,23 @@ SkiaImageExamples >> fromForm_50x50 [
 	
 	self assert: aSkiaImage extent equals: 50@50.
 	self assert: aSkiaImage asForm bits asByteArray equals: aForm bits asByteArray.
+	
+	^ aSkiaImage
+]
+
+{ #category : #'examples - null ptr' }
+SkiaImageExamples >> release [
+	<gtExample>
+	| aSkiaImage |
+	
+	aSkiaImage := self fromForm_1x1.
+	aSkiaImage release.
+	
+	self assert: aSkiaImage extent equals: 0@0.
+	self assert: aSkiaImage isAlphaOnly not.
+	self assert: aSkiaImage isOpaque not.
+	self assert: aSkiaImage isTextureBackend not.
+	self assert: aSkiaImage asForm bits asByteArray equals: #[].
 	
 	^ aSkiaImage
 ]

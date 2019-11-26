@@ -43,3 +43,23 @@ SkiaImageInfoExamples >> fromExtentColorTypeAlphaType [
 	
 	^ anImageInfo
 ]
+
+{ #category : #accessing }
+SkiaImageInfoExamples >> release [
+	<gtExample>
+	| anImageInfo |
+	
+	anImageInfo := self default.
+	anImageInfo release.
+	
+	self assert: anImageInfo width equals: 0.
+	self assert: anImageInfo height equals: 0.
+	self assert: anImageInfo alphaType equals: SkiaAlphaType Unknown.
+	self assert: anImageInfo colorType equals: SkiaColorType Unknown.
+	self assert: anImageInfo bytesPerPixel equals: 0.
+	self assert: anImageInfo shiftPerPixel equals: 0.
+	self assert: anImageInfo minRowBytes equals: 0.
+	self assert: anImageInfo byteSize equals: 0.
+	
+	^ anImageInfo
+]
