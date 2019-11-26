@@ -50,12 +50,16 @@ SkiaImage class >> fromForm: aForm [
 
 { #category : #'instance creation' }
 SkiaImage class >> fromForm: aForm during: aBlock [
-	| aForm32 theBits aGtBoxerArrayU8 blueIndex greenIndex redIndex alphaIndex alpha red green blue |
+	| aForm32 theBits aGtBoxerArrayU8 blueIndex greenIndex redIndex alphaIndex alpha red green blue aRowBytes |
 	
 	aForm32 := aForm unhibernate; asFormOfDepth: 32.
 	theBits := aForm32 bits asByteArray.
 		
 	aGtBoxerArrayU8 := GtBoxerArrayU8 new: theBits size withAll: 0.
+	
+	aRowBytes := theBits
+		ifEmpty: [ 0 ]
+		ifNotEmpty: [ theBits size // aForm32 height ].
 	
 	"We should convert ARGB to RGBA"	
 	1 to: theBits size // 4 do: [ :index |
@@ -80,7 +84,7 @@ SkiaImage class >> fromForm: aForm during: aBlock [
 		primFromPixels: aGtBoxerArrayU8
 		width: aForm32 width
 		height: aForm32 height
-		rowBytes: theBits size // aForm32 height
+		rowBytes: aRowBytes
 		colorType: SkiaColorType RGBA8888) during: aBlock
 ]
 
