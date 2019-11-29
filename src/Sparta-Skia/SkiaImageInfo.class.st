@@ -71,7 +71,7 @@ SkiaImageInfo >> computeByteSize: aRowBytes [
 ]
 
 { #category : #'gt-extension' }
-SkiaImageInfo >> gtInforFor: aView [
+SkiaImageInfo >> gtInfoFor: aView [
 	<gtView>
 
 	^ ({ 

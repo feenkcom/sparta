@@ -39,7 +39,7 @@ SkiaTextureInfo >> format: aNumber [
 ]
 
 { #category : #'gt-extension' }
-SkiaTextureInfo >> gtInforFor: aView [
+SkiaTextureInfo >> gtInfoFor: aView [
 	<gtView>
 
 	^ ({

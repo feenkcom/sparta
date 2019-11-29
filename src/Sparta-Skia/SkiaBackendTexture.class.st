@@ -27,7 +27,7 @@ SkiaBackendTexture class >> primRelease: aHandle [
 ]
 
 { #category : #'gt-extension' }
-SkiaBackendTexture >> gtInforFor: aView [
+SkiaBackendTexture >> gtInfoFor: aView [
 	<gtView>
 
 	^ ({

@@ -113,6 +113,16 @@ SkiaImage >> asForm [
 ]
 
 { #category : #accessing }
+SkiaImage >> backendTexture [
+	^ SkiaBackendTexture fromNativeHandle: self primGetBackendTexture
+]
+
+{ #category : #accessing }
+SkiaImage >> backendTextureOrigin [
+	^ self primGetBackendTextureOrigin
+]
+
+{ #category : #accessing }
 SkiaImage >> data [
 	<return: #GtBoxerArrayU8>
 	| anImageInfo anArray |
@@ -129,16 +139,25 @@ SkiaImage >> extent [
 ]
 
 { #category : #'gt-extension' }
-SkiaImage >> gtImageInforFor: aView [
+SkiaImage >> gtBackendTextureFor: aView [
 	<gtView>
 
-	^ (self imageInfo gtInforFor: aView)
-		title: 'Image Info';
-		priority: 2
+	^ (self backendTexture gtInfoFor: aView)
+		title: 'Backend texture';
+		priority: 4
 ]
 
 { #category : #'gt-extension' }
-SkiaImage >> gtInforFor: aView [
+SkiaImage >> gtImageInfoFor: aView [
+	<gtView>
+
+	^ (self imageInfo gtInfoFor: aView)
+		title: 'Image Info';
+		priority: 3
+]
+
+{ #category : #'gt-extension' }
+SkiaImage >> gtInfoFor: aView [
 	<gtView>
 
 	^ ({
@@ -195,6 +214,16 @@ SkiaImage >> isTextureBackend [
 ]
 
 { #category : #'private - ffi' }
+SkiaImage >> primGetBackendTexture [
+	^ self ffiCall: #(void* skia_image_get_backend_texture(self))
+]
+
+{ #category : #'private - ffi' }
+SkiaImage >> primGetBackendTextureOrigin [
+	^ self ffiCall: #(int32 skia_image_get_backend_texture_origin(self))
+]
+
+{ #category : #'private - ffi' }
 SkiaImage >> primGetHeight [
 	^ self ffiCall: #(int32 skia_image_get_height(self))
 ]
@@ -226,7 +255,7 @@ SkiaImage >> primIsOpaque [
 
 { #category : #'private - ffi' }
 SkiaImage >> primIsTextureBackend [
-	^ self ffiCall: #(bool skia_image_is_texture_backed(self))
+	^ self ffiCall: #(bool skia_image_is_texture_backend(self))
 ]
 
 { #category : #'private - ffi' }

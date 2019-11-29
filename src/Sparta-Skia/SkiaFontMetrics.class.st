@@ -72,7 +72,7 @@ SkiaFontMetrics >> emHeight: aNumber [
 ]
 
 { #category : #'gt-extension' }
-SkiaFontMetrics >> gtInforFor: aView [
+SkiaFontMetrics >> gtInfoFor: aView [
 	<gtView>
 
 	^ ({

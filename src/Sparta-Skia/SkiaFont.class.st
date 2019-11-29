@@ -57,7 +57,7 @@ SkiaFont >> familyName [
 SkiaFont >> gtFontMetricsFor: aView [
 	<gtView>
 
-	^ (self metrics gtInforFor: aView)
+	^ (self metrics gtInfoFor: aView)
 			title: 'Metrics';
 			priority: 1
 ]
@@ -66,13 +66,13 @@ SkiaFont >> gtFontMetricsFor: aView [
 SkiaFont >> gtFontStyleFor: aView [
 	<gtView>
 
-	^ (self typeface fontStyle gtInforFor: aView)
+	^ (self typeface fontStyle gtInfoFor: aView)
 			title: 'Style';
 			priority: 4
 ]
 
 { #category : #'gt-extension' }
-SkiaFont >> gtInforFor: aView [
+SkiaFont >> gtInfoFor: aView [
 	<gtView>
 
 	^ ({
@@ -97,7 +97,7 @@ SkiaFont >> gtInforFor: aView [
 SkiaFont >> gtTypefaceFor: aView [
 	<gtView>
 
-	^ (self typeface gtInforFor: aView)
+	^ (self typeface gtInfoFor: aView)
 			title: 'Typeface';
 			priority: 3
 ]

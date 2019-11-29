@@ -17,7 +17,7 @@ SkiaShader class >> primRelease: aHandle [
 ]
 
 { #category : #'gt-extension' }
-SkiaShader >> gtInforFor: aView [
+SkiaShader >> gtInfoFor: aView [
 	<gtView>
 
 	^ ({
