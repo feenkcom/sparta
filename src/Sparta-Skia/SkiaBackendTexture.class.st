@@ -41,6 +41,15 @@ SkiaBackendTexture >> gtInfoFor: aView [
 			priority: 2
 ]
 
+{ #category : #'gt-extension' }
+SkiaBackendTexture >> gtTextureInfoFor: aView [
+	<gtView>
+
+	^ (self textureInfo gtInfoFor: aView)
+			title: 'Texture Info';
+			priority: 3
+]
+
 { #category : #testing }
 SkiaBackendTexture >> hasMipMaps [
 	^ self primHasMipMaps
@@ -59,6 +68,11 @@ SkiaBackendTexture >> isProtected [
 { #category : #testing }
 SkiaBackendTexture >> isValid [
 	^ self primIsValid
+]
+
+{ #category : #'private - ffi' }
+SkiaBackendTexture >> primGetGlTextureInfo [
+	^ self ffiCall: #(void* skia_backend_texture_get_gl_texture_info(self))
 ]
 
 { #category : #'private - ffi' }
@@ -84,6 +98,13 @@ SkiaBackendTexture >> primIsProtected [
 { #category : #'private - ffi' }
 SkiaBackendTexture >> primIsValid [
 	^ self ffiCall: #(bool skia_backend_texture_is_valid(self))
+]
+
+{ #category : #accessing }
+SkiaBackendTexture >> textureInfo [
+	<return: #SkiaTextureInfo>
+
+	^ SkiaTextureInfo fromNativeHandle: (self primGetGlTextureInfo)
 ]
 
 { #category : #accessing }

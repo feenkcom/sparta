@@ -148,6 +148,15 @@ SkiaImage >> gtBackendTextureFor: aView [
 ]
 
 { #category : #'gt-extension' }
+SkiaImage >> gtBackendTextureInfoFor: aView [
+	<gtView>
+
+	^ (self backendTexture gtTextureInfoFor: aView)
+		title: 'Backend texture info';
+		priority: 5
+]
+
+{ #category : #'gt-extension' }
 SkiaImage >> gtImageInfoFor: aView [
 	<gtView>
 
