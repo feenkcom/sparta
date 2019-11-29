@@ -134,7 +134,7 @@ SkiaPaint >> filterQuality: aSkiaFilterQuality [
 ]
 
 { #category : #'gt-extension' }
-SkiaPaint >> gtInforFor: aView [
+SkiaPaint >> gtInfoFor: aView [
 	<gtView>
 
 	^ ({

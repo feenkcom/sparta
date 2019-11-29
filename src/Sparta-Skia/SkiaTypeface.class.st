@@ -53,13 +53,13 @@ SkiaTypeface >> fontStyle [
 SkiaTypeface >> gtFontStyleFor: aView [
 	<gtView>
 
-	^ (self fontStyle gtInforFor: aView)
+	^ (self fontStyle gtInfoFor: aView)
 			title: 'Style';
 			priority: 3
 ]
 
 { #category : #'gt-extension' }
-SkiaTypeface >> gtInforFor: aView [
+SkiaTypeface >> gtInfoFor: aView [
 	<gtView>
 
 	^ ({

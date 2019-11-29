@@ -79,7 +79,7 @@ SkiaColor >> gtColorFor: aView [
 ]
 
 { #category : #'gt-extension' }
-SkiaColor >> gtInforFor: aView [
+SkiaColor >> gtInfoFor: aView [
 	<gtView>
 
 	^ ({ 

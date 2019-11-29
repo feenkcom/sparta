@@ -11,6 +11,16 @@ Class {
 }
 
 { #category : #'instance creation' }
+SkiaSurface class >> fromBackendTexture: aSkiaBackendTexture colorType: aSkiaColorType [
+	| aSkiaContext |
+
+	aSkiaContext := SkiaContext new.
+	
+	^ (self fromNativeHandle: (self primFromBackendTexture: aSkiaBackendTexture context: aSkiaContext colorType: aSkiaColorType))
+		gpuContext: aSkiaContext
+]
+
+{ #category : #'instance creation' }
 SkiaSurface class >> fromBackendTextureAsRenderTarget: aSkiaBackendTexture colorType: aSkiaColorType [
 	| aSkiaContext |
 
@@ -59,10 +69,18 @@ SkiaSurface class >> primCreate [
 ]
 
 { #category : #'private - ffi' }
+SkiaSurface class >> primFromBackendTexture: aSkiaBackendTexture context: aSkiaContext colorType: aSkiaColorType [
+	^ self ffiCall: #(void* skia_surface_from_backend_texture(
+		SkiaContext aSkiaContext,
+		SkiaBackendTexture aSkiaBackendTexture,
+		SkiaColorType aSkiaColorType))
+]
+
+{ #category : #'private - ffi' }
 SkiaSurface class >> primFromBackendTextureAsRenderTarget: aSkiaBackendTexture context: aSkiaContext colorType: aSkiaColorType [
 	^ self ffiCall: #(void* skia_surface_from_backend_texture_as_render_target(
-		SkiaBackendTexture aSkiaBackendTexture,
 		SkiaContext aSkiaContext,
+		SkiaBackendTexture aSkiaBackendTexture,
 		SkiaColorType aSkiaColorType))
 ]
 
@@ -174,10 +192,10 @@ SkiaSurface >> gpuContext: anObject [
 ]
 
 { #category : #'gt-extension' }
-SkiaSurface >> gtInforFor: aView [
+SkiaSurface >> gtInfoFor: aView [
 	<gtView>
 
-	^ (self imageInfo gtInforFor: aView)
+	^ (self imageInfo gtInfoFor: aView)
 		title: 'Info';
 		priority: 2
 ]

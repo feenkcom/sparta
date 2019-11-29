@@ -88,6 +88,48 @@ SkiaImage class >> fromForm: aForm during: aBlock [
 		colorType: SkiaColorType RGBA8888) during: aBlock
 ]
 
+{ #category : #'instance creation' }
+SkiaImage class >> fromFormFast: aForm [
+	| aForm32 theBits aRowBytes |
+	
+	aForm32 := aForm unhibernate; asFormOfDepth: 32.
+	theBits := aForm32 bits asByteArray.
+	aRowBytes := theBits
+		ifEmpty: [ 0 ]
+		ifNotEmpty: [ theBits size // aForm32 height ].
+			
+	^ GtBoxerArrayU8 fromByteArray: theBits during: [ :aBoxerArrayU8 |
+		aBoxerArrayU8 argbToRgba.
+
+		self fromNativeHandle: (self
+			primFromPixels: aBoxerArrayU8
+			width: aForm32 width
+			height: aForm32 height
+			rowBytes: aRowBytes
+			colorType: SkiaColorType RGBA8888) ]
+]
+
+{ #category : #'instance creation' }
+SkiaImage class >> fromFormFast: aForm during: aBlock [
+	| aForm32 theBits aRowBytes |
+	
+	aForm32 := aForm unhibernate; asFormOfDepth: 32.
+	theBits := aForm32 bits asByteArray.
+	aRowBytes := theBits
+		ifEmpty: [ 0 ]
+		ifNotEmpty: [ theBits size // aForm32 height ].
+			
+	^ GtBoxerArrayU8 fromByteArray: theBits during: [ :aBoxerArrayU8 |
+		aBoxerArrayU8 argbToRgba.
+		
+		self fromNativeHandle: (self
+			primFromPixels: aBoxerArrayU8
+			width: aForm32 width
+			height: aForm32 height
+			rowBytes: aRowBytes
+			colorType: SkiaColorType RGBA8888) during: aBlock ]
+]
+
 { #category : #'private - ffi' }
 SkiaImage class >> primFromPixels: aGtBoxerArrayU8 width: aWidth height: aHeight rowBytes: anAmountOfBytesPerRow colorType: aColorType [
 	^ self ffiCall: #(void* skia_image_from_pixels(
@@ -113,6 +155,16 @@ SkiaImage >> asForm [
 ]
 
 { #category : #accessing }
+SkiaImage >> backendTexture [
+	^ SkiaBackendTexture fromNativeHandle: self primGetBackendTexture
+]
+
+{ #category : #accessing }
+SkiaImage >> backendTextureOrigin [
+	^ self primGetBackendTextureOrigin
+]
+
+{ #category : #accessing }
 SkiaImage >> data [
 	<return: #GtBoxerArrayU8>
 	| anImageInfo anArray |
@@ -129,16 +181,34 @@ SkiaImage >> extent [
 ]
 
 { #category : #'gt-extension' }
-SkiaImage >> gtImageInforFor: aView [
+SkiaImage >> gtBackendTextureFor: aView [
 	<gtView>
 
-	^ (self imageInfo gtInforFor: aView)
-		title: 'Image Info';
-		priority: 2
+	^ (self backendTexture gtInfoFor: aView)
+		title: 'Backend texture';
+		priority: 4
 ]
 
 { #category : #'gt-extension' }
-SkiaImage >> gtInforFor: aView [
+SkiaImage >> gtBackendTextureInfoFor: aView [
+	<gtView>
+
+	^ (self backendTexture gtTextureInfoFor: aView)
+		title: 'Backend texture info';
+		priority: 5
+]
+
+{ #category : #'gt-extension' }
+SkiaImage >> gtImageInfoFor: aView [
+	<gtView>
+
+	^ (self imageInfo gtInfoFor: aView)
+		title: 'Image Info';
+		priority: 3
+]
+
+{ #category : #'gt-extension' }
+SkiaImage >> gtInfoFor: aView [
 	<gtView>
 
 	^ ({
@@ -195,6 +265,16 @@ SkiaImage >> isTextureBackend [
 ]
 
 { #category : #'private - ffi' }
+SkiaImage >> primGetBackendTexture [
+	^ self ffiCall: #(void* skia_image_get_backend_texture(self))
+]
+
+{ #category : #'private - ffi' }
+SkiaImage >> primGetBackendTextureOrigin [
+	^ self ffiCall: #(int32 skia_image_get_backend_texture_origin(self))
+]
+
+{ #category : #'private - ffi' }
 SkiaImage >> primGetHeight [
 	^ self ffiCall: #(int32 skia_image_get_height(self))
 ]
@@ -226,7 +306,7 @@ SkiaImage >> primIsOpaque [
 
 { #category : #'private - ffi' }
 SkiaImage >> primIsTextureBackend [
-	^ self ffiCall: #(bool skia_image_is_texture_backed(self))
+	^ self ffiCall: #(bool skia_image_is_texture_backend(self))
 ]
 
 { #category : #'private - ffi' }

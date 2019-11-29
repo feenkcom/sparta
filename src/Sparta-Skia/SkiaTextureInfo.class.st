@@ -33,8 +33,13 @@ SkiaTextureInfo >> format [
 	^ self primGetFormat
 ]
 
+{ #category : #accessing }
+SkiaTextureInfo >> format: aNumber [
+	self primSetFormat: aNumber
+]
+
 { #category : #'gt-extension' }
-SkiaTextureInfo >> gtInforFor: aView [
+SkiaTextureInfo >> gtInfoFor: aView [
 	<gtView>
 
 	^ ({
@@ -66,6 +71,11 @@ SkiaTextureInfo >> primGetId [
 { #category : #'private - ffi' }
 SkiaTextureInfo >> primGetTarget [
 	^ self ffiCall: #(uint skia_texture_info_get_target(self))
+]
+
+{ #category : #'private - ffi' }
+SkiaTextureInfo >> primSetFormat: aFormat [
+	^ self ffiCall: #(void skia_texture_info_set_format(self, uint aFormat))
 ]
 
 { #category : #printing }

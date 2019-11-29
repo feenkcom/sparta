@@ -27,7 +27,7 @@ SkiaBackendTexture class >> primRelease: aHandle [
 ]
 
 { #category : #'gt-extension' }
-SkiaBackendTexture >> gtInforFor: aView [
+SkiaBackendTexture >> gtInfoFor: aView [
 	<gtView>
 
 	^ ({
@@ -39,6 +39,15 @@ SkiaBackendTexture >> gtInforFor: aView [
 	 } asOrderedDictionary gtItemsFor: aView)
 			title: 'Info';
 			priority: 2
+]
+
+{ #category : #'gt-extension' }
+SkiaBackendTexture >> gtTextureInfoFor: aView [
+	<gtView>
+
+	^ (self textureInfo gtInfoFor: aView)
+			title: 'Texture Info';
+			priority: 3
 ]
 
 { #category : #testing }
@@ -62,28 +71,40 @@ SkiaBackendTexture >> isValid [
 ]
 
 { #category : #'private - ffi' }
+SkiaBackendTexture >> primGetGlTextureInfo [
+	^ self ffiCall: #(void* skia_backend_texture_get_gl_texture_info(self))
+]
+
+{ #category : #'private - ffi' }
 SkiaBackendTexture >> primGetHeight [
-	^ self ffiCall: #(int32 skia_backend_texture_get_height())
+	^ self ffiCall: #(int32 skia_backend_texture_get_height(self))
 ]
 
 { #category : #'private - ffi' }
 SkiaBackendTexture >> primGetWidth [
-	^ self ffiCall: #(int32 skia_backend_texture_get_width())
+	^ self ffiCall: #(int32 skia_backend_texture_get_width(self))
 ]
 
 { #category : #'private - ffi' }
 SkiaBackendTexture >> primHasMipMaps [
-	^ self ffiCall: #(bool skia_backend_texture_has_mip_maps())
+	^ self ffiCall: #(bool skia_backend_texture_has_mip_maps(self))
 ]
 
 { #category : #'private - ffi' }
 SkiaBackendTexture >> primIsProtected [
-	^ self ffiCall: #(bool skia_backend_texture_is_protected())
+	^ self ffiCall: #(bool skia_backend_texture_is_protected(self))
 ]
 
 { #category : #'private - ffi' }
 SkiaBackendTexture >> primIsValid [
-	^ self ffiCall: #(bool skia_backend_texture_is_valid())
+	^ self ffiCall: #(bool skia_backend_texture_is_valid(self))
+]
+
+{ #category : #accessing }
+SkiaBackendTexture >> textureInfo [
+	<return: #SkiaTextureInfo>
+
+	^ SkiaTextureInfo fromNativeHandle: (self primGetGlTextureInfo)
 ]
 
 { #category : #accessing }

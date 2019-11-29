@@ -30,7 +30,7 @@ SkiaFontStyle class >> weight: aWeightNumber width: aSkiaFontStyleWidth slant: a
 ]
 
 { #category : #'gt-extension' }
-SkiaFontStyle >> gtInforFor: aView [
+SkiaFontStyle >> gtInfoFor: aView [
 	<gtView>
 
 	^ ({
