@@ -88,6 +88,48 @@ SkiaImage class >> fromForm: aForm during: aBlock [
 		colorType: SkiaColorType RGBA8888) during: aBlock
 ]
 
+{ #category : #'instance creation' }
+SkiaImage class >> fromFormFast: aForm [
+	| aForm32 theBits aRowBytes |
+	
+	aForm32 := aForm unhibernate; asFormOfDepth: 32.
+	theBits := aForm32 bits asByteArray.
+	aRowBytes := theBits
+		ifEmpty: [ 0 ]
+		ifNotEmpty: [ theBits size // aForm32 height ].
+			
+	^ GtBoxerArrayU8 fromByteArray: theBits during: [ :aBoxerArrayU8 |
+		aBoxerArrayU8 argbToRgba.
+
+		self fromNativeHandle: (self
+			primFromPixels: aBoxerArrayU8
+			width: aForm32 width
+			height: aForm32 height
+			rowBytes: aRowBytes
+			colorType: SkiaColorType RGBA8888) ]
+]
+
+{ #category : #'instance creation' }
+SkiaImage class >> fromFormFast: aForm during: aBlock [
+	| aForm32 theBits aRowBytes |
+	
+	aForm32 := aForm unhibernate; asFormOfDepth: 32.
+	theBits := aForm32 bits asByteArray.
+	aRowBytes := theBits
+		ifEmpty: [ 0 ]
+		ifNotEmpty: [ theBits size // aForm32 height ].
+			
+	^ GtBoxerArrayU8 fromByteArray: theBits during: [ :aBoxerArrayU8 |
+		aBoxerArrayU8 argbToRgba.
+		
+		self fromNativeHandle: (self
+			primFromPixels: aBoxerArrayU8
+			width: aForm32 width
+			height: aForm32 height
+			rowBytes: aRowBytes
+			colorType: SkiaColorType RGBA8888) during: aBlock ]
+]
+
 { #category : #'private - ffi' }
 SkiaImage class >> primFromPixels: aGtBoxerArrayU8 width: aWidth height: aHeight rowBytes: anAmountOfBytesPerRow colorType: aColorType [
 	^ self ffiCall: #(void* skia_image_from_pixels(
