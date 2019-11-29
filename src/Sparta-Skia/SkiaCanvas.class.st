@@ -1,3 +1,50 @@
+"
+The following is an example of SkiaCanvas using a texture as a render target
+
+aContext := GlutinContextBuilder headless.
+aContext makeCurrent.
+
+gl := aContext gl.
+
+texture := GlutinGLTexture new.
+texture id: gl gen_texture.
+texture extent: 200@200.
+texture formatRGBA8888.
+texture internalFormatRGBA.
+texture typeUInt8888.
+
+gl bind_texture_2d: texture id.
+gl
+	tex_image_2d_level: 0
+	internalformat: texture internalFormat
+	width: texture width
+	height: texture height
+	border: 0
+	format: texture internalFormat
+	type: texture type
+	pixels: nil
+	length: 0.
+
+textureInfo := (SkiaTextureInfo
+	target: texture target
+	id: texture id) format: texture format.
+backendTexture := SkiaBackendTexture
+	extent: texture extent
+	mipMapped: true
+	textureInfo: textureInfo.
+
+canvas := SkiaCanvas
+	createFromBackendTextureAsRenderTarget: backendTexture
+	format: SkiaColorType RGBA8888.
+
+canvas fill
+	path: canvas bounds;
+	paint: Color red;
+	draw.
+
+canvas flush.
+canvas snapshot
+"
 Class {
 	#name : #SkiaCanvas,
 	#superclass : #SpartaCanvas,
