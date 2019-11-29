@@ -33,6 +33,14 @@ SkiaCanvas class >> createForData: aData extent: aPoint stride: aStride format: 
 ]
 
 { #category : #'api - instance creation' }
+SkiaCanvas class >> createFromBackendTextureAsRenderTarget: aSkiaBackendTexture format: aSkiaColorType [
+	| aSurface |
+		
+	aSurface := SkiaSurface fromBackendTextureAsRenderTarget: aSkiaBackendTexture colorType: aSkiaColorType.
+	^ self new initializeWith: aSurface
+]
+
+{ #category : #'api - instance creation' }
 SkiaCanvas class >> createFromRenderTarget: aSkiaBackendRenderTarget format: aSkiaColorType [
 	| aSurface |
 		

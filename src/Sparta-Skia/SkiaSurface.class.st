@@ -11,6 +11,16 @@ Class {
 }
 
 { #category : #'instance creation' }
+SkiaSurface class >> fromBackendTextureAsRenderTarget: aSkiaBackendTexture colorType: aSkiaColorType [
+	| aSkiaContext |
+
+	aSkiaContext := SkiaContext new.
+	
+	^ (self fromNativeHandle: (self primFromBackendTextureAsRenderTarget: aSkiaBackendTexture context: aSkiaContext colorType: aSkiaColorType))
+		gpuContext: aSkiaContext
+]
+
+{ #category : #'instance creation' }
 SkiaSurface class >> fromRenderTarget: aSkiaBackendRenderTarget colorType: aSkiaColorType [
 	| aSkiaContext |
 
@@ -46,6 +56,14 @@ SkiaSurface class >> newRenderTargetImageInfo: aSkiaImageInfo [
 { #category : #'private - ffi' }
 SkiaSurface class >> primCreate [
 	^ self ffiCall: #(void* skia_surface_new_default())
+]
+
+{ #category : #'private - ffi' }
+SkiaSurface class >> primFromBackendTextureAsRenderTarget: aSkiaBackendTexture context: aSkiaContext colorType: aSkiaColorType [
+	^ self ffiCall: #(void* skia_surface_from_backend_texture_as_render_target(
+		SkiaBackendTexture aSkiaBackendTexture,
+		SkiaContext aSkiaContext,
+		SkiaColorType aSkiaColorType))
 ]
 
 { #category : #'private - ffi' }
