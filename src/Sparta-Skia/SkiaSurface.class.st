@@ -61,8 +61,8 @@ SkiaSurface class >> primCreate [
 { #category : #'private - ffi' }
 SkiaSurface class >> primFromBackendTextureAsRenderTarget: aSkiaBackendTexture context: aSkiaContext colorType: aSkiaColorType [
 	^ self ffiCall: #(void* skia_surface_from_backend_texture_as_render_target(
-		SkiaBackendTexture aSkiaBackendTexture,
 		SkiaContext aSkiaContext,
+		SkiaBackendTexture aSkiaBackendTexture,
 		SkiaColorType aSkiaColorType))
 ]
 
