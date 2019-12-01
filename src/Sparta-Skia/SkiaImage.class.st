@@ -9,22 +9,20 @@ Class {
 { #category : #'instance creation' }
 SkiaImage class >> fromForm: aForm [
 	| aForm32 theBits aRowBytes |
-	
+
 	aForm32 := aForm unhibernate; asFormOfDepth: 32.
-	theBits := aForm32 bits asByteArray.
+	theBits := aForm32 bits.
 	aRowBytes := theBits
 		ifEmpty: [ 0 ]
-		ifNotEmpty: [ theBits size // aForm32 height ].
-			
-	^ GtBoxerArrayU8 fromByteArray: theBits during: [ :aBoxerArrayU8 |
-		aBoxerArrayU8 argbToRgba.
+		ifNotEmpty: [ theBits size // aForm32 height * 4 ].
 
+	^ GtBoxerArrayU8 fromBitmap: theBits during: [ :aBoxerArrayU8 |
 		self fromNativeHandle: (self
 			primFromPixels: aBoxerArrayU8
 			width: aForm32 width
 			height: aForm32 height
 			rowBytes: aRowBytes
-			colorType: SkiaColorType RGBA8888) ]
+			colorType: SkiaColorType BGRA8888) ]
 ]
 
 { #category : #'instance creation' }
@@ -32,20 +30,18 @@ SkiaImage class >> fromForm: aForm during: aBlock [
 	| aForm32 theBits aRowBytes |
 	
 	aForm32 := aForm unhibernate; asFormOfDepth: 32.
-	theBits := aForm32 bits asByteArray.
+	theBits := aForm32 bits.
 	aRowBytes := theBits
 		ifEmpty: [ 0 ]
-		ifNotEmpty: [ theBits size // aForm32 height ].
+		ifNotEmpty: [ theBits size // aForm32 height * 4 ].
 			
-	^ GtBoxerArrayU8 fromByteArray: theBits during: [ :aBoxerArrayU8 |
-		aBoxerArrayU8 argbToRgba.
-		
+	^ GtBoxerArrayU8 fromBitmap: theBits during: [ :aBoxerArrayU8 |
 		self fromNativeHandle: (self
 			primFromPixels: aBoxerArrayU8
 			width: aForm32 width
 			height: aForm32 height
 			rowBytes: aRowBytes
-			colorType: SkiaColorType RGBA8888) during: aBlock ]
+			colorType: SkiaColorType BGRA8888) during: aBlock ]
 ]
 
 { #category : #'private - ffi' }
@@ -68,8 +64,17 @@ SkiaImage class >> primRelease: aHandle [
 { #category : #converting }
 SkiaImage >> asForm [
 	<return: #Form>
+	| theData aColorType |
 	
-	^ Form extent: self extent depth: 32 bits: self data asBitmap
+	theData := self data.
+	
+	aColorType := self imageInfo colorType.
+	aColorType = SkiaColorType RGBA8888
+		ifTrue: [ theData rgbaToArgb ].
+	aColorType = SkiaColorType BGRA8888
+		ifTrue: [ theData bgraToArgb ].
+	
+	^ Form extent: self extent depth: 32 bits: theData asBitmap
 ]
 
 { #category : #accessing }
