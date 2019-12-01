@@ -21,7 +21,7 @@ SkiaFontManagerExamples >> newTypeface [
 	<noTest>
 	| aFontData aFontManager aTypeface |
 	
-	aFontData := BrGlamorousFonts sourceSansProItalic.
+	aFontData := BrGlamorousFonts sourceSansPro400Italic.
 	aFontManager := self default.
 	
 	aTypeface := aFontManager newTypeface: aFontData.
