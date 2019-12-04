@@ -494,6 +494,60 @@ TSpartaExamples >> arc_ccw_from_100_100_to_100_200_angle_180 [
 ]
 
 { #category : #'examples - path arc to' }
+TSpartaExamples >> arc_ccw_from_100_100_to_150_150_angle_270 [
+	<gtExample>
+	| aCanvas aPath |
+
+	aCanvas := self class canvas: 400@300.
+	
+	aPath := aCanvas path
+		absolute;
+		moveTo: 100@100;
+		arcTo: 150@150 angle: Float pi * 3.0 / 2.0 cw: false;
+		build.
+
+	aCanvas fill
+		paint: (Color gray alpha: 0.2);
+		path: aPath;
+		draw.
+
+	aCanvas stroke
+		paint: Color black;
+		path: aPath;
+		width: 2;
+		draw.
+
+	^ aCanvas
+]
+
+{ #category : #'examples - path arc to' }
+TSpartaExamples >> arc_ccw_from_100_100_to_150_150_angle_270_negated [
+	<gtExample>
+	| aCanvas aPath |
+
+	aCanvas := self class canvas: 400@300.
+	
+	aPath := aCanvas path
+		absolute;
+		moveTo: 100@100;
+		arcTo: 150@150 angle: Float pi * 3.0 / 2.0 negated cw: false;
+		build.
+
+	aCanvas fill
+		paint: (Color gray alpha: 0.2);
+		path: aPath;
+		draw.
+
+	aCanvas stroke
+		paint: Color black;
+		path: aPath;
+		width: 2;
+		draw.
+
+	^ aCanvas
+]
+
+{ #category : #'examples - path arc to' }
 TSpartaExamples >> arc_ccw_from_100_100_to_150_150_angle_90 [
 	<gtExample>
 	| aCanvas aPath |
@@ -504,6 +558,33 @@ TSpartaExamples >> arc_ccw_from_100_100_to_150_150_angle_90 [
 		absolute;
 		moveTo: 100@100;
 		arcTo: 150@150 angle: Float pi / 2.0 cw: false;
+		build.
+
+	aCanvas fill
+		paint: (Color gray alpha: 0.2);
+		path: aPath;
+		draw.
+
+	aCanvas stroke
+		paint: Color black;
+		path: aPath;
+		width: 2;
+		draw.
+
+	^ aCanvas
+]
+
+{ #category : #'examples - path arc to' }
+TSpartaExamples >> arc_ccw_from_100_100_to_150_150_angle_90_negated [
+	<gtExample>
+	| aCanvas aPath |
+
+	aCanvas := self class canvas: 400@300.
+	
+	aPath := aCanvas path
+		absolute;
+		moveTo: 100@100;
+		arcTo: 150@150 angle: Float pi / 2.0 negated cw: false;
 		build.
 
 	aCanvas fill

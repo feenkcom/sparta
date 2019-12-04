@@ -56,8 +56,16 @@ SkiaPathBuilder >> arcAround: aCenterPoint radius: aRadius startAngle: aStartAng
 { #category : #private }
 SkiaPathBuilder >> arcTo: aToPoint angle: anAngle cw: isClockwise [
 	"Add a clockwise arc segment, starting from current path endpoint and
-	ending at andPt. Angle should be specified in radians"
-	| aCurrentPoint aTargetPoint aMiddlePoint aCenter aRadius aStartAngle aCenterNormal aCenterAngle anEndAngle |
+	ending at andPt. Angle should be specified in radians.
+	
+	anAngle must be within interval [ - 2 Pi ... 2 Pi ]	"	
+	| aTargetAngle aCurrentPoint aTargetPoint aMiddlePoint aCenter aRadius aStartAngle aCenterNormal anEndAngle |
+	
+	aTargetAngle := anAngle min: Float pi * 2 max: Float pi * 2 negated.
+	
+	"-270 angle is same as 90 and vice versa"
+	aTargetAngle < 0
+		ifTrue: [ aTargetAngle := (aTargetAngle + (Float pi * 2)) max: 0 ].
 	
 	aCurrentPoint := 0@0.
 	path lastPointDo: [ :aPoint | aCurrentPoint := aPoint ].
@@ -71,30 +79,23 @@ SkiaPathBuilder >> arcTo: aToPoint angle: anAngle cw: isClockwise [
 		ifTrue: [ ^ self ].
 
 	aMiddlePoint := aCurrentPoint + ((aTargetPoint - aCurrentPoint) / 2.0).
+	aCenterNormal := (aTargetPoint - aCurrentPoint) normal.
 	
-	"180 angles are supported"
-	aCenterAngle := anAngle abs > Float pi
-		ifTrue: [ anAngle % (Float pi * anAngle sign) ]
-		ifFalse: [ anAngle ].
-
-	aCenterNormal := (aMiddlePoint - aCurrentPoint) normal.
-	anAngle abs > Float pi
-		ifTrue: [ aCenterNormal := aCenterNormal negated ].
-
-	aCenter := aMiddlePoint + (aCenterNormal * (aCurrentPoint distanceTo: aMiddlePoint) / (aCenterAngle / 2.0) tan).
+	isClockwise
+		ifFalse: [ aCenterNormal := aCenterNormal negated ].
+		
+	aCenter := aMiddlePoint + (aCenterNormal * (aCurrentPoint distanceTo: aMiddlePoint) / (aTargetAngle / 2.0) tan).
 	
 	aRadius := aCenter distanceTo: aTargetPoint.
+	
 	aStartAngle := (1 - (((aCurrentPoint distanceTo: (aCenter + (aRadius @ 0))) raisedTo: 2) / (2 * aRadius * aRadius))) arcCos.
 
 	aCurrentPoint y <= aCenter y
 		ifTrue: [ aStartAngle := aStartAngle negated ].
 
 	anEndAngle := isClockwise
-		ifTrue: [ aStartAngle + anAngle ]
-		ifFalse: [
-			anAngle abs < Float pi
-				ifTrue: [ aStartAngle - (aCenterAngle + Float pi) ]
-				ifFalse: [ aStartAngle - aCenterAngle ] ].
+		ifTrue: [ aStartAngle + aTargetAngle ]
+		ifFalse: [ aStartAngle - aTargetAngle ].
 	
 	self
 		arcAround: (isAbsolute
