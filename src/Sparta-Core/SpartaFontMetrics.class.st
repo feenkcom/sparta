@@ -60,6 +60,29 @@ SpartaFontMetrics >> fontSize [
 	^ fontSize
 ]
 
+{ #category : #'gt-extension' }
+SpartaFontMetrics >> gtInfoFor: aView [
+	<gtView>
+
+	^ ({
+		#ascent -> self ascent.
+		#averageCharWidth -> self averageCharWidth.
+		#capHeight -> self capHeight.
+		#descent  -> self descent.
+		#fontSize  -> self fontSize.
+		#leading -> self leading.
+		#lineSpacing -> self lineSpacing.
+		#maxCharacterWidth -> self maxCharacterWidth.
+		#strikeoutOffset -> self strikeoutOffset.
+		#strikeoutSize -> self strikeoutSize.
+		#underlineOffset -> self underlineOffset.
+		#underlineSize -> self underlineSize.
+		#xHeight -> self xHeight.
+	 } asOrderedDictionary gtItemsFor: aView)
+			title: 'Info';
+			priority: 2
+]
+
 { #category : #accessing }
 SpartaFontMetrics >> leading [
 	"Describes how much extra space the font designer expects the application to leave between rows of the font,
