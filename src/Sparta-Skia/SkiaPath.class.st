@@ -90,7 +90,7 @@ SkiaPath >> containsPoint: aPoint on: aSpartaCanvas [
 	"Return true if a given point lies within this path as if it would be filled"
 	<return: #Boolean>
 
-	^ false
+	^ self primContainsPointX: aPoint x y: aPoint y
 ]
 
 { #category : #'api - path' }
@@ -209,6 +209,11 @@ SkiaPath >> primArcToLeft: aLeft top: aTop right: aRight bottom: aBottom start: 
 { #category : #'private - ffi' }
 SkiaPath >> primClose [
 	^ self ffiCall: #(size_t skia_path_close(self))
+]
+
+{ #category : #'private - ffi' }
+SkiaPath >> primContainsPointX: aX y: aY [
+	^ self ffiCall: #(bool skia_path_contains_point(self, float32 aX, float32 aY))
 ]
 
 { #category : #'private - ffi' }
