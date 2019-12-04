@@ -59,7 +59,7 @@ SkiaFont >> gtFontMetricsFor: aView [
 
 	^ (self metrics gtInfoFor: aView)
 			title: 'Metrics';
-			priority: 1
+			priority: 2
 ]
 
 { #category : #'gt-extension' }
@@ -68,7 +68,7 @@ SkiaFont >> gtFontStyleFor: aView [
 
 	^ (self typeface fontStyle gtInfoFor: aView)
 			title: 'Style';
-			priority: 4
+			priority: 5
 ]
 
 { #category : #'gt-extension' }
@@ -90,7 +90,53 @@ SkiaFont >> gtInfoFor: aView [
 		#skew -> self skew.
 	 } asOrderedDictionary gtItemsFor: aView)
 			title: 'Info';
-			priority: 2
+			priority: 3
+]
+
+{ #category : #'gt-extension' }
+SkiaFont >> gtPreviewFor: aView [
+	<gtView>
+
+	^ aView explicit
+		title: 'Preview';
+		priority: 1;
+		stencil: [
+			| aSkiaCanvas aString aFont theMeasuredLines aMaxWidth aMaxHeight aBaseline |
+			
+			aSkiaCanvas := SkiaCanvas extent: 1@1.
+			
+			aFont := self.
+
+			aString := 'ABCDEFGHIJKLM
+NOPQRSTUVWXYZ
+abcdefghijklm
+nopqrstuvwxyz
+1234567890'.
+
+			theMeasuredLines := aString lines collect: [ :eachLine |
+				eachLine -> (aSkiaCanvas text
+					font: aFont;
+					string: eachLine;
+					measure) ].
+			
+			aMaxWidth := theMeasuredLines max: [ :eachMeasuredLine | eachMeasuredLine value textMetrics width ].
+			aMaxHeight := theMeasuredLines sum: [ :eachMeasuredLine | eachMeasuredLine value fontMetrics lineSpacing ].
+			aSkiaCanvas release.
+				
+			aSkiaCanvas := SkiaCanvas extent: (aMaxWidth @ aMaxHeight) + 40.
+			
+			aBaseline := theMeasuredLines first value fontMetrics ascent negated + 20.
+			theMeasuredLines do: [ :eachMeasuredLine |
+				
+				aSkiaCanvas text
+					font: aFont;
+					string: eachMeasuredLine key;
+					baseline: ((aSkiaCanvas width - eachMeasuredLine value textMetrics width) / 2.0) @ aBaseline;
+					paint: Color black;
+					draw.
+				
+				aBaseline := aBaseline +  eachMeasuredLine value fontMetrics lineSpacing ].
+			aSkiaCanvas asForm asElement ]
 ]
 
 { #category : #'gt-extension' }
@@ -99,7 +145,7 @@ SkiaFont >> gtTypefaceFor: aView [
 
 	^ (self typeface gtInfoFor: aView)
 			title: 'Typeface';
-			priority: 3
+			priority: 4
 ]
 
 { #category : #accessing }

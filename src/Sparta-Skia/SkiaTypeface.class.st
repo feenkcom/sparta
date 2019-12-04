@@ -35,6 +35,13 @@ SkiaTypeface class >> primRelease: aHandle [
 	self ffiCall: #(void skia_typeface_drop(void* aHandle))
 ]
 
+{ #category : #copying }
+SkiaTypeface >> clone [
+	<return: #SkiaTypeface>
+
+	^ self class fromNativeHandle: self primClone
+]
+
 { #category : #accessing }
 SkiaTypeface >> familyName [
 	<return: #String>
@@ -77,46 +84,9 @@ SkiaTypeface >> gtInfoFor: aView [
 SkiaTypeface >> gtPreviewFor: aView [
 	<gtView>
 
-	^ aView explicit
+	^ ((SkiaFont typeface: self clone size: 40) gtPreviewFor: aView)
 		title: 'Preview';
-		priority: 1;
-		stencil: [
-			| aSkiaCanvas aString aFont theMeasuredLines aMaxWidth aMaxHeight aBaseline |
-			
-			aSkiaCanvas := SkiaCanvas extent: 1@1.
-			
-			aFont := SkiaFont typeface: self size: 40.
-
-			aString := 'ABCDEFGHIJKLM
-NOPQRSTUVWXYZ
-abcdefghijklm
-nopqrstuvwxyz
-1234567890'.
-
-			theMeasuredLines := aString lines collect: [ :eachLine |
-				eachLine -> (aSkiaCanvas text
-					font: aFont;
-					string: eachLine;
-					measure) ].
-			
-			aMaxWidth := theMeasuredLines max: [ :eachMeasuredLine | eachMeasuredLine value textMetrics width ].
-			aMaxHeight := theMeasuredLines sum: [ :eachMeasuredLine | eachMeasuredLine value fontMetrics lineSpacing ].
-			aSkiaCanvas release.
-				
-			aSkiaCanvas := SkiaCanvas extent: (aMaxWidth @ aMaxHeight) + 40.
-			
-			aBaseline := theMeasuredLines first value fontMetrics ascent negated + 20.
-			theMeasuredLines do: [ :eachMeasuredLine |
-				
-				aSkiaCanvas text
-					font: aFont;
-					string: eachMeasuredLine key;
-					baseline: ((aSkiaCanvas width - eachMeasuredLine value textMetrics width) / 2.0) @ aBaseline;
-					paint: Color black;
-					draw.
-				
-				aBaseline := aBaseline +  eachMeasuredLine value fontMetrics lineSpacing ].
-			aSkiaCanvas asForm asElement ]
+		priority: 1
 ]
 
 { #category : #testing }
@@ -132,6 +102,11 @@ SkiaTypeface >> isFixedPitch [
 { #category : #testing }
 SkiaTypeface >> isItalic [
 	^ self primIsItalic
+]
+
+{ #category : #'private - ffi' }
+SkiaTypeface >> primClone [
+	^ self ffiCall: #(void* skia_typeface_clone(self))
 ]
 
 { #category : #'private - ffi' }
