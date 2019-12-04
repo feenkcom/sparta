@@ -27,6 +27,8 @@ SpartaMetrics >> canvas: aSpartaCanvas [
 
 { #category : #metrics }
 SpartaMetrics >> fontMetrics [
+	<return: #SpartaFontMetrics>
+
 	^ fontMetrics
 ]
 
@@ -56,6 +58,8 @@ SpartaMetrics >> spacing: aNumber [
 
 { #category : #metrics }
 SpartaMetrics >> textMetrics [
+	<return: #SpartaTextMetrics>
+
 	^ textMetrics
 ]
 

@@ -43,11 +43,12 @@ SkiaFontStyleSet >> gtFontStylesFor: aView [
 	^ aView columnedList
 		title: 'Styles' translated;
 		priority: 10;
-		items: [ self fontStylesWithNames ];
-		column: 'Name' item: [ :each | each value ] width: 100;
-		column: 'Weight' item: [ :each | each key weight ] width: 50;
-		column: 'Slant' item: [ :each | each key slant item ] width: 100;
-		column: 'Width' item: [ :each | each key width item ] width: 100
+		items: [ self fontStylesWithNames withIndexCollect: [ :eachAssociation :anIndex | { anIndex . eachAssociation } ]  ];
+		column: 'Name' item: [ :each | each second value ] width: 100;
+		column: 'Weight' item: [ :each | each second key weight ] width: 50;
+		column: 'Slant' item: [ :each | each second key slant item ] width: 100;
+		column: 'Width' item: [ :each | each second key width item ] width: 100;
+		send: [ :each | self typefaceAt: each first ]
 ]
 
 { #category : #'private - ffi' }
@@ -61,6 +62,11 @@ SkiaFontStyleSet >> primFontStyleAt: anIndex [
 ]
 
 { #category : #'private - ffi' }
+SkiaFontStyleSet >> primNewTypefaceAt: anIndex [
+	^ self ffiCall: #(void* skia_font_style_set_new_typeface(self, size_t anIndex))
+]
+
+{ #category : #'private - ffi' }
 SkiaFontStyleSet >> primStyleName: aGtBoxerString at: anIndex [
 	^ self ffiCall: #(void skia_font_style_set_name_at(self, size_t anIndex, GtBoxerString aGtBoxerString))
 ]
@@ -70,4 +76,11 @@ SkiaFontStyleSet >> size [
 	<return: #Number>
 
 	^ self primCount
+]
+
+{ #category : #accessing }
+SkiaFontStyleSet >> typefaceAt: anIndex [
+	<return: #SkiaTypeface>
+	
+	^ SkiaTypeface fromNativeHandle: (self primNewTypefaceAt: anIndex - 1)
 ]
