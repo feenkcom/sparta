@@ -83,11 +83,9 @@ SkiaFontManager >> matchFamilyName: aFamilyName weight: aWeightNumber width: aSk
 { #category : #'instance creation' }
 SkiaFontManager >> newTypeface: aByteArray [
 	"I create a new typeface from a given byte array"
-	| aGtBoxerArrayU8 |
 	
-	aGtBoxerArrayU8 := GtBoxerArrayU8 withAll: aByteArray.
-	^ [ SkiaTypeface fromNativeHandle: (self primNewTypefaceFromData: aGtBoxerArrayU8) ]
-		ensure: [ aGtBoxerArrayU8 release ]
+	^ GtBoxerArrayU8 fromByteArray: aByteArray during: [ :aGtBoxerArrayU8 |
+		SkiaTypeface fromNativeHandle: (self primNewTypefaceFromData: aGtBoxerArrayU8) ]
 ]
 
 { #category : #'private - ffi' }
