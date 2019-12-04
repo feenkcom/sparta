@@ -56,7 +56,21 @@ SkiaFontManager >> gtFamilyNamesFor: aView [
 	^ aView list
 		title: 'Families';
 		priority: 10;
-		items: [ self familyNames ]
+		items: [ self familyNames ];
+		send: [ :aFamilyName | self matchFamilyName: aFamilyName ]
+]
+
+{ #category : #'gt-extension' }
+SkiaFontManager >> gtSpotterForFamilyNamesFor: aStep [
+	<gtSearch>
+	^ aStep listProcessor
+		priority: 20;
+		allCandidates: [ self familyNames ];
+		title: 'Families';
+		candidatesLimit: Float infinity;
+		previewElement: [ :aFamilyName | ((self matchFamilyName: aFamilyName) gtFontStylesFor: GtPhlowEmptyView new) asElementDo: #yourself ];
+		send: [ :aFamilyName | self matchFamilyName: aFamilyName ];
+		filter: GTFilterSubstring
 ]
 
 { #category : #private }
