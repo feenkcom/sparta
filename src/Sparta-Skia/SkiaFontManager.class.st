@@ -123,7 +123,7 @@ SkiaFontManager >> primMatchFamilyName: aGtBoxerString [
 SkiaFontManager >> primMatchFamilyName: aGtBoxerString weight: aWeight width: aSkiaFontStyleWidth slant: aSkiaFontStyleSlant [
 	^ self ffiCall: #(void* skia_font_manager_match_family_style(
 		self,
-		GtBoxerString aGtBoxerString
+		GtBoxerString aGtBoxerString,
 		int32 aWeight,
 		SkiaFontStyleWidth aSkiaFontStyleWidth,
 		SkiaFontStyleSlant aSkiaFontStyleSlant))
