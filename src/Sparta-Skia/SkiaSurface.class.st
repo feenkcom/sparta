@@ -131,7 +131,7 @@ SkiaSurface >> alphaType [
 SkiaSurface >> asForm [
 	<return: #Form>
 	
-	^ Form extent: self extent depth: 32 bits: self data asBitmap
+	^ self snapshot asForm
 ]
 
 { #category : #accessing }
