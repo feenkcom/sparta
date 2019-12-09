@@ -151,10 +151,10 @@ gl
 	type: gl GL_UNSIGNED_INT_8_8_8_8_REV
 	pixels: GtBoxerArrayU8 null.
 
-gl tex_parameter_i: gl GL_TEXTURE_2D at: gl GL_TEXTURE_MAG_FILTER put: gl GL_NEAREST.
-gl tex_parameter_i: gl GL_TEXTURE_2D at: gl GL_TEXTURE_MIN_FILTER put: gl GL_NEAREST.
-gl tex_parameter_i: gl GL_TEXTURE_2D at: gl GL_TEXTURE_WRAP_S put: gl GL_CLAMP_TO_EDGE.
-gl tex_parameter_i: gl GL_TEXTURE_2D at: gl GL_TEXTURE_WRAP_T put: gl GL_CLAMP_TO_EDGE.
+gl tex_parameter_i: gl GL_TEXTURE_2D name: gl GL_TEXTURE_MAG_FILTER param: gl GL_NEAREST.
+gl tex_parameter_i: gl GL_TEXTURE_2D name: gl GL_TEXTURE_MIN_FILTER param: gl GL_NEAREST.
+gl tex_parameter_i: gl GL_TEXTURE_2D name: gl GL_TEXTURE_WRAP_S param: gl GL_CLAMP_TO_EDGE.
+gl tex_parameter_i: gl GL_TEXTURE_2D name: gl GL_TEXTURE_WRAP_T param: gl GL_CLAMP_TO_EDGE.
 
 depthbuffer := gl gen_renderbuffer.
 gl bind_renderbuffer: depthbuffer target: gl GL_RENDERBUFFER.
