@@ -123,6 +123,92 @@ SkiaCanvas class >> drawOptions [
 	^ SkiaDrawOptions
 ]
 
+{ #category : #'private - examples' }
+SkiaCanvas class >> exampleHeadlessFromTexture [
+"textureSize := 400@400.
+
+context := GlutinContextBuilder headless.
+context makeCurrent.
+
+gl := GtGleamGL loadGl: [ :aString | context getProcAddress: aString ].
+
+framebuffer := gl gen_framebuffer.
+gl bind_framebuffer: framebuffer target: gl GL_FRAMEBUFFER.
+
+gl enable: gl GL_TEXTURE_2D.
+texture := gl gen_texture.
+
+gl bind_texture: texture target: gl GL_TEXTURE_2D.
+
+gl
+	tex_image_2d: gl GL_TEXTURE_2D
+	level: 0
+	internalFormat: gl GL_RGBA8
+	width: textureSize x
+	height: textureSize y
+	border: 0
+	format: gl GL_RGBA
+	type: gl GL_UNSIGNED_INT_8_8_8_8_REV
+	pixels: GtBoxerArrayU8 null.
+
+gl tex_parameter_i: gl GL_TEXTURE_2D at: gl GL_TEXTURE_MAG_FILTER put: gl GL_NEAREST.
+gl tex_parameter_i: gl GL_TEXTURE_2D at: gl GL_TEXTURE_MIN_FILTER put: gl GL_NEAREST.
+gl tex_parameter_i: gl GL_TEXTURE_2D at: gl GL_TEXTURE_WRAP_S put: gl GL_CLAMP_TO_EDGE.
+gl tex_parameter_i: gl GL_TEXTURE_2D at: gl GL_TEXTURE_WRAP_T put: gl GL_CLAMP_TO_EDGE.
+
+depthbuffer := gl gen_renderbuffer.
+gl bind_renderbuffer: depthbuffer target: gl GL_RENDERBUFFER.
+gl
+	renderbuffer_storage: gl GL_RENDERBUFFER
+	internalFormat: gl GL_DEPTH_COMPONENT
+	width: textureSize x
+	height: textureSize y.
+
+gl
+	framebuffer_renderbuffer: gl GL_FRAMEBUFFER
+	attachment: gl GL_DEPTH_ATTACHMENT
+	renderbufferTarget: gl GL_RENDERBUFFER
+	renderbuffer: depthbuffer.
+
+gl
+	framebuffer_texture_2d: gl GL_FRAMEBUFFER
+	attachment: gl GL_COLOR_ATTACHMENT0
+	textureTarget: gl GL_TEXTURE_2D
+	texture: texture
+	level: 0.
+	
+self assert: (gl check_frame_buffer_status: gl GL_FRAMEBUFFER) equals: gl GL_FRAMEBUFFER_COMPLETE.
+
+gl disable: gl GL_FRAMEBUFFER_SRGB. 
+gl disable: gl GL_MULTISAMPLE. 
+gl disable: gl GL_POLYGON_SMOOTH. 
+
+gl viewport: (0@0 extent: textureSize).
+gl clear_color: Color magenta.
+gl clear: gl GL_COLOR_BUFFER_BIT.
+gl clear_depth: 0.
+gl clear: gl GL_DEPTH_BUFFER_BIT.
+
+gl delete_framebuffer: framebuffer.
+gl delete_renderbuffer: depthbuffer.
+gl active_texture: 0.
+gl bind_texture: 0 target: gl GL_TEXTURE_2D.
+gl bind_framebuffer: 0 target: gl GL_FRAMEBUFFER.
+gl bind_renderbuffer: 0 target: gl GL_RENDERBUFFER.
+
+canvas := SkiaCanvas
+	createFromBackendTexture: (SkiaBackendTexture
+		extent: textureSize
+		mipMapped: false
+		textureInfo: ((SkiaTextureInfo target: gl GL_TEXTURE_2D id: texture) format: gl GL_RGBA8))
+	format: SkiaColorType RGBA8888.
+	
+canvas"
+
+
+
+]
+
 { #category : #'api - instance creation' }
 SkiaCanvas class >> extent: anExtent [
 	^ self new initializeWith: (SkiaSurface newRasterPremultipled: anExtent)
