@@ -16,8 +16,6 @@ BaselineOfSparta >> baseline: spec [
 				spec repository: 'github://feenkcom/Sparta/src' ];
 			baseline: 'SpartaCairo' with: [
 				spec repository: 'github://feenkcom/Sparta/src' ];
-			baseline: 'SpartaMoz2D' with: [
-				spec repository: 'github://feenkcom/Sparta/src' ];
 			baseline: 'SpartaSkia' with: [
 				spec repository: 'github://feenkcom/Sparta/src' ] ]
 ]
