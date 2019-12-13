@@ -24,7 +24,7 @@ SpartaTransformationScale >> isIdentity [
 SpartaTransformationScale >> isReversable [
 	<return: #Boolean>
 	
-	^ true
+	^ false
 ]
 
 { #category : #enumerating }
