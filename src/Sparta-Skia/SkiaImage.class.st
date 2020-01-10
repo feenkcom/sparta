@@ -7,6 +7,34 @@ Class {
 }
 
 { #category : #'instance creation' }
+SkiaImage class >> fromBGR: aData extent: anExtent stride: aStride [
+
+	^ GtBoxerArrayU8
+		fromHandle: aData
+		size: anExtent y * aStride
+		during: [ :aGtBoxerArrayU8 |
+			self fromNativeHandle: (self
+				primFromPixels: aGtBoxerArrayU8
+				width: anExtent x height: anExtent y
+				rowBytes: aStride
+				colorType: SkiaColorType RGB888x) ]
+]
+
+{ #category : #'instance creation' }
+SkiaImage class >> fromBGRA: aData extent: anExtent stride: aStride [
+
+	^ GtBoxerArrayU8
+		fromHandle: aData
+		size: anExtent y * aStride
+		during: [ :aGtBoxerArrayU8 |
+			self fromNativeHandle: (self
+				primFromPixels: aGtBoxerArrayU8
+				width: anExtent x height: anExtent y
+				rowBytes: aStride
+				colorType: SkiaColorType BGRA8888) ]
+]
+
+{ #category : #'instance creation' }
 SkiaImage class >> fromForm: aForm [
 	| aForm32 theBits aRowBytes |
 
@@ -42,6 +70,34 @@ SkiaImage class >> fromForm: aForm during: aBlock [
 			height: aForm32 height
 			rowBytes: aRowBytes
 			colorType: SkiaColorType BGRA8888) during: aBlock ]
+]
+
+{ #category : #'instance creation' }
+SkiaImage class >> fromGray: aData extent: anExtent stride: aStride [
+
+	^ GtBoxerArrayU8
+		fromHandle: aData
+		size: anExtent y * aStride
+		during: [ :aGtBoxerArrayU8 |
+			self fromNativeHandle: (self
+				primFromPixels: aGtBoxerArrayU8
+				width: anExtent x height: anExtent y
+				rowBytes: aStride
+				colorType: SkiaColorType Gray8) ]
+]
+
+{ #category : #'instance creation' }
+SkiaImage class >> fromRGBA: aData extent: anExtent stride: aStride [
+
+	^ GtBoxerArrayU8
+		fromHandle: aData
+		size: anExtent y * aStride
+		during: [ :aGtBoxerArrayU8 |
+			self fromNativeHandle: (self
+				primFromPixels: aGtBoxerArrayU8
+				width: anExtent x height: anExtent y
+				rowBytes: aStride
+				colorType: SkiaColorType RGBA8888) ]
 ]
 
 { #category : #'private - ffi' }
