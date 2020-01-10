@@ -35,6 +35,16 @@ SkiaBitmapBuilder class >> formCache [
 ]
 
 { #category : #bitmap }
+SkiaBitmapBuilder >> fromBGR: aData extent: anExtent stride: aStride [
+	^ SkiaImage fromBGR: aData extent: anExtent stride: aStride
+]
+
+{ #category : #bitmap }
+SkiaBitmapBuilder >> fromBGRA: aData extent: anExtent stride: aStride [
+	^ SkiaImage fromBGRA: aData extent: anExtent stride: aStride
+]
+
+{ #category : #bitmap }
 SkiaBitmapBuilder >> fromForm: aForm [
 	"Create a bitmap surface from a given Form"
 	<return: #TSpartaSurface>
@@ -42,4 +52,14 @@ SkiaBitmapBuilder >> fromForm: aForm [
 	^ self class formCache
 		at: aForm
 		ifAbsentPut: [ SkiaImage fromForm: aForm ]
+]
+
+{ #category : #bitmap }
+SkiaBitmapBuilder >> fromGray: aData extent: anExtent stride: aStride [
+	^ SkiaImage fromGray: aData extent: anExtent stride: aStride
+]
+
+{ #category : #bitmap }
+SkiaBitmapBuilder >> fromRGBA: aData extent: anExtent stride: aStride [
+	^ SkiaImage fromRGBA: aData extent: anExtent stride: aStride
 ]
