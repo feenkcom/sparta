@@ -282,6 +282,21 @@ SpartaCanvas >> asSpartaPaintOn: aCanvas [
 ]
 
 { #category : #api }
+SpartaCanvas >> batch [
+	^ self batchProcessor
+		reset;
+		canvas: self;
+		yourself
+]
+
+{ #category : #builders }
+SpartaCanvas >> batchProcessor [
+	
+	true ifFalse: [ ^ self subclassResponsibility ].
+	^ SpartaBatcher new
+]
+
+{ #category : #api }
 SpartaCanvas >> bitmap [
 	"Return a surface bitmap factory.
 	It allows developers to create surfaces from various sources,

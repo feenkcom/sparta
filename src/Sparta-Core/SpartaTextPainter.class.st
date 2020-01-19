@@ -294,20 +294,9 @@ SpartaTextPainter >> textRunWithMetrics [
 	"Instantiate and return a text run containing glyphs for current string according
 	to choosen font and various text properties while measuring the text run in given sparta metrics"
 	<return: #TSpTextRun and: #SpartaMetrics>
-
-	| aTextRun aSpartaMetrics |
-	aTextRun := self textRun.
-
-	self
-		assert: [ aTextRun isNull not ]
-		description: [ 'Created text run must not be nullptr' ].
-
-	aSpartaMetrics := self metrics.
-	aSpartaMetrics
-		canvas: canvas;
-		spacing: spacing.
-
-	self metricsProvider measure: aTextRun in: aSpartaMetrics.
+	| aSpartaMetrics aTextRun |
+	
+	aTextRun := self textRunWithMetrics: (aSpartaMetrics := self metrics).
 
 	^ aTextRun -> aSpartaMetrics
 ]
@@ -332,6 +321,16 @@ SpartaTextPainter >> textRunWithMetrics: aSpartaMetrics [
 	self metricsProvider measure: aTextRun in: aSpartaMetrics.
 
 	^ aTextRun
+]
+
+{ #category : #'instance creation' }
+SpartaTextPainter >> textRunWithMetrics: aSpartaMetrics batch: aSpartaTextBatcher whenFinishedDo: aFinishedBlock [
+	"For performance reasons we may want to batch-process the creation and measurement of text runs.
+	By default we fall back to the default processing, however backends that may benefit from it
+	can implement an optimized version"
+	<return: #TSpTextRun>
+
+	^ aFinishedBlock value: (self textRunWithMetrics: aSpartaMetrics)
 ]
 
 { #category : #accessing }

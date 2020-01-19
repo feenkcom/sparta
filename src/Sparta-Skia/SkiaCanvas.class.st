@@ -234,6 +234,11 @@ SkiaCanvas >> asForm [
 ]
 
 { #category : #builders }
+SkiaCanvas >> batchProcessor [
+	^ SkiaBatcher new
+]
+
+{ #category : #builders }
 SkiaCanvas >> bitmapBuilder [
 	^ SkiaBitmapBuilder new
 ]
