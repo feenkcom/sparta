@@ -112,3 +112,22 @@ SkiaTextPainter >> textRun [
 	^ SkiaPaint newDuring: [ :aSkiaPaint |
 		SkiaTextRun fromString: text font: font paint: (self setPaintForMeasurement: aSkiaPaint) ]
 ]
+
+{ #category : #'instance creation' }
+SkiaTextPainter >> textRunWithMetrics: aSpartaMetrics batch: aSpartaBatcher whenFinishedDo: aFinishedBlock [
+	| aMetricsProvider |
+
+	aSpartaMetrics
+		canvas: canvas;
+		spacing: spacing.
+		
+	aMetricsProvider := self metricsProvider.
+
+	aSpartaBatcher
+		textRunFrom: text
+		font: font
+		paint: [ :aSkiaPaint | self setPaintForMeasurement: aSkiaPaint ]
+		whenFinishedDo: [ :aSkiaTextRun |
+			aMetricsProvider measure: aSkiaTextRun in: aSpartaMetrics.
+			aFinishedBlock value: aSkiaTextRun ]
+]
