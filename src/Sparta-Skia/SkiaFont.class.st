@@ -301,7 +301,7 @@ SkiaFont >> primIsSubpixel [
 ]
 
 { #category : #'private - ffi' }
-SkiaFont >> primMeasureText: aGtBoxerString encoding: aSkiaTextEncoding paint: aSkiaPaint bounds: aSkiaRectangleF32 [ 
+SkiaFont >> primMeasureText: aGtBoxerString encoding: aSkiaTextEncoding paint: aSkiaPaint bounds: aSkiaRectangleF32 [
 	^ self ffiCall: #(scalar skia_font_measure_text(self,
 		GtBoxerString aGtBoxerString,
 		SkiaTextEncoding aSkiaTextEncoding,
@@ -310,9 +310,10 @@ SkiaFont >> primMeasureText: aGtBoxerString encoding: aSkiaTextEncoding paint: a
 ]
 
 { #category : #'private - ffi' }
-SkiaFont >> primText: aGtBoxerString toGlyphs: aGtBoxerArrayU16 encoding: aSkiaTextEncoding paint: aSkiaPaint bounds: aSkiaRectangleF32 [
+SkiaFont >> primText: aByteArray length: aLength toGlyphs: aGtBoxerArrayU16 encoding: aSkiaTextEncoding paint: aSkiaPaint bounds: aSkiaRectangleF32 [
 	^ self ffiCall: #(scalar skia_font_text_to_glyphs(self,
-		GtBoxerString aGtBoxerString,
+		uint8* aByteArray,
+		size_t aLength,
 		SkiaTextEncoding aSkiaTextEncoding,
 		GtBoxerArrayU16 aGtBoxerArrayU16,
 		SkiaPaint aSkiaPaint,
@@ -336,30 +337,13 @@ SkiaFont >> skew [
 
 { #category : #text }
 SkiaFont >> stringToGlyphs: aString [
-	^ self textToGlyphs: (GtBoxerString fromString: aString)
-]
-
-{ #category : #text }
-SkiaFont >> stringToGlyphsArray: aString [
-	<return: #ByteArray>
-
-	^ GtBoxerString fromString: aString during: [ :aBoxerString | self textToGlyphsArray: aBoxerString ]
-]
-
-{ #category : #text }
-SkiaFont >> stringToTextRun: aString paint: aSkiaPaint [
-	<return: #SkiaTextRun>
-
-	^ GtBoxerString fromString: aString during: [ :aBoxerString | self textToTextRun: aBoxerString paint: aSkiaPaint ]
-]
-
-{ #category : #text }
-SkiaFont >> textToGlyphs: aGtBoxerString [
-	| theGlyphs |
+	| theGlyphs anEncodedString |
 	
+	anEncodedString := GtBoxerString stringToByteArray: aString.
 	theGlyphs := GtBoxerArrayU16 new.
 	self
-		primText: aGtBoxerString
+		primText: anEncodedString
+		length: anEncodedString size
 		toGlyphs: theGlyphs
 		encoding: SkiaTextEncoding UTF8
 		paint: SkiaPaint null
@@ -369,38 +353,49 @@ SkiaFont >> textToGlyphs: aGtBoxerString [
 ]
 
 { #category : #text }
-SkiaFont >> textToGlyphsArray: aGtBoxerString [
-	"Return an in-image byte array holding glyphs"
+SkiaFont >> stringToGlyphsArray: aString [
 	<return: #ByteArray>
-
-	^ GtBoxerArrayU16 newDuring: [ :aBoxerArrayU16 |
+	
+	^ GtBoxerArrayU16 newDuring: [ :theGlyphs |
+		| anEncodedString |
+		anEncodedString := GtBoxerString stringToByteArray: aString.
 		self
-			primText: aGtBoxerString
-			toGlyphs: aBoxerArrayU16
+			primText: anEncodedString
+			length: anEncodedString size
+			toGlyphs: theGlyphs
 			encoding: SkiaTextEncoding UTF8
 			paint: SkiaPaint null
 			bounds: SkiaRectangleF32 null.
-		aBoxerArrayU16 asByteArray ]
+		theGlyphs asByteArray ]
 ]
 
 { #category : #text }
-SkiaFont >> textToTextRun: aGtBoxerString paint: aSkiaPaint [
-	"Return a measured text run"
+SkiaFont >> stringToTextRun: aString paint: aSkiaPaint [
 	<return: #SkiaTextRun>
 
 	^ GtBoxerArrayU16 newDuring: [ :aBoxerArrayU16 |
 		SkiaRectangleF32 newDuring: [ :aSkiaRectangle |
-			| theGlyphs aWidth aBounds |
-			aWidth := self
-				primText: aGtBoxerString
-				toGlyphs: aBoxerArrayU16
-				encoding: SkiaTextEncoding UTF8
-				paint: aSkiaPaint
-				bounds: aSkiaRectangle.
+			| theGlyphs aWidth aBounds anEncodedString |
+
+			SkiaStringToTextRunUtfConvertionSignal timeDuring: [
+				"null-terminated utf-8 encoded string"
+				anEncodedString := GtBoxerString stringToByteArray: aString ].
 			
-			aBounds := aSkiaRectangle asRectangle.
-			theGlyphs := aBoxerArrayU16 asByteArray.
+			SkiaStringToTextRunComputeGlyphsSignal timeDuring: [
+				aWidth := self
+					primText: anEncodedString
+					length: anEncodedString size
+					toGlyphs: aBoxerArrayU16
+					encoding: SkiaTextEncoding UTF8
+					paint: aSkiaPaint
+					bounds: aSkiaRectangle ].
+				
+			SkiaStringToTextRunBoundsAsRectangleSignal timeDuring: [
+				aBounds := aSkiaRectangle asRectangle ].
 			
+			SkiaStringToTextRunGlyphsAsByteArraySignal timeDuring: [
+				theGlyphs := aBoxerArrayU16 asByteArray ].			
+
 			SkiaTextRun new
 				font: self;
 				glyphs: theGlyphs;

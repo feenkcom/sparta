@@ -10,7 +10,10 @@ SkiaTextRunExamples >> fromStringHello [
 	| aTextRun |
 	
 	aTextRun := SkiaTextRun fromString: 'Hello'.
-	self assert: aTextRun bits equals: 32.
+	self assert: aTextRun glyphs equals: #[43 0 72 0 79 0 79 0 82 0].
+	self assert: aTextRun advance > 0.
+	self assert: aTextRun bounds hasPositiveExtent.
+	self assert: aTextRun font isNull.
 	
-	^ aTextRun 
+	^ aTextRun
 ]
