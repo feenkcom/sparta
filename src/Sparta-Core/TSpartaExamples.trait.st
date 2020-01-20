@@ -1384,15 +1384,15 @@ TSpartaExamples >> fillRectangleWithGrayColor [
 ]
 
 { #category : #'examples - fill rectangle' }
-TSpartaExamples >> fillRectangleWithLRadialGradient [
+TSpartaExamples >> fillRectangleWithLinearGradient [
 	<gtExample>
 	| aCanvas aPaint |
 
 	aCanvas := self class canvas: 400@300.
 	
-	aPaint := aCanvas paint radialGradient
-		center: 200@150;
-		radius: 150;
+	aPaint := aCanvas paint linearGradient
+		begin: 50@50;
+		end: 300@200;
 		stops: { 0 -> Color blue . 1 -> Color red }.
 	
 	aCanvas fill
@@ -1404,15 +1404,15 @@ TSpartaExamples >> fillRectangleWithLRadialGradient [
 ]
 
 { #category : #'examples - fill rectangle' }
-TSpartaExamples >> fillRectangleWithLinearGradient [
+TSpartaExamples >> fillRectangleWithRadialGradient [
 	<gtExample>
 	| aCanvas aPaint |
 
 	aCanvas := self class canvas: 400@300.
 	
-	aPaint := aCanvas paint linearGradient
-		begin: 50@50;
-		end: 300@200;
+	aPaint := aCanvas paint radialGradient
+		center: 200@150;
+		radius: 150;
 		stops: { 0 -> Color blue . 1 -> Color red }.
 	
 	aCanvas fill

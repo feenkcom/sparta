@@ -4,10 +4,8 @@ Class {
 	#traits : 'TSpartaRadialGradientPaint',
 	#classTraits : 'TSpartaRadialGradientPaint classTrait',
 	#instVars : [
-		'innerCenter',
-		'innerRadius',
-		'outerCenter',
-		'outerRadius'
+		'center',
+		'radius'
 	],
 	#category : #'Sparta-Cairo-Paints'
 }
@@ -17,50 +15,38 @@ SpartaCairoRadialGradientPaint >> asSpartaCairoPatternOn: aSpartaCairoCanvas [
 	^ aSpartaCairoCanvas pattern radialGradient: self
 ]
 
+{ #category : #accessing }
+SpartaCairoRadialGradientPaint >> center [
+	<return: #Point or: nil>
+
+	^ center
+]
+
+{ #category : #accessing }
+SpartaCairoRadialGradientPaint >> center: aPoint [
+	center := aPoint
+]
+
+{ #category : #converting }
+SpartaCairoRadialGradientPaint >> formExtent [
+	^ (self radius * 2) asPoint
+]
+
 { #category : #initialization }
 SpartaCairoRadialGradientPaint >> initialize [
 	super initialize.
 	
-	innerRadius := 0.0.
-	outerRadius := 0.0
+	radius := 0.0
 ]
 
 { #category : #accessing }
-SpartaCairoRadialGradientPaint >> innerCenter [
-	^ innerCenter
-]
+SpartaCairoRadialGradientPaint >> radius [
+	<return: #Number>
 
-{ #category : #'as yet unclassified' }
-SpartaCairoRadialGradientPaint >> innerCenter: aPoint [
-	innerCenter := aPoint
+	^ radius
 ]
 
 { #category : #accessing }
-SpartaCairoRadialGradientPaint >> innerRadius [
-	^ innerRadius
-]
-
-{ #category : #'as yet unclassified' }
-SpartaCairoRadialGradientPaint >> innerRadius: aNumber [
-	innerRadius := aNumber
-]
-
-{ #category : #accessing }
-SpartaCairoRadialGradientPaint >> outerCenter [
-	^ outerCenter
-]
-
-{ #category : #'as yet unclassified' }
-SpartaCairoRadialGradientPaint >> outerCenter: aPoint [
-	outerCenter := aPoint
-]
-
-{ #category : #accessing }
-SpartaCairoRadialGradientPaint >> outerRadius [
-	^ outerRadius
-]
-
-{ #category : #'as yet unclassified' }
-SpartaCairoRadialGradientPaint >> outerRadius: aNumber [
-	outerRadius := aNumber
+SpartaCairoRadialGradientPaint >> radius: aNumber [
+	radius := aNumber
 ]

@@ -1,7 +1,7 @@
 Class {
 	#name : #SpartaCairoPatternBuilder,
 	#superclass : #SpartaAbstractBuilder,
-	#category : 'Sparta-Cairo-Builders'
+	#category : #'Sparta-Cairo-Builders'
 }
 
 { #category : #accessing }
@@ -42,22 +42,16 @@ SpartaCairoPatternBuilder >> linearGradient: aLinearGradient [
 
 { #category : #accessing }
 SpartaCairoPatternBuilder >> radialGradient: aRadialGradient [
-	| innerCenter outerCenter aRadialPattern |
+	| center aRadialPattern |
 
-	innerCenter := aRadialGradient innerCenter.
-	outerCenter := aRadialGradient outerCenter.
-	
-	(innerCenter isNil and: [ outerCenter isNil ]) ifTrue: [ 
-		innerCenter := ((aRadialGradient innerRadius + aRadialGradient outerRadius) / 2.0) asPoint ].
-	
-	innerCenter ifNil: [ innerCenter := outerCenter ].
-	outerCenter ifNil: [ outerCenter := innerCenter ].
-	
+	center := aRadialGradient center
+		ifNil: [ aRadialGradient radius asPoint ].
+
 	aRadialPattern := SpartaCairoRadialGradientPattern
-		innerCenter: innerCenter
-		innerRadius: aRadialGradient innerRadius
-		outerCenter: outerCenter
-		outerRadius: aRadialGradient outerRadius.
+		innerCenter: center
+		innerRadius: 0
+		outerCenter: center
+		outerRadius: aRadialGradient radius.
 		
 	aRadialPattern stops: aRadialGradient stops.
 	aRadialPattern extend: aRadialGradient extendMode.
