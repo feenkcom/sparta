@@ -26,6 +26,7 @@ SkiaBatcher >> process [
 	}
 	
 	"
+	| start |
 	SkiaTextToGlyphsBatch newDuring: [ :aSkiaTextToGlyphsBatch |
 		SkiaPaint
 			new: textRunBatch size
@@ -60,7 +61,6 @@ SkiaBatcher >> process [
 								
 								textRunBatch withIndexDo: [ :eachRequest :eachIndex |
 									| eachTextRun |
-									
 									
 									eachTextRun := SkiaTextRun new
 										font: eachRequest second;

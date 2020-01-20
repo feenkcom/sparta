@@ -54,7 +54,7 @@ SpartaCairoClipper >> localBounds [
 	aCornerX free.
 	aCornerY free.
 	
-	^ aRectangle
+	^ aRectangle asRectangle
 ]
 
 { #category : #clipping }

@@ -10,7 +10,9 @@ Class {
 		'SemiCondensed',
 		'SemiExpanded',
 		'UltraCondensed',
-		'UltraExpanded',
+		'UltraExpanded'
+	],
+	#classInstVars : [
 		'Widths'
 	],
 	#category : #'Sparta-Skia-External'

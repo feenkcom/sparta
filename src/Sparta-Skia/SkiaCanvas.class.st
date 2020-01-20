@@ -60,6 +60,25 @@ Class {
 }
 
 { #category : #'api - instance creation' }
+SkiaCanvas class >> createForArrayU8: aGtBoxerArrayU8 extent: aPoint stride: aStride format: aSkiaColorType [
+	"aGtBoxerArrayU8 must over-live the canvas"
+	| anImageData aSurface |
+	
+	anImageData := SkiaImageInfo
+		width: aPoint x
+		height: aPoint y
+		colorType: aSkiaColorType
+		alphaType: SkiaAlphaType Premul.
+	
+	aSurface := SkiaSurface
+		newRasterDirectImageInfo: anImageData
+		pixels: aGtBoxerArrayU8
+		stride: aStride.
+		
+	^ self new initializeWith: aSurface
+]
+
+{ #category : #'api - instance creation' }
 SkiaCanvas class >> createForData: aData extent: aPoint stride: aStride format: aSkiaColorType [
 	| anImageData aSurface thePixels |
 	
@@ -69,6 +88,7 @@ SkiaCanvas class >> createForData: aData extent: aPoint stride: aStride format: 
 		colorType: aSkiaColorType
 		alphaType: SkiaAlphaType Premul.
 	
+	"GtBoxerArrayU8 does not own the data"
 	thePixels := GtBoxerArrayU8 fromHandle: aData size: aStride * aPoint y.
 	
 	aSurface := SkiaSurface

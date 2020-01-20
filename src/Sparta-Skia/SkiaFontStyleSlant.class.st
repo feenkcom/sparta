@@ -4,8 +4,10 @@ Class {
 	#classVars : [
 		'Italic',
 		'Oblique',
-		'Slants',
 		'Upright'
+	],
+	#classInstVars : [
+		'Slants'
 	],
 	#category : #'Sparta-Skia-External'
 }
@@ -48,7 +50,7 @@ SkiaFontStyleSlant class >> externalType [
 
 { #category : #'instance creation' }
 SkiaFontStyleSlant class >> fromSpartaSlant: aSpartaFontSlant [
-	Slants ifNil: [ Slants := { 
+	Slants ifNil: [ Slants := {
 		SpartaFontSlant normal -> self Upright.
 		SpartaFontSlant italic -> self Italic.
 		SpartaFontSlant oblique -> self Oblique

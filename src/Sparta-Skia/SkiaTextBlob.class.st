@@ -8,15 +8,15 @@ Class {
 SkiaTextBlob class >> glyphs: aByteArray font: aSkiaFont [
 	<return: #SkiaTextBlob>	
 	
-	^ GtBoxerArrayU16 fromByteArray: aByteArray during: [ :aGtBoxerArrayU16 |
-		self fromNativeHandle: (self primNewFromGlyphs: aGtBoxerArrayU16 font: aSkiaFont) ]
+	^ self fromNativeHandle: (self primNewFromGlyphs: aByteArray length: aByteArray size // 2 font: aSkiaFont)
 ]
 
 { #category : #'instance creation' }
 SkiaTextBlob class >> glyphs: aByteArray font: aSkiaFont during: aBlock [
 	
-	^ GtBoxerArrayU16 fromByteArray: aByteArray during: [ :aGtBoxerArrayU16 |
-		self fromNativeHandle: (self primNewFromGlyphs: aGtBoxerArrayU16 font: aSkiaFont) during: aBlock ]
+	^ self
+		fromNativeHandle: (self primNewFromGlyphs: aByteArray length: aByteArray size // 2 font: aSkiaFont)
+		during: aBlock
 ]
 
 { #category : #'private - ffi' }
@@ -25,9 +25,10 @@ SkiaTextBlob class >> primCreate [
 ]
 
 { #category : #'private - ffi' }
-SkiaTextBlob class >> primNewFromGlyphs: aGtBoxerArrayU16 font: aSkiaFont [
+SkiaTextBlob class >> primNewFromGlyphs: aByteArray length: anAmountOfU16Glyphs font: aSkiaFont [
 	^ self ffiCall: #(void* skia_text_blob_from_glyphs(
-		GtBoxerArrayU16 aGtBoxerArrayU16,
+		void* aByteArray,
+		size_t anAmountOfU16Glyphs,
 		SkiaFont aSkiaFont ))
 ]
 
