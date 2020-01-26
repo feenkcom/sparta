@@ -66,6 +66,11 @@ SpartaRoundedRectangle >> hash [
 				bitXor: (left hash bitXor: (right hash bitXor: top hash)))
 ]
 
+{ #category : #accessing }
+SpartaRoundedRectangle >> height [
+	^ self bottom - self top
+]
+
 { #category : #initialization }
 SpartaRoundedRectangle >> initialize [
 	super initialize.
@@ -153,4 +158,9 @@ SpartaRoundedRectangle >> topRightRadius [
 	<return: #Number>
 	
 	^ cornerRadii topRight
+]
+
+{ #category : #accessing }
+SpartaRoundedRectangle >> width [
+	^ self right - self left
 ]
