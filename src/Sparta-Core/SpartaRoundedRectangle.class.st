@@ -32,6 +32,11 @@ SpartaRoundedRectangle >> = anObject [
 						and: [ right = anObject right and: [ top = anObject top ] ] ] ]
 ]
 
+{ #category : #converting }
+SpartaRoundedRectangle >> asRectangle [
+	^ Rectangle left: left right: right top: top bottom: bottom
+]
+
 { #category : #accessing }
 SpartaRoundedRectangle >> bottom [
 	^ bottom

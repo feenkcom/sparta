@@ -22,6 +22,7 @@ SpartaCairoClipper >> containsLocal: aRectangle [
 
 { #category : #geometry }
 SpartaCairoClipper >> globalBounds [
+	<return: #Rectangle>
 	| aTransformation aBounds |
 	
 	aTransformation := canvas transform current.
