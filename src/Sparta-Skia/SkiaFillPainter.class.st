@@ -147,13 +147,13 @@ SkiaFillPainter >> fillRoundedRectangle: aSpartaRoundedRectangle withSolidColor:
 	"blend mode = SrcOver, alpha = 1, antialias = true"
 	self requiresPaintForColor ifFalse: [
 		^ self
-			optimizedFillRoundedRectangle: SpartaRoundedRectangle
+			optimizedFillRoundedRectangle: aSpartaRoundedRectangle
 			withColor: aColor
 			antialias: self getAntialias ].
 		
 	SkiaPaint newDuring: [ :aSkiaPaint |
 		canvas surfaceCanvas
-			drawRoundedRectangle: SpartaRoundedRectangle
+			drawRoundedRectangle: aSpartaRoundedRectangle
 			paint: (self setPaint: aSkiaPaint forColor: aColor) ]
 ]
 
