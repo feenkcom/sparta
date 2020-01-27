@@ -22,21 +22,19 @@ SkiaSurfaceCanvas >> clipCircle: aSpartaCircle [
 { #category : #'api - clip' }
 SkiaSurfaceCanvas >> clipDeviceBounds [
 	<return: #Rectangle>
-	| aRectangleI32 |
 	
-	aRectangleI32 := SkiaRectangleI32 new.
-	self primClipGetDeviceBounds: aRectangleI32.
-	^ aRectangleI32 asRectangle
+	^ SkiaRectangleI32 newDuring: [ :aRectangleI32 |
+		self primClipGetDeviceBounds: aRectangleI32.
+		aRectangleI32 asRectangle ]
 ]
 
 { #category : #'api - clip' }
 SkiaSurfaceCanvas >> clipLocalBounds [
 	<return: #Rectangle>
-	| aRectangleF32 |
 	
-	aRectangleF32 := SkiaRectangleF32 new.
-	self primClipGetLocalBounds: aRectangleF32.
-	^ aRectangleF32 asRectangle
+	^ SkiaRectangleF32 newDuring: [ :aRectangleF32 |
+		self primClipGetLocalBounds: aRectangleF32.
+		aRectangleF32 asRectangle ]
 ]
 
 { #category : #'api - clip' }

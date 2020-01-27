@@ -65,27 +65,27 @@ SpartaFillPainter >> fillCircle: aSpartaCircle [
 
 { #category : #drawing }
 SpartaFillPainter >> fillCircle: aSpartaCircle withForm: aForm [
-	self subclassResponsibility
+	true ifFalse: [ self subclassResponsibility ]
 ]
 
 { #category : #drawing }
 SpartaFillPainter >> fillCircle: aSpartaCircle withLinearGradient: aSpartaLinearGradient [
-	self subclassResponsibility
+	true ifFalse: [ self subclassResponsibility ]
 ]
 
 { #category : #drawing }
 SpartaFillPainter >> fillCircle: aSpartaCircle withRadialGradient: aSpartaRadialGradient [
-	self subclassResponsibility
+	true ifFalse: [ self subclassResponsibility ]
 ]
 
 { #category : #drawing }
 SpartaFillPainter >> fillCircle: aSpartaCircle withSolidColor: aColor [
-	self subclassResponsibility
+	true ifFalse: [ self subclassResponsibility ]
 ]
 
 { #category : #drawing }
 SpartaFillPainter >> fillCircle: aSpartaCircle withSurface: aSpartaSurfacePaint [
-	self subclassResponsibility
+	true ifFalse: [ self subclassResponsibility ]
 ]
 
 { #category : #drawing }
@@ -95,27 +95,27 @@ SpartaFillPainter >> fillPath: aSpartaPath [
 
 { #category : #drawing }
 SpartaFillPainter >> fillPath: aPath withForm: aForm [
-	self subclassResponsibility
+	true ifFalse: [ self subclassResponsibility ]
 ]
 
 { #category : #drawing }
 SpartaFillPainter >> fillPath: aPath withLinearGradient: aSpartaLinearGradient [
-	self subclassResponsibility
+	true ifFalse: [ self subclassResponsibility ]
 ]
 
 { #category : #drawing }
 SpartaFillPainter >> fillPath: aPath withRadialGradient: aSpartaRadialGradient [
-	self subclassResponsibility
+	true ifFalse: [ self subclassResponsibility ]
 ]
 
 { #category : #drawing }
 SpartaFillPainter >> fillPath: aPath withSolidColor: aColor [
-	self subclassResponsibility
+	true ifFalse: [ self subclassResponsibility ]
 ]
 
 { #category : #drawing }
 SpartaFillPainter >> fillPath: aPath withSurface: aSpartaSurfacePaint [
-	self subclassResponsibility
+	true ifFalse: [ self subclassResponsibility ]
 ]
 
 { #category : #drawing }
@@ -125,27 +125,27 @@ SpartaFillPainter >> fillRectangle: aRectangle [
 
 { #category : #drawing }
 SpartaFillPainter >> fillRectangle: aRectangle withForm: aForm [
-	self subclassResponsibility
+	true ifFalse: [ self subclassResponsibility ]
 ]
 
 { #category : #drawing }
 SpartaFillPainter >> fillRectangle: aRectangle withLinearGradient: aSpartaLinearGradient [
-	self subclassResponsibility
+	true ifFalse: [ self subclassResponsibility ]
 ]
 
 { #category : #drawing }
 SpartaFillPainter >> fillRectangle: aRectangle withRadialGradient: aSpartaRadialGradient [
-	self subclassResponsibility
+	true ifFalse: [ self subclassResponsibility ]
 ]
 
 { #category : #drawing }
 SpartaFillPainter >> fillRectangle: aRectangle withSolidColor: aColor [
-	self subclassResponsibility
+	true ifFalse: [ self subclassResponsibility ]
 ]
 
 { #category : #drawing }
 SpartaFillPainter >> fillRectangle: aRectangle withSurface: aSpartaSurfacePaint [
-	self subclassResponsibility
+	true ifFalse: [ self subclassResponsibility ]
 ]
 
 { #category : #drawing }
@@ -155,25 +155,25 @@ SpartaFillPainter >> fillRoundedRectangle: aRectangle [
 
 { #category : #drawing }
 SpartaFillPainter >> fillRoundedRectangle: aSpartaRounedRectangle withForm: aForm [
-	self subclassResponsibility
+	true ifFalse: [ self subclassResponsibility ]
 ]
 
 { #category : #drawing }
 SpartaFillPainter >> fillRoundedRectangle: aSpartaRounedRectangle withLinearGradient: aSpartaLinearGradient [
-	self subclassResponsibility
+	true ifFalse: [ self subclassResponsibility ]
 ]
 
 { #category : #drawing }
 SpartaFillPainter >> fillRoundedRectangle: aSpartaRounedRectangle withRadialGradient: aSpartaRadialGradient [
-	self subclassResponsibility
+	true ifFalse: [ self subclassResponsibility ]
 ]
 
 { #category : #drawing }
 SpartaFillPainter >> fillRoundedRectangle: aSpartaRoundedRectangle withSolidColor: aColor [
-	self subclassResponsibility
+	true ifFalse: [ self subclassResponsibility ]
 ]
 
 { #category : #drawing }
 SpartaFillPainter >> fillRoundedRectangle: aSpartaRounedRectangle withSurface: aSpartaSurfacePaint [
-	self subclassResponsibility
+	true ifFalse: [ self subclassResponsibility ]
 ]

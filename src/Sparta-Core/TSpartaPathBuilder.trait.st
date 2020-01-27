@@ -62,6 +62,8 @@ TSpartaPathBuilder >> absolute [
 
 { #category : #'path commands' }
 TSpartaPathBuilder >> arcAround: aCenterPoint radius: aRadius startAngle: aStartAngle endAngle: anEndAngle [
+	"aStartAngle and anEndAngle should be given in Radians"
+
 	^ self explicitRequirement
 ]
 
