@@ -15,6 +15,11 @@ SpartaCircle class >> center: aPoint radius: aRadius [
 		radius: aRadius
 ]
 
+{ #category : #converting }
+SpartaCircle >> asRectangle [
+	^ Rectangle center: center extent: radius * 2 asPoint
+]
+
 { #category : #accessing }
 SpartaCircle >> center [
 	<return: #Point>

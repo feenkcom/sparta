@@ -731,7 +731,10 @@ SpartaCanvas >> path: aSpartaFillRule [
 
 { #category : #builders }
 SpartaCanvas >> pathBuilderClass [
-	^ self subclassResponsibility
+	<return: #'TSpartaPathBuilder class'>
+
+	true ifFalse: [ self subclassResponsibility ].	
+	^ SpartaUnimplementedPathBuilder
 ]
 
 { #category : #api }

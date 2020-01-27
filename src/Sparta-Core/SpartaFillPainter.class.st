@@ -169,7 +169,7 @@ SpartaFillPainter >> fillRoundedRectangle: aSpartaRounedRectangle withRadialGrad
 ]
 
 { #category : #drawing }
-SpartaFillPainter >> fillRoundedRectangle: aSpartaRounedRectangle withSolidColor: aColor [
+SpartaFillPainter >> fillRoundedRectangle: aSpartaRoundedRectangle withSolidColor: aColor [
 	self subclassResponsibility
 ]
 

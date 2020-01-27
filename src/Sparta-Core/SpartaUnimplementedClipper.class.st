@@ -16,7 +16,7 @@ SpartaUnimplementedClipper >> containsLocal: aRectangle [
 
 { #category : #geometry }
 SpartaUnimplementedClipper >> globalBounds [
-	<return: #SpartaRectangle>
+	<return: #Rectangle>
 	
 	^ canvas bounds
 ]

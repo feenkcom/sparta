@@ -20,7 +20,7 @@ SkiaClipper >> containsLocal: aRectangle [
 
 { #category : #geometry }
 SkiaClipper >> globalBounds [
-	<return: #SpartaRectangle>
+	<return: #Rectangle>
 
 	^ canvas surfaceCanvas clipDeviceBounds
 ]

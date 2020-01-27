@@ -32,6 +32,11 @@ SpartaRoundedRectangle >> = anObject [
 						and: [ right = anObject right and: [ top = anObject top ] ] ] ]
 ]
 
+{ #category : #converting }
+SpartaRoundedRectangle >> asRectangle [
+	^ Rectangle left: left right: right top: top bottom: bottom
+]
+
 { #category : #accessing }
 SpartaRoundedRectangle >> bottom [
 	^ bottom
@@ -64,6 +69,11 @@ SpartaRoundedRectangle >> hash [
 		bitXor:
 			(cornerRadii hash
 				bitXor: (left hash bitXor: (right hash bitXor: top hash)))
+]
+
+{ #category : #accessing }
+SpartaRoundedRectangle >> height [
+	^ self bottom - self top
 ]
 
 { #category : #initialization }
@@ -153,4 +163,9 @@ SpartaRoundedRectangle >> topRightRadius [
 	<return: #Number>
 	
 	^ cornerRadii topRight
+]
+
+{ #category : #accessing }
+SpartaRoundedRectangle >> width [
+	^ self right - self left
 ]
