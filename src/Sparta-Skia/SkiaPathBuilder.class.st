@@ -88,7 +88,7 @@ SkiaPathBuilder >> arcTo: aToPoint angle: anAngle cw: isClockwise [
 	
 	aRadius := aCenter distanceTo: aTargetPoint.
 	
-	aStartAngle := (1 - (((aCurrentPoint distanceTo: (aCenter + (aRadius @ 0))) raisedTo: 2) / (2 * aRadius * aRadius))) arcCos.
+	aStartAngle := ((1 - (((aCurrentPoint distanceTo: (aCenter + (aRadius @ 0))) raisedTo: 2) / (2 * aRadius * aRadius))) min: 1 max: -1) arcCos.
 
 	aCurrentPoint y <= aCenter y
 		ifTrue: [ aStartAngle := aStartAngle negated ].
