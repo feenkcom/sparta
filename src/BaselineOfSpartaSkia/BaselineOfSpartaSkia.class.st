@@ -14,7 +14,7 @@ BaselineOfSpartaSkia >> baseline: spec [
 		spec postLoadDoIt: #'postLoadSkia:'.
 		spec 
 			baseline: 'SpartaCore' with: [
-				spec repository: 'github://feenkcom/Sparta:v0.7.112/src' ];
+				spec repository: 'github://feenkcom/Sparta:v0.7.113/src' ];
 			baseline: 'GToolkitInstaller' with: [
 				spec repository: 'github://feenkcom/gtoolkit-installer:v0.7.11/src' ];
 			baseline: 'GToolkitBoxer' with: [
