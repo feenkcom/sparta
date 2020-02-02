@@ -675,8 +675,10 @@ SpartaCanvas >> paint [
 
 { #category : #builders }
 SpartaCanvas >> paintProvider [
-	self subclassResponsibility.
-	^ SpartaPaintProvider new
+	"Return a new instance of the backend specific ${class:SpartaPaintProvider}$"
+
+	true ifFalse: [ ^ self subclassResponsibility ].
+	^ SpartaUnimplementedPaintProvider new
 ]
 
 { #category : #api }
