@@ -141,6 +141,11 @@ SpartaStrokePainter >> strokeCircle: aSpartaCircle [
 ]
 
 { #category : #drawing }
+SpartaStrokePainter >> strokeCircle: aSpartaCircle withBoxShadow: aSpartaBoxShadowPaint [
+	true ifFalse: [ self subclassResponsibility ]
+]
+
+{ #category : #drawing }
 SpartaStrokePainter >> strokeCircle: aSpartaCircle withForm: aForm [
 	true ifFalse: [ self subclassResponsibility ]
 ]
@@ -168,6 +173,11 @@ SpartaStrokePainter >> strokeCircle: aSpartaCircle withSurface: aSpartaSurfacePa
 { #category : #drawing }
 SpartaStrokePainter >> strokeLine: aLine [
 	paint spartaStrokeLine: aLine with: self
+]
+
+{ #category : #drawing }
+SpartaStrokePainter >> strokeLine: aLine withBoxShadow: aSpartaBoxShadowPaint [
+	true ifFalse: [ self subclassResponsibility ]
 ]
 
 { #category : #drawing }
@@ -211,6 +221,11 @@ SpartaStrokePainter >> strokePath: aPath [
 ]
 
 { #category : #drawing }
+SpartaStrokePainter >> strokePath: aPath withBoxShadow: aSpartaBoxShadowPaint [
+	true ifFalse: [ self subclassResponsibility ]
+]
+
+{ #category : #drawing }
 SpartaStrokePainter >> strokePath: aPath withForm: aForm [
 	true ifFalse: [ self subclassResponsibility ]
 ]
@@ -233,6 +248,11 @@ SpartaStrokePainter >> strokePath: aPath withSolidColor: aColor [
 { #category : #drawing }
 SpartaStrokePainter >> strokeRectangle: aRectangle [
 	paint spartaStrokeRectangle: aRectangle with: self
+]
+
+{ #category : #drawing }
+SpartaStrokePainter >> strokeRectangle: aRectangle withBoxShadow: aSpartaBoxShadowPaint [
+	true ifFalse: [ self subclassResponsibility ]
 ]
 
 { #category : #drawing }
@@ -263,6 +283,11 @@ SpartaStrokePainter >> strokeRectangle: aRectangle withSurface: aSpartaSurfacePa
 { #category : #drawing }
 SpartaStrokePainter >> strokeRoundedRectangle: aRectangle [
 	paint spartaStrokeRoundedRectangle: aRectangle with: self
+]
+
+{ #category : #drawing }
+SpartaStrokePainter >> strokeRoundedRectangle: aRoundedRectangle withBoxShadow: aSpartaBoxShadowPaint [
+	true ifFalse: [ self subclassResponsibility ]
 ]
 
 { #category : #drawing }

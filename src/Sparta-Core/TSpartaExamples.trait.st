@@ -1376,6 +1376,21 @@ TSpartaExamples >> drawRadialGradientPartial [
 	^ aCanvas
 ]
 
+{ #category : #'examples - fill circle' }
+TSpartaExamples >> fillCircleWithGrayColor [
+	<gtExample>
+	| aCanvas |
+
+	aCanvas := self class canvas: 400@300.
+	
+	aCanvas fill
+		path: (aCanvas shape circleAt: 200@150 radius: 100);
+		paint: Color lightGray;
+		draw.
+
+	^ aCanvas
+]
+
 { #category : #'examples - fill rectangle' }
 TSpartaExamples >> fillRectangleSurface [
 	<gtExample>
@@ -1729,6 +1744,42 @@ TSpartaExamples >> shadow [
 	^ canvas
 ]
 
+{ #category : #'examples - stroke circle' }
+TSpartaExamples >> strokeCircleWithBoxShadow [
+	<gtExample>
+	| aCanvas |
+
+	aCanvas := self class canvas: 400@300.
+
+	aCanvas stroke
+		path: (aCanvas shape circleAt: 200@150 radius: 100);
+		paint: (aCanvas paint boxShadow
+			radius: 20;
+			offset: 20@20;
+			color: (Color black alpha: 0.5));
+		"width plays a role of a spread"
+		width: 5;
+		draw.
+
+	^ aCanvas
+]
+
+{ #category : #'examples - stroke circle' }
+TSpartaExamples >> strokeCircleWithGrayColor [
+	<gtExample>
+	| aCanvas |
+
+	aCanvas := self class canvas: 400@300.
+
+	aCanvas stroke
+		path: (aCanvas shape circleAt: 200@150 radius: 100);
+		paint: Color lightGray;
+		width: 5;
+		draw.
+
+	^ aCanvas
+]
+
 { #category : #'examples - stroke line' }
 TSpartaExamples >> strokeLineWithGrayColor [
 	<gtExample>
@@ -1819,6 +1870,26 @@ TSpartaExamples >> strokeLineWithGrayColorCapSquare [
 ]
 
 { #category : #'examples - stroke rectangle' }
+TSpartaExamples >> strokeRectangleWithBoxShadow [
+	<gtExample>
+	| aCanvas |
+
+	aCanvas := self class canvas: 400@300.
+
+	aCanvas stroke
+		path: (100@100 corner: 300@200);
+		paint: (aCanvas paint boxShadow
+			radius: 20;
+			offset: 20@20;
+			color: (Color black alpha: 0.5));
+		"width plays a role of a spread"
+		width: 5;
+		draw.
+
+	^ aCanvas
+]
+
+{ #category : #'examples - stroke rectangle' }
 TSpartaExamples >> strokeRectangleWithGrayColor [
 	<gtExample>
 	| aCanvas |
@@ -1827,6 +1898,41 @@ TSpartaExamples >> strokeRectangleWithGrayColor [
 
 	aCanvas stroke
 		path: (100@100 corner: 300@200);
+		paint: Color lightGray;
+		width: 5;
+		draw.
+
+	^ aCanvas
+]
+
+{ #category : #'examples - stroke rounded rectangle' }
+TSpartaExamples >> strokeRoundedRectangleWithBoxShadow [
+	<gtExample>
+	| aCanvas |
+
+	aCanvas := self class canvas: 400@300.
+
+	aCanvas stroke
+		path: (aCanvas shape roundedRectangle: (100@100 corner: 300@200) radii: #(20 30 40 50));
+		paint: (aCanvas paint boxShadow
+			radius: 20;
+			offset: 20@20;
+			color: (Color black alpha: 0.5));
+		width: 5;
+		draw.
+
+	^ aCanvas
+]
+
+{ #category : #'examples - stroke rounded rectangle' }
+TSpartaExamples >> strokeRoundedRectangleWithGrayColor [
+	<gtExample>
+	| aCanvas |
+
+	aCanvas := self class canvas: 400@300.
+
+	aCanvas stroke
+		path: (aCanvas shape roundedRectangle: (100@100 corner: 300@200) radii: #(20 30 40 50));
 		paint: Color lightGray;
 		width: 5;
 		draw.

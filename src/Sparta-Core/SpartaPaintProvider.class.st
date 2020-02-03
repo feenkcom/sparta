@@ -28,6 +28,13 @@ Class {
 }
 
 { #category : #paints }
+SpartaPaintProvider >> boxShadow [
+	true ifFalse: [ self subclassResponsibility ].
+
+	^ SpartaUnimplementedBoxShadowPaint new
+]
+
+{ #category : #paints }
 SpartaPaintProvider >> color: aColor [
 	"A Color is already a paint in Sparta"
 
@@ -43,15 +50,21 @@ SpartaPaintProvider >> form: aForm [
 
 { #category : #paints }
 SpartaPaintProvider >> linearGradient [
-	^ self subclassResponsibility
+	true ifFalse: [ self subclassResponsibility ].
+
+	^ SpartaUnimplementedLinearGradientPaint new
 ]
 
 { #category : #paints }
 SpartaPaintProvider >> radialGradient [
-	^ self subclassResponsibility
+	true ifFalse: [ self subclassResponsibility ].
+
+	^ SpartaUnimplementedRadialGradientPaint new
 ]
 
 { #category : #paints }
 SpartaPaintProvider >> surface [
-	^ self subclassResponsibility
+	true ifFalse: [ self subclassResponsibility ].
+
+	^ SpartaUnimplementedSurfacePaint new
 ]
