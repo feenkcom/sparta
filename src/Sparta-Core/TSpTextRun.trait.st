@@ -16,7 +16,7 @@ TSpTextRun >> autoRelease [
 
 { #category : #testing }
 TSpTextRun >> isEmpty [
-	^ self length isZero
+	^ self size isZero
 ]
 
 { #category : #testing }
