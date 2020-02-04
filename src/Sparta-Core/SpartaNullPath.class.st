@@ -16,7 +16,7 @@ SpartaNullPath >> containsPoint: aPoint on: aSpartaCanvas [
 
 { #category : #'api - sparta path' }
 SpartaNullPath >> spartaClipOn: aSpartaCanvas with: aSpartaClipper [
-	
+	aSpartaClipper pushPath: self
 ]
 
 { #category : #'api - sparta path' }
