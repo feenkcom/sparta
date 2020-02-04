@@ -20,6 +20,10 @@ SpartaNullPath >> spartaClipOn: aSpartaCanvas with: aSpartaClipper [
 ]
 
 { #category : #'api - sparta path' }
+SpartaNullPath >> spartaDrawFigureOn: aSpartaCanvas with: aSpartaFigurePainter [
+]
+
+{ #category : #'api - sparta path' }
 SpartaNullPath >> spartaFillOn: aSpartaCanvas with: aSpartaFillPainter [
 	
 ]

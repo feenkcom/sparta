@@ -87,6 +87,26 @@ SpartaRoundedRectangle >> initialize [
 	cornerRadii := SpartaCornerRadii empty
 ]
 
+{ #category : #'api - sparta path' }
+SpartaRoundedRectangle >> insetBy: aNumber [
+	"Answer a sparta geometry that is inset from the receiver by delta. delta is a number.
+	Geometry becomes smaller if delta is positive"
+	<return: #SpartaGeometry>
+	| l r t b |
+
+	l := self left 	+ aNumber.
+	r := left max: self right - aNumber.
+	t := self top + aNumber.
+	b := top max: self bottom - aNumber.
+	
+	^ self class new
+		left: l
+		top: t
+		right: r
+		bottom: b
+		radii: cornerRadii
+]
+
 { #category : #testing }
 SpartaRoundedRectangle >> isUniform [
 	"Return true if all corner radii are same"
@@ -98,6 +118,15 @@ SpartaRoundedRectangle >> isUniform [
 { #category : #accessing }
 SpartaRoundedRectangle >> left [
 	^ left
+]
+
+{ #category : #initialization }
+SpartaRoundedRectangle >> left: aLeft top: aTop right: aRight bottom: aBottom radii: theCornerRadii [
+	left := aLeft.
+	top := aTop.
+	right := aRight.
+	bottom := aBottom.
+	cornerRadii := theCornerRadii
 ]
 
 { #category : #'accessing - radii' }
@@ -125,6 +154,11 @@ SpartaRoundedRectangle >> right [
 { #category : #'api - sparta path' }
 SpartaRoundedRectangle >> spartaClipOn: aSpartaCanvas with: aSpartaClipper [
 	aSpartaClipper pushRoundedRectangle: self
+]
+
+{ #category : #'api - sparta path' }
+SpartaRoundedRectangle >> spartaDrawFigureOn: aSpartaCanvas with: aSpartaFigurePainter [
+	aSpartaFigurePainter drawRoundedRectangle: self
 ]
 
 { #category : #'api - sparta path' }

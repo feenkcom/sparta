@@ -180,6 +180,20 @@ SpartaRectangle >> initialize [
 	bottom := 0
 ]
 
+{ #category : #'api - sparta path' }
+SpartaRectangle >> insetBy: aNumber [
+	"Answer a sparta geometry that is inset from the receiver by delta. delta is a number"
+	<return: #SpartaGeometry>	
+	| l r t b |
+
+	l := self left 	+ aNumber.
+	r := left max: self right - aNumber.
+	t := self top + aNumber.
+	b := top max: self bottom - aNumber.
+	
+	^ self class new left: l top: t right: r bottom: b
+]
+
 { #category : #'rectangle functions' }
 SpartaRectangle >> intersect: aRectangle ifNone: aBlock [
 	"Answer a Rectangle that is the area in which the receiver overlaps with 
@@ -351,6 +365,11 @@ SpartaRectangle >> scaleX: aX Y: aY [
 { #category : #'api - sparta path' }
 SpartaRectangle >> spartaClipOn: aSpartaCanvas with: aSpartaClipper [
 	aSpartaClipper pushRectangle: self
+]
+
+{ #category : #'api - sparta path' }
+SpartaRectangle >> spartaDrawFigureOn: aSpartaCanvas with: aSpartaFigurePainter [
+	aSpartaFigurePainter drawRectangle: self
 ]
 
 { #category : #'api - sparta path' }
