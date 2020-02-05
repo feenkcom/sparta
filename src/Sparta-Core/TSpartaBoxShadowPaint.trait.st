@@ -3,6 +3,21 @@ Trait {
 	#category : #'Sparta-Core-Paints'
 }
 
+{ #category : #initialization }
+TSpartaBoxShadowPaint classSide >> defaultColor [
+	^ Color black
+]
+
+{ #category : #initialization }
+TSpartaBoxShadowPaint classSide >> defaultOffset [
+	^ 2@2
+]
+
+{ #category : #initialization }
+TSpartaBoxShadowPaint classSide >> defaultRadius [
+	^ 3@3
+]
+
 { #category : #accessing }
 TSpartaBoxShadowPaint >> color: aColor [
 	self explicitRequirement

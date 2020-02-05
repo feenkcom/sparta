@@ -141,7 +141,7 @@ SpartaStrokePainter >> strokeCircle: aSpartaCircle [
 ]
 
 { #category : #drawing }
-SpartaStrokePainter >> strokeCircle: aSpartaCircle withBoxShadow: aSpartaBoxShadowPaint [
+SpartaStrokePainter >> strokeCircle: aSpartaCircle withBoxShadow: aTSpartaBoxShadowPaint [
 	true ifFalse: [ self subclassResponsibility ]
 ]
 
