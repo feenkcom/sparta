@@ -20,7 +20,7 @@ SkiaImageFilterBlur class >> sigma: aPoint [
 
 { #category : #'instance creation' }
 SkiaImageFilterBlur class >> sigma: aPoint during: aBlock [
-	self sigma: aPoint tileMode: SkiaTileMode Clamp during: aBlock
+	^ self sigma: aPoint tileMode: SkiaTileMode Clamp during: aBlock
 ]
 
 { #category : #'instance creation' }
@@ -30,7 +30,7 @@ SkiaImageFilterBlur class >> sigma: aPoint tileMode: aSkiaTileMode [
 
 { #category : #'instance creation' }
 SkiaImageFilterBlur class >> sigma: aPoint tileMode: aSkiaTileMode during: aBlock [
-	self sigma: aPoint tileMode: aSkiaTileMode input: SkiaImageFilter null during: aBlock
+	^ self sigma: aPoint tileMode: aSkiaTileMode input: SkiaImageFilter null during: aBlock
 ]
 
 { #category : #'instance creation' }
@@ -40,5 +40,5 @@ SkiaImageFilterBlur class >> sigma: aPoint tileMode: aSkiaTileMode input: anOpti
 
 { #category : #'instance creation' }
 SkiaImageFilterBlur class >> sigma: aPoint tileMode: aSkiaTileMode input: anOptionalSkiaImageFilter during: aBlock [
-	self fromNativeHandle: (self primCreateSigmaX: aPoint x sigmaY: aPoint y tileMode: aSkiaTileMode input: anOptionalSkiaImageFilter) during: aBlock
+	^ self fromNativeHandle: (self primCreateSigmaX: aPoint x sigmaY: aPoint y tileMode: aSkiaTileMode input: anOptionalSkiaImageFilter) during: aBlock
 ]

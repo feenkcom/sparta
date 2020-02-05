@@ -5,6 +5,11 @@ Class {
 }
 
 { #category : #paints }
+SkiaPaintProvider >> boxShadow [
+	^ SkiaBoxShadowPaint new
+]
+
+{ #category : #paints }
 SkiaPaintProvider >> linearGradient [
 	^ SkiaLinearGradient new
 ]

@@ -287,6 +287,54 @@ SkiaSurfaceCanvasExamples >> drawLineBlackWithAntiAlias [
 	^ aSurface
 ]
 
+{ #category : #'examples - image filter drop shadow' }
+SkiaSurfaceCanvasExamples >> drawOvalWithBoxShadow [
+	<gtExample>
+	| aSurface aCanvas aRectangle aPaint |
+	
+	aSurface := SkiaSurface newRasterPremultipled: 70@50.
+	
+	aRectangle := SpartaRectangle fromRectangle: (10@10 corner: 60@40).
+
+	aPaint := SkiaPaint new
+		antialias: true;
+		color: Color white;
+		imageFilter: (SkiaImageFilterDropShadow delta: 4@4 sigma: 2@2 color: (Color black alpha: 0.5));
+		paintStyle: SkiaPaintStyle Fill.
+	
+	aCanvas := aSurface canvas.
+	aCanvas drawOval: aRectangle paint: aPaint.
+	
+	aCanvas flush.
+	aCanvas release.
+	
+	^ aSurface
+]
+
+{ #category : #'examples - image filter drop shadow' }
+SkiaSurfaceCanvasExamples >> drawOvalWithBoxShadowOnly [
+	<gtExample>
+	| aSurface aCanvas aRectangle aPaint |
+	
+	aSurface := SkiaSurface newRasterPremultipled: 70@50.
+	
+	aRectangle := SpartaRectangle fromRectangle: (10@10 corner: 60@40).
+
+	aPaint := SkiaPaint new
+		antialias: true;
+		color: (Color white);
+		imageFilter: (SkiaImageFilterDropShadowOnly delta: 4@4 sigma: 3@3 color: (Color black alpha: 1));
+		paintStyle: SkiaPaintStyle Stroke.
+	
+	aCanvas := aSurface canvas.
+	aCanvas drawOval: aRectangle paint: aPaint.
+	
+	aCanvas flush.
+	aCanvas release.
+	
+	^ aSurface
+]
+
 { #category : #'examples - draw oval' }
 SkiaSurfaceCanvasExamples >> drawOvalWithGrayFill [
 	<gtExample>
