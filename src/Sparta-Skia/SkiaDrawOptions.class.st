@@ -24,6 +24,18 @@ SkiaDrawOptions class >> default [
 	^ default ifNil: [ default := self new ]
 ]
 
+{ #category : #comparing }
+SkiaDrawOptions >> = anObject [
+	"Answer whether the receiver and anObject represent the same object."
+
+	self == anObject
+		ifTrue: [ ^ true ].
+	self class = anObject class
+		ifFalse: [ ^ false ].
+	^ blendMode = anObject blendMode
+		and: [ alpha = anObject alpha and: [ antialias = anObject antialias ] ]
+]
+
 { #category : #accessing }
 SkiaDrawOptions >> alpha [
 	^ alpha
@@ -206,6 +218,13 @@ SkiaDrawOptions >> composeSource [
 { #category : #'composition operators' }
 SkiaDrawOptions >> composeXor [
 	self blendMode: SkiaBlendMode Xor
+]
+
+{ #category : #comparing }
+SkiaDrawOptions >> hash [
+	"Answer an integer value that is related to the identity of the receiver."
+
+	^ blendMode hash bitXor: (alpha hash bitXor: antialias hash)
 ]
 
 { #category : #initialization }
