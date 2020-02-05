@@ -59,10 +59,24 @@ SpartaLine >> from: aFromPoint to: aToPoint [
 	to := aToPoint
 ]
 
+{ #category : #'api - sparta path' }
+SpartaLine >> insetBy: aNumber [
+	"Answer a sparta geometry that is inset from the receiver by delta. delta is a number.
+	Geometry becomes smaller if delta is positive"
+	<return: #SpartaGeometry>
+	
+	^ self
+]
+
 { #category : #dispatch }
 SpartaLine >> spartaClipOn: aSpartaCanvas with: aSpartaClipper [
 	"When clipping by line we actually clip by rectangle that encompasses the line"
 	aSpartaClipper pushRectangle: ((from min: to) corner: (from max: to))
+]
+
+{ #category : #dispatch }
+SpartaLine >> spartaDrawFigureOn: aSpartaCanvas with: aSpartaFigurePainter [
+	aSpartaFigurePainter drawLine: self
 ]
 
 { #category : #dispatch }

@@ -48,6 +48,18 @@ SpartaCircle >> initialize [
 	radius := 0
 ]
 
+{ #category : #'api - sparta path' }
+SpartaCircle >> insetBy: aNumber [
+	"Answer a sparta geometry that is inset from the receiver by delta.
+	delta is a number.
+	Geometry becomes smaller if delta is positive"
+	<return: #SpartaGeometry>
+
+	^ self class
+		center: self center
+		radius: ((self radius - aNumber) max: 0)
+]
+
 { #category : #accessing }
 SpartaCircle >> radius [
 	<return: #Number>
@@ -63,6 +75,11 @@ SpartaCircle >> radius: aNumber [
 { #category : #'api - sparta path' }
 SpartaCircle >> spartaClipOn: aSpartaCanvas with: aSpartaClipper [
 	aSpartaClipper pushCircle: self
+]
+
+{ #category : #'api - sparta path' }
+SpartaCircle >> spartaDrawFigureOn: aSpartaCanvas with: aSpartaFigurePainter [
+	aSpartaFigurePainter drawCircle: self
 ]
 
 { #category : #'api - sparta path' }

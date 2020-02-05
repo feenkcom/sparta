@@ -12,6 +12,11 @@ Rectangle >> spartaClipOn: aSpartaCanvas with: aSpartaClipper [
 ]
 
 { #category : #'*Sparta-Core' }
+Rectangle >> spartaDrawFigureOn: aSpartaCanvas with: aSpartaFigurePainter [
+	aSpartaFigurePainter drawRectangle: self
+]
+
+{ #category : #'*Sparta-Core' }
 Rectangle >> spartaFillOn: aSpartaCanvas with: aSpartaFillPainter [
 	aSpartaFillPainter fillRectangle: self
 ]

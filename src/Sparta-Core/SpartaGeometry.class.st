@@ -15,7 +15,21 @@ SpartaGeometry >> containsPoint: aPoint on: aSpartaCanvas [
 ]
 
 { #category : #'api - sparta path' }
+SpartaGeometry >> insetBy: aNumber [
+	"Answer a sparta geometry that is inset from the receiver by delta. delta is a number.
+	Geometry becomes smaller if delta is positive"
+	<return: #SpartaGeometry>
+	
+	^ self subclassResponsibility
+]
+
+{ #category : #'api - sparta path' }
 SpartaGeometry >> spartaClipOn: aSpartaCanvas with: aSpartaClipper [
+	self subclassResponsibility
+]
+
+{ #category : #'api - sparta path' }
+SpartaGeometry >> spartaDrawFigureOn: aSpartaCanvas with: aSpartaFigurePainter [
 	self subclassResponsibility
 ]
 

@@ -447,6 +447,21 @@ SpartaCanvas >> extent [
 ]
 
 { #category : #api }
+SpartaCanvas >> figure [
+	<return: #SpartaFigurePainter>
+
+	^ self figurePainter
+		reset;
+		canvas: self;
+		yourself
+]
+
+{ #category : #builders }
+SpartaCanvas >> figurePainter [
+	^ SpartaFigurePainter new
+]
+
+{ #category : #api }
 SpartaCanvas >> fill [
 	"Start building a fill draw operation.
 	User gets a fill painter responsible for fill creation.

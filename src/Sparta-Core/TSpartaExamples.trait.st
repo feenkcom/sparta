@@ -1376,6 +1376,31 @@ TSpartaExamples >> drawRadialGradientPartial [
 	^ aCanvas
 ]
 
+{ #category : #'benchmarks - figure' }
+TSpartaExamples >> figureRectangleWithoutBorder [
+	<gtExample>
+	<noTest>
+	| aCanvas aRectangle aColor |
+
+	aCanvas := self class canvas: 300@200.
+	aCanvas fill
+		path: aCanvas bounds;
+		paint: Color white;
+		draw.
+		
+	aRectangle := 50@50 corner: 250@150.
+	aColor := Color brown.
+		
+	^ [ aCanvas figure
+			path: aRectangle;
+			background: aColor;
+			backgroundAlpha: 1.0;
+			border: Color transparent;
+			borderAlpha: 1.0;
+			width: 0.0;
+			draw ] benchFor: 2 seconds
+]
+
 { #category : #'examples - fill circle' }
 TSpartaExamples >> fillCircleWithGrayColor [
 	<gtExample>
@@ -1975,6 +2000,55 @@ TSpartaExamples >> textRunWithMetrics [
 		font: aCanvas font build;
 		string: 'Hello world!';
 		textRunWithMetrics
+]
+
+{ #category : #'examples - transformation' }
+TSpartaExamples >> translateAndClipFillRectangle [
+	<gtExample>
+	| aCanvas |
+
+	aCanvas := self class canvas: 400@300.
+	aCanvas fill
+		path: (50@50 extent: 100@75);
+		paint: (Color gray alpha: 0.4);
+		draw.
+	
+	aCanvas clip
+		by: (100@75 extent: 100@75)
+		during: [
+			aCanvas transform
+				by: [ :t | t translateBy: 50@25 ]
+				during: [
+					aCanvas fill
+						path: (50@50 extent: 100@75);
+						paint: (Color red alpha: 0.4);
+						draw ] ].
+				
+	aCanvas clip
+		by: (150@125 extent: 100@75)
+		during: [
+			aCanvas transform
+				by: [ :t | t translateBy: 100@75 ]
+				during: [
+					aCanvas fill
+						path: (50@50 extent: 100@75);
+						paint: (Color red alpha: 0.4);
+						draw ] ].
+
+	aCanvas transform
+		by: [ :t | t translateBy: 100@75 ]
+		during: [	
+			aCanvas clip
+				by: (50@50 extent: 100@75)
+				during: [
+					aCanvas fill
+						path: (0@0 extent: 100@75);
+						paint: (Color blue alpha: 0.4);
+						draw ] ].
+
+	^ aCanvas
+	
+	
 ]
 
 { #category : #'examples - transformation' }
