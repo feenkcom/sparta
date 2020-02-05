@@ -27,6 +27,21 @@ SkiaStrokeOptions class >> default [
 	^ default ifNil: [ default := self new ]
 ]
 
+{ #category : #comparing }
+SkiaStrokeOptions >> = anObject [
+	"Answer whether the receiver and anObject represent the same object."
+
+	self == anObject
+		ifTrue: [ ^ true ].
+	self class = anObject class
+		ifFalse: [ ^ false ].
+	^ capStyle = anObject capStyle
+		and: [ dashOffset = anObject dashOffset
+				and: [ dashPattern = anObject dashPattern
+						and: [ joinStyle = anObject joinStyle
+								and: [ miterLimit = anObject miterLimit and: [ width = anObject width ] ] ] ] ]
+]
+
 { #category : #'cap styles' }
 SkiaStrokeOptions >> capButt [
 	self capStyle: SkiaCapStyle Butt
@@ -53,13 +68,35 @@ SkiaStrokeOptions >> capStyle: aCapStyle [
 ]
 
 { #category : #accessing }
+SkiaStrokeOptions >> dashOffset [
+	^ dashOffset
+]
+
+{ #category : #accessing }
 SkiaStrokeOptions >> dashOffset: aFloat [
 	dashOffset := aFloat
 ]
 
 { #category : #accessing }
+SkiaStrokeOptions >> dashPattern [
+	^ dashPattern
+]
+
+{ #category : #accessing }
 SkiaStrokeOptions >> dashPattern: anArrayOfFloats [
 	dashPattern := anArrayOfFloats
+]
+
+{ #category : #comparing }
+SkiaStrokeOptions >> hash [
+	"Answer an integer value that is related to the identity of the receiver."
+
+	^ capStyle hash
+		bitXor:
+			(dashOffset hash
+				bitXor:
+					(dashPattern hash
+						bitXor: (joinStyle hash bitXor: (miterLimit hash bitXor: width hash))))
 ]
 
 { #category : #initialization }
