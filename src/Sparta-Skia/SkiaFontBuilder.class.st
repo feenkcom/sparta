@@ -73,7 +73,11 @@ SkiaFontBuilder >> build [
 									width: (SkiaFontStyleWidth fromSpartaStretch: aSpartaFontFace stretch)
 									slant: (SkiaFontStyleSlant fromSpartaSlant: aSpartaFontFace style)) ] ].
 			
-			SkiaFont typeface: aSkiaTypeface size: size ]
+			(SkiaFont typeface: aSkiaTypeface size: size)
+				subpixel: true;
+				hinting: SkiaFontHinting Full;
+				edging: SkiaFontEdging SubpixelAntiAlias;
+				yourself ]
 ]
 
 { #category : #'instance creation' }
