@@ -47,6 +47,11 @@ SkiaFont >> edging [
 ]
 
 { #category : #accessing }
+SkiaFont >> edging: aSkiaFontEdging [
+	self primSetEdging: aSkiaFontEdging
+]
+
+{ #category : #accessing }
 SkiaFont >> familyName [
 	<return: #String>
 
@@ -153,6 +158,11 @@ SkiaFont >> hinting [
 	<return: #SkiaFontHinting>
 
 	^ self primGetHinting
+]
+
+{ #category : #accessing }
+SkiaFont >> hinting: aSkiaFontHinting [
+	self primSetHinting: aSkiaFontHinting
 ]
 
 { #category : #testing }
@@ -310,6 +320,21 @@ SkiaFont >> primMeasureText: aGtBoxerString encoding: aSkiaTextEncoding paint: a
 ]
 
 { #category : #'private - ffi' }
+SkiaFont >> primSetEdging: aSkiaFontEdging [
+	^ self ffiCall: #(void skia_font_set_edging(self, SkiaFontEdging aSkiaFontEdging))
+]
+
+{ #category : #'private - ffi' }
+SkiaFont >> primSetHinting: aSkiaFontHinting [
+	^ self ffiCall: #(void skia_font_set_hinting(self, SkiaFontHinting aSkiaFontHinting))
+]
+
+{ #category : #'private - ffi' }
+SkiaFont >> primSetSubpixel: aBoolean [
+	^ self ffiCall: #(void skia_font_set_subpixel(self, bool aBoolean))
+]
+
+{ #category : #'private - ffi' }
 SkiaFont >> primText: aByteArray length: aLength toGlyphs: aGtBoxerArrayU16 encoding: aSkiaTextEncoding paint: aSkiaPaint bounds: aSkiaRectangleF32 [
 	^ self ffiCall: #(scalar skia_font_text_to_glyphs(self,
 		uint8* aByteArray,
@@ -401,6 +426,11 @@ SkiaFont >> stringToTextRun: aString paint: aSkiaPaint [
 				glyphs: theGlyphs;
 				advance: aWidth;
 				bounds: aBounds ] ]
+]
+
+{ #category : #accessing }
+SkiaFont >> subpixel: aBoolean [
+	self primSetSubpixel: aBoolean
 ]
 
 { #category : #accessing }
