@@ -8,7 +8,7 @@ Class {
 		'canvas',
 		'formCanvas'
 	],
-	#category : 'Sparta-Wrapper'
+	#category : #'Sparta-Wrapper'
 }
 
 { #category : #'instance creation' }
@@ -112,19 +112,22 @@ SpartaWrapperCanvas >> drawPolygon: vertices color: aColor borderWidth: bw borde
 
 { #category : #'drawing-text' }
 SpartaWrapperCanvas >> drawString: s from: firstIndex to: lastIndex in: boundsRect font: fontOrNil color: c [
-	| aLogicalFont aFont |
+	| aLogicalFont aFont aString |
 	
 	aLogicalFont := fontOrNil ifNil: [ StandardFonts defaultFont ].
 		
 	aFont := self canvas font
 		logical: aLogicalFont;
 		build.	
+			
+	aString := s asString.
+	aString := (firstIndex = 1 and: [ lastIndex = aString size ])
+		ifTrue: [ aString ]
+		ifFalse: [  aString := aString copyFrom: firstIndex to: lastIndex ].
 
 	self canvas text
 		font: aFont;
-		text: s asString;
-		start: firstIndex;
-		end: lastIndex;
+		string: aString;
 		paint: c;
 		baseline: (boundsRect origin asFloatPoint + (0@aLogicalFont ascent));
 		draw
@@ -166,6 +169,14 @@ SpartaWrapperCanvas >> fillOval: r color: c borderWidth: borderWidth borderColor
 				draw ]
 ]
 
+{ #category : #initialization }
+SpartaWrapperCanvas >> flush [
+	super flush.
+	
+	formCanvas flush.
+	canvas flush
+]
+
 { #category : #accessing }
 SpartaWrapperCanvas >> formCanvas [
 	^ formCanvas
@@ -205,13 +216,12 @@ SpartaWrapperCanvas >> image: aForm at: aPoint sourceRect: sourceRect rule: rule
 		ifFalse: [ aForm copy: sourceRect ].
 	
 	self canvas transform
-		during: [ :aTransform |
-			aTransform translateBy: aPoint.
-			aTransform apply.
-				self canvas fill
-					path: (0@0 extent: aSourceForm extent);
-					paint: aSourceForm;
-					draw ]
+		by: [ :t | t translateBy: aPoint ]
+		during: [
+			self canvas fill
+				path: (0@0 extent: aSourceForm extent);
+				paint: aSourceForm;
+				draw ]
 ]
 
 { #category : #private }
@@ -270,10 +280,8 @@ SpartaWrapperCanvas >> transformBy: aDisplayTransform clippingTo: aClipRect duri
 		clipBy: aClipRect
 		during: [
 			self canvas transform
-				during: [ :aTransform |
-					aTransform multiplyBy: spartaMatrix.
-					aTransform apply.
-					aBlock cull: self ] ]
+				by: [ :t | t multiplyBy: spartaMatrix ]
+				during: [ aBlock cull: self ] ]
 ]
 
 { #category : #'drawing-support' }
@@ -281,8 +289,6 @@ SpartaWrapperCanvas >> translateBy: delta during: aBlock [
 	"Set a translation only during the execution of aBlock."
 	
 	self canvas transform
-		during: [ :aTransform |
-			aTransform translateBy: delta.
-			aTransform apply.
-			aBlock value: self ]
+		by: [ :t | t translateBy: delta ]
+		during: [ aBlock value: self ]
 ]

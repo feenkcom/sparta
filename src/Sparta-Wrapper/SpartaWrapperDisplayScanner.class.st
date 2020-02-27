@@ -10,7 +10,7 @@ Class {
 		'spartaFont',
 		'previousFont'
 	],
-	#category : 'Sparta-Wrapper'
+	#category : #'Sparta-Wrapper'
 }
 
 { #category : #'instance creation' }
@@ -29,16 +29,19 @@ SpartaWrapperDisplayScanner >> displayEmbeddedForm: aForm [
 
 { #category : #displaying }
 SpartaWrapperDisplayScanner >> displayString: string from: startIndex to: stopIndex at: aPoint [
+	| aString |
+
+	aString := string asString.
+	aString := (startIndex = 1 and: [ stopIndex = aString size ])
+		ifTrue: [ aString ]
+		ifFalse: [  aString := aString copyFrom: startIndex to: stopIndex ].
 
 	self canvas text
 		paint: foregroundColor;
 		font: spartaFont;
-		text: string asString;
-		start: startIndex;
-		end: stopIndex;
+		string: aString;
 		baseline: aPoint + (0@font ascent);
 		draw
-		
 ]
 
 { #category : #displaying }
