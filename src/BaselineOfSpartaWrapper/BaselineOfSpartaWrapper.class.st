@@ -8,10 +8,9 @@ Class {
 BaselineOfSpartaWrapper >> baseline: spec [
 	<baseline>
 	spec for: #'common' do: [
-		spec 
-			baseline: 'SpartaCore' with: [
-				spec repository: 'github://feenkcom/Sparta/src' ].
-		spec
-			package: 'Sparta-Wrapper'
-			with: [ spec requires: #('SpartaCore') ] ]
+		spec baseline: 'SpartaCore' with: [
+				spec repository: 'github://feenkcom/Sparta:v0.7.124/src' ].
+		spec package: 'Sparta-Wrapper' with: [
+				spec requires: #('SpartaCore' ). ]. ].
+
 ]
