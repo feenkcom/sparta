@@ -806,6 +806,34 @@ TSpartaExamples >> benchmarkClipSubRectangle [
 ]
 
 { #category : #benchmarks }
+TSpartaExamples >> benchmarkDrawTextAtRandomLocations [
+	<gtExample>
+	<noTest>
+	| extent amount points words canvas font |
+
+	extent := 1000@1000.
+	amount := 100000.
+
+	points := amount timesCollect: [ (10@30) + ((extent x - 50) atRandom @ (extent y - 50) atRandom) ].
+	words := amount timesCollect: [ ((4 + 10 atRandom) timesCollect: [ ($a to: $z) atRandom ]) as: String ].
+
+	canvas := self class canvas: 1000@1000.
+
+	font := canvas font
+		named: 'Source Code Pro';
+		size: 14;
+		build.
+
+	^ MessageTally on: [	
+	words with: points do: [ :word :point |
+		canvas text
+			font: font;
+			string: word;
+			baseline: point;
+			draw ] ]
+]
+
+{ #category : #benchmarks }
 TSpartaExamples >> benchmarkDrawTextWithBlackColor [
 	<gtExample>
 	<noTest>
