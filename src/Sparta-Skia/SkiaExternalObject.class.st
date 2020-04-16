@@ -11,7 +11,7 @@ Class {
 }
 
 { #category : #'library path' }
-SkiaExternalObject class >> ffiLibraryName [
+SkiaExternalObject class >> ffiLibrary [
 	^ SkiaLibrary
 ]
 
@@ -132,8 +132,7 @@ SkiaExternalObject >> autoRelease [
 ]
 
 { #category : #dependencies }
-SkiaExternalObject >> ffiLibraryName [
-	^ self class ffiLibraryName
+SkiaExternalObject >> ffiLibrary [ ^ self class ffiLibrary
 ]
 
 { #category : #dependencies }

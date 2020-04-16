@@ -46,7 +46,7 @@ SkiaExternalEnumeration class >> externalType [
 ]
 
 { #category : #'library path' }
-SkiaExternalEnumeration class >> ffiLibraryName [
+SkiaExternalEnumeration class >> ffiLibrary [
 	^ SkiaLibrary
 ]
 

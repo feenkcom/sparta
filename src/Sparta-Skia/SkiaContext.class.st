@@ -4,9 +4,19 @@ Class {
 	#category : #'Sparta-Skia-External'
 }
 
+{ #category : #'instance creation' }
+SkiaContext class >> fromInterface: aSkiaInterface [
+	^ self fromNativeHandle: (self primCreate: aSkiaInterface)
+]
+
+{ #category : #'instance creation' }
+SkiaContext class >> new [
+	^ self fromInterface: (SkiaInterface new)
+]
+
 { #category : #'private - ffi' }
-SkiaContext class >> primCreate [
-	^ self ffiCall: #(void* skia_context_new_gl())
+SkiaContext class >> primCreate: aSkiaInterface [
+	^ self ffiCall: #(void* skia_context_new_gl(SkiaInterface aSkiaInterface))
 ]
 
 { #category : #'private - ffi' }

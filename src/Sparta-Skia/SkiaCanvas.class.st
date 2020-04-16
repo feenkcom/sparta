@@ -124,6 +124,17 @@ SkiaCanvas class >> createFromRenderTarget: aSkiaBackendRenderTarget format: aSk
 ]
 
 { #category : #'api - instance creation' }
+SkiaCanvas class >> createFromRenderTarget: aSkiaBackendRenderTarget format: aSkiaColorType context: anOpenGLContext [
+	| aSurface |
+		
+	aSurface := SkiaSurface
+		fromRenderTarget: aSkiaBackendRenderTarget
+		colorType: aSkiaColorType
+		context: anOpenGLContext.
+	^ self new initializeWith: aSurface
+]
+
+{ #category : #'api - instance creation' }
 SkiaCanvas class >> createNewRenderTargetExtent: aPoint format: aSkiaColorType [
 	| anImageInfo aSurface |
 	
