@@ -41,6 +41,16 @@ SkiaSurface class >> fromRenderTarget: aSkiaBackendRenderTarget colorType: aSkia
 ]
 
 { #category : #'instance creation' }
+SkiaSurface class >> fromRenderTarget: aSkiaBackendRenderTarget colorType: aSkiaColorType context: anOpenGLContext [
+	| aSkiaContext |
+
+	aSkiaContext := SkiaContext fromInterface: (SkiaInterface load: [ :aSymbol | anOpenGLContext getProcAddress: aSymbol ]).
+	
+	^ (self fromNativeHandle: (self primFromRenderTarget: aSkiaBackendRenderTarget context: aSkiaContext colorType: aSkiaColorType))
+		gpuContext: aSkiaContext
+]
+
+{ #category : #'instance creation' }
 SkiaSurface class >> newRasterDirectImageInfo: aSkiaImageInfo pixels: thePixels stride: aStride [
 	^ self fromNativeHandle: (self primNewRasterDirectImageInfo: aSkiaImageInfo pixels: thePixels stride: aStride)
 ]
