@@ -254,6 +254,11 @@ SkiaCanvas class >> offscreen [
 			ifFalse: [ offscreen := self extent: 1@1 ] ]
 ]
 
+{ #category : #'api - instance creation' }
+SkiaCanvas class >> recording: aRectangle [
+	^ self new initializeWith: (SkiaPictureRecorder new bounds: aRectangle)
+]
+
 { #category : #accessing }
 SkiaCanvas class >> strokeOptions [
 	^ SkiaStrokeOptions

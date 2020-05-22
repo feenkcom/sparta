@@ -12,6 +12,16 @@ SkiaMatrix class >> fromSpartaMatrix: aSpartaMatrix [
 		persp0: 0 persp1: 0 persp2: 1
 ]
 
+{ #category : #'instance creation' }
+SkiaMatrix class >> fromSpartaMatrix: aSpartaMatrix during: aBlock [
+	^ self newDuring: [ :aSkiaMatrix |
+		aSkiaMatrix
+			setScaleX: aSpartaMatrix sx skewX: aSpartaMatrix shx transX: aSpartaMatrix x
+			skewY: aSpartaMatrix shy scaleY: aSpartaMatrix sy transY: aSpartaMatrix y
+			persp0: 0 persp1: 0 persp2: 1.
+		aBlock value: aSkiaMatrix ]
+]
+
 { #category : #'private - ffi' }
 SkiaMatrix class >> primCreate [
 	^ self ffiCall: #(void* skia_matrix_new_identity())
