@@ -1,47 +1,27 @@
-# Sparta [![Build Status](https://travis-ci.org/syrel/Sparta.svg?branch=master)](https://travis-ci.org/syrel/Sparta) [![Build status](https://ci.appveyor.com/api/projects/status/5rivbl8u726h31is?svg=true)](https://ci.appveyor.com/project/syrel/sparta) [![Coverage Status](https://coveralls.io/repos/github/syrel/Sparta/badge.svg?branch=master)](https://coveralls.io/github/syrel/Sparta?branch=master)
+# Sparta
 
-Sparta is an almost stateless vector graphics API for Pharo that provides bindings to the Moz2D rendering backend. Moz2D is the extracted graphical engine from Mozilla Firefox compiled as standalone shared library together with the extern C bindings required to call the engine from Pharo.
-
-### Documentation
-  - [Canvas](src/Sparta-Core.package/SpartaCanvas.class/README.md)
-  - [Paint](src/Sparta-Core.package/TSpartaPaint.trait/README.md)
-    - [Gradient](src/Sparta-Core.package/TSpartaGradientPaint.trait/README.md)
-      - [Linear](src/Sparta-Core.package/TSpartaLinearGradientPaint.trait/README.md)
-      - [Radial](src/Sparta-Core.package/TSpartaRadialGradientPaint.trait/README.md)
-    - [Surface](src/Sparta-Core.package/TSpartaSurfacePaint.trait/README.md)
-  - [Fill](src/Sparta-Core.package/SpartaFillPainter.class/README.md)
-  - [Stroke](src/Sparta-Core.package/SpartaStrokePainter.class/README.md)
-  - [Path](src/Sparta-Core.package/TSpartaPathBuilder.trait/README.md)
-  - [Transformation](src/Sparta-Core.package/SpartaTransformationBuilder.class/README.md)
-  - [Clip](src/Sparta-Core.package/SpartaClipper.class/README.md)
-  - [Font](src/Sparta-Core.package/SpartaFontBuilder.class/README.md)
-  - [Text](src/Sparta-Core.package/SpartaTextPainter.class/README.md)
-  - [Filter](src/Sparta-Core.package/SpartaFilterPainter.class/README.md)
+Sparta is an almost stateless vector graphics API for Pharo that provides bindings to the Skia rendering backend.
 
 ### Install
 
 **More detailed installation guide is described in [INSTALL.md](INSTALL.md)**
 
-Sparta requires extra [Moz2D](https://github.com/syrel/Moz2D) vm plugin. Plugin for the current OS and VM (32 or 64 bit) is downloaded and installed automatically together with all needed packages. For that, Sparta uses [Iceberg](https://github.com/npasserini/iceberg) to work with Git version control system.
+Sparta requires an extra Skia vm plugin. The plugin for the current OS and VM (64 bit) is downloaded and installed automatically together with all needed packages.
 
-*Bootstrap bleading edge development together with tests and additional Lint rules:*
 ```smalltalk 
-EpMonitor current disable.
-[ 
-  Metacello new
+Metacello new
     baseline: 'Sparta';
     repository: 'github://feenkcom/sparta/src';
     load
-] ensure: [ EpMonitor current enable ].  
 ```
 
 ### Overview
-*(All images are rendered using Sparta in Pharo)*
+*(All images are rendered using Sparta in Glamorous Toolkit)*
 
 !["Sparta" string rendered with applied neon filter](screenshots/Sparta-v1-Neon.png "Neon filter")
 
 ### Backends
-Moz2D, and as result Sparta, has support of native OS graphic engines, as well as cross platform ones.
+Skia, and as result Sparta, has support of native OS graphic engines, as well as cross platform ones.
 
 On all platforms Sparta provides support of [Cairo](https://cairographics.org) and [Skia](https://skia.org/). Additionally, high performant [CoreGraphics and CoreGraphics Accelerated](https://developer.apple.com/reference/coregraphics) on Mac OS and [Direct2D](https://msdn.microsoft.com/en-us/library/windows/desktop/dd317121(v=vs.85).aspx) on Windows.
 In total Sparta supports 5 different rendering backends. 
