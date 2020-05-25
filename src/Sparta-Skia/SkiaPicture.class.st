@@ -11,6 +11,16 @@ SkiaPicture class >> primRelease: aHandle [
 	self ffiCall: #(void skia_picture_drop(void* aHandle))
 ]
 
+{ #category : #'gt-extension' }
+SkiaPicture >> asForm [
+	| aCanvas |
+	
+	aCanvas := SkiaCanvas extent: self bounds extent ceiling asIntegerPoint.
+	self playbackOn: aCanvas surfaceCanvas.
+	
+	^ aCanvas asForm
+]
+
 { #category : #accessing }
 SkiaPicture >> bounds [
 	<return: #Rectangle>
@@ -30,9 +40,19 @@ SkiaPicture >> gtInfoFor: aView [
 			priority: 2
 ]
 
+{ #category : #accessing }
+SkiaPicture >> playbackOn: aCanvas [
+	self primPlaybackOn: aCanvas
+]
+
 { #category : #'private - ffi' }
 SkiaPicture >> primCullRect [
 	^ self ffiCall: #(void* skia_picture_cull_rect(self))
+]
+
+{ #category : #'private - ffi' }
+SkiaPicture >> primPlaybackOn: aCanvas [
+	^ self ffiCall: #(void skia_picture_playback(self, SkiaSurfaceCanvas aCanvas))
 ]
 
 { #category : #'private - ffi' }
