@@ -25,9 +25,7 @@ SkiaCompositor class >> primCreateAccelerated: anAmountOfWorkers eventLoop: aGlu
 
 { #category : #'private - ffi' }
 SkiaCompositor class >> primCreateSoftware: anAmountOfWorkers [
-	^ self ffiCall: #(void* skia_compositor_new_workers(
-		size_t anAmountOfWorkers
-	))
+	^ self ffiCall: #(void* skia_compositor_new_software(size_t anAmountOfWorkers))
 ]
 
 { #category : #'private - ffi' }

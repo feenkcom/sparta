@@ -26,6 +26,11 @@ SkiaCompositionOffsetLayer >> offset [
 	^ self x @ self y
 ]
 
+{ #category : #accessing }
+SkiaCompositionOffsetLayer >> offset: aPoint [
+	self primSetX: aPoint x Y: aPoint y
+]
+
 { #category : #'private - ffi' }
 SkiaCompositionOffsetLayer >> primGetX [
 	^ self ffiCall: #(scalar skia_offset_layer_get_x(self))
@@ -34,6 +39,11 @@ SkiaCompositionOffsetLayer >> primGetX [
 { #category : #'private - ffi' }
 SkiaCompositionOffsetLayer >> primGetY [
 	^ self ffiCall: #(scalar skia_offset_layer_get_y(self))
+]
+
+{ #category : #'private - ffi' }
+SkiaCompositionOffsetLayer >> primSetX: aX Y: aY [
+	^ self ffiCall: #(void skia_offset_layer_set_offset(self, scalar aX, scalar aY))
 ]
 
 { #category : #accessing }
