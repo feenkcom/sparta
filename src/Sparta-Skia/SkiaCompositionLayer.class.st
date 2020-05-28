@@ -13,11 +13,10 @@ SkiaCompositionLayer class >> primRelease: aHandle [
 
 { #category : #adding }
 SkiaCompositionLayer >> addLayer: aSkiaCompositionLayer [
-	self primAddLayer: aSkiaCompositionLayer.
-	aSkiaCompositionLayer release
+	self primAddLayer: aSkiaCompositionLayer
 ]
 
-{ #category : #adding }
+{ #category : #accessing }
 SkiaCompositionLayer >> layersCount [
 	<return: #Number>
 	
@@ -32,4 +31,16 @@ SkiaCompositionLayer >> primAddLayer: aSkiaCompositionLayer [
 { #category : #'private - ffi' }
 SkiaCompositionLayer >> primCountLayers [
 	^ self ffiCall: #(size_t skia_composition_layer_count_layers(self))
+]
+
+{ #category : #'private - ffi' }
+SkiaCompositionLayer >> primCountRefs [
+	^ self ffiCall: #(size_t skia_composition_layer_count_refs(self))
+]
+
+{ #category : #accessing }
+SkiaCompositionLayer >> referenceCount [
+	<return: #Number>
+	
+	^ self primCountRefs
 ]

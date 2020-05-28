@@ -18,3 +18,34 @@ SkiaCompositionOffsetLayer class >> primCreate [
 SkiaCompositionOffsetLayer class >> primNewX: aX Y: aY [
 	^ self ffiCall: #(void* skia_offset_layer_new_point(scalar aX, scalar aY))
 ]
+
+{ #category : #accessing }
+SkiaCompositionOffsetLayer >> offset [
+	<return: #Point>
+	
+	^ self x @ self y
+]
+
+{ #category : #'private - ffi' }
+SkiaCompositionOffsetLayer >> primGetX [
+	^ self ffiCall: #(scalar skia_offset_layer_get_x(self))
+]
+
+{ #category : #'private - ffi' }
+SkiaCompositionOffsetLayer >> primGetY [
+	^ self ffiCall: #(scalar skia_offset_layer_get_y(self))
+]
+
+{ #category : #accessing }
+SkiaCompositionOffsetLayer >> x [
+	<return: #Number>
+	
+	^ self primGetX
+]
+
+{ #category : #accessing }
+SkiaCompositionOffsetLayer >> y [
+	<return: #Number>
+	
+	^ self primGetY
+]
