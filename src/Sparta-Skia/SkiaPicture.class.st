@@ -41,6 +41,13 @@ SkiaPicture >> gtInfoFor: aView [
 ]
 
 { #category : #accessing }
+SkiaPicture >> isEmpty [
+	<return: #Boolean>
+	
+	^ self primIsEmpty
+]
+
+{ #category : #accessing }
 SkiaPicture >> playbackOn: aCanvas [
 	self primPlaybackOn: aCanvas
 ]
@@ -48,6 +55,11 @@ SkiaPicture >> playbackOn: aCanvas [
 { #category : #'private - ffi' }
 SkiaPicture >> primCullRect [
 	^ self ffiCall: #(void* skia_picture_cull_rect(self))
+]
+
+{ #category : #'private - ffi' }
+SkiaPicture >> primIsEmpty [
+	^ self ffiCall: #(bool skia_picture_is_empty(self))
 ]
 
 { #category : #'private - ffi' }
