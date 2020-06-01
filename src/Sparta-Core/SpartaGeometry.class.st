@@ -25,7 +25,7 @@ SpartaGeometry >> insetBy: aNumber [
 
 { #category : #'api - sparta path' }
 SpartaGeometry >> spartaClipOn: aSpartaCanvas with: aSpartaClipper [
-	self subclassResponsibility
+	^ self subclassResponsibility
 ]
 
 { #category : #'api - sparta path' }

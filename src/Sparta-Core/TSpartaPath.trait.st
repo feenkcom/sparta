@@ -29,7 +29,7 @@ TSpartaPath >> containsPoint: aPoint on: aSpartaCanvas [
 
 { #category : #'api - sparta path' }
 TSpartaPath >> spartaClipOn: aSpartaCanvas with: aSpartaClipper [
-	aSpartaClipper pushPath: self
+	^ aSpartaClipper pushPath: self
 ]
 
 { #category : #'api - sparta path' }

@@ -133,7 +133,7 @@ SpartaEllipse >> right [
 
 { #category : #'api - sparta path' }
 SpartaEllipse >> spartaClipOn: aSpartaCanvas with: aSpartaClipper [
-	aSpartaClipper pushEllipse: self
+	^ aSpartaClipper pushEllipse: self
 ]
 
 { #category : #'api - sparta path' }
