@@ -71,7 +71,7 @@ SpartaLine >> insetBy: aNumber [
 { #category : #dispatch }
 SpartaLine >> spartaClipOn: aSpartaCanvas with: aSpartaClipper [
 	"When clipping by line we actually clip by rectangle that encompasses the line"
-	aSpartaClipper pushRectangle: ((from min: to) corner: (from max: to))
+	^ aSpartaClipper pushRectangle: ((from min: to) corner: (from max: to))
 ]
 
 { #category : #dispatch }

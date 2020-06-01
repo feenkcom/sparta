@@ -364,7 +364,7 @@ SpartaRectangle >> scaleX: aX Y: aY [
 
 { #category : #'api - sparta path' }
 SpartaRectangle >> spartaClipOn: aSpartaCanvas with: aSpartaClipper [
-	aSpartaClipper pushRectangle: self
+	^ aSpartaClipper pushRectangle: self
 ]
 
 { #category : #'api - sparta path' }

@@ -74,7 +74,7 @@ SpartaCircle >> radius: aNumber [
 
 { #category : #'api - sparta path' }
 SpartaCircle >> spartaClipOn: aSpartaCanvas with: aSpartaClipper [
-	aSpartaClipper pushCircle: self
+	^ aSpartaClipper pushCircle: self
 ]
 
 { #category : #'api - sparta path' }

@@ -7,17 +7,6 @@ Class {
 	#category : #'Sparta-Skia-Builders'
 }
 
-{ #category : #'private - clipping' }
-SkiaClipper >> by: aPath shifted: aPoint during: aBlock [
-
-	offset := aPoint.
-	self push: aPath.
-	
-	aBlock ensure: [
-		offset := 0@0.
-		self pop ]
-]
-
 { #category : #testing }
 SkiaClipper >> containsGlobal: aRectangle [
 	<return: #Boolean>
