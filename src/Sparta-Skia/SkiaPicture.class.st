@@ -11,6 +11,26 @@ SkiaPicture class >> primRelease: aHandle [
 	self ffiCall: #(void skia_picture_drop(void* aHandle))
 ]
 
+{ #category : #accessing }
+SkiaPicture >> approximateOpCount [
+	<return: #Number>
+	
+	^ self primApproximateOpCount
+]
+
+{ #category : #accessing }
+SkiaPicture >> approximateOpPerPoint [
+	| theBounds thePoints |
+	<return: #Number>
+	
+	theBounds := self bounds.
+	thePoints := theBounds height * theBounds width.
+	(thePoints closeTo: 0)
+		ifTrue: [ ^ 0 ].
+
+	^ (self approximateOpCount / (theBounds height * theBounds width)) asFloat
+]
+
 { #category : #'gt-extension' }
 SkiaPicture >> asForm [
 	| aCanvas |
@@ -35,6 +55,7 @@ SkiaPicture >> gtInfoFor: aView [
 	^ ({
 		#uniqueId -> self uniqueId.
 		#bounds -> self bounds.
+		#operations -> self approximateOpCount
 	 } asOrderedDictionary gtItemsFor: aView)
 			title: 'Info';
 			priority: 2
@@ -48,8 +69,20 @@ SkiaPicture >> isEmpty [
 ]
 
 { #category : #accessing }
+SkiaPicture >> isSimple [
+	<return: #Boolean>
+	
+	^ self approximateOpCount <= 5 or: [ self approximateOpPerPoint <= 0.0001 ]
+]
+
+{ #category : #accessing }
 SkiaPicture >> playbackOn: aCanvas [
 	self primPlaybackOn: aCanvas
+]
+
+{ #category : #'private - ffi' }
+SkiaPicture >> primApproximateOpCount [
+	^ self ffiCall: #(size_t skia_picture_approximate_op_count(self))
 ]
 
 { #category : #'private - ffi' }

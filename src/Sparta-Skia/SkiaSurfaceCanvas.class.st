@@ -11,6 +11,34 @@ SkiaSurfaceCanvas class >> primRelease: aHandle [
 	self ffiCall: #(void skia_canvas_drop(void* aHandle))
 ]
 
+{ #category : #'api - drawing' }
+SkiaSurfaceCanvas >> clear: aColor [
+	| aRed aGreen aBlue anAlpha |
+
+	aRed := (aColor red * 255) asInteger.
+	aGreen := (aColor green * 255) asInteger.
+	aBlue := (aColor blue * 255) asInteger.
+	anAlpha := (aColor alpha * 255) asInteger.
+	
+	self
+		assert: [ aRed isInteger and: [ aRed between: 0 and: 255 ] ]
+		description: [ 'Red must uint8 integer' ].
+
+	self
+		assert: [ aGreen isInteger and: [ aGreen between: 0 and: 255 ] ]
+		description: [ 'Green must uint8 integer' ].
+	
+	self
+		assert: [ aBlue isInteger and: [ aBlue between: 0 and: 255 ] ]
+		description: [ 'Blue must uint8 integer' ].
+	
+	self
+		assert: [ anAlpha isInteger and: [ anAlpha between: 0 and: 255 ] ]
+		description: [ 'Alpha must uint8 integer' ].
+
+	self primClearR: aRed g: aGreen b: aBlue a: anAlpha
+]
+
 { #category : #'api - clip' }
 SkiaSurfaceCanvas >> clipCircle: aSpartaCircle [
 	self
@@ -352,6 +380,12 @@ SkiaSurfaceCanvas >> getMatrix [
 	^ SkiaMatrix newDuring: [ :aSkiaMatrix |
 		self primGetMatrix: aSkiaMatrix.
 		aSkiaMatrix asSpartaMatrix ]
+]
+
+{ #category : #'private - ffi' }
+SkiaSurfaceCanvas >> primClearR: r g: g b: b a: a [
+	^ self ffiCall: #(void skia_canvas_clear(self,
+		uint8 r, uint8 g, uint8 b, uint8 a))
 ]
 
 { #category : #'private - ffi clip' }
