@@ -153,7 +153,7 @@ SpartaRoundedRectangle >> right [
 
 { #category : #'api - sparta path' }
 SpartaRoundedRectangle >> spartaClipOn: aSpartaCanvas with: aSpartaClipper [
-	aSpartaClipper pushRoundedRectangle: self
+	^ aSpartaClipper pushRoundedRectangle: self
 ]
 
 { #category : #'api - sparta path' }

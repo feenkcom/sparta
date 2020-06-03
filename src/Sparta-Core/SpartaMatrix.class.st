@@ -47,6 +47,18 @@ SpartaMatrix >> clearTranslation [
 	x := y := 0.0
 ]
 
+{ #category : #comparing }
+SpartaMatrix >> closeTo: aSpartaMatrix epsilon: anEpsilon [
+	<return: #Boolean>
+
+	^ ((sx - aSpartaMatrix sx) abs <= anEpsilon)
+		and: [ ((shx - aSpartaMatrix shx) abs <= anEpsilon)
+			and: [ ((x - aSpartaMatrix x) abs <= anEpsilon)
+				and: [ ((shy - aSpartaMatrix shy) abs <= anEpsilon)
+					and: [ ((sy - aSpartaMatrix sy) abs <= anEpsilon)
+						and: [ ((y - aSpartaMatrix y) abs <= anEpsilon) ] ] ] ] ]
+]
+
 { #category : #'initialize-release' }
 SpartaMatrix >> initialize [
 	self loadIdentity

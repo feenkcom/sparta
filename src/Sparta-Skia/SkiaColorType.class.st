@@ -2,10 +2,18 @@ Class {
 	#name : #SkiaColorType,
 	#superclass : #SkiaExternalEnumeration,
 	#classVars : [
+		'A16Float',
+		'A16UNorm',
 		'ARGB4444',
 		'Alpha8',
+		'BGR101010x',
+		'BGRA1010102',
 		'BGRA8888',
 		'Gray8',
+		'R16G16B16A16UNorm',
+		'R16G16Float',
+		'R16G16UNorm',
+		'R8G8UNorm',
 		'RGB101010x',
 		'RGB565',
 		'RGB888x',
@@ -20,6 +28,18 @@ Class {
 }
 
 { #category : #'accessing enum' }
+SkiaColorType class >> A16Float [
+	"This method was automatically generated"
+	^ A16Float
+]
+
+{ #category : #'accessing enum' }
+SkiaColorType class >> A16UNorm [
+	"This method was automatically generated"
+	^ A16UNorm
+]
+
+{ #category : #'accessing enum' }
 SkiaColorType class >> ARGB4444 [
 	"This method was automatically generated"
 	^ ARGB4444
@@ -32,6 +52,18 @@ SkiaColorType class >> Alpha8 [
 ]
 
 { #category : #'accessing enum' }
+SkiaColorType class >> BGR101010x [
+	"This method was automatically generated"
+	^ BGR101010x
+]
+
+{ #category : #'accessing enum' }
+SkiaColorType class >> BGRA1010102 [
+	"This method was automatically generated"
+	^ BGRA1010102
+]
+
+{ #category : #'accessing enum' }
 SkiaColorType class >> BGRA8888 [
 	"This method was automatically generated"
 	^ BGRA8888
@@ -41,6 +73,30 @@ SkiaColorType class >> BGRA8888 [
 SkiaColorType class >> Gray8 [
 	"This method was automatically generated"
 	^ Gray8
+]
+
+{ #category : #'accessing enum' }
+SkiaColorType class >> R16G16B16A16UNorm [
+	"This method was automatically generated"
+	^ R16G16B16A16UNorm
+]
+
+{ #category : #'accessing enum' }
+SkiaColorType class >> R16G16Float [
+	"This method was automatically generated"
+	^ R16G16Float
+]
+
+{ #category : #'accessing enum' }
+SkiaColorType class >> R16G16UNorm [
+	"This method was automatically generated"
+	^ R16G16UNorm
+]
+
+{ #category : #'accessing enum' }
+SkiaColorType class >> R8G8UNorm [
+	"This method was automatically generated"
+	^ R8G8UNorm
 ]
 
 { #category : #'accessing enum' }
@@ -107,16 +163,24 @@ SkiaColorType class >> externalDeclaration [
 		Unknown,
 		Alpha8,
 		RGB565,
-		ARGB4444,
+		ARGB4444,	
 		RGBA8888,
 		RGB888x,
 		BGRA8888,
 		RGBA1010102,
+		BGRA1010102,
 		RGB101010x,
-		Gray8,
+		BGR101010x,
+		Gray8,	
 		RGBAF16Norm,
 		RGBAF16,
 		RGBAF32,
+		R8G8UNorm,
+		A16Float,
+		R16G16Float,
+		A16UNorm,
+		R16G16UNorm,
+		R16G16B16A16UNorm,
 	)
 ]
 

@@ -1,6 +1,9 @@
 Class {
 	#name : #SkiaClipper,
 	#superclass : #SpartaClipper,
+	#instVars : [
+		'offset'
+	],
 	#category : #'Sparta-Skia-Builders'
 }
 
@@ -41,29 +44,42 @@ SkiaClipper >> pop [
 ]
 
 { #category : #'private - clipping' }
+SkiaClipper >> push: aPath offset: anOffset [
+	offset := anOffset.
+	self push: aPath
+]
+
+{ #category : #'private - clipping' }
 SkiaClipper >> pushCircle: aSpartaCircle [
 	canvas surfaceCanvas
 		save;
-		clipCircle: aSpartaCircle
+		clipCircle: aSpartaCircle offset: offset
 ]
 
 { #category : #'private - clipping' }
 SkiaClipper >> pushPath: aSpartaPath [
 	canvas surfaceCanvas
 		save;
-		clipPath: aSpartaPath
+		clipPath: aSpartaPath offset: offset
 ]
 
 { #category : #'private - clipping' }
 SkiaClipper >> pushRectangle: aRectangle [
 	canvas surfaceCanvas
 		save;
-		clipRectangle: aRectangle
+		clipRectangle: aRectangle offset: offset
 ]
 
 { #category : #'private - clipping' }
 SkiaClipper >> pushRoundedRectangle: aSpartaRoundedRectangle [
 	canvas surfaceCanvas
 		save;
-		clipRoundedRectangle: aSpartaRoundedRectangle
+		clipRoundedRectangle: aSpartaRoundedRectangle offset: offset
+]
+
+{ #category : #'initialize-release' }
+SkiaClipper >> reset [
+	super reset.
+	
+	offset := 0@0
 ]

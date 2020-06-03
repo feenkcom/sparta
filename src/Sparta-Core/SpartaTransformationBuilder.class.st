@@ -102,7 +102,8 @@ SpartaTransformationBuilder >> pop: aSpartaTransformation [
 
 { #category : #transformation }
 SpartaTransformationBuilder >> push [
-	^ self push: transformation
+	self push: transformation.
+	^ transformation
 ]
 
 { #category : #transformation }

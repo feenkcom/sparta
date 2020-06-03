@@ -8,7 +8,7 @@ Rectangle >> asSpartaPathOn: aSpartaCanvas [
 
 { #category : #'*Sparta-Core' }
 Rectangle >> spartaClipOn: aSpartaCanvas with: aSpartaClipper [
-	aSpartaClipper pushRectangle: self
+	^ aSpartaClipper pushRectangle: self
 ]
 
 { #category : #'*Sparta-Core' }
