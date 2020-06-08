@@ -17,7 +17,7 @@ SkiaInterfaceLoadCallback class >> fnSpec [
 { #category : #'instance creation' }
 SkiaInterfaceLoadCallback class >> on: aBlock [
 	^ self 
-		signature: self fnSpec 
+		newCallbackWithSignature: self fnSpec 
 		block: aBlock
 ]
 
