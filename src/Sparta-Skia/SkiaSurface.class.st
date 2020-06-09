@@ -44,7 +44,7 @@ SkiaSurface class >> fromRenderTarget: aSkiaBackendRenderTarget colorType: aSkia
 SkiaSurface class >> fromRenderTarget: aSkiaBackendRenderTarget colorType: aSkiaColorType context: anOpenGLContext [
 	| aSkiaContext |
 
-	aSkiaContext := SkiaContext fromInterface: (SkiaInterface load: [ :aSymbol | anOpenGLContext getProcAddress: aSymbol ]).
+	aSkiaContext := SkiaContext fromInterface: (SkiaInterface new).
 	
 	^ (self fromNativeHandle: (self primFromRenderTarget: aSkiaBackendRenderTarget context: aSkiaContext colorType: aSkiaColorType))
 		gpuContext: aSkiaContext
