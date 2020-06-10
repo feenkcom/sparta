@@ -54,7 +54,7 @@ SkiaFontBuilder >> build [
 	^ theFontsDictionary
 		at: size
 		ifAbsentPut: [
-			| aSkiaTypeface |
+			| aSkiaTypeface font |
 			aSkiaTypeface := SpartaUserFonts default
 				matchFontFace: aSpartaFontFace
 				ifFound: [ :aSpartaUserFont | SkiaFontManager default newTypeface: aSpartaUserFont source fontContents ]
@@ -73,11 +73,16 @@ SkiaFontBuilder >> build [
 									width: (SkiaFontStyleWidth fromSpartaStretch: aSpartaFontFace stretch)
 									slant: (SkiaFontStyleSlant fromSpartaSlant: aSpartaFontFace style)) ] ].
 			
-			(SkiaFont typeface: aSkiaTypeface size: size)
-				subpixel: true;
+			font := (SkiaFont typeface: aSkiaTypeface size: size)
 				hinting: SkiaFontHinting Full;
-				edging: SkiaFontEdging SubpixelAntiAlias;
-				yourself ]
+				yourself.
+			"For now, subpixel anti-aliasing only works on MacOS.
+			Hopefully this is temporary"
+			OSPlatform current isMacOS ifTrue: 
+				[ font
+					subpixel: true;
+					edging: SkiaFontEdging SubpixelAntiAlias ].
+			font ]
 ]
 
 { #category : #'instance creation' }
