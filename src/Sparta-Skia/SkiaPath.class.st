@@ -273,6 +273,11 @@ SkiaPath >> primSetFillType: aSkiaPathFillType [
 	^ self ffiCall: #(void skia_path_set_fill_type(self, SkiaPathFillType aSkiaPathFillType))
 ]
 
+{ #category : #'private - ffi' }
+SkiaPath >> primStrokeContainsPointX: aX y: aY paint: aSkiaPaint [
+	^ self ffiCall: #(bool skia_path_stroke_contains_point(self, float32 aX, float32 aY, SkiaPaint aSkiaPaint))
+]
+
 { #category : #'api - path' }
 SkiaPath >> quadBy: aPoint via: aViaPoint [
 	self
@@ -298,7 +303,17 @@ SkiaPath >> strokeContainsPoint: aPoint options: aStrokeOptions on: aSpartaCanva
 	"Return true if a given point lies within this path as if it would be stroked with provided stroke options"
 	<return: #Boolean>
 
-	^ false
+	^ SkiaPaint newDuring: [ :aSkiaPaint |
+		aSkiaPaint
+			paintStyle: SkiaPaintStyle Stroke;
+			color: Color black;
+			antialias: false;
+			capStyle: aStrokeOptions capStyle;
+			joinStyle: aStrokeOptions joinStyle;
+			strokeMiter: aStrokeOptions miterLimit;
+			strokeWidth: aStrokeOptions width.
+		
+		self primStrokeContainsPointX: aPoint x y: aPoint y paint: aSkiaPaint ]
 ]
 
 { #category : #'api - sparta path' }
