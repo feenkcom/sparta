@@ -47,5 +47,5 @@ SpartaNullPath >> strokedBoundsOn: aSpartaCanvas with: aStrokeOptions [
 	These bounds are not guaranteed to be tight."
 	<return: #Rectangle>
 
-	^ 0@0 extent: 0@0
+	^ 0.0@0.0 extent: 0.0@0.0
 ]
