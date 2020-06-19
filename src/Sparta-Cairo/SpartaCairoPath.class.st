@@ -175,7 +175,7 @@ SpartaCairoPath >> strokedBoundsOn: aSpartaCairoCanvas with: aStrokeOptions [
 	strokePainter := aSpartaCairoCanvas stroke.
 	strokePainter strokeOptions: aStrokeOptions.
 
-	bounds := (0@0 extent: 0@0).
+	bounds := (0.0@0.0 extent: 0.0@0.0).
 	
 	[ | originX originY cornerX cornerY |
 

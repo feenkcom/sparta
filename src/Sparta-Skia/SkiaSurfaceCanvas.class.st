@@ -125,11 +125,10 @@ SkiaSurfaceCanvas >> clipRectangle: aSpartaRectangle [
 { #category : #'api - clip' }
 SkiaSurfaceCanvas >> clipRectangle: aSpartaRectangle clipOp: aSkiaClipOp antiAlias: isAntiAlias [
 	self
-		primClipRectangleLeft: aSpartaRectangle left top: aSpartaRectangle top right: aSpartaRectangle right bottom: aSpartaRectangle bottom
-		offsetX: 0
-		offsetY: 0
-		clipOp: aSkiaClipOp
-		antiAlias: isAntiAlias
+		clipRectangle: aSpartaRectangle
+		offset: 0.0@0.0
+		clipOp: SkiaClipOp Intersect
+		antiAlias: true
 ]
 
 { #category : #'api - clip' }
@@ -143,6 +142,11 @@ SkiaSurfaceCanvas >> clipRectangle: aSpartaRectangle offset: anOffset [
 
 { #category : #'api - clip' }
 SkiaSurfaceCanvas >> clipRectangle: aSpartaRectangle offset: anOffset clipOp: aSkiaClipOp antiAlias: isAntiAlias [
+	<argument: #aSpartaRectangle satisfies: #isSpartaScalarRectangle>
+	<argument: #anOffset satisfies: #isSpartaScalarPoint>
+	<argument: #aSkiaClipOp isKindOf: #SkiaClipOp>
+	<argument: #isAntiAlias isKindOf: #Boolean>
+	
 	self
 		primClipRectangleLeft: aSpartaRectangle left top: aSpartaRectangle top right: aSpartaRectangle right bottom: aSpartaRectangle bottom
 		offsetX: anOffset x
@@ -420,7 +424,7 @@ SkiaSurfaceCanvas >> primClipPath: aSkiaPath offsetX: anOffsetX offsetY: anOffse
 ]
 
 { #category : #'private - ffi clip' }
-SkiaSurfaceCanvas >> primClipRectangleLeft: aLeft top: aTop right: aRight bottom: aBottom offsetX: anOffsetX offsetY: anOffsetY clipOp: aSkiaClipOp antiAlias: isAntiAlias [
+SkiaSurfaceCanvas >> primClipRectangleLeft: aLeft top: aTop right: aRight bottom: aBottom offsetX: anOffsetX offsetY: anOffsetY clipOp: aSkiaClipOp antiAlias: isAntiAlias [	
 	self ffiCall: #(void skia_canvas_clip_rect(self,
 		scalar aLeft, scalar aTop, scalar aRight, scalar aBottom,
 		scalar anOffsetX, scalar anOffsetY,

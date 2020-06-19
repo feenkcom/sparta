@@ -106,7 +106,7 @@ SpartaLine >> strokedBoundsOn: aSpartaCanvas with: aStrokeOptions [
 	These bounds are not guaranteed to be tight."
 	<return: #Rectangle>
 
-	^ (Rectangle encompassing: { self from . self to }) expandBy: (aStrokeOptions width * 2 sqrt)
+	^ (Rectangle encompassing: { self from . self to }) expandBy: (aStrokeOptions width * 2.0 sqrt)
 ]
 
 { #category : #accessing }
