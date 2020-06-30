@@ -35,6 +35,17 @@ SkiaImage class >> fromBGRA: aData extent: anExtent stride: aStride [
 ]
 
 { #category : #'instance creation' }
+SkiaImage class >> fromFile: aFileReference [
+	"Create a SkiaImage from the supplied file (JPG, PNG, BMP, etc.)"
+	| fileReference handle |
+
+	fileReference := aFileReference asFileReference asAbsolute.
+	handle := GtBoxerString fromString: fileReference pathString during: [ :bs | self primFromFile: bs ].
+	handle isNull ifTrue: [ self error: 'Unable to open: ', fileReference pathString ].
+	^ self fromNativeHandle: handle
+]
+
+{ #category : #'instance creation' }
 SkiaImage class >> fromForm: aForm [
 	| aForm32 theBits aRowBytes |
 
@@ -101,6 +112,11 @@ SkiaImage class >> fromRGBA: aData extent: anExtent stride: aStride [
 ]
 
 { #category : #'private - ffi' }
+SkiaImage class >> primFromFile: aGtBoxerString [
+	^ self ffiCall: #(void* skia_image_from_file(GtBoxerString aGtBoxerString))
+]
+
+{ #category : #'private - ffi' }
 SkiaImage class >> primFromPixels: aGtBoxerArrayU8 width: aWidth height: aHeight rowBytes: anAmountOfBytesPerRow colorType: aColorType [
 	^ self ffiCall: #(void* skia_image_from_pixels(
 		GtBoxerArrayU8 aGtBoxerArrayU8,
@@ -115,6 +131,12 @@ SkiaImage class >> primRelease: aHandle [
 	
 	"Plain pointers must be deleted using delete(), all users must implement a specific method"
 	self ffiCall: #(void skia_image_drop(void* aHandle))
+]
+
+{ #category : #converting }
+SkiaImage >> asElement [
+
+	^ BlSkiaImageElement new image: self
 ]
 
 { #category : #converting }
@@ -207,7 +229,11 @@ SkiaImage >> gtPreviewFor: aView [
 	^ aView explicit
 		title: 'Preview';
 		priority: 1;
-		stencil: [ self asForm asElement ]
+		stencil: 
+			[ self asElement
+				constraintsDo: [ :c |
+					c horizontal matchParent.
+					c vertical matchParent ] ].
 ]
 
 { #category : #accessing }
@@ -291,6 +317,44 @@ SkiaImage >> primIsTextureBackend [
 { #category : #'private - ffi' }
 SkiaImage >> primReadAllPixels: aBoxerArrayU8 [
 	^ self ffiCall: #(bool skia_image_read_all_pixels(self, GtBoxerArrayU8 aBoxerArrayU8))
+]
+
+{ #category : #'private - ffi' }
+SkiaImage >> primSaveFile: fileName format: format quality: aNumber [
+
+	^ self ffiCall: #(int32 skia_image_to_file(self, GtBoxerString fileName,
+				GtBoxerString format, int32 aNumber))
+]
+
+{ #category : #'private - ffi' }
+SkiaImage >> primScalex: xInt y: yInt keepAspectRatio: anInteger quality: ignored [
+
+	^ self ffiCall: #(void* skia_scale_image(self, int32 xInt, int32 yInt, uint32 anInteger))
+]
+
+{ #category : #actions }
+SkiaImage >> saveFile: fileNameString format: formatString quality: aNumber [ 
+	"Save the receiver as an image file with format JPEG, BMP or PNG.
+	Quality is between 1 (lowest quality) and 100 (highest quality)"
+	| status |
+
+	self assert: fileNameString isString.
+	self assert: formatString isString.
+	self assert: (aNumber between: 1 and: 100).
+	status := GtBoxerString fromString: fileNameString during: [ :fileName |
+		GtBoxerString fromString: formatString during: [ :format |
+			self primSaveFile: fileName format: format quality: aNumber ] ].
+	self assert: status = 0.
+]
+
+{ #category : #actions }
+SkiaImage >> scalex: xInt y: yInt keepAspectRatio: aBoolean quality: ignored [
+
+	^ self class fromHandle: (self 
+		primScalex: xInt 
+		y: yInt 
+		keepAspectRatio: (aBoolean ifTrue: [ 1 ] ifFalse: [ 0 ])
+		quality: ignored)
 ]
 
 { #category : #accessing }
