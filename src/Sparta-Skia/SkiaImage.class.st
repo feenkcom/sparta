@@ -35,6 +35,17 @@ SkiaImage class >> fromBGRA: aData extent: anExtent stride: aStride [
 ]
 
 { #category : #'instance creation' }
+SkiaImage class >> fromBuffer: aByteArray start: startInteger end: endInteger [
+	"Create a SkiaImage from the supplied buffer (encoded JPG, PNG, BMP, etc.)"
+	| handle |
+
+	handle := GtBoxerArrayU8 fromByteArray: aByteArray during: 
+		[ :bau8 | self primFromBuffer: bau8 start: startInteger end: endInteger ].
+	handle isNull ifTrue: [ self error: 'Unable to decode the supplied buffer' ].
+	^ self fromNativeHandle: handle
+]
+
+{ #category : #'instance creation' }
 SkiaImage class >> fromFile: aFileReference [
 	"Create a SkiaImage from the supplied file (JPG, PNG, BMP, etc.)"
 	| fileReference handle |
@@ -109,6 +120,12 @@ SkiaImage class >> fromRGBA: aData extent: anExtent stride: aStride [
 				width: anExtent x height: anExtent y
 				rowBytes: aStride
 				colorType: SkiaColorType RGBA8888) ]
+]
+
+{ #category : #'private - ffi' }
+SkiaImage class >> primFromBuffer: aGtBoxerArrayU8 start: startInteger end: endInteger [
+
+	^ self ffiCall: #(void* skia_image_from_buffer(GtBoxerArrayU8 aGtBoxerArrayU8, size_t startInteger, size_t endInteger))
 ]
 
 { #category : #'private - ffi' }
