@@ -344,9 +344,9 @@ SkiaImage >> primSaveFile: fileName format: format quality: aNumber [
 ]
 
 { #category : #'private - ffi' }
-SkiaImage >> primScalex: xInt y: yInt keepAspectRatio: anInteger quality: ignored [
+SkiaImage >> primScalex: xInt y: yInt keepAspectRatio: aBoolean quality: quality [
 
-	^ self ffiCall: #(void* skia_scale_image(self, int32 xInt, int32 yInt, uint32 anInteger))
+	^ self ffiCall: #(void* skia_scale_image(self, int32 xInt, int32 yInt, bool aBoolean, SkiaFilterQuality quality))
 ]
 
 { #category : #actions }
@@ -363,13 +363,13 @@ SkiaImage >> saveFile: fileNameString format: format quality: aNumber [
 ]
 
 { #category : #actions }
-SkiaImage >> scalex: xInt y: yInt keepAspectRatio: aBoolean quality: ignored [
+SkiaImage >> scalex: xInt y: yInt keepAspectRatio: aBoolean quality: quality [
 
 	^ self class fromHandle: (self 
 		primScalex: xInt 
 		y: yInt 
-		keepAspectRatio: (aBoolean ifTrue: [ 1 ] ifFalse: [ 0 ])
-		quality: ignored)
+		keepAspectRatio: aBoolean
+		quality: quality)
 ]
 
 { #category : #accessing }
