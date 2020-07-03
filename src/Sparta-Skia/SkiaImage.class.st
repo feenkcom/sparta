@@ -340,7 +340,7 @@ SkiaImage >> primReadAllPixels: aBoxerArrayU8 [
 SkiaImage >> primSaveFile: fileName format: format quality: aNumber [
 
 	^ self ffiCall: #(int32 skia_image_to_file(self, GtBoxerString fileName,
-				GtBoxerString format, int32 aNumber))
+				SkiaEncodedImageFormat format, int32 aNumber))
 ]
 
 { #category : #'private - ffi' }
@@ -350,17 +350,15 @@ SkiaImage >> primScalex: xInt y: yInt keepAspectRatio: anInteger quality: ignore
 ]
 
 { #category : #actions }
-SkiaImage >> saveFile: fileNameString format: formatString quality: aNumber [ 
+SkiaImage >> saveFile: fileNameString format: format quality: aNumber [ 
 	"Save the receiver as an image file with format JPEG, BMP or PNG.
 	Quality is between 1 (lowest quality) and 100 (highest quality)"
 	| status |
 
 	self assert: fileNameString isString.
-	self assert: formatString isString.
 	self assert: (aNumber between: 1 and: 100).
 	status := GtBoxerString fromString: fileNameString during: [ :fileName |
-		GtBoxerString fromString: formatString during: [ :format |
-			self primSaveFile: fileName format: format quality: aNumber ] ].
+		self primSaveFile: fileName format: format quality: aNumber ].
 	self assert: status = 0.
 ]
 
