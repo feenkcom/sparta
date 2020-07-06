@@ -45,6 +45,22 @@ SkiaBitmapBuilder >> fromBGRA: aData extent: anExtent stride: aStride [
 ]
 
 { #category : #bitmap }
+SkiaBitmapBuilder >> fromBuffer: aByteArray [
+	"Create a bitmap surface from the supplied picture file contents"
+	<return: #TSpartaSurface>
+
+	^ SkiaImage fromBuffer: aByteArray start: 0 end: aByteArray size - 1.
+]
+
+{ #category : #bitmap }
+SkiaBitmapBuilder >> fromFileNamed: aString [
+	"Create a bitmap surface from a picture file with a given path"
+	<return: #TSpartaSurface>
+
+	^ SkiaImage fromFile: aString 
+]
+
+{ #category : #bitmap }
 SkiaBitmapBuilder >> fromForm: aForm [
 	"Create a bitmap surface from a given Form"
 	<return: #TSpartaSurface>
