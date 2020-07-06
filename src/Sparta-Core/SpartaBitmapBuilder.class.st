@@ -25,6 +25,14 @@ Class {
 }
 
 { #category : #bitmap }
+SpartaBitmapBuilder >> fromBuffer: aByteArray [
+	"Create a bitmap surface from the supplied picture file contents"
+	<return: #TSpartaSurface>
+
+	^ self fromForm: (ImageReadWriter gtFormFromBuffer: aByteArray)
+]
+
+{ #category : #bitmap }
 SpartaBitmapBuilder >> fromFileNamed: aString [
 	"Create a bitmap surface from a picture file with a given path"
 	<return: #TSpartaSurface>
