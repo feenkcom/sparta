@@ -70,7 +70,7 @@ SkiaFontManager >> gtSpotterForFamilyNamesFor: aStep [
 		candidatesLimit: Float infinity;
 		previewElement: [ :aFamilyName | ((self matchFamilyName: aFamilyName) gtFontStylesFor: GtPhlowEmptyView new) asElementDo: #yourself ];
 		send: [ :aFamilyName | self matchFamilyName: aFamilyName ];
-		filter: GTFilterSubstring
+		filter: GtFilterSubstring
 ]
 
 { #category : #private }
