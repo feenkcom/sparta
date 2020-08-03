@@ -27,16 +27,21 @@ SkiaBackendTexture class >> primRelease: aHandle [
 ]
 
 { #category : #'gt-extension' }
-SkiaBackendTexture >> gtInfoFor: aView [
-	<gtView>
-
-	^ ({
+SkiaBackendTexture >> asDictionary [
+	^ {
 		#width -> self width.
 		#height -> self height.
 		#hasMipMaps -> self hasMipMaps.
 		#isProtected -> self isProtected.
 		#isValid -> self isValid.
-	 } asOrderedDictionary gtItemsFor: aView)
+	 } asOrderedDictionary
+]
+
+{ #category : #'gt-extension' }
+SkiaBackendTexture >> gtInfoFor: aView [
+	<gtView>
+
+	^ (self asDictionary gtItemsFor: aView)
 			title: 'Info';
 			priority: 2
 ]
