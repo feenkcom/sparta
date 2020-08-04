@@ -9,6 +9,13 @@ SkiaBackendTexture class >> extent: aPoint mipMapped: isMipMapped textureInfo: a
 	^ self fromNativeHandle: (self primCreateWidth: aPoint x height: aPoint y mipMapped: isMipMapped textureInfo: aSkiaTextureInfo)
 ]
 
+{ #category : #'instance creation' }
+SkiaBackendTexture class >> extent: aPoint mipMapped: isMipMapped textureInfo: aSkiaTextureInfo during: aBlock [
+	^ self
+		fromNativeHandle: (self primCreateWidth: aPoint x height: aPoint y mipMapped: isMipMapped textureInfo: aSkiaTextureInfo)
+		during: aBlock
+]
+
 { #category : #'private - ffi' }
 SkiaBackendTexture class >> primCreateWidth: aWidth height: aHeight mipMapped: isMipMapped textureInfo: aSkiaTextureInfo [
 	^ self ffiCall: #(void* skia_backend_texture_new_gl(
