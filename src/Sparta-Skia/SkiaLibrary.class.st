@@ -50,6 +50,11 @@ SkiaLibrary >> macModuleName [
 ]
 
 { #category : #'accessing platform' }
+SkiaLibrary >> primIcuInit [
+	^ self ffiCall: #(void skia_icu_init())
+]
+
+{ #category : #'accessing platform' }
 SkiaLibrary >> primTest [
 	^ self ffiCall: #(bool skia_test())
 ]

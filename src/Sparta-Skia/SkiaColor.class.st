@@ -10,8 +10,18 @@ SkiaColor class >> argb: aNumber [
 ]
 
 { #category : #'instance creation' }
+SkiaColor class >> argb: aNumber during: aBlock [
+	^ self fromNativeHandle: (self primCreateArgb: aNumber) during: aBlock
+]
+
+{ #category : #'instance creation' }
 SkiaColor class >> fromColor: aColor [
 	^ self argb: (aColor pixelValueForDepth: 32)
+]
+
+{ #category : #'instance creation' }
+SkiaColor class >> fromColor: aColor during: aBlock [
+	^ self argb: (aColor pixelValueForDepth: 32) during: aBlock
 ]
 
 { #category : #'private - ffi' }
