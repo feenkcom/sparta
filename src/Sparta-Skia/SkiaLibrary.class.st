@@ -39,7 +39,9 @@ SkiaLibrary >> hasModule [
 	
 	[ aResult := self primTest ]
 		on: Error
-		do: [ :e | aResult := false ].
+		do: [ :e | 
+		NonInteractiveTranscript stderr show: e description.
+		aResult := false ].
 
 	^ aResult ifNil: [ false ]
 ]
@@ -47,6 +49,11 @@ SkiaLibrary >> hasModule [
 { #category : #'accessing platform' }
 SkiaLibrary >> macModuleName [
 	^ self detectLibrary: 'libSkia.dylib'
+]
+
+{ #category : #'accessing platform' }
+SkiaLibrary >> primIcuInit [
+	^ self ffiCall: #(void skia_icu_init())
 ]
 
 { #category : #'accessing platform' }

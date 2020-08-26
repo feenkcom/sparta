@@ -60,6 +60,26 @@ SkiaStrokePainter >> setPaint: aSkiaPaint forFillShadow: aSkiaBoxShadowPaint [
 ]
 
 { #category : #private }
+SkiaStrokePainter >> setPaint: aSkiaPaint forGradient: aSkiaGradient [
+	| theDrawOptions theStrokeOptions |
+
+	theDrawOptions := self ensuredDrawOptions.
+	theStrokeOptions := self ensuredStrokeOptions.
+	
+	aSkiaPaint
+		paintStyle: SkiaPaintStyle Stroke;
+		shader: aSkiaGradient asShader;
+		antialias: theDrawOptions antialias;
+		blendMode: theDrawOptions blendMode;
+		capStyle: theStrokeOptions capStyle;
+		joinStyle: theStrokeOptions joinStyle;
+		strokeMiter: theStrokeOptions miterLimit;
+		strokeWidth: theStrokeOptions width.
+
+	^ aSkiaPaint
+]
+
+{ #category : #private }
 SkiaStrokePainter >> setPaint: aSkiaPaint forStrokeShadow: aSkiaBoxShadowPaint [
 	| theDrawOptions theStrokeOptions |
 	
@@ -106,6 +126,24 @@ SkiaStrokePainter >> strokeLine: aLine withBoxShadow: aSpartaBoxShadowPaint [
 ]
 
 { #category : #drawing }
+SkiaStrokePainter >> strokeLine: aLine withLinearGradient: aSpartaLinearGradient [
+	
+	SkiaPaint newDuring: [ :aSkiaPaint |
+		canvas surfaceCanvas
+			drawLine: aLine
+			paint: (self setPaint: aSkiaPaint forGradient: aSpartaLinearGradient) ]
+]
+
+{ #category : #drawing }
+SkiaStrokePainter >> strokeLine: aLine withRadialGradient: aSpartaRadialGradient [
+	
+	SkiaPaint newDuring: [ :aSkiaPaint |
+		canvas surfaceCanvas
+			drawLine: aLine
+			paint: (self setPaint: aSkiaPaint forGradient: aSpartaRadialGradient) ]
+]
+
+{ #category : #drawing }
 SkiaStrokePainter >> strokeLine: aLine withSolidColor: aColor [
 	
 	SkiaPaint newDuring: [ :aSkiaPaint |
@@ -136,6 +174,24 @@ SkiaStrokePainter >> strokeRectangle: aRectangle withBoxShadow: aSpartaBoxShadow
 		canvas surfaceCanvas
 			drawRectangle: aRectangle
 			paint: (self setPaint: aSkiaPaint forFillShadow: aSpartaBoxShadowPaint) ]
+]
+
+{ #category : #drawing }
+SkiaStrokePainter >> strokeRectangle: aRectangle withLinearGradient: aSpartaLinearGradient [
+	
+	SkiaPaint newDuring: [ :aSkiaPaint |
+		canvas surfaceCanvas
+			drawRectangle: aRectangle
+			paint: (self setPaint: aSkiaPaint forGradient: aSpartaLinearGradient) ]
+]
+
+{ #category : #drawing }
+SkiaStrokePainter >> strokeRectangle: aRectangle withRadialGradient: aSpartaRadialGradient [
+	
+	SkiaPaint newDuring: [ :aSkiaPaint |
+		canvas surfaceCanvas
+			drawRectangle: aRectangle
+			paint: (self setPaint: aSkiaPaint forGradient: aSpartaRadialGradient) ]
 ]
 
 { #category : #drawing }
