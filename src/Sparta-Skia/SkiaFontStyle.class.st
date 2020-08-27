@@ -29,6 +29,16 @@ SkiaFontStyle class >> weight: aWeightNumber width: aSkiaFontStyleWidth slant: a
 	^ self fromNativeHandle: (self primNewWeight: aWeightNumber width: aSkiaFontStyleWidth slant: aSkiaFontStyleSlant)
 ]
 
+{ #category : #'instance creation' }
+SkiaFontStyle class >> weight: aWeightNumber width: aSkiaFontStyleWidth slant: aSkiaFontStyleSlant during: aBlock [
+	^ self
+		fromNativeHandle: (self
+			primNewWeight: aWeightNumber
+			width: aSkiaFontStyleWidth
+			slant: aSkiaFontStyleSlant)
+		during: aBlock
+]
+
 { #category : #'gt-extension' }
 SkiaFontStyle >> gtInfoFor: aView [
 	<gtView>

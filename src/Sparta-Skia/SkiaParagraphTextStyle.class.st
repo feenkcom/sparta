@@ -41,8 +41,25 @@ SkiaParagraphTextStyle >> color: aColor [
 ]
 
 { #category : #accessing }
+SkiaParagraphTextStyle >> fontFamily: aFontFamily [
+	GtBoxerString
+		fromString: aFontFamily
+		during: [ :aBoxerString | self primSetFontFamily: aBoxerString ]
+]
+
+{ #category : #accessing }
 SkiaParagraphTextStyle >> fontSize [
 	^ self primGetFontSize
+]
+
+{ #category : #accessing }
+SkiaParagraphTextStyle >> fontSize: aNumber [
+	self primSetFontSize: aNumber
+]
+
+{ #category : #accessing }
+SkiaParagraphTextStyle >> fontStyle: aSkiaFontStyle [
+	self primSetFontStyle: aSkiaFontStyle
 ]
 
 { #category : #accessing }
@@ -112,6 +129,21 @@ SkiaParagraphTextStyle >> primSetBackground: aSkiaPaint [
 { #category : #'private - ffi' }
 SkiaParagraphTextStyle >> primSetColor: aSkiaColor [
 	^ self ffiCall: #(void skia_paragraph_text_style_set_color(self, SkiaColor aSkiaColor))
+]
+
+{ #category : #'private - ffi' }
+SkiaParagraphTextStyle >> primSetFontFamily: aGtBoxerString [
+	^ self ffiCall: #(void skia_paragraph_text_style_set_font_family(self, GtBoxerString aGtBoxerString))
+]
+
+{ #category : #'private - ffi' }
+SkiaParagraphTextStyle >> primSetFontSize: aFontSize [
+	^ self ffiCall: #(void skia_paragraph_text_style_set_font_size(self, scalar aFontSize))
+]
+
+{ #category : #'private - ffi' }
+SkiaParagraphTextStyle >> primSetFontStyle: aSkiaFontStyle [
+	^ self ffiCall: #(void skia_paragraph_text_style_set_font_style(self, SkiaFontStyle aSkiaFontStyle))
 ]
 
 { #category : #'private - ffi' }
