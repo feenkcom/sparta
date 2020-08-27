@@ -39,7 +39,9 @@ SkiaLibrary >> hasModule [
 	
 	[ aResult := self primTest ]
 		on: Error
-		do: [ :e | aResult := false ].
+		do: [ :e | 
+		NonInteractiveTranscript stderr show: e description.
+		aResult := false ].
 
 	^ aResult ifNil: [ false ]
 ]
