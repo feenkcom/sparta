@@ -12,13 +12,81 @@ SkiaParagraph class >> primRelease: aHandle [
 ]
 
 { #category : #'api - paragraph' }
-SkiaParagraph >> charPositionAt: aPoint [
+SkiaParagraph >> charCount [
+	<return: #Number>
+	
+	^ self primGetCharCount
+]
+
+{ #category : #'api - paragraph' }
+SkiaParagraph >> charOffsetAbove: anOffset ifFound: aBlock ifNone: aNoneBlock [
+	"Find a character above a character with a given offset and evaluate a block if such character found"
+	| aCurrentLineIndex aLineHeightAbove|
+
+	aCurrentLineIndex := self lineIndexForCharacter: anOffset.
+
+	"this is the first line of the paragraph, there is no char above"
+	aCurrentLineIndex == 1
+		ifTrue: [ ^ aNoneBlock value ].
+
+	aLineHeightAbove := self lineHeightAt: aCurrentLineIndex - 1.
+
+	^ aBlock value: (self charOffsetAt: ((self cursorRectangleForCharacter: anOffset) origin - (0 @ (aLineHeightAbove / 2.0))))
+]
+
+{ #category : #'api - paragraph' }
+SkiaParagraph >> charOffsetAt: aPoint [
+	"Find a character close to a given coordinate point within the paragraph and return character's offset from the start of the paragraph"
+	<return: #Number>
+
 	^ self primGetCharPositionAtX: aPoint x y: aPoint y
 ]
 
 { #category : #'api - paragraph' }
-SkiaParagraph >> glyphPositionAt: aPoint [
-	^ self primGetGlyphPositionAtX: aPoint x y: aPoint y
+SkiaParagraph >> charOffsetBelow: anOffset ifFound: aBlock ifNone: aNoneBlock [
+	"Find a character below a character with a given offset and evaluate a block if such character found"
+	| aCurrentLineIndex aLineHeightBelow aCursorRectangle |
+
+	aCurrentLineIndex := self lineIndexForCharacter: anOffset.
+
+	"this is the last line of the paragraph, there is no char below"
+	aCurrentLineIndex == self lineCount
+		ifTrue: [ ^ aNoneBlock value ].
+	
+	aLineHeightBelow := self lineHeightAt: aCurrentLineIndex + 1.
+	aCursorRectangle := self cursorRectangleForCharacter: anOffset.
+
+	^ aBlock value: (self charOffsetAt: (aCursorRectangle corner + (0 @ (aLineHeightBelow / 2.0))))
+]
+
+{ #category : #'api - paragraph' }
+SkiaParagraph >> cursorRectangleForCharacter: anOffset [
+	| aCharInterval theRectangles aCharFrom aCharTo |
+
+	aCharFrom := anOffset = self charCount
+		ifTrue: [ (anOffset - 1) max: 0 ]
+		ifFalse: [ anOffset ].
+	aCharTo := (anOffset + 1) min: self charCount.
+
+	aCharInterval := aCharFrom to: aCharTo.
+	theRectangles := self
+		rectanglesForChars: aCharInterval
+		width: SkiaParagraphRectWidthStyle Tight
+		height: SkiaParagraphRectHeightStyle Max.
+		
+	theRectangles traceCr.
+
+	^ theRectangles
+		ifNotEmpty: [
+			| thePosition theHeight |
+			
+			thePosition := anOffset = self charCount
+				ifTrue: [ theRectangles last topRight ]
+				ifFalse: [ theRectangles last topLeft ].
+			
+			theHeight := theRectangles last height.
+			(thePosition extent: 0 @ theHeight) ]
+		ifEmpty: [ 0@0 extent: (0 @ (self lineHeightForCharacter: anOffset)) ]
 ]
 
 { #category : #'api - paragraph' }
@@ -29,6 +97,42 @@ SkiaParagraph >> height [
 { #category : #'api - paragraph' }
 SkiaParagraph >> layoutWithWidth: aWidth [
 	self primLayout: aWidth
+]
+
+{ #category : #'api - paragraph' }
+SkiaParagraph >> lineCount [
+	"Return the amount of lines in the paragraph"
+	<return: #Number>
+	
+	^ self primGetLineNumber
+]
+
+{ #category : #'api - paragraph' }
+SkiaParagraph >> lineHeightAt: anIndex [
+	"Return the line height for a given line index"
+	<return: #Number>
+	
+	self
+		assert: [ anIndex > 0 ]
+		description: [ 'Must be positive' ].
+	
+	^ self primGetLineHeight: anIndex - 1
+]
+
+{ #category : #'api - paragraph' }
+SkiaParagraph >> lineHeightForCharacter: anOffset [
+	"Return the line height for a given character offset"
+	<return: #Number>
+	
+	^ self lineHeightAt: (self lineIndexForCharacter: anOffset)
+]
+
+{ #category : #'api - paragraph' }
+SkiaParagraph >> lineIndexForCharacter: anOffset [
+	"Return the line index for a character offset"
+	<return: #Number>
+	
+	^ (self primGetLineIndexForChar: anOffset) + 1
 ]
 
 { #category : #'api - paragraph' }
@@ -54,6 +158,11 @@ SkiaParagraph >> placeholderRectangles [
 ]
 
 { #category : #'private - ffi' }
+SkiaParagraph >> primGetCharCount [
+	^ self ffiCall: #(size_t skia_paragraph_get_char_count(self))
+]
+
+{ #category : #'private - ffi' }
 SkiaParagraph >> primGetCharPositionAtX: aX y: aY [
 	^ self ffiCall: #(size_t skia_paragraph_get_char_position_at_coordinate(self, scalar aX, scalar aY))
 ]
@@ -66,6 +175,21 @@ SkiaParagraph >> primGetGlyphPositionAtX: aX y: aY [
 { #category : #'private - ffi' }
 SkiaParagraph >> primGetHeight [
 	^ self ffiCall: #(scalar skia_paragraph_get_height(self))
+]
+
+{ #category : #'private - ffi' }
+SkiaParagraph >> primGetLineHeight: anIndex [
+	^ self ffiCall: #(scalar skia_paragraph_get_line_height(self, size_t anIndex))
+]
+
+{ #category : #'private - ffi' }
+SkiaParagraph >> primGetLineIndexForChar: anIndex [
+	^ self ffiCall: #(size_t skia_paragraph_get_line_index_for_char(self, size_t anIndex))
+]
+
+{ #category : #'private - ffi' }
+SkiaParagraph >> primGetLineNumber [
+	^ self ffiCall: #(size_t skia_paragraph_get_line_number(self))
 ]
 
 { #category : #'private - ffi' }
@@ -119,17 +243,6 @@ SkiaParagraph >> rectanglesForChars: anInterval width: aWidthStyle height: aHeig
 
 	^ GtBoxerArrayPointF32
 		fromNativeHandle: (self primGetRectsForCharRangeFrom: anInterval first to: anInterval last heightStyle: aHeightStyle widthStyle: aWidthStyle)
-		during: [ :theBoxerArray |
-			theBoxerArray asPoints
-				pairsCollect: [ :origin :corner | Rectangle origin: origin corner: corner ] ]
-]
-
-{ #category : #'api - paragraph' }
-SkiaParagraph >> rectanglesForGlyphs: anInterval width: aWidthStyle height: aHeightStyle [
-	"An interval should be given in cursor coordinates"
-
-	^ GtBoxerArrayPointF32
-		fromNativeHandle: (self primGetRectsForGlyphRangeFrom: anInterval first to: anInterval last heightStyle: aHeightStyle widthStyle: aWidthStyle)
 		during: [ :theBoxerArray |
 			theBoxerArray asPoints
 				pairsCollect: [ :origin :corner | Rectangle origin: origin corner: corner ] ]
