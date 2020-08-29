@@ -50,7 +50,7 @@ SkiaParagraph >> charOffsetBelow: anOffset ifFound: aBlock ifNone: aNoneBlock [
 	aCurrentLineIndex := self lineIndexForCharacter: anOffset.
 
 	"this is the last line of the paragraph, there is no char below"
-	aCurrentLineIndex == self lineCount
+	aCurrentLineIndex = self lineCount
 		ifTrue: [ ^ aNoneBlock value ].
 	
 	aLineHeightBelow := self lineHeightAt: aCurrentLineIndex + 1.
@@ -73,8 +73,6 @@ SkiaParagraph >> cursorRectangleForCharacter: anOffset [
 		rectanglesForChars: aCharInterval
 		width: SkiaParagraphRectWidthStyle Tight
 		height: SkiaParagraphRectHeightStyle Max.
-		
-	theRectangles traceCr.
 
 	^ theRectangles
 		ifNotEmpty: [
@@ -103,8 +101,8 @@ SkiaParagraph >> layoutWithWidth: aWidth [
 SkiaParagraph >> lineCount [
 	"Return the amount of lines in the paragraph"
 	<return: #Number>
-	
-	^ self primGetLineNumber
+
+	^ self primGetLineNumber max: 1
 ]
 
 { #category : #'api - paragraph' }
@@ -113,10 +111,10 @@ SkiaParagraph >> lineHeightAt: anIndex [
 	<return: #Number>
 	
 	self
-		assert: [ anIndex > 0 ]
+		assert: [ anIndex >= 0 ]
 		description: [ 'Must be positive' ].
-	
-	^ self primGetLineHeight: anIndex - 1
+
+	^ self primGetLineHeight: (((anIndex - 1) min: (self lineCount - 1)) max: 0)
 ]
 
 { #category : #'api - paragraph' }
@@ -132,7 +130,7 @@ SkiaParagraph >> lineIndexForCharacter: anOffset [
 	"Return the line index for a character offset"
 	<return: #Number>
 	
-	^ (self primGetLineIndexForChar: anOffset) + 1
+	^ ((self primGetLineIndexForChar: anOffset) + 1) min: self lineCount
 ]
 
 { #category : #'api - paragraph' }
