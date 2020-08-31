@@ -60,17 +60,28 @@ SkiaParagraph >> charOffsetBelow: anOffset ifFound: aBlock ifNone: aNoneBlock [
 ]
 
 { #category : #'api - paragraph' }
-SkiaParagraph >> cursorRectangleForCharacter: anOffset [
-	| aCharInterval theRectangles aCharFrom aCharTo |
+SkiaParagraph >> cursorGlyphsForCharacter: anOffset [
+	^ self glyphsForChars: (self cursorIntervalForCharacter: anOffset)
+]
+
+{ #category : #'api - paragraph' }
+SkiaParagraph >> cursorIntervalForCharacter: anOffset [
+	| aCharFrom aCharTo |
 
 	aCharFrom := anOffset = self charCount
 		ifTrue: [ (anOffset - 1) max: 0 ]
 		ifFalse: [ anOffset ].
 	aCharTo := (anOffset + 1) min: self charCount.
 
-	aCharInterval := aCharFrom to: aCharTo.
+	^ aCharFrom to: aCharTo
+]
+
+{ #category : #'api - paragraph' }
+SkiaParagraph >> cursorRectangleForCharacter: anOffset [
+	| theRectangles |
+
 	theRectangles := self
-		rectanglesForChars: aCharInterval
+		rectanglesForChars: (self cursorIntervalForCharacter: anOffset)
 		width: SkiaParagraphRectWidthStyle Tight
 		height: SkiaParagraphRectHeightStyle Max.
 
@@ -85,6 +96,15 @@ SkiaParagraph >> cursorRectangleForCharacter: anOffset [
 			theHeight := theRectangles last height.
 			(thePosition extent: 0 @ theHeight) ]
 		ifEmpty: [ 0@0 extent: (0 @ (self lineHeightForCharacter: anOffset)) ]
+]
+
+{ #category : #'api - paragraph' }
+SkiaParagraph >> glyphsForChars: anInterval [
+	"An interval should be given in cursor coordinates"
+
+	^ GtBoxerRangeUSize
+		fromNativeHandle: (self primGetGlyphRangeForCharFrom: anInterval first to: anInterval last)
+		during: [ :aRange | aRange asInterval ]
 ]
 
 { #category : #'api - paragraph' }
@@ -171,6 +191,11 @@ SkiaParagraph >> primGetGlyphPositionAtX: aX y: aY [
 ]
 
 { #category : #'private - ffi' }
+SkiaParagraph >> primGetGlyphRangeForCharFrom: aStart to: anEnd [
+	^ self ffiCall: #(void* skia_paragraph_get_glyph_range_for_char_range(self, size_t aStart, size_t anEnd))
+]
+
+{ #category : #'private - ffi' }
 SkiaParagraph >> primGetHeight [
 	^ self ffiCall: #(scalar skia_paragraph_get_height(self))
 ]
@@ -238,6 +263,10 @@ SkiaParagraph >> print [
 { #category : #'api - paragraph' }
 SkiaParagraph >> rectanglesForChars: anInterval width: aWidthStyle height: aHeightStyle [
 	"An interval should be given in cursor coordinates"
+
+	self
+		assert: [ anInterval first <= anInterval last ]
+		description: [ 'Interval must be positive' ].
 
 	^ GtBoxerArrayPointF32
 		fromNativeHandle: (self primGetRectsForCharRangeFrom: anInterval first to: anInterval last heightStyle: aHeightStyle widthStyle: aWidthStyle)
