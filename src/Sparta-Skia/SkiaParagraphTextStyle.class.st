@@ -41,6 +41,11 @@ SkiaParagraphTextStyle >> color: aColor [
 ]
 
 { #category : #accessing }
+SkiaParagraphTextStyle >> decoration: aSkiaTextDecoration [
+	self primSetDecoration: aSkiaTextDecoration
+]
+
+{ #category : #accessing }
 SkiaParagraphTextStyle >> fontFamily: aFontFamily [
 	GtBoxerString
 		fromString: aFontFamily
@@ -129,6 +134,11 @@ SkiaParagraphTextStyle >> primSetBackground: aSkiaPaint [
 { #category : #'private - ffi' }
 SkiaParagraphTextStyle >> primSetColor: aSkiaColor [
 	^ self ffiCall: #(void skia_paragraph_text_style_set_color(self, SkiaColor aSkiaColor))
+]
+
+{ #category : #'private - ffi' }
+SkiaParagraphTextStyle >> primSetDecoration: aSkiaTextDecoration [
+	^ self ffiCall: #(void skia_paragraph_text_style_set_decoration(self, SkiaTextDecoration aSkiaTextDecoration))
 ]
 
 { #category : #'private - ffi' }
