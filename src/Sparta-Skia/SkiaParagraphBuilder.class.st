@@ -5,10 +5,11 @@ Class {
 }
 
 { #category : #'private - ffi' }
-SkiaParagraphBuilder class >> primCreateStyle: aSkiaParagraphStyle fontCollection: aSkiaFontCollection [
+SkiaParagraphBuilder class >> primCreateStyle: aSkiaParagraphStyle fontCollection: aSkiaFontCollection tabSize: aTabSize [
 	^ self ffiCall: #(void* skia_paragraph_builder_new(
 		SkiaParagraphStyle aSkiaParagraphStyle,
-		SkiaFontCollection aSkiaFontCollection))
+		SkiaFontCollection aSkiaFontCollection,
+		size_t aTabSize))
 ]
 
 { #category : #'private - ffi' }
@@ -19,13 +20,16 @@ SkiaParagraphBuilder class >> primRelease: aHandle [
 ]
 
 { #category : #'instance creation' }
-SkiaParagraphBuilder class >> style: aSkiaParagraphStyle fontCollection: aSkiaFontCollection [
-	^ self fromNativeHandle: (self primCreateStyle: aSkiaParagraphStyle fontCollection: aSkiaFontCollection)
+SkiaParagraphBuilder class >> style: aSkiaParagraphStyle fontCollection: aSkiaFontCollection tabSize: aTabSize [
+	^ self fromNativeHandle: (self
+		primCreateStyle: aSkiaParagraphStyle
+		fontCollection: aSkiaFontCollection
+		tabSize: aTabSize)
 ]
 
 { #category : #'api - builder' }
-SkiaParagraphBuilder >> addPlaceholder: aSkiaParagraphPlaceholderStyle [
-	self primAddPlaceholder: aSkiaParagraphPlaceholderStyle
+SkiaParagraphBuilder >> addPlaceholder: aSkiaParagraphPlaceholderStyle charLength: aNumber [
+	self primAddPlaceholder: aSkiaParagraphPlaceholderStyle charLength: aNumber
 ]
 
 { #category : #'api - builder' }
@@ -46,8 +50,11 @@ SkiaParagraphBuilder >> popStyle [
 ]
 
 { #category : #'private - ffi' }
-SkiaParagraphBuilder >> primAddPlaceholder: aSkiaParagraphPlaceholderStyle [
-	^ self ffiCall: #(void skia_paragraph_builder_add_placeholder(self, SkiaParagraphPlaceholderStyle aSkiaParagraphPlaceholderStyle))
+SkiaParagraphBuilder >> primAddPlaceholder: aSkiaParagraphPlaceholderStyle charLength: aNumber [
+	^ self ffiCall: #(void skia_paragraph_builder_add_placeholder(
+		self,
+		SkiaParagraphPlaceholderStyle aSkiaParagraphPlaceholderStyle,
+		size_t aNumber))
 ]
 
 { #category : #'private - ffi' }

@@ -85,6 +85,10 @@ SpartaTextPainter >> baseline: aPoint [
 	baseline := aPoint
 ]
 
+{ #category : #decoration }
+SpartaTextPainter >> decoration: aTextDecoration [
+]
+
 { #category : #drawing }
 SpartaTextPainter >> draw [
 	text spartaFillOn: canvas with: self
