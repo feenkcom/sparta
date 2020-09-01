@@ -102,6 +102,9 @@ SkiaParagraph >> cursorRectangleForCharacter: anOffset [
 SkiaParagraph >> glyphsForChars: anInterval [
 	"An interval should be given in cursor coordinates"
 
+	anInterval
+		ifEmpty: [ ^ #() ].
+
 	^ GtBoxerRangeUSize
 		fromNativeHandle: (self primGetGlyphRangeForCharFrom: anInterval first to: anInterval last)
 		during: [ :aRange | aRange asInterval ]
@@ -156,6 +159,11 @@ SkiaParagraph >> lineIndexForCharacter: anOffset [
 { #category : #'api - paragraph' }
 SkiaParagraph >> longestLine [
 	^ self primGetLongestLine
+]
+
+{ #category : #'api - paragraph' }
+SkiaParagraph >> maxWidth [
+	^ self primGetMaxWidth
 ]
 
 { #category : #'api - paragraph' }
@@ -221,6 +229,11 @@ SkiaParagraph >> primGetLongestLine [
 ]
 
 { #category : #'private - ffi' }
+SkiaParagraph >> primGetMaxWidth [
+	^ self ffiCall: #(scalar skia_paragraph_get_max_width(self))
+]
+
+{ #category : #'private - ffi' }
 SkiaParagraph >> primGetRectsForCharRangeFrom: aStart to: anEnd heightStyle: aSkiaParagraphRectHeightStyle widthStyle: aSkiaParagraphRectWidthStyle [
 	^ self ffiCall: #(void* skia_paragraph_get_rects_for_char_range(
 		self,
@@ -263,6 +276,9 @@ SkiaParagraph >> print [
 { #category : #'api - paragraph' }
 SkiaParagraph >> rectanglesForChars: anInterval width: aWidthStyle height: aHeightStyle [
 	"An interval should be given in cursor coordinates"
+
+	anInterval
+		ifEmpty: [ ^ #() ].
 
 	self
 		assert: [ anInterval first <= anInterval last ]
