@@ -654,7 +654,7 @@ SkiaSurfaceCanvasExamples >> drawTextBlobHelloWorldFromGlyphs [
 	aSurface := SkiaSurface newRasterPremultipled: 400@300.
 	
 	aFont := SkiaFont size: 30.
-	theGlyphs := aFont stringToGlyphsArray: 'Hello World!'.
+	theGlyphs := aFont stringToGlyphs: 'Hello World!'.
 	
 	aPaint := SkiaPaint new
 		color: Color lightGray;

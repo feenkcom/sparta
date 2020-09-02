@@ -92,10 +92,7 @@ SkiaFontExamples >> toGlyphsHelloWorld [
 	
 	aFont := self default.
 	
-	theGlyphs := (aFont stringToGlyphs: 'Hello') asByteArray.
-	self assert: theGlyphs equals: #[43 0 72 0 79 0 79 0 82 0].
-	
-	theGlyphs := aFont stringToGlyphsArray: 'Hello'.
+	theGlyphs := aFont stringToGlyphs: 'Hello'.
 	self assert: theGlyphs equals: #[43 0 72 0 79 0 79 0 82 0].
 
 	^ theGlyphs
