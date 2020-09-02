@@ -31,6 +31,7 @@ SkiaSaveLayerRecExamples >> setBounds [
 { #category : #initialization }
 SkiaSaveLayerRecExamples >> setPaint [
 	<gtExample>
+	<noTest>
 	| aLayerRec aSkiaPaint |
 	
 	aLayerRec := self default.
