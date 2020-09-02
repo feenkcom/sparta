@@ -47,6 +47,13 @@ SkiaExternalObject class >> fromNativeHandle: anExternalData during: aBlock [
 	ensure: [ anExternalInstance release ]
 ]
 
+{ #category : #debug }
+SkiaExternalObject class >> isValid: aValueBox [
+	<return: #Boolean>
+
+	^ self primIsValid: aValueBox getHandle
+]
+
 { #category : #'instance creation' }
 SkiaExternalObject class >> new [
 	^ self fromNativeHandle: self primCreate
@@ -87,6 +94,11 @@ SkiaExternalObject class >> primCreate [
 ]
 
 { #category : #'private - ffi' }
+SkiaExternalObject class >> primIsValid: aHandle [
+	^ self ffiCall: #(bool skia_value_box_is_valid(void* aHandle))
+]
+
+{ #category : #'private - ffi' }
 SkiaExternalObject class >> primNullPtr [
 	^ self ffiCall: #(void* skia_null_ptr())
 ]
@@ -95,7 +107,7 @@ SkiaExternalObject class >> primNullPtr [
 SkiaExternalObject class >> primRelease: aHandle [
 	
 	"Plain pointers must be deleted using delete(), all users must implement a specific method"
-	"self ffiCall: #(void skia_object_drop(void* aHandle))"
+	"self ffiCall: #(void skia_object_drop(void** aHandle))"
 	self subclassResponsibility
 ]
 
@@ -107,7 +119,9 @@ SkiaExternalObject class >> release: aHandle [
 
 	self warning: [ '(release) Ptr: ', aHandle value asString ].
 	self primRelease: aHandle.
-	aHandle getHandle beNull
+	self
+		assert: [ aHandle isNull ]
+		description: [ 'Pointer must be null after release' ]
 ]
 
 { #category : #debug }

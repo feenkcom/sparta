@@ -174,7 +174,7 @@ SkiaImage class >> primFromPixels: aGtBoxerArrayU8 width: aWidth height: aHeight
 SkiaImage class >> primRelease: aHandle [
 	
 	"Plain pointers must be deleted using delete(), all users must implement a specific method"
-	self ffiCall: #(void skia_image_drop(void* aHandle))
+	self ffiCall: #(void skia_image_drop(void** aHandle))
 ]
 
 { #category : #converting }
@@ -406,6 +406,24 @@ SkiaImage >> saveFile: fileNameString format: format quality: aNumber [
 	self assert: (aNumber between: 1 and: 100).
 	status := GtBoxerString fromString: fileNameString during: [ :fileName |
 		self primSaveFile: fileName format: format quality: aNumber ].
+	self assert: status = 0.
+]
+
+{ #category : #actions }
+SkiaImage >> savePng: fileNameString [
+	"Save the receiver as a PNG image file with the highest quality"
+	| status |
+
+	self assert: fileNameString isString.
+
+	status := GtBoxerString
+		fromString: fileNameString
+		during: [ :fileName |
+			self
+				primSaveFile: fileName
+				format: SkiaEncodedImageFormat PNG
+				quality: 100 ].
+
 	self assert: status = 0.
 ]
 

@@ -26,7 +26,7 @@ SkiaFont class >> primNewTypeface: aSkiaTypeface size: aSize [
 SkiaFont class >> primRelease: aHandle [
 	
 	"Plain pointers must be deleted using delete(), all users must implement a specific method"
-	self ffiCall: #(void skia_font_drop(void* aHandle))
+	self ffiCall: #(void skia_font_drop(void** aHandle))
 ]
 
 { #category : #'instance creation' }
@@ -335,10 +335,9 @@ SkiaFont >> primSetSubpixel: aBoolean [
 ]
 
 { #category : #'private - ffi' }
-SkiaFont >> primText: aByteArray length: aLength toGlyphs: aGtBoxerArrayU16 encoding: aSkiaTextEncoding paint: aSkiaPaint bounds: aSkiaRectangleF32 [
+SkiaFont >> primText: aGtBoxerString toGlyphs: aGtBoxerArrayU16 encoding: aSkiaTextEncoding paint: aSkiaPaint bounds: aSkiaRectangleF32 [
 	^ self ffiCall: #(scalar skia_font_text_to_glyphs(self,
-		uint8* aByteArray,
-		size_t aLength,
+		GtBoxerString aGtBoxerString,
 		SkiaTextEncoding aSkiaTextEncoding,
 		GtBoxerArrayU16 aGtBoxerArrayU16,
 		SkiaPaint aSkiaPaint,
@@ -362,36 +361,19 @@ SkiaFont >> skew [
 
 { #category : #text }
 SkiaFont >> stringToGlyphs: aString [
-	| theGlyphs anEncodedString |
-	
-	anEncodedString := GtBoxerString stringToByteArray: aString.
-	theGlyphs := GtBoxerArrayU16 new.
-	self
-		primText: anEncodedString
-		length: anEncodedString size
-		toGlyphs: theGlyphs
-		encoding: SkiaTextEncoding UTF8
-		paint: SkiaPaint null
-		bounds: SkiaRectangleF32 null.
-
-	^ theGlyphs
-]
-
-{ #category : #text }
-SkiaFont >> stringToGlyphsArray: aString [
 	<return: #ByteArray>
-	
+
 	^ GtBoxerArrayU16 newDuring: [ :theGlyphs |
-		| anEncodedString |
-		anEncodedString := GtBoxerString stringToByteArray: aString.
-		self
-			primText: anEncodedString
-			length: anEncodedString size
-			toGlyphs: theGlyphs
-			encoding: SkiaTextEncoding UTF8
-			paint: SkiaPaint null
-			bounds: SkiaRectangleF32 null.
-		theGlyphs asByteArray ]
+		GtBoxerString
+			fromString: aString
+			during: [ :aBoxerString |
+				self
+					primText: aBoxerString
+					toGlyphs: theGlyphs
+					encoding: SkiaTextEncoding UTF8
+					paint: SkiaPaint null
+					bounds: SkiaRectangleF32 null.
+				theGlyphs asByteArray ] ]
 ]
 
 { #category : #text }
@@ -400,20 +382,18 @@ SkiaFont >> stringToTextRun: aString paint: aSkiaPaint [
 
 	^ GtBoxerArrayU16 newDuring: [ :aBoxerArrayU16 |
 		SkiaRectangleF32 newDuring: [ :aSkiaRectangle |
-			| theGlyphs aWidth aBounds anEncodedString |
+			| theGlyphs aWidth aBounds |
 
-			SkiaStringToTextRunUtfConvertionSignal timeDuring: [
-				"null-terminated utf-8 encoded string"
-				anEncodedString := GtBoxerString stringToByteArray: aString ].
-			
-			SkiaStringToTextRunComputeGlyphsSignal timeDuring: [
-				aWidth := self
-					primText: anEncodedString
-					length: anEncodedString size
-					toGlyphs: aBoxerArrayU16
-					encoding: SkiaTextEncoding UTF8
-					paint: aSkiaPaint
-					bounds: aSkiaRectangle ].
+			GtBoxerString
+				fromString: aString
+				during: [ :aBoxerString |
+					SkiaStringToTextRunComputeGlyphsSignal timeDuring: [
+						aWidth := self
+							primText: aBoxerString
+							toGlyphs: aBoxerArrayU16
+							encoding: SkiaTextEncoding UTF8
+							paint: aSkiaPaint
+							bounds: aSkiaRectangle ] ].
 				
 			SkiaStringToTextRunBoundsAsRectangleSignal timeDuring: [
 				aBounds := aSkiaRectangle asRectangle ].

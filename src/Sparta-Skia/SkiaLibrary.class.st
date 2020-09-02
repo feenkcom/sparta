@@ -4,6 +4,16 @@ Class {
 	#category : #'Sparta-Skia-Library'
 }
 
+{ #category : #logger }
+SkiaLibrary class >> initEnvLogger [
+	self uniqueInstance initEnvLogger
+]
+
+{ #category : #'class initialization' }
+SkiaLibrary class >> initialize [
+	SessionManager default registerUserClassNamed: self name
+]
+
 { #category : #installation }
 SkiaLibrary class >> install [
 	<script: 'self install'>
@@ -18,6 +28,12 @@ SkiaLibrary class >> install [
 	installer works: [ SkiaLibrary uniqueInstance hasModule ].
 
 	installer run
+]
+
+{ #category : #'class initialization' }
+SkiaLibrary class >> startUp: isANewSession [
+	isANewSession
+		ifTrue: [ self initEnvLogger ]
 ]
 
 { #category : #'accessing platform' }
@@ -47,6 +63,13 @@ SkiaLibrary >> hasModule [
 ]
 
 { #category : #'accessing platform' }
+SkiaLibrary >> initEnvLogger [
+	[ self primInitEnvLogger ]
+		on: Error
+		do: [ :e | NonInteractiveTranscript stdout nextPutAll: '[Skia] Could not init env logger'; cr ]
+]
+
+{ #category : #'accessing platform' }
 SkiaLibrary >> macModuleName [
 	^ self detectLibrary: 'libSkia.dylib'
 ]
@@ -54,6 +77,11 @@ SkiaLibrary >> macModuleName [
 { #category : #'accessing platform' }
 SkiaLibrary >> primIcuInit [
 	^ self ffiCall: #(void skia_icu_init())
+]
+
+{ #category : #'accessing platform' }
+SkiaLibrary >> primInitEnvLogger [
+	^ self ffiCall: #(void skia_init_env_logger())
 ]
 
 { #category : #'accessing platform' }

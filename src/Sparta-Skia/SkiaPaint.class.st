@@ -18,7 +18,7 @@ SkiaPaint class >> primCreate [
 SkiaPaint class >> primRelease: aHandle [
 	
 	"Plain pointers must be deleted using delete(), all users must implement a specific method"
-	self ffiCall: #(void skia_paint_drop(void* aHandle))
+	self ffiCall: #(void skia_paint_drop(void** aHandle))
 ]
 
 { #category : #accessing }
@@ -155,6 +155,11 @@ SkiaPaint >> gtInfoFor: aView [
 			priority: 2
 ]
 
+{ #category : #testing }
+SkiaPaint >> hasImageFilter [
+	^ self primHasImageFilter
+]
+
 { #category : #accessing }
 SkiaPaint >> imageFilter [
 	<return: #SkiaImageFilter>
@@ -244,6 +249,11 @@ SkiaPaint >> primGetStrokeMiter [
 { #category : #'private - ffi' }
 SkiaPaint >> primGetStrokeWidth [
 	self ffiCall: #(float32 skia_paint_get_stroke_width(self))
+]
+
+{ #category : #'private - ffi' }
+SkiaPaint >> primHasImageFilter [
+	self ffiCall: #(bool skia_paint_has_image_filter(self))
 ]
 
 { #category : #'private - ffi' }

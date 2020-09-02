@@ -51,8 +51,8 @@ SkiaFontExamples >> fromTypefaceAndSize [
 	aTypeface := SkiaTypeface new.
 	aFont := SkiaFont typeface: aTypeface size: 20.
 	
-	"font consumes a typeface"
-	self assert: (GtBoxerValueBox boxedPointerOf: aTypeface) isNull.
+	"font does not consume a typeface"
+	self assert: (GtBoxerValueBox boxedPointerOf: aTypeface) isNull not.
 	
 	self assert: aFont edging equals: SkiaFontEdging AntiAlias.
 	self assert: aFont hinting equals: SkiaFontHinting Normal.
@@ -92,10 +92,7 @@ SkiaFontExamples >> toGlyphsHelloWorld [
 	
 	aFont := self default.
 	
-	theGlyphs := (aFont stringToGlyphs: 'Hello') asByteArray.
-	self assert: theGlyphs equals: #[43 0 72 0 79 0 79 0 82 0].
-	
-	theGlyphs := aFont stringToGlyphsArray: 'Hello'.
+	theGlyphs := aFont stringToGlyphs: 'Hello'.
 	self assert: theGlyphs equals: #[43 0 72 0 79 0 79 0 82 0].
 
 	^ theGlyphs

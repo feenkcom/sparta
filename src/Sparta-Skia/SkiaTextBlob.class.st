@@ -44,7 +44,7 @@ SkiaTextBlob class >> primNewFromText: aGtBoxerString encoding: aSkiaTextEncodin
 SkiaTextBlob class >> primRelease: aHandle [
 	
 	"Plain pointers must be deleted using delete(), all users must implement a specific method"
-	self ffiCall: #(void skia_text_blob_drop(void* aHandle))
+	self ffiCall: #(void skia_text_blob_drop(void** aHandle))
 ]
 
 { #category : #'instance creation' }

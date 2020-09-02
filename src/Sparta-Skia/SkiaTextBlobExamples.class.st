@@ -33,7 +33,7 @@ SkiaTextBlobExamples >> fromGlyphsAndFont [
 	| aTextBlob theGlyphs aFont |
 	
 	aFont := SkiaFont new.
-	theGlyphs := aFont stringToGlyphsArray: 'Hello'.
+	theGlyphs := aFont stringToGlyphs: 'Hello'.
 	
 	aTextBlob := SkiaTextBlob glyphs: theGlyphs font: aFont.
 	self assert: aTextBlob isNull not.

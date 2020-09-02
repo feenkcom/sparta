@@ -21,16 +21,6 @@ SkiaSurface class >> fromBackendTexture: aSkiaBackendTexture colorType: aSkiaCol
 ]
 
 { #category : #'instance creation' }
-SkiaSurface class >> fromBackendTextureAsRenderTarget: aSkiaBackendTexture colorType: aSkiaColorType [
-	| aSkiaContext |
-
-	aSkiaContext := SkiaContext new.
-	
-	^ (self fromNativeHandle: (self primFromBackendTextureAsRenderTarget: aSkiaBackendTexture context: aSkiaContext colorType: aSkiaColorType))
-		gpuContext: aSkiaContext
-]
-
-{ #category : #'instance creation' }
 SkiaSurface class >> fromRenderTarget: aSkiaBackendRenderTarget colorType: aSkiaColorType [
 	| aSkiaContext |
 
@@ -87,14 +77,6 @@ SkiaSurface class >> primFromBackendTexture: aSkiaBackendTexture context: aSkiaC
 ]
 
 { #category : #'private - ffi' }
-SkiaSurface class >> primFromBackendTextureAsRenderTarget: aSkiaBackendTexture context: aSkiaContext colorType: aSkiaColorType [
-	^ self ffiCall: #(void* skia_surface_from_backend_texture_as_render_target(
-		SkiaContext aSkiaContext,
-		SkiaBackendTexture aSkiaBackendTexture,
-		SkiaColorType aSkiaColorType))
-]
-
-{ #category : #'private - ffi' }
 SkiaSurface class >> primFromRenderTarget: aSkiaBackendRenderTarget context: aSkiaContext colorType: aSkiaColorType [
 	^ self ffiCall: #(void* skia_surface_from_render_target(
 		SkiaBackendRenderTarget aSkiaBackendRenderTarget,
@@ -121,7 +103,7 @@ SkiaSurface class >> primNewRenderTargetContext: aSkiaContext imageInfo: aSkiaIm
 SkiaSurface class >> primRelease: aHandle [
 	
 	"Plain pointers must be deleted using delete(), all users must implement a specific method"
-	self ffiCall: #(void skia_surface_drop(void* aHandle))
+	self ffiCall: #(void skia_surface_drop(void** aHandle))
 ]
 
 { #category : #finalization }

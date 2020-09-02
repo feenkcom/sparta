@@ -91,6 +91,34 @@ SkiaPaintExamples >> setDither [
 ]
 
 { #category : #'examples - paint' }
+SkiaPaintExamples >> setImageFilter [
+	<gtExample>
+	| aPaint anImageFilter |
+	
+	anImageFilter := SkiaImageFilterBlur sigma: 3@3.
+	self assert: anImageFilter isNull not.
+	
+	aPaint := self default.
+
+	"initially no image filter"
+	self assert: aPaint hasImageFilter not.
+	aPaint imageFilter: anImageFilter.
+	self assert: aPaint hasImageFilter.
+	
+	"paint does not consume an image filter"
+	self assert: anImageFilter isNull not.
+	self assert: (GtBoxerValueBox boxedPointerOf: anImageFilter) isNull not.
+	
+	"dropping the image filter does not drop it in the paint"
+	anImageFilter release.
+	self assert: anImageFilter isNull.
+	self assert: (GtBoxerValueBox boxedPointerOf: anImageFilter) isNull.
+	self assert: aPaint hasImageFilter.
+
+	^ aPaint
+]
+
+{ #category : #'examples - paint' }
 SkiaPaintExamples >> setJoinStyle [
 	<gtExample>
 	| aPaint |
@@ -128,7 +156,7 @@ SkiaPaintExamples >> setShader [
 		mode: SkiaTileMode Clamp
 		flags: 0
 		matrix: SpartaMatrix new.
-	
+
 	aPaint := self default.
 
 	"initially no shader"
@@ -136,8 +164,9 @@ SkiaPaintExamples >> setShader [
 	aPaint shader: aShader.
 	self assert: aPaint shader isNull not.
 	
-	"paint consumes shader which makes boxed pointer to be null"
-	self assert: (GtBoxerValueBox boxedPointerOf: aShader) isNull.
+	"paint does not consume an shader"
+	self assert: aShader isNull not.
+	self assert: (GtBoxerValueBox boxedPointerOf: aShader) isNull not.
 
 	^ aPaint
 ]
