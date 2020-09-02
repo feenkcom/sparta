@@ -13,7 +13,7 @@ SkiaParagraphStyle class >> primCreate [
 SkiaParagraphStyle class >> primRelease: aHandle [
 	
 	"Plain pointers must be deleted using delete(), all users must implement a specific method"
-	self ffiCall: #(void skia_paragraph_style_drop(void* aHandle))
+	self ffiCall: #(void skia_paragraph_style_drop(void** aHandle))
 ]
 
 { #category : #accessing }

@@ -32,7 +32,7 @@ SkiaCompositor class >> primCreateSoftware: anAmountOfWorkers [
 SkiaCompositor class >> primRelease: aHandle [
 	
 	"Plain pointers must be deleted using delete(), all users must implement a specific method"
-	self ffiCall: #(void skia_compositor_drop(void* aHandle))
+	self ffiCall: #(void skia_compositor_drop(void** aHandle))
 ]
 
 { #category : #'instance creation' }

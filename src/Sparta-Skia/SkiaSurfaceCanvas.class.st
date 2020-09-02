@@ -8,7 +8,7 @@ Class {
 SkiaSurfaceCanvas class >> primRelease: aHandle [
 	
 	"Plain pointers must be deleted using delete(), all users must implement a specific method"
-	self ffiCall: #(void skia_canvas_drop(void* aHandle))
+	self ffiCall: #(void skia_canvas_drop(void** aHandle))
 ]
 
 { #category : #'api - drawing' }

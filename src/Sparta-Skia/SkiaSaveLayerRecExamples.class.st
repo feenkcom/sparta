@@ -40,7 +40,7 @@ SkiaSaveLayerRecExamples >> setPaint [
 	aLayerRec paint: aSkiaPaint.
 	
 	"layer rec consumes a paint"
-	self assert: (GtBoxerValueBox boxedPointerOf: aSkiaPaint) isNull.
+	self assert: aSkiaPaint isNull.
 	
 	^ aLayerRec
 ]

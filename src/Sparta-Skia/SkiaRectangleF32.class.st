@@ -13,7 +13,7 @@ SkiaRectangleF32 class >> primCreate [
 SkiaRectangleF32 class >> primRelease: aHandle [
 	
 	"Plain pointers must be deleted using delete(), all users must implement a specific method"
-	self ffiCall: #(void skia_rectangle_f32_drop(void* aHandle))
+	self ffiCall: #(void skia_rectangle_f32_drop(void** aHandle))
 ]
 
 { #category : #'private - ffi' }

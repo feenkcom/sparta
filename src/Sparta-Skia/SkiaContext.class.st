@@ -23,7 +23,7 @@ SkiaContext class >> primCreate: aSkiaInterface [
 SkiaContext class >> primRelease: aHandle [
 	
 	"Plain pointers must be deleted using delete(), all users must implement a specific method"
-	self ffiCall: #(void skia_context_drop(void* aHandle))
+	self ffiCall: #(void skia_context_drop(void** aHandle))
 ]
 
 { #category : #accessing }

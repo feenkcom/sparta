@@ -51,8 +51,8 @@ SkiaFontExamples >> fromTypefaceAndSize [
 	aTypeface := SkiaTypeface new.
 	aFont := SkiaFont typeface: aTypeface size: 20.
 	
-	"font consumes a typeface"
-	self assert: (GtBoxerValueBox boxedPointerOf: aTypeface) isNull.
+	"font does not consume a typeface"
+	self assert: (GtBoxerValueBox boxedPointerOf: aTypeface) isNull not.
 	
 	self assert: aFont edging equals: SkiaFontEdging AntiAlias.
 	self assert: aFont hinting equals: SkiaFontHinting Normal.
