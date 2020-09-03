@@ -9,6 +9,11 @@ SkiaLibrary class >> initEnvLogger [
 	self uniqueInstance initEnvLogger
 ]
 
+{ #category : #logger }
+SkiaLibrary class >> initIcu [
+	self uniqueInstance initIcu
+]
+
 { #category : #'class initialization' }
 SkiaLibrary class >> initialize [
 	SessionManager default registerUserClassNamed: self name
@@ -33,10 +38,12 @@ SkiaLibrary class >> install [
 { #category : #'class initialization' }
 SkiaLibrary class >> startUp: isANewSession [
 	isANewSession
-		ifTrue: [ self initEnvLogger ]
+		ifTrue: [
+			self initEnvLogger.
+			self initIcu ]
 ]
 
-{ #category : #'accessing platform' }
+{ #category : #'api - library' }
 SkiaLibrary >> detectLibrary: aFileName [
 	^ ({ Smalltalk imageDirectory . Smalltalk vmDirectory . FileSystem workingDirectory }
 		collect: [ :aPath | aPath asFileReference / aFileName ])
@@ -45,7 +52,7 @@ SkiaLibrary >> detectLibrary: aFileName [
 			ifNone: [ aFileName ]
 ]
 
-{ #category : #'accessing platform' }
+{ #category : #'api - library' }
 SkiaLibrary >> hasModule [
 	"Return if there is a loadable and working Skia library installed, false otherwise"
 	<return: #Boolean>
@@ -62,39 +69,46 @@ SkiaLibrary >> hasModule [
 	^ aResult ifNil: [ false ]
 ]
 
-{ #category : #'accessing platform' }
+{ #category : #'api - startup' }
 SkiaLibrary >> initEnvLogger [
 	[ self primInitEnvLogger ]
 		on: Error
 		do: [ :e | NonInteractiveTranscript stdout nextPutAll: '[Skia] Could not init env logger'; cr ]
 ]
 
-{ #category : #'accessing platform' }
+{ #category : #'api - startup' }
+SkiaLibrary >> initIcu [
+	[ self primIcuInit ]
+		on: Error
+		do: [ :e | NonInteractiveTranscript stdout nextPutAll: '[Skia] Could not init icu'; cr ]
+]
+
+{ #category : #'api - library' }
 SkiaLibrary >> macModuleName [
 	^ self detectLibrary: 'libSkia.dylib'
 ]
 
-{ #category : #'accessing platform' }
+{ #category : #'private - ffi' }
 SkiaLibrary >> primIcuInit [
 	^ self ffiCall: #(void skia_icu_init())
 ]
 
-{ #category : #'accessing platform' }
+{ #category : #'private - ffi' }
 SkiaLibrary >> primInitEnvLogger [
 	^ self ffiCall: #(void skia_init_env_logger())
 ]
 
-{ #category : #'accessing platform' }
+{ #category : #'private - ffi' }
 SkiaLibrary >> primTest [
 	^ self ffiCall: #(bool skia_test())
 ]
 
-{ #category : #'accessing platform' }
+{ #category : #'api - library' }
 SkiaLibrary >> unixModuleName [
 	^ self detectLibrary: 'libSkia.so'
 ]
 
-{ #category : #'accessing platform' }
+{ #category : #'api - library' }
 SkiaLibrary >> win32ModuleName [
 	^ self detectLibrary: 'libSkia.dll'
 ]
