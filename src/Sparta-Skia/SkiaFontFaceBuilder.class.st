@@ -11,5 +11,7 @@ SkiaFontFaceBuilder >> build [
 		weight: weight;
 		style: style;
 		stretch: stretch;
-		source: source)
+		source: source).
+	"we should register it as a typeface in a font manager"
+	SkiaFontManager default newTypeface: source asSpartaFontSource fontContents
 ]
