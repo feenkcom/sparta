@@ -24,7 +24,8 @@ SkiaPictureRecorder >> beginRecording: aBounds [
 	<return: #SkiaSurfaceCanvas>
 	
 	self bounds: aBounds.
-	^ SkiaSurfaceCanvas fromNativeHandle: (self primBeginRecordingLeft: aBounds left top: aBounds top right: aBounds right bottom: aBounds bottom)
+	^ (SkiaSurfaceCanvas fromNativeHandle: (self primBeginRecordingLeft: aBounds left top: aBounds top right: aBounds right bottom: aBounds bottom))
+		surface: self
 ]
 
 { #category : #accessing }
@@ -39,11 +40,12 @@ SkiaPictureRecorder >> bounds: anObject [
 
 { #category : #accessing }
 SkiaPictureRecorder >> canvas [
-	^ SkiaSurfaceCanvas fromNativeHandle: (self
+	^ (SkiaSurfaceCanvas fromNativeHandle: (self
 		primBeginRecordingLeft: self bounds left
 		top: self bounds top
 		right: self bounds right
-		bottom: self bounds bottom)
+		bottom: self bounds bottom))
+			surface: self
 ]
 
 { #category : #accessing }
