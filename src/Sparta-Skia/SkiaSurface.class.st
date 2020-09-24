@@ -4,7 +4,6 @@ Class {
 	#traits : 'TSpartaSurface',
 	#classTraits : 'TSpartaSurface classTrait',
 	#instVars : [
-		'registeredCanvases',
 		'gpuContext'
 	],
 	#category : #'Sparta-Skia-External'
@@ -106,12 +105,6 @@ SkiaSurface class >> primRelease: aHandle [
 	self ffiCall: #(void skia_surface_drop(void** aHandle))
 ]
 
-{ #category : #finalization }
-SkiaSurface class >> release: aSkiaSurface [
-	aSkiaSurface registeredCanvasesDo: [ :eachCanvas | eachCanvas release ].
-	super release: aSkiaSurface getHandle
-]
-
 { #category : #accessing }
 SkiaSurface >> alphaType [
 	<return: #SkiaAlphaType>
@@ -132,7 +125,7 @@ SkiaSurface >> canvas [
 	| aCanvas |
 
 	aCanvas := SkiaSurfaceCanvas fromNativeHandle: self primGetCanvas.
-	registeredCanvases add: aCanvas.
+	aCanvas surface: self.
 	^ aCanvas
 ]
 
@@ -208,13 +201,6 @@ SkiaSurface >> imageInfo [
 	^ SkiaImageInfo fromNativeHandle: self primGetImageInfo
 ]
 
-{ #category : #initialization }
-SkiaSurface >> initialize [
-	super initialize.
-
-	registeredCanvases := WeakIdentitySet new
-]
-
 { #category : #'private - ffi' }
 SkiaSurface >> primFlush [
 	self ffiCall: #(void skia_surface_flush(self))
@@ -263,16 +249,6 @@ SkiaSurface >> primNewSimilar: aSkiaImageInfo [
 { #category : #'private - ffi' }
 SkiaSurface >> primReadAllPixels: aBoxerArrayU8 [
 	^ self ffiCall: #(bool skia_surface_read_all_pixels(self, GtBoxerArrayU8 aBoxerArrayU8))
-]
-
-{ #category : #'external resource management' }
-SkiaSurface >> registeredCanvasesDo: aBlock [
-	registeredCanvases do: aBlock
-]
-
-{ #category : #'external resource management' }
-SkiaSurface >> resourceData [
-	^ self
 ]
 
 { #category : #accessing }

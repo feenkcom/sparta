@@ -1,6 +1,9 @@
 Class {
 	#name : #SkiaSurfaceCanvas,
 	#superclass : #SkiaExternalObject,
+	#instVars : [
+		'surface'
+	],
 	#category : #'Sparta-Skia-External'
 }
 
@@ -753,6 +756,16 @@ SkiaSurfaceCanvas >> strokeRoundedRectangle: aSpartaRoundedRectangle color: aCol
 		a: (aColor alpha * 255) asInteger
 		width: aWidth
 		antialias: isAntialias
+]
+
+{ #category : #accessing }
+SkiaSurfaceCanvas >> surface [
+	^ surface
+]
+
+{ #category : #accessing }
+SkiaSurfaceCanvas >> surface: anObject [
+	surface := anObject
 ]
 
 { #category : #'api - transformation' }
