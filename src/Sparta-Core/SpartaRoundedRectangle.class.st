@@ -129,6 +129,28 @@ SpartaRoundedRectangle >> left: aLeft top: aTop right: aRight bottom: aBottom ra
 	cornerRadii := theCornerRadii
 ]
 
+{ #category : #printing }
+SpartaRoundedRectangle >> printOn: aStream [
+	"Append a sequence of characters to aStream that identify the receiver."
+
+	super printOn: aStream.
+	aStream
+		nextPutAll: ' left: ';
+		print: left.
+	aStream
+		nextPutAll: ' top: ';
+		print: top.
+	aStream
+		nextPutAll: ' right: ';
+		print: right.
+	aStream
+		nextPutAll: ' bottom: ';
+		print: bottom.
+	aStream
+		nextPutAll: ' cornerRadii: ';
+		print: cornerRadii.
+]
+
 { #category : #'accessing - radii' }
 SpartaRoundedRectangle >> radius [
 	"Assuming that all corners have same radius, return it"

@@ -73,6 +73,25 @@ SpartaCornerRadii >> isUniform [
 				and: [ bottomLeft closeTo: topLeft ] ] ]
 ]
 
+{ #category : #printing }
+SpartaCornerRadii >> printOn: aStream [
+	"Append a sequence of characters to aStream that identify the receiver."
+
+	super printOn: aStream.
+	aStream
+		nextPutAll: ' topLeft: ';
+		print: topLeft.
+	aStream
+		nextPutAll: ' topRight: ';
+		print: topRight.
+	aStream
+		nextPutAll: ' bottomRight: ';
+		print: bottomRight.
+	aStream
+		nextPutAll: ' bottomLeft: ';
+		print: bottomLeft
+]
+
 { #category : #accessing }
 SpartaCornerRadii >> topLeft [
 	^ topLeft
