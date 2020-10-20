@@ -160,6 +160,11 @@ SkiaPaint >> hasImageFilter [
 	^ self primHasImageFilter
 ]
 
+{ #category : #testing }
+SkiaPaint >> hasPathEffect [
+	^ self primHasPathEffect
+]
+
 { #category : #accessing }
 SkiaPaint >> imageFilter [
 	<return: #SkiaImageFilter>
@@ -196,6 +201,18 @@ SkiaPaint >> paintStyle: aSkiaPaintStyle [
 	self primSetPaintStyle: aSkiaPaintStyle
 ]
 
+{ #category : #accessing }
+SkiaPaint >> pathEffect [
+	<return: #SkiaPathEffect>
+	
+	^ SkiaPathEffect fromNativeHandle: self primGetPathEffect
+]
+
+{ #category : #accessing }
+SkiaPaint >> pathEffect: aSkiaPathEffect [
+	self primSetPathEffect: aSkiaPathEffect
+]
+
 { #category : #'private - ffi' }
 SkiaPaint >> primGetAlpha [
 	^ self ffiCall: #(float32 skia_paint_get_alpha_f(self))
@@ -227,6 +244,11 @@ SkiaPaint >> primGetPaintStyle [
 ]
 
 { #category : #'private - ffi' }
+SkiaPaint >> primGetPathEffect [
+	self ffiCall: #(void* skia_paint_get_path_effect(self))
+]
+
+{ #category : #'private - ffi' }
 SkiaPaint >> primGetShader [
 	self ffiCall: #(void* skia_paint_get_shader(self))
 ]
@@ -254,6 +276,11 @@ SkiaPaint >> primGetStrokeWidth [
 { #category : #'private - ffi' }
 SkiaPaint >> primHasImageFilter [
 	self ffiCall: #(bool skia_paint_has_image_filter(self))
+]
+
+{ #category : #'private - ffi' }
+SkiaPaint >> primHasPathEffect [
+	self ffiCall: #(bool skia_paint_has_path_effect(self))
 ]
 
 { #category : #'private - ffi' }
@@ -304,6 +331,11 @@ SkiaPaint >> primSetImageFilter: aSkiaImageFilter [
 { #category : #'private - ffi' }
 SkiaPaint >> primSetPaintStyle: aPaintStyle [
 	self ffiCall: #(void skia_paint_set_style(self, SkiaPaintStyle aPaintStyle))
+]
+
+{ #category : #'private - ffi' }
+SkiaPaint >> primSetPathEffect: aSkiaPathEffect [
+	self ffiCall: #(void skia_paint_set_path_effect(self, SkiaPathEffect aSkiaPathEffect))
 ]
 
 { #category : #'private - ffi' }
