@@ -38,6 +38,12 @@ SkiaStrokePainter >> setPaint: aSkiaPaint forColor: aColor [
 		joinStyle: theStrokeOptions joinStyle;
 		strokeMiter: theStrokeOptions miterLimit;
 		strokeWidth: theStrokeOptions width.
+		
+	theStrokeOptions dashPattern ifNotEmpty: [ :aDashPattern |
+		SkiaDashPathEffect
+			pattern: aDashPattern
+			offset: theStrokeOptions dashOffset
+			during: [ :aPathEffect | aSkiaPaint pathEffect: aPathEffect ] ].
 
 	^ aSkiaPaint
 ]
@@ -75,6 +81,12 @@ SkiaStrokePainter >> setPaint: aSkiaPaint forGradient: aSkiaGradient [
 		joinStyle: theStrokeOptions joinStyle;
 		strokeMiter: theStrokeOptions miterLimit;
 		strokeWidth: theStrokeOptions width.
+		
+	theStrokeOptions dashPattern ifNotEmpty: [ :aDashPattern |
+		SkiaDashPathEffect
+			pattern: aDashPattern
+			offset: theStrokeOptions dashOffset
+			during: [ :aPathEffect | aSkiaPaint pathEffect: aPathEffect ] ].
 
 	^ aSkiaPaint
 ]
