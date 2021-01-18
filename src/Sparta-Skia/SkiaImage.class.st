@@ -38,18 +38,6 @@ SkiaImage class >> fromBGRA: aData extent: anExtent stride: aStride [
 ]
 
 { #category : #'instance creation' }
-SkiaImage class >> fromBackendTexture: aBackendTexture context: aSkiaContext colorType: aSKiaColorType alphaType: aSkiaAlphaType releaser: aFunction releaserContext: aPointer [
-	^ (SkiaImage fromNativeHandle: (self
-		primFromBackendTexture: aBackendTexture
-		context: aSkiaContext
-		colorType: aSKiaColorType
-		alphaType: aSkiaAlphaType
-		releaser: aFunction
-		releaserContext: aPointer))
-			gpuContext: aSkiaContext
-]
-
-{ #category : #'instance creation' }
 SkiaImage class >> fromBuffer: aByteArray start: startInteger end: endInteger [
 	"Create a SkiaImage from the supplied buffer (encoded JPG, PNG, BMP, etc.)"
 	| handle |
@@ -135,18 +123,6 @@ SkiaImage class >> fromRGBA: aData extent: anExtent stride: aStride [
 				width: anExtent x height: anExtent y
 				rowBytes: aStride
 				colorType: SkiaColorType RGBA8888) ]
-]
-
-{ #category : #'private - ffi' }
-SkiaImage class >> primFromBackendTexture: aBackendTexture context: aSkiaContext colorType: aSKiaColorType alphaType: aSkiaAlphaType releaser: aFunction releaserContext: aPointer [
-
-	^ self ffiCall: #(void* skia_image_from_backend_texture(
-		SkiaContext aSkiaContext,
-		SkiaBackendTexture aBackendTexture,
-		SkiaColorType aSKiaColorType,
-		SkiaAlphaType aSkiaAlphaType,
-		void* aFunction,
-		void* aPointer))
 ]
 
 { #category : #'private - ffi' }
@@ -344,11 +320,6 @@ SkiaImage >> primGetImageInfo [
 ]
 
 { #category : #'private - ffi' }
-SkiaImage >> primGetRefCount [
-	^ self ffiCall: #(size_t skia_image_get_ref_count(self))
-]
-
-{ #category : #'private - ffi' }
 SkiaImage >> primGetUniqueId [
 	^ self ffiCall: #(uint32 skia_image_get_unique_id(self))
 ]
@@ -389,11 +360,6 @@ SkiaImage >> primSaveFile: fileName format: format quality: aNumber [
 SkiaImage >> primScalex: xInt y: yInt keepAspectRatio: aBoolean quality: quality [
 
 	^ self ffiCall: #(void* skia_scale_image(self, int32 xInt, int32 yInt, bool aBoolean, SkiaFilterQuality quality))
-]
-
-{ #category : #accessing }
-SkiaImage >> refCount [
-	^ self primGetRefCount
 ]
 
 { #category : #actions }
