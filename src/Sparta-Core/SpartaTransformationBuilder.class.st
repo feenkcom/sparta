@@ -124,6 +124,11 @@ SpartaTransformationBuilder >> rotateByDegrees: anAngle [
 ]
 
 { #category : #'api - transformations' }
+SpartaTransformationBuilder >> rotateByRadians: anAngle [
+	transformation rotateByRadians: anAngle
+]
+
+{ #category : #'api - transformations' }
 SpartaTransformationBuilder >> scaleBy: aPointOrNumber [
 	transformation scaleBy: aPointOrNumber
 ]
