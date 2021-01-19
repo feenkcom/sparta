@@ -31,9 +31,13 @@ SkiaSurface class >> fromRenderTarget: aSkiaBackendRenderTarget colorType: aSkia
 
 { #category : #'instance creation' }
 SkiaSurface class >> fromRenderTarget: aSkiaBackendRenderTarget colorType: aSkiaColorType context: anOpenGLContext [
-	| aSkiaContext |
+	| aSkiaInterface aSkiaContext |
+	
+	aSkiaInterface := SkiaInterface native.
+	(aSkiaInterface isNull and: [ anOpenGLContext isValid ])
+		ifTrue: [ aSkiaInterface := SkiaInterface load: [ :eachFunctionName | anOpenGLContext getProcAddress: eachFunctionName ] ]. 
 
-	aSkiaContext := SkiaContext fromInterface: (SkiaInterface new).
+	aSkiaContext := SkiaContext fromInterface: aSkiaInterface.
 	
 	^ (self fromNativeHandle: (self primFromRenderTarget: aSkiaBackendRenderTarget context: aSkiaContext colorType: aSkiaColorType))
 		gpuContext: aSkiaContext

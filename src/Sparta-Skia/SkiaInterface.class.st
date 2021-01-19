@@ -14,6 +14,13 @@ SkiaInterface class >> load: aBlock [
 	^ self fromNativeHandle: (self primLoadWith: (self primLoaderCallbackFor: aBlock))
 ]
 
+{ #category : #'instance creation' }
+SkiaInterface class >> native [
+	<return: #SkiaInterface>
+	
+	^ self new
+]
+
 { #category : #'private - ffi' }
 SkiaInterface class >> primCreate [
 	^ self ffiCall: #(void* skia_interface_new_native())
