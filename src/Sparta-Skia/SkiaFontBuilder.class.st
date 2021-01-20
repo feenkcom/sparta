@@ -74,7 +74,7 @@ SkiaFontBuilder >> build [
 									slant: (SkiaFontStyleSlant fromSpartaSlant: aSpartaFontFace style)) ] ].
 			
 			font := (SkiaFont typeface: aSkiaTypeface size: size)
-				hinting: SkiaFontHinting Full;
+				hinting: SkiaFontHinting Slight;
 				yourself.
 			"For now, subpixel anti-aliasing only works on MacOS.
 			Hopefully this is temporary"
