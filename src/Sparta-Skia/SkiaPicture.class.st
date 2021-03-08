@@ -31,6 +31,17 @@ SkiaPicture >> approximateOpPerPoint [
 	^ (self approximateOpCount / (theBounds height * theBounds width)) asFloat
 ]
 
+{ #category : #accessing }
+SkiaPicture >> asByteArray [
+	"Serialzie this picture as a byte array"
+	<return: #ByteArray>
+	| aBoxerArray |
+	
+	aBoxerArray := GtBoxerArrayU8 new.
+	self primSerialize: aBoxerArray.
+	^ aBoxerArray asByteArray
+]
+
 { #category : #'gt-extension' }
 SkiaPicture >> asForm [
 	| aCanvas |
@@ -98,6 +109,11 @@ SkiaPicture >> primIsEmpty [
 { #category : #'private - ffi' }
 SkiaPicture >> primPlaybackOn: aCanvas [
 	^ self ffiCall: #(void skia_picture_playback(self, SkiaSurfaceCanvas aCanvas))
+]
+
+{ #category : #'private - ffi' }
+SkiaPicture >> primSerialize: aBoxerArrayU8 [
+	^ self ffiCall: #(void skia_picture_serialize(self, GtBoxerArrayU8 aBoxerArrayU8))
 ]
 
 { #category : #'private - ffi' }
