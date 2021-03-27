@@ -37,7 +37,7 @@ SkiaPerformanceLogger >> gtPerformanceTreeFor: aView [
 					anElement addChild:
 						(BrLabel new
 							text: (aLeafContext model key new name, ': ', (aLeafContext model value * 100) rounded asString, '%');
-							look: (BrGlamorousLabelLook new fontSize: 14; foreground: Color darkGray);
+							aptitude: (BrGlamorousLabelAptitude new fontSize: 14; foreground: Color darkGray);
 							constraintsDo: [ :c | c ignoreByLayout ]).
 					anElement border: (BlBorder paint: (Color gray alpha: 0.5 / aLeafContext level) width: 1).
 					anElement background: (Color red alpha: aLeafContext model value) ];
