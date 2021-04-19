@@ -179,9 +179,3 @@ SkiaPathBuilder >> moveTo: aPoint [
 SkiaPathBuilder >> relative [
 	isAbsolute := false
 ]
-
-{ #category : #accessing }
-SkiaPathBuilder >> reset [
-	isAbsolute := true.
-	path := SkiaPath new
-]
