@@ -159,8 +159,3 @@ TSpartaPathBuilder >> moveTo: aPoint [
 TSpartaPathBuilder >> relative [
 	^ self explicitRequirement
 ]
-
-{ #category : #accessing }
-TSpartaPathBuilder >> reset [
-	self explicitRequirement
-]

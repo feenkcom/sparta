@@ -741,7 +741,6 @@ SpartaCanvas >> path: aSpartaFillRule [
 		description: [ 'I must be an instance of `SpartaFillRule`' ].
 
 	^ (aSpartaFillRule newPathBuilder: self pathBuilderClass canvas: self)
-		reset;
 		canvas: self;
 		yourself
 ]
