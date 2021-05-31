@@ -241,6 +241,11 @@ SkiaPath >> primGetPoints: aBoxerArrayPointF32 [
 ]
 
 { #category : #'private - ffi' }
+SkiaPath >> primGetStrokeBounds: aSkiaRectangleF32 paint: aSkiaPaint [ 
+	^ self ffiCall: #(void skia_path_get_stroke_bounds(self, SkiaPaint aSkiaPaint, SkiaRectangleF32 aSkiaRectangleF32))
+]
+
+{ #category : #'private - ffi' }
 SkiaPath >> primLineToX: aX Y: aY absolute: isAbsolute [
 	^ self ffiCall: #(void skia_path_line_to(self, scalar aX, scalar aY, bool isAbsolute))
 ]
@@ -322,5 +327,17 @@ SkiaPath >> strokedBoundsOn: aSpartaCanvas with: aStrokeOptions [
 	These bounds are not guaranteed to be tight."
 	<return: #Rectangle>
 
-	^ (0.0@0.0 extent: 0.0@0.0)
+	^ SkiaPaint newDuring: [ :aSkiaPaint |
+		aSkiaPaint
+			paintStyle: SkiaPaintStyle Stroke;
+			color: Color black;
+			antialias: false;
+			capStyle: aStrokeOptions capStyle;
+			joinStyle: aStrokeOptions joinStyle;
+			strokeMiter: aStrokeOptions miterLimit;
+			strokeWidth: aStrokeOptions width.
+			
+		SkiaRectangleF32 newDuring: [ :aSkiaRectangle |
+			self primGetStrokeBounds: aSkiaRectangle paint: aSkiaPaint.
+			aSkiaRectangle asRectangle ] ]
 ]
