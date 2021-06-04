@@ -1,6 +1,5 @@
 "
 I am a Baseline of Sparta-Cairo backend
-
 "
 Class {
 	#name : #BaselineOfSpartaCairo,

@@ -18,7 +18,6 @@ Internal Representation and Key Implementation Points.
 
 
     Implementation Points
-
 "
 Class {
 	#name : #SpartaLine,

@@ -17,7 +17,6 @@ surface := canvas bitmap fromForm: (Smalltalk ui icons iconNamed: #classIcon).
 
 Create a new surface from image file by its absolute or relative path:
 surface := canvas bitmap fromFileNamed: 'images/cats/kitty.jpg'
-
 "
 Class {
 	#name : #SpartaBitmapBuilder,

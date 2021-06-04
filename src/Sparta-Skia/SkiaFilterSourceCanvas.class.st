@@ -1,6 +1,5 @@
 "
 When canvas is a source of a filter we should take its snapshot
-
 "
 Class {
 	#name : #SkiaFilterSourceCanvas,

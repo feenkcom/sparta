@@ -44,7 +44,6 @@ canvas fill
 
 canvas flush.
 canvas snapshot
-
 "
 Class {
 	#name : #SkiaCanvas,

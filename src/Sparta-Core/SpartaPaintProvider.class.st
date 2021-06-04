@@ -20,7 +20,6 @@ Internal Representation and Key Implementation Points.
 
 
     My subclasses must provide backend specific paints
-
 "
 Class {
 	#name : #SpartaPaintProvider,
