@@ -12,6 +12,7 @@ height - height of the glyphs as drawn
 advanceX - distance to advance in the X direction after drawing these glyphs
 
 advanceY - distance to advance in the Y direction after drawing these glyphs. Will typically be zero except for vertical text layout as found in East-Asian languages.
+
 "
 Class {
 	#name : #SpartaCairoTextMetrics,
