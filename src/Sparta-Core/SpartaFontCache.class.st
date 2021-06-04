@@ -1,5 +1,6 @@
 "
 I cache fonts with font style a key
+
 "
 Class {
 	#name : #SpartaFontCache,

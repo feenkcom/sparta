@@ -1,5 +1,6 @@
 "
 I cache bitmaps created from forms
+
 "
 Class {
 	#name : #SpartaFormCache,

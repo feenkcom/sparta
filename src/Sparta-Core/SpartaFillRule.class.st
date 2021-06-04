@@ -1,5 +1,6 @@
 "
 Fill rule is an algorithm which determines how a graphical shape with more than one closed outline will be filled.
+
 "
 Class {
 	#name : #SpartaFillRule,

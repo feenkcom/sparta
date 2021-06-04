@@ -16,6 +16,7 @@ Internal Representation and Key Implementation Points.
 
 
   	It makes a lot of sense to implement shape creation methods as plugin or as part of backend
+
 "
 Class {
 	#name : #SpartaShapeFactory,
