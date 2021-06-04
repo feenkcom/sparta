@@ -16,6 +16,7 @@ Public API and Key Messages
 
 kitty := canvas bitmap fromFileNamed: 'images/cats/kitty.jpg'.
 brannan := canvas filters brannan: kitty.
+
 "
 Class {
 	#name : #SpartaFiltersFactory,

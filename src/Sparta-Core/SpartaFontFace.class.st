@@ -1,6 +1,7 @@
 "
 I represent a font face.
 My properties are backend specific
+
 "
 Class {
 	#name : #SpartaFontFace,
