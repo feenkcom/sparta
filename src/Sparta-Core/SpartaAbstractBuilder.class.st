@@ -1,5 +1,5 @@
 "
-1. SpartaAbstractBuilder
+# SpartaAbstractBuilder
 I am a root class of all sparta builders.
 
 - [Painter](../SpartaAbstractPainter.class/README.md)
@@ -11,31 +11,25 @@ I am a root class of all sparta builders.
 - [Path](../TSpartaPathBuilder.trait/README.md)
 - [Font](../SpartaFontBuilder.class/README.md)
 
-1. # Overview
-
+## Overview
 All builders must be created and managed by canvas.
 
 Every builder provides a way to reset resources to support reuse instead of recreation on every access.
 
-1. # Public API and Key Messages
-
+## Public API and Key Messages
 
 - `canvas` - return currently associated canvas 
 - `canvas:` set canvas to which builder should be associated
 - `reset` - reset and clean used resources
 
-1. # Internal Representation and Key Implementation Points.
+## Internal Representation and Key Implementation Points.
 
-
-1. ## Instance Variables
-
+### Instance Variables
  - canvas: `<SpartaCanvas>` - associated sparta canvas. Subclasses can refer to it directly and use in FFI calls.
 
-1. ## Implementation Points
-
+### Implementation Points
 
 Builders may or may not be backend specific
-
 
 "
 Class {
