@@ -14,11 +14,11 @@ BaselineOfSpartaSkia >> baseline: spec [
 		spec postLoadDoIt: #'postLoadSkia:'.
 		spec 
 			baseline: 'SpartaCore' with: [
-				spec repository: 'github://feenkcom/Sparta:v0.8.51/src' ];
+				spec repository: 'github://feenkcom/Sparta:v0.8.52/src' ];
 			baseline: 'GToolkitInstaller' with: [
-				spec repository: 'github://feenkcom/gtoolkit-installer:v0.8.3/src' ];
+				spec repository: 'github://feenkcom/gtoolkit-installer:v0.8.4/src' ];
 			baseline: 'GToolkitBoxer' with: [
-				spec repository: 'github://feenkcom/gtoolkit-boxer:v0.8.11/boxer-bindings' ];
+				spec repository: 'github://feenkcom/gtoolkit-boxer:v0.8.12/boxer-bindings' ];
 			baseline: 'GToolkitExamplesEngine' with: [
 				spec repository: 'github://feenkcom/gtoolkit-examples:v0.8.24/src' ].
 		spec package: 'Sparta-Skia' with: [
