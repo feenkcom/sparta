@@ -377,7 +377,7 @@ SkiaSurfaceCanvas >> fillRoundedRectangle: aSpartaRoundedRectangle color: aColor
 
 { #category : #'api - state' }
 SkiaSurfaceCanvas >> flush [
-	self primFlush
+	surface flush
 ]
 
 { #category : #'api - transformation' }
