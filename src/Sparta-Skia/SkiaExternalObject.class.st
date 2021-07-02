@@ -118,7 +118,19 @@ SkiaExternalObject class >> release: aHandle [
 		ifTrue: [ ^ self ].
 
 	self warning: [ '(release) Ptr: ', aHandle value asString ].
-	self primRelease: aHandle.
+	"When an image is saved during finalization step (how?) and then re-opened on a new
+	machine the ffi library path is sometimes different which results in an error.
+	However, since the object is anyway invalid due to a new session we can continue and just ignore it nulling
+	the pointer"
+	[ self primRelease: aHandle ]
+		on: Error do: [ :anError | 
+			NonInteractiveTranscript stdout
+				nextPutAll: ('[Warning] Failed to release {1}({2}) due to {3}' format: { 
+					self name.
+					aHandle printString.
+					anError printString });
+				cr.
+			aHandle beNull ].
 	self
 		assert: [ aHandle isNull ]
 		description: [ 'Pointer must be null after release' ]
