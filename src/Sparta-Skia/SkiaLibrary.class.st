@@ -45,7 +45,9 @@ SkiaLibrary class >> startUp: isANewSession [
 
 { #category : #'api - library' }
 SkiaLibrary >> detectLibrary: aFileName [
-	^ ({ Smalltalk imageDirectory . Smalltalk vmDirectory . FileSystem workingDirectory }
+	"Pharo9 introduced a platform specific FFILibraryFinder which should be used instead of this custom implementation"
+
+	^ ({ Smalltalk imageDirectory . Smalltalk vmDirectory . Smalltalk vmBinary parent / 'Plugins'. FileSystem workingDirectory }
 		collect: [ :aPath | aPath asFileReference / aFileName ])
 			detect: #exists
 			ifFound: #fullName
@@ -84,8 +86,11 @@ SkiaLibrary >> initIcu [
 ]
 
 { #category : #'api - library' }
-SkiaLibrary >> macModuleName [
-	^ self detectLibrary: 'libSkia.dylib'
+SkiaLibrary >> macLibraryName [
+	^ self class environment
+		at: #FFIMacLibraryFinder
+		ifPresent: [ :aLibraryFinder | aLibraryFinder findLibrary: 'libSkia.dylib' ]
+		ifAbsent: [ self detectLibrary: 'libSkia.dylib' ]
 ]
 
 { #category : #'private - ffi' }
@@ -104,11 +109,25 @@ SkiaLibrary >> primTest [
 ]
 
 { #category : #'api - library' }
-SkiaLibrary >> unixModuleName [
-	^ self detectLibrary: 'libSkia.so'
+SkiaLibrary >> unix32LibraryName [
+	^ self class environment
+		at: #FFIUnix32LibraryFinder
+		ifPresent: [ :aLibraryFinder | aLibraryFinder findLibrary: 'libSkia.so' ]
+		ifAbsent: [ self detectLibrary: 'libSkia.so' ]
 ]
 
 { #category : #'api - library' }
-SkiaLibrary >> win32ModuleName [
-	^ self detectLibrary: 'libSkia.dll'
+SkiaLibrary >> unix64LibraryName [
+	^ self class environment
+		at: #FFIUnix64LibraryFinder
+		ifPresent: [ :aLibraryFinder | aLibraryFinder findLibrary: 'libSkia.so' ]
+		ifAbsent: [ self detectLibrary: 'libSkia.so' ]
+]
+
+{ #category : #'api - library' }
+SkiaLibrary >> win32LibraryName [
+	^ self class environment
+		at: #FFIWindowsLibraryFinder
+		ifPresent: [ :aLibraryFinder | aLibraryFinder findLibrary: 'libSkia.dylib' ]
+		ifAbsent: [ self detectLibrary: 'libSkia.dylib' ]
 ]
