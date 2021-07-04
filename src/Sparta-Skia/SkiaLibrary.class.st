@@ -65,7 +65,7 @@ SkiaLibrary >> hasModule [
 	[ aResult := self primTest ]
 		on: Error
 		do: [ :e | 
-		NonInteractiveTranscript stderr show: e description.
+		NonInteractiveTranscript stderr nextPutAll: e description; cr.
 		aResult := false ].
 
 	^ aResult ifNil: [ false ]

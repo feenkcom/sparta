@@ -23,10 +23,13 @@ SkiaInterfaceLoadCallback class >> on: aBlock [
 
 { #category : #'private - ffi' }
 SkiaInterfaceLoadCallback >> calloutAPIClass [
-
-	^ ThreadedFFIMigration threadedFFIAvailable
-		ifTrue: [ TFCalloutAPI ]
-		ifFalse: [ super calloutAPIClass ]
+	^ self class environment
+		at: #ThreadedFFIMigration
+		ifPresent: [ :aThreadedFFIMigration |
+			aThreadedFFIMigration threadedFFIAvailable
+				ifTrue: [ self class environment at: #TFCalloutAPI ]
+				ifFalse: [ super calloutAPIClass ] ]
+		ifAbsent: [ super calloutAPIClass ]
 ]
 
 { #category : #'private - ffi' }
