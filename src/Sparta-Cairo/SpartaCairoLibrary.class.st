@@ -4,6 +4,17 @@ Class {
 	#category : #'Sparta-Cairo-Library'
 }
 
+{ #category : #'api - library' }
+SpartaCairoLibrary >> detectLibrary: aFileName [
+	"Pharo9 introduced a platform specific FFILibraryFinder which should be used instead of this custom implementation"
+
+	^ ({ Smalltalk imageDirectory . Smalltalk vmDirectory . Smalltalk vmBinary parent / 'Plugins'. FileSystem workingDirectory }
+		collect: [ :aPath | aPath asFileReference / aFileName ])
+			detect: #exists
+			ifFound: #fullName
+			ifNone: [ aFileName ]
+]
+
 { #category : #private }
 SpartaCairoLibrary >> findUnixModule: aLibraryName in: directories [
 	"On different flavors of linux the path to library may differ
@@ -22,9 +33,12 @@ SpartaCairoLibrary >> findUnixModule: aLibraryName in: directories [
 			format: { aLibraryName. })
 ]
 
-{ #category : #'accessing platform' }
-SpartaCairoLibrary >> macModuleName [
-	^ 'libcairo.2.dylib'
+{ #category : #'api - library' }
+SpartaCairoLibrary >> macLibraryName [
+	^ self class environment
+		at: #FFIMacLibraryFinder
+		ifPresent: [ :aLibraryFinder | aLibraryFinder findAnyLibrary: #('libcairo.dylib' 'libcairo.2.dylib') ]
+		ifAbsent: [ self detectLibrary: 'libcairo.2.dylib' ]
 ]
 
 { #category : #'accessing platform' }
