@@ -128,6 +128,6 @@ SkiaLibrary >> unix64LibraryName [
 SkiaLibrary >> win32LibraryName [
 	^ self class environment
 		at: #FFIWindowsLibraryFinder
-		ifPresent: [ :aLibraryFinder | aLibraryFinder findLibrary: 'libSkia.dll' ]
+		ifPresent: [ :aLibraryFinder | aLibraryFinder findAnyLibrary: #('Skia.dll' 'libSkia.dll') ]
 		ifAbsent: [ self detectLibrary: 'libSkia.dll' ]
 ]
