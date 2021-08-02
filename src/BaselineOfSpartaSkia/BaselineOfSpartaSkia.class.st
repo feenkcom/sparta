@@ -10,21 +10,20 @@ Class {
 { #category : #baseline }
 BaselineOfSpartaSkia >> baseline: spec [
 	<baseline>
-	spec
-		for: #common
-		do: [ spec postLoadDoIt: #postLoadSkia:.
-			spec
-				baseline: 'SpartaCore'
-					with: [ spec repository: 'github://feenkcom/Sparta/src' ];
-				baseline: 'GToolkitInstaller'
-					with: [ spec repository: 'github://feenkcom/gtoolkit-installer/src' ];
-				baseline: 'GToolkitBoxer'
-					with: [ spec repository: 'github://feenkcom/gtoolkit-boxer/boxer-bindings' ];
-				baseline: 'GToolkitExamplesEngine'
-					with: [ spec repository: 'github://feenkcom/gtoolkit-examples/src' ].
-			spec
-				package: 'Sparta-Skia'
-				with: [ spec requires: #('SpartaCore' 'GToolkitInstaller' 'GToolkitBoxer' 'GToolkitExamplesEngine') ] ]
+	spec for: #'common' do: [
+		spec postLoadDoIt: #'postLoadSkia:'.
+		spec 
+			baseline: 'SpartaCore' with: [
+				spec repository: 'github://feenkcom/Sparta:main/src' ];
+			baseline: 'GToolkitInstaller' with: [
+				spec repository: 'github://feenkcom/gtoolkit-installer:main/src' ];
+			baseline: 'GToolkitBoxer' with: [
+				spec repository: 'github://feenkcom/gtoolkit-boxer:main/boxer-bindings' ];
+			baseline: 'GToolkitExamplesEngine' with: [
+				spec repository: 'github://feenkcom/gtoolkit-examples:main/src' ].
+		spec package: 'Sparta-Skia' with: [
+				spec requires: #('SpartaCore' 'GToolkitInstaller' 'GToolkitBoxer' 'GToolkitExamplesEngine' ). ]. ].
+
 ]
 
 { #category : #baseline }
