@@ -35,7 +35,10 @@ SkiaSurface class >> fromRenderTarget: aSkiaBackendRenderTarget colorType: aSkia
 	
 	aSkiaInterface := SkiaInterface native.
 	(aSkiaInterface isNull and: [ anOpenGLContext isValid ])
-		ifTrue: [ aSkiaInterface := SkiaInterface load: [ :eachFunctionName | anOpenGLContext getProcAddress: eachFunctionName ] ]. 
+		ifTrue: [ aSkiaInterface := SkiaInterface load: [ :eachFunctionName |
+			eachFunctionName = 'eglGetCurrentDisplay'
+				ifTrue: [ ExternalAddress null ]
+				ifFalse: [ anOpenGLContext getProcAddress: eachFunctionName ] ] ]. 
 
 	aSkiaContext := SkiaContext fromInterface: aSkiaInterface.
 	

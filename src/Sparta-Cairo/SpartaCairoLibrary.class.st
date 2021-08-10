@@ -43,6 +43,6 @@ SpartaCairoLibrary >> unix64LibraryName [
 SpartaCairoLibrary >> win32LibraryName [
 	^ self class environment
 		at: #FFIWindowsLibraryFinder
-		ifPresent: [ :aLibraryFinder | aLibraryFinder findAnyLibrary: #('libcairo-2.dll') ]
+		ifPresent: [ :aLibraryFinder | aLibraryFinder findAnyLibrary: #('cairo.dll' 'libcairo-2.dll') ]
 		ifAbsent: [ self detectLibrary: 'libcairo-2.dll' ]
 ]
