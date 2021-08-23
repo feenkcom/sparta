@@ -1,32 +1,36 @@
 Class {
-	#name : #BaselineOfSpartaSkia,
-	#superclass : #BaselineOf,
+	#name : 'BaselineOfSpartaSkia',
+	#superclass : 'BaselineOf',
 	#classVars : [
 		'PostLoaded'
 	],
-	#category : #BaselineOfSpartaSkia
+	#category : 'BaselineOfSpartaSkia'
 }
 
-{ #category : #baseline }
+{ #category : 'baseline' }
 BaselineOfSpartaSkia >> baseline: spec [
 	<baseline>
 	spec for: #'common' do: [
 		spec postLoadDoIt: #'postLoadSkia:'.
-		spec 
+		spec
 			baseline: 'SpartaCore' with: [
-				spec repository: 'github://feenkcom/Sparta:v0.8.65/src' ];
+				spec repository: 'github://feenkcom/Sparta:v0.8.66/src' ].
+		spec
 			baseline: 'GToolkitInstaller' with: [
-				spec repository: 'github://feenkcom/gtoolkit-installer:v0.8.6/src' ];
+				spec repository: 'github://feenkcom/gtoolkit-installer:v0.8.7/src' ].
+		spec
 			baseline: 'GToolkitBoxer' with: [
-				spec repository: 'github://feenkcom/gtoolkit-boxer:v0.8.16/boxer-bindings' ];
+				spec repository: 'github://feenkcom/gtoolkit-boxer:v0.8.17/boxer-bindings' ].
+		spec
 			baseline: 'GToolkitExamplesEngine' with: [
 				spec repository: 'github://feenkcom/gtoolkit-examples:v0.8.31/src' ].
-		spec package: 'Sparta-Skia' with: [
-				spec requires: #('SpartaCore' 'GToolkitInstaller' 'GToolkitBoxer' 'GToolkitExamplesEngine' ). ]. ].
 
+		spec package: 'Sparta-Skia' with: [
+			spec requires: #('SpartaCore' 'GToolkitInstaller' 'GToolkitBoxer' 'GToolkitExamplesEngine') ].
+	]
 ]
 
-{ #category : #baseline }
+{ #category : 'baseline' }
 BaselineOfSpartaSkia >> postLoadSkia: aSpecLoader [
 	"prevent from installing multiple times by metacello"	
 	(PostLoaded isNotNil and: [ PostLoaded ])

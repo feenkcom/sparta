@@ -3,21 +3,23 @@ I am a Baseline of Sparta.
 
 "
 Class {
-	#name : #BaselineOfSparta,
-	#superclass : #BaselineOf,
-	#category : #BaselineOfSparta
+	#name : 'BaselineOfSparta',
+	#superclass : 'BaselineOf',
+	#category : 'BaselineOfSparta'
 }
 
-{ #category : #baseline }
+{ #category : 'baseline' }
 BaselineOfSparta >> baseline: spec [
 	<baseline>
 	spec for: #'common' do: [
-		spec 
+		spec
 			baseline: 'SpartaCore' with: [
-				spec repository: 'github://feenkcom/Sparta:v0.8.65/src' ];
+				spec repository: 'github://feenkcom/Sparta:v0.8.66/src' ].
+		spec
 			baseline: 'SpartaCairo' with: [
-				spec repository: 'github://feenkcom/Sparta:v0.8.65/src' ];
+				spec repository: 'github://feenkcom/Sparta:v0.8.66/src' ].
+		spec
 			baseline: 'SpartaSkia' with: [
-				spec repository: 'github://feenkcom/Sparta:v0.8.65/src' ]. ].
-
+				spec repository: 'github://feenkcom/Sparta:v0.8.66/src' ].
+	]
 ]

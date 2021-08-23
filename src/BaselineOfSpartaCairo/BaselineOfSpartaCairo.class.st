@@ -3,18 +3,20 @@ I am a Baseline of Sparta-Cairo backend
 
 "
 Class {
-	#name : #BaselineOfSpartaCairo,
-	#superclass : #BaselineOf,
-	#category : #BaselineOfSpartaCairo
+	#name : 'BaselineOfSpartaCairo',
+	#superclass : 'BaselineOf',
+	#category : 'BaselineOfSpartaCairo'
 }
 
-{ #category : #baseline }
+{ #category : 'baseline' }
 BaselineOfSpartaCairo >> baseline: spec [
 	<baseline>
 	spec for: #'common' do: [
-		spec baseline: 'SpartaCore' with: [
-				spec repository: 'github://feenkcom/Sparta:v0.8.65/src' ].
-		spec package: 'Sparta-Cairo' with: [
-				spec requires: #('SpartaCore' ). ]. ].
+		spec
+			baseline: 'SpartaCore' with: [
+				spec repository: 'github://feenkcom/Sparta:v0.8.66/src' ].
 
+		spec package: 'Sparta-Cairo' with: [
+			spec requires: #('SpartaCore') ].
+	]
 ]
