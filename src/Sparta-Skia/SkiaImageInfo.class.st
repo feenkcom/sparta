@@ -1,15 +1,15 @@
 Class {
-	#name : #SkiaImageInfo,
-	#superclass : #SkiaExternalObject,
-	#category : #'Sparta-Skia-External'
+	#name : 'SkiaImageInfo',
+	#superclass : 'SkiaExternalObject',
+	#category : 'Sparta-Skia-External'
 }
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaImageInfo class >> primCreate [
 	^ self ffiCall: #(void* skia_image_info_new_default())
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaImageInfo class >> primCreateWidth: aWidth height: aHeight colorType: aColorType alphaType: anAlphaType [
 	^ self ffiCall: #(void* skia_image_info_new(
 		int32 aWidth,
@@ -18,59 +18,59 @@ SkiaImageInfo class >> primCreateWidth: aWidth height: aHeight colorType: aColor
 		SkiaAlphaType anAlphaType))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaImageInfo class >> primRelease: aHandle [
 	
 	"Plain pointers must be deleted using delete(), all users must implement a specific method"
 	self ffiCall: #(void skia_image_info_drop(void** aHandle))
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 SkiaImageInfo class >> width: aWidth height: aHeight colorType: aColorType alphaType: anAlphaType [
 	^ self fromNativeHandle: (self primCreateWidth: aWidth height: aHeight colorType: aColorType alphaType: anAlphaType)
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 SkiaImageInfo class >> width: aWidth height: aHeight colorType: aColorType alphaType: anAlphaType during: aBlock [
 	^ self fromNativeHandle: (self primCreateWidth: aWidth height: aHeight colorType: aColorType alphaType: anAlphaType) during: aBlock
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaImageInfo >> alphaType [
 	<return: #SkiaAlphaType>
 
 	^ self primGetAlphaType
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaImageInfo >> byteSize [
 	"Return the minimum amount of bytes needed for the image"
 	
 	^ self computeByteSize: self minRowBytes
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaImageInfo >> bytesPerPixel [
 	<return: #Number>
 	
 	^ self primGetBytesPerPixel
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaImageInfo >> colorType [
 	<return: #SkiaColorType>
 
 	^ self primGetColorType
 ]
 
-{ #category : #memory }
+{ #category : 'memory' }
 SkiaImageInfo >> computeByteSize: aRowBytes [
 	<return: #Number>
 
 	^ self primComputeByteSize: aRowBytes
 ]
 
-{ #category : #'gt-extension' }
+{ #category : 'gt-extension' }
 SkiaImageInfo >> gtInfoFor: aView [
 	<gtView>
 
@@ -88,61 +88,61 @@ SkiaImageInfo >> gtInfoFor: aView [
 			priority: 2
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaImageInfo >> height [
 	<return: #Number>
 
 	^ self primGetHeight
 ]
 
-{ #category : #memory }
+{ #category : 'memory' }
 SkiaImageInfo >> minRowBytes [
 	<return: #Number>
 	
 	^ self primGetMinRowBytes
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaImageInfo >> primComputeByteSize: anAmountOfRowBytes [
 	^ self ffiCall: #(size_t skia_image_info_compute_byte_size(self, size_t anAmountOfRowBytes))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaImageInfo >> primGetAlphaType [
 	^ self ffiCall: #(SkiaAlphaType skia_image_info_get_alpha_type(self))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaImageInfo >> primGetBytesPerPixel [
 	^ self ffiCall: #(size_t skia_image_info_get_bytes_per_pixel(self))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaImageInfo >> primGetColorType [
 	^ self ffiCall: #(SkiaColorType skia_image_info_get_color_type(self))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaImageInfo >> primGetHeight [
 	^ self ffiCall: #(int32 skia_image_info_get_height(self))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaImageInfo >> primGetMinRowBytes [
 	^ self ffiCall: #(size_t skia_image_info_min_row_bytes(self))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaImageInfo >> primGetShiftPerPixel [
 	^ self ffiCall: #(size_t skia_image_info_get_shift_per_pixel(self))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaImageInfo >> primGetWidth [
 	^ self ffiCall: #(int32 skia_image_info_get_width(self))
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 SkiaImageInfo >> printOn: aStream [
 	"Append a sequence of characters to aStream that identify the receiver."
 
@@ -161,14 +161,14 @@ SkiaImageInfo >> printOn: aStream [
 		print: self width
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaImageInfo >> shiftPerPixel [
 	<return: #Number>
 	
 	^ self primGetShiftPerPixel
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaImageInfo >> width [
 	<return: #Number>
 

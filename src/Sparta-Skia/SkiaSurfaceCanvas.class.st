@@ -1,20 +1,20 @@
 Class {
-	#name : #SkiaSurfaceCanvas,
-	#superclass : #SkiaExternalObject,
+	#name : 'SkiaSurfaceCanvas',
+	#superclass : 'SkiaExternalObject',
 	#instVars : [
 		'surface'
 	],
-	#category : #'Sparta-Skia-External'
+	#category : 'Sparta-Skia-External'
 }
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaSurfaceCanvas class >> primRelease: aHandle [
 	
 	"Plain pointers must be deleted using delete(), all users must implement a specific method"
 	self ffiCall: #(void skia_canvas_drop(void** aHandle))
 ]
 
-{ #category : #'api - drawing' }
+{ #category : 'api - drawing' }
 SkiaSurfaceCanvas >> clear: aColor [
 	| aRed aGreen aBlue anAlpha |
 
@@ -42,7 +42,7 @@ SkiaSurfaceCanvas >> clear: aColor [
 	self primClearR: aRed g: aGreen b: aBlue a: anAlpha
 ]
 
-{ #category : #'api - clip' }
+{ #category : 'api - clip' }
 SkiaSurfaceCanvas >> clipCircle: aSpartaCircle [
 	self
 		primClipCircleX: aSpartaCircle center x
@@ -52,7 +52,7 @@ SkiaSurfaceCanvas >> clipCircle: aSpartaCircle [
 		offsetY: 0
 ]
 
-{ #category : #'api - clip' }
+{ #category : 'api - clip' }
 SkiaSurfaceCanvas >> clipCircle: aSpartaCircle offset: anOffset [
 	self
 		primClipCircleX: aSpartaCircle center x
@@ -62,7 +62,7 @@ SkiaSurfaceCanvas >> clipCircle: aSpartaCircle offset: anOffset [
 		offsetY: anOffset y
 ]
 
-{ #category : #'api - clip' }
+{ #category : 'api - clip' }
 SkiaSurfaceCanvas >> clipDeviceBounds [
 	<return: #Rectangle>
 	
@@ -71,7 +71,7 @@ SkiaSurfaceCanvas >> clipDeviceBounds [
 		aRectangleI32 asRectangle ]
 ]
 
-{ #category : #'api - clip' }
+{ #category : 'api - clip' }
 SkiaSurfaceCanvas >> clipLocalBounds [
 	<return: #Rectangle>
 	
@@ -80,7 +80,7 @@ SkiaSurfaceCanvas >> clipLocalBounds [
 		aRectangleF32 asRectangle ]
 ]
 
-{ #category : #'api - clip' }
+{ #category : 'api - clip' }
 SkiaSurfaceCanvas >> clipPath: aSkiaPath [
 	self
 		clipPath: aSkiaPath
@@ -88,7 +88,7 @@ SkiaSurfaceCanvas >> clipPath: aSkiaPath [
 		antiAlias: true
 ]
 
-{ #category : #'api - clip' }
+{ #category : 'api - clip' }
 SkiaSurfaceCanvas >> clipPath: aSkiaPath clipOp: aSkiaClipOp antiAlias: isAntiAlias [
 	self
 		primClipPath: aSkiaPath
@@ -98,7 +98,7 @@ SkiaSurfaceCanvas >> clipPath: aSkiaPath clipOp: aSkiaClipOp antiAlias: isAntiAl
 		antiAlias: isAntiAlias
 ]
 
-{ #category : #'api - clip' }
+{ #category : 'api - clip' }
 SkiaSurfaceCanvas >> clipPath: aSkiaPath offset: anOffset [
 	self
 		clipPath: aSkiaPath
@@ -107,7 +107,7 @@ SkiaSurfaceCanvas >> clipPath: aSkiaPath offset: anOffset [
 		antiAlias: true
 ]
 
-{ #category : #'api - clip' }
+{ #category : 'api - clip' }
 SkiaSurfaceCanvas >> clipPath: aSkiaPath offset: anOffset clipOp: aSkiaClipOp antiAlias: isAntiAlias [
 	self
 		primClipPath: aSkiaPath
@@ -117,7 +117,7 @@ SkiaSurfaceCanvas >> clipPath: aSkiaPath offset: anOffset clipOp: aSkiaClipOp an
 		antiAlias: isAntiAlias
 ]
 
-{ #category : #'api - clip' }
+{ #category : 'api - clip' }
 SkiaSurfaceCanvas >> clipRectangle: aSpartaRectangle [
 	self
 		clipRectangle: aSpartaRectangle
@@ -125,7 +125,7 @@ SkiaSurfaceCanvas >> clipRectangle: aSpartaRectangle [
 		antiAlias: true
 ]
 
-{ #category : #'api - clip' }
+{ #category : 'api - clip' }
 SkiaSurfaceCanvas >> clipRectangle: aSpartaRectangle clipOp: aSkiaClipOp antiAlias: isAntiAlias [
 	self
 		clipRectangle: aSpartaRectangle
@@ -134,7 +134,7 @@ SkiaSurfaceCanvas >> clipRectangle: aSpartaRectangle clipOp: aSkiaClipOp antiAli
 		antiAlias: true
 ]
 
-{ #category : #'api - clip' }
+{ #category : 'api - clip' }
 SkiaSurfaceCanvas >> clipRectangle: aSpartaRectangle offset: anOffset [
 	self
 		clipRectangle: aSpartaRectangle
@@ -143,7 +143,7 @@ SkiaSurfaceCanvas >> clipRectangle: aSpartaRectangle offset: anOffset [
 		antiAlias: true
 ]
 
-{ #category : #'api - clip' }
+{ #category : 'api - clip' }
 SkiaSurfaceCanvas >> clipRectangle: aSpartaRectangle offset: anOffset clipOp: aSkiaClipOp antiAlias: isAntiAlias [
 	<argument: #aSpartaRectangle satisfies: #isSpartaScalarRectangle>
 	<argument: #anOffset satisfies: #isSpartaScalarPoint>
@@ -158,7 +158,7 @@ SkiaSurfaceCanvas >> clipRectangle: aSpartaRectangle offset: anOffset clipOp: aS
 		antiAlias: isAntiAlias
 ]
 
-{ #category : #'api - clip' }
+{ #category : 'api - clip' }
 SkiaSurfaceCanvas >> clipRoundedRectangle: aSpartaRoundedRectangle [
 	self
 		primClipRoundedRectangleLeft: aSpartaRoundedRectangle left
@@ -173,7 +173,7 @@ SkiaSurfaceCanvas >> clipRoundedRectangle: aSpartaRoundedRectangle [
 		offsetY: 0
 ]
 
-{ #category : #'api - clip' }
+{ #category : 'api - clip' }
 SkiaSurfaceCanvas >> clipRoundedRectangle: aSpartaRoundedRectangle offset: anOffset [
 	self
 		primClipRoundedRectangleLeft: aSpartaRoundedRectangle left
@@ -188,7 +188,7 @@ SkiaSurfaceCanvas >> clipRoundedRectangle: aSpartaRoundedRectangle offset: anOff
 		offsetY: anOffset y
 ]
 
-{ #category : #'api - transformation' }
+{ #category : 'api - transformation' }
 SkiaSurfaceCanvas >> concatMatrix: aSpartaMatrix [
 	| aSkiaMatrix |
 
@@ -196,7 +196,7 @@ SkiaSurfaceCanvas >> concatMatrix: aSpartaMatrix [
 	self primConcatMatrix: aSkiaMatrix
 ]
 
-{ #category : #'api - drawing' }
+{ #category : 'api - drawing' }
 SkiaSurfaceCanvas >> drawCircle: aSpartaCircle paint: aSkiaPaint [
 	self
 		primDrawCircleX: aSpartaCircle center x y: aSpartaCircle center y
@@ -204,12 +204,12 @@ SkiaSurfaceCanvas >> drawCircle: aSpartaCircle paint: aSkiaPaint [
 		paint: aSkiaPaint
 ]
 
-{ #category : #'api - drawing' }
+{ #category : 'api - drawing' }
 SkiaSurfaceCanvas >> drawColor: aColor [
 	self drawColor: aColor blendMode: SkiaBlendMode SrcOver
 ]
 
-{ #category : #'api - drawing' }
+{ #category : 'api - drawing' }
 SkiaSurfaceCanvas >> drawColor: aColor blendMode: aBlendMode [
 	| aRed aGreen aBlue anAlpha |
 
@@ -237,17 +237,17 @@ SkiaSurfaceCanvas >> drawColor: aColor blendMode: aBlendMode [
 	self primDrawColorR: aRed g: aGreen b: aBlue a: anAlpha blendMode: aBlendMode
 ]
 
-{ #category : #'api - drawing' }
+{ #category : 'api - drawing' }
 SkiaSurfaceCanvas >> drawImage: aSkiaImage at: anOriginPoint [
 	self drawImage: aSkiaImage at: anOriginPoint paint: SkiaPaint null
 ]
 
-{ #category : #'api - drawing' }
+{ #category : 'api - drawing' }
 SkiaSurfaceCanvas >> drawImage: aSkiaImage at: anOriginPoint paint: aSkiaPaint [
 	self primDrawImage: aSkiaImage x: anOriginPoint x y: anOriginPoint y paint: aSkiaPaint
 ]
 
-{ #category : #'api - drawing' }
+{ #category : 'api - drawing' }
 SkiaSurfaceCanvas >> drawLine: aSpartaLine paint: aSkiaPaint [	
 	self
 		primDrawLineFromX: aSpartaLine from x y: aSpartaLine from y
@@ -255,24 +255,24 @@ SkiaSurfaceCanvas >> drawLine: aSpartaLine paint: aSkiaPaint [
 		paint: aSkiaPaint
 ]
 
-{ #category : #'api - drawing' }
+{ #category : 'api - drawing' }
 SkiaSurfaceCanvas >> drawOval: aSpartaRectangle paint: aSkiaPaint [	
 	self
 		primDrawOvalLeft: aSpartaRectangle left top: aSpartaRectangle top right: aSpartaRectangle right bottom: aSpartaRectangle bottom
 		paint: aSkiaPaint
 ]
 
-{ #category : #'api - drawing' }
+{ #category : 'api - drawing' }
 SkiaSurfaceCanvas >> drawPaint: aSkiaPaint [
 	self primDrawPaint: aSkiaPaint
 ]
 
-{ #category : #'api - drawing' }
+{ #category : 'api - drawing' }
 SkiaSurfaceCanvas >> drawPath: aSkiaPath paint: aSkiaPaint [
 	self primDrawPath: aSkiaPath paint: aSkiaPaint
 ]
 
-{ #category : #'api - drawing' }
+{ #category : 'api - drawing' }
 SkiaSurfaceCanvas >> drawPoint: aPoint paint: aSkiaPaint [
 	self
 		primDrawPointX: aPoint x
@@ -280,14 +280,14 @@ SkiaSurfaceCanvas >> drawPoint: aPoint paint: aSkiaPaint [
 		paint: aSkiaPaint
 ]
 
-{ #category : #'api - drawing' }
+{ #category : 'api - drawing' }
 SkiaSurfaceCanvas >> drawRectangle: aSpartaRectangle paint: aSkiaPaint [	
 	self
 		primDrawRectangleLeft: aSpartaRectangle left top: aSpartaRectangle top right: aSpartaRectangle right bottom: aSpartaRectangle bottom
 		paint: aSkiaPaint
 ]
 
-{ #category : #'api - drawing' }
+{ #category : 'api - drawing' }
 SkiaSurfaceCanvas >> drawRoundedRectangle: aSpartaRoundedRectangle paint: aSkiaPaint [
 	self
 		primDrawRoundedRectangleLeft: aSpartaRoundedRectangle left
@@ -301,7 +301,7 @@ SkiaSurfaceCanvas >> drawRoundedRectangle: aSpartaRoundedRectangle paint: aSkiaP
 		paint: aSkiaPaint
 ]
 
-{ #category : #'api - drawing' }
+{ #category : 'api - drawing' }
 SkiaSurfaceCanvas >> drawShadowPath: aSkiaPath zPlane: aZPlane lightPos: aLightPos lightRadius: aRadius ambientColor: anAmbientColor spotColor: aSpotColor flags: theFlagBits [
 
 	self
@@ -314,7 +314,7 @@ SkiaSurfaceCanvas >> drawShadowPath: aSkiaPath zPlane: aZPlane lightPos: aLightP
 		flags: theFlagBits
 ]
 
-{ #category : #'api - drawing optimized' }
+{ #category : 'api - drawing optimized' }
 SkiaSurfaceCanvas >> drawTextBlob: aTextBlob at: anOriginPoint color: aColor antialias: isAntialias [
 	self
 		primDrawTextBlob: aTextBlob
@@ -327,12 +327,12 @@ SkiaSurfaceCanvas >> drawTextBlob: aTextBlob at: anOriginPoint color: aColor ant
 		antialias: isAntialias
 ]
 
-{ #category : #'api - drawing' }
+{ #category : 'api - drawing' }
 SkiaSurfaceCanvas >> drawTextBlob: aTextBlob at: anOriginPoint paint: aSkiaPaint [
 	self primDrawTextBlob: aTextBlob x: anOriginPoint x y: anOriginPoint y paint: aSkiaPaint
 ]
 
-{ #category : #'api - drawing optimized' }
+{ #category : 'api - drawing optimized' }
 SkiaSurfaceCanvas >> drawTextBlobBlack: aTextBlob at: anOriginPoint antialias: isAntialias [
 	self
 		primDrawTextBlobBlack: aTextBlob
@@ -341,12 +341,12 @@ SkiaSurfaceCanvas >> drawTextBlobBlack: aTextBlob at: anOriginPoint antialias: i
 		antialias: isAntialias
 ]
 
-{ #category : #'api - drawing optimized' }
+{ #category : 'api - drawing optimized' }
 SkiaSurfaceCanvas >> fillImage: aSkiaImage at: anOriginPoint [
 	self primFillImage: aSkiaImage x: anOriginPoint x y: anOriginPoint y
 ]
 
-{ #category : #'api - drawing optimized' }
+{ #category : 'api - drawing optimized' }
 SkiaSurfaceCanvas >> fillRectangle: aSpartaRectangle color: aColor antialias: isAntialias [
 	self
 		primFillRectangleLeft: aSpartaRectangle left top: aSpartaRectangle top right: aSpartaRectangle right bottom: aSpartaRectangle bottom
@@ -357,7 +357,7 @@ SkiaSurfaceCanvas >> fillRectangle: aSpartaRectangle color: aColor antialias: is
 		antialias: isAntialias
 ]
 
-{ #category : #'api - drawing optimized' }
+{ #category : 'api - drawing optimized' }
 SkiaSurfaceCanvas >> fillRoundedRectangle: aSpartaRoundedRectangle color: aColor antialias: isAntialias [
 	self
 		primFillRoundedRectangleLeft: aSpartaRoundedRectangle left
@@ -375,12 +375,12 @@ SkiaSurfaceCanvas >> fillRoundedRectangle: aSpartaRoundedRectangle color: aColor
 		antialias: isAntialias
 ]
 
-{ #category : #'api - state' }
+{ #category : 'api - state' }
 SkiaSurfaceCanvas >> flush [
 	surface flush
 ]
 
-{ #category : #'api - transformation' }
+{ #category : 'api - transformation' }
 SkiaSurfaceCanvas >> getMatrix [
 	<return: #SpartaMatrix>
 
@@ -389,13 +389,13 @@ SkiaSurfaceCanvas >> getMatrix [
 		aSkiaMatrix asSpartaMatrix ]
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaSurfaceCanvas >> primClearR: r g: g b: b a: a [
 	^ self ffiCall: #(void skia_canvas_clear(self,
 		uint8 r, uint8 g, uint8 b, uint8 a))
 ]
 
-{ #category : #'private - ffi clip' }
+{ #category : 'private - ffi clip' }
 SkiaSurfaceCanvas >> primClipCircleX: aX y: aY radius: aRadius offsetX: anOffsetX offsetY: anOffsetY [
 	self ffiCall: #(void skia_canvas_clip_circle(
 		self,
@@ -406,17 +406,17 @@ SkiaSurfaceCanvas >> primClipCircleX: aX y: aY radius: aRadius offsetX: anOffset
 		scalar anOffsetY))
 ]
 
-{ #category : #'private - ffi clip' }
+{ #category : 'private - ffi clip' }
 SkiaSurfaceCanvas >> primClipGetDeviceBounds: aSkiaRectangleI32 [
 	self ffiCall: #(void skia_canvas_device_clip_bounds(self, SkiaRectangleI32 aSkiaRectangleI32))
 ]
 
-{ #category : #'private - ffi clip' }
+{ #category : 'private - ffi clip' }
 SkiaSurfaceCanvas >> primClipGetLocalBounds: aSkiaRectangleF32 [
 	self ffiCall: #(void skia_canvas_local_clip_bounds(self, SkiaRectangleF32 aSkiaRectangleF32))
 ]
 
-{ #category : #'private - ffi clip' }
+{ #category : 'private - ffi clip' }
 SkiaSurfaceCanvas >> primClipPath: aSkiaPath offsetX: anOffsetX offsetY: anOffsetY clipOp: aSkiaClipOp antiAlias: isAntiAlias [
 	self ffiCall: #(void skia_canvas_clip_path(self,
 		SkiaPath aSkiaPath,
@@ -426,7 +426,7 @@ SkiaSurfaceCanvas >> primClipPath: aSkiaPath offsetX: anOffsetX offsetY: anOffse
 		bool isAntiAlias))
 ]
 
-{ #category : #'private - ffi clip' }
+{ #category : 'private - ffi clip' }
 SkiaSurfaceCanvas >> primClipRectangleLeft: aLeft top: aTop right: aRight bottom: aBottom offsetX: anOffsetX offsetY: anOffsetY clipOp: aSkiaClipOp antiAlias: isAntiAlias [	
 	self ffiCall: #(void skia_canvas_clip_rect(self,
 		scalar aLeft, scalar aTop, scalar aRight, scalar aBottom,
@@ -435,7 +435,7 @@ SkiaSurfaceCanvas >> primClipRectangleLeft: aLeft top: aTop right: aRight bottom
 		bool isAntiAlias))
 ]
 
-{ #category : #'private - ffi clip' }
+{ #category : 'private - ffi clip' }
 SkiaSurfaceCanvas >> primClipRoundedRectangleLeft: aLeft top: aTop right: aRight bottom: aBottom radiusTopLeft: aTopLeftRadius topRight: aTopRightRadius bottomRight: aBottomRightRadius bottomLeft: aBottomLeftRadius offsetX: anOffsetX offsetY: anOffsetY [
 	self ffiCall: #(void skia_canvas_clip_rounded_rectangle(self,
 		scalar aLeft, scalar aTop, scalar aRight, scalar aBottom,
@@ -443,26 +443,26 @@ SkiaSurfaceCanvas >> primClipRoundedRectangleLeft: aLeft top: aTop right: aRight
 		scalar anOffsetX, scalar anOffsetY))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaSurfaceCanvas >> primConcatMatrix: aSkiaMatrix [
 	^ self ffiCall: #(void skia_canvas_concat_matrix(self, SkiaMatrix aSkiaMatrix))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaSurfaceCanvas >> primDrawCircleX: aX y: aY radius: aRadius paint: aSkiaPaint [
 	self ffiCall: #(void skia_canvas_draw_circle(self,
 		scalar aX, scalar aY, scalar aRadius,
 		SkiaPaint aSkiaPaint))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaSurfaceCanvas >> primDrawColorR: r g: g b: b a: a blendMode: aBlendMode [
 	^ self ffiCall: #(void skia_canvas_draw_color(self,
 		uint8 r, uint8 g, uint8 b, uint8 a,
 		SkiaBlendMode aBlendMode))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaSurfaceCanvas >> primDrawImage: aSkiaImage x: aX y: aY paint: aSkiaPaint [
 	self ffiCall: #(void skia_canvas_draw_image(self,
 		SkiaImage aSkiaImage,
@@ -470,41 +470,41 @@ SkiaSurfaceCanvas >> primDrawImage: aSkiaImage x: aX y: aY paint: aSkiaPaint [
 		SkiaPaint aSkiaPaint))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaSurfaceCanvas >> primDrawLineFromX: aFromX y: aFromY toX: aToX y: aToY paint: aSkiaPaint [
 	self ffiCall: #(void skia_canvas_draw_line(self, scalar aFromX, scalar aFromY, scalar aToX, scalar aToY, SkiaPaint aSkiaPaint))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaSurfaceCanvas >> primDrawOvalLeft: aLeft top: aTop right: aRight bottom: aBottom paint: aSkiaPaint [
 	self ffiCall: #(void skia_canvas_draw_oval(self,
 		scalar aLeft, scalar aTop, scalar aRight, scalar aBottom,
 		SkiaPaint aSkiaPaint))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaSurfaceCanvas >> primDrawPaint: aSkiaPaint [
 	self ffiCall: #(void skia_canvas_draw_paint(self, SkiaPaint aSkiaPaint))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaSurfaceCanvas >> primDrawPath: aSkiaPath paint: aSkiaPaint [
 	self ffiCall: #(void skia_canvas_draw_path(self, SkiaPath aSkiaPath, SkiaPaint aSkiaPaint))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaSurfaceCanvas >> primDrawPointX: aX y: aY paint: aSkiaPaint [
 	self ffiCall: #(void skia_canvas_draw_point(self, scalar aX, scalar aY, SkiaPaint aSkiaPaint))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaSurfaceCanvas >> primDrawRectangleLeft: aLeft top: aTop right: aRight bottom: aBottom paint: aSkiaPaint [
 	self ffiCall: #(void skia_canvas_draw_rectangle(self,
 		scalar aLeft, scalar aTop, scalar aRight, scalar aBottom,
 		SkiaPaint aSkiaPaint))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaSurfaceCanvas >> primDrawRoundedRectangleLeft: aLeft top: aTop right: aRight bottom: aBottom radiusTopLeft: aTopLeftRadius topRight: aTopRightRadius bottomRight: aBottomRightRadius bottomLeft: aBottomLeftRadius paint: aSkiaPaint [
 	self ffiCall: #(void skia_canvas_draw_rounded_rectangle(self,
 		scalar aLeft, scalar aTop, scalar aRight, scalar aBottom,
@@ -512,7 +512,7 @@ SkiaSurfaceCanvas >> primDrawRoundedRectangleLeft: aLeft top: aTop right: aRight
 		SkiaPaint aSkiaPaint))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaSurfaceCanvas >> primDrawShadowPath: aSkiaPath zPlane: aZPlane lightPos: aLightPos lightRadius: aRadius ambientColor: anAmbientColor spotColor: aSpotColor flags: theFlagBits [
 	^ self ffiCall: #(void skia_canvas_draw_shadow(self,
 		SkiaPath aSkiaPath,
@@ -524,7 +524,7 @@ SkiaSurfaceCanvas >> primDrawShadowPath: aSkiaPath zPlane: aZPlane lightPos: aLi
 		uint32 theFlagBits))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaSurfaceCanvas >> primDrawTextBlob: aSkiaTextBlob x: aX y: aY paint: aSkiaPaint [
 	self ffiCall: #(void skia_canvas_draw_text_blob(self,
 		SkiaTextBlob aSkiaTextBlob,
@@ -532,7 +532,7 @@ SkiaSurfaceCanvas >> primDrawTextBlob: aSkiaTextBlob x: aX y: aY paint: aSkiaPai
 		SkiaPaint aSkiaPaint))
 ]
 
-{ #category : #'private - ffi optimized' }
+{ #category : 'private - ffi optimized' }
 SkiaSurfaceCanvas >> primDrawTextBlob: aSkiaTextBlob x: aX y: aY r: aRed g: aGreen b: aBlue a: anAlpha antialias: isAntialias [
 	self ffiCall: #(void skia_canvas_draw_text_blob_with_color(self,
 		SkiaTextBlob aSkiaTextBlob,
@@ -541,7 +541,7 @@ SkiaSurfaceCanvas >> primDrawTextBlob: aSkiaTextBlob x: aX y: aY r: aRed g: aGre
 		bool isAntialias))
 ]
 
-{ #category : #'private - ffi optimized' }
+{ #category : 'private - ffi optimized' }
 SkiaSurfaceCanvas >> primDrawTextBlobBlack: aSkiaTextBlob x: aX y: aY antialias: isAntialias [
 	self ffiCall: #(void skia_canvas_draw_text_blob_with_black_color(self,
 		SkiaTextBlob aSkiaTextBlob,
@@ -549,14 +549,14 @@ SkiaSurfaceCanvas >> primDrawTextBlobBlack: aSkiaTextBlob x: aX y: aY antialias:
 		bool isAntialias))
 ]
 
-{ #category : #'private - ffi optimized' }
+{ #category : 'private - ffi optimized' }
 SkiaSurfaceCanvas >> primFillImage: aSkiaImage x: aX y: aY [
 	self ffiCall: #(void skia_canvas_fill_image_without_paint(self,
 		SkiaImage aSkiaImage,
 		scalar aX, scalar aY))
 ]
 
-{ #category : #'private - ffi optimized' }
+{ #category : 'private - ffi optimized' }
 SkiaSurfaceCanvas >> primFillRectangleLeft: aLeft top: aTop right: aRight bottom: aBottom r: aRed g: aGreen b: aBlue a: anAlpha antialias: isAntialias [
 	self ffiCall: #(void skia_canvas_fill_rectangle_with_color(self,
 		scalar aLeft, scalar aTop, scalar aRight, scalar aBottom,
@@ -564,7 +564,7 @@ SkiaSurfaceCanvas >> primFillRectangleLeft: aLeft top: aTop right: aRight bottom
 		bool isAntialias))
 ]
 
-{ #category : #'private - ffi optimized' }
+{ #category : 'private - ffi optimized' }
 SkiaSurfaceCanvas >> primFillRoundedRectangleLeft: aLeft top: aTop right: aRight bottom: aBottom radiusTopLeft: aTopLeftRadius topRight: aTopRightRadius bottomRight: aBottomRightRadius bottomLeft: aBottomLeftRadius r: aRed g: aGreen b: aBlue a: anAlpha antialias: isAntialias [
 	self ffiCall: #(void skia_canvas_fill_rounded_rectangle_with_color(self,
 		scalar aLeft, scalar aTop, scalar aRight, scalar aBottom,
@@ -573,72 +573,72 @@ SkiaSurfaceCanvas >> primFillRoundedRectangleLeft: aLeft top: aTop right: aRight
 		bool isAntialias))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaSurfaceCanvas >> primFlush [
 	self ffiCall: #(void skia_canvas_flush(self))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaSurfaceCanvas >> primGetMatrix: aSkiaMatrix [
 	^ self ffiCall: #(void skia_canvas_get_matrix(self, SkiaMatrix aSkiaMatrix))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaSurfaceCanvas >> primGetSaveCount [
 	self ffiCall: #(size_t skia_canvas_save_count(self))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaSurfaceCanvas >> primQuickRejectPath: aSkiaPath [
 	self ffiCall: #(bool skia_canvas_quick_reject_path (SkiaPath aSkiaPath))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaSurfaceCanvas >> primQuickRejectRectangleLeft: aLeft top: aTop right: aRight bottom: aBottom [
 	self ffiCall: #(bool skia_canvas_quick_reject_rectangle (self,scalar aLeft, scalar aTop, scalar aRight, scalar aBottom))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaSurfaceCanvas >> primRestore [
 	self ffiCall: #(void skia_canvas_restore(self))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaSurfaceCanvas >> primRestoreToCount: aNumber [
 	self ffiCall: #(void skia_canvas_restore_to_count(self, size_t aNumber))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaSurfaceCanvas >> primRotate: theDegrees x: aX y: aY [
 	^ self ffiCall: #(void skia_canvas_skew(self, scalar theDegrees, scalar aX, scalar aY))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaSurfaceCanvas >> primSave [
 	self ffiCall: #(size_t skia_canvas_save(self))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaSurfaceCanvas >> primSaveLayer: aSkiaSaveLayerRec [
 	^ self ffiCall: #(size_t skia_canvas_save_layer(self, SkiaSaveLayerRec aSkiaSaveLayerRec))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaSurfaceCanvas >> primScaleX: aX y: aY [
 	^ self ffiCall: #(void skia_canvas_scale(self, scalar aX, scalar aY))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaSurfaceCanvas >> primSetMatrix: aSkiaMatrix [
 	^ self ffiCall: #(void skia_canvas_set_matrix(self, SkiaMatrix aSkiaMatrix))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaSurfaceCanvas >> primSkewX: aX y: aY [
 	^ self ffiCall: #(void skia_canvas_skew(self, scalar aX, scalar aY))
 ]
 
-{ #category : #'private - ffi optimized' }
+{ #category : 'private - ffi optimized' }
 SkiaSurfaceCanvas >> primStrokeRectangleLeft: aLeft top: aTop right: aRight bottom: aBottom r: aRed g: aGreen b: aBlue a: anAlpha width: aWidth antialias: isAntialias [
 	self ffiCall: #(void skia_canvas_stroke_rectangle_with_color(self,
 		scalar aLeft, scalar aTop, scalar aRight, scalar aBottom,
@@ -647,7 +647,7 @@ SkiaSurfaceCanvas >> primStrokeRectangleLeft: aLeft top: aTop right: aRight bott
 		bool isAntialias))
 ]
 
-{ #category : #'private - ffi optimized' }
+{ #category : 'private - ffi optimized' }
 SkiaSurfaceCanvas >> primStrokeRoundedRectangleLeft: aLeft top: aTop right: aRight bottom: aBottom radiusTopLeft: aTopLeftRadius topRight: aTopRightRadius bottomRight: aBottomRightRadius bottomLeft: aBottomLeftRadius r: aRed g: aGreen b: aBlue a: anAlpha width: aWidth antialias: isAntialias [
 	self ffiCall: #(void skia_canvas_stroke_rounded_rectangle_with_color(self,
 		scalar aLeft, scalar aTop, scalar aRight, scalar aBottom,
@@ -657,64 +657,64 @@ SkiaSurfaceCanvas >> primStrokeRoundedRectangleLeft: aLeft top: aTop right: aRig
 		bool isAntialias))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaSurfaceCanvas >> primTranslateX: aX y: aY [
 	^ self ffiCall: #(void skia_canvas_translate(self, scalar aX, scalar aY))
 ]
 
-{ #category : #'api - clip' }
+{ #category : 'api - clip' }
 SkiaSurfaceCanvas >> quickRejectPath: aSkiaPath [
 	^ self primQuickRejectPath: aSkiaPath
 ]
 
-{ #category : #'api - clip' }
+{ #category : 'api - clip' }
 SkiaSurfaceCanvas >> quickRejectRectangle: aSpartaRectangle [
 	^ self
 		primQuickRejectRectangleLeft: aSpartaRectangle left top: aSpartaRectangle top right: aSpartaRectangle right bottom: aSpartaRectangle bottom
 ]
 
-{ #category : #'api - state' }
+{ #category : 'api - state' }
 SkiaSurfaceCanvas >> restore [
 	self primRestore
 ]
 
-{ #category : #'api - state' }
+{ #category : 'api - state' }
 SkiaSurfaceCanvas >> restoreToCount: aNumber [
 	self primRestoreToCount: aNumber
 ]
 
-{ #category : #'api - transformation' }
+{ #category : 'api - transformation' }
 SkiaSurfaceCanvas >> rotate: theDegree around: aPoint [
 	self primRotate: theDegree x: aPoint x y: aPoint y
 ]
 
-{ #category : #'api - state' }
+{ #category : 'api - state' }
 SkiaSurfaceCanvas >> save [
 	self primSave
 ]
 
-{ #category : #'api - state' }
+{ #category : 'api - state' }
 SkiaSurfaceCanvas >> saveCount [
 	<return: #Number>
 	^ self primGetSaveCount
 ]
 
-{ #category : #'api - state' }
+{ #category : 'api - state' }
 SkiaSurfaceCanvas >> saveLayer: aSkiaSaveLayerRec [
 	self primSaveLayer: aSkiaSaveLayerRec
 ]
 
-{ #category : #'api - transformation' }
+{ #category : 'api - transformation' }
 SkiaSurfaceCanvas >> scale: aPoint [
 	self primScaleX: aPoint x y: aPoint y
 ]
 
-{ #category : #'api - transformation' }
+{ #category : 'api - transformation' }
 SkiaSurfaceCanvas >> scaleX: aX Y: aY [
 	self primScaleX: aX y: aY
 ]
 
-{ #category : #'api - transformation' }
+{ #category : 'api - transformation' }
 SkiaSurfaceCanvas >> setMatrix: aSpartaMatrix [
 	| aSkiaMatrix |
 	
@@ -722,12 +722,12 @@ SkiaSurfaceCanvas >> setMatrix: aSpartaMatrix [
 	self primSetMatrix: aSkiaMatrix
 ]
 
-{ #category : #'api - transformation' }
+{ #category : 'api - transformation' }
 SkiaSurfaceCanvas >> skew: aPoint [
 	self primSkewX: aPoint x y: aPoint y
 ]
 
-{ #category : #'api - drawing optimized' }
+{ #category : 'api - drawing optimized' }
 SkiaSurfaceCanvas >> strokeRectangle: aSpartaRectangle color: aColor width: aWidth antialias: isAntialias [
 	self
 		primStrokeRectangleLeft: aSpartaRectangle left top: aSpartaRectangle top right: aSpartaRectangle right bottom: aSpartaRectangle bottom
@@ -739,7 +739,7 @@ SkiaSurfaceCanvas >> strokeRectangle: aSpartaRectangle color: aColor width: aWid
 		antialias: isAntialias
 ]
 
-{ #category : #'api - drawing optimized' }
+{ #category : 'api - drawing optimized' }
 SkiaSurfaceCanvas >> strokeRoundedRectangle: aSpartaRoundedRectangle color: aColor width: aWidth antialias: isAntialias [
 	self
 		primStrokeRoundedRectangleLeft: aSpartaRoundedRectangle left
@@ -758,22 +758,22 @@ SkiaSurfaceCanvas >> strokeRoundedRectangle: aSpartaRoundedRectangle color: aCol
 		antialias: isAntialias
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaSurfaceCanvas >> surface [
 	^ surface
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaSurfaceCanvas >> surface: anObject [
 	surface := anObject
 ]
 
-{ #category : #'api - transformation' }
+{ #category : 'api - transformation' }
 SkiaSurfaceCanvas >> translate: aPoint [
 	self primTranslateX: aPoint x y: aPoint y
 ]
 
-{ #category : #'api - transformation' }
+{ #category : 'api - transformation' }
 SkiaSurfaceCanvas >> translateX: aX Y: aY [
 	self primTranslateX: aX y: aY
 ]

@@ -1,10 +1,10 @@
 Class {
-	#name : #SkiaFontMetricsExamples,
-	#superclass : #SkiaExternalObjectExamples,
-	#category : #'Sparta-Skia-Examples'
+	#name : 'SkiaFontMetricsExamples',
+	#superclass : 'SkiaExternalObjectExamples',
+	#category : 'Sparta-Skia-Examples'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaFontMetricsExamples >> default [
 	<gtExample>
 	| aFontMetrics |

@@ -1,6 +1,6 @@
 Class {
-	#name : #SkiaPixelGeometry,
-	#superclass : #SkiaExternalEnumeration,
+	#name : 'SkiaPixelGeometry',
+	#superclass : 'SkiaExternalEnumeration',
 	#classVars : [
 		'BGRH',
 		'BGRV',
@@ -8,40 +8,40 @@ Class {
 		'RGBV',
 		'Unknown'
 	],
-	#category : #'Sparta-Skia-External'
+	#category : 'Sparta-Skia-External'
 }
 
-{ #category : #'accessing enum' }
+{ #category : 'accessing enum' }
 SkiaPixelGeometry class >> BGRH [
 	"This method was automatically generated"
 	^ BGRH
 ]
 
-{ #category : #'accessing enum' }
+{ #category : 'accessing enum' }
 SkiaPixelGeometry class >> BGRV [
 	"This method was automatically generated"
 	^ BGRV
 ]
 
-{ #category : #'accessing enum' }
+{ #category : 'accessing enum' }
 SkiaPixelGeometry class >> RGBH [
 	"This method was automatically generated"
 	^ RGBH
 ]
 
-{ #category : #'accessing enum' }
+{ #category : 'accessing enum' }
 SkiaPixelGeometry class >> RGBV [
 	"This method was automatically generated"
 	^ RGBV
 ]
 
-{ #category : #'accessing enum' }
+{ #category : 'accessing enum' }
 SkiaPixelGeometry class >> Unknown [
 	"This method was automatically generated"
 	^ Unknown
 ]
 
-{ #category : #'enum declaration' }
+{ #category : 'enum declaration' }
 SkiaPixelGeometry class >> externalDeclaration [
 	"
 	self rebuildEnumAccessors
@@ -56,17 +56,17 @@ SkiaPixelGeometry class >> externalDeclaration [
 	)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaPixelGeometry class >> externalType [
 	^ FFIInt32 new
 ]
 
-{ #category : #'class initialization' }
+{ #category : 'class initialization' }
 SkiaPixelGeometry class >> initialize [
 	super initialize
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaPixelGeometry >> primRealName: aBoxerString [
 	^ self ffiCall: #(void skia_enums_pixel_geometry_to_string(self, GtBoxerString aBoxerString))
 ]

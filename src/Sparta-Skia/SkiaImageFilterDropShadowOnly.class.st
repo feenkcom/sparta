@@ -1,10 +1,10 @@
 Class {
-	#name : #SkiaImageFilterDropShadowOnly,
-	#superclass : #SkiaImageFilterDropShadow,
-	#category : #'Sparta-Skia-External'
+	#name : 'SkiaImageFilterDropShadowOnly',
+	#superclass : 'SkiaImageFilterDropShadow',
+	#category : 'Sparta-Skia-External'
 }
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaImageFilterDropShadowOnly class >> primCreateDeltaX: aDeltaX deltaY: aDeltaY sigmaX: aSigmaX sigmaY: aSigmaY r: aRed g: aGreen b: aBlue a: anAlpha input: anOptionalSkiaImageFilter [
 	^ self ffiCall: #(void* skia_image_filter_drop_shadow_only(
 		float32 aDeltaX,

@@ -1,41 +1,41 @@
 Class {
-	#name : #SkiaClipper,
-	#superclass : #SpartaClipper,
+	#name : 'SkiaClipper',
+	#superclass : 'SpartaClipper',
 	#instVars : [
 		'offset'
 	],
-	#category : #'Sparta-Skia-Builders'
+	#category : 'Sparta-Skia-Builders'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkiaClipper >> containsGlobal: aRectangle [
 	<return: #Boolean>
 
 	^ self globalBounds intersects: aRectangle
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkiaClipper >> containsLocal: aRectangle [
 	<return: #Boolean>
 
 	^ self localBounds intersects: aRectangle
 ]
 
-{ #category : #geometry }
+{ #category : 'geometry' }
 SkiaClipper >> globalBounds [
 	<return: #Rectangle>
 
 	^ canvas surfaceCanvas clipDeviceBounds
 ]
 
-{ #category : #geometry }
+{ #category : 'geometry' }
 SkiaClipper >> localBounds [
 	<return: #Rectangle>
 
 	^ canvas surfaceCanvas clipLocalBounds
 ]
 
-{ #category : #'private - clipping' }
+{ #category : 'private - clipping' }
 SkiaClipper >> pop [
 	"I pop the previously pushed clip area.
 	I am a part of the internal API and should not be used directly"
@@ -43,41 +43,41 @@ SkiaClipper >> pop [
 	canvas surfaceCanvas restore
 ]
 
-{ #category : #'private - clipping' }
+{ #category : 'private - clipping' }
 SkiaClipper >> push: aPath offset: anOffset [
 	offset := anOffset.
 	self push: aPath
 ]
 
-{ #category : #'private - clipping' }
+{ #category : 'private - clipping' }
 SkiaClipper >> pushCircle: aSpartaCircle [
 	canvas surfaceCanvas
 		save;
 		clipCircle: aSpartaCircle offset: offset
 ]
 
-{ #category : #'private - clipping' }
+{ #category : 'private - clipping' }
 SkiaClipper >> pushPath: aSpartaPath [
 	canvas surfaceCanvas
 		save;
 		clipPath: aSpartaPath offset: offset
 ]
 
-{ #category : #'private - clipping' }
+{ #category : 'private - clipping' }
 SkiaClipper >> pushRectangle: aRectangle [
 	canvas surfaceCanvas
 		save;
 		clipRectangle: aRectangle offset: offset
 ]
 
-{ #category : #'private - clipping' }
+{ #category : 'private - clipping' }
 SkiaClipper >> pushRoundedRectangle: aSpartaRoundedRectangle [
 	canvas surfaceCanvas
 		save;
 		clipRoundedRectangle: aSpartaRoundedRectangle offset: offset
 ]
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 SkiaClipper >> reset [
 	super reset.
 	

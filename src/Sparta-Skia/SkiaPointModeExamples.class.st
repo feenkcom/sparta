@@ -1,10 +1,10 @@
 Class {
-	#name : #SkiaPointModeExamples,
-	#superclass : #SkiaExternalEnumerationExamples,
-	#category : #'Sparta-Skia-Examples'
+	#name : 'SkiaPointModeExamples',
+	#superclass : 'SkiaExternalEnumerationExamples',
+	#category : 'Sparta-Skia-Examples'
 }
 
-{ #category : #examples }
+{ #category : 'examples' }
 SkiaPointModeExamples >> validateLayout [
 	<gtExample>
 	

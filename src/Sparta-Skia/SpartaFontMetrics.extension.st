@@ -1,6 +1,6 @@
-Extension { #name : #SpartaFontMetrics }
+Extension { #name : 'SpartaFontMetrics' }
 
-{ #category : #'*Sparta-Skia' }
+{ #category : '*Sparta-Skia' }
 SpartaFontMetrics >> skiaInitializeFrom: aSkiaFontMetrics [
 	"Initialize me from external structure"
 	

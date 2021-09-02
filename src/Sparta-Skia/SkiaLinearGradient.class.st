@@ -1,16 +1,16 @@
 Class {
-	#name : #SkiaLinearGradient,
-	#superclass : #SkiaGradient,
+	#name : 'SkiaLinearGradient',
+	#superclass : 'SkiaGradient',
 	#traits : 'TSpartaLinearGradientPaint',
 	#classTraits : 'TSpartaLinearGradientPaint classTrait',
 	#instVars : [
 		'begin',
 		'end'
 	],
-	#category : #'Sparta-Skia-Paints'
+	#category : 'Sparta-Skia-Paints'
 }
 
-{ #category : #converting }
+{ #category : 'converting' }
 SkiaLinearGradient >> asShader [
 	| theColors thePositions |
 	
@@ -26,31 +26,31 @@ SkiaLinearGradient >> asShader [
 		matrix: self transformation
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaLinearGradient >> begin [
 	<return: #Point>
 
 	^ begin
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaLinearGradient >> begin: aPoint [
 	begin := aPoint
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaLinearGradient >> end [
 	<return: #Point>
 
 	^ end
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaLinearGradient >> end: aPoint [
 	end := aPoint
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SkiaLinearGradient >> initialize [
 	super initialize.
 	

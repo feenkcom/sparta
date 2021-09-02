@@ -1,10 +1,10 @@
 Class {
-	#name : #SkiaSurfacePropsExamples,
-	#superclass : #SkiaExternalObjectExamples,
-	#category : #'Sparta-Skia-Examples'
+	#name : 'SkiaSurfacePropsExamples',
+	#superclass : 'SkiaExternalObjectExamples',
+	#category : 'Sparta-Skia-Examples'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaSurfacePropsExamples >> default [
 	<gtExample>
 	| aSurfaceProps |

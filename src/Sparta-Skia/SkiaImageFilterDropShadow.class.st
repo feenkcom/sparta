@@ -1,10 +1,10 @@
 Class {
-	#name : #SkiaImageFilterDropShadow,
-	#superclass : #SkiaImageFilter,
-	#category : #'Sparta-Skia-External'
+	#name : 'SkiaImageFilterDropShadow',
+	#superclass : 'SkiaImageFilter',
+	#category : 'Sparta-Skia-External'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 SkiaImageFilterDropShadow class >> delta: aDeltaPoint sigma: aSigmaPoint color: aColor [
 	^ self
 		delta: aDeltaPoint
@@ -13,7 +13,7 @@ SkiaImageFilterDropShadow class >> delta: aDeltaPoint sigma: aSigmaPoint color: 
 		input: SkiaImageFilter null
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 SkiaImageFilterDropShadow class >> delta: aDeltaPoint sigma: aSigmaPoint color: aColor during: aBlock [
 	^ self
 		delta: aDeltaPoint
@@ -23,7 +23,7 @@ SkiaImageFilterDropShadow class >> delta: aDeltaPoint sigma: aSigmaPoint color: 
 		during: aBlock
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 SkiaImageFilterDropShadow class >> delta: aDeltaPoint sigma: aSigmaPoint color: aColor input: anOptionalSkiaImageFilter [
 	| aRed aGreen aBlue anAlpha |
 
@@ -60,7 +60,7 @@ SkiaImageFilterDropShadow class >> delta: aDeltaPoint sigma: aSigmaPoint color: 
 		input: anOptionalSkiaImageFilter)
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 SkiaImageFilterDropShadow class >> delta: aDeltaPoint sigma: aSigmaPoint color: aColor input: anOptionalSkiaImageFilter during: aBlock [
 	| aRed aGreen aBlue anAlpha |
 
@@ -97,7 +97,7 @@ SkiaImageFilterDropShadow class >> delta: aDeltaPoint sigma: aSigmaPoint color: 
 		input: anOptionalSkiaImageFilter) during: aBlock
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaImageFilterDropShadow class >> primCreateDeltaX: aDeltaX deltaY: aDeltaY sigmaX: aSigmaX sigmaY: aSigmaY r: aRed g: aGreen b: aBlue a: anAlpha input: anOptionalSkiaImageFilter [
 	^ self ffiCall: #(void* skia_image_filter_drop_shadow(
 		float32 aDeltaX,

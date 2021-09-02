@@ -1,10 +1,10 @@
 Class {
-	#name : #SkiaClipOpExamples,
-	#superclass : #SkiaExternalEnumerationExamples,
-	#category : #'Sparta-Skia-Examples'
+	#name : 'SkiaClipOpExamples',
+	#superclass : 'SkiaExternalEnumerationExamples',
+	#category : 'Sparta-Skia-Examples'
 }
 
-{ #category : #examples }
+{ #category : 'examples' }
 SkiaClipOpExamples >> validateLayout [
 	<gtExample>
 

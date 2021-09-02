@@ -1,15 +1,15 @@
 Class {
-	#name : #SkiaFilterSource,
-	#superclass : #Object,
-	#category : #'Sparta-Skia-Filters'
+	#name : 'SkiaFilterSource',
+	#superclass : 'Object',
+	#category : 'Sparta-Skia-Filters'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkiaFilterSource >> isCanvas [
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkiaFilterSource >> isImage [
 	^ false
 ]

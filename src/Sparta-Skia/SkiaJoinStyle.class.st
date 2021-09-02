@@ -1,33 +1,33 @@
 Class {
-	#name : #SkiaJoinStyle,
-	#superclass : #SkiaExternalEnumeration,
+	#name : 'SkiaJoinStyle',
+	#superclass : 'SkiaExternalEnumeration',
 	#classVars : [
 		'Bevel',
 		'Miter',
 		'Round'
 	],
-	#category : #'Sparta-Skia-External'
+	#category : 'Sparta-Skia-External'
 }
 
-{ #category : #'accessing enum' }
+{ #category : 'accessing enum' }
 SkiaJoinStyle class >> Bevel [
 	"This method was automatically generated"
 	^ Bevel
 ]
 
-{ #category : #'accessing enum' }
+{ #category : 'accessing enum' }
 SkiaJoinStyle class >> Miter [
 	"This method was automatically generated"
 	^ Miter
 ]
 
-{ #category : #'accessing enum' }
+{ #category : 'accessing enum' }
 SkiaJoinStyle class >> Round [
 	"This method was automatically generated"
 	^ Round
 ]
 
-{ #category : #'enum declaration' }
+{ #category : 'enum declaration' }
 SkiaJoinStyle class >> externalDeclaration [
 	"
 	self rebuildEnumAccessors
@@ -40,17 +40,17 @@ SkiaJoinStyle class >> externalDeclaration [
 	)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaJoinStyle class >> externalType [
 	^ FFIUInt8 new
 ]
 
-{ #category : #'class initialization' }
+{ #category : 'class initialization' }
 SkiaJoinStyle class >> initialize [
 	super initialize
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaJoinStyle >> primRealName: aBoxerString [
 	^ self ffiCall: #(void skia_enums_join_style_to_string(self, GtBoxerString aBoxerString))
 ]

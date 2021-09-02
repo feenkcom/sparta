@@ -1,17 +1,17 @@
 Class {
-	#name : #SkiaFilter,
-	#superclass : #Object,
+	#name : 'SkiaFilter',
+	#superclass : 'Object',
 	#traits : 'TSpartaFilter',
 	#classTraits : 'TSpartaFilter classTrait',
-	#category : #'Sparta-Skia-Filters'
+	#category : 'Sparta-Skia-Filters'
 }
 
-{ #category : #converting }
+{ #category : 'converting' }
 SkiaFilter >> asSkiaImageFilterOn: aSkiaFilterPainter during: aBlock [
 	^ self subclassResponsibility
 ]
 
-{ #category : #drawing }
+{ #category : 'drawing' }
 SkiaFilter >> drawOn: aSkiaFilterPainter [
 
 	

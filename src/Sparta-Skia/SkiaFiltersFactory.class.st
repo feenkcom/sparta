@@ -1,10 +1,10 @@
 Class {
-	#name : #SkiaFiltersFactory,
-	#superclass : #SpartaFiltersFactory,
-	#category : #'Sparta-Skia-Builders'
+	#name : 'SkiaFiltersFactory',
+	#superclass : 'SpartaFiltersFactory',
+	#category : 'Sparta-Skia-Builders'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaFiltersFactory >> blur [
 	<return: #TSpartaGaussianBlurFilter>
 	

@@ -1,10 +1,10 @@
 Class {
-	#name : #SkiaTextRunExamples,
-	#superclass : #SkiaExternalObjectExamples,
-	#category : #'Sparta-Skia-Examples'
+	#name : 'SkiaTextRunExamples',
+	#superclass : 'SkiaExternalObjectExamples',
+	#category : 'Sparta-Skia-Examples'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 SkiaTextRunExamples >> fromStringHello [
 	<gtExample>
 	| aTextRun |

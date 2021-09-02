@@ -1,15 +1,15 @@
 Class {
-	#name : #SkiaBinaryCommand,
-	#superclass : #Object,
-	#category : #'Sparta-Skia-Binary'
+	#name : 'SkiaBinaryCommand',
+	#superclass : 'Object',
+	#category : 'Sparta-Skia-Binary'
 }
 
-{ #category : #running }
+{ #category : 'running' }
 SkiaBinaryCommand >> streamOn: aBinaryStream [
 	aBinaryStream type: self type
 ]
 
-{ #category : #generated }
+{ #category : 'generated' }
 SkiaBinaryCommand >> type [
 	^ self subclassResponsibility
 ]

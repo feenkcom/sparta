@@ -1,6 +1,6 @@
 Class {
-	#name : #SkiaColorType,
-	#superclass : #SkiaExternalEnumeration,
+	#name : 'SkiaColorType',
+	#superclass : 'SkiaExternalEnumeration',
 	#classVars : [
 		'A16Float',
 		'A16UNorm',
@@ -24,136 +24,136 @@ Class {
 		'RGBAF32',
 		'Unknown'
 	],
-	#category : #'Sparta-Skia-External'
+	#category : 'Sparta-Skia-External'
 }
 
-{ #category : #'accessing enum' }
+{ #category : 'accessing enum' }
 SkiaColorType class >> A16Float [
 	"This method was automatically generated"
 	^ A16Float
 ]
 
-{ #category : #'accessing enum' }
+{ #category : 'accessing enum' }
 SkiaColorType class >> A16UNorm [
 	"This method was automatically generated"
 	^ A16UNorm
 ]
 
-{ #category : #'accessing enum' }
+{ #category : 'accessing enum' }
 SkiaColorType class >> ARGB4444 [
 	"This method was automatically generated"
 	^ ARGB4444
 ]
 
-{ #category : #'accessing enum' }
+{ #category : 'accessing enum' }
 SkiaColorType class >> Alpha8 [
 	"This method was automatically generated"
 	^ Alpha8
 ]
 
-{ #category : #'accessing enum' }
+{ #category : 'accessing enum' }
 SkiaColorType class >> BGR101010x [
 	"This method was automatically generated"
 	^ BGR101010x
 ]
 
-{ #category : #'accessing enum' }
+{ #category : 'accessing enum' }
 SkiaColorType class >> BGRA1010102 [
 	"This method was automatically generated"
 	^ BGRA1010102
 ]
 
-{ #category : #'accessing enum' }
+{ #category : 'accessing enum' }
 SkiaColorType class >> BGRA8888 [
 	"This method was automatically generated"
 	^ BGRA8888
 ]
 
-{ #category : #'accessing enum' }
+{ #category : 'accessing enum' }
 SkiaColorType class >> Gray8 [
 	"This method was automatically generated"
 	^ Gray8
 ]
 
-{ #category : #'accessing enum' }
+{ #category : 'accessing enum' }
 SkiaColorType class >> R16G16B16A16UNorm [
 	"This method was automatically generated"
 	^ R16G16B16A16UNorm
 ]
 
-{ #category : #'accessing enum' }
+{ #category : 'accessing enum' }
 SkiaColorType class >> R16G16Float [
 	"This method was automatically generated"
 	^ R16G16Float
 ]
 
-{ #category : #'accessing enum' }
+{ #category : 'accessing enum' }
 SkiaColorType class >> R16G16UNorm [
 	"This method was automatically generated"
 	^ R16G16UNorm
 ]
 
-{ #category : #'accessing enum' }
+{ #category : 'accessing enum' }
 SkiaColorType class >> R8G8UNorm [
 	"This method was automatically generated"
 	^ R8G8UNorm
 ]
 
-{ #category : #'accessing enum' }
+{ #category : 'accessing enum' }
 SkiaColorType class >> RGB101010x [
 	"This method was automatically generated"
 	^ RGB101010x
 ]
 
-{ #category : #'accessing enum' }
+{ #category : 'accessing enum' }
 SkiaColorType class >> RGB565 [
 	"This method was automatically generated"
 	^ RGB565
 ]
 
-{ #category : #'accessing enum' }
+{ #category : 'accessing enum' }
 SkiaColorType class >> RGB888x [
 	"This method was automatically generated"
 	^ RGB888x
 ]
 
-{ #category : #'accessing enum' }
+{ #category : 'accessing enum' }
 SkiaColorType class >> RGBA1010102 [
 	"This method was automatically generated"
 	^ RGBA1010102
 ]
 
-{ #category : #'accessing enum' }
+{ #category : 'accessing enum' }
 SkiaColorType class >> RGBA8888 [
 	"This method was automatically generated"
 	^ RGBA8888
 ]
 
-{ #category : #'accessing enum' }
+{ #category : 'accessing enum' }
 SkiaColorType class >> RGBAF16 [
 	"This method was automatically generated"
 	^ RGBAF16
 ]
 
-{ #category : #'accessing enum' }
+{ #category : 'accessing enum' }
 SkiaColorType class >> RGBAF16Norm [
 	"This method was automatically generated"
 	^ RGBAF16Norm
 ]
 
-{ #category : #'accessing enum' }
+{ #category : 'accessing enum' }
 SkiaColorType class >> RGBAF32 [
 	"This method was automatically generated"
 	^ RGBAF32
 ]
 
-{ #category : #'accessing enum' }
+{ #category : 'accessing enum' }
 SkiaColorType class >> Unknown [
 	"This method was automatically generated"
 	^ Unknown
 ]
 
-{ #category : #'enum declaration' }
+{ #category : 'enum declaration' }
 SkiaColorType class >> externalDeclaration [
 	"
 	self rebuildEnumAccessors
@@ -184,17 +184,17 @@ SkiaColorType class >> externalDeclaration [
 	)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaColorType class >> externalType [
 	^ FFIInt32 new
 ]
 
-{ #category : #'class initialization' }
+{ #category : 'class initialization' }
 SkiaColorType class >> initialize [
 	super initialize
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaColorType >> primRealName: aBoxerString [
 	^ self ffiCall: #(void skia_enums_color_type_to_string(self, GtBoxerString aBoxerString))
 ]

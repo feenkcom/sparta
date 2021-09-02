@@ -1,40 +1,40 @@
 Class {
-	#name : #SkiaAlphaType,
-	#superclass : #SkiaExternalEnumeration,
+	#name : 'SkiaAlphaType',
+	#superclass : 'SkiaExternalEnumeration',
 	#classVars : [
 		'Opaque',
 		'Premul',
 		'Unknown',
 		'Unpremul'
 	],
-	#category : #'Sparta-Skia-External'
+	#category : 'Sparta-Skia-External'
 }
 
-{ #category : #'accessing enum' }
+{ #category : 'accessing enum' }
 SkiaAlphaType class >> Opaque [
 	"This method was automatically generated"
 	^ Opaque
 ]
 
-{ #category : #'accessing enum' }
+{ #category : 'accessing enum' }
 SkiaAlphaType class >> Premul [
 	"This method was automatically generated"
 	^ Premul
 ]
 
-{ #category : #'accessing enum' }
+{ #category : 'accessing enum' }
 SkiaAlphaType class >> Unknown [
 	"This method was automatically generated"
 	^ Unknown
 ]
 
-{ #category : #'accessing enum' }
+{ #category : 'accessing enum' }
 SkiaAlphaType class >> Unpremul [
 	"This method was automatically generated"
 	^ Unpremul
 ]
 
-{ #category : #'enum declaration' }
+{ #category : 'enum declaration' }
 SkiaAlphaType class >> externalDeclaration [
 	"
 	self rebuildEnumAccessors
@@ -48,17 +48,17 @@ SkiaAlphaType class >> externalDeclaration [
 	)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaAlphaType class >> externalType [
 	^ FFIInt32 new
 ]
 
-{ #category : #'class initialization' }
+{ #category : 'class initialization' }
 SkiaAlphaType class >> initialize [
 	super initialize
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaAlphaType >> primRealName: aBoxerString [
 	^ self ffiCall: #(void skia_enums_alpha_type_to_string(self, GtBoxerString aBoxerString))
 ]

@@ -1,15 +1,15 @@
 Class {
-	#name : #SkiaLayerBuilder,
-	#superclass : #SpartaLayerBuilder,
-	#category : #'Sparta-Skia-Builders'
+	#name : 'SkiaLayerBuilder',
+	#superclass : 'SpartaLayerBuilder',
+	#category : 'Sparta-Skia-Builders'
 }
 
-{ #category : #'api - layer' }
+{ #category : 'api - layer' }
 SkiaLayerBuilder >> pop [
 	canvas surfaceCanvas restore
 ]
 
-{ #category : #'api - layer' }
+{ #category : 'api - layer' }
 SkiaLayerBuilder >> push [
 	SkiaPaint newDuring: [ :aSkiaPaint |
 		aSkiaPaint alpha: alpha.

@@ -1,10 +1,10 @@
 Class {
-	#name : #SkiaPathExamples,
-	#superclass : #SkiaExternalObjectExamples,
-	#category : #'Sparta-Skia-Examples'
+	#name : 'SkiaPathExamples',
+	#superclass : 'SkiaExternalObjectExamples',
+	#category : 'Sparta-Skia-Examples'
 }
 
-{ #category : #'examples - arc to' }
+{ #category : 'examples - arc to' }
 SkiaPathExamples >> arcTo_0 [
 	<gtExample>
 	| aPath |
@@ -18,7 +18,7 @@ SkiaPathExamples >> arcTo_0 [
 	^ aPath
 ]
 
-{ #category : #'examples - arc to' }
+{ #category : 'examples - arc to' }
 SkiaPathExamples >> arcTo_180 [
 	<gtExample>
 	| aPath |
@@ -32,7 +32,7 @@ SkiaPathExamples >> arcTo_180 [
 	^ aPath
 ]
 
-{ #category : #'examples - arc to' }
+{ #category : 'examples - arc to' }
 SkiaPathExamples >> arcTo_270 [
 	<gtExample>
 	| aPath |
@@ -46,7 +46,7 @@ SkiaPathExamples >> arcTo_270 [
 	^ aPath
 ]
 
-{ #category : #'examples - arc to' }
+{ #category : 'examples - arc to' }
 SkiaPathExamples >> arcTo_359_99 [
 	<gtExample>
 	| aPath |
@@ -59,7 +59,7 @@ SkiaPathExamples >> arcTo_359_99 [
 	^ aPath
 ]
 
-{ #category : #'examples - arc to' }
+{ #category : 'examples - arc to' }
 SkiaPathExamples >> arcTo_360 [
 	<gtExample>
 	| aPath |
@@ -73,7 +73,7 @@ SkiaPathExamples >> arcTo_360 [
 	^ aPath
 ]
 
-{ #category : #'examples - arc to' }
+{ #category : 'examples - arc to' }
 SkiaPathExamples >> arcTo_360_0 [
 	<gtExample>
 	| aPath |
@@ -86,7 +86,7 @@ SkiaPathExamples >> arcTo_360_0 [
 	^ aPath
 ]
 
-{ #category : #'examples - arc to' }
+{ #category : 'examples - arc to' }
 SkiaPathExamples >> arcTo_360_01 [
 	<gtExample>
 	| aPath |
@@ -99,7 +99,7 @@ SkiaPathExamples >> arcTo_360_01 [
 	^ aPath
 ]
 
-{ #category : #'examples - arc to' }
+{ #category : 'examples - arc to' }
 SkiaPathExamples >> arcTo_360_025 [
 	<gtExample>
 	| aPath |
@@ -112,7 +112,7 @@ SkiaPathExamples >> arcTo_360_025 [
 	^ aPath
 ]
 
-{ #category : #'examples - arc to' }
+{ #category : 'examples - arc to' }
 SkiaPathExamples >> arcTo_450 [
 	<gtExample>
 	| aPath |
@@ -126,7 +126,7 @@ SkiaPathExamples >> arcTo_450 [
 	^ aPath
 ]
 
-{ #category : #'examples - arc to' }
+{ #category : 'examples - arc to' }
 SkiaPathExamples >> arcTo_90 [
 	<gtExample>
 	| aPath |
@@ -140,7 +140,7 @@ SkiaPathExamples >> arcTo_90 [
 	^ aPath
 ]
 
-{ #category : #'examples - arc to' }
+{ #category : 'examples - arc to' }
 SkiaPathExamples >> arcTo_minus_90 [
 	<gtExample>
 	| aPath |
@@ -154,7 +154,7 @@ SkiaPathExamples >> arcTo_minus_90 [
 	^ aPath
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaPathExamples >> default [
 	<gtExample>
 	| aPath |
@@ -167,7 +167,7 @@ SkiaPathExamples >> default [
 	^ aPath
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaPathExamples >> moveTo10_20 [
 	<gtExample>
 	| aPath |
@@ -181,7 +181,7 @@ SkiaPathExamples >> moveTo10_20 [
 	^ aPath
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaPathExamples >> moveTo10_20_lineTo20_40 [
 	<gtExample>
 	| aPath |

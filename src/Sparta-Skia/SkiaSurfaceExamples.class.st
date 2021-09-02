@@ -1,10 +1,10 @@
 Class {
-	#name : #SkiaSurfaceExamples,
-	#superclass : #SkiaExternalObjectExamples,
-	#category : #'Sparta-Skia-Examples'
+	#name : 'SkiaSurfaceExamples',
+	#superclass : 'SkiaExternalObjectExamples',
+	#category : 'Sparta-Skia-Examples'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaSurfaceExamples >> default [
 	<gtExample>
 	| aSurface anImageInfo thePixels |
@@ -31,7 +31,7 @@ SkiaSurfaceExamples >> default [
 	^ aSurface
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaSurfaceExamples >> newRasterPremultipledSizeOne [
 	<gtExample>
 	| aSurface anImageInfo thePixels |
@@ -58,7 +58,7 @@ SkiaSurfaceExamples >> newRasterPremultipledSizeOne [
 	^ aSurface
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaSurfaceExamples >> snapshot [
 	<gtExample>
 	| aSurface aCanvas aSnapshot |

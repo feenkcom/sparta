@@ -1,20 +1,20 @@
 Class {
-	#name : #SkiaBatcher,
-	#superclass : #SpartaBatcher,
+	#name : 'SkiaBatcher',
+	#superclass : 'SpartaBatcher',
 	#instVars : [
 		'textRunBatch'
 	],
-	#category : #'Sparta-Skia-Builders'
+	#category : 'Sparta-Skia-Builders'
 }
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SkiaBatcher >> initialize [
 	super initialize.
 	
 	textRunBatch := OrderedCollection new
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaBatcher >> process [
 
 	"textRunBatch is a set of consisting of:
@@ -76,7 +76,7 @@ SkiaBatcher >> process [
 				]
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 SkiaBatcher >> textRunFrom: aString font: aSkiaFont paint: aSkiaPaintBlock whenFinishedDo: aFinishedBlock [
 	textRunBatch add: { 
 		aString.

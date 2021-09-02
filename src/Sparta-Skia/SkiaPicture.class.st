@@ -1,24 +1,24 @@
 Class {
-	#name : #SkiaPicture,
-	#superclass : #SkiaExternalObject,
-	#category : #'Sparta-Skia-External'
+	#name : 'SkiaPicture',
+	#superclass : 'SkiaExternalObject',
+	#category : 'Sparta-Skia-External'
 }
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaPicture class >> primRelease: aHandle [
 	
 	"Plain pointers must be deleted using delete(), all users must implement a specific method"
 	self ffiCall: #(void skia_picture_drop(void** aHandle))
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaPicture >> approximateOpCount [
 	<return: #Number>
 	
 	^ self primApproximateOpCount
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaPicture >> approximateOpPerPoint [
 	| theBounds thePoints |
 	<return: #Number>
@@ -31,7 +31,7 @@ SkiaPicture >> approximateOpPerPoint [
 	^ (self approximateOpCount / (theBounds height * theBounds width)) asFloat
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaPicture >> asByteArray [
 	"Serialzie this picture as a byte array"
 	<return: #ByteArray>
@@ -42,7 +42,7 @@ SkiaPicture >> asByteArray [
 	^ aBoxerArray asByteArray
 ]
 
-{ #category : #'gt-extension' }
+{ #category : 'gt-extension' }
 SkiaPicture >> asForm [
 	| aCanvas |
 	
@@ -52,14 +52,14 @@ SkiaPicture >> asForm [
 	^ aCanvas asForm
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaPicture >> bounds [
 	<return: #Rectangle>
 
 	^ (SkiaRectangleF32 fromNativeHandle: self primCullRect) asRectangle
 ]
 
-{ #category : #'gt-extension' }
+{ #category : 'gt-extension' }
 SkiaPicture >> gtInfoFor: aView [
 	<gtView>
 
@@ -72,56 +72,56 @@ SkiaPicture >> gtInfoFor: aView [
 			priority: 2
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaPicture >> isEmpty [
 	<return: #Boolean>
 	
 	^ self primIsEmpty
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaPicture >> isSimple [
 	<return: #Boolean>
 	
 	^ self approximateOpCount <= 5 or: [ self approximateOpPerPoint <= 0.0001 ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaPicture >> playbackOn: aCanvas [
 	self primPlaybackOn: aCanvas
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaPicture >> primApproximateOpCount [
 	^ self ffiCall: #(size_t skia_picture_approximate_op_count(self))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaPicture >> primCullRect [
 	^ self ffiCall: #(void* skia_picture_cull_rect(self))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaPicture >> primIsEmpty [
 	^ self ffiCall: #(bool skia_picture_is_empty(self))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaPicture >> primPlaybackOn: aCanvas [
 	^ self ffiCall: #(void skia_picture_playback(self, SkiaSurfaceCanvas aCanvas))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaPicture >> primSerialize: aBoxerArrayU8 [
 	^ self ffiCall: #(void skia_picture_serialize(self, GtBoxerArrayU8 aBoxerArrayU8))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaPicture >> primUniqueId [
 	^ self ffiCall: #(uint32 skia_picture_unique_id(self))
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaPicture >> uniqueId [
 	<return: #Number>
 

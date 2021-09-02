@@ -1,6 +1,6 @@
 Class {
-	#name : #SkiaGradient,
-	#superclass : #Object,
+	#name : 'SkiaGradient',
+	#superclass : 'Object',
 	#traits : 'TSpartaPaint + TSpartaGradientPaint',
 	#classTraits : 'TSpartaPaint classTrait + TSpartaGradientPaint classTrait',
 	#instVars : [
@@ -8,22 +8,22 @@ Class {
 		'transformation',
 		'tileMode'
 	],
-	#category : #'Sparta-Skia-Paints'
+	#category : 'Sparta-Skia-Paints'
 }
 
-{ #category : #converting }
+{ #category : 'converting' }
 SkiaGradient >> asShader [
 	^ self subclassResponsibility
 ]
 
-{ #category : #'extend modes' }
+{ #category : 'extend modes' }
 SkiaGradient >> clamp [
 	"Do not repeat"
 	
 	self tileMode: SkiaTileMode Clamp
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SkiaGradient >> initialize [
 	super initialize.
 	
@@ -33,62 +33,62 @@ SkiaGradient >> initialize [
 	self clamp.
 ]
 
-{ #category : #'extend modes' }
+{ #category : 'extend modes' }
 SkiaGradient >> reflect [
 	"Mirror the image"
 
 	self tileMode: SkiaTileMode Mirror
 ]
 
-{ #category : #'extend modes' }
+{ #category : 'extend modes' }
 SkiaGradient >> repeat [
 	"Repeat in both axis"
 	
 	self tileMode: SkiaTileMode Repeat
 ]
 
-{ #category : #'extend modes' }
+{ #category : 'extend modes' }
 SkiaGradient >> repeatX [
 	"Gradients always repeat in both axis"
 	
 	self tileMode: SkiaTileMode Repeat
 ]
 
-{ #category : #'extend modes' }
+{ #category : 'extend modes' }
 SkiaGradient >> repeatY [
 	"Gradients always repeat in both axis"
 	
 	self tileMode: SkiaTileMode Repeat
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaGradient >> stops [
 	^ stops
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaGradient >> stops: anArrayOfStops [
 	stops := anArrayOfStops
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaGradient >> tileMode [
 	<return: #SkiaTileMode>
 
 	^ tileMode
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaGradient >> tileMode: aSkiaTileMode [
 	tileMode := aSkiaTileMode
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaGradient >> transformation [
 	^ transformation
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaGradient >> transformation: aMatrix [
 	transformation := aMatrix
 ]

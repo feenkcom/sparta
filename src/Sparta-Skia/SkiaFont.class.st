@@ -1,64 +1,64 @@
 Class {
-	#name : #SkiaFont,
-	#superclass : #SkiaExternalObject,
+	#name : 'SkiaFont',
+	#superclass : 'SkiaExternalObject',
 	#instVars : [
 		'metrics'
 	],
-	#category : #'Sparta-Skia-External'
+	#category : 'Sparta-Skia-External'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 SkiaFont class >> default [
 	^ self new
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaFont class >> primCreate [
 	^ self ffiCall: #(void* skia_font_default())
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaFont class >> primNewTypeface: aSkiaTypeface size: aSize [
 	^ self ffiCall: #(void* skia_font_from_typeface(SkiaTypeface aSkiaTypeface, scalar aSize))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaFont class >> primRelease: aHandle [
 	
 	"Plain pointers must be deleted using delete(), all users must implement a specific method"
 	self ffiCall: #(void skia_font_drop(void** aHandle))
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 SkiaFont class >> size: aSize [
 	^ self typeface: SkiaTypeface new size: aSize
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 SkiaFont class >> typeface: aSkiaTypeface size: aSize [
 	^ self fromNativeHandle: (self primNewTypeface: aSkiaTypeface size: aSize)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaFont >> edging [
 	<return: #SkiaFontEdging>
 
 	^ self primGetEdging
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaFont >> edging: aSkiaFontEdging [
 	self primSetEdging: aSkiaFontEdging
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaFont >> familyName [
 	<return: #String>
 
 	^ self typeface familyName
 ]
 
-{ #category : #'gt-extension' }
+{ #category : 'gt-extension' }
 SkiaFont >> gtFontMetricsFor: aView [
 	<gtView>
 
@@ -67,7 +67,7 @@ SkiaFont >> gtFontMetricsFor: aView [
 			priority: 2
 ]
 
-{ #category : #'gt-extension' }
+{ #category : 'gt-extension' }
 SkiaFont >> gtFontStyleFor: aView [
 	<gtView>
 
@@ -76,7 +76,7 @@ SkiaFont >> gtFontStyleFor: aView [
 			priority: 5
 ]
 
-{ #category : #'gt-extension' }
+{ #category : 'gt-extension' }
 SkiaFont >> gtInfoFor: aView [
 	<gtView>
 
@@ -98,7 +98,7 @@ SkiaFont >> gtInfoFor: aView [
 			priority: 3
 ]
 
-{ #category : #'gt-extension' }
+{ #category : 'gt-extension' }
 SkiaFont >> gtPreviewFor: aView [
 	<gtView>
 
@@ -144,7 +144,7 @@ nopqrstuvwxyz
 			aSkiaCanvas asForm asElement ]
 ]
 
-{ #category : #'gt-extension' }
+{ #category : 'gt-extension' }
 SkiaFont >> gtTypefaceFor: aView [
 	<gtView>
 
@@ -153,49 +153,49 @@ SkiaFont >> gtTypefaceFor: aView [
 			priority: 4
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaFont >> hinting [
 	<return: #SkiaFontHinting>
 
 	^ self primGetHinting
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaFont >> hinting: aSkiaFontHinting [
 	self primSetHinting: aSkiaFontHinting
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkiaFont >> isBaselineSnap [
 	^ self primIsBaselineSnap
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkiaFont >> isEmbeddedBitmaps [
 	^ self primIsEmbeddedBitmaps
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkiaFont >> isEmbolden [
 	^ self primIsEmbolden
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkiaFont >> isForceAutoHinting [
 	^ self primIsForceAutoHinting
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkiaFont >> isLinearMetrics [
 	^ self primIsLinearMetrics
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkiaFont >> isSubpixel [
 	^ self primIsSubpixel
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaFont >> lineSpacing [
 	"Return the recommended spacing between lines: the sum of metrics descent, ascent, and leading.
 	Genrally, line spacing is the space between each line in a paragraph. Typical word processors allows you to customize the line spacing to be single spaced (one line high), double spaced (two lines high), or any other amount you want"
@@ -203,12 +203,12 @@ SkiaFont >> lineSpacing [
 	^ self primGetLineSpacing
 ]
 
-{ #category : #text }
+{ #category : 'text' }
 SkiaFont >> measureString: aString paint: aSkiaPaint [
 	^ self measureText: (GtBoxerString fromString: aString) paint: aSkiaPaint
 ]
 
-{ #category : #text }
+{ #category : 'text' }
 SkiaFont >> measureText: aGtBoxerString paint: aSkiaPaint [
 	<return: #SkiaTextMetrics>
 	| aWidth aBounds |
@@ -227,7 +227,7 @@ SkiaFont >> measureText: aGtBoxerString paint: aSkiaPaint [
 		bounds: aBounds
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaFont >> metrics [
 	"Return sparta font metrics for this font. The metrics are cached to not measure the font each time
 	metrics are requested"
@@ -240,77 +240,77 @@ SkiaFont >> metrics [
 		metrics ]
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaFont >> primGetEdging [
 	^ self ffiCall: #(SkiaFontEdging skia_font_get_edging(self))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaFont >> primGetHinting [
 	^ self ffiCall: #(SkiaFontHinting skia_font_get_hinting(self))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaFont >> primGetLineSpacing [
 	^ self ffiCall: #(scalar skia_font_get_spacing(self))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaFont >> primGetMetrics [
 	^ self ffiCall: #(void* skia_font_get_metrics(self))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaFont >> primGetScaleX [
 	^ self ffiCall: #(scalar skia_font_get_scale_x(self))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaFont >> primGetSize [
 	^ self ffiCall: #(scalar skia_font_get_size(self))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaFont >> primGetSkewX [
 	^ self ffiCall: #(scalar skia_font_get_skew_x(self))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaFont >> primGetTypeface [
 	^ self ffiCall: #(void* skia_font_get_typeface_or_default(self))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaFont >> primIsBaselineSnap [
 	^ self ffiCall: #(bool skia_font_is_baseline_snap(self))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaFont >> primIsEmbeddedBitmaps [
 	^ self ffiCall: #(bool skia_font_is_embedded_bitmaps(self))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaFont >> primIsEmbolden [
 	^ self ffiCall: #(bool skia_font_is_embolden(self))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaFont >> primIsForceAutoHinting [
 	^ self ffiCall: #(bool skia_font_is_force_auto_hinting(self))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaFont >> primIsLinearMetrics [
 	^ self ffiCall: #(bool skia_font_is_linear_metrics(self))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaFont >> primIsSubpixel [
 	^ self ffiCall: #(bool skia_font_is_subpixel(self))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaFont >> primMeasureText: aGtBoxerString encoding: aSkiaTextEncoding paint: aSkiaPaint bounds: aSkiaRectangleF32 [
 	^ self ffiCall: #(scalar skia_font_measure_text(self,
 		GtBoxerString aGtBoxerString,
@@ -319,22 +319,22 @@ SkiaFont >> primMeasureText: aGtBoxerString encoding: aSkiaTextEncoding paint: a
 		SkiaRectangleF32 aSkiaRectangleF32))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaFont >> primSetEdging: aSkiaFontEdging [
 	^ self ffiCall: #(void skia_font_set_edging(self, SkiaFontEdging aSkiaFontEdging))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaFont >> primSetHinting: aSkiaFontHinting [
 	^ self ffiCall: #(void skia_font_set_hinting(self, SkiaFontHinting aSkiaFontHinting))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaFont >> primSetSubpixel: aBoolean [
 	^ self ffiCall: #(void skia_font_set_subpixel(self, bool aBoolean))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaFont >> primText: aGtBoxerString toGlyphs: aGtBoxerArrayU16 encoding: aSkiaTextEncoding paint: aSkiaPaint bounds: aSkiaRectangleF32 [
 	^ self ffiCall: #(scalar skia_font_text_to_glyphs(self,
 		GtBoxerString aGtBoxerString,
@@ -344,22 +344,22 @@ SkiaFont >> primText: aGtBoxerString toGlyphs: aGtBoxerArrayU16 encoding: aSkiaT
 		SkiaRectangleF32 aSkiaRectangleF32))
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaFont >> scale [
 	^ self primGetScaleX
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaFont >> size [
 	^ self primGetSize
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaFont >> skew [
 	^ self primGetSkewX
 ]
 
-{ #category : #text }
+{ #category : 'text' }
 SkiaFont >> stringToGlyphs: aString [
 	<return: #ByteArray>
 
@@ -376,7 +376,7 @@ SkiaFont >> stringToGlyphs: aString [
 				theGlyphs asByteArray ] ]
 ]
 
-{ #category : #text }
+{ #category : 'text' }
 SkiaFont >> stringToTextRun: aString paint: aSkiaPaint [
 	<return: #SkiaTextRun>
 
@@ -408,12 +408,12 @@ SkiaFont >> stringToTextRun: aString paint: aSkiaPaint [
 				bounds: aBounds ] ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaFont >> subpixel: aBoolean [
 	self primSetSubpixel: aBoolean
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaFont >> typeface [
 	^ SkiaTypeface fromNativeHandle: self primGetTypeface
 ]
