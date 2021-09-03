@@ -1,10 +1,10 @@
 Class {
-	#name : #SkiaStrokePainter,
-	#superclass : #SpartaStrokePainter,
-	#category : #'Sparta-Skia-Builders'
+	#name : 'SkiaStrokePainter',
+	#superclass : 'SpartaStrokePainter',
+	#category : 'Sparta-Skia-Builders'
 }
 
-{ #category : #'private - drawing' }
+{ #category : 'private - drawing' }
 SkiaStrokePainter >> optimizedStrokeRectangle: aRectangle withColor: aColor width: aWidth antialias: isAntialias [
 	canvas surfaceCanvas
 		strokeRectangle: aRectangle
@@ -13,7 +13,7 @@ SkiaStrokePainter >> optimizedStrokeRectangle: aRectangle withColor: aColor widt
 		antialias: isAntialias
 ]
 
-{ #category : #'private - drawing' }
+{ #category : 'private - drawing' }
 SkiaStrokePainter >> optimizedStrokeRoundedRectangle: aSpartaRoundedRectangle withColor: aColor width: aWidth antialias: isAntialias [
 	canvas surfaceCanvas
 		strokeRoundedRectangle: aSpartaRoundedRectangle
@@ -22,7 +22,7 @@ SkiaStrokePainter >> optimizedStrokeRoundedRectangle: aSpartaRoundedRectangle wi
 		antialias: isAntialias
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 SkiaStrokePainter >> setPaint: aSkiaPaint forColor: aColor [
 	| theDrawOptions theStrokeOptions |
 	
@@ -48,7 +48,7 @@ SkiaStrokePainter >> setPaint: aSkiaPaint forColor: aColor [
 	^ aSkiaPaint
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 SkiaStrokePainter >> setPaint: aSkiaPaint forFillShadow: aSkiaBoxShadowPaint [
 	| theDrawOptions |
 	
@@ -65,7 +65,7 @@ SkiaStrokePainter >> setPaint: aSkiaPaint forFillShadow: aSkiaBoxShadowPaint [
 	^ aSkiaPaint
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 SkiaStrokePainter >> setPaint: aSkiaPaint forGradient: aSkiaGradient [
 	| theDrawOptions theStrokeOptions |
 
@@ -91,7 +91,7 @@ SkiaStrokePainter >> setPaint: aSkiaPaint forGradient: aSkiaGradient [
 	^ aSkiaPaint
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 SkiaStrokePainter >> setPaint: aSkiaPaint forStrokeShadow: aSkiaBoxShadowPaint [
 	| theDrawOptions theStrokeOptions |
 	
@@ -113,7 +113,7 @@ SkiaStrokePainter >> setPaint: aSkiaPaint forStrokeShadow: aSkiaBoxShadowPaint [
 	^ aSkiaPaint
 ]
 
-{ #category : #drawing }
+{ #category : 'drawing' }
 SkiaStrokePainter >> strokeCircle: aSpartaCircle withBoxShadow: aSpartaBoxShadowPaint [
 	SkiaPaint newDuring: [ :aSkiaPaint |
 		canvas surfaceCanvas
@@ -121,7 +121,7 @@ SkiaStrokePainter >> strokeCircle: aSpartaCircle withBoxShadow: aSpartaBoxShadow
 			paint: (self setPaint: aSkiaPaint forFillShadow: aSpartaBoxShadowPaint) ]
 ]
 
-{ #category : #drawing }
+{ #category : 'drawing' }
 SkiaStrokePainter >> strokeCircle: aSpartaCircle withSolidColor: aColor [
 	SkiaPaint newDuring: [ :aSkiaPaint |
 		canvas surfaceCanvas
@@ -129,7 +129,7 @@ SkiaStrokePainter >> strokeCircle: aSpartaCircle withSolidColor: aColor [
 			paint: (self setPaint: aSkiaPaint forColor: aColor) ]
 ]
 
-{ #category : #drawing }
+{ #category : 'drawing' }
 SkiaStrokePainter >> strokeLine: aLine withBoxShadow: aSpartaBoxShadowPaint [
 	SkiaPaint newDuring: [ :aSkiaPaint |
 		canvas surfaceCanvas
@@ -137,7 +137,7 @@ SkiaStrokePainter >> strokeLine: aLine withBoxShadow: aSpartaBoxShadowPaint [
 			paint: (self setPaint: aSkiaPaint forStrokeShadow: aSpartaBoxShadowPaint) ]
 ]
 
-{ #category : #drawing }
+{ #category : 'drawing' }
 SkiaStrokePainter >> strokeLine: aLine withLinearGradient: aSpartaLinearGradient [
 	
 	SkiaPaint newDuring: [ :aSkiaPaint |
@@ -146,7 +146,7 @@ SkiaStrokePainter >> strokeLine: aLine withLinearGradient: aSpartaLinearGradient
 			paint: (self setPaint: aSkiaPaint forGradient: aSpartaLinearGradient) ]
 ]
 
-{ #category : #drawing }
+{ #category : 'drawing' }
 SkiaStrokePainter >> strokeLine: aLine withRadialGradient: aSpartaRadialGradient [
 	
 	SkiaPaint newDuring: [ :aSkiaPaint |
@@ -155,7 +155,7 @@ SkiaStrokePainter >> strokeLine: aLine withRadialGradient: aSpartaRadialGradient
 			paint: (self setPaint: aSkiaPaint forGradient: aSpartaRadialGradient) ]
 ]
 
-{ #category : #drawing }
+{ #category : 'drawing' }
 SkiaStrokePainter >> strokeLine: aLine withSolidColor: aColor [
 	
 	SkiaPaint newDuring: [ :aSkiaPaint |
@@ -164,7 +164,7 @@ SkiaStrokePainter >> strokeLine: aLine withSolidColor: aColor [
 			paint: (self setPaint: aSkiaPaint forColor: aColor) ]
 ]
 
-{ #category : #drawing }
+{ #category : 'drawing' }
 SkiaStrokePainter >> strokePath: aPath withBoxShadow: aSpartaBoxShadowPaint [
 	SkiaPaint newDuring: [ :aSkiaPaint |
 		canvas surfaceCanvas
@@ -172,7 +172,7 @@ SkiaStrokePainter >> strokePath: aPath withBoxShadow: aSpartaBoxShadowPaint [
 			paint: (self setPaint: aSkiaPaint forFillShadow: aSpartaBoxShadowPaint) ]
 ]
 
-{ #category : #drawing }
+{ #category : 'drawing' }
 SkiaStrokePainter >> strokePath: aPath withSolidColor: aColor [
 	SkiaPaint newDuring: [ :aSkiaPaint |
 		canvas surfaceCanvas
@@ -180,7 +180,7 @@ SkiaStrokePainter >> strokePath: aPath withSolidColor: aColor [
 			paint: (self setPaint: aSkiaPaint forColor: aColor) ]
 ]
 
-{ #category : #drawing }
+{ #category : 'drawing' }
 SkiaStrokePainter >> strokeRectangle: aRectangle withBoxShadow: aSpartaBoxShadowPaint [
 	SkiaPaint newDuring: [ :aSkiaPaint |
 		canvas surfaceCanvas
@@ -188,7 +188,7 @@ SkiaStrokePainter >> strokeRectangle: aRectangle withBoxShadow: aSpartaBoxShadow
 			paint: (self setPaint: aSkiaPaint forFillShadow: aSpartaBoxShadowPaint) ]
 ]
 
-{ #category : #drawing }
+{ #category : 'drawing' }
 SkiaStrokePainter >> strokeRectangle: aRectangle withLinearGradient: aSpartaLinearGradient [
 	
 	SkiaPaint newDuring: [ :aSkiaPaint |
@@ -197,7 +197,7 @@ SkiaStrokePainter >> strokeRectangle: aRectangle withLinearGradient: aSpartaLine
 			paint: (self setPaint: aSkiaPaint forGradient: aSpartaLinearGradient) ]
 ]
 
-{ #category : #drawing }
+{ #category : 'drawing' }
 SkiaStrokePainter >> strokeRectangle: aRectangle withRadialGradient: aSpartaRadialGradient [
 	
 	SkiaPaint newDuring: [ :aSkiaPaint |
@@ -206,7 +206,7 @@ SkiaStrokePainter >> strokeRectangle: aRectangle withRadialGradient: aSpartaRadi
 			paint: (self setPaint: aSkiaPaint forGradient: aSpartaRadialGradient) ]
 ]
 
-{ #category : #drawing }
+{ #category : 'drawing' }
 SkiaStrokePainter >> strokeRectangle: aRectangle withSolidColor: aColor [
 
 	SkiaPaint newDuring: [ :aSkiaPaint |
@@ -215,7 +215,7 @@ SkiaStrokePainter >> strokeRectangle: aRectangle withSolidColor: aColor [
 			paint: (self setPaint: aSkiaPaint forColor: aColor) ]
 ]
 
-{ #category : #drawing }
+{ #category : 'drawing' }
 SkiaStrokePainter >> strokeRoundedRectangle: aSpartaRectangle withBoxShadow: aSpartaBoxShadowPaint [
 	SkiaPaint newDuring: [ :aSkiaPaint |
 		canvas surfaceCanvas
@@ -223,7 +223,7 @@ SkiaStrokePainter >> strokeRoundedRectangle: aSpartaRectangle withBoxShadow: aSp
 			paint: (self setPaint: aSkiaPaint forFillShadow: aSpartaBoxShadowPaint) ]
 ]
 
-{ #category : #drawing }
+{ #category : 'drawing' }
 SkiaStrokePainter >> strokeRoundedRectangle: aSpartaRectangle withSolidColor: aColor [
 
 	SkiaPaint newDuring: [ :aSkiaPaint |

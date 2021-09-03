@@ -1,24 +1,24 @@
 Class {
-	#name : #SkiaParagraph,
-	#superclass : #SkiaExternalObject,
-	#category : #'Sparta-Skia-External'
+	#name : 'SkiaParagraph',
+	#superclass : 'SkiaExternalObject',
+	#category : 'Sparta-Skia-External'
 }
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaParagraph class >> primRelease: aHandle [
 	
 	"Plain pointers must be deleted using delete(), all users must implement a specific method"
 	self ffiCall: #(void skia_paragraph_drop(void** aHandle))
 ]
 
-{ #category : #'api - paragraph' }
+{ #category : 'api - paragraph' }
 SkiaParagraph >> charCount [
 	<return: #Number>
 	
 	^ self primGetCharCount
 ]
 
-{ #category : #'api - paragraph' }
+{ #category : 'api - paragraph' }
 SkiaParagraph >> charOffsetAbove: anOffset ifFound: aBlock ifNone: aNoneBlock [
 	"Find a character above a character with a given offset and evaluate a block if such character found"
 	| aCurrentLineIndex aLineHeightAbove|
@@ -34,7 +34,7 @@ SkiaParagraph >> charOffsetAbove: anOffset ifFound: aBlock ifNone: aNoneBlock [
 	^ aBlock value: (self charOffsetAt: ((self cursorRectangleForCharacter: anOffset) origin - (0 @ (aLineHeightAbove / 2.0))))
 ]
 
-{ #category : #'api - paragraph' }
+{ #category : 'api - paragraph' }
 SkiaParagraph >> charOffsetAt: aPoint [
 	"Find a character close to a given coordinate point within the paragraph and return character's offset from the start of the paragraph"
 	<return: #Number>
@@ -42,7 +42,7 @@ SkiaParagraph >> charOffsetAt: aPoint [
 	^ self primGetCharPositionAtX: aPoint x y: aPoint y
 ]
 
-{ #category : #'api - paragraph' }
+{ #category : 'api - paragraph' }
 SkiaParagraph >> charOffsetBelow: anOffset ifFound: aBlock ifNone: aNoneBlock [
 	"Find a character below a character with a given offset and evaluate a block if such character found"
 	| aCurrentLineIndex aLineHeightBelow aCursorRectangle |
@@ -59,12 +59,12 @@ SkiaParagraph >> charOffsetBelow: anOffset ifFound: aBlock ifNone: aNoneBlock [
 	^ aBlock value: (self charOffsetAt: (aCursorRectangle corner + (0 @ (aLineHeightBelow / 2.0))))
 ]
 
-{ #category : #'api - paragraph' }
+{ #category : 'api - paragraph' }
 SkiaParagraph >> cursorGlyphsForCharacter: anOffset [
 	^ self glyphsForChars: (self cursorIntervalForCharacter: anOffset)
 ]
 
-{ #category : #'api - paragraph' }
+{ #category : 'api - paragraph' }
 SkiaParagraph >> cursorIntervalForCharacter: anOffset [
 	| aCharFrom aCharTo |
 
@@ -76,7 +76,7 @@ SkiaParagraph >> cursorIntervalForCharacter: anOffset [
 	^ aCharFrom to: aCharTo
 ]
 
-{ #category : #'api - paragraph' }
+{ #category : 'api - paragraph' }
 SkiaParagraph >> cursorRectangleForCharacter: anOffset [
 	| theRectangles |
 
@@ -98,7 +98,7 @@ SkiaParagraph >> cursorRectangleForCharacter: anOffset [
 		ifEmpty: [ 0@0 extent: (0 @ (self lineHeightForCharacter: anOffset)) ]
 ]
 
-{ #category : #'api - paragraph' }
+{ #category : 'api - paragraph' }
 SkiaParagraph >> glyphsForChars: anInterval [
 	"An interval should be given in cursor coordinates"
 
@@ -110,17 +110,17 @@ SkiaParagraph >> glyphsForChars: anInterval [
 		during: [ :aRange | aRange asInterval ]
 ]
 
-{ #category : #'api - paragraph' }
+{ #category : 'api - paragraph' }
 SkiaParagraph >> height [
 	^ self primGetHeight
 ]
 
-{ #category : #'api - paragraph' }
+{ #category : 'api - paragraph' }
 SkiaParagraph >> layoutWithWidth: aWidth [
 	self primLayout: aWidth
 ]
 
-{ #category : #'api - paragraph' }
+{ #category : 'api - paragraph' }
 SkiaParagraph >> lineCount [
 	"Return the amount of lines in the paragraph"
 	<return: #Number>
@@ -128,7 +128,7 @@ SkiaParagraph >> lineCount [
 	^ self primGetLineNumber max: 1
 ]
 
-{ #category : #'api - paragraph' }
+{ #category : 'api - paragraph' }
 SkiaParagraph >> lineHeightAt: anIndex [
 	"Return the line height for a given line index"
 	<return: #Number>
@@ -140,7 +140,7 @@ SkiaParagraph >> lineHeightAt: anIndex [
 	^ self primGetLineHeight: (((anIndex - 1) min: (self lineCount - 1)) max: 0)
 ]
 
-{ #category : #'api - paragraph' }
+{ #category : 'api - paragraph' }
 SkiaParagraph >> lineHeightForCharacter: anOffset [
 	"Return the line height for a given character offset"
 	<return: #Number>
@@ -148,7 +148,7 @@ SkiaParagraph >> lineHeightForCharacter: anOffset [
 	^ self lineHeightAt: (self lineIndexForCharacter: anOffset)
 ]
 
-{ #category : #'api - paragraph' }
+{ #category : 'api - paragraph' }
 SkiaParagraph >> lineIndexForCharacter: anOffset [
 	"Return the line index for a character offset"
 	<return: #Number>
@@ -156,17 +156,17 @@ SkiaParagraph >> lineIndexForCharacter: anOffset [
 	^ ((self primGetLineIndexForChar: anOffset) + 1) min: self lineCount
 ]
 
-{ #category : #'api - paragraph' }
+{ #category : 'api - paragraph' }
 SkiaParagraph >> longestLine [
 	^ self primGetLongestLine
 ]
 
-{ #category : #'api - paragraph' }
+{ #category : 'api - paragraph' }
 SkiaParagraph >> maxWidth [
 	^ self primGetMaxWidth
 ]
 
-{ #category : #'api - paragraph' }
+{ #category : 'api - paragraph' }
 SkiaParagraph >> paintOn: aSkiaCanvas at: aPoint [
 	self
 		primPaint: aSkiaCanvas surfaceCanvas
@@ -174,7 +174,7 @@ SkiaParagraph >> paintOn: aSkiaCanvas at: aPoint [
 		y: aPoint y
 ]
 
-{ #category : #'api - paragraph' }
+{ #category : 'api - paragraph' }
 SkiaParagraph >> placeholderRectangles [
 	^ GtBoxerArrayPointF32
 		fromNativeHandle: self primGetRectsForPlaceholders
@@ -183,57 +183,57 @@ SkiaParagraph >> placeholderRectangles [
 				pairsCollect: [ :origin :corner | Rectangle origin: origin corner: corner ] ]
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaParagraph >> primGetCharCount [
 	^ self ffiCall: #(size_t skia_paragraph_get_char_count(self))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaParagraph >> primGetCharPositionAtX: aX y: aY [
 	^ self ffiCall: #(size_t skia_paragraph_get_char_position_at_coordinate(self, scalar aX, scalar aY))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaParagraph >> primGetGlyphPositionAtX: aX y: aY [
 	^ self ffiCall: #(int32 skia_paragraph_get_glyph_position_at_coordinate(self, scalar aX, scalar aY))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaParagraph >> primGetGlyphRangeForCharFrom: aStart to: anEnd [
 	^ self ffiCall: #(void* skia_paragraph_get_glyph_range_for_char_range(self, size_t aStart, size_t anEnd))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaParagraph >> primGetHeight [
 	^ self ffiCall: #(scalar skia_paragraph_get_height(self))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaParagraph >> primGetLineHeight: anIndex [
 	^ self ffiCall: #(scalar skia_paragraph_get_line_height(self, size_t anIndex))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaParagraph >> primGetLineIndexForChar: anIndex [
 	^ self ffiCall: #(size_t skia_paragraph_get_line_index_for_char(self, size_t anIndex))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaParagraph >> primGetLineNumber [
 	^ self ffiCall: #(size_t skia_paragraph_get_line_number(self))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaParagraph >> primGetLongestLine [
 	^ self ffiCall: #(scalar skia_paragraph_get_longest_line(self))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaParagraph >> primGetMaxWidth [
 	^ self ffiCall: #(scalar skia_paragraph_get_max_width(self))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaParagraph >> primGetRectsForCharRangeFrom: aStart to: anEnd heightStyle: aSkiaParagraphRectHeightStyle widthStyle: aSkiaParagraphRectWidthStyle [
 	^ self ffiCall: #(void* skia_paragraph_get_rects_for_char_range(
 		self,
@@ -243,7 +243,7 @@ SkiaParagraph >> primGetRectsForCharRangeFrom: aStart to: anEnd heightStyle: aSk
 		SkiaParagraphRectWidthStyle aSkiaParagraphRectWidthStyle))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaParagraph >> primGetRectsForGlyphRangeFrom: aStart to: anEnd heightStyle: aSkiaParagraphRectHeightStyle widthStyle: aSkiaParagraphRectWidthStyle [
 	^ self ffiCall: #(void* skia_paragraph_get_rects_for_glyph_range(
 		self,
@@ -253,27 +253,27 @@ SkiaParagraph >> primGetRectsForGlyphRangeFrom: aStart to: anEnd heightStyle: aS
 		SkiaParagraphRectWidthStyle aSkiaParagraphRectWidthStyle))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaParagraph >> primGetRectsForPlaceholders [
 	^ self ffiCall: #(void* skia_paragraph_get_rects_for_placeholders(self))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaParagraph >> primLayout: aWidth [
 	self ffiCall: #(void skia_paragraph_layout(self, scalar aWidth))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaParagraph >> primPaint: aCanvas x: aX y: aY [
 	self ffiCall: #(void skia_paragraph_paint(self, SkiaSurfaceCanvas aCanvas, scalar aX, scalar aY))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaParagraph >> print [
 	self ffiCall: #(void skia_paragraph_print(self))
 ]
 
-{ #category : #'api - paragraph' }
+{ #category : 'api - paragraph' }
 SkiaParagraph >> rectanglesForChars: anInterval width: aWidthStyle height: aHeightStyle [
 	"An interval should be given in cursor coordinates"
 

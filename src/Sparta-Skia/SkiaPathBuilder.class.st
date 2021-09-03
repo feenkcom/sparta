@@ -1,31 +1,31 @@
 Class {
-	#name : #SkiaPathBuilder,
-	#superclass : #Object,
+	#name : 'SkiaPathBuilder',
+	#superclass : 'Object',
 	#traits : 'TSpartaPathBuilder',
 	#classTraits : 'TSpartaPathBuilder classTrait',
 	#instVars : [
 		'path',
 		'isAbsolute'
 	],
-	#category : #'Sparta-Skia-Builders'
+	#category : 'Sparta-Skia-Builders'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 SkiaPathBuilder class >> evenOdd: aSpartaCanvas [
 	^ self new fillType: SkiaPathFillType EvenOdd
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 SkiaPathBuilder class >> winding: aSpartaCanvas [
 	^ self new fillType: SkiaPathFillType Winding
 ]
 
-{ #category : #'path commands' }
+{ #category : 'path commands' }
 SkiaPathBuilder >> absolute [
 	isAbsolute := true
 ]
 
-{ #category : #'path commands' }
+{ #category : 'path commands' }
 SkiaPathBuilder >> arcAround: aCenterPoint radius: aRadius startAngle: aStartAngle endAngle: anEndAngle [
 	| aRectangle aSweepAngle amountOfArcs theRestAngle aSignedPi |
 	
@@ -53,7 +53,7 @@ SkiaPathBuilder >> arcAround: aCenterPoint radius: aRadius startAngle: aStartAng
 	path arcTo: aRectangle start: (anEndAngle - theRestAngle) radiansToDegrees sweep: theRestAngle radiansToDegrees forceMove: false absolute: isAbsolute
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 SkiaPathBuilder >> arcTo: aToPoint angle: anAngle cw: isClockwise [
 	"Add a clockwise arc segment, starting from current path endpoint and
 	ending at andPt. Angle should be specified in radians.
@@ -106,12 +106,12 @@ SkiaPathBuilder >> arcTo: aToPoint angle: anAngle cw: isClockwise [
 		endAngle: anEndAngle
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaPathBuilder >> canvas: aCanvas [
 	"we don't need canvas"
 ]
 
-{ #category : #'path commands' }
+{ #category : 'path commands' }
 SkiaPathBuilder >> close [
 	"Close the current figure, this will essentially generate a line segment
  	from the current point to the starting point for the current figure"
@@ -119,7 +119,7 @@ SkiaPathBuilder >> close [
 	path close
 ]
 
-{ #category : #'path commands' }
+{ #category : 'path commands' }
 SkiaPathBuilder >> currentPoint [
 	"Point the current subpath is at - or where the next subpath will start
 	if there is no active subpath."
@@ -129,31 +129,31 @@ SkiaPathBuilder >> currentPoint [
 	^ 0@0
 ]
 
-{ #category : #'path commands' }
+{ #category : 'path commands' }
 SkiaPathBuilder >> curveVia: aControlPoint and: anOtherControlPoint to: anEndPoint [
 	isAbsolute
 		ifTrue: [ path cubicTo: anEndPoint via: aControlPoint and: anOtherControlPoint ]
 		ifFalse: [ path cubicBy: anEndPoint via: aControlPoint and: anOtherControlPoint ]
 ]
 
-{ #category : #'path commands' }
+{ #category : 'path commands' }
 SkiaPathBuilder >> curveVia: aControlPoint to: anEndPoint [
 	isAbsolute
 		ifTrue: [ path quadTo: anEndPoint via: aControlPoint ]
 		ifFalse: [ path quadBy: anEndPoint via: aControlPoint ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaPathBuilder >> fillType: aSkiaPathFillType [
 	path fillType: aSkiaPathFillType
 ]
 
-{ #category : #'path commands' }
+{ #category : 'path commands' }
 SkiaPathBuilder >> finish [
 	^ path
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SkiaPathBuilder >> initialize [
 	super initialize.
 	
@@ -161,21 +161,21 @@ SkiaPathBuilder >> initialize [
 	isAbsolute := true
 ]
 
-{ #category : #'path commands' }
+{ #category : 'path commands' }
 SkiaPathBuilder >> lineTo: aPoint [
 	isAbsolute
 		ifTrue: [ path lineTo: aPoint ]
 		ifFalse: [ path lineBy: aPoint ]
 ]
 
-{ #category : #'path commands' }
+{ #category : 'path commands' }
 SkiaPathBuilder >> moveTo: aPoint [
 	isAbsolute
 		ifTrue: [ path moveTo: aPoint ]
 		ifFalse: [ path moveBy: aPoint ]
 ]
 
-{ #category : #'path commands' }
+{ #category : 'path commands' }
 SkiaPathBuilder >> relative [
 	isAbsolute := false
 ]

@@ -1,30 +1,30 @@
 Class {
-	#name : #SkiaBinaryFillRectangle,
-	#superclass : #SkiaBinaryCommand,
+	#name : 'SkiaBinaryFillRectangle',
+	#superclass : 'SkiaBinaryCommand',
 	#instVars : [
 		'rectangle'
 	],
-	#category : #'Sparta-Skia-Binary'
+	#category : 'Sparta-Skia-Binary'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaBinaryFillRectangle >> rectangle [
 	^ rectangle
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaBinaryFillRectangle >> rectangle: anObject [
 	rectangle := anObject
 ]
 
-{ #category : #running }
+{ #category : 'running' }
 SkiaBinaryFillRectangle >> streamOn: aBinaryStream [
 	super streamOn: aBinaryStream.
 	
 	aBinaryStream rectangle: rectangle
 ]
 
-{ #category : #generated }
+{ #category : 'generated' }
 SkiaBinaryFillRectangle >> type [
 	^ SkiaBinaryCommandType FillRectangle
 ]

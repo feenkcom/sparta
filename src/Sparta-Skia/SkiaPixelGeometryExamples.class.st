@@ -1,10 +1,10 @@
 Class {
-	#name : #SkiaPixelGeometryExamples,
-	#superclass : #SkiaExternalEnumerationExamples,
-	#category : #'Sparta-Skia-Examples'
+	#name : 'SkiaPixelGeometryExamples',
+	#superclass : 'SkiaExternalEnumerationExamples',
+	#category : 'Sparta-Skia-Examples'
 }
 
-{ #category : #examples }
+{ #category : 'examples' }
 SkiaPixelGeometryExamples >> validateLayout [
 	<gtExample>
 	

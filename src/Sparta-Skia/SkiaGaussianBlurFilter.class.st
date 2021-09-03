@@ -1,27 +1,27 @@
 Class {
-	#name : #SkiaGaussianBlurFilter,
-	#superclass : #SkiaSingleSourceFilter,
+	#name : 'SkiaGaussianBlurFilter',
+	#superclass : 'SkiaSingleSourceFilter',
 	#traits : 'TSpartaGaussianBlurFilter',
 	#classTraits : 'TSpartaGaussianBlurFilter classTrait',
 	#instVars : [
 		'sigma'
 	],
-	#category : #'Sparta-Skia-Filters'
+	#category : 'Sparta-Skia-Filters'
 }
 
-{ #category : #converting }
+{ #category : 'converting' }
 SkiaGaussianBlurFilter >> asSkiaImageFilterOn: aSkiaFilterPainter during: aBlock [
 	SkiaImageFilterBlur sigma: sigma asPoint during: aBlock
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SkiaGaussianBlurFilter >> initialize [
 	super initialize.
 	
 	sigma := 0
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaGaussianBlurFilter >> stdDeviation: aFloat [
 	sigma := aFloat
 ]

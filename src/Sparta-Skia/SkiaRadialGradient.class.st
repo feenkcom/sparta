@@ -1,16 +1,16 @@
 Class {
-	#name : #SkiaRadialGradient,
-	#superclass : #SkiaGradient,
+	#name : 'SkiaRadialGradient',
+	#superclass : 'SkiaGradient',
 	#traits : 'TSpartaRadialGradientPaint',
 	#classTraits : 'TSpartaRadialGradientPaint classTrait',
 	#instVars : [
 		'center',
 		'radius'
 	],
-	#category : #'Sparta-Skia-Paints'
+	#category : 'Sparta-Skia-Paints'
 }
 
-{ #category : #converting }
+{ #category : 'converting' }
 SkiaRadialGradient >> asShader [
 	| theColors thePositions |
 	
@@ -27,19 +27,19 @@ SkiaRadialGradient >> asShader [
 		matrix: self transformation
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaRadialGradient >> center [
 	<return: #Point>
 
 	^ center
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaRadialGradient >> center: aPoint [
 	center := aPoint
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SkiaRadialGradient >> initialize [
 	super initialize.
 	
@@ -47,14 +47,14 @@ SkiaRadialGradient >> initialize [
 	radius := 0
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaRadialGradient >> radius [
 	<return: #Number>
 
 	^ radius
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaRadialGradient >> radius: aNumber [
 	radius := aNumber
 ]

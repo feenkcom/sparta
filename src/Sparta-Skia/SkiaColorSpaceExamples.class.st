@@ -1,10 +1,10 @@
 Class {
-	#name : #SkiaColorSpaceExamples,
-	#superclass : #SkiaExternalObjectExamples,
-	#category : #'Sparta-Skia-Examples'
+	#name : 'SkiaColorSpaceExamples',
+	#superclass : 'SkiaExternalObjectExamples',
+	#category : 'Sparta-Skia-Examples'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaColorSpaceExamples >> default [
 	<gtExample>
 	| aColorSpace |
@@ -14,7 +14,7 @@ SkiaColorSpaceExamples >> default [
 	^ aColorSpace
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaColorSpaceExamples >> releaseDefault [
 	<gtExample>
 	| aColorSpace |

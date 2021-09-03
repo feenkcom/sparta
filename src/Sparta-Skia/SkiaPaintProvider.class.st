@@ -1,25 +1,25 @@
 Class {
-	#name : #SkiaPaintProvider,
-	#superclass : #SpartaPaintProvider,
-	#category : #'Sparta-Skia-Builders'
+	#name : 'SkiaPaintProvider',
+	#superclass : 'SpartaPaintProvider',
+	#category : 'Sparta-Skia-Builders'
 }
 
-{ #category : #paints }
+{ #category : 'paints' }
 SkiaPaintProvider >> boxShadow [
 	^ SkiaBoxShadowPaint new
 ]
 
-{ #category : #paints }
+{ #category : 'paints' }
 SkiaPaintProvider >> linearGradient [
 	^ SkiaLinearGradient new
 ]
 
-{ #category : #paints }
+{ #category : 'paints' }
 SkiaPaintProvider >> radialGradient [
 	^ SkiaRadialGradient new
 ]
 
-{ #category : #paints }
+{ #category : 'paints' }
 SkiaPaintProvider >> surface [
 	^ SkiaSurfacePaint new
 ]

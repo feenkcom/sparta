@@ -1,9 +1,9 @@
 Class {
-	#name : #SkiaFontCache,
-	#superclass : #Object,
+	#name : 'SkiaFontCache',
+	#superclass : 'Object',
 	#instVars : [
 		'session',
 		'fonts'
 	],
-	#category : #'Sparta-Skia-External'
+	#category : 'Sparta-Skia-External'
 }

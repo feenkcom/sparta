@@ -1,10 +1,10 @@
 Class {
-	#name : #SkiaTransformationBuilder,
-	#superclass : #SpartaTransformationBuilder,
-	#category : #'Sparta-Skia-Builders'
+	#name : 'SkiaTransformationBuilder',
+	#superclass : 'SpartaTransformationBuilder',
+	#category : 'Sparta-Skia-Builders'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaTransformationBuilder >> current [
 	"Return a current transformation matrix of the canvas"
 	<return: #SpartaMatrix>
@@ -12,7 +12,7 @@ SkiaTransformationBuilder >> current [
 	^ canvas surfaceCanvas getMatrix
 ]
 
-{ #category : #transformation }
+{ #category : 'transformation' }
 SkiaTransformationBuilder >> pop: aSpartaTransformation [
 	| aSurfaceCanvas |
 	
@@ -28,7 +28,7 @@ SkiaTransformationBuilder >> pop: aSpartaTransformation [
 		eachOperation reverseConcatenationDo: [ :matrix | aSurfaceCanvas concatMatrix: matrix ] ]
 ]
 
-{ #category : #transformation }
+{ #category : 'transformation' }
 SkiaTransformationBuilder >> push: aSpartaTransformation [
 	| aSurfaceCanvas |
 	

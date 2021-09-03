@@ -1,6 +1,6 @@
 Class {
-	#name : #SkiaEncodedImageFormat,
-	#superclass : #SkiaExternalEnumeration,
+	#name : 'SkiaEncodedImageFormat',
+	#superclass : 'SkiaExternalEnumeration',
 	#classVars : [
 		'ASTC',
 		'BMP',
@@ -15,82 +15,82 @@ Class {
 		'WBMP',
 		'WEBP'
 	],
-	#category : #'Sparta-Skia-External'
+	#category : 'Sparta-Skia-External'
 }
 
-{ #category : #'accessing enum' }
+{ #category : 'accessing enum' }
 SkiaEncodedImageFormat class >> ASTC [
 	"This method was automatically generated"
 	^ ASTC
 ]
 
-{ #category : #'accessing enum' }
+{ #category : 'accessing enum' }
 SkiaEncodedImageFormat class >> BMP [
 	"This method was automatically generated"
 	^ BMP
 ]
 
-{ #category : #'accessing enum' }
+{ #category : 'accessing enum' }
 SkiaEncodedImageFormat class >> DNG [
 	"This method was automatically generated"
 	^ DNG
 ]
 
-{ #category : #'accessing enum' }
+{ #category : 'accessing enum' }
 SkiaEncodedImageFormat class >> GIF [
 	"This method was automatically generated"
 	^ GIF
 ]
 
-{ #category : #'accessing enum' }
+{ #category : 'accessing enum' }
 SkiaEncodedImageFormat class >> HEIF [
 	"This method was automatically generated"
 	^ HEIF
 ]
 
-{ #category : #'accessing enum' }
+{ #category : 'accessing enum' }
 SkiaEncodedImageFormat class >> ICO [
 	"This method was automatically generated"
 	^ ICO
 ]
 
-{ #category : #'accessing enum' }
+{ #category : 'accessing enum' }
 SkiaEncodedImageFormat class >> JPEG [
 	"This method was automatically generated"
 	^ JPEG
 ]
 
-{ #category : #'accessing enum' }
+{ #category : 'accessing enum' }
 SkiaEncodedImageFormat class >> KTX [
 	"This method was automatically generated"
 	^ KTX
 ]
 
-{ #category : #'accessing enum' }
+{ #category : 'accessing enum' }
 SkiaEncodedImageFormat class >> PKM [
 	"This method was automatically generated"
 	^ PKM
 ]
 
-{ #category : #'accessing enum' }
+{ #category : 'accessing enum' }
 SkiaEncodedImageFormat class >> PNG [
 	"This method was automatically generated"
 	^ PNG
 ]
 
-{ #category : #'accessing enum' }
+{ #category : 'accessing enum' }
 SkiaEncodedImageFormat class >> WBMP [
 	"This method was automatically generated"
 	^ WBMP
 ]
 
-{ #category : #'accessing enum' }
+{ #category : 'accessing enum' }
 SkiaEncodedImageFormat class >> WEBP [
 	"This method was automatically generated"
 	^ WEBP
 ]
 
-{ #category : #'enum declaration' }
+{ #category : 'enum declaration' }
 SkiaEncodedImageFormat class >> externalDeclaration [
 	"
 	self rebuildEnumAccessors
@@ -112,17 +112,17 @@ SkiaEncodedImageFormat class >> externalDeclaration [
 )
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaEncodedImageFormat class >> externalType [
 	^ FFIInt32 new
 ]
 
-{ #category : #'class initialization' }
+{ #category : 'class initialization' }
 SkiaEncodedImageFormat class >> initialize [
 	super initialize
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaEncodedImageFormat >> primRealName: aBoxerString [
 	^ self ffiCall: #(void skia_enums_encoded_image_format_to_string(self, GtBoxerString aBoxerString))
 ]

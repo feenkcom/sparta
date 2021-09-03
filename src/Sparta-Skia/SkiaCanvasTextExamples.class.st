@@ -1,12 +1,12 @@
 Class {
-	#name : #SkiaCanvasTextExamples,
-	#superclass : #Object,
+	#name : 'SkiaCanvasTextExamples',
+	#superclass : 'Object',
 	#traits : 'TSpartaTextExamples',
 	#classTraits : 'TSpartaTextExamples classTrait',
-	#category : #'Sparta-Skia-Examples'
+	#category : 'Sparta-Skia-Examples'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaCanvasTextExamples class >> canvas: anExtent [
 	^ SkiaCanvas extent: anExtent
 ]

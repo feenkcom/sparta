@@ -1,10 +1,10 @@
 Class {
-	#name : #SkiaFillPainter,
-	#superclass : #SpartaFillPainter,
-	#category : #'Sparta-Skia-Builders'
+	#name : 'SkiaFillPainter',
+	#superclass : 'SpartaFillPainter',
+	#category : 'Sparta-Skia-Builders'
 }
 
-{ #category : #drawing }
+{ #category : 'drawing' }
 SkiaFillPainter >> fillCircle: aSpartaCircle withLinearGradient: aSpartaLinearGradient [
 
 	SkiaPaint newDuring: [ :aSkiaPaint |
@@ -13,7 +13,7 @@ SkiaFillPainter >> fillCircle: aSpartaCircle withLinearGradient: aSpartaLinearGr
 			paint: (self setPaint: aSkiaPaint forGradient: aSpartaLinearGradient) ]
 ]
 
-{ #category : #drawing }
+{ #category : 'drawing' }
 SkiaFillPainter >> fillCircle: aSpartaCircle withRadialGradient: aSpartaRadialGradient [
 
 	SkiaPaint newDuring: [ :aSkiaPaint |
@@ -22,7 +22,7 @@ SkiaFillPainter >> fillCircle: aSpartaCircle withRadialGradient: aSpartaRadialGr
 			paint: (self setPaint: aSkiaPaint forGradient: aSpartaRadialGradient) ]
 ]
 
-{ #category : #drawing }
+{ #category : 'drawing' }
 SkiaFillPainter >> fillCircle: aSpartaCircle withSolidColor: aColor [
 		
 	SkiaPaint newDuring: [ :aSkiaPaint |
@@ -31,7 +31,7 @@ SkiaFillPainter >> fillCircle: aSpartaCircle withSolidColor: aColor [
 			paint: (self setPaint: aSkiaPaint forColor: aColor) ]
 ]
 
-{ #category : #drawing }
+{ #category : 'drawing' }
 SkiaFillPainter >> fillPath: aPath withLinearGradient: aSpartaLinearGradient [
 
 	SkiaPaint newDuring: [ :aSkiaPaint |
@@ -40,7 +40,7 @@ SkiaFillPainter >> fillPath: aPath withLinearGradient: aSpartaLinearGradient [
 			paint: (self setPaint: aSkiaPaint forGradient: aSpartaLinearGradient) ]
 ]
 
-{ #category : #drawing }
+{ #category : 'drawing' }
 SkiaFillPainter >> fillPath: aPath withRadialGradient: aSpartaRadialGradient [
 
 	SkiaPaint newDuring: [ :aSkiaPaint |
@@ -49,7 +49,7 @@ SkiaFillPainter >> fillPath: aPath withRadialGradient: aSpartaRadialGradient [
 			paint: (self setPaint: aSkiaPaint forGradient: aSpartaRadialGradient) ]
 ]
 
-{ #category : #drawing }
+{ #category : 'drawing' }
 SkiaFillPainter >> fillPath: aPath withSolidColor: aColor [
 	
 	SkiaPaint newDuring: [ :aSkiaPaint |
@@ -58,7 +58,7 @@ SkiaFillPainter >> fillPath: aPath withSolidColor: aColor [
 			paint: (self setPaint: aSkiaPaint forColor: aColor) ]
 ]
 
-{ #category : #drawing }
+{ #category : 'drawing' }
 SkiaFillPainter >> fillRectangle: aRectangle withForm: aForm [
 	SkiaPaint newDuring: [ :aSkiaPaint |
 		canvas surfaceCanvas
@@ -67,7 +67,7 @@ SkiaFillPainter >> fillRectangle: aRectangle withForm: aForm [
 			paint: (self setPaint: aSkiaPaint forForm: aForm) ]
 ]
 
-{ #category : #drawing }
+{ #category : 'drawing' }
 SkiaFillPainter >> fillRectangle: aRectangle withLinearGradient: aSpartaLinearGradient [
 	
 	SkiaPaint newDuring: [ :aSkiaPaint |
@@ -76,7 +76,7 @@ SkiaFillPainter >> fillRectangle: aRectangle withLinearGradient: aSpartaLinearGr
 			paint: (self setPaint: aSkiaPaint forGradient: aSpartaLinearGradient) ]
 ]
 
-{ #category : #drawing }
+{ #category : 'drawing' }
 SkiaFillPainter >> fillRectangle: aRectangle withRadialGradient: aSpartaRadialGradient [
 
 	SkiaPaint newDuring: [ :aSkiaPaint |
@@ -85,7 +85,7 @@ SkiaFillPainter >> fillRectangle: aRectangle withRadialGradient: aSpartaRadialGr
 			paint: (self setPaint: aSkiaPaint forGradient: aSpartaRadialGradient) ]
 ]
 
-{ #category : #drawing }
+{ #category : 'drawing' }
 SkiaFillPainter >> fillRectangle: aRectangle withSolidColor: aColor [
 
 	self requiresPaintForColor ifFalse: [
@@ -100,7 +100,7 @@ SkiaFillPainter >> fillRectangle: aRectangle withSolidColor: aColor [
 			paint: (self setPaint: aSkiaPaint forColor: aColor) ]
 ]
 
-{ #category : #drawing }
+{ #category : 'drawing' }
 SkiaFillPainter >> fillRectangle: aRectangle withSurface: aSpartaSurfacePaint [
 
 	aSpartaSurfacePaint needsShader
@@ -123,7 +123,7 @@ SkiaFillPainter >> fillRectangle: aRectangle withSurface: aSpartaSurfacePaint [
 				paint: (self setPaint: aSkiaPaint forSurface: aSpartaSurfacePaint) ] ]
 ]
 
-{ #category : #drawing }
+{ #category : 'drawing' }
 SkiaFillPainter >> fillRoundedRectangle: aSpartaRounedRectangle withLinearGradient: aSpartaLinearGradient [
 
 	SkiaPaint newDuring: [ :aSkiaPaint |
@@ -132,7 +132,7 @@ SkiaFillPainter >> fillRoundedRectangle: aSpartaRounedRectangle withLinearGradie
 			paint: (self setPaint: aSkiaPaint forGradient: aSpartaLinearGradient) ]
 ]
 
-{ #category : #drawing }
+{ #category : 'drawing' }
 SkiaFillPainter >> fillRoundedRectangle: aSpartaRounedRectangle withRadialGradient: aSpartaRadialGradient [
 
 	SkiaPaint newDuring: [ :aSkiaPaint |
@@ -141,7 +141,7 @@ SkiaFillPainter >> fillRoundedRectangle: aSpartaRounedRectangle withRadialGradie
 			paint: (self setPaint: aSkiaPaint forGradient: aSpartaRadialGradient) ]
 ]
 
-{ #category : #drawing }
+{ #category : 'drawing' }
 SkiaFillPainter >> fillRoundedRectangle: aSpartaRoundedRectangle withSolidColor: aColor [
 
 	"blend mode = SrcOver, alpha = 1, antialias = true"
@@ -157,7 +157,7 @@ SkiaFillPainter >> fillRoundedRectangle: aSpartaRoundedRectangle withSolidColor:
 			paint: (self setPaint: aSkiaPaint forColor: aColor) ]
 ]
 
-{ #category : #'private - accessing' }
+{ #category : 'private - accessing' }
 SkiaFillPainter >> getAlpha [
 	<return: #Boolean>
 
@@ -166,7 +166,7 @@ SkiaFillPainter >> getAlpha [
 		ifNotNil: [ drawOptions alpha ]
 ]
 
-{ #category : #'private - accessing' }
+{ #category : 'private - accessing' }
 SkiaFillPainter >> getAntialias [
 	<return: #Boolean>
 
@@ -175,7 +175,7 @@ SkiaFillPainter >> getAntialias [
 		ifNotNil: [ drawOptions antialias ]
 ]
 
-{ #category : #'private - drawing' }
+{ #category : 'private - drawing' }
 SkiaFillPainter >> optimizedFillRectangle: aRectangle withColor: aColor antialias: isAntialias [
 	canvas surfaceCanvas
 		fillRectangle: aRectangle
@@ -183,7 +183,7 @@ SkiaFillPainter >> optimizedFillRectangle: aRectangle withColor: aColor antialia
 		antialias: isAntialias
 ]
 
-{ #category : #'private - drawing' }
+{ #category : 'private - drawing' }
 SkiaFillPainter >> optimizedFillRectangle: aRectangle withSurface: aSpartaSurfacePaint [
 	aSpartaSurfacePaint image snapshotDuring: [ :aSkiaImage |
 		canvas surfaceCanvas
@@ -191,7 +191,7 @@ SkiaFillPainter >> optimizedFillRectangle: aRectangle withSurface: aSpartaSurfac
 			at: aRectangle origin ]
 ]
 
-{ #category : #'private - drawing' }
+{ #category : 'private - drawing' }
 SkiaFillPainter >> optimizedFillRoundedRectangle: aSpartaRoundedRectangle withColor: aColor antialias: isAntialias [
 	canvas surfaceCanvas
 		fillRoundedRectangle: aSpartaRoundedRectangle
@@ -199,7 +199,7 @@ SkiaFillPainter >> optimizedFillRoundedRectangle: aSpartaRoundedRectangle withCo
 		antialias: isAntialias
 ]
 
-{ #category : #'private - drawing' }
+{ #category : 'private - drawing' }
 SkiaFillPainter >> requiresPaintForColor [
 	<return: #Boolean>
 	
@@ -210,7 +210,7 @@ SkiaFillPainter >> requiresPaintForColor [
 		or: [ (drawOptions alpha closeTo: 1.0) not ]
 ]
 
-{ #category : #'private - drawing' }
+{ #category : 'private - drawing' }
 SkiaFillPainter >> requiresPaintForSurface: aSkiaSurfacePaint [
 	<return: #Boolean>
 	
@@ -223,7 +223,7 @@ SkiaFillPainter >> requiresPaintForSurface: aSkiaSurfacePaint [
 				or: [ aSkiaSurfacePaint filterQuality ~= SkiaPaint defaultFilterQuality ] ] ]
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 SkiaFillPainter >> setPaint: aSkiaPaint forColor: aColor [
 	| theDrawOptions |
 
@@ -236,7 +236,7 @@ SkiaFillPainter >> setPaint: aSkiaPaint forColor: aColor [
 	^ aSkiaPaint
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 SkiaFillPainter >> setPaint: aSkiaPaint forForm: aSurface [
 	| theDrawOptions |
 
@@ -249,7 +249,7 @@ SkiaFillPainter >> setPaint: aSkiaPaint forForm: aSurface [
 	^ aSkiaPaint
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 SkiaFillPainter >> setPaint: aSkiaPaint forGradient: aSkiaGradient [
 	| theDrawOptions |
 
@@ -262,7 +262,7 @@ SkiaFillPainter >> setPaint: aSkiaPaint forGradient: aSkiaGradient [
 	^ aSkiaPaint
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 SkiaFillPainter >> setPaint: aSkiaPaint forSurface: aSkiaSurfacePaint [
 	| theDrawOptions |
 

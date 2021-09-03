@@ -1,18 +1,18 @@
 Class {
-	#name : #SkiaPerformanceLogger,
-	#superclass : #MemoryLogger,
+	#name : 'SkiaPerformanceLogger',
+	#superclass : 'MemoryLogger',
 	#instVars : [
 		'interestingSignals'
 	],
-	#category : #'Sparta-Skia-Telemetry'
+	#category : 'Sparta-Skia-Telemetry'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 SkiaPerformanceLogger class >> on: aSignalClassOrCollection [
 	^ self new signals: aSignalClassOrCollection
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaPerformanceLogger >> gtPerformanceTreeFor: aView [
 	<gtView>
 	^ aView explicit
@@ -44,19 +44,19 @@ SkiaPerformanceLogger >> gtPerformanceTreeFor: aView [
 				create ]
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SkiaPerformanceLogger >> initialize [
 	super initialize.
 	
 	interestingSignals := #()
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SkiaPerformanceLogger >> interestingSignals [
 	^ interestingSignals
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaPerformanceLogger >> nextPut: aSignal [
 	(self interestingSignals anySatisfy: [ :eachSignalClass |
 		aSignal class == eachSignalClass or: [ aSignal class inheritsFrom: eachSignalClass ] ])
@@ -65,12 +65,12 @@ SkiaPerformanceLogger >> nextPut: aSignal [
 	super nextPut: aSignal
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SkiaPerformanceLogger >> signals: aSignalClassOrCollection [
 	interestingSignals := aSignalClassOrCollection asOrderedCollection asArray
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaPerformanceLogger >> totalDuration [
 	^ recordings
 		inject: 0 milliSeconds

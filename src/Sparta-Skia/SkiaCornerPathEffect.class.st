@@ -1,5 +1,5 @@
 Class {
-	#name : #SkiaCornerPathEffect,
-	#superclass : #SkiaPathEffect,
-	#category : #'Sparta-Skia-External'
+	#name : 'SkiaCornerPathEffect',
+	#superclass : 'SkiaPathEffect',
+	#category : 'Sparta-Skia-External'
 }

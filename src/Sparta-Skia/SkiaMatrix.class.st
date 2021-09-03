@@ -1,10 +1,10 @@
 Class {
-	#name : #SkiaMatrix,
-	#superclass : #SkiaExternalObject,
-	#category : #'Sparta-Skia-External'
+	#name : 'SkiaMatrix',
+	#superclass : 'SkiaExternalObject',
+	#category : 'Sparta-Skia-External'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 SkiaMatrix class >> fromSpartaMatrix: aSpartaMatrix [
 	^ self new
 		setScaleX: aSpartaMatrix sx skewX: aSpartaMatrix shx transX: aSpartaMatrix x
@@ -12,7 +12,7 @@ SkiaMatrix class >> fromSpartaMatrix: aSpartaMatrix [
 		persp0: 0 persp1: 0 persp2: 1
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 SkiaMatrix class >> fromSpartaMatrix: aSpartaMatrix during: aBlock [
 	^ self newDuring: [ :aSkiaMatrix |
 		aSkiaMatrix
@@ -22,19 +22,19 @@ SkiaMatrix class >> fromSpartaMatrix: aSpartaMatrix during: aBlock [
 		aBlock value: aSkiaMatrix ]
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaMatrix class >> primCreate [
 	^ self ffiCall: #(void* skia_matrix_new_identity())
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaMatrix class >> primRelease: aHandle [
 	
 	"Plain pointers must be deleted using delete(), all users must implement a specific method"
 	self ffiCall: #(void skia_matrix_drop(void** aHandle))
 ]
 
-{ #category : #converting }
+{ #category : 'converting' }
 SkiaMatrix >> asSpartaMatrix [
 	<return: #SpartaMatrix>
 	
@@ -50,12 +50,12 @@ SkiaMatrix >> asSpartaMatrix [
 				y: (anArray at: 6) ] ]
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaMatrix >> primGetAll: aBoxerArrayF32 [
 	self ffiCall: #(void skia_matrix_get_all(self, GtBoxerArrayF32 aBoxerArrayF32))
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaMatrix >> primSetScaleX: scaleX skewX: skewX transX: transX skewY: skewY scaleY: scaleY transY: transY perspX: perspX perspY: perspY persp: persp [
 
 	self ffiCall: #(void skia_matrix_set_all (self,
@@ -64,7 +64,7 @@ SkiaMatrix >> primSetScaleX: scaleX skewX: skewX transX: transX skewY: skewY sca
 		scalar perspX, scalar perspY, scalar persp))
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SkiaMatrix >> setScaleX: scaleX skewX: skewX transX: transX skewY: skewY scaleY: scaleY transY: transY persp0: persp0 persp1: persp1 persp2: persp2 [
 	self
 		primSetScaleX: scaleX skewX: skewX transX: transX

@@ -1,13 +1,13 @@
 Class {
-	#name : #SkiaTypes,
-	#superclass : #SharedPool,
+	#name : 'SkiaTypes',
+	#superclass : 'SharedPool',
 	#classVars : [
 		'scalar'
 	],
-	#category : #'Sparta-Skia-External'
+	#category : 'Sparta-Skia-External'
 }
 
-{ #category : #'class initialization' }
+{ #category : 'class initialization' }
 SkiaTypes class >> initialize [
 	scalar := #float32
 ]

@@ -1,10 +1,10 @@
 Class {
-	#name : #SkiaPaintExamples,
-	#superclass : #SkiaExternalObjectExamples,
-	#category : #'Sparta-Skia-Examples'
+	#name : 'SkiaPaintExamples',
+	#superclass : 'SkiaExternalObjectExamples',
+	#category : 'Sparta-Skia-Examples'
 }
 
-{ #category : #'examples - paint' }
+{ #category : 'examples - paint' }
 SkiaPaintExamples >> default [
 	<gtExample>
 	| aPaint |
@@ -25,7 +25,7 @@ SkiaPaintExamples >> default [
 	^ aPaint
 ]
 
-{ #category : #'examples - paint' }
+{ #category : 'examples - paint' }
 SkiaPaintExamples >> setAlpha [
 	<gtExample>
 	| aPaint |
@@ -38,7 +38,7 @@ SkiaPaintExamples >> setAlpha [
 	^ aPaint
 ]
 
-{ #category : #'examples - paint' }
+{ #category : 'examples - paint' }
 SkiaPaintExamples >> setAntialias [
 	<gtExample>
 	| aPaint |
@@ -51,7 +51,7 @@ SkiaPaintExamples >> setAntialias [
 	^ aPaint
 ]
 
-{ #category : #'examples - paint' }
+{ #category : 'examples - paint' }
 SkiaPaintExamples >> setBlendMode [
 	<gtExample>
 	| aPaint |
@@ -64,7 +64,7 @@ SkiaPaintExamples >> setBlendMode [
 	^ aPaint
 ]
 
-{ #category : #'examples - paint' }
+{ #category : 'examples - paint' }
 SkiaPaintExamples >> setCapStyle [
 	<gtExample>
 	| aPaint |
@@ -77,7 +77,7 @@ SkiaPaintExamples >> setCapStyle [
 	^ aPaint
 ]
 
-{ #category : #'examples - paint' }
+{ #category : 'examples - paint' }
 SkiaPaintExamples >> setDither [
 	<gtExample>
 	| aPaint |
@@ -90,7 +90,7 @@ SkiaPaintExamples >> setDither [
 	^ aPaint
 ]
 
-{ #category : #'examples - paint' }
+{ #category : 'examples - paint' }
 SkiaPaintExamples >> setImageFilter [
 	<gtExample>
 	| aPaint anImageFilter |
@@ -118,7 +118,7 @@ SkiaPaintExamples >> setImageFilter [
 	^ aPaint
 ]
 
-{ #category : #'examples - paint' }
+{ #category : 'examples - paint' }
 SkiaPaintExamples >> setJoinStyle [
 	<gtExample>
 	| aPaint |
@@ -131,7 +131,7 @@ SkiaPaintExamples >> setJoinStyle [
 	^ aPaint
 ]
 
-{ #category : #'examples - paint' }
+{ #category : 'examples - paint' }
 SkiaPaintExamples >> setPaintStyle [
 	<gtExample>
 	| aPaint |
@@ -144,7 +144,7 @@ SkiaPaintExamples >> setPaintStyle [
 	^ aPaint
 ]
 
-{ #category : #'examples - paint' }
+{ #category : 'examples - paint' }
 SkiaPaintExamples >> setShader [
 	<gtExample>
 	| aPaint aShader |
@@ -171,7 +171,7 @@ SkiaPaintExamples >> setShader [
 	^ aPaint
 ]
 
-{ #category : #'examples - paint' }
+{ #category : 'examples - paint' }
 SkiaPaintExamples >> setStrokeMiter [
 	<gtExample>
 	| aPaint |
@@ -184,7 +184,7 @@ SkiaPaintExamples >> setStrokeMiter [
 	^ aPaint
 ]
 
-{ #category : #'examples - paint' }
+{ #category : 'examples - paint' }
 SkiaPaintExamples >> setStrokeWidth [
 	<gtExample>
 	| aPaint |

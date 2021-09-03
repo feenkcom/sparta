@@ -1,26 +1,26 @@
 Class {
-	#name : #SkiaParagraphRectWidthStyle,
-	#superclass : #SkiaExternalEnumeration,
+	#name : 'SkiaParagraphRectWidthStyle',
+	#superclass : 'SkiaExternalEnumeration',
 	#classVars : [
 		'Max',
 		'Tight'
 	],
-	#category : #'Sparta-Skia-External'
+	#category : 'Sparta-Skia-External'
 }
 
-{ #category : #'accessing enum' }
+{ #category : 'accessing enum' }
 SkiaParagraphRectWidthStyle class >> Max [
 	"This method was automatically generated"
 	^ Max
 ]
 
-{ #category : #'accessing enum' }
+{ #category : 'accessing enum' }
 SkiaParagraphRectWidthStyle class >> Tight [
 	"This method was automatically generated"
 	^ Tight
 ]
 
-{ #category : #'enum declaration' }
+{ #category : 'enum declaration' }
 SkiaParagraphRectWidthStyle class >> externalDeclaration [
 	"
 	self rebuildEnumAccessors
@@ -32,17 +32,17 @@ SkiaParagraphRectWidthStyle class >> externalDeclaration [
 	)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaParagraphRectWidthStyle class >> externalType [
 	^ FFIInt32 new
 ]
 
-{ #category : #'class initialization' }
+{ #category : 'class initialization' }
 SkiaParagraphRectWidthStyle class >> initialize [
 	super initialize
 ]
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaParagraphRectWidthStyle >> primRealName: aBoxerString [
 	^ self ffiCall: #(void skia_enums_clip_op_to_string(self, GtBoxerString aBoxerString))
 ]

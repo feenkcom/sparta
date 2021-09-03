@@ -1,6 +1,6 @@
 Class {
-	#name : #SkiaStrokeOptions,
-	#superclass : #Object,
+	#name : 'SkiaStrokeOptions',
+	#superclass : 'Object',
 	#traits : 'TSpartaStrokeOptions',
 	#classTraits : 'TSpartaStrokeOptions classTrait',
 	#instVars : [
@@ -14,20 +14,20 @@ Class {
 	#classInstVars : [
 		'default'
 	],
-	#category : #'Sparta-Skia-Core'
+	#category : 'Sparta-Skia-Core'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaStrokeOptions class >> cleanUp [
 	default := nil
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaStrokeOptions class >> default [
 	^ default ifNil: [ default := self new ]
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 SkiaStrokeOptions >> = anObject [
 	"Answer whether the receiver and anObject represent the same object."
 
@@ -42,52 +42,52 @@ SkiaStrokeOptions >> = anObject [
 								and: [ miterLimit = anObject miterLimit and: [ width = anObject width ] ] ] ] ]
 ]
 
-{ #category : #'cap styles' }
+{ #category : 'cap styles' }
 SkiaStrokeOptions >> capButt [
 	self capStyle: SkiaCapStyle Butt
 ]
 
-{ #category : #'cap styles' }
+{ #category : 'cap styles' }
 SkiaStrokeOptions >> capRound [
 	self capStyle: SkiaCapStyle Round
 ]
 
-{ #category : #'cap styles' }
+{ #category : 'cap styles' }
 SkiaStrokeOptions >> capSquare [
 	self capStyle: SkiaCapStyle Square
 ]
 
-{ #category : #'cap styles' }
+{ #category : 'cap styles' }
 SkiaStrokeOptions >> capStyle [
 	^ capStyle
 ]
 
-{ #category : #'cap styles' }
+{ #category : 'cap styles' }
 SkiaStrokeOptions >> capStyle: aCapStyle [
 	capStyle := aCapStyle
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaStrokeOptions >> dashOffset [
 	^ dashOffset
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaStrokeOptions >> dashOffset: aFloat [
 	dashOffset := aFloat
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaStrokeOptions >> dashPattern [
 	^ dashPattern
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaStrokeOptions >> dashPattern: anArrayOfFloats [
 	dashPattern := anArrayOfFloats
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 SkiaStrokeOptions >> hash [
 	"Answer an integer value that is related to the identity of the receiver."
 
@@ -99,7 +99,7 @@ SkiaStrokeOptions >> hash [
 						bitXor: (joinStyle hash bitXor: (miterLimit hash bitXor: width hash))))
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SkiaStrokeOptions >> initialize [
 	super initialize.
 
@@ -112,52 +112,52 @@ SkiaStrokeOptions >> initialize [
 	self dashPattern: #()
 ]
 
-{ #category : #'join styles' }
+{ #category : 'join styles' }
 SkiaStrokeOptions >> joinBevel [
 	self joinStyle: SkiaJoinStyle Bevel
 ]
 
-{ #category : #'join styles' }
+{ #category : 'join styles' }
 SkiaStrokeOptions >> joinMiter [
 	self joinStyle: SkiaJoinStyle Miter
 ]
 
-{ #category : #'join styles' }
+{ #category : 'join styles' }
 SkiaStrokeOptions >> joinMiterOrBevel [
 	self joinStyle: SkiaJoinStyle Miter
 ]
 
-{ #category : #'join styles' }
+{ #category : 'join styles' }
 SkiaStrokeOptions >> joinRound [
 	self joinStyle: SkiaJoinStyle Round
 ]
 
-{ #category : #'join styles' }
+{ #category : 'join styles' }
 SkiaStrokeOptions >> joinStyle [
 	^ joinStyle
 ]
 
-{ #category : #'join styles' }
+{ #category : 'join styles' }
 SkiaStrokeOptions >> joinStyle: aJoinStyle [
 	joinStyle := aJoinStyle
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaStrokeOptions >> miterLimit [
 	^ miterLimit
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaStrokeOptions >> miterLimit: aFloat [
 	miterLimit := aFloat
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaStrokeOptions >> width [
 	^ width
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaStrokeOptions >> width: aFloat [
 	width := aFloat
 ]

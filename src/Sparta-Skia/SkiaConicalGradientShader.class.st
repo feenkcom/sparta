@@ -1,10 +1,10 @@
 Class {
-	#name : #SkiaConicalGradientShader,
-	#superclass : #SkiaGradientShader,
-	#category : #'Sparta-Skia-External'
+	#name : 'SkiaConicalGradientShader',
+	#superclass : 'SkiaGradientShader',
+	#category : 'Sparta-Skia-External'
 }
 
-{ #category : #'private - ffi' }
+{ #category : 'private - ffi' }
 SkiaConicalGradientShader class >> primCreateStart: aStartPoint radius: aStartRadius end: anEndPoint radius: anEndRadius colors: theColors positions: thePositions mode: aTileMode flags: theBitFlags matrix: anOptionalMatrix [
 	^ self ffiCall: #(void* skia_gradient_two_point_conical_create(
 		GtBoxerPointF32 aStartPoint,
@@ -19,7 +19,7 @@ SkiaConicalGradientShader class >> primCreateStart: aStartPoint radius: aStartRa
 	))
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 SkiaConicalGradientShader class >> start: aStartPoint radius: aStartRadius end: anEndPoint radius: anEndRadius colors: theColors positions: thePositions mode: aTileMode flags: theBitFlags matrix: aSpartaMatrixOrNil [	
 	^ self fromNativeHandle: (self
 		primCreateStart: (GtBoxerPointF32 fromPoint: aStartPoint)

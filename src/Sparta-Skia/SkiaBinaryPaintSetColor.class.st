@@ -1,30 +1,30 @@
 Class {
-	#name : #SkiaBinaryPaintSetColor,
-	#superclass : #SkiaBinaryCommand,
+	#name : 'SkiaBinaryPaintSetColor',
+	#superclass : 'SkiaBinaryCommand',
 	#instVars : [
 		'color'
 	],
-	#category : #'Sparta-Skia-Binary'
+	#category : 'Sparta-Skia-Binary'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaBinaryPaintSetColor >> color [
 	^ color
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaBinaryPaintSetColor >> color: anObject [
 	color := anObject
 ]
 
-{ #category : #running }
+{ #category : 'running' }
 SkiaBinaryPaintSetColor >> streamOn: aBinaryStream [
 	super streamOn: aBinaryStream.
 
 	aBinaryStream color: color
 ]
 
-{ #category : #generated }
+{ #category : 'generated' }
 SkiaBinaryPaintSetColor >> type [
 	^ SkiaBinaryCommandType PaintSetRgba
 ]

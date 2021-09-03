@@ -1,10 +1,10 @@
 Class {
-	#name : #SkiaMatrixExamples,
-	#superclass : #SkiaExternalObjectExamples,
-	#category : #'Sparta-Skia-Examples'
+	#name : 'SkiaMatrixExamples',
+	#superclass : 'SkiaExternalObjectExamples',
+	#category : 'Sparta-Skia-Examples'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaMatrixExamples >> default [
 	<gtExample>
 	| aMatrix |
@@ -14,7 +14,7 @@ SkiaMatrixExamples >> default [
 	^ aMatrix
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaMatrixExamples >> fromSpartaTranslationMatrix [
 	<gtExample>
 	| aSpartaMatrix aSkiaMatrix |

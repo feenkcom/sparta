@@ -1,10 +1,10 @@
 Class {
-	#name : #SkiaStringToTextRunBoundsAsRectangleSignal,
-	#superclass : #SkiaStringToTextRunSignal,
-	#category : #'Sparta-Skia-Telemetry'
+	#name : 'SkiaStringToTextRunBoundsAsRectangleSignal',
+	#superclass : 'SkiaStringToTextRunSignal',
+	#category : 'Sparta-Skia-Telemetry'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkiaStringToTextRunBoundsAsRectangleSignal >> name [
 	^ 'Bounds as rectangle'
 ]
