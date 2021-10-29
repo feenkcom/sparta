@@ -1,13 +1,13 @@
 Class {
-	#name : 'SkiaBinaryStream',
-	#superclass : 'Object',
+	#name : #SkiaBinaryStream,
+	#superclass : #Object,
 	#instVars : [
 		'stream'
 	],
 	#category : 'Sparta-Skia-Binary'
 }
 
-{ #category : 'api - objects' }
+{ #category : #'api - objects' }
 SkiaBinaryStream >> color: aColor [
 	| aRed aGreen aBlue anAlpha |
 
@@ -23,55 +23,55 @@ SkiaBinaryStream >> color: aColor [
 		u8: anAlpha
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaBinaryStream >> content [
 	^ stream originalContents
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaBinaryStream >> contents [
 	^ stream originalContents
 ]
 
-{ #category : 'api - stream' }
+{ #category : #'api - stream' }
 SkiaBinaryStream >> f32: aFloat [
 	stream nextPutAll: ((ByteArray new: FFIFloat32 externalTypeSize)
 		floatAt: 1 put: aFloat;
 		yourself)
 ]
 
-{ #category : 'api - commands' }
+{ #category : #'api - commands' }
 SkiaBinaryStream >> fillRectangle: aRectangle [
 	self
 		type: SkiaBinaryCommandType FillRectangle;
 		rectangle: aRectangle
 ]
 
-{ #category : 'initialization' }
+{ #category : #initialization }
 SkiaBinaryStream >> initialize [
 	super initialize.
 	
 	stream := WriteStream on: (ByteArray streamSpecies new: 1024)
 ]
 
-{ #category : 'api - commands' }
+{ #category : #'api - commands' }
 SkiaBinaryStream >> newPaint [
 	self type: SkiaBinaryCommandType NewPaint
 ]
 
-{ #category : 'api - commands' }
+{ #category : #'api - commands' }
 SkiaBinaryStream >> paintSetColor: aColor [
 	self
 		type: SkiaBinaryCommandType PaintSetRgba;
 		color: aColor
 ]
 
-{ #category : 'api - commands' }
+{ #category : #'api - commands' }
 SkiaBinaryStream >> popPaint [
 	self type: SkiaBinaryCommandType PopPaint
 ]
 
-{ #category : 'api - objects' }
+{ #category : #'api - objects' }
 SkiaBinaryStream >> rectangle: aRectangle [
 	self
 		f32: aRectangle left asFloat;
@@ -80,37 +80,37 @@ SkiaBinaryStream >> rectangle: aRectangle [
 		f32: aRectangle bottom asFloat
 ]
 
-{ #category : 'api - stream' }
+{ #category : #'api - stream' }
 SkiaBinaryStream >> resetToStart [
 	stream resetToStart
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaBinaryStream >> shrinkedContents [
 	^ stream contents
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaBinaryStream >> size [
 	^ stream position
 ]
 
-{ #category : 'api - objects' }
+{ #category : #'api - objects' }
 SkiaBinaryStream >> type: aSkiaBinaryCommandType [
 	self u8: aSkiaBinaryCommandType value
 ]
 
-{ #category : 'api - stream' }
+{ #category : #'api - stream' }
 SkiaBinaryStream >> u16: anInteger [
 	stream uint16: anInteger
 ]
 
-{ #category : 'api - stream' }
+{ #category : #'api - stream' }
 SkiaBinaryStream >> u8: anInteger [
 	stream nextPut: anInteger
 ]
 
-{ #category : 'api - stream' }
+{ #category : #'api - stream' }
 SkiaBinaryStream >> uint16: anInteger [
 	stream uint16: anInteger
 ]

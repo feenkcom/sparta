@@ -1,10 +1,10 @@
 Class {
-	#name : 'SkiaStringToTextRunGlyphsAsByteArraySignal',
-	#superclass : 'SkiaStringToTextRunSignal',
+	#name : #SkiaStringToTextRunGlyphsAsByteArraySignal,
+	#superclass : #SkiaStringToTextRunSignal,
 	#category : 'Sparta-Skia-Telemetry'
 }
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaStringToTextRunGlyphsAsByteArraySignal >> name [
 	^ 'Glyphs to ByteArray'
 ]

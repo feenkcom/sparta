@@ -1,6 +1,6 @@
 Class {
-	#name : 'SkiaTextMetrics',
-	#superclass : 'Object',
+	#name : #SkiaTextMetrics,
+	#superclass : #Object,
 	#instVars : [
 		'bounds',
 		'advance'
@@ -8,29 +8,29 @@ Class {
 	#category : 'Sparta-Skia-Text'
 }
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaTextMetrics >> advance [
 	^ advance
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaTextMetrics >> advance: anObject [
 	advance := anObject
 ]
 
-{ #category : 'converting' }
+{ #category : #converting }
 SkiaTextMetrics >> asSpartaMetrics [
 	^ SpartaTextMetrics new
 		advance: advance;
 		bounds: bounds
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaTextMetrics >> bounds [
 	^ bounds
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaTextMetrics >> bounds: anObject [
 	bounds := anObject
 ]

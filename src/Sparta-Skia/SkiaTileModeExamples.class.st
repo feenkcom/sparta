@@ -1,10 +1,10 @@
 Class {
-	#name : 'SkiaTileModeExamples',
-	#superclass : 'SkiaExternalEnumerationExamples',
+	#name : #SkiaTileModeExamples,
+	#superclass : #SkiaExternalEnumerationExamples,
 	#category : 'Sparta-Skia-Examples'
 }
 
-{ #category : 'examples' }
+{ #category : #examples }
 SkiaTileModeExamples >> validateLayout [
 	<gtExample>
 	

@@ -1,10 +1,10 @@
 Class {
-	#name : 'SkiaGradientShaderExamples',
-	#superclass : 'SkiaExternalObjectExamples',
+	#name : #SkiaGradientShaderExamples,
+	#superclass : #SkiaExternalObjectExamples,
 	#category : 'Sparta-Skia-Examples'
 }
 
-{ #category : 'public' }
+{ #category : #public }
 SkiaGradientShaderExamples >> conicalGradient [
 	<gtExample>
 	| aShader |
@@ -24,7 +24,7 @@ SkiaGradientShaderExamples >> conicalGradient [
 	^ aShader
 ]
 
-{ #category : 'public' }
+{ #category : #public }
 SkiaGradientShaderExamples >> linearGradient [
 	<gtExample>
 	| aShader |
@@ -43,7 +43,7 @@ SkiaGradientShaderExamples >> linearGradient [
 	^ aShader
 ]
 
-{ #category : 'public' }
+{ #category : #public }
 SkiaGradientShaderExamples >> radialGradient [
 	<gtExample>
 	| aShader |
@@ -63,7 +63,7 @@ SkiaGradientShaderExamples >> radialGradient [
 	^ aShader
 ]
 
-{ #category : 'public' }
+{ #category : #public }
 SkiaGradientShaderExamples >> sweepGradient [
 	<gtExample>
 	| aShader |

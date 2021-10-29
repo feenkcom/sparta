@@ -1,6 +1,6 @@
 Class {
-	#name : 'SkiaSingleSourceFilter',
-	#superclass : 'SkiaFilter',
+	#name : #SkiaSingleSourceFilter,
+	#superclass : #SkiaFilter,
 	#traits : 'TSpartaFilterSource',
 	#classTraits : 'TSpartaFilterSource classTrait',
 	#instVars : [
@@ -9,7 +9,7 @@ Class {
 	#category : 'Sparta-Skia-Filters'
 }
 
-{ #category : 'drawing' }
+{ #category : #drawing }
 SkiaSingleSourceFilter >> drawOn: aSkiaFilterPainter [
 	source isImage
 		ifTrue: [ self drawOn: aSkiaFilterPainter imageSource: source ].
@@ -17,7 +17,7 @@ SkiaSingleSourceFilter >> drawOn: aSkiaFilterPainter [
 		ifTrue: [ self drawOn: aSkiaFilterPainter canvasSource: source ]
 ]
 
-{ #category : 'drawing' }
+{ #category : #drawing }
 SkiaSingleSourceFilter >> drawOn: aSkiaFilterPainter canvasSource: aSkiaCanvasSource [
 
 	self asSkiaImageFilterOn: aSkiaFilterPainter during: [ :aSkiaImageFilter |
@@ -31,7 +31,7 @@ SkiaSingleSourceFilter >> drawOn: aSkiaFilterPainter canvasSource: aSkiaCanvasSo
 					paint: aSkiaPaint ] ] ]
 ]
 
-{ #category : 'drawing' }
+{ #category : #drawing }
 SkiaSingleSourceFilter >> drawOn: aSkiaFilterPainter imageSource: aSkiaImageSource [
 
 	self asSkiaImageFilterOn: aSkiaFilterPainter during: [ :aSkiaImageFilter |
@@ -44,17 +44,17 @@ SkiaSingleSourceFilter >> drawOn: aSkiaFilterPainter imageSource: aSkiaImageSour
 				paint: aSkiaPaint ] ]
 ]
 
-{ #category : 'dispatch' }
+{ #category : #dispatch }
 SkiaSingleSourceFilter >> sourceCanvas: aSpartaCanvas [
 	source := SkiaFilterSourceCanvas new canvas: aSpartaCanvas
 ]
 
-{ #category : 'dispatch' }
+{ #category : #dispatch }
 SkiaSingleSourceFilter >> sourceFilter: aFilter [
 	source := SkiaFilterSourceFilter new filter: aFilter
 ]
 
-{ #category : 'dispatch' }
+{ #category : #dispatch }
 SkiaSingleSourceFilter >> sourceSurface: aSurface [
 	source := SkiaFilterSourceImage new image: aSurface
 ]

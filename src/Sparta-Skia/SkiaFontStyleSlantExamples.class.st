@@ -1,10 +1,10 @@
 Class {
-	#name : 'SkiaFontStyleSlantExamples',
-	#superclass : 'SkiaExternalEnumerationExamples',
+	#name : #SkiaFontStyleSlantExamples,
+	#superclass : #SkiaExternalEnumerationExamples,
 	#category : 'Sparta-Skia-Examples'
 }
 
-{ #category : 'examples' }
+{ #category : #examples }
 SkiaFontStyleSlantExamples >> validateLayout [
 	<gtExample>
 

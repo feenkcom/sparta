@@ -1,10 +1,10 @@
 Class {
-	#name : 'SkiaArrayColorExamples',
-	#superclass : 'SkiaExternalObjectExamples',
+	#name : #SkiaArrayColorExamples,
+	#superclass : #SkiaExternalObjectExamples,
 	#category : 'Sparta-Skia-Examples'
 }
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaArrayColorExamples >> default [
 	<gtExample>
 	| anArray |
@@ -17,7 +17,7 @@ SkiaArrayColorExamples >> default [
 	^ anArray
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaArrayColorExamples >> setColor [
 	<gtExample>
 	| theColors |
@@ -38,7 +38,7 @@ SkiaArrayColorExamples >> setColor [
 	^ theColors
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaArrayColorExamples >> withColors [
 	<gtExample>
 	| theColors |

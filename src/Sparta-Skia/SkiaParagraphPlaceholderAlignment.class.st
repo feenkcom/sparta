@@ -1,6 +1,6 @@
 Class {
-	#name : 'SkiaParagraphPlaceholderAlignment',
-	#superclass : 'SkiaExternalEnumeration',
+	#name : #SkiaParagraphPlaceholderAlignment,
+	#superclass : #SkiaExternalEnumeration,
 	#classVars : [
 		'AboveBaseline',
 		'Baseline',
@@ -12,43 +12,43 @@ Class {
 	#category : 'Sparta-Skia-External'
 }
 
-{ #category : 'accessing enum' }
+{ #category : #'accessing enum' }
 SkiaParagraphPlaceholderAlignment class >> AboveBaseline [
 	"This method was automatically generated"
 	^ AboveBaseline
 ]
 
-{ #category : 'accessing enum' }
+{ #category : #'accessing enum' }
 SkiaParagraphPlaceholderAlignment class >> Baseline [
 	"This method was automatically generated"
 	^ Baseline
 ]
 
-{ #category : 'accessing enum' }
+{ #category : #'accessing enum' }
 SkiaParagraphPlaceholderAlignment class >> BelowBaseline [
 	"This method was automatically generated"
 	^ BelowBaseline
 ]
 
-{ #category : 'accessing enum' }
+{ #category : #'accessing enum' }
 SkiaParagraphPlaceholderAlignment class >> Bottom [
 	"This method was automatically generated"
 	^ Bottom
 ]
 
-{ #category : 'accessing enum' }
+{ #category : #'accessing enum' }
 SkiaParagraphPlaceholderAlignment class >> Middle [
 	"This method was automatically generated"
 	^ Middle
 ]
 
-{ #category : 'accessing enum' }
+{ #category : #'accessing enum' }
 SkiaParagraphPlaceholderAlignment class >> Top [
 	"This method was automatically generated"
 	^ Top
 ]
 
-{ #category : 'enum declaration' }
+{ #category : #'enum declaration' }
 SkiaParagraphPlaceholderAlignment class >> externalDeclaration [
 	"
 	self rebuildEnumAccessors
@@ -64,17 +64,17 @@ SkiaParagraphPlaceholderAlignment class >> externalDeclaration [
 	)
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaParagraphPlaceholderAlignment class >> externalType [
 	^ FFIInt32 new
 ]
 
-{ #category : 'class initialization' }
+{ #category : #'class initialization' }
 SkiaParagraphPlaceholderAlignment class >> initialize [
 	super initialize
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaParagraphPlaceholderAlignment >> primRealName: aBoxerString [
 	^ self ffiCall: #(void skia_placeholder_alignment_to_string(self, GtBoxerString aBoxerString))
 ]

@@ -1,10 +1,10 @@
 Class {
-	#name : 'SkiaFontExamples',
-	#superclass : 'SkiaExternalObjectExamples',
+	#name : #SkiaFontExamples,
+	#superclass : #SkiaExternalObjectExamples,
 	#category : 'Sparta-Skia-Examples'
 }
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaFontExamples >> default [
 	<gtExample>
 	| aFont |
@@ -26,7 +26,7 @@ SkiaFontExamples >> default [
 	^ aFont
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaFontExamples >> fontMetrics [
 	<gtExample>
 	| aFont aFontMetrics |
@@ -43,7 +43,7 @@ SkiaFontExamples >> fontMetrics [
 	^ aFontMetrics
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaFontExamples >> fromTypefaceAndSize [
 	<gtExample>
 	| aTypeface aFont |
@@ -70,7 +70,7 @@ SkiaFontExamples >> fromTypefaceAndSize [
 	^ aFont
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaFontExamples >> measureHelloWorld [
 	<gtExample>
 	| aFont aPaint theTextMetrics |
@@ -85,7 +85,7 @@ SkiaFontExamples >> measureHelloWorld [
 	^ theTextMetrics
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaFontExamples >> toGlyphsHelloWorld [
 	<gtExample>
 	| aFont theGlyphs |

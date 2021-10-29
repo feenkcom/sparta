@@ -1,10 +1,10 @@
 Class {
-	#name : 'SkiaPathEffect',
-	#superclass : 'SkiaExternalObject',
+	#name : #SkiaPathEffect,
+	#superclass : #SkiaExternalObject,
 	#category : 'Sparta-Skia-External'
 }
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaPathEffect class >> primRelease: aHandle [
 	
 	"Plain pointers must be deleted using delete(), all users must implement a specific method"

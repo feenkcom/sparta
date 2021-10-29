@@ -1,15 +1,15 @@
 Class {
-	#name : 'SkiaCompositionClipLayer',
-	#superclass : 'SkiaCompositionLayer',
+	#name : #SkiaCompositionClipLayer,
+	#superclass : #SkiaCompositionLayer,
 	#category : 'Sparta-Skia-External'
 }
 
-{ #category : 'instance creation' }
+{ #category : #'instance creation' }
 SkiaCompositionClipLayer class >> path: aSkiaPath offset: anOffset [
 	^ self fromNativeHandle: (self primClipPath: aSkiaPath offsetX: anOffset x offsetY: anOffset y)
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaCompositionClipLayer class >> primClipPath: aSkiaPath offsetX: anOffsetX offsetY: anOffsetY [
 	^ self ffiCall: #(void* skia_clip_layer_path(
 		SkiaPath aSkiaPath,
@@ -17,14 +17,14 @@ SkiaCompositionClipLayer class >> primClipPath: aSkiaPath offsetX: anOffsetX off
 		scalar anOffsetY))
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaCompositionClipLayer class >> primClipRectangleLeft: aLeft top: aTop right: aRight bottom: aBottom offsetX: anOffsetX offsetY: anOffsetY [
 	^ self ffiCall: #(void* skia_clip_layer_rect(
 		scalar aLeft, scalar aTop, scalar aRight, scalar aBottom,
 		scalar anOffsetX, scalar anOffsetY))
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaCompositionClipLayer class >> primClipRoundedRectangleLeft: aLeft top: aTop right: aRight bottom: aBottom radiusTopLeft: aTopLeftRadius topRight: aTopRightRadius bottomRight: aBottomRightRadius bottomLeft: aBottomLeftRadius offsetX: anOffsetX offsetY: anOffsetY [
 	^ self ffiCall: #(void* skia_clip_layer_rrect(
 		scalar aLeft, scalar aTop, scalar aRight, scalar aBottom,
@@ -32,12 +32,12 @@ SkiaCompositionClipLayer class >> primClipRoundedRectangleLeft: aLeft top: aTop 
 		scalar anOffsetX, scalar anOffsetY))
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaCompositionClipLayer class >> primCreate [
 	^ self ffiCall: #(void* skia_clip_layer_new())
 ]
 
-{ #category : 'instance creation' }
+{ #category : #'instance creation' }
 SkiaCompositionClipLayer class >> rectangle: aSpartaRectangle offset: anOffset [
 	^ self fromNativeHandle: (self
 		primClipRectangleLeft: aSpartaRectangle left top: aSpartaRectangle top right: aSpartaRectangle right bottom: aSpartaRectangle bottom
@@ -45,7 +45,7 @@ SkiaCompositionClipLayer class >> rectangle: aSpartaRectangle offset: anOffset [
 		offsetY: anOffset y)
 ]
 
-{ #category : 'instance creation' }
+{ #category : #'instance creation' }
 SkiaCompositionClipLayer class >> roundedRectangle: aSpartaRoundedRectangle offset: anOffset [
 	^ self fromNativeHandle: (self
 		primClipRoundedRectangleLeft: aSpartaRoundedRectangle left

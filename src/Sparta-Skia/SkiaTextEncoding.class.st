@@ -1,6 +1,6 @@
 Class {
-	#name : 'SkiaTextEncoding',
-	#superclass : 'SkiaExternalEnumeration',
+	#name : #SkiaTextEncoding,
+	#superclass : #SkiaExternalEnumeration,
 	#classVars : [
 		'GlyphId',
 		'UTF16',
@@ -10,31 +10,31 @@ Class {
 	#category : 'Sparta-Skia-External'
 }
 
-{ #category : 'accessing enum' }
+{ #category : #'accessing enum' }
 SkiaTextEncoding class >> GlyphId [
 	"This method was automatically generated"
 	^ GlyphId
 ]
 
-{ #category : 'accessing enum' }
+{ #category : #'accessing enum' }
 SkiaTextEncoding class >> UTF16 [
 	"This method was automatically generated"
 	^ UTF16
 ]
 
-{ #category : 'accessing enum' }
+{ #category : #'accessing enum' }
 SkiaTextEncoding class >> UTF32 [
 	"This method was automatically generated"
 	^ UTF32
 ]
 
-{ #category : 'accessing enum' }
+{ #category : #'accessing enum' }
 SkiaTextEncoding class >> UTF8 [
 	"This method was automatically generated"
 	^ UTF8
 ]
 
-{ #category : 'enum declaration' }
+{ #category : #'enum declaration' }
 SkiaTextEncoding class >> externalDeclaration [
 	"
 	self rebuildEnumAccessors
@@ -48,17 +48,17 @@ SkiaTextEncoding class >> externalDeclaration [
 	)
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaTextEncoding class >> externalType [
 	^ FFIInt32 new
 ]
 
-{ #category : 'class initialization' }
+{ #category : #'class initialization' }
 SkiaTextEncoding class >> initialize [
 	super initialize
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaTextEncoding >> primRealName: aBoxerString [
 	^ self ffiCall: #(void skia_enums_text_encoding_to_string(self, GtBoxerString aBoxerString))
 ]

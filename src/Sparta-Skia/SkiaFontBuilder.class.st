@@ -1,6 +1,6 @@
 Class {
-	#name : 'SkiaFontBuilder',
-	#superclass : 'SpartaFontBuilder',
+	#name : #SkiaFontBuilder,
+	#superclass : #SpartaFontBuilder,
 	#instVars : [
 		'familyName'
 	],
@@ -11,7 +11,7 @@ Class {
 	#category : 'Sparta-Skia-Builders'
 }
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaFontBuilder class >> cache [
 
 	session == Smalltalk session
@@ -22,7 +22,7 @@ SkiaFontBuilder class >> cache [
 	^ cache ifNil: [ cache := self defaultFontCache ]
 ]
 
-{ #category : 'cleanup' }
+{ #category : #cleanup }
 SkiaFontBuilder class >> cleanUp [
 	super cleanUp.
 	
@@ -30,14 +30,14 @@ SkiaFontBuilder class >> cleanUp [
 	session := nil
 ]
 
-{ #category : 'instance creation' }
+{ #category : #'instance creation' }
 SkiaFontBuilder class >> defaultFontCache [
 	^ SpartaFontCache new
 		maximumWeight: 50 "how many different font faces we cache";
 		yourself
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaFontBuilder >> build [
 	| aSpartaFontFace theFontsDictionary |
 	
@@ -85,40 +85,40 @@ SkiaFontBuilder >> build [
 			font ]
 ]
 
-{ #category : 'instance creation' }
+{ #category : #'instance creation' }
 SkiaFontBuilder >> cursive [
 ]
 
-{ #category : 'instance creation' }
+{ #category : #'instance creation' }
 SkiaFontBuilder >> fantasy [
 ]
 
-{ #category : 'instance creation' }
+{ #category : #'instance creation' }
 SkiaFontBuilder >> fixed [
 ]
 
-{ #category : 'instance creation' }
+{ #category : #'instance creation' }
 SkiaFontBuilder >> monospace [
 ]
 
-{ #category : 'instance creation' }
+{ #category : #'instance creation' }
 SkiaFontBuilder >> named: aNameString [
 	familyName := aNameString
 ]
 
-{ #category : 'instance creation' }
+{ #category : #'instance creation' }
 SkiaFontBuilder >> sansSerif [
 ]
 
-{ #category : 'instance creation' }
+{ #category : #'instance creation' }
 SkiaFontBuilder >> serif [
 	
 ]
 
-{ #category : 'instance creation' }
+{ #category : #'instance creation' }
 SkiaFontBuilder >> special [
 ]
 
-{ #category : 'instance creation' }
+{ #category : #'instance creation' }
 SkiaFontBuilder >> variable [
 ]

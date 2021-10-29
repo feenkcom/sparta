@@ -1,10 +1,10 @@
 Class {
-	#name : 'SkiaColorTypeExamples',
-	#superclass : 'SkiaExternalEnumerationExamples',
+	#name : #SkiaColorTypeExamples,
+	#superclass : #SkiaExternalEnumerationExamples,
 	#category : 'Sparta-Skia-Examples'
 }
 
-{ #category : 'examples' }
+{ #category : #examples }
 SkiaColorTypeExamples >> validateLayout [
 	<gtExample>
 	

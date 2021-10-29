@@ -1,10 +1,10 @@
 Class {
-	#name : 'SkiaPathFillTypeExamples',
-	#superclass : 'SkiaExternalEnumerationExamples',
+	#name : #SkiaPathFillTypeExamples,
+	#superclass : #SkiaExternalEnumerationExamples,
 	#category : 'Sparta-Skia-Examples'
 }
 
-{ #category : 'examples' }
+{ #category : #examples }
 SkiaPathFillTypeExamples >> validateLayout [
 	<gtExample>
 	

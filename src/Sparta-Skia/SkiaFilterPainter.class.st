@@ -1,10 +1,10 @@
 Class {
-	#name : 'SkiaFilterPainter',
-	#superclass : 'SpartaFilterPainter',
+	#name : #SkiaFilterPainter,
+	#superclass : #SpartaFilterPainter,
 	#category : 'Sparta-Skia-Builders'
 }
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaFilterPainter >> destinationTopLeft [
 	<return: #Point>
 
@@ -14,7 +14,7 @@ SkiaFilterPainter >> destinationTopLeft [
 			ifNotNil: [ :aRectangle | aRectangle origin ] ]
 ]
 
-{ #category : 'drawing' }
+{ #category : #drawing }
 SkiaFilterPainter >> draw [
 	filter drawOn: self
 ]

@@ -1,10 +1,10 @@
 Class {
-	#name : 'SkiaThreadedLibrary',
-	#superclass : 'SkiaLibrary',
+	#name : #SkiaThreadedLibrary,
+	#superclass : #SkiaLibrary,
 	#category : 'Sparta-Skia-Library'
 }
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaThreadedLibrary >> calloutAPIClass [
 	^ self class environment
 		at: #ThreadedFFIMigration
@@ -15,7 +15,7 @@ SkiaThreadedLibrary >> calloutAPIClass [
 		ifAbsent: [ super calloutAPIClass ]
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaThreadedLibrary >> runner [ 
 	^ self class environment
 		at: #ThreadedFFIMigration

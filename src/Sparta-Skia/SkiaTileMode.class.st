@@ -1,6 +1,6 @@
 Class {
-	#name : 'SkiaTileMode',
-	#superclass : 'SkiaExternalEnumeration',
+	#name : #SkiaTileMode,
+	#superclass : #SkiaExternalEnumeration,
 	#classVars : [
 		'Clamp',
 		'Decal',
@@ -10,31 +10,31 @@ Class {
 	#category : 'Sparta-Skia-External'
 }
 
-{ #category : 'accessing enum' }
+{ #category : #'accessing enum' }
 SkiaTileMode class >> Clamp [
 	"This method was automatically generated"
 	^ Clamp
 ]
 
-{ #category : 'accessing enum' }
+{ #category : #'accessing enum' }
 SkiaTileMode class >> Decal [
 	"This method was automatically generated"
 	^ Decal
 ]
 
-{ #category : 'accessing enum' }
+{ #category : #'accessing enum' }
 SkiaTileMode class >> Mirror [
 	"This method was automatically generated"
 	^ Mirror
 ]
 
-{ #category : 'accessing enum' }
+{ #category : #'accessing enum' }
 SkiaTileMode class >> Repeat [
 	"This method was automatically generated"
 	^ Repeat
 ]
 
-{ #category : 'enum declaration' }
+{ #category : #'enum declaration' }
 SkiaTileMode class >> externalDeclaration [
 	"
 	self rebuildEnumAccessors
@@ -48,17 +48,17 @@ SkiaTileMode class >> externalDeclaration [
 	)
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaTileMode class >> externalType [
 	^ FFIInt32 new
 ]
 
-{ #category : 'class initialization' }
+{ #category : #'class initialization' }
 SkiaTileMode class >> initialize [
 	super initialize
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaTileMode >> primRealName: aBoxerString [
 	^ self ffiCall: #(void skia_enums_tile_mode_to_string(self, GtBoxerString aBoxerString))
 ]

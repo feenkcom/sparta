@@ -1,10 +1,10 @@
 Class {
-	#name : 'SkiaJoinStyleExamples',
-	#superclass : 'SkiaExternalEnumerationExamples',
+	#name : #SkiaJoinStyleExamples,
+	#superclass : #SkiaExternalEnumerationExamples,
 	#category : 'Sparta-Skia-Examples'
 }
 
-{ #category : 'examples' }
+{ #category : #examples }
 SkiaJoinStyleExamples >> validateLayout [
 	<gtExample>
 

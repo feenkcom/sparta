@@ -1,10 +1,10 @@
 Class {
-	#name : 'SkiaCompositionOffsetLayerExamples',
-	#superclass : 'SkiaExternalObjectExamples',
+	#name : #SkiaCompositionOffsetLayerExamples,
+	#superclass : #SkiaExternalObjectExamples,
 	#category : 'Sparta-Skia-Examples'
 }
 
-{ #category : 'instance creation' }
+{ #category : #'instance creation' }
 SkiaCompositionOffsetLayerExamples >> composeOffsets [
 	<gtExample>
 	| aParentLayer aChildLayer |
@@ -31,7 +31,7 @@ SkiaCompositionOffsetLayerExamples >> composeOffsets [
 	^ aParentLayer
 ]
 
-{ #category : 'instance creation' }
+{ #category : #'instance creation' }
 SkiaCompositionOffsetLayerExamples >> default [
 	<gtExample>
 	| aLayer |
@@ -44,7 +44,7 @@ SkiaCompositionOffsetLayerExamples >> default [
 	^ aLayer
 ]
 
-{ #category : 'instance creation' }
+{ #category : #'instance creation' }
 SkiaCompositionOffsetLayerExamples >> withOffset [
 	<gtExample>
 	| aLayer |

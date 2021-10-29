@@ -1,6 +1,6 @@
 Class {
-	#name : 'SkiaExternalObject',
-	#superclass : 'FFIExternalObject',
+	#name : #SkiaExternalObject,
+	#superclass : #FFIExternalObject,
 	#instVars : [
 		'isAutoRelease'
 	],
@@ -10,30 +10,30 @@ Class {
 	#category : 'Sparta-Skia-External'
 }
 
-{ #category : 'library path' }
+{ #category : #'library path' }
 SkiaExternalObject class >> ffiLibrary [
 	^ SkiaLibrary
 ]
 
-{ #category : 'finalization' }
+{ #category : #finalization }
 SkiaExternalObject class >> finalizeResourceData: aHandle [
 	
 	self release: aHandle
 ]
 
-{ #category : 'instance creation' }
+{ #category : #'instance creation' }
 SkiaExternalObject class >> fromHandle: aHandle [
 	^ self basicNew
 		initialize;
 		setHandle: aHandle
 ]
 
-{ #category : 'instance creation' }
+{ #category : #'instance creation' }
 SkiaExternalObject class >> fromNativeHandle: anExternalData [
 	^ (self fromHandle: (anExternalData getHandle)) autoRelease
 ]
 
-{ #category : 'instance creation' }
+{ #category : #'instance creation' }
 SkiaExternalObject class >> fromNativeHandle: anExternalData during: aBlock [
 	"I create a new instance of me without auto-release for to evaluate a given block
 	and then destroy me"
@@ -47,19 +47,19 @@ SkiaExternalObject class >> fromNativeHandle: anExternalData during: aBlock [
 	ensure: [ anExternalInstance release ]
 ]
 
-{ #category : 'debug' }
+{ #category : #debug }
 SkiaExternalObject class >> isValid: aValueBox [
 	<return: #Boolean>
 
 	^ self primIsValid: aValueBox getHandle
 ]
 
-{ #category : 'instance creation' }
+{ #category : #'instance creation' }
 SkiaExternalObject class >> new [
 	^ self fromNativeHandle: self primCreate
 ]
 
-{ #category : 'instance creation' }
+{ #category : #'instance creation' }
 SkiaExternalObject class >> new: anAmountOfObjects during: aBlock [
 	"I create anAmountOfObjects of new instances of me without auto-release to evaluate a given block
 	and then destroy all of them"
@@ -75,7 +75,7 @@ SkiaExternalObject class >> new: anAmountOfObjects during: aBlock [
 		thenDo: [ :eachObject | eachObject release ] ]
 ]
 
-{ #category : 'instance creation' }
+{ #category : #'instance creation' }
 SkiaExternalObject class >> newDuring: aBlock [
 	"I create a new instance of me without auto-release for to evaluate a given block
 	and then destroy me"
@@ -83,27 +83,27 @@ SkiaExternalObject class >> newDuring: aBlock [
 	^ self fromNativeHandle: self primCreate during: aBlock
 ]
 
-{ #category : 'instance creation' }
+{ #category : #'instance creation' }
 SkiaExternalObject class >> null [
 	^ self fromHandle: self primNullPtr
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaExternalObject class >> primCreate [
 	^ self subclassResponsibility
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaExternalObject class >> primIsValid: aHandle [
 	^ self ffiCall: #(bool skia_value_box_is_valid(void* aHandle))
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaExternalObject class >> primNullPtr [
 	^ self ffiCall: #(void* skia_null_ptr())
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaExternalObject class >> primRelease: aHandle [
 	
 	"Plain pointers must be deleted using delete(), all users must implement a specific method"
@@ -111,7 +111,7 @@ SkiaExternalObject class >> primRelease: aHandle [
 	self subclassResponsibility
 ]
 
-{ #category : 'finalization' }
+{ #category : #finalization }
 SkiaExternalObject class >> release: aHandle [
 	aHandle isNull
 		"A handle may already be null, if garbage collector did his job before us :)"
@@ -136,7 +136,7 @@ SkiaExternalObject class >> release: aHandle [
 		description: [ 'Pointer must be null after release' ]
 ]
 
-{ #category : 'debug' }
+{ #category : #debug }
 SkiaExternalObject class >> warning: aMessageBlock [ 
 	"| message |
 
@@ -145,7 +145,7 @@ SkiaExternalObject class >> warning: aMessageBlock [
 	Transcript show: message; cr"
 ]
 
-{ #category : 'external resource management' }
+{ #category : #'external resource management' }
 SkiaExternalObject >> autoRelease [
 	"Note, subclasses should implement #resourceData
 	and #finalizeResourceData: on class side"
@@ -157,11 +157,11 @@ SkiaExternalObject >> autoRelease [
 	super autoRelease
 ]
 
-{ #category : 'dependencies' }
+{ #category : #dependencies }
 SkiaExternalObject >> ffiLibrary [ ^ self class ffiLibrary
 ]
 
-{ #category : 'dependencies' }
+{ #category : #dependencies }
 SkiaExternalObject >> release [
 	"#release is sent manually, so we want to make sure that resource is no longer
 	added to weak registry - performance improvement"

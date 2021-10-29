@@ -1,10 +1,10 @@
 Class {
-	#name : 'SkiaBlendModeExamples',
-	#superclass : 'SkiaExternalEnumerationExamples',
+	#name : #SkiaBlendModeExamples,
+	#superclass : #SkiaExternalEnumerationExamples,
 	#category : 'Sparta-Skia-Examples'
 }
 
-{ #category : 'examples' }
+{ #category : #examples }
 SkiaBlendModeExamples >> validateLayout [
 	<gtExample>
 

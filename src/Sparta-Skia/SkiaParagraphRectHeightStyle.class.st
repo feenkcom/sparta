@@ -1,6 +1,6 @@
 Class {
-	#name : 'SkiaParagraphRectHeightStyle',
-	#superclass : 'SkiaExternalEnumeration',
+	#name : #SkiaParagraphRectHeightStyle,
+	#superclass : #SkiaExternalEnumeration,
 	#classVars : [
 		'IncludeLineSpacingBottom',
 		'IncludeLineSpacingMiddle',
@@ -12,43 +12,43 @@ Class {
 	#category : 'Sparta-Skia-External'
 }
 
-{ #category : 'accessing enum' }
+{ #category : #'accessing enum' }
 SkiaParagraphRectHeightStyle class >> IncludeLineSpacingBottom [
 	"This method was automatically generated"
 	^ IncludeLineSpacingBottom
 ]
 
-{ #category : 'accessing enum' }
+{ #category : #'accessing enum' }
 SkiaParagraphRectHeightStyle class >> IncludeLineSpacingMiddle [
 	"This method was automatically generated"
 	^ IncludeLineSpacingMiddle
 ]
 
-{ #category : 'accessing enum' }
+{ #category : #'accessing enum' }
 SkiaParagraphRectHeightStyle class >> IncludeLineSpacingTop [
 	"This method was automatically generated"
 	^ IncludeLineSpacingTop
 ]
 
-{ #category : 'accessing enum' }
+{ #category : #'accessing enum' }
 SkiaParagraphRectHeightStyle class >> Max [
 	"This method was automatically generated"
 	^ Max
 ]
 
-{ #category : 'accessing enum' }
+{ #category : #'accessing enum' }
 SkiaParagraphRectHeightStyle class >> Strut [
 	"This method was automatically generated"
 	^ Strut
 ]
 
-{ #category : 'accessing enum' }
+{ #category : #'accessing enum' }
 SkiaParagraphRectHeightStyle class >> Tight [
 	"This method was automatically generated"
 	^ Tight
 ]
 
-{ #category : 'enum declaration' }
+{ #category : #'enum declaration' }
 SkiaParagraphRectHeightStyle class >> externalDeclaration [
 	"
 	self rebuildEnumAccessors
@@ -64,17 +64,17 @@ SkiaParagraphRectHeightStyle class >> externalDeclaration [
 	)
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaParagraphRectHeightStyle class >> externalType [
 	^ FFIInt32 new
 ]
 
-{ #category : 'class initialization' }
+{ #category : #'class initialization' }
 SkiaParagraphRectHeightStyle class >> initialize [
 	super initialize
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaParagraphRectHeightStyle >> primRealName: aBoxerString [
 	^ self ffiCall: #(void skia_enums_clip_op_to_string(self, GtBoxerString aBoxerString))
 ]

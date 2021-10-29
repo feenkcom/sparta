@@ -1,10 +1,10 @@
 Class {
-	#name : 'SkiaFontManagerExamples',
-	#superclass : 'SkiaExternalObjectExamples',
+	#name : #SkiaFontManagerExamples,
+	#superclass : #SkiaExternalObjectExamples,
 	#category : 'Sparta-Skia-Examples'
 }
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaFontManagerExamples >> default [
 	<gtExample>
 	| aFontManager |
@@ -15,7 +15,7 @@ SkiaFontManagerExamples >> default [
 	^ aFontManager
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaFontManagerExamples >> newTypeface [
 	<gtExample>
 	<noTest>

@@ -1,37 +1,37 @@
 Class {
-	#name : 'SkiaInterface',
-	#superclass : 'SkiaExternalObject',
+	#name : #SkiaInterface,
+	#superclass : #SkiaExternalObject,
 	#category : 'Sparta-Skia-External'
 }
 
-{ #category : 'resources' }
+{ #category : #resources }
 SkiaInterface class >> ffiLibrary [
 	^ SkiaThreadedLibrary
 ]
 
-{ #category : 'instance creation' }
+{ #category : #'instance creation' }
 SkiaInterface class >> load: aBlock [
 	^ self fromNativeHandle: (self primLoadWith: (self primLoaderCallbackFor: aBlock))
 ]
 
-{ #category : 'instance creation' }
+{ #category : #'instance creation' }
 SkiaInterface class >> native [
 	<return: #SkiaInterface>
 	
 	^ self new
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaInterface class >> primCreate [
 	^ self ffiCall: #(void* skia_interface_new_native())
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaInterface class >> primLoadWith: aCallback [
 	^ self ffiCall: #(void* skia_interface_new_load_with(SkiaInterfaceLoadCallback aCallback))
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaInterface class >> primLoaderCallbackFor: aBlock [
 	| aCallback |
 	
@@ -42,7 +42,7 @@ SkiaInterface class >> primLoaderCallbackFor: aBlock [
 	^ aCallback
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaInterface class >> primRelease: aHandle [
 	
 	"Plain pointers must be deleted using delete(), all users must implement a specific method"

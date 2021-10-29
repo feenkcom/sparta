@@ -1,10 +1,10 @@
 Class {
-	#name : 'SkiaSaveLayerRecExamples',
-	#superclass : 'SkiaExternalObjectExamples',
+	#name : #SkiaSaveLayerRecExamples,
+	#superclass : #SkiaExternalObjectExamples,
 	#category : 'Sparta-Skia-Examples'
 }
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaSaveLayerRecExamples >> default [
 	<gtExample>
 	| aLayerRec |
@@ -15,7 +15,7 @@ SkiaSaveLayerRecExamples >> default [
 	^ aLayerRec
 ]
 
-{ #category : 'initialization' }
+{ #category : #initialization }
 SkiaSaveLayerRecExamples >> setBounds [
 	<gtExample>
 	| aLayerRec |
@@ -28,7 +28,7 @@ SkiaSaveLayerRecExamples >> setBounds [
 	^ aLayerRec
 ]
 
-{ #category : 'initialization' }
+{ #category : #initialization }
 SkiaSaveLayerRecExamples >> setPaint [
 	<gtExample>
 	<noTest>

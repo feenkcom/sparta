@@ -1,25 +1,25 @@
 Class {
-	#name : 'SkiaPictureRecorder',
-	#superclass : 'SkiaExternalObject',
+	#name : #SkiaPictureRecorder,
+	#superclass : #SkiaExternalObject,
 	#instVars : [
 		'bounds'
 	],
 	#category : 'Sparta-Skia-External'
 }
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaPictureRecorder class >> primCreate [
 	^ self ffiCall: #(void* skia_picture_recorder_new())
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaPictureRecorder class >> primRelease: aHandle [
 	
 	"Plain pointers must be deleted using delete(), all users must implement a specific method"
 	self ffiCall: #(void skia_picture_recorder_drop(void** aHandle))
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaPictureRecorder >> beginRecording: aBounds [
 	<return: #SkiaSurfaceCanvas>
 	
@@ -28,17 +28,17 @@ SkiaPictureRecorder >> beginRecording: aBounds [
 		surface: self
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaPictureRecorder >> bounds [
 	^ bounds
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaPictureRecorder >> bounds: anObject [
 	bounds := anObject
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaPictureRecorder >> canvas [
 	^ (SkiaSurfaceCanvas fromNativeHandle: (self
 		primBeginRecordingLeft: self bounds left
@@ -48,19 +48,19 @@ SkiaPictureRecorder >> canvas [
 			surface: self
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaPictureRecorder >> extent [
 	^ self bounds extent
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaPictureRecorder >> finishRecording [
 	<return: #SkiaPicture>
 	
 	^ SkiaPicture fromNativeHandle: self primFinishRecording
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaPictureRecorder >> primBeginRecordingLeft: aLeft top: aTop right: aRight bottom: aBottom [
 	^ self ffiCall: #(void* skia_picture_recorder_begin_recording(
 		self,
@@ -70,12 +70,12 @@ SkiaPictureRecorder >> primBeginRecordingLeft: aLeft top: aTop right: aRight bot
 		scalar aBottom))
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaPictureRecorder >> primFinishRecording [
 	^ self ffiCall: #(void* skia_picture_recorder_finish_recording(self))
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaPictureRecorder >> snapshot [
 	^ self finishRecording
 ]

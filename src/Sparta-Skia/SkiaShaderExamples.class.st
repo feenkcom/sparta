@@ -1,10 +1,10 @@
 Class {
-	#name : 'SkiaShaderExamples',
-	#superclass : 'SkiaExternalObjectExamples',
+	#name : #SkiaShaderExamples,
+	#superclass : #SkiaExternalObjectExamples,
 	#category : 'Sparta-Skia-Examples'
 }
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaShaderExamples >> default [
 	<gtExample>
 	| aShader |

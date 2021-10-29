@@ -1,10 +1,10 @@
 Class {
-	#name : 'SkiaTextPainter',
-	#superclass : 'SpartaTextPainter',
+	#name : #SkiaTextPainter,
+	#superclass : #SpartaTextPainter,
 	#category : 'Sparta-Skia-Builders'
 }
 
-{ #category : 'private - drawing' }
+{ #category : #'private - drawing' }
 SkiaTextPainter >> fillGlyphs: aByteArray font: aSkiaFont withColor: aColor antialias: isAntialias [
 	SkiaTextBlob glyphs: aByteArray font: aSkiaFont during: [ :aTextBlob |
 		aColor = Color black
@@ -21,7 +21,7 @@ SkiaTextPainter >> fillGlyphs: aByteArray font: aSkiaFont withColor: aColor anti
 			antialias: isAntialias ]
 ]
 
-{ #category : 'drawing' }
+{ #category : #drawing }
 SkiaTextPainter >> fillString: aString withColor: aFillColor strokeColor: aStrokeColor [	
 	SkiaPaint newDuring: [ :aSkiaPaint |
 		SkiaTextBlob string: aString font: font during: [ :aTextBlob |
@@ -31,11 +31,11 @@ SkiaTextPainter >> fillString: aString withColor: aFillColor strokeColor: aStrok
 				paint: (self setPaint: aSkiaPaint forColor: aFillColor) ] ]
 ]
 
-{ #category : 'drawing' }
+{ #category : #drawing }
 SkiaTextPainter >> fillString: aString withColor: aFillColor strokePaint: aStrokePaint [
 ]
 
-{ #category : 'drawing' }
+{ #category : #drawing }
 SkiaTextPainter >> fillTextRun: aTextRun withColor: aFillColor strokeColor: aStrokeColor [
 
 	"blend mode = SrcOver, alpha = 1, antialias = true"
@@ -68,7 +68,7 @@ SkiaTextPainter >> fillTextRun: aTextRun withColor: aFillColor strokeColor: aStr
 				paint: (self setPaint: aSkiaPaint forColor: aFillColor) ] ]
 ]
 
-{ #category : 'instance creation' }
+{ #category : #'instance creation' }
 SkiaTextPainter >> metricsProvider [
 	"Instantiate and return a backend specific metrics provider that handles SpMetrics request.
 	Note: metrics provider is created according to current font and text properties and therefore
@@ -78,7 +78,7 @@ SkiaTextPainter >> metricsProvider [
 	^ SkiaMetricsProvider new font: font
 ]
 
-{ #category : 'private' }
+{ #category : #private }
 SkiaTextPainter >> setPaint: aSkiaPaint forColor: aColor [
 	| theDrawOptions |
 
@@ -91,7 +91,7 @@ SkiaTextPainter >> setPaint: aSkiaPaint forColor: aColor [
 	^ aSkiaPaint
 ]
 
-{ #category : 'private' }
+{ #category : #private }
 SkiaTextPainter >> setPaintForMeasurement: aSkiaPaint [
 	| theDrawOptions |
 
@@ -103,7 +103,7 @@ SkiaTextPainter >> setPaintForMeasurement: aSkiaPaint [
 	^ aSkiaPaint
 ]
 
-{ #category : 'instance creation' }
+{ #category : #'instance creation' }
 SkiaTextPainter >> textRun [
 	"Instantiate and return a text run containing glyphs for current string according
 	to choosen font and various text properties"
@@ -113,7 +113,7 @@ SkiaTextPainter >> textRun [
 		SkiaTextRun fromString: text font: font paint: (self setPaintForMeasurement: aSkiaPaint) ]
 ]
 
-{ #category : 'instance creation' }
+{ #category : #'instance creation' }
 SkiaTextPainter >> textRunWithMetrics: aSpartaMetrics batch: aSpartaBatcher whenFinishedDo: aFinishedBlock [
 	| aMetricsProvider |
 

@@ -1,6 +1,6 @@
 Class {
-	#name : 'SkiaBoxShadowPaint',
-	#superclass : 'Object',
+	#name : #SkiaBoxShadowPaint,
+	#superclass : #Object,
 	#traits : 'TSpartaPaint + TSpartaBoxShadowPaint',
 	#classTraits : 'TSpartaPaint classTrait + TSpartaBoxShadowPaint classTrait',
 	#instVars : [
@@ -12,21 +12,21 @@ Class {
 	#category : 'Sparta-Skia-Paints'
 }
 
-{ #category : 'extend modes' }
+{ #category : #'extend modes' }
 SkiaBoxShadowPaint >> clamp [
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaBoxShadowPaint >> color [
 	^ color
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaBoxShadowPaint >> color: aColor [
 	color := aColor
 ]
 
-{ #category : 'initialization' }
+{ #category : #initialization }
 SkiaBoxShadowPaint >> initialize [
 	super initialize.
 	
@@ -35,43 +35,43 @@ SkiaBoxShadowPaint >> initialize [
 	radius := self class defaultRadius
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaBoxShadowPaint >> offset [
 	^ offset
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaBoxShadowPaint >> offset: aPoint [
 	offset := aPoint asPoint
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaBoxShadowPaint >> radius [
 	^ radius
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaBoxShadowPaint >> radius: aNumber [
 	radius := aNumber asPoint
 ]
 
-{ #category : 'extend modes' }
+{ #category : #'extend modes' }
 SkiaBoxShadowPaint >> reflect [
 ]
 
-{ #category : 'extend modes' }
+{ #category : #'extend modes' }
 SkiaBoxShadowPaint >> repeat [
 ]
 
-{ #category : 'extend modes' }
+{ #category : #'extend modes' }
 SkiaBoxShadowPaint >> repeatX [
 ]
 
-{ #category : 'extend modes' }
+{ #category : #'extend modes' }
 SkiaBoxShadowPaint >> repeatY [
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaBoxShadowPaint >> transformation: aMatrix [
 	matrix := aMatrix
 ]

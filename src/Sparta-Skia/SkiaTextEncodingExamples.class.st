@@ -1,10 +1,10 @@
 Class {
-	#name : 'SkiaTextEncodingExamples',
-	#superclass : 'SkiaExternalEnumerationExamples',
+	#name : #SkiaTextEncodingExamples,
+	#superclass : #SkiaExternalEnumerationExamples,
 	#category : 'Sparta-Skia-Examples'
 }
 
-{ #category : 'examples' }
+{ #category : #examples }
 SkiaTextEncodingExamples >> validateLayout [
 	<gtExample>
 	

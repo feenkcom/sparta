@@ -1,27 +1,27 @@
 Class {
-	#name : 'SkiaInterfaceLoadCallback',
-	#superclass : 'FFICallback',
+	#name : #SkiaInterfaceLoadCallback,
+	#superclass : #FFICallback,
 	#category : 'Sparta-Skia-External'
 }
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaInterfaceLoadCallback class >> ffiLibrary [
 	^ SkiaThreadedLibrary
 ]
 
-{ #category : 'callback spec' }
+{ #category : #'callback spec' }
 SkiaInterfaceLoadCallback class >> fnSpec [
 	^ #(void* ( void* aGtBoxerStringHandle ))
 ]
 
-{ #category : 'instance creation' }
+{ #category : #'instance creation' }
 SkiaInterfaceLoadCallback class >> on: aBlock [
 	^ self 
 		newCallbackWithSignature: self fnSpec 
 		block: aBlock
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaInterfaceLoadCallback >> calloutAPIClass [
 	^ self class environment
 		at: #ThreadedFFIMigration
@@ -32,7 +32,7 @@ SkiaInterfaceLoadCallback >> calloutAPIClass [
 		ifAbsent: [ super calloutAPIClass ]
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaInterfaceLoadCallback >> ffiLibrary [
 
 	^ self class ffiLibrary

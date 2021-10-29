@@ -1,6 +1,6 @@
 Class {
-	#name : 'SkiaTextDecorationType',
-	#superclass : 'SkiaExternalEnumeration',
+	#name : #SkiaTextDecorationType,
+	#superclass : #SkiaExternalEnumeration,
 	#classVars : [
 		'LineThrough',
 		'NoDecoration',
@@ -10,36 +10,36 @@ Class {
 	#category : 'Sparta-Skia-External'
 }
 
-{ #category : 'accessing enum' }
+{ #category : #'accessing enum' }
 SkiaTextDecorationType class >> LineThrough [
 	"This method was automatically generated"
 	^ LineThrough
 ]
 
-{ #category : 'accessing enum' }
+{ #category : #'accessing enum' }
 SkiaTextDecorationType class >> NoDecoration [
 	"This method was automatically generated"
 	^ NoDecoration
 ]
 
-{ #category : 'accessing enum' }
+{ #category : #'accessing enum' }
 SkiaTextDecorationType class >> Overline [
 	"This method was automatically generated"
 	^ Overline
 ]
 
-{ #category : 'accessing enum' }
+{ #category : #'accessing enum' }
 SkiaTextDecorationType class >> Underline [
 	"This method was automatically generated"
 	^ Underline
 ]
 
-{ #category : 'enum declaration' }
+{ #category : #'enum declaration' }
 SkiaTextDecorationType class >> enumDecl [
 	^ self externalDeclaration
 ]
 
-{ #category : 'enum declaration' }
+{ #category : #'enum declaration' }
 SkiaTextDecorationType class >> externalDeclaration [
 	^ #(
 		NoDecoration 0
@@ -48,12 +48,12 @@ SkiaTextDecorationType class >> externalDeclaration [
 		LineThrough 4)
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaTextDecorationType class >> externalType [
 	^ FFIUInt32 new
 ]
 
-{ #category : 'class initialization' }
+{ #category : #'class initialization' }
 SkiaTextDecorationType class >> initialize [
 	super initialize
 ]

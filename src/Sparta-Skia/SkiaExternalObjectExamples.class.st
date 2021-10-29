@@ -1,5 +1,5 @@
 Class {
-	#name : 'SkiaExternalObjectExamples',
-	#superclass : 'Object',
+	#name : #SkiaExternalObjectExamples,
+	#superclass : #Object,
 	#category : 'Sparta-Skia-Examples'
 }

@@ -1,10 +1,10 @@
 Class {
-	#name : 'SkiaImageExamples',
-	#superclass : 'SkiaExternalObjectExamples',
+	#name : #SkiaImageExamples,
+	#superclass : #SkiaExternalObjectExamples,
 	#category : 'Sparta-Skia-Examples'
 }
 
-{ #category : 'instance creation' }
+{ #category : #'instance creation' }
 SkiaImageExamples >> fromEmptyForm [
 	<gtExample>
 	| aForm aSkiaImage |
@@ -23,7 +23,7 @@ SkiaImageExamples >> fromEmptyForm [
 	^ aSkiaImage
 ]
 
-{ #category : 'instance creation' }
+{ #category : #'instance creation' }
 SkiaImageExamples >> fromForm_1x1 [
 	<gtExample>
 	| aForm aSkiaImage |
@@ -39,7 +39,7 @@ SkiaImageExamples >> fromForm_1x1 [
 	^ aSkiaImage
 ]
 
-{ #category : 'instance creation' }
+{ #category : #'instance creation' }
 SkiaImageExamples >> fromForm_2x2 [
 	<gtExample>
 	| aForm aSkiaImage |
@@ -55,7 +55,7 @@ SkiaImageExamples >> fromForm_2x2 [
 	^ aSkiaImage
 ]
 
-{ #category : 'instance creation' }
+{ #category : #'instance creation' }
 SkiaImageExamples >> fromForm_50x50 [
 	<gtExample>
 	| aForm aSkiaImage |
@@ -71,7 +71,7 @@ SkiaImageExamples >> fromForm_50x50 [
 	^ aSkiaImage
 ]
 
-{ #category : 'examples - null ptr' }
+{ #category : #'examples - null ptr' }
 SkiaImageExamples >> release [
 	<gtExample>
 	| aSkiaImage |
