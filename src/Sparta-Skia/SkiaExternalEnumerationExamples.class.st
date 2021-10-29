@@ -1,10 +1,10 @@
 Class {
-	#name : 'SkiaExternalEnumerationExamples',
-	#superclass : 'Object',
+	#name : #SkiaExternalEnumerationExamples,
+	#superclass : #Object,
 	#category : 'Sparta-Skia-Examples'
 }
 
-{ #category : 'examples' }
+{ #category : #examples }
 SkiaExternalEnumerationExamples >> validateLayout [
 	<gtExample>
 	<noTest>

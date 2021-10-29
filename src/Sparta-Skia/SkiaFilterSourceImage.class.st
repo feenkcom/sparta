@@ -1,23 +1,23 @@
 Class {
-	#name : 'SkiaFilterSourceImage',
-	#superclass : 'SkiaFilterSource',
+	#name : #SkiaFilterSourceImage,
+	#superclass : #SkiaFilterSource,
 	#instVars : [
 		'image'
 	],
 	#category : 'Sparta-Skia-Filters'
 }
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaFilterSourceImage >> image [
 	^ image
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaFilterSourceImage >> image: anObject [
 	image := anObject
 ]
 
-{ #category : 'testing' }
+{ #category : #testing }
 SkiaFilterSourceImage >> isImage [
 	^ true
 ]

@@ -1,6 +1,6 @@
 Class {
-	#name : 'SkiaBitmapBuilder',
-	#superclass : 'SpartaBitmapBuilder',
+	#name : #SkiaBitmapBuilder,
+	#superclass : #SpartaBitmapBuilder,
 	#classInstVars : [
 		'session',
 		'formCache'
@@ -8,7 +8,7 @@ Class {
 	#category : 'Sparta-Skia-Builders'
 }
 
-{ #category : 'cleanup' }
+{ #category : #cleanup }
 SkiaBitmapBuilder class >> cleanUp [
 	super cleanUp.
 	
@@ -16,14 +16,14 @@ SkiaBitmapBuilder class >> cleanUp [
 	session := nil
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaBitmapBuilder class >> defaultFormCache [
 	^ SpartaFormCache new
 		maximumWeight: 100 "how many different forms we cache";
 		yourself
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaBitmapBuilder class >> formCache [
 
 	session == Smalltalk session
@@ -34,17 +34,17 @@ SkiaBitmapBuilder class >> formCache [
 	^ formCache ifNil: [ formCache := self defaultFormCache ]
 ]
 
-{ #category : 'bitmap' }
+{ #category : #bitmap }
 SkiaBitmapBuilder >> fromBGR: aData extent: anExtent stride: aStride [
 	^ SkiaImage fromBGR: aData extent: anExtent stride: aStride
 ]
 
-{ #category : 'bitmap' }
+{ #category : #bitmap }
 SkiaBitmapBuilder >> fromBGRA: aData extent: anExtent stride: aStride [
 	^ SkiaImage fromBGRA: aData extent: anExtent stride: aStride
 ]
 
-{ #category : 'bitmap' }
+{ #category : #bitmap }
 SkiaBitmapBuilder >> fromBuffer: aByteArray [
 	"Create a bitmap surface from the supplied picture file contents"
 	<return: #TSpartaSurface>
@@ -52,7 +52,7 @@ SkiaBitmapBuilder >> fromBuffer: aByteArray [
 	^ SkiaImage fromBuffer: aByteArray start: 0 end: aByteArray size - 1.
 ]
 
-{ #category : 'bitmap' }
+{ #category : #bitmap }
 SkiaBitmapBuilder >> fromFileNamed: aString [
 	"Create a bitmap surface from a picture file with a given path"
 	<return: #TSpartaSurface>
@@ -60,7 +60,7 @@ SkiaBitmapBuilder >> fromFileNamed: aString [
 	^ SkiaImage fromFile: aString 
 ]
 
-{ #category : 'bitmap' }
+{ #category : #bitmap }
 SkiaBitmapBuilder >> fromForm: aForm [
 	"Create a bitmap surface from a given Form"
 	<return: #TSpartaSurface>
@@ -70,12 +70,12 @@ SkiaBitmapBuilder >> fromForm: aForm [
 		ifAbsentPut: [ SkiaImage fromForm: aForm ]
 ]
 
-{ #category : 'bitmap' }
+{ #category : #bitmap }
 SkiaBitmapBuilder >> fromGray: aData extent: anExtent stride: aStride [
 	^ SkiaImage fromGray: aData extent: anExtent stride: aStride
 ]
 
-{ #category : 'bitmap' }
+{ #category : #bitmap }
 SkiaBitmapBuilder >> fromRGBA: aData extent: anExtent stride: aStride [
 	^ SkiaImage fromRGBA: aData extent: anExtent stride: aStride
 ]

@@ -1,10 +1,10 @@
 Class {
-	#name : 'SkiaCompositionShadowLayer',
-	#superclass : 'SkiaCompositionLayer',
+	#name : #SkiaCompositionShadowLayer,
+	#superclass : #SkiaCompositionLayer,
 	#category : 'Sparta-Skia-External'
 }
 
-{ #category : 'instance creation' }
+{ #category : #'instance creation' }
 SkiaCompositionShadowLayer class >> color: aColor radius: aRadiusPoint offset: anOffsetPoint [
 	| aRed aGreen aBlue anAlpha |
 	aRed := (aColor red * 255) asInteger.
@@ -36,7 +36,7 @@ SkiaCompositionShadowLayer class >> color: aColor radius: aRadiusPoint offset: a
 				a: anAlpha)
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaCompositionShadowLayer class >> primCreateDeltaX: aDeltaX deltaY: aDeltaY sigmaX: aSigmaX sigmaY: aSigmaY r: aRed g: aGreen b: aBlue a: anAlpha [
 	^ self ffiCall: #(void* skia_shadow_layer_new(
 		float32 aDeltaX,
@@ -49,31 +49,31 @@ SkiaCompositionShadowLayer class >> primCreateDeltaX: aDeltaX deltaY: aDeltaY si
 		uint8 anAlpha))
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaCompositionShadowLayer >> primSetCircleX: aX Y: aY radius: aRadius [
 	^ self ffiCall: #(void skia_shadow_layer_set_circle(self,
 		scalar aX, scalar aY, scalar aRadius))
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaCompositionShadowLayer >> primSetPath: aSkiaPath [
 	self ffiCall: #(void skia_shadow_layer_set_path(self, SkiaPath aSkiaPath))
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaCompositionShadowLayer >> primSetRectangleLeft: aLeft top: aTop right: aRight bottom: aBottom [
 	^ self ffiCall: #(void skia_shadow_layer_set_rectangle(self,
 		scalar aLeft, scalar aTop, scalar aRight, scalar aBottom))
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaCompositionShadowLayer >> primSetRoundedRectangleLeft: aLeft top: aTop right: aRight bottom: aBottom radiusTopLeft: aTopLeftRadius topRight: aTopRightRadius bottomRight: aBottomRightRadius bottomLeft: aBottomLeftRadius [
 	^ self ffiCall: #(void skia_shadow_layer_set_rounded_rectangle(self,
 		scalar aLeft, scalar aTop, scalar aRight, scalar aBottom,
 		scalar aTopLeftRadius, scalar aTopRightRadius, scalar aBottomRightRadius, scalar aBottomLeftRadius))
 ]
 
-{ #category : 'private - path' }
+{ #category : #'private - path' }
 SkiaCompositionShadowLayer >> pushCircle: aSpartaCircle [
 	self
 		primSetCircleX: aSpartaCircle center x
@@ -81,12 +81,12 @@ SkiaCompositionShadowLayer >> pushCircle: aSpartaCircle [
 		radius: aSpartaCircle radius
 ]
 
-{ #category : 'private - path' }
+{ #category : #'private - path' }
 SkiaCompositionShadowLayer >> pushPath: aSpartaPath [
 	self primSetPath: aSpartaPath
 ]
 
-{ #category : 'private - path' }
+{ #category : #'private - path' }
 SkiaCompositionShadowLayer >> pushRectangle: aSpartaRectangle [
 	self
 		primSetRectangleLeft: aSpartaRectangle left
@@ -95,7 +95,7 @@ SkiaCompositionShadowLayer >> pushRectangle: aSpartaRectangle [
 		bottom: aSpartaRectangle bottom
 ]
 
-{ #category : 'private - path' }
+{ #category : #'private - path' }
 SkiaCompositionShadowLayer >> pushRoundedRectangle: aSpartaRoundedRectangle [
 	self
 		primSetRoundedRectangleLeft: aSpartaRoundedRectangle left

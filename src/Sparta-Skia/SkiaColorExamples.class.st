@@ -1,10 +1,10 @@
 Class {
-	#name : 'SkiaColorExamples',
-	#superclass : 'SkiaExternalObjectExamples',
+	#name : #SkiaColorExamples,
+	#superclass : #SkiaExternalObjectExamples,
 	#category : 'Sparta-Skia-Examples'
 }
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaColorExamples >> default [
 	<gtExample>
 	| aColor |
@@ -18,7 +18,7 @@ SkiaColorExamples >> default [
 	^ aColor
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaColorExamples >> fromColorBlack [
 	<gtExample>
 	| aColor aSkiaColor |
@@ -33,7 +33,7 @@ SkiaColorExamples >> fromColorBlack [
 	^ aColor
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaColorExamples >> fromColorBlue [
 	<gtExample>
 	| aColor aSkiaColor |
@@ -48,7 +48,7 @@ SkiaColorExamples >> fromColorBlue [
 	^ aColor
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaColorExamples >> fromColorGreen [
 	<gtExample>
 	| aColor aSkiaColor |
@@ -63,7 +63,7 @@ SkiaColorExamples >> fromColorGreen [
 	^ aColor
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaColorExamples >> fromColorRed [
 	<gtExample>
 	| aColor aSkiaColor |
@@ -78,7 +78,7 @@ SkiaColorExamples >> fromColorRed [
 	^ aColor
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaColorExamples >> fromColorWhite [
 	<gtExample>
 	| aColor aSkiaColor |

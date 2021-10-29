@@ -1,25 +1,25 @@
 Class {
-	#name : 'SkiaLibrary',
-	#superclass : 'FFILibrary',
+	#name : #SkiaLibrary,
+	#superclass : #FFILibrary,
 	#category : 'Sparta-Skia-Library'
 }
 
-{ #category : 'logger' }
+{ #category : #logger }
 SkiaLibrary class >> initEnvLogger [
 	self uniqueInstance initEnvLogger
 ]
 
-{ #category : 'logger' }
+{ #category : #logger }
 SkiaLibrary class >> initIcu [
 	self uniqueInstance initIcu
 ]
 
-{ #category : 'class initialization' }
+{ #category : #'class initialization' }
 SkiaLibrary class >> initialize [
 	SessionManager default registerUserClassNamed: self name
 ]
 
-{ #category : 'installation' }
+{ #category : #installation }
 SkiaLibrary class >> install [
 	<script: 'self install'>
 	| installer |
@@ -35,7 +35,7 @@ SkiaLibrary class >> install [
 	installer run
 ]
 
-{ #category : 'class initialization' }
+{ #category : #'class initialization' }
 SkiaLibrary class >> startUp: isANewSession [
 	isANewSession
 		ifTrue: [
@@ -43,7 +43,7 @@ SkiaLibrary class >> startUp: isANewSession [
 			self initIcu ]
 ]
 
-{ #category : 'api - library' }
+{ #category : #'api - library' }
 SkiaLibrary >> detectLibrary: aFileName [
 	"Pharo9 introduced a platform specific FFILibraryFinder which should be used instead of this custom implementation"
 
@@ -54,7 +54,7 @@ SkiaLibrary >> detectLibrary: aFileName [
 			ifNone: [ aFileName ]
 ]
 
-{ #category : 'api - library' }
+{ #category : #'api - library' }
 SkiaLibrary >> hasModule [
 	"Return if there is a loadable and working Skia library installed, false otherwise"
 	<return: #Boolean>
@@ -71,21 +71,21 @@ SkiaLibrary >> hasModule [
 	^ aResult ifNil: [ false ]
 ]
 
-{ #category : 'api - startup' }
+{ #category : #'api - startup' }
 SkiaLibrary >> initEnvLogger [
 	[ self primInitEnvLogger ]
 		on: Error
 		do: [ :e | NonInteractiveTranscript stdout nextPutAll: '[Skia] Could not init env logger'; cr ]
 ]
 
-{ #category : 'api - startup' }
+{ #category : #'api - startup' }
 SkiaLibrary >> initIcu [
 	[ self primIcuInit ]
 		on: Error
 		do: [ :e | NonInteractiveTranscript stdout nextPutAll: '[Skia] Could not init icu'; cr ]
 ]
 
-{ #category : 'api - library' }
+{ #category : #'api - library' }
 SkiaLibrary >> macLibraryName [
 	^ self class environment
 		at: #FFIMacLibraryFinder
@@ -93,22 +93,22 @@ SkiaLibrary >> macLibraryName [
 		ifAbsent: [ self detectLibrary: 'libSkia.dylib' ]
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaLibrary >> primIcuInit [
 	^ self ffiCall: #(void skia_icu_init())
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaLibrary >> primInitEnvLogger [
 	^ self ffiCall: #(void skia_init_env_logger())
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaLibrary >> primTest [
 	^ self ffiCall: #(bool skia_test())
 ]
 
-{ #category : 'api - library' }
+{ #category : #'api - library' }
 SkiaLibrary >> unix32LibraryName [
 	^ self class environment
 		at: #FFIUnix32LibraryFinder
@@ -116,7 +116,7 @@ SkiaLibrary >> unix32LibraryName [
 		ifAbsent: [ self detectLibrary: 'libSkia.so' ]
 ]
 
-{ #category : 'api - library' }
+{ #category : #'api - library' }
 SkiaLibrary >> unix64LibraryName [
 	^ self class environment
 		at: #FFIUnix64LibraryFinder
@@ -124,7 +124,7 @@ SkiaLibrary >> unix64LibraryName [
 		ifAbsent: [ self detectLibrary: 'libSkia.so' ]
 ]
 
-{ #category : 'api - library' }
+{ #category : #'api - library' }
 SkiaLibrary >> win32LibraryName [
 	^ self class environment
 		at: #FFIWindowsLibraryFinder

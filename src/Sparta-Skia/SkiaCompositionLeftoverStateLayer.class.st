@@ -1,18 +1,32 @@
 Class {
-	#name : 'SkiaCompositionLeftoverStateLayer',
-	#superclass : 'SkiaCompositionLayer',
+	#name : #SkiaCompositionLeftoverStateLayer,
+	#superclass : #SkiaCompositionLayer,
 	#instVars : [
 		'offset'
 	],
-	#category : 'Sparta-Skia-External'
+	#category : #'Sparta-Skia-External'
 }
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaCompositionLeftoverStateLayer class >> primCreate [
 	^ self ffiCall: #(void* skia_leftover_state_layer_new())
 ]
 
-{ #category : 'api - layer' }
+{ #category : #'api - layer' }
+SkiaCompositionLeftoverStateLayer >> clipCircle: aSpartaCircle offset: anOffset [
+	| aSkiaPath |
+
+	aSkiaPath := SkiaPathBuilder new
+		arcAround: aSpartaCircle center
+			radius: aSpartaCircle radius
+			startAngle: 0
+			endAngle: Float pi * 2;
+		finish.
+		
+	self clipPath: aSkiaPath offset: anOffset
+]
+
+{ #category : #'api - layer' }
 SkiaCompositionLeftoverStateLayer >> clipPath: aSkiaPath offset: anOffset [
 	self
 		primClipPath: aSkiaPath
@@ -20,7 +34,7 @@ SkiaCompositionLeftoverStateLayer >> clipPath: aSkiaPath offset: anOffset [
 		offsetY: anOffset y
 ]
 
-{ #category : 'api - layer' }
+{ #category : #'api - layer' }
 SkiaCompositionLeftoverStateLayer >> clipRectangle: aSpartaRectangle offset: anOffset [
 	self
 		primClipRectangleLeft: aSpartaRectangle left top: aSpartaRectangle top right: aSpartaRectangle right bottom: aSpartaRectangle bottom
@@ -28,7 +42,7 @@ SkiaCompositionLeftoverStateLayer >> clipRectangle: aSpartaRectangle offset: anO
 		offsetY: anOffset y
 ]
 
-{ #category : 'api - layer' }
+{ #category : #'api - layer' }
 SkiaCompositionLeftoverStateLayer >> clipRoundedRectangle: aSpartaRoundedRectangle offset: anOffset [
 	self
 		primClipRoundedRectangleLeft: aSpartaRoundedRectangle left
@@ -43,17 +57,17 @@ SkiaCompositionLeftoverStateLayer >> clipRoundedRectangle: aSpartaRoundedRectang
 		offsetY: anOffset y
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaCompositionLeftoverStateLayer >> offset [
 	^ offset
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaCompositionLeftoverStateLayer >> offset: anObject [
 	offset := anObject
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaCompositionLeftoverStateLayer >> primClipPath: aSkiaPath offsetX: anOffsetX offsetY: anOffsetY [
 	self ffiCall: #(void skia_leftover_state_layer_clip_path(self,
 		SkiaPath aSkiaPath,
@@ -61,14 +75,14 @@ SkiaCompositionLeftoverStateLayer >> primClipPath: aSkiaPath offsetX: anOffsetX 
 		scalar anOffsetY))
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaCompositionLeftoverStateLayer >> primClipRectangleLeft: aLeft top: aTop right: aRight bottom: aBottom offsetX: anOffsetX offsetY: anOffsetY [
 	self ffiCall: #(void skia_leftover_state_layer_clip_rect(self,
 		scalar aLeft, scalar aTop, scalar aRight, scalar aBottom,
 		scalar anOffsetX, scalar anOffsetY))
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaCompositionLeftoverStateLayer >> primClipRoundedRectangleLeft: aLeft top: aTop right: aRight bottom: aBottom radiusTopLeft: aTopLeftRadius topRight: aTopRightRadius bottomRight: aBottomRightRadius bottomLeft: aBottomLeftRadius offsetX: anOffsetX offsetY: anOffsetY [
 	self ffiCall: #(void skia_leftover_state_layer_clip_rrect(self,
 		scalar aLeft, scalar aTop, scalar aRight, scalar aBottom,
@@ -76,7 +90,7 @@ SkiaCompositionLeftoverStateLayer >> primClipRoundedRectangleLeft: aLeft top: aT
 		scalar anOffsetX, scalar anOffsetY))
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaCompositionLeftoverStateLayer >> primTransformScaleX: scaleX skewX: skewX transX: transX skewY: skewY scaleY: scaleY transY: transY perspX: perspX perspY: perspY persp: persp offsetX: offsetX offsetY: offsetY [
 	self ffiCall: #(void skia_leftover_state_layer_transform (self,
 		scalar scaleX, scalar skewX, scalar transX,
@@ -85,22 +99,27 @@ SkiaCompositionLeftoverStateLayer >> primTransformScaleX: scaleX skewX: skewX tr
 		scalar offsetX, scalar offsetY))
 ]
 
-{ #category : 'private - clipping' }
+{ #category : #'private - clipping' }
+SkiaCompositionLeftoverStateLayer >> pushCircle: aSpartaCircle [
+	self clipCircle: aSpartaCircle offset: offset
+]
+
+{ #category : #'private - clipping' }
 SkiaCompositionLeftoverStateLayer >> pushPath: aSkiaPath [
 	self clipPath: aSkiaPath offset: offset
 ]
 
-{ #category : 'private - clipping' }
+{ #category : #'private - clipping' }
 SkiaCompositionLeftoverStateLayer >> pushRectangle: aRectangle [
 	self clipRectangle: aRectangle offset: offset
 ]
 
-{ #category : 'private - clipping' }
+{ #category : #'private - clipping' }
 SkiaCompositionLeftoverStateLayer >> pushRoundedRectangle: aRoundedRectangle [
 	self clipRoundedRectangle: aRoundedRectangle offset: offset
 ]
 
-{ #category : 'api - layer' }
+{ #category : #'api - layer' }
 SkiaCompositionLeftoverStateLayer >> transform: aSpartaMatrix offset: anOffset [
 	self primTransformScaleX: aSpartaMatrix sx skewX: aSpartaMatrix shx transX: aSpartaMatrix x
 		skewY: aSpartaMatrix shy scaleY: aSpartaMatrix sy transY: aSpartaMatrix y

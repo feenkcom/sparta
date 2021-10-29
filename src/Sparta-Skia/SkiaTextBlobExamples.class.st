@@ -1,10 +1,10 @@
 Class {
-	#name : 'SkiaTextBlobExamples',
-	#superclass : 'SkiaExternalObjectExamples',
+	#name : #SkiaTextBlobExamples,
+	#superclass : #SkiaExternalObjectExamples,
 	#category : 'Sparta-Skia-Examples'
 }
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaTextBlobExamples >> default [
 	<gtExample>
 	| aTextBlob |
@@ -13,7 +13,7 @@ SkiaTextBlobExamples >> default [
 	^ aTextBlob
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaTextBlobExamples >> fromEmptyString [
 	<gtExample>
 	| aTextBlob aFont |
@@ -27,7 +27,7 @@ SkiaTextBlobExamples >> fromEmptyString [
 	^ aTextBlob
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaTextBlobExamples >> fromGlyphsAndFont [
 	<gtExample>
 	| aTextBlob theGlyphs aFont |
@@ -41,7 +41,7 @@ SkiaTextBlobExamples >> fromGlyphsAndFont [
 	^ aTextBlob
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaTextBlobExamples >> fromStringAndFont [
 	<gtExample>
 	| aTextBlob aFont |

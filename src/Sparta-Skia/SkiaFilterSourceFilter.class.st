@@ -1,18 +1,18 @@
 Class {
-	#name : 'SkiaFilterSourceFilter',
-	#superclass : 'SkiaFilterSource',
+	#name : #SkiaFilterSourceFilter,
+	#superclass : #SkiaFilterSource,
 	#instVars : [
 		'filter'
 	],
 	#category : 'Sparta-Skia-Filters'
 }
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaFilterSourceFilter >> filter [
 	^ filter
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaFilterSourceFilter >> filter: anObject [
 	filter := anObject
 ]

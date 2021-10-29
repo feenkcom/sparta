@@ -1,6 +1,6 @@
 Class {
-	#name : 'SkiaImage',
-	#superclass : 'SkiaExternalObject',
+	#name : #SkiaImage,
+	#superclass : #SkiaExternalObject,
 	#traits : 'TSpartaSurface',
 	#classTraits : 'TSpartaSurface classTrait',
 	#instVars : [
@@ -9,7 +9,7 @@ Class {
 	#category : 'Sparta-Skia-External'
 }
 
-{ #category : 'instance creation' }
+{ #category : #'instance creation' }
 SkiaImage class >> fromBGR: aData extent: anExtent stride: aStride [
 
 	^ GtBoxerArrayU8
@@ -23,7 +23,7 @@ SkiaImage class >> fromBGR: aData extent: anExtent stride: aStride [
 				colorType: SkiaColorType RGB888x) ]
 ]
 
-{ #category : 'instance creation' }
+{ #category : #'instance creation' }
 SkiaImage class >> fromBGRA: aData extent: anExtent stride: aStride [
 
 	^ GtBoxerArrayU8
@@ -37,7 +37,7 @@ SkiaImage class >> fromBGRA: aData extent: anExtent stride: aStride [
 				colorType: SkiaColorType BGRA8888) ]
 ]
 
-{ #category : 'instance creation' }
+{ #category : #'instance creation' }
 SkiaImage class >> fromBuffer: aByteArray start: startInteger end: endInteger [
 	"Create a SkiaImage from the supplied buffer (encoded JPG, PNG, BMP, etc.)"
 	| handle |
@@ -48,7 +48,7 @@ SkiaImage class >> fromBuffer: aByteArray start: startInteger end: endInteger [
 	^ self fromNativeHandle: handle
 ]
 
-{ #category : 'instance creation' }
+{ #category : #'instance creation' }
 SkiaImage class >> fromFile: aFileReference [
 	"Create a SkiaImage from the supplied file (JPG, PNG, BMP, etc.)"
 	| fileReference handle |
@@ -59,7 +59,7 @@ SkiaImage class >> fromFile: aFileReference [
 	^ self fromNativeHandle: handle
 ]
 
-{ #category : 'instance creation' }
+{ #category : #'instance creation' }
 SkiaImage class >> fromForm: aForm [
 	| aForm32 theBits aRowBytes |
 
@@ -78,7 +78,7 @@ SkiaImage class >> fromForm: aForm [
 			colorType: SkiaColorType BGRA8888) ]
 ]
 
-{ #category : 'instance creation' }
+{ #category : #'instance creation' }
 SkiaImage class >> fromForm: aForm during: aBlock [
 	| aForm32 theBits aRowBytes |
 	
@@ -97,7 +97,7 @@ SkiaImage class >> fromForm: aForm during: aBlock [
 			colorType: SkiaColorType BGRA8888) during: aBlock ]
 ]
 
-{ #category : 'instance creation' }
+{ #category : #'instance creation' }
 SkiaImage class >> fromGray: aData extent: anExtent stride: aStride [
 
 	^ GtBoxerArrayU8
@@ -111,7 +111,7 @@ SkiaImage class >> fromGray: aData extent: anExtent stride: aStride [
 				colorType: SkiaColorType Gray8) ]
 ]
 
-{ #category : 'instance creation' }
+{ #category : #'instance creation' }
 SkiaImage class >> fromRGBA: aData extent: anExtent stride: aStride [
 
 	^ GtBoxerArrayU8
@@ -125,18 +125,18 @@ SkiaImage class >> fromRGBA: aData extent: anExtent stride: aStride [
 				colorType: SkiaColorType RGBA8888) ]
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaImage class >> primFromBuffer: aGtBoxerArrayU8 start: startInteger end: endInteger [
 
 	^ self ffiCall: #(void* skia_image_from_buffer(GtBoxerArrayU8 aGtBoxerArrayU8, size_t startInteger, size_t endInteger))
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaImage class >> primFromFile: aGtBoxerString [
 	^ self ffiCall: #(void* skia_image_from_file(GtBoxerString aGtBoxerString))
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaImage class >> primFromPixels: aGtBoxerArrayU8 width: aWidth height: aHeight rowBytes: anAmountOfBytesPerRow colorType: aColorType [
 	^ self ffiCall: #(void* skia_image_from_pixels(
 		GtBoxerArrayU8 aGtBoxerArrayU8,
@@ -146,20 +146,20 @@ SkiaImage class >> primFromPixels: aGtBoxerArrayU8 width: aWidth height: aHeight
 		SkiaColorType aColorType))
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaImage class >> primRelease: aHandle [
 	
 	"Plain pointers must be deleted using delete(), all users must implement a specific method"
 	self ffiCall: #(void skia_image_drop(void** aHandle))
 ]
 
-{ #category : 'converting' }
+{ #category : #converting }
 SkiaImage >> asElement [
 
 	^ BlSkiaImageElement new image: self
 ]
 
-{ #category : 'converting' }
+{ #category : #converting }
 SkiaImage >> asForm [
 	<return: #Form>
 	| theData aColorType |
@@ -175,17 +175,17 @@ SkiaImage >> asForm [
 	^ Form extent: self extent depth: 32 bits: theData asBitmap
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaImage >> backendTexture [
 	^ SkiaBackendTexture fromNativeHandle: self primGetBackendTexture
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaImage >> backendTextureOrigin [
 	^ self primGetBackendTextureOrigin
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaImage >> data [
 	<return: #GtBoxerArrayU8>
 	| anImageInfo anArray |
@@ -196,22 +196,22 @@ SkiaImage >> data [
 	^ anArray
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaImage >> extent [
 	^ self width @ self height
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaImage >> gpuContext [
 	^ gpuContext
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaImage >> gpuContext: anObject [
 	gpuContext := anObject
 ]
 
-{ #category : 'gt-extension' }
+{ #category : #'gt-extension' }
 SkiaImage >> gtBackendTextureFor: aView [
 	<gtView>
 
@@ -220,7 +220,7 @@ SkiaImage >> gtBackendTextureFor: aView [
 		priority: 4
 ]
 
-{ #category : 'gt-extension' }
+{ #category : #'gt-extension' }
 SkiaImage >> gtBackendTextureInfoFor: aView [
 	<gtView>
 
@@ -229,7 +229,7 @@ SkiaImage >> gtBackendTextureInfoFor: aView [
 		priority: 5
 ]
 
-{ #category : 'gt-extension' }
+{ #category : #'gt-extension' }
 SkiaImage >> gtImageInfoFor: aView [
 	<gtView>
 
@@ -238,7 +238,7 @@ SkiaImage >> gtImageInfoFor: aView [
 		priority: 3
 ]
 
-{ #category : 'gt-extension' }
+{ #category : #'gt-extension' }
 SkiaImage >> gtInfoFor: aView [
 	<gtView>
 
@@ -253,7 +253,7 @@ SkiaImage >> gtInfoFor: aView [
 			priority: 2
 ]
 
-{ #category : 'gt-extension' }
+{ #category : #'gt-extension' }
 SkiaImage >> gtPreviewFor: aView [
 	<gtView>
 	^ aView explicit
@@ -266,103 +266,103 @@ SkiaImage >> gtPreviewFor: aView [
 					c vertical matchParent ] ].
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaImage >> height [
 	^ self primGetHeight
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaImage >> imageInfo [
 	<return: #SkiaImageInfo>
 
 	^ SkiaImageInfo fromNativeHandle: self primGetImageInfo
 ]
 
-{ #category : 'testing' }
+{ #category : #testing }
 SkiaImage >> isAlphaOnly [
 	<return: #Boolean>
 	
 	^ self primIsAlphaOnly
 ]
 
-{ #category : 'testing' }
+{ #category : #testing }
 SkiaImage >> isOpaque [
 	<return: #Boolean>
 	
 	^ self primIsOpaque
 ]
 
-{ #category : 'testing' }
+{ #category : #testing }
 SkiaImage >> isTextureBackend [
 	<return: #Boolean>
 	
 	^ self primIsTextureBackend
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaImage >> primGetBackendTexture [
 	^ self ffiCall: #(void* skia_image_get_backend_texture(self))
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaImage >> primGetBackendTextureOrigin [
 	^ self ffiCall: #(int32 skia_image_get_backend_texture_origin(self))
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaImage >> primGetHeight [
 	^ self ffiCall: #(int32 skia_image_get_height(self))
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaImage >> primGetImageInfo [
 	^ self ffiCall: #(void* skia_image_get_image_info(self))
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaImage >> primGetUniqueId [
 	^ self ffiCall: #(uint32 skia_image_get_unique_id(self))
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaImage >> primGetWidth [
 	^ self ffiCall: #(int32 skia_image_get_width(self))
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaImage >> primIsAlphaOnly [
 	^ self ffiCall: #(bool skia_image_is_alpha_only(self))
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaImage >> primIsOpaque [
 	^ self ffiCall: #(bool skia_image_is_opaque(self))
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaImage >> primIsTextureBackend [
 	^ self ffiCall: #(bool skia_image_is_texture_backend(self))
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaImage >> primReadAllPixels: aBoxerArrayU8 [
 	^ self ffiCall: #(bool skia_image_read_all_pixels(self, GtBoxerArrayU8 aBoxerArrayU8))
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaImage >> primSaveFile: fileName format: format quality: aNumber [
 
 	^ self ffiCall: #(int32 skia_image_to_file(self, GtBoxerString fileName,
 				SkiaEncodedImageFormat format, int32 aNumber))
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaImage >> primScalex: xInt y: yInt keepAspectRatio: aBoolean quality: quality [
 
 	^ self ffiCall: #(void* skia_scale_image(self, int32 xInt, int32 yInt, bool aBoolean, SkiaFilterQuality quality))
 ]
 
-{ #category : 'actions' }
+{ #category : #actions }
 SkiaImage >> saveFile: fileNameString format: format quality: aNumber [ 
 	"Save the receiver as an image file with format JPEG, BMP or PNG.
 	Quality is between 1 (lowest quality) and 100 (highest quality)"
@@ -375,7 +375,7 @@ SkiaImage >> saveFile: fileNameString format: format quality: aNumber [
 	self assert: status = 0.
 ]
 
-{ #category : 'actions' }
+{ #category : #actions }
 SkiaImage >> savePng: fileNameString [
 	"Save the receiver as a PNG image file with the highest quality"
 	| status |
@@ -393,7 +393,7 @@ SkiaImage >> savePng: fileNameString [
 	self assert: status = 0.
 ]
 
-{ #category : 'actions' }
+{ #category : #actions }
 SkiaImage >> scalex: xInt y: yInt keepAspectRatio: aBoolean quality: quality [
 
 	^ self class fromHandle: (self 
@@ -403,14 +403,14 @@ SkiaImage >> scalex: xInt y: yInt keepAspectRatio: aBoolean quality: quality [
 		quality: quality)
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaImage >> uniqueId [
 	<return: #Number>
 	
 	^ self primGetUniqueId
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaImage >> width [
 	^ self primGetWidth
 ]

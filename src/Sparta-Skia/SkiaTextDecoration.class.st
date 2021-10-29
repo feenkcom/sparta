@@ -1,32 +1,32 @@
 Class {
-	#name : 'SkiaTextDecoration',
-	#superclass : 'SkiaExternalObject',
+	#name : #SkiaTextDecoration,
+	#superclass : #SkiaExternalObject,
 	#category : 'Sparta-Skia-External'
 }
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaTextDecoration class >> primCreate [
 	^ self ffiCall: #(void* skia_paragraph_decoration_default())
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaTextDecoration class >> primRelease: aHandle [
 	
 	"Plain pointers must be deleted using delete(), all users must implement a specific method"
 	self ffiCall: #(void skia_paragraph_decoration_drop(void** aHandle))
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaTextDecoration >> color [
 	^ SkiaColor fromNativeHandle: (self primGetColor)
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaTextDecoration >> color: aColor [
 	self primSetColor: (aColor pixelValueForDepth: 32)
 ]
 
-{ #category : 'gt-extension' }
+{ #category : #'gt-extension' }
 SkiaTextDecoration >> gtInfoFor: aView [
 	<gtView>
 
@@ -41,92 +41,92 @@ SkiaTextDecoration >> gtInfoFor: aView [
 			priority: 2
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaTextDecoration >> mode [
 	^ self primGetMode
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaTextDecoration >> mode: aSkiaTextDecorationMode [
 	self primSetMode: aSkiaTextDecorationMode
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaTextDecoration >> primGetColor [
 	^ self ffiCall: #(void* skia_paragraph_decoration_get_color(self))
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaTextDecoration >> primGetMode [
 	^ self ffiCall: #(SkiaTextDecorationMode skia_paragraph_decoration_get_mode(self))
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaTextDecoration >> primGetStyle [
 	^ self ffiCall: #(SkiaTextDecorationStyle skia_paragraph_decoration_get_style(self))
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaTextDecoration >> primGetThickness [
 	^ self ffiCall: #(scalar skia_paragraph_decoration_get_thickness(self))
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaTextDecoration >> primGetType [
 	^ self ffiCall: #(uint32 skia_paragraph_decoration_get_type(self))
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaTextDecoration >> primSetColor: aColorValue [
 	^ self ffiCall: #(void skia_paragraph_decoration_set_color(self, uint32 aColorValue))
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaTextDecoration >> primSetMode: aSkiaTextDecorationMode [
 	^ self ffiCall: #(void skia_paragraph_decoration_set_mode(self, SkiaTextDecorationMode aSkiaTextDecorationMode))
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaTextDecoration >> primSetStyle: aSkiaTextDecorationStyle [
 	^ self ffiCall: #(void skia_paragraph_decoration_set_style(self, SkiaTextDecorationStyle aSkiaTextDecorationStyle))
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaTextDecoration >> primSetThickness: aNumber [
 	^ self ffiCall: #(void skia_paragraph_decoration_set_thickness(self, scalar aNumber))
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaTextDecoration >> primSetType: aType [
 	^ self ffiCall: #(void skia_paragraph_decoration_set_type(self, uint32 aType))
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaTextDecoration >> style [
 	^ self primGetStyle
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaTextDecoration >> style: aSkiaTextDecorationStyle [
 	self primSetStyle: aSkiaTextDecorationStyle
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaTextDecoration >> thickness [
 	^ self primGetThickness
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaTextDecoration >> thickness: aNumber [
 	self primSetThickness: aNumber
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaTextDecoration >> type [
 	^ self primGetType
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaTextDecoration >> type: aNumber [
 	self primSetType: aNumber
 ]

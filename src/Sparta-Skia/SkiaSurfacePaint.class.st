@@ -1,6 +1,6 @@
 Class {
-	#name : 'SkiaSurfacePaint',
-	#superclass : 'Object',
+	#name : #SkiaSurfacePaint,
+	#superclass : #Object,
 	#traits : 'TSpartaPaint + TSpartaSurfacePaint',
 	#classTraits : 'TSpartaPaint classTrait + TSpartaSurfacePaint classTrait',
 	#instVars : [
@@ -14,25 +14,25 @@ Class {
 	#category : 'Sparta-Skia-Paints'
 }
 
-{ #category : 'extend modes' }
+{ #category : #'extend modes' }
 SkiaSurfacePaint >> clamp [
 	"Do not repeat"
 	tileModeX := tileModeY := SkiaTileMode Clamp
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaSurfacePaint >> filterQuality [
 	<return: #SkiaFilterQuality>
 
 	^ filterQuality
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaSurfacePaint >> image [
 	^ skiaImage
 ]
 
-{ #category : 'initialization' }
+{ #category : #initialization }
 SkiaSurfacePaint >> initialize [
 	super initialize.
 
@@ -48,21 +48,21 @@ SkiaSurfacePaint >> initialize [
 	filterQuality := SkiaFilterQuality Low
 ]
 
-{ #category : 'testing' }
+{ #category : #testing }
 SkiaSurfacePaint >> isCanvas [
 	<return: #Boolean>
 
 	^ skiaImage isKindOf: SkiaCanvas
 ]
 
-{ #category : 'testing' }
+{ #category : #testing }
 SkiaSurfacePaint >> isImage [
 	<return: #Boolean>
 
 	^ skiaImage isKindOf: SkiaSurface
 ]
 
-{ #category : 'testing' }
+{ #category : #testing }
 SkiaSurfacePaint >> needsShader [
 	<return: #Boolean>
 
@@ -71,51 +71,51 @@ SkiaSurfacePaint >> needsShader [
 			or: [ (matrix isNotNil and: [ matrix isIdentity not ]) ] ]
 ]
 
-{ #category : 'extend modes' }
+{ #category : #'extend modes' }
 SkiaSurfacePaint >> reflect [
 	"Mirror the image"
 	tileModeX := tileModeY := SkiaTileMode Mirror
 ]
 
-{ #category : 'extend modes' }
+{ #category : #'extend modes' }
 SkiaSurfacePaint >> repeat [
 	"Repeat in both axis"
 	tileModeX := tileModeY := SkiaTileMode Repeat
 ]
 
-{ #category : 'extend modes' }
+{ #category : #'extend modes' }
 SkiaSurfacePaint >> repeatX [
 	"Only X axis"
 	tileModeX := SkiaTileMode Repeat
 ]
 
-{ #category : 'extend modes' }
+{ #category : #'extend modes' }
 SkiaSurfacePaint >> repeatY [
 	"Only Y axis"
 	tileModeY := SkiaTileMode Repeat
 ]
 
-{ #category : 'sampling filters' }
+{ #category : #'sampling filters' }
 SkiaSurfacePaint >> samplingArea: aRectangle [
 	samplingArea := aRectangle
 ]
 
-{ #category : 'sampling filters' }
+{ #category : #'sampling filters' }
 SkiaSurfacePaint >> samplingGood [
 	filterQuality := SkiaFilterQuality Low
 ]
 
-{ #category : 'sampling filters' }
+{ #category : #'sampling filters' }
 SkiaSurfacePaint >> samplingLinear [
 	filterQuality := SkiaFilterQuality Medium
 ]
 
-{ #category : 'sampling filters' }
+{ #category : #'sampling filters' }
 SkiaSurfacePaint >> samplingPoint [
 	filterQuality := SkiaFilterQuality None
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaSurfacePaint >> source: aSurface [
 	skiaImage := aSurface.
 
@@ -124,7 +124,7 @@ SkiaSurfacePaint >> source: aSurface [
 		description: [ 'Only skia image or canvas can be used as a source for the paint' ].
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaSurfacePaint >> transformation: aMatrix [
 	matrix := aMatrix
 ]

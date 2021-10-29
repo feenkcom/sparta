@@ -1,10 +1,10 @@
 Class {
-	#name : 'SkiaLinearGradientShader',
-	#superclass : 'SkiaGradientShader',
+	#name : #SkiaLinearGradientShader,
+	#superclass : #SkiaGradientShader,
 	#category : 'Sparta-Skia-External'
 }
 
-{ #category : 'instance creation' }
+{ #category : #'instance creation' }
 SkiaLinearGradientShader class >> from: aFromPoint to: aToPoint colors: theColors positions: thePositions mode: aTileMode flags: theBitFlags matrix: aSpartaMatrixOrNil [	
 	^ self fromNativeHandle: (self
 		primCreateFrom: (GtBoxerPointF32 fromPoint: aFromPoint)
@@ -16,7 +16,7 @@ SkiaLinearGradientShader class >> from: aFromPoint to: aToPoint colors: theColor
 		matrix: (SkiaMatrix fromSpartaMatrix: aSpartaMatrixOrNil))
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaLinearGradientShader class >> primCreateFrom: aFromPoint to: aToPoint colors: theColors positions: thePositions mode: aTileMode flags: theBitFlags matrix: anOptionalMatrix [
 	^ self ffiCall: #(void* skia_gradient_linear_create(
 		GtBoxerPointF32 aFromPoint,

@@ -1,5 +1,5 @@
 Class {
-	#name : 'SkiaGradientShader',
-	#superclass : 'SkiaShader',
+	#name : #SkiaGradientShader,
+	#superclass : #SkiaShader,
 	#category : 'Sparta-Skia-External'
 }

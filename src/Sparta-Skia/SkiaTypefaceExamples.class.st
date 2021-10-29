@@ -1,10 +1,10 @@
 Class {
-	#name : 'SkiaTypefaceExamples',
-	#superclass : 'SkiaExternalObjectExamples',
+	#name : #SkiaTypefaceExamples,
+	#superclass : #SkiaExternalObjectExamples,
 	#category : 'Sparta-Skia-Examples'
 }
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaTypefaceExamples >> default [
 	<gtExample>
 	| aTypeface |
@@ -17,7 +17,7 @@ SkiaTypefaceExamples >> default [
 	^ aTypeface
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaTypefaceExamples >> fromFamilyNameAndFontStyle [
 	<gtExample>
 	| aDefaultTypeface aCustomTypeface |

@@ -1,15 +1,15 @@
 Class {
-	#name : 'SkiaFontStyle',
-	#superclass : 'SkiaExternalObject',
+	#name : #SkiaFontStyle,
+	#superclass : #SkiaExternalObject,
 	#category : 'Sparta-Skia-External'
 }
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaFontStyle class >> primCreate [
 	^ self ffiCall: #(void* skia_font_style_default())
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaFontStyle class >> primNewWeight: aWeight width: aSkiaFontStyleWidth slant: aSkiaFontStyleSlant [
 	^ self ffiCall: #(void* skia_font_style_new(
 		int32 aWeight,
@@ -17,19 +17,19 @@ SkiaFontStyle class >> primNewWeight: aWeight width: aSkiaFontStyleWidth slant: 
 		SkiaFontStyleSlant aSkiaFontStyleSlant))
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaFontStyle class >> primRelease: aHandle [
 	
 	"Plain pointers must be deleted using delete(), all users must implement a specific method"
 	self ffiCall: #(void skia_font_style_drop(void** aHandle))
 ]
 
-{ #category : 'instance creation' }
+{ #category : #'instance creation' }
 SkiaFontStyle class >> weight: aWeightNumber width: aSkiaFontStyleWidth slant: aSkiaFontStyleSlant [
 	^ self fromNativeHandle: (self primNewWeight: aWeightNumber width: aSkiaFontStyleWidth slant: aSkiaFontStyleSlant)
 ]
 
-{ #category : 'instance creation' }
+{ #category : #'instance creation' }
 SkiaFontStyle class >> weight: aWeightNumber width: aSkiaFontStyleWidth slant: aSkiaFontStyleSlant during: aBlock [
 	^ self
 		fromNativeHandle: (self
@@ -39,7 +39,7 @@ SkiaFontStyle class >> weight: aWeightNumber width: aSkiaFontStyleWidth slant: a
 		during: aBlock
 ]
 
-{ #category : 'gt-extension' }
+{ #category : #'gt-extension' }
 SkiaFontStyle >> gtInfoFor: aView [
 	<gtView>
 
@@ -52,22 +52,22 @@ SkiaFontStyle >> gtInfoFor: aView [
 			priority: 2
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaFontStyle >> primGetSlant [
 	^ self ffiCall: #(SkiaFontStyleSlant skia_font_style_get_slant(self))
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaFontStyle >> primGetWeight [
 	^ self ffiCall: #(int32 skia_font_style_get_weight(self))
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaFontStyle >> primGetWidth [
 	^ self ffiCall: #(SkiaFontStyleWidth skia_font_style_get_width(self))
 ]
 
-{ #category : 'printing' }
+{ #category : #printing }
 SkiaFontStyle >> printOn: aStream [
 	"Append a sequence of characters to aStream that identify the receiver."
 
@@ -85,21 +85,21 @@ SkiaFontStyle >> printOn: aStream [
 		nextPut: $}
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaFontStyle >> slant [
 	<return: #SkiaFontStyleSlant>
 
 	^ self primGetSlant
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaFontStyle >> weight [
 	<return: #Number>
 
 	^ self primGetWeight
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaFontStyle >> width [
 	<return: #Number>
 

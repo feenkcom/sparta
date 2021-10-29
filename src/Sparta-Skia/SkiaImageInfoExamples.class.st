@@ -1,10 +1,10 @@
 Class {
-	#name : 'SkiaImageInfoExamples',
-	#superclass : 'SkiaExternalObjectExamples',
+	#name : #SkiaImageInfoExamples,
+	#superclass : #SkiaExternalObjectExamples,
 	#category : 'Sparta-Skia-Examples'
 }
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaImageInfoExamples >> default [
 	<gtExample>
 	| anImageInfo |
@@ -22,7 +22,7 @@ SkiaImageInfoExamples >> default [
 	^ anImageInfo
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaImageInfoExamples >> fromExtentColorTypeAlphaType [
 	<gtExample>
 	| anImageInfo |
@@ -44,7 +44,7 @@ SkiaImageInfoExamples >> fromExtentColorTypeAlphaType [
 	^ anImageInfo
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaImageInfoExamples >> release [
 	<gtExample>
 	| anImageInfo |

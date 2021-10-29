@@ -1,13 +1,13 @@
 Class {
-	#name : 'SkiaFontManager',
-	#superclass : 'SkiaExternalObject',
+	#name : #SkiaFontManager,
+	#superclass : #SkiaExternalObject,
 	#classInstVars : [
 		'uniqueInstance'
 	],
 	#category : 'Sparta-Skia-External'
 }
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaFontManager class >> default [
 	^ uniqueInstance
 		ifNil: [ uniqueInstance := self new ]
@@ -16,40 +16,40 @@ SkiaFontManager class >> default [
 			ifFalse: [ uniqueInstance ] ]
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaFontManager class >> primCreate [
 	^ self ffiCall: #(void* skia_font_manager_default())
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaFontManager class >> primRelease: aHandle [
 	
 	"Plain pointers must be deleted using delete(), all users must implement a specific method"
 	self ffiCall: #(void skia_font_manager_drop(void** aHandle))
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaFontManager >> countFamilies [
 	<return: #Number>
 
 	^ self primCountFamilies
 ]
 
-{ #category : 'private' }
+{ #category : #private }
 SkiaFontManager >> familyNameAt: anIndex [
 	<return: #String>
 
 	^ GtBoxerString getStringFrom: [ :aBoxerString | self primGetFamilyName: aBoxerString at: anIndex - 1 ]
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaFontManager >> familyNames [
 	<return: #Array of: #String>
 	
 	^ (1 to: self countFamilies) collect: [ :anIndex | self familyNameAt: anIndex ]
 ]
 
-{ #category : 'gt-extension' }
+{ #category : #'gt-extension' }
 SkiaFontManager >> gtFamilyNamesFor: aView [
 	<gtView>
 	
@@ -60,7 +60,7 @@ SkiaFontManager >> gtFamilyNamesFor: aView [
 		send: [ :aFamilyName | self matchFamilyName: aFamilyName ]
 ]
 
-{ #category : 'gt-extension' }
+{ #category : #'gt-extension' }
 SkiaFontManager >> gtSpotterForFamilyNamesFor: aStep [
 	<gtSearch>
 	^ aStep listProcessor
@@ -73,7 +73,7 @@ SkiaFontManager >> gtSpotterForFamilyNamesFor: aStep [
 		filter: GtFilterSubstring
 ]
 
-{ #category : 'private' }
+{ #category : #private }
 SkiaFontManager >> matchFamilyName: aFamilyName [
 	<return: #SkiaFontStyleSet>
 	| aGtBoxerString |
@@ -82,7 +82,7 @@ SkiaFontManager >> matchFamilyName: aFamilyName [
 	^ SkiaFontStyleSet fromNativeHandle: (self primMatchFamilyName: aGtBoxerString).
 ]
 
-{ #category : 'private' }
+{ #category : #private }
 SkiaFontManager >> matchFamilyName: aFamilyName weight: aWeightNumber width: aSkiaFontStyleWidth slant: aSkiaFontStyleSlant ifFound: aFoundBlock ifNone: aNotFoundBlock [
 	| aGtBoxerString aTypeface |
 	
@@ -94,7 +94,7 @@ SkiaFontManager >> matchFamilyName: aFamilyName weight: aWeightNumber width: aSk
 		ifFalse: [ aFoundBlock value: aTypeface ]
 ]
 
-{ #category : 'instance creation' }
+{ #category : #'instance creation' }
 SkiaFontManager >> newTypeface: aByteArray [
 	"I create a new typeface from a given byte array"
 	
@@ -102,24 +102,24 @@ SkiaFontManager >> newTypeface: aByteArray [
 		SkiaTypeface fromNativeHandle: (self primNewTypefaceFromData: aGtBoxerArrayU8) ]
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaFontManager >> primCountFamilies [
 	^ self ffiCall: #(size_t skia_font_manager_count_families(self))
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaFontManager >> primGetFamilyName: aGtBoxerString at: anIndex [
 	^ self ffiCall: #(void skia_font_manager_get_family_name_at(self, GtBoxerString aGtBoxerString, size_t anIndex))
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaFontManager >> primMatchFamilyName: aGtBoxerString [
 	^ self ffiCall: #(void* skia_font_manager_match_family(
 		self,
 		GtBoxerString aGtBoxerString))
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaFontManager >> primMatchFamilyName: aGtBoxerString weight: aWeight width: aSkiaFontStyleWidth slant: aSkiaFontStyleSlant [
 	^ self ffiCall: #(void* skia_font_manager_match_family_style(
 		self,
@@ -129,7 +129,7 @@ SkiaFontManager >> primMatchFamilyName: aGtBoxerString weight: aWeight width: aS
 		SkiaFontStyleSlant aSkiaFontStyleSlant))
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaFontManager >> primNewTypefaceFromData: aGtBoxerArrayU8 [
 	^ self ffiCall: #(void* skia_font_manager_new_typeface_from_data(self, GtBoxerArrayU8 aGtBoxerArrayU8))
 ]

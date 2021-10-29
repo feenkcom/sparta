@@ -1,10 +1,10 @@
 Class {
-	#name : 'SkiaFilterQualityExamples',
-	#superclass : 'SkiaExternalEnumerationExamples',
+	#name : #SkiaFilterQualityExamples,
+	#superclass : #SkiaExternalEnumerationExamples,
 	#category : 'Sparta-Skia-Examples'
 }
 
-{ #category : 'examples' }
+{ #category : #examples }
 SkiaFilterQualityExamples >> validateLayout [
 	<gtExample>
 	

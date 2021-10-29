@@ -1,10 +1,10 @@
 Class {
-	#name : 'SkiaImageFilter',
-	#superclass : 'SkiaExternalObject',
+	#name : #SkiaImageFilter,
+	#superclass : #SkiaExternalObject,
 	#category : 'Sparta-Skia-External'
 }
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaImageFilter class >> primRelease: aHandle [
 	
 	"Plain pointers must be deleted using delete(), all users must implement a specific method"

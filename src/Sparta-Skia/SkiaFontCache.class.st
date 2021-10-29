@@ -1,6 +1,6 @@
 Class {
-	#name : 'SkiaFontCache',
-	#superclass : 'Object',
+	#name : #SkiaFontCache,
+	#superclass : #Object,
 	#instVars : [
 		'session',
 		'fonts'

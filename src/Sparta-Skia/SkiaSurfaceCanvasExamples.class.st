@@ -1,10 +1,10 @@
 Class {
-	#name : 'SkiaSurfaceCanvasExamples',
-	#superclass : 'SkiaExternalObjectExamples',
+	#name : #SkiaSurfaceCanvasExamples,
+	#superclass : #SkiaExternalObjectExamples,
 	#category : 'Sparta-Skia-Examples'
 }
 
-{ #category : 'examples - clip rectangle' }
+{ #category : #'examples - clip rectangle' }
 SkiaSurfaceCanvasExamples >> clipRectangle [
 	<gtExample>
 	| aSurface aCanvas aRectangle |
@@ -27,7 +27,7 @@ SkiaSurfaceCanvasExamples >> clipRectangle [
 	^ aSurface
 ]
 
-{ #category : 'examples - draw circle' }
+{ #category : #'examples - draw circle' }
 SkiaSurfaceCanvasExamples >> drawCircleWithGrayFill [
 	<gtExample>
 	| aSurface aCanvas aCircle aPaint |
@@ -50,7 +50,7 @@ SkiaSurfaceCanvasExamples >> drawCircleWithGrayFill [
 	^ aSurface
 ]
 
-{ #category : 'examples - draw color' }
+{ #category : #'examples - draw color' }
 SkiaSurfaceCanvasExamples >> drawColorBlack [
 	<gtExample>
 	| aSurface aCanvas thePixels |
@@ -68,7 +68,7 @@ SkiaSurfaceCanvasExamples >> drawColorBlack [
 	^ aSurface
 ]
 
-{ #category : 'examples - draw color' }
+{ #category : #'examples - draw color' }
 SkiaSurfaceCanvasExamples >> drawColorBlue [
 	<gtExample>
 	"This example is currently platform specific.
@@ -89,7 +89,7 @@ SkiaSurfaceCanvasExamples >> drawColorBlue [
 	^ aSurface
 ]
 
-{ #category : 'examples - draw color' }
+{ #category : #'examples - draw color' }
 SkiaSurfaceCanvasExamples >> drawColorGreen [
 	<gtExample>
 	| aSurface aCanvas thePixels |
@@ -107,7 +107,7 @@ SkiaSurfaceCanvasExamples >> drawColorGreen [
 	^ aSurface
 ]
 
-{ #category : 'examples - draw color' }
+{ #category : #'examples - draw color' }
 SkiaSurfaceCanvasExamples >> drawColorRed [
 	<gtExample>
 	"This example is currently platform specific.
@@ -128,7 +128,7 @@ SkiaSurfaceCanvasExamples >> drawColorRed [
 	^ aSurface
 ]
 
-{ #category : 'examples - draw color' }
+{ #category : #'examples - draw color' }
 SkiaSurfaceCanvasExamples >> drawColorTransparent [
 	<gtExample>
 	| aSurface aCanvas thePixels |
@@ -146,7 +146,7 @@ SkiaSurfaceCanvasExamples >> drawColorTransparent [
 	^ aSurface
 ]
 
-{ #category : 'examples - draw color' }
+{ #category : #'examples - draw color' }
 SkiaSurfaceCanvasExamples >> drawColorWhite [
 	<gtExample>
 	| aSurface aCanvas thePixels |
@@ -164,7 +164,7 @@ SkiaSurfaceCanvasExamples >> drawColorWhite [
 	^ aSurface
 ]
 
-{ #category : 'examples - draw text blob' }
+{ #category : #'examples - draw text blob' }
 SkiaSurfaceCanvasExamples >> drawDefaultTextBlob [
 	<gtExample>
 	| aSurface aCanvas aTextBlob aPaint |
@@ -186,7 +186,7 @@ SkiaSurfaceCanvasExamples >> drawDefaultTextBlob [
 	^ aSurface
 ]
 
-{ #category : 'examples - draw image' }
+{ #category : #'examples - draw image' }
 SkiaSurfaceCanvasExamples >> drawImage [
 	<gtExample>
 	| aWhiteSurface aWhiteCanvas aWhiteImage aSurface  aCanvas |
@@ -226,7 +226,7 @@ SkiaSurfaceCanvasExamples >> drawImage [
 	^ aSurface
 ]
 
-{ #category : 'examples - image filter blur' }
+{ #category : #'examples - image filter blur' }
 SkiaSurfaceCanvasExamples >> drawImageWithBlur [
 	<gtExample>
 	| aSurface aCanvas anImage aPaint |
@@ -244,7 +244,7 @@ SkiaSurfaceCanvasExamples >> drawImageWithBlur [
 	^ aSurface
 ]
 
-{ #category : 'examples - draw line' }
+{ #category : #'examples - draw line' }
 SkiaSurfaceCanvasExamples >> drawLineBlack [
 	<gtExample>
 	| aSurface aCanvas aLine aPaint |
@@ -265,7 +265,7 @@ SkiaSurfaceCanvasExamples >> drawLineBlack [
 	^ aSurface
 ]
 
-{ #category : 'examples - draw line' }
+{ #category : #'examples - draw line' }
 SkiaSurfaceCanvasExamples >> drawLineBlackWithAntiAlias [
 	<gtExample>
 	| aSurface aCanvas aLine aPaint |
@@ -287,7 +287,7 @@ SkiaSurfaceCanvasExamples >> drawLineBlackWithAntiAlias [
 	^ aSurface
 ]
 
-{ #category : 'examples - image filter drop shadow' }
+{ #category : #'examples - image filter drop shadow' }
 SkiaSurfaceCanvasExamples >> drawOvalWithBoxShadow [
 	<gtExample>
 	| aSurface aCanvas aRectangle aPaint |
@@ -311,7 +311,7 @@ SkiaSurfaceCanvasExamples >> drawOvalWithBoxShadow [
 	^ aSurface
 ]
 
-{ #category : 'examples - image filter drop shadow' }
+{ #category : #'examples - image filter drop shadow' }
 SkiaSurfaceCanvasExamples >> drawOvalWithBoxShadowOnly [
 	<gtExample>
 	| aSurface aCanvas aRectangle aPaint |
@@ -335,7 +335,7 @@ SkiaSurfaceCanvasExamples >> drawOvalWithBoxShadowOnly [
 	^ aSurface
 ]
 
-{ #category : 'examples - draw oval' }
+{ #category : #'examples - draw oval' }
 SkiaSurfaceCanvasExamples >> drawOvalWithGrayFill [
 	<gtExample>
 	| aSurface aCanvas aRectangle aPaint |
@@ -358,7 +358,7 @@ SkiaSurfaceCanvasExamples >> drawOvalWithGrayFill [
 	^ aSurface
 ]
 
-{ #category : 'examples - draw paint' }
+{ #category : #'examples - draw paint' }
 SkiaSurfaceCanvasExamples >> drawPaintBlack [
 	<gtExample>
 	| aSurface aCanvas aPaint |
@@ -377,7 +377,7 @@ SkiaSurfaceCanvasExamples >> drawPaintBlack [
 	^ aSurface
 ]
 
-{ #category : 'examples - draw path' }
+{ #category : #'examples - draw path' }
 SkiaSurfaceCanvasExamples >> drawPathTriangleWithGrayFill [
 	<gtExample>
 	| aSurface aCanvas aPath aPaint |
@@ -403,7 +403,7 @@ SkiaSurfaceCanvasExamples >> drawPathTriangleWithGrayFill [
 	^ aSurface
 ]
 
-{ #category : 'examples - draw point' }
+{ #category : #'examples - draw point' }
 SkiaSurfaceCanvasExamples >> drawPointBlack [
 	<gtExample>
 	| aSurface aCanvas aPaint |
@@ -422,7 +422,7 @@ SkiaSurfaceCanvasExamples >> drawPointBlack [
 	^ aSurface
 ]
 
-{ #category : 'examples - gradient conical' }
+{ #category : #'examples - gradient conical' }
 SkiaSurfaceCanvasExamples >> drawRectangleWithConicalGradient [
 	<gtExample>
 	| aSurface aCanvas aRectangle aPaint aShader |
@@ -453,7 +453,7 @@ SkiaSurfaceCanvasExamples >> drawRectangleWithConicalGradient [
 	^ aSurface
 ]
 
-{ #category : 'examples - draw rectangle' }
+{ #category : #'examples - draw rectangle' }
 SkiaSurfaceCanvasExamples >> drawRectangleWithGrayFill [
 	<gtExample>
 	| aSurface aCanvas aRectangle aPaint |
@@ -475,7 +475,7 @@ SkiaSurfaceCanvasExamples >> drawRectangleWithGrayFill [
 	^ aSurface
 ]
 
-{ #category : 'examples - draw rectangle' }
+{ #category : #'examples - draw rectangle' }
 SkiaSurfaceCanvasExamples >> drawRectangleWithGrayStroke [
 	<gtExample>
 	| aSurface aCanvas aRectangle aPaint |
@@ -502,7 +502,7 @@ SkiaSurfaceCanvasExamples >> drawRectangleWithGrayStroke [
 	^ aSurface
 ]
 
-{ #category : 'examples - draw rectangle' }
+{ #category : #'examples - draw rectangle' }
 SkiaSurfaceCanvasExamples >> drawRectangleWithGrayStrokeAndFill [
 	<gtExample>
 	| aSurface aCanvas aRectangle aPaint |
@@ -529,7 +529,7 @@ SkiaSurfaceCanvasExamples >> drawRectangleWithGrayStrokeAndFill [
 	^ aSurface
 ]
 
-{ #category : 'examples - gradient linear' }
+{ #category : #'examples - gradient linear' }
 SkiaSurfaceCanvasExamples >> drawRectangleWithLinearGradient [
 	<gtExample>
 	| aSurface aCanvas aRectangle aPaint aShader |
@@ -559,7 +559,7 @@ SkiaSurfaceCanvasExamples >> drawRectangleWithLinearGradient [
 	^ aSurface
 ]
 
-{ #category : 'examples - gradient radial' }
+{ #category : #'examples - gradient radial' }
 SkiaSurfaceCanvasExamples >> drawRectangleWithRadialGradient [
 	<gtExample>
 	| aSurface aCanvas aRectangle aPaint aShader |
@@ -591,7 +591,7 @@ SkiaSurfaceCanvasExamples >> drawRectangleWithRadialGradient [
 	^ aSurface
 ]
 
-{ #category : 'examples - gradient sweep' }
+{ #category : #'examples - gradient sweep' }
 SkiaSurfaceCanvasExamples >> drawRectangleWithSweepGradient [
 	<gtExample>
 	| aSurface aCanvas aRectangle aPaint aShader |
@@ -623,7 +623,7 @@ SkiaSurfaceCanvasExamples >> drawRectangleWithSweepGradient [
 	^ aSurface
 ]
 
-{ #category : 'examples - draw text blob' }
+{ #category : #'examples - draw text blob' }
 SkiaSurfaceCanvasExamples >> drawTextBlobHelloWorld [
 	<gtExample>
 	| aSurface aCanvas aFont aTextBlob aPaint |
@@ -646,7 +646,7 @@ SkiaSurfaceCanvasExamples >> drawTextBlobHelloWorld [
 	^ aSurface
 ]
 
-{ #category : 'examples - draw text blob' }
+{ #category : #'examples - draw text blob' }
 SkiaSurfaceCanvasExamples >> drawTextBlobHelloWorldFromGlyphs [
 	<gtExample>
 	| aSurface aCanvas aFont theGlyphs aPaint |
@@ -672,7 +672,7 @@ SkiaSurfaceCanvasExamples >> drawTextBlobHelloWorldFromGlyphs [
 	^ aSurface
 ]
 
-{ #category : 'examples - draw shadow' }
+{ #category : #'examples - draw shadow' }
 SkiaSurfaceCanvasExamples >> drawTriangleShadow [
 	<gtExample>
 	| aSurface aCanvas aPath aPaint |
@@ -710,7 +710,7 @@ SkiaSurfaceCanvasExamples >> drawTriangleShadow [
 	^ aSurface
 ]
 
-{ #category : 'examples - quick reject' }
+{ #category : #'examples - quick reject' }
 SkiaSurfaceCanvasExamples >> quickAcceptRectangle [
 	<gtExample>
 	| aSurface aCanvas aRectangle |
@@ -734,7 +734,7 @@ SkiaSurfaceCanvasExamples >> quickAcceptRectangle [
 	^ aSurface
 ]
 
-{ #category : 'examples - quick reject' }
+{ #category : #'examples - quick reject' }
 SkiaSurfaceCanvasExamples >> quickRejectRectangle [
 	<gtExample>
 	| aSurface aCanvas aRectangle |
@@ -758,7 +758,7 @@ SkiaSurfaceCanvasExamples >> quickRejectRectangle [
 	^ aSurface
 ]
 
-{ #category : 'examples - state' }
+{ #category : #'examples - state' }
 SkiaSurfaceCanvasExamples >> saveAndRestoreLayer [
 	<gtExample>
 	| aSurface aCanvas aSaveLayerRec |
@@ -781,7 +781,7 @@ SkiaSurfaceCanvasExamples >> saveAndRestoreLayer [
 	^ aSurface
 ]
 
-{ #category : 'examples - state' }
+{ #category : #'examples - state' }
 SkiaSurfaceCanvasExamples >> saveAndRestoreState [
 	<gtExample>
 	| aSurface aCanvas |
@@ -803,7 +803,7 @@ SkiaSurfaceCanvasExamples >> saveAndRestoreState [
 	^ aSurface
 ]
 
-{ #category : 'examples - state' }
+{ #category : #'examples - state' }
 SkiaSurfaceCanvasExamples >> saveAndRestoreToCountState [
 	<gtExample>
 	| aSurface aCanvas |

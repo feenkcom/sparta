@@ -1,10 +1,10 @@
 Class {
-	#name : 'SkiaTextureInfoExamples',
-	#superclass : 'SkiaExternalObjectExamples',
+	#name : #SkiaTextureInfoExamples,
+	#superclass : #SkiaExternalObjectExamples,
 	#category : 'Sparta-Skia-Examples'
 }
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaTextureInfoExamples >> default [
 	<gtExample>
 	| aTextureInfo |

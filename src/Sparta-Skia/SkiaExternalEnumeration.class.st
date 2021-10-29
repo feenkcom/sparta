@@ -1,17 +1,17 @@
 Class {
-	#name : 'SkiaExternalEnumeration',
-	#superclass : 'FFIExternalEnumeration',
+	#name : #SkiaExternalEnumeration,
+	#superclass : #FFIExternalEnumeration,
 	#category : 'Sparta-Skia-External'
 }
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaExternalEnumeration class >> definedLayout [
 	<return: #Dictionary>
 
 	^ (self variants collect: [ :eachVariant | eachVariant item -> eachVariant value ]) asOrderedDictionary
 ]
 
-{ #category : 'enum declaration' }
+{ #category : #'enum declaration' }
 SkiaExternalEnumeration class >> enumDecl [
 	| declaration index |
 	"
@@ -31,7 +31,7 @@ SkiaExternalEnumeration class >> enumDecl [
 	^ (declaration pairsCollect: [ :aName :aComma |  index := index + 1. { aName . index } ]) flattened
 ]
 
-{ #category : 'enum declaration' }
+{ #category : #'enum declaration' }
 SkiaExternalEnumeration class >> externalDeclaration [
 	"
 	self rebuildEnumAccessors
@@ -40,17 +40,17 @@ SkiaExternalEnumeration class >> externalDeclaration [
 	^ self subclassResponsibility
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaExternalEnumeration class >> externalType [
 	^ self subclassResponsibility
 ]
 
-{ #category : 'library path' }
+{ #category : #'library path' }
 SkiaExternalEnumeration class >> ffiLibrary [
 	^ SkiaLibrary
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : #'as yet unclassified' }
 SkiaExternalEnumeration class >> gtDefinedLayoutFor: aView [
 	<gtView>
 	
@@ -59,7 +59,7 @@ SkiaExternalEnumeration class >> gtDefinedLayoutFor: aView [
 		priority: 2
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : #'as yet unclassified' }
 SkiaExternalEnumeration class >> gtRealLayoutFor: aView [
 	<gtView>
 	
@@ -68,7 +68,7 @@ SkiaExternalEnumeration class >> gtRealLayoutFor: aView [
 		priority: 3
 ]
 
-{ #category : 'class initialization' }
+{ #category : #'class initialization' }
 SkiaExternalEnumeration class >> initialize [
 	
 	"Skip initialization of root class"
@@ -83,14 +83,14 @@ SkiaExternalEnumeration class >> initialize [
 		during: [ self rebuildEnumAccessors ]
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaExternalEnumeration class >> realLayout [
 	<return: #Dictionary>
 
 	^ (self variants collect: [ :eachVariant | eachVariant realItem -> eachVariant value ]) asOrderedDictionary
 ]
 
-{ #category : 'private' }
+{ #category : #private }
 SkiaExternalEnumeration class >> rebuildEnumAccessors [
 
 	"Skip initialization of root class"
@@ -103,19 +103,19 @@ SkiaExternalEnumeration class >> rebuildEnumAccessors [
 	super rebuildEnumAccessors.
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaExternalEnumeration class >> variants [
 	<return: #SkiaExternalEnumeration>
 
 	^ self classPool values sorted: [ :a :b | a value < b value ]
 ]
 
-{ #category : 'library path' }
+{ #category : #'library path' }
 SkiaExternalEnumeration >> ffiLibrary [
 	^ self class ffiLibrary
 ]
 
-{ #category : 'private - ffi' }
+{ #category : #'private - ffi' }
 SkiaExternalEnumeration >> primRealName: aBoxerString [
 	"
 	^ self ffiCall: #(void skia_image_info_alpha_type_to_string(self, GtBoxerString aBoxerString))
@@ -124,7 +124,7 @@ SkiaExternalEnumeration >> primRealName: aBoxerString [
 	^ self subclassResponsibility
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SkiaExternalEnumeration >> realItem [
 	<return: #Symbol>
 

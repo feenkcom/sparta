@@ -1,10 +1,10 @@
 Class {
-	#name : 'SkiaFontFaceBuilder',
-	#superclass : 'SpartaFontFaceBuilder',
+	#name : #SkiaFontFaceBuilder,
+	#superclass : #SpartaFontFaceBuilder,
 	#category : 'Sparta-Skia-Builders'
 }
 
-{ #category : 'building' }
+{ #category : #building }
 SkiaFontFaceBuilder >> build [
 	SpartaUserFonts default addUserFontFace: (SpartaUserFontFace new
 		familyName: familyName;
