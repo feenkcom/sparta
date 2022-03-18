@@ -5,7 +5,7 @@ Class {
 }
 
 { #category : #'library path' }
-SkiaArrayColor class >> ffiLibraryName [
+SkiaArrayColor class >> ffiLibrary [
 	^ SkiaLibrary
 ]
 
