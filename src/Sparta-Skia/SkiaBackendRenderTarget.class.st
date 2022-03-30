@@ -15,6 +15,14 @@ SkiaBackendRenderTarget class >> newGlExtent: anExtent sampleCount: aSampleCount
 		framebufferFormat: aFramebufferFormat)
 ]
 
+{ #category : #'instance creation' }
+SkiaBackendRenderTarget class >> newMetalExtent: anExtent sampleCount: aSampleCount [
+	^ self fromNativeHandle: (self
+		primNewMetalWidth: anExtent x
+		height: anExtent y
+		sampleCount: aSampleCount)
+]
+
 { #category : #'private - ffi' }
 SkiaBackendRenderTarget class >> primNewGlWidth: aWidth height: aHeight sampleCount: aSampleCount stencilBits: aStencilBits framebufferId: aFramebufferId framebufferFormat: aFramebufferFormat [
 	^ self ffiCall: #(void* skia_backend_render_target_new_gl(
@@ -24,6 +32,15 @@ SkiaBackendRenderTarget class >> primNewGlWidth: aWidth height: aHeight sampleCo
 		size_t aStencilBits,
 		uint aFramebufferId,
 		uint aFramebufferFormat
+	))
+]
+
+{ #category : #'private - ffi' }
+SkiaBackendRenderTarget class >> primNewMetalWidth: aWidth height: aHeight sampleCount: aSampleCount [
+	^ self ffiCall: #(void* skia_backend_render_target_new_metal(
+		int32 aWidth,
+		int32 aHeight,
+		size_t aSampleCount
 	))
 ]
 

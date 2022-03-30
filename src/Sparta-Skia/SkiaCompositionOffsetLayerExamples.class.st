@@ -1,7 +1,7 @@
 Class {
 	#name : #SkiaCompositionOffsetLayerExamples,
-	#superclass : #SkiaExternalObjectExamples,
-	#category : 'Sparta-Skia-Examples'
+	#superclass : #SkiaCompositorObjectExamples,
+	#category : #'Sparta-Skia-Examples'
 }
 
 { #category : #'instance creation' }
@@ -45,7 +45,7 @@ SkiaCompositionOffsetLayerExamples >> default [
 ]
 
 { #category : #'instance creation' }
-SkiaCompositionOffsetLayerExamples >> withOffset [
+SkiaCompositionOffsetLayerExamples >> newOffset [
 	<gtExample>
 	| aLayer |
 	
@@ -53,6 +53,25 @@ SkiaCompositionOffsetLayerExamples >> withOffset [
 	self assert: aLayer layersCount equals: 0.
 	self assert: aLayer referenceCount equals: 1.
 	self assert: (aLayer offset closeTo: 10@20).
+	
+	^ aLayer
+]
+
+{ #category : #'instance creation' }
+SkiaCompositionOffsetLayerExamples >> withOffset [
+	<gtExample>
+	| aLayer aNewlayer |
+	
+	aLayer := self default.
+	aNewlayer := aLayer withOffset: 10@20.
+	
+	self assert: aLayer layersCount equals: 0.
+	self assert: aLayer referenceCount equals: 1.
+	self assert: aLayer offset isZero.
+	
+	self assert: aNewlayer layersCount equals: 0.
+	self assert: aNewlayer referenceCount equals: 1.
+	self assert: (aNewlayer offset closeTo: 10@20).
 	
 	^ aLayer
 ]

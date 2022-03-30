@@ -1,14 +1,14 @@
 Class {
 	#name : #SkiaCompositionLayer,
 	#superclass : #SkiaExternalObject,
-	#category : 'Sparta-Skia-External'
+	#category : #'Sparta-Skia-Compositor'
 }
 
 { #category : #'private - ffi' }
 SkiaCompositionLayer class >> primRelease: aHandle [
 	
 	"Plain pointers must be deleted using delete(), all users must implement a specific method"
-	self ffiCall: #(void skia_composition_layer_drop(void** aHandle))
+	self ffiCall: #(void compositor_layer_drop(void** aHandle))
 ]
 
 { #category : #adding }
@@ -24,18 +24,18 @@ SkiaCompositionLayer >> layersCount [
 ]
 
 { #category : #'private - ffi' }
-SkiaCompositionLayer >> primAddLayer: aSkiaCompositionLayer [
-	self ffiCall: #(void skia_composition_layer_add(self, SkiaCompositionLayer aSkiaCompositionLayer))
-]
-
-{ #category : #'private - ffi' }
 SkiaCompositionLayer >> primCountLayers [
-	^ self ffiCall: #(size_t skia_composition_layer_count_layers(self))
+	^ self ffiCall: #(size_t compositor_layer_count_layers(self))
 ]
 
 { #category : #'private - ffi' }
 SkiaCompositionLayer >> primCountRefs [
-	^ self ffiCall: #(size_t skia_composition_layer_count_refs(self))
+	^ self ffiCall: #(size_t compositor_layer_count_refs(self))
+]
+
+{ #category : #'private - ffi' }
+SkiaCompositionLayer >> primWithLayers: aSkiaCompositionLayers [
+	^ self ffiCall: #(void* compositor_layer_with_layers(self, SkiaCompositorLayers aSkiaCompositionLayers))
 ]
 
 { #category : #accessing }
@@ -43,4 +43,13 @@ SkiaCompositionLayer >> referenceCount [
 	<return: #Number>
 	
 	^ self primCountRefs
+]
+
+{ #category : #accessing }
+SkiaCompositionLayer >> withLayers: aCollectionOfLayers [
+	aCollectionOfLayers ifEmpty: [ ^ self ].
+
+	^ SkiaCompositorLayers newDuring: [ :theCompositorLayers |
+		aCollectionOfLayers do: [ :eachLayer | theCompositorLayers add: eachLayer ].
+		self class fromNativeHandle: (self primWithLayers: theCompositorLayers) ]
 ]

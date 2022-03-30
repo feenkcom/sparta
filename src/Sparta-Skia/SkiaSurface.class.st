@@ -6,14 +6,14 @@ Class {
 	#instVars : [
 		'gpuContext'
 	],
-	#category : 'Sparta-Skia-External'
+	#category : #'Sparta-Skia-External'
 }
 
 { #category : #'instance creation' }
 SkiaSurface class >> fromBackendTexture: aSkiaBackendTexture colorType: aSkiaColorType [
 	| aSkiaContext |
 
-	aSkiaContext := SkiaContext new.
+	aSkiaContext := SkiaDirectContext new.
 	
 	^ (self fromNativeHandle: (self primFromBackendTexture: aSkiaBackendTexture context: aSkiaContext colorType: aSkiaColorType))
 		gpuContext: aSkiaContext
@@ -23,7 +23,7 @@ SkiaSurface class >> fromBackendTexture: aSkiaBackendTexture colorType: aSkiaCol
 SkiaSurface class >> fromRenderTarget: aSkiaBackendRenderTarget colorType: aSkiaColorType [
 	| aSkiaContext |
 
-	aSkiaContext := SkiaContext new.
+	aSkiaContext := SkiaDirectContext new.
 	
 	^ (self fromNativeHandle: (self primFromRenderTarget: aSkiaBackendRenderTarget context: aSkiaContext colorType: aSkiaColorType))
 		gpuContext: aSkiaContext
@@ -40,10 +40,15 @@ SkiaSurface class >> fromRenderTarget: aSkiaBackendRenderTarget colorType: aSkia
 				ifTrue: [ ExternalAddress null ]
 				ifFalse: [ anOpenGLContext getProcAddress: eachFunctionName ] ] ]. 
 
-	aSkiaContext := SkiaContext fromInterface: aSkiaInterface.
+	aSkiaContext := SkiaDirectContext fromInterface: aSkiaInterface.
 	
 	^ (self fromNativeHandle: (self primFromRenderTarget: aSkiaBackendRenderTarget context: aSkiaContext colorType: aSkiaColorType))
 		gpuContext: aSkiaContext
+]
+
+{ #category : #'instance creation' }
+SkiaSurface class >> fromRenderTarget: aSkiaBackendRenderTarget colorType: aSkiaColorType directContext: aSkiaContext [	
+	^ self fromNativeHandle: (self primFromRenderTarget: aSkiaBackendRenderTarget context: aSkiaContext colorType: aSkiaColorType)
 ]
 
 { #category : #'instance creation' }
@@ -60,13 +65,18 @@ SkiaSurface class >> newRasterPremultipled: anExtent [
 ]
 
 { #category : #'instance creation' }
+SkiaSurface class >> newRenderTarget: aDirectContext imageInfo: aSkiaImageInfo [
+	^ self fromNativeHandle: (self primNewRenderTargetContext: aDirectContext imageInfo: aSkiaImageInfo)
+]
+
+{ #category : #'instance creation' }
 SkiaSurface class >> newRenderTargetImageInfo: aSkiaImageInfo [
-	| aSkiaContext |
+	| aSkiaDirectContext |
 
-	aSkiaContext := SkiaContext new.
+	aSkiaDirectContext := SkiaDirectContext new.
 
-	^ (self fromNativeHandle: (self primNewRenderTargetContext: aSkiaContext imageInfo: aSkiaImageInfo))
-		gpuContext: aSkiaContext
+	^ (self newRenderTarget: aSkiaDirectContext imageInfo: aSkiaImageInfo)
+		gpuContext: aSkiaDirectContext
 ]
 
 { #category : #'private - ffi' }
@@ -77,7 +87,7 @@ SkiaSurface class >> primCreate [
 { #category : #'private - ffi' }
 SkiaSurface class >> primFromBackendTexture: aSkiaBackendTexture context: aSkiaContext colorType: aSkiaColorType [
 	^ self ffiCall: #(void* skia_surface_from_backend_texture(
-		SkiaContext aSkiaContext,
+		SkiaDirectContext aSkiaContext,
 		SkiaBackendTexture aSkiaBackendTexture,
 		SkiaColorType aSkiaColorType))
 ]
@@ -86,7 +96,7 @@ SkiaSurface class >> primFromBackendTexture: aSkiaBackendTexture context: aSkiaC
 SkiaSurface class >> primFromRenderTarget: aSkiaBackendRenderTarget context: aSkiaContext colorType: aSkiaColorType [
 	^ self ffiCall: #(void* skia_surface_from_render_target(
 		SkiaBackendRenderTarget aSkiaBackendRenderTarget,
-		SkiaContext aSkiaContext,
+		SkiaDirectContext aSkiaContext,
 		SkiaColorType aSkiaColorType))
 ]
 
@@ -97,12 +107,18 @@ SkiaSurface class >> primNewRaster32PremultipliedWidth: aWidth height: aHeight [
 
 { #category : #'private - ffi' }
 SkiaSurface class >> primNewRasterDirectImageInfo: aSkiaImageInfo pixels: thePixels stride: aStride [
-	^ self ffiCall: #(void* skia_surface_new_raster_direct(SkiaImageInfo aSkiaImageInfo, GtBoxerArrayU8 thePixels, size_t aStride))
+	^ self ffiCall: #(void* skia_surface_new_raster_direct(
+		SkiaImageInfo aSkiaImageInfo,
+		GtBoxerArrayU8 thePixels,
+		size_t aStride))
 ]
 
 { #category : #'private - ffi' }
 SkiaSurface class >> primNewRenderTargetContext: aSkiaContext imageInfo: aSkiaImageInfo [
-	^ self ffiCall: #(void* skia_surface_new_render_target(SkiaImageInfo aSkiaImageInfo, SkiaContext aSkiaContext))
+	^ self ffiCall: #(void* skia_surface_new_render_target(
+		SkiaImageInfo aSkiaImageInfo,
+		SkiaDirectContext aSkiaContext))
+	options: #(optEventLoop)
 ]
 
 { #category : #'private - ffi' }
@@ -134,6 +150,15 @@ SkiaSurface >> canvas [
 	aCanvas := SkiaSurfaceCanvas fromNativeHandle: self primGetCanvas.
 	aCanvas surface: self.
 	^ aCanvas
+]
+
+{ #category : #accessing }
+SkiaSurface >> canvasDuring: aBlock [
+	^ SkiaSurfaceCanvas
+		fromNativeHandle: self primGetCanvas
+		during: [ :aCanvas |
+			aCanvas surface: self.
+			aBlock value: aCanvas ]
 ]
 
 { #category : #accessing }
@@ -210,7 +235,9 @@ SkiaSurface >> imageInfo [
 
 { #category : #'private - ffi' }
 SkiaSurface >> primFlush [
-	self ffiCall: #(void skia_surface_flush(self))
+	self
+		ffiCall: #(void skia_surface_flush(self))
+		options: #(optEventLoop)
 ]
 
 { #category : #'private - ffi' }

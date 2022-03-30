@@ -1,19 +1,28 @@
 Class {
 	#name : #SkiaCompositor,
-	#superclass : #SkiaExternalObject,
-	#category : 'Sparta-Skia-External'
+	#superclass : #Object,
+	#instVars : [
+		'session',
+		'imageCache',
+		'shadowCache'
+	],
+	#classInstVars : [
+		'uniqueInstance'
+	],
+	#category : #'Sparta-Skia-Compositor'
 }
 
-{ #category : #'private - ffi' }
-SkiaCompositor class >> primCreate [
-	^ self ffiCall: #(void* skia_compositor_new())
+{ #category : #accessing }
+SkiaCompositor class >> ffiLibrary [
+	^ SkiaLibrary
 ]
 
-{ #category : #'private - ffi' }
-SkiaCompositor class >> primRelease: aHandle [
-	
-	"Plain pointers must be deleted using delete(), all users must implement a specific method"
-	self ffiCall: #(void skia_compositor_drop(void** aHandle))
+{ #category : #accessing }
+SkiaCompositor class >> uniqueInstance [
+	uniqueInstance ifNil: [ uniqueInstance := self new ].
+	uniqueInstance session == Smalltalk session
+		ifFalse: [ uniqueInstance := self new ].
+	^ uniqueInstance
 ]
 
 { #category : #accessing }
@@ -37,6 +46,11 @@ SkiaCompositor >> draw: aSkiaCompositionLayer on: aSkiaCanvas [
 	self primDraw: aSkiaCompositionLayer on: aSkiaCanvas surfaceCanvas
 ]
 
+{ #category : #accessing }
+SkiaCompositor >> ffiLibrary [
+	^ self class ffiLibrary
+]
+
 { #category : #'gt-extension' }
 SkiaCompositor >> gtInfoFor: aView [
 	<gtView>
@@ -47,6 +61,22 @@ SkiaCompositor >> gtInfoFor: aView [
 	 } asOrderedDictionary gtItemsFor: aView)
 			title: 'Info';
 			priority: 3
+]
+
+{ #category : #initialization }
+SkiaCompositor >> initialize [
+	super initialize.
+	
+	session := Smalltalk session.
+	imageCache := SkiaCompositorImageCache new.
+	shadowCache := SkiaCompositorShadowCache new.
+]
+
+{ #category : #drawing }
+SkiaCompositor >> metalDraw: aSkiaCompositionLayer on: aSkiaMetalContext [
+	self
+		primMetalDraw: aSkiaCompositionLayer
+		on: aSkiaMetalContext
 ]
 
 { #category : #'private - ffi' }
@@ -61,5 +91,24 @@ SkiaCompositor >> primCountCachedShadows [
 
 { #category : #'private - ffi' }
 SkiaCompositor >> primDraw: aSkiaCompositionLayer on: aSkiaSurfaceCanvas [
-	self ffiCall: #(void skia_compositor_draw(self, SkiaCompositionLayer aSkiaCompositionLayer, SkiaSurfaceCanvas aSkiaSurfaceCanvas))
+	self ffiCall: #(void skia_compositor_compose(
+		SkiaCompositionLayer aSkiaCompositionLayer,
+		SkiaSurfaceCanvas aSkiaSurfaceCanvas,
+		SkiaCompositorImageCache imageCache,
+		SkiaCompositorShadowCache shadowCache))
+]
+
+{ #category : #'private - ffi' }
+SkiaCompositor >> primMetalDraw: aSkiaCompositionLayer on: aSkiaMetalContext [
+	self ffiCall: #(void skia_metal_context_draw_composition_layer(
+		SkiaMetalContext aSkiaMetalContext,
+		SkiaCompositionLayer aSkiaCompositionLayer,
+		SkiaCompositorImageCache imageCache,
+		SkiaCompositorShadowCache shadowCache))
+	options: #(optEventLoop optNonBlocking)
+]
+
+{ #category : #accessing }
+SkiaCompositor >> session [
+	^ session
 ]

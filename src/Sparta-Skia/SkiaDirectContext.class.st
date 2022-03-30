@@ -1,97 +1,102 @@
 Class {
-	#name : #SkiaContext,
+	#name : #SkiaDirectContext,
 	#superclass : #SkiaExternalObject,
-	#category : 'Sparta-Skia-External'
+	#category : #'Sparta-Skia-External'
 }
 
 { #category : #'instance creation' }
-SkiaContext class >> fromInterface: aSkiaInterface [
-	^ self fromNativeHandle: (self primCreate: aSkiaInterface)
+SkiaDirectContext class >> fromInterface: aSkiaInterface [
+	^ self fromNativeHandle: (self primCreateGl: aSkiaInterface)
 ]
 
 { #category : #'instance creation' }
-SkiaContext class >> new [
-	^ self fromInterface: (SkiaInterface new)
+SkiaDirectContext class >> new [
+	^ self fromInterface: SkiaInterface new
 ]
 
 { #category : #'private - ffi' }
-SkiaContext class >> primCreate: aSkiaInterface [
+SkiaDirectContext class >> primCreate: aSkiaInterface [
 	^ self ffiCall: #(void* skia_context_new_gl(SkiaInterface aSkiaInterface))
 ]
 
 { #category : #'private - ffi' }
-SkiaContext class >> primRelease: aHandle [
+SkiaDirectContext class >> primCreateGl: aSkiaInterface [
+	^ self ffiCall: #(void* skia_context_new_gl(SkiaInterface aSkiaInterface))
+]
+
+{ #category : #'private - ffi' }
+SkiaDirectContext class >> primRelease: aHandle [
 	
 	"Plain pointers must be deleted using delete(), all users must implement a specific method"
 	self ffiCall: #(void skia_context_drop(void** aHandle))
 ]
 
 { #category : #accessing }
-SkiaContext >> flush [
+SkiaDirectContext >> flush [
 	self primFlush
 ]
 
 { #category : #testing }
-SkiaContext >> isColorTypeSupportedAsImage: aSkiaColorType [
+SkiaDirectContext >> isColorTypeSupportedAsImage: aSkiaColorType [
 	<return: #Boolean>
 
 	^ self primIsColorTypeSupportedAsImage: aSkiaColorType
 ]
 
 { #category : #testing }
-SkiaContext >> isColorTypeSupportedAsSurface: aSkiaColorType [
+SkiaDirectContext >> isColorTypeSupportedAsSurface: aSkiaColorType [
 	<return: #Boolean>
 
 	^ self primIsColorTypeSupportedAsSurface: aSkiaColorType
 ]
 
 { #category : #accessing }
-SkiaContext >> maxRenderTargetSize [
+SkiaDirectContext >> maxRenderTargetSize [
 	<return: #Number>
 
 	^ self primGetMaxRenderTargetSize
 ]
 
 { #category : #accessing }
-SkiaContext >> maxSurfaceSampleCountForColorType: aSkiaColorType [
+SkiaDirectContext >> maxSurfaceSampleCountForColorType: aSkiaColorType [
 	<return: #Number>
 
 	^ self primGetMaxSurfaceSampleCountForColorType: aSkiaColorType
 ]
 
 { #category : #accessing }
-SkiaContext >> maxTextureSize [
+SkiaDirectContext >> maxTextureSize [
 	<return: #Number>
 
 	^ self primGetMaxTextureSize
 ]
 
 { #category : #'private - ffi' }
-SkiaContext >> primFlush [
+SkiaDirectContext >> primFlush [
 	^ self ffiCall: #(bool skia_context_flush(self))
 ]
 
 { #category : #'private - ffi' }
-SkiaContext >> primGetMaxRenderTargetSize [
+SkiaDirectContext >> primGetMaxRenderTargetSize [
 	^ self ffiCall: #(int32 skia_context_get_max_render_target_size(self))
 ]
 
 { #category : #'private - ffi' }
-SkiaContext >> primGetMaxSurfaceSampleCountForColorType: aSkiaColorType [
+SkiaDirectContext >> primGetMaxSurfaceSampleCountForColorType: aSkiaColorType [
 	^ self ffiCall: #(size_t skia_context_get_max_surface_sample_count_for_color_type(self, SkiaColorType aSkiaColorType))
 ]
 
 { #category : #'private - ffi' }
-SkiaContext >> primGetMaxTextureSize [
+SkiaDirectContext >> primGetMaxTextureSize [
 	^ self ffiCall: #(int32 skia_context_get_max_texture_size(self))
 ]
 
 { #category : #'private - ffi' }
-SkiaContext >> primIsColorTypeSupportedAsImage: aSkiaColorType [
+SkiaDirectContext >> primIsColorTypeSupportedAsImage: aSkiaColorType [
 	^ self ffiCall: #(bool skia_context_is_color_type_supported_as_image(self, SkiaColorType aSkiaColorType))
 ]
 
 { #category : #'private - ffi' }
-SkiaContext >> primIsColorTypeSupportedAsSurface: aSkiaColorType [
+SkiaDirectContext >> primIsColorTypeSupportedAsSurface: aSkiaColorType [
 	^ self ffiCall: #(bool skia_context_is_color_type_supported_as_surface(self, SkiaColorType aSkiaColorType))
 ]
