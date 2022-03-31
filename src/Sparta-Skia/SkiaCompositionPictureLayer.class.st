@@ -1,22 +1,19 @@
 Class {
 	#name : #SkiaCompositionPictureLayer,
 	#superclass : #SkiaCompositionLayer,
-	#category : 'Sparta-Skia-External'
+	#category : #'Sparta-Skia-Compositor'
 }
 
 { #category : #'instance creation' }
-SkiaCompositionPictureLayer class >> picture: aSkiaPicture [
-	^ self fromNativeHandle: (self primFromPicture: aSkiaPicture)
+SkiaCompositionPictureLayer class >> picture: aSkiaPicture needsCache: needsCache [
+	^ SkiaCompositorPicture
+		fromSkiaPicture: aSkiaPicture
+		during: [ :aCompositorPicture | self fromNativeHandle: (self primFromPicture: aCompositorPicture needsCache: needsCache) ]
 ]
 
 { #category : #'private - ffi' }
-SkiaCompositionPictureLayer class >> primCreate [
-	^ self ffiCall: #(void* skia_picture_layer_new_picture(0))
-]
-
-{ #category : #'private - ffi' }
-SkiaCompositionPictureLayer class >> primFromPicture: aSkiaPicture [
-	^ self ffiCall: #(void* skia_picture_layer_new_picture(SkiaPicture aSkiaPicture))
+SkiaCompositionPictureLayer class >> primFromPicture: aSkiaCompositorPicture needsCache: needsCache [
+	^ self ffiCall: #(void* compositor_picture_layer_new(SkiaCompositorPicture aSkiaCompositorPicture, bool needsCache))
 ]
 
 { #category : #accessing }
@@ -24,17 +21,7 @@ SkiaCompositionPictureLayer >> needsCache [
 	^ self primGetNeedsCache
 ]
 
-{ #category : #accessing }
-SkiaCompositionPictureLayer >> needsCache: aBoolean [
-	self primSetNeedsCache: aBoolean
-]
-
 { #category : #'private - ffi' }
 SkiaCompositionPictureLayer >> primGetNeedsCache [
-	^ self ffiCall: #(bool skia_picture_layer_get_needs_cache(self))
-]
-
-{ #category : #'private - ffi' }
-SkiaCompositionPictureLayer >> primSetNeedsCache: aBoolean [
-	^ self ffiCall: #(void skia_picture_layer_set_needs_cache(self, bool aBoolean))
+	^ self ffiCall: #(bool compositor_picture_layer_needs_cache(self))
 ]

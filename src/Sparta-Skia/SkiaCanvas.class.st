@@ -57,7 +57,7 @@ Class {
 	#classInstVars : [
 		'offscreen'
 	],
-	#category : 'Sparta-Skia-Core'
+	#category : #'Sparta-Skia-Core'
 }
 
 { #category : #'api - instance creation' }
@@ -109,6 +109,12 @@ SkiaCanvas class >> createFromBackendTexture: aSkiaBackendTexture format: aSkiaC
 ]
 
 { #category : #'api - instance creation' }
+SkiaCanvas class >> createFromMetalContext: aSkiaMetalContext [
+	^ SkiaMetalCanvas new
+		metalContext: aSkiaMetalContext
+]
+
+{ #category : #'api - instance creation' }
 SkiaCanvas class >> createFromRenderTarget: aSkiaBackendRenderTarget format: aSkiaColorType [
 	| aSurface |
 		
@@ -124,6 +130,17 @@ SkiaCanvas class >> createFromRenderTarget: aSkiaBackendRenderTarget format: aSk
 		fromRenderTarget: aSkiaBackendRenderTarget
 		colorType: aSkiaColorType
 		context: anOpenGLContext.
+	^ self new initializeWith: aSurface
+]
+
+{ #category : #'api - instance creation' }
+SkiaCanvas class >> createFromRenderTarget: aSkiaBackendRenderTarget format: aSkiaColorType directContext: aSkiaDirectContext [
+	| aSurface |
+		
+	aSurface := SkiaSurface
+		fromRenderTarget: aSkiaBackendRenderTarget
+		colorType: aSkiaColorType
+		directContext: aSkiaDirectContext.
 	^ self new initializeWith: aSurface
 ]
 
