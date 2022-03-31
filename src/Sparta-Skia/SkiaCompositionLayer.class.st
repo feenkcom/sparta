@@ -34,8 +34,27 @@ SkiaCompositionLayer >> primCountRefs [
 ]
 
 { #category : #'private - ffi' }
+SkiaCompositionLayer >> primDebug [
+	^ self ffiCall: #(void* compositor_layer_debug(self))
+]
+
+{ #category : #'private - ffi' }
 SkiaCompositionLayer >> primWithLayers: aSkiaCompositionLayers [
 	^ self ffiCall: #(void* compositor_layer_with_layers(self, SkiaCompositorLayers aSkiaCompositionLayers))
+]
+
+{ #category : #accessing }
+SkiaCompositionLayer >> printOn: aStream [
+	GtBoxerString
+		fromNativeHandle: self primDebug
+		during: [ :aBoxerString |
+			aBoxerString string
+				ifEmpty: [
+					aStream
+						nextPutAll: self class name;
+						space;
+						nextPutAll: ' (null)' ]
+				ifNotEmpty: [ :aString | aStream nextPutAll: aString ] ]
 ]
 
 { #category : #accessing }

@@ -93,8 +93,18 @@ SkiaCompositorGeometry class >> primRoundedRectangle: aSpartaRoundedRectangle [
 { #category : #'private - ffi' }
 SkiaCompositorGeometry class >> primRoundedRectangleLeft: aLeft top: aTop width: aWidth height: aHeight radiusTopLeft: aTopLeftRadius topRight: aTopRightRadius bottomRight: aBottomRightRadius bottomLeft: aBottomLeftRadius [
 	self ffiCall: #(void* compositor_geometry_new_rounded_rectangle(
-		float32 aLeft, float32 aTop, float32 aWidth, float32 aHeight,
-		float32 aTopLeftRadius, float32 aTopRightRadius, float32 aBottomRightRadius, float32 aBottomLeftRadius))
+		float32 aLeft,
+		float32 aTop,
+		float32 aWidth,
+		float32 aHeight,
+		float32 aTopLeftRadius,
+		float32 aTopLeftRadius,
+		float32 aTopRightRadius,
+		float32 aTopRightRadius,
+		float32 aBottomRightRadius,
+		float32 aBottomRightRadius,
+		float32 aBottomLeftRadius,
+		float32 aBottomLeftRadius))
 ]
 
 { #category : #'instance creation' }
