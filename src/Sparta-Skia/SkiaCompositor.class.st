@@ -3,8 +3,7 @@ Class {
 	#superclass : #Object,
 	#instVars : [
 		'session',
-		'imageCache',
-		'shadowCache'
+		'cache'
 	],
 	#classInstVars : [
 		'uniqueInstance'
@@ -19,10 +18,16 @@ SkiaCompositor class >> ffiLibrary [
 
 { #category : #accessing }
 SkiaCompositor class >> uniqueInstance [
-	uniqueInstance ifNil: [ uniqueInstance := self new ].
+	uniqueInstance ifNil: [ uniqueInstance := self new cache: SkiaCompositorCache new ].
 	uniqueInstance session == Smalltalk session
-		ifFalse: [ uniqueInstance := self new ].
+		ifFalse: [ uniqueInstance := self new cache: SkiaCompositorCache new ].
 	^ uniqueInstance
+]
+
+{ #category : #accessing }
+SkiaCompositor >> cache: anObject [
+
+	cache := anObject
 ]
 
 { #category : #accessing }
@@ -67,9 +72,7 @@ SkiaCompositor >> gtInfoFor: aView [
 SkiaCompositor >> initialize [
 	super initialize.
 	
-	session := Smalltalk session.
-	imageCache := SkiaCompositorImageCache new.
-	shadowCache := SkiaCompositorShadowCache new.
+	session := Smalltalk session
 ]
 
 { #category : #drawing }
@@ -94,8 +97,7 @@ SkiaCompositor >> primDraw: aSkiaCompositionLayer on: aSkiaSurfaceCanvas [
 	self ffiCall: #(void skia_compositor_compose(
 		SkiaCompositionLayer aSkiaCompositionLayer,
 		SkiaSurfaceCanvas aSkiaSurfaceCanvas,
-		SkiaCompositorImageCache imageCache,
-		SkiaCompositorShadowCache shadowCache))
+		SkiaCompositorCache cache))
 ]
 
 { #category : #'private - ffi' }
@@ -103,8 +105,7 @@ SkiaCompositor >> primMetalDraw: aSkiaCompositionLayer on: aSkiaMetalContext [
 	self ffiCall: #(void skia_metal_context_draw_composition_layer(
 		SkiaMetalContext aSkiaMetalContext,
 		SkiaCompositionLayer aSkiaCompositionLayer,
-		SkiaCompositorImageCache imageCache,
-		SkiaCompositorShadowCache shadowCache))
+		SkiaCompositorCache cache))
 	options: #(optEventLoop optNonBlocking)
 ]
 
