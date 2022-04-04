@@ -75,13 +75,6 @@ SkiaCompositor >> initialize [
 	session := Smalltalk session
 ]
 
-{ #category : #drawing }
-SkiaCompositor >> metalDraw: aSkiaCompositionLayer on: aSkiaMetalContext [
-	self
-		primMetalDraw: aSkiaCompositionLayer
-		on: aSkiaMetalContext
-]
-
 { #category : #'private - ffi' }
 SkiaCompositor >> primCountCachedImages [
 	^ self ffiCall: #(size_t skia_compositor_count_cached_images(self))
@@ -98,15 +91,6 @@ SkiaCompositor >> primDraw: aSkiaCompositionLayer on: aSkiaSurfaceCanvas [
 		SkiaCompositionLayer aSkiaCompositionLayer,
 		SkiaSurfaceCanvas aSkiaSurfaceCanvas,
 		SkiaCompositorCache cache))
-]
-
-{ #category : #'private - ffi' }
-SkiaCompositor >> primMetalDraw: aSkiaCompositionLayer on: aSkiaMetalContext [
-	self ffiCall: #(void skia_metal_context_draw_composition_layer(
-		SkiaMetalContext aSkiaMetalContext,
-		SkiaCompositionLayer aSkiaCompositionLayer,
-		SkiaCompositorCache cache))
-	options: #(optEventLoop optNonBlocking)
 ]
 
 { #category : #accessing }
