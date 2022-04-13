@@ -5,6 +5,11 @@ Class {
 }
 
 { #category : #'instance creation' }
+SkiaCompositorPlatform class >> forAngle: aWindowHWND extent: anExtent [
+	^ self fromNativeHandle: (self primCreateAngle: aWindowHWND width: anExtent x height: anExtent y)
+]
+
+{ #category : #'instance creation' }
 SkiaCompositorPlatform class >> forD3D: aWindowHWND extent: anExtent [
 	^ self fromNativeHandle: (self primCreateD3D: aWindowHWND width: anExtent x height: anExtent y)
 ]
@@ -12,6 +17,13 @@ SkiaCompositorPlatform class >> forD3D: aWindowHWND extent: anExtent [
 { #category : #'instance creation' }
 SkiaCompositorPlatform class >> forMetal: nsView extent: anExtent [
 	^ self fromNativeHandle: (self primCreateMetal: nsView width: anExtent x height: anExtent y)
+]
+
+{ #category : #'private - ffi' }
+SkiaCompositorPlatform class >> primCreateAngle: aWindowHWND width: aWidth height: aHeight [
+	^ self
+		ffiCall: #(void* skia_angle_compositor_new_size(void* aWindowHWND, uint32 aWidth, uint32 aHeight))
+		options: #(optEventLoop)
 ]
 
 { #category : #'private - ffi' }
