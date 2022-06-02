@@ -1,7 +1,7 @@
 Class {
 	#name : #SkiaFontFaceBuilder,
 	#superclass : #SpartaFontFaceBuilder,
-	#category : 'Sparta-Skia-Builders'
+	#category : #'Sparta-Skia-Builders'
 }
 
 { #category : #building }
@@ -11,7 +11,5 @@ SkiaFontFaceBuilder >> build [
 		weight: weight;
 		style: style;
 		stretch: stretch;
-		source: source).
-	"we should register it as a typeface in a font manager"
-	SkiaFontManager default newTypeface: source asSpartaFontSource fontContents
+		source: source)
 ]
