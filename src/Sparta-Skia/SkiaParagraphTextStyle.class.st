@@ -1,7 +1,7 @@
 Class {
 	#name : #SkiaParagraphTextStyle,
 	#superclass : #SkiaExternalObject,
-	#category : 'Sparta-Skia-External'
+	#category : #'Sparta-Skia-External'
 }
 
 { #category : #'private - ffi' }
@@ -22,8 +22,8 @@ SkiaParagraphTextStyle >> background [
 ]
 
 { #category : #accessing }
-SkiaParagraphTextStyle >> background: aSkiaPaint [
-	self primSetBackground: aSkiaPaint
+SkiaParagraphTextStyle >> background: aColor [
+	self primSetBackground: (SkiaPaint new color: aColor)
 ]
 
 { #category : #accessing }
