@@ -1,8 +1,28 @@
 Class {
 	#name : #SkiaFontCollection,
 	#superclass : #SkiaExternalObject,
-	#category : 'Sparta-Skia-External'
+	#classInstVars : [
+		'uniqueInstance',
+		'session'
+	],
+	#category : #'Sparta-Skia-External'
 }
+
+{ #category : #'instance creation' }
+SkiaFontCollection class >> createDefaultInstance [
+	^ self new
+		defaultFontManager: SkiaFontManager default;
+		assetTypefaceFontProvider: SkiaTypefaceFontProvider default
+]
+
+{ #category : #'instance creation' }
+SkiaFontCollection class >> default [
+	^ (uniqueInstance isNotNil and: [ session == Smalltalk session ])
+		ifTrue: [ uniqueInstance ]
+		ifFalse: [
+			session := Smalltalk session.
+			uniqueInstance := self createDefaultInstance ]
+]
 
 { #category : #'private - ffi' }
 SkiaFontCollection class >> primCreate [
@@ -16,8 +36,20 @@ SkiaFontCollection class >> primRelease: aHandle [
 ]
 
 { #category : #'api - font collection' }
+SkiaFontCollection >> assetTypefaceFontProvider: aSkiaTypefaceFontProvider [
+	self primSetAssetFontManager: aSkiaTypefaceFontProvider
+]
+
+{ #category : #'api - font collection' }
 SkiaFontCollection >> defaultFontManager: aSkiaFontManager [
 	self primSetDefaultFontManager: aSkiaFontManager
+]
+
+{ #category : #'private - ffi' }
+SkiaFontCollection >> primSetAssetFontManager: aSkiaTypefaceFontProvider [
+	self ffiCall: #(void skia_font_collection_set_asset_font_manager(
+		self,
+		SkiaTypefaceFontProvider aSkiaTypefaceFontProvider))
 ]
 
 { #category : #'private - ffi' }
