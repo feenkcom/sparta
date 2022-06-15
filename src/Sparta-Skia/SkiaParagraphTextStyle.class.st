@@ -22,8 +22,8 @@ SkiaParagraphTextStyle >> background [
 ]
 
 { #category : #accessing }
-SkiaParagraphTextStyle >> background: aColor [
-	self primSetBackground: (SkiaPaint new color: aColor)
+SkiaParagraphTextStyle >> background: aSkiaPaint [
+	self primSetBackground: aSkiaPaint
 ]
 
 { #category : #accessing }
