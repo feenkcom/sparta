@@ -22,7 +22,7 @@ SpartaUserFonts class >> default [
 
 { #category : #adding }
 SpartaUserFonts >> addUserFontFace: aSpartaUserFontFace [
-	fontFaces remove: aSpartaUserFontFace ifAbsent: [].
+	fontFaces remove: aSpartaUserFontFace ifAbsent: [ ].
 	fontFaces add: aSpartaUserFontFace
 ]
 
