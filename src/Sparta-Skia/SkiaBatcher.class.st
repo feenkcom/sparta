@@ -4,7 +4,7 @@ Class {
 	#instVars : [
 		'textRunBatch'
 	],
-	#category : 'Sparta-Skia-Builders'
+	#category : #'Sparta-Skia-Builders'
 }
 
 { #category : #initialization }
@@ -26,7 +26,6 @@ SkiaBatcher >> process [
 	}
 	
 	"
-	| start |
 	SkiaTextToGlyphsBatch newDuring: [ :aSkiaTextToGlyphsBatch |
 		SkiaPaint
 			new: textRunBatch size
