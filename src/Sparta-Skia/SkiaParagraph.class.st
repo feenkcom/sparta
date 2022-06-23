@@ -1,7 +1,7 @@
 Class {
 	#name : #SkiaParagraph,
 	#superclass : #SkiaExternalObject,
-	#category : 'Sparta-Skia-External'
+	#category : #'Sparta-Skia-External'
 }
 
 { #category : #'private - ffi' }
@@ -158,7 +158,7 @@ SkiaParagraph >> lineIndexForCharacter: anOffset [
 
 { #category : #'api - paragraph' }
 SkiaParagraph >> longestLine [
-	^ self primGetLongestLine
+	^ self primGetLongestLine max: 0
 ]
 
 { #category : #'api - paragraph' }
