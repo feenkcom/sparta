@@ -49,22 +49,6 @@ SpartaCairoPaint >> formExtent [
 	^ self subclassResponsibility
 ]
 
-{ #category : #'gt-inspector-extension' }
-SpartaCairoPaint >> gtInspectorPreviewIn: composite [
-	<gtInspectorPresentationOrder: 90>  
-	| morphPresentation |
-	morphPresentation := composite morph.
-	morphPresentation 
-		title: 'Preview';
-		display: [
-			[ self asForm asMorph ]
-			on: Error
-			do:[ :e | IconicListItem
-				text:' Error drawing Preview (', e description, ')'
-				icon: (Smalltalk ui icons iconNamed: #smallWarningIcon) ] ];
-		act: [ :pres | self asForm asMorph exportAsPNG ] entitled: 'Export as PNG'
-]
-
 { #category : #initialization }
 SpartaCairoPaint >> initialize [
 	super initialize.
