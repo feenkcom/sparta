@@ -4,7 +4,7 @@ Class {
 	#classInstVars : [
 		'uniqueInstance'
 	],
-	#category : 'Sparta-Skia-External'
+	#category : #'Sparta-Skia-External'
 }
 
 { #category : #accessing }
@@ -61,16 +61,17 @@ SkiaFontManager >> gtFamilyNamesFor: aView [
 ]
 
 { #category : #'gt-extension' }
-SkiaFontManager >> gtSpotterForFamilyNamesFor: aStep [
+SkiaFontManager >> gtSpotterForFamilyNamesFor: aSearch [
 	<gtSearch>
-	^ aStep listProcessor
+	^ aSearch list
 		priority: 20;
-		allCandidates: [ self familyNames ];
 		title: 'Families';
-		candidatesLimit: Float infinity;
-		previewElement: [ :aFamilyName | ((self matchFamilyName: aFamilyName) gtFontStylesFor: GtPhlowEmptyView new) asElementDo: #yourself ];
+		items: [ self familyNames ];
+		previewElement: [ :aFamilyName | 
+			((self matchFamilyName: aFamilyName) gtFontStylesFor: GtPhlowEmptyView new)
+				asElementDo: #yourself ];
 		send: [ :aFamilyName | self matchFamilyName: aFamilyName ];
-		filter: GtFilterSubstring
+		filterBySubstring
 ]
 
 { #category : #private }
