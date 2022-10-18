@@ -90,7 +90,7 @@ SkiaParagraph >> cursorRectangleForCharacter: anOffset [
 			| thePosition theHeight |
 			
 			thePosition := anOffset = self charCount
-				ifTrue: [ theRectangles first topRight ]
+				ifTrue: [ theRectangles last topRight ]
 				ifFalse: [ theRectangles first topLeft ].
 			
 			theHeight := theRectangles first height.
