@@ -30,7 +30,7 @@ SkiaMetalContext class >> primCreate: nsView width: aWidth height: aHeight [
 SkiaMetalContext class >> primRelease: aHandle [
 	
 	"Plain pointers must be deleted using delete(), all users must implement a specific method"
-	self ffiCall: #(void skia_metal_context_drop(void** aHandle)) options: #(optEventLoop)
+	self ffiCall: #(void skia_metal_context_drop(void* aHandle)) options: #(optEventLoop)
 ]
 
 { #category : #accessing }

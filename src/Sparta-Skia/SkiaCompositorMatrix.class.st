@@ -30,5 +30,5 @@ SkiaCompositorMatrix class >> primNew: aGtBoxerArrayF32 [
 SkiaCompositorMatrix class >> primRelease: aHandle [
 	
 	"Plain pointers must be deleted using delete(), all users must implement a specific method"
-	self ffiCall: #(void compositor_matrix_drop(void** aHandle))
+	self ffiCall: #(void compositor_matrix_drop(void* aHandle))
 ]

@@ -74,7 +74,7 @@ SkiaCompositorGeometry class >> primRectangleLeft: aLeft top: aTop width: aWidth
 SkiaCompositorGeometry class >> primRelease: aHandle [
 	
 	"Plain pointers must be deleted using delete(), all users must implement a specific method"
-	self ffiCall: #(void compositor_geometry_drop(void** aHandle))
+	self ffiCall: #(void compositor_geometry_drop(void* aHandle))
 ]
 
 { #category : #'private - ffi' }

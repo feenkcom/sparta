@@ -29,7 +29,7 @@ SkiaTypefaceFontProvider class >> primCreate [
 SkiaTypefaceFontProvider class >> primRelease: aHandle [
 	
 	"Plain pointers must be deleted using delete(), all users must implement a specific method"
-	self ffiCall: #(void skia_typeface_font_provider_drop(void** aHandle))
+	self ffiCall: #(void skia_typeface_font_provider_drop(void* aHandle))
 ]
 
 { #category : #initialization }

@@ -32,7 +32,7 @@ SkiaTypeface class >> primFromFamilyName: aGtBoxerString fontStyle: aSkiaFontSty
 SkiaTypeface class >> primRelease: aHandle [
 	
 	"Plain pointers must be deleted using delete(), all users must implement a specific method"
-	self ffiCall: #(void skia_typeface_drop(void** aHandle))
+	self ffiCall: #(void skia_typeface_drop(void* aHandle))
 ]
 
 { #category : #copying }

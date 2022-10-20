@@ -33,7 +33,7 @@ SkiaArrayColor class >> primCreateNew: aSize withAll: aValue [
 SkiaArrayColor class >> primRelease: aHandle [
 	
 	"Plain pointers must be deleted using delete(), all users must implement a specific method"
-	self ffiCall: #(void skia_color_array_drop(void** aHandle))
+	self ffiCall: #(void skia_color_array_drop(void* aHandle))
 ]
 
 { #category : #accessing }

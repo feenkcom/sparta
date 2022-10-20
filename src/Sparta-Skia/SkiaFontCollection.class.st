@@ -32,7 +32,7 @@ SkiaFontCollection class >> primCreate [
 { #category : #'private - ffi' }
 SkiaFontCollection class >> primRelease: aHandle [
 	"Plain pointers must be deleted using delete(), all users must implement a specific method"
-	self ffiCall: #(void skia_font_collection_drop(void** aHandle))
+	self ffiCall: #(void skia_font_collection_drop(void* aHandle))
 ]
 
 { #category : #'api - font collection' }
