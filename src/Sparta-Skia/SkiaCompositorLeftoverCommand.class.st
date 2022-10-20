@@ -25,7 +25,7 @@ SkiaCompositorLeftoverCommand class >> primNewTransform: aCompositorMatrix offse
 SkiaCompositorLeftoverCommand class >> primRelease: aHandle [
 	
 	"Plain pointers must be deleted using delete(), all users must implement a specific method"
-	self ffiCall: #(void compositor_leftover_command_drop(void** aHandle))
+	self ffiCall: #(void compositor_leftover_command_drop(void* aHandle))
 ]
 
 { #category : #'instance creation' }

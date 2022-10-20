@@ -13,7 +13,7 @@ SkiaTextToGlyphsBatch class >> primCreate [
 SkiaTextToGlyphsBatch class >> primRelease: aHandle [
 	
 	"Plain pointers must be deleted using delete(), all users must implement a specific method"
-	self ffiCall: #(void skia_text_to_glyphs_batch_drop(void** aHandle))
+	self ffiCall: #(void skia_text_to_glyphs_batch_drop(void* aHandle))
 ]
 
 { #category : #adding }

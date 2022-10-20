@@ -45,7 +45,7 @@ SkiaCompositorPlatform class >> primRelease: aHandle [
 	
 	"Plain pointers must be deleted using delete(), all users must implement a specific method"
 	self
-		ffiCall: #(void skia_platform_compositor_drop(void** aHandle))
+		ffiCall: #(void skia_platform_compositor_drop(void* aHandle))
 		options: #(optEventLoop)
 ]
 

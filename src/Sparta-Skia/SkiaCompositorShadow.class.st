@@ -36,5 +36,5 @@ SkiaCompositorShadow class >> primNewColor: anArgb radiusX: aRadiusX radiusY: aR
 SkiaCompositorShadow class >> primRelease: aHandle [
 	
 	"Plain pointers must be deleted using delete(), all users must implement a specific method"
-	self ffiCall: #(void compositor_shadow_drop(void** aHandle))
+	self ffiCall: #(void compositor_shadow_drop(void* aHandle))
 ]

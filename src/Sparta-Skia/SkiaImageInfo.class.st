@@ -22,7 +22,7 @@ SkiaImageInfo class >> primCreateWidth: aWidth height: aHeight colorType: aColor
 SkiaImageInfo class >> primRelease: aHandle [
 	
 	"Plain pointers must be deleted using delete(), all users must implement a specific method"
-	self ffiCall: #(void skia_image_info_drop(void** aHandle))
+	self ffiCall: #(void skia_image_info_drop(void* aHandle))
 ]
 
 { #category : #'instance creation' }

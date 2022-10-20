@@ -18,7 +18,7 @@ SkiaCompositorPicture class >> fromSkiaPicture: aSkiaPicture during: aBlock [
 SkiaCompositorPicture class >> primRelease: aHandle [
 	
 	"Plain pointers must be deleted using delete(), all users must implement a specific method"
-	self ffiCall: #(void compositor_picture_drop(void** aHandle))
+	self ffiCall: #(void compositor_picture_drop(void* aHandle))
 ]
 
 { #category : #'private - ffi' }

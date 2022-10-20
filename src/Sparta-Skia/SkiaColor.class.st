@@ -47,7 +47,7 @@ SkiaColor class >> primCreateR: aRed g: aGreen b: aBlue a: anAlpha [
 SkiaColor class >> primRelease: aHandle [
 	
 	"Plain pointers must be deleted using delete(), all users must implement a specific method"
-	self ffiCall: #(void skia_color_drop(void** aHandle))
+	self ffiCall: #(void skia_color_drop(void* aHandle))
 ]
 
 { #category : #'instance creation' }

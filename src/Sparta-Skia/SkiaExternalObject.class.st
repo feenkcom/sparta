@@ -107,7 +107,7 @@ SkiaExternalObject class >> primNullPtr [
 SkiaExternalObject class >> primRelease: aHandle [
 	
 	"Plain pointers must be deleted using delete(), all users must implement a specific method"
-	"self ffiCall: #(void skia_object_drop(void** aHandle))"
+	"self ffiCall: #(void skia_object_drop(void* aHandle))"
 	self subclassResponsibility
 ]
 
@@ -122,7 +122,7 @@ SkiaExternalObject class >> release: aHandle [
 	machine the ffi library path is sometimes different which results in an error.
 	However, since the object is anyway invalid due to a new session we can continue and just ignore it nulling
 	the pointer"
-	[ self primRelease: aHandle ]
+	[ self primRelease: aHandle. aHandle beNull ]
 		on: Error do: [ :anError | 
 			NonInteractiveTranscript stdout
 				nextPutAll: ('[Warning] Failed to release {1}({2}) due to {3}' format: { 

@@ -26,7 +26,7 @@ SkiaFont class >> primNewTypeface: aSkiaTypeface size: aSize [
 SkiaFont class >> primRelease: aHandle [
 	
 	"Plain pointers must be deleted using delete(), all users must implement a specific method"
-	self ffiCall: #(void skia_font_drop(void** aHandle))
+	self ffiCall: #(void skia_font_drop(void* aHandle))
 ]
 
 { #category : #'instance creation' }
