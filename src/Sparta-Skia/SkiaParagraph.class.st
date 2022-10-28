@@ -110,6 +110,26 @@ SkiaParagraph >> glyphsForChars: anInterval [
 		during: [ :aRange | aRange asInterval ]
 ]
 
+{ #category : #'gt-extension' }
+SkiaParagraph >> gtPreviewFor: aView [
+	<gtView>
+	
+	^ aView sparta
+		title: 'Preview';
+		priority: 1;
+		matchParent;
+		rendering: [ :aCanvas :anElement |
+			self layoutWithWidth: anElement width.
+			(aCanvas isKindOf: SkiaCanvas)
+				ifTrue: [
+					self paintOn: aCanvas at: 0@0.
+					self placeholderRectangles do: [ :eachRectangle |
+						aCanvas fill
+							path: eachRectangle;
+							paint: (Color gray alpha: 0.2);
+							draw ] ] ]
+]
+
 { #category : #'api - paragraph' }
 SkiaParagraph >> height [
 	^ self primGetHeight
