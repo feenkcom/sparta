@@ -4,6 +4,16 @@ Class {
 	#category : 'Sparta-Skia-External'
 }
 
+{ #category : #'instance creation' }
+SkiaParagraphBuilder class >> default [
+	^ self style: (SkiaParagraphStyle new
+			textStyle: (SkiaParagraphTextStyle new
+				color: Color black;
+				fontSize: 16))
+			fontCollection: SkiaFontCollection default
+			tabSize: 4
+]
+
 { #category : #'private - ffi' }
 SkiaParagraphBuilder class >> primCreateStyle: aSkiaParagraphStyle fontCollection: aSkiaFontCollection tabSize: aTabSize [
 	^ self ffiCall: #(void* skia_paragraph_builder_new(
