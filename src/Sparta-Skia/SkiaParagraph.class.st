@@ -22,8 +22,9 @@ SkiaParagraph >> charCount [
 SkiaParagraph >> charOffsetAbove: anOffset ifFound: aBlock ifNone: aNoneBlock [
 	"Find a character above a character with a given offset and evaluate a block if such character found"
 	| aCurrentLineIndex aLineHeightAbove|
-
-	aCurrentLineIndex := self lineIndexForCharacter: anOffset.
+	"+1 is added because skia doesn't seem to handle the beginning of the line correctly"
+	
+	aCurrentLineIndex := self lineIndexForCharacter: anOffset+1.
 
 	"this is the first line of the paragraph, there is no char above"
 	aCurrentLineIndex == 1
@@ -46,8 +47,9 @@ SkiaParagraph >> charOffsetAt: aPoint [
 SkiaParagraph >> charOffsetBelow: anOffset ifFound: aBlock ifNone: aNoneBlock [
 	"Find a character below a character with a given offset and evaluate a block if such character found"
 	| aCurrentLineIndex aLineHeightBelow aCursorRectangle |
-
-	aCurrentLineIndex := self lineIndexForCharacter: anOffset.
+	"+1 is added because skia doesn't seem to handle the beginning of the line correctly"
+	
+	aCurrentLineIndex := self lineIndexForCharacter: anOffset+1.
 
 	"this is the last line of the paragraph, there is no char below"
 	aCurrentLineIndex = self lineCount
