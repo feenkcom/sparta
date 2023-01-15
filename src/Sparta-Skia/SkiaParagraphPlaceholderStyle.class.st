@@ -1,7 +1,7 @@
 Class {
 	#name : #SkiaParagraphPlaceholderStyle,
 	#superclass : #SkiaExternalObject,
-	#category : 'Sparta-Skia-External'
+	#category : #'Sparta-Skia-External'
 }
 
 { #category : #'private - ffi' }
@@ -52,6 +52,11 @@ SkiaParagraphPlaceholderStyle >> alignment: aSkiaParagraphPlaceholderAlignment [
 ]
 
 { #category : #accessing }
+SkiaParagraphPlaceholderStyle >> baselineOffset: aBaselineOffset [
+	self primSetBaselineOffset: aBaselineOffset
+]
+
+{ #category : #accessing }
 SkiaParagraphPlaceholderStyle >> extent: aPoint [
 	self
 		width: aPoint x;
@@ -71,6 +76,11 @@ SkiaParagraphPlaceholderStyle >> primSetAlignment: aSkiaParagraphPlaceholderAlig
 ]
 
 { #category : #'private - ffi' }
+SkiaParagraphPlaceholderStyle >> primSetBaselineOffset: aBaselineOffset [
+	self ffiCall: #(void skia_paragraph_placeholder_style_set_baseline_offset(self, scalar aBaselineOffset))
+]
+
+{ #category : #'private - ffi' }
 SkiaParagraphPlaceholderStyle >> primSetHeight: aHeight [
 	self ffiCall: #(void skia_paragraph_placeholder_style_set_height(self, scalar aHeight))
 ]
@@ -78,6 +88,11 @@ SkiaParagraphPlaceholderStyle >> primSetHeight: aHeight [
 { #category : #'private - ffi' }
 SkiaParagraphPlaceholderStyle >> primSetWidth: aWidth [
 	self ffiCall: #(void skia_paragraph_placeholder_style_set_width(self, scalar aWidth))
+]
+
+{ #category : #'private - ffi' }
+SkiaParagraphPlaceholderStyle >> primToPhlowObject [
+	^ self ffiCall: #(void* skia_paragraph_placeholder_style_to_phlow(self))
 ]
 
 { #category : #accessing }
