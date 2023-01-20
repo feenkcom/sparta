@@ -21,44 +21,71 @@ SkiaParagraph >> charCount [
 { #category : #'api - paragraph' }
 SkiaParagraph >> charOffsetAbove: anOffset ifFound: aBlock ifNone: aNoneBlock [
 	"Find a character above a character with a given offset and evaluate a block if such character found"
-	| aCurrentLineIndex aLineHeightAbove|
+	| aCurrentLineIndex aLineAboveIndex aLineHeightAbove aCursorPosition |
 	"+1 is added because skia doesn't seem to handle the beginning of the line correctly"
 	
-	aCurrentLineIndex := self lineIndexForCharacter: anOffset+1.
+	aCurrentLineIndex := self lineIndexForCharacter: anOffset.
 
 	"this is the first line of the paragraph, there is no char above"
 	aCurrentLineIndex == 1
 		ifTrue: [ ^ aNoneBlock value ].
+		
+	aLineAboveIndex := aCurrentLineIndex - 1.
+	aLineHeightAbove := self lineHeightAt: aLineAboveIndex.
 
-	aLineHeightAbove := self lineHeightAt: aCurrentLineIndex - 1.
-
-	^ aBlock value: (self charOffsetAt: ((self cursorRectangleForCharacter: anOffset) origin - (0 @ (aLineHeightAbove / 2.0))))
-]
-
-{ #category : #'api - paragraph' }
-SkiaParagraph >> charOffsetAt: aPoint [
-	"Find a character close to a given coordinate point within the paragraph and return character's offset from the start of the paragraph"
-	<return: #Number>
-
-	^ self primGetCharPositionAtX: aPoint x y: aPoint y
+	aCursorPosition := (self cursorRectangleForCharacter: anOffset) origin
+		- (0 @ (aLineHeightAbove / 2.0)).
+	
+	^ aBlock value: (self
+		charOffsetForPoint: aCursorPosition
+		lineIndex: aLineAboveIndex)
 ]
 
 { #category : #'api - paragraph' }
 SkiaParagraph >> charOffsetBelow: anOffset ifFound: aBlock ifNone: aNoneBlock [
 	"Find a character below a character with a given offset and evaluate a block if such character found"
-	| aCurrentLineIndex aLineHeightBelow aCursorRectangle |
+	| aCurrentLineIndex aLineBelowIndex aLineHeightBelow aCursorRectangle aCursorPosition |
 	"+1 is added because skia doesn't seem to handle the beginning of the line correctly"
 	
-	aCurrentLineIndex := self lineIndexForCharacter: anOffset+1.
+	aCurrentLineIndex := self lineIndexForCharacter: anOffset.
 
 	"this is the last line of the paragraph, there is no char below"
 	aCurrentLineIndex = self lineCount
 		ifTrue: [ ^ aNoneBlock value ].
 	
-	aLineHeightBelow := self lineHeightAt: aCurrentLineIndex + 1.
+	aLineBelowIndex := aCurrentLineIndex + 1.
+	aLineHeightBelow := self lineHeightAt: aLineBelowIndex.
+	
 	aCursorRectangle := self cursorRectangleForCharacter: anOffset.
+	aCursorPosition := aCursorRectangle corner + (0 @ (aLineHeightBelow / 2.0)).
+	
+	^ aBlock value: (self
+		charOffsetForPoint: aCursorPosition
+		lineIndex: aLineBelowIndex)
+]
 
-	^ aBlock value: (self charOffsetAt: (aCursorRectangle corner + (0 @ (aLineHeightBelow / 2.0))))
+{ #category : #'api - paragraph' }
+SkiaParagraph >> charOffsetForPoint: aPoint [
+	"Find a character close to a given coordinate point within the paragraph and return character's offset from the start of the paragraph"
+	<return: #Number>
+	| aLineIndex |
+	
+	aLineIndex := self lineIndexForPoint: aPoint.
+	^ self charOffsetForPoint: aPoint lineIndex: aLineIndex
+]
+
+{ #category : #'api - paragraph' }
+SkiaParagraph >> charOffsetForPoint: aPoint lineIndex: aLineIndex [
+	"Find a character close to a given coordinate point within the paragraph scoping it to the line at the given index
+	and return character's offset from the start of the paragraph"
+	<return: #Number>
+	| aLineWidth |
+
+	aLineWidth := self lineWidthAt: aLineIndex.
+
+	^ aPoint x >= aLineWidth
+		ifTrue: [ self lineEndAt: aLineIndex ]
+		ifFalse: [ self primGetCharPositionAtX: aPoint x y: aPoint y ]
 ]
 
 { #category : #'api - paragraph' }
@@ -101,6 +128,18 @@ SkiaParagraph >> cursorRectangleForCharacter: anOffset [
 ]
 
 { #category : #'api - paragraph' }
+SkiaParagraph >> glyphOffsetForCharacter: anOffset [
+	^ self primGetGlyphOffsetForCharOffset: anOffset
+]
+
+{ #category : #'api - paragraph' }
+SkiaParagraph >> glyphOffsetForPoint: aPoint [
+	<return: #Number>
+
+	^ self primGetGlyphPositionAtX: aPoint x y: aPoint y
+]
+
+{ #category : #'api - paragraph' }
 SkiaParagraph >> glyphsForChars: anInterval [
 	"An interval should be given in cursor coordinates"
 
@@ -113,7 +152,7 @@ SkiaParagraph >> glyphsForChars: anInterval [
 ]
 
 { #category : #'gt-extension' }
-SkiaParagraph >> gtPreviewFor: aView [
+SkiaParagraph >> gtStaticPreviewFor: aView [
 	<gtView>
 	
 	^ aView sparta
@@ -121,7 +160,6 @@ SkiaParagraph >> gtPreviewFor: aView [
 		priority: 1;
 		matchParent;
 		rendering: [ :aCanvas :anElement |
-			self layoutWithWidth: anElement width.
 			(aCanvas isKindOf: SkiaCanvas)
 				ifTrue: [
 					self paintOn: aCanvas at: 0@0.
@@ -151,6 +189,21 @@ SkiaParagraph >> lineCount [
 ]
 
 { #category : #'api - paragraph' }
+SkiaParagraph >> lineEndAt: anIndex [
+	"Return the character offset of the end of the line at the given index"
+	<return: #Number>
+	| aLineIndex |
+	
+	self
+		assert: [ anIndex >= 0 ]
+		description: [ 'Must be positive' ].
+		
+	aLineIndex := (((anIndex - 1) min: (self lineCount - 1)) max: 0).
+
+	^ self primGetLineEnd: aLineIndex
+]
+
+{ #category : #'api - paragraph' }
 SkiaParagraph >> lineHeightAt: anIndex [
 	"Return the line height for a given line index"
 	<return: #Number>
@@ -176,6 +229,26 @@ SkiaParagraph >> lineIndexForCharacter: anOffset [
 	<return: #Number>
 	
 	^ ((self primGetLineIndexForChar: anOffset) + 1) min: self lineCount
+]
+
+{ #category : #'api - paragraph' }
+SkiaParagraph >> lineIndexForPoint: aPoint [
+	"Return the line index for a character offset"
+	<return: #Number>
+	
+	^ ((self primGetLineIndexAtX: aPoint x y: aPoint y) + 1) min: self lineCount
+]
+
+{ #category : #'api - paragraph' }
+SkiaParagraph >> lineWidthAt: anIndex [
+	"Return the line width for a given line index"
+	<return: #Number>
+	
+	self
+		assert: [ anIndex >= 0 ]
+		description: [ 'Must be positive' ].
+
+	^ self primGetLineWidth: (((anIndex - 1) min: (self lineCount - 1)) max: 0)
 ]
 
 { #category : #'api - paragraph' }
@@ -216,6 +289,11 @@ SkiaParagraph >> primGetCharPositionAtX: aX y: aY [
 ]
 
 { #category : #'private - ffi' }
+SkiaParagraph >> primGetGlyphOffsetForCharOffset: anOffset [
+	^ self ffiCall: #(size_t skia_paragraph_get_glyph_offset_for_char_offset(self, size_t anOffset))
+]
+
+{ #category : #'private - ffi' }
 SkiaParagraph >> primGetGlyphPositionAtX: aX y: aY [
 	^ self ffiCall: #(int32 skia_paragraph_get_glyph_position_at_coordinate(self, scalar aX, scalar aY))
 ]
@@ -231,8 +309,18 @@ SkiaParagraph >> primGetHeight [
 ]
 
 { #category : #'private - ffi' }
+SkiaParagraph >> primGetLineEnd: anIndex [
+	^ self ffiCall: #(size_t skia_paragraph_get_line_end_character_index(self, size_t anIndex))
+]
+
+{ #category : #'private - ffi' }
 SkiaParagraph >> primGetLineHeight: anIndex [
 	^ self ffiCall: #(scalar skia_paragraph_get_line_height(self, size_t anIndex))
+]
+
+{ #category : #'private - ffi' }
+SkiaParagraph >> primGetLineIndexAtX: aX y: aY [
+	^ self ffiCall: #(size_t skia_paragraph_get_line_index_at_coordinate(self, scalar aY, scalar aY))
 ]
 
 { #category : #'private - ffi' }
@@ -243,6 +331,11 @@ SkiaParagraph >> primGetLineIndexForChar: anIndex [
 { #category : #'private - ffi' }
 SkiaParagraph >> primGetLineNumber [
 	^ self ffiCall: #(size_t skia_paragraph_get_line_number(self))
+]
+
+{ #category : #'private - ffi' }
+SkiaParagraph >> primGetLineWidth: anIndex [
+	^ self ffiCall: #(scalar skia_paragraph_get_line_width(self, size_t anIndex))
 ]
 
 { #category : #'private - ffi' }
