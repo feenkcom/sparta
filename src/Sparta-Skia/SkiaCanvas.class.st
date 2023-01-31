@@ -65,7 +65,7 @@ SkiaCanvas class >> createForArrayU8: anArrayBox extent: aPoint stride: aStride 
 	| anImageData aSurface |
 	
 	self
-		assert: [ anArrayBox ffiLibrary = self ffiLibrary ]
+		assert: [ anArrayBox ffiLibrary = SkiaLibrary uniqueInstance ]
 		description: [ 'An array box must originate from the same library' ].
 	
 	anImageData := SkiaImageInfo
@@ -93,7 +93,7 @@ SkiaCanvas class >> createForData: aData extent: aPoint stride: aStride format: 
 		alphaType: SkiaAlphaType Premul.
 	
 	"An ArrayU8 does not own the data"
-	thePixels := self ffiLibrary unsafeNewArrayU8FromData: aData length: aStride * aPoint y.
+	thePixels := SkiaLibrary uniqueInstance unsafeNewArrayU8FromData: aData length: aStride * aPoint y.
 	
 	aSurface := SkiaSurface
 		newRasterDirectImageInfo: anImageData
