@@ -1,7 +1,7 @@
 Class {
 	#name : #SkiaSaveLayerRecExamples,
 	#superclass : #SkiaExternalObjectExamples,
-	#category : 'Sparta-Skia-Examples'
+	#category : #'Sparta-Skia-Examples'
 }
 
 { #category : #accessing }
@@ -31,7 +31,6 @@ SkiaSaveLayerRecExamples >> setBounds [
 { #category : #initialization }
 SkiaSaveLayerRecExamples >> setPaint [
 	<gtExample>
-	<noTest>
 	| aLayerRec aSkiaPaint |
 	
 	aLayerRec := self default.
@@ -40,8 +39,8 @@ SkiaSaveLayerRecExamples >> setPaint [
 	aSkiaPaint := SkiaPaint new.
 	aLayerRec paint: aSkiaPaint.
 	
-	"layer rec consumes a paint"
-	self assert: aSkiaPaint isNull.
+	"layer rec does not consume a paint"
+	self assert: aSkiaPaint isNull not.
 	
 	^ aLayerRec
 ]

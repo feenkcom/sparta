@@ -1,13 +1,10 @@
 Class {
 	#name : #SkiaArrayColor,
 	#superclass : #GtBoxerArray,
-	#category : 'Sparta-Skia-External'
+	#traits : 'TSkiaLibrary',
+	#classTraits : 'TSkiaLibrary classTrait',
+	#category : #'Sparta-Skia-External'
 }
-
-{ #category : #'library path' }
-SkiaArrayColor class >> ffiLibrary [
-	^ SkiaLibrary
-]
 
 { #category : #'instance creation' }
 SkiaArrayColor class >> fromColors: aCollectionOfColors [

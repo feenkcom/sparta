@@ -1,7 +1,7 @@
 Class {
 	#name : #SkiaPicture,
 	#superclass : #SkiaExternalObject,
-	#category : 'Sparta-Skia-External'
+	#category : #'Sparta-Skia-External'
 }
 
 { #category : #'private - ffi' }
@@ -35,11 +35,10 @@ SkiaPicture >> approximateOpPerPoint [
 SkiaPicture >> asByteArray [
 	"Serialzie this picture as a byte array"
 	<return: #ByteArray>
-	| aBoxerArray |
 	
-	aBoxerArray := GtBoxerArrayU8 new.
-	self primSerialize: aBoxerArray.
-	^ aBoxerArray asByteArray
+	^ self ffiLibrary newArrayU8During: [ :anArrayU8 |
+		self primSerialize: anArrayU8.
+		anArrayU8 asByteArray ]
 ]
 
 { #category : #'gt-extension' }

@@ -1,7 +1,7 @@
 Class {
 	#name : #SkiaParagraphBuilder,
 	#superclass : #SkiaExternalObject,
-	#category : 'Sparta-Skia-External'
+	#category : #'Sparta-Skia-External'
 }
 
 { #category : #'instance creation' }
@@ -44,9 +44,9 @@ SkiaParagraphBuilder >> addPlaceholder: aSkiaParagraphPlaceholderStyle charLengt
 
 { #category : #'api - builder' }
 SkiaParagraphBuilder >> addString: aString [
-	GtBoxerString
-		fromString: aString
-		during: [ :aGtBoxerString | self primAddText: aGtBoxerString ]
+	self ffiLibrary
+		newString: aString
+		during: [ :aStringBox | self primAddText: aStringBox ]
 ]
 
 { #category : #'api - builder' }

@@ -4,11 +4,6 @@ Class {
 	#category : 'Sparta-Skia-External'
 }
 
-{ #category : #resources }
-SkiaInterface class >> ffiLibrary [
-	^ SkiaThreadedLibrary
-]
-
 { #category : #'instance creation' }
 SkiaInterface class >> load: aBlock [
 	^ self fromNativeHandle: (self primLoadWith: (self primLoaderCallbackFor: aBlock))
@@ -35,9 +30,11 @@ SkiaInterface class >> primLoadWith: aCallback [
 SkiaInterface class >> primLoaderCallbackFor: aBlock [
 	| aCallback |
 	
-	aCallback := SkiaInterfaceLoadCallback on: [ :aGtBoxerStringHandle |
+	aCallback := SkiaInterfaceLoadCallback on: [ :aStringBoxHandle |
 		"Rust owns aGtBoxerStringHandle, we should not take ownership"
-		aBlock value: (GtBoxerString fromHandle: aGtBoxerStringHandle) string ].
+		self ffiLibrary
+			unsafeStringFromHandle: aStringBoxHandle
+			during: [ :aStringBox | aBlock value: aStringBox string ] ].
 
 	^ aCallback
 ]

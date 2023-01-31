@@ -49,22 +49,25 @@ SkiaTextBlob class >> primRelease: aHandle [
 
 { #category : #'instance creation' }
 SkiaTextBlob class >> string: aString font: aSkiaFont [
-	| aBoxerString |
-	
-	aBoxerString := GtBoxerString fromString: aString.
-	^ [ self text: aBoxerString font: aSkiaFont ]
-		ensure: [ aBoxerString release ]
+	<return: #SkiaTextBlob>
+
+	^ self ffiLibrary
+		newString: aString
+		during: [ :aStringBox | self text: aStringBox font: aSkiaFont ]
 ]
 
 { #category : #'instance creation' }
 SkiaTextBlob class >> string: aString font: aSkiaFont during: aBlock [	
-	^ GtBoxerString
-		fromString: aString
-		during: [ :aBoxerString | self text: aBoxerString font: aSkiaFont during: aBlock ]
+	
+	^ self ffiLibrary
+		newString: aString
+		during: [ :aStringBox | self text: aStringBox font: aSkiaFont during: aBlock ]
 ]
 
 { #category : #'instance creation' }
 SkiaTextBlob class >> text: aGtBoxerString font: aSkiaFont [
+	<return: #SkiaTextBlob>
+	
 	^ self fromNativeHandle: (self primNewFromText: aGtBoxerString encoding: SkiaTextEncoding UTF8 font: aSkiaFont)
 ]
 

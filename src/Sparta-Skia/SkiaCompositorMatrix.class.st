@@ -5,9 +5,9 @@ Class {
 }
 
 { #category : #'instance creation' }
-SkiaCompositorMatrix class >> buffer: aGtBoxerArrayF32 during: aBlock [
+SkiaCompositorMatrix class >> buffer: anArrayF32 during: aBlock [
 	^ self
-		fromNativeHandle: (self primNew: aGtBoxerArrayF32)
+		fromNativeHandle: (self primNew: anArrayF32)
 		during: aBlock
 ]
 
@@ -16,9 +16,10 @@ SkiaCompositorMatrix class >> matrix: aSpartaMatrix during: aBlock [
 	^ SkiaMatrix
 		fromSpartaMatrix: aSpartaMatrix
 		during: [ :aSkiaMatrix |
-			GtBoxerArrayF32 newDuring: [ :aBuffer |
-				aSkiaMatrix primGetAll: aBuffer.
-				self buffer: aBuffer during: aBlock ] ]
+			self ffiLibrary
+				newArrayF32During: [ :anArrayF32 |
+					aSkiaMatrix primGetAll: anArrayF32.
+					self buffer: anArrayF32 during: aBlock ] ]
 ]
 
 { #category : #'private - ffi' }

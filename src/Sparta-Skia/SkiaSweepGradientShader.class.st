@@ -5,16 +5,19 @@ Class {
 }
 
 { #category : #'instance creation' }
-SkiaSweepGradientShader class >> center: aCenterPoint startAngle: aStartAngle endAngle: anEndAngle colors: theColors positions: thePositions mode: aTileMode flags: theBitFlags matrix: aSpartaMatrixOrNil [	
-	^ self fromNativeHandle: (self
-		primCreateAt: (GtBoxerPointF32 fromPoint: aCenterPoint)
-		startAngle: aStartAngle
-		endAngle: anEndAngle
-		colors: (SkiaArrayColor fromColors: theColors)
-		positions: (GtBoxerArrayF32 withAll: thePositions)
-		mode: aTileMode
-		flags: theBitFlags
-		matrix: (SkiaMatrix fromSpartaMatrix: aSpartaMatrixOrNil))
+SkiaSweepGradientShader class >> center: aCenterPoint startAngle: aStartAngle endAngle: anEndAngle colors: theColors positions: thePositions mode: aTileMode flags: theBitFlags matrix: aSpartaMatrixOrNil [
+	^ self ffiLibrary
+		newArrayF32WithAll: thePositions
+		during: [ :thePositionsArrayF32 |
+			self fromNativeHandle: (self
+				primCreateAt: (self ffiLibrary newPointF32: aCenterPoint)
+				startAngle: aStartAngle
+				endAngle: anEndAngle
+				colors: (SkiaArrayColor fromColors: theColors)
+				positions: thePositionsArrayF32
+				mode: aTileMode
+				flags: theBitFlags
+				matrix: (SkiaMatrix fromSpartaMatrix: aSpartaMatrixOrNil)) ]
 ]
 
 { #category : #'private - ffi' }

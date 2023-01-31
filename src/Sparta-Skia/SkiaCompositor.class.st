@@ -1,6 +1,8 @@
 Class {
 	#name : #SkiaCompositor,
 	#superclass : #Object,
+	#traits : 'TSkiaLibrary',
+	#classTraits : 'TSkiaLibrary classTrait',
 	#instVars : [
 		'session',
 		'cache'
@@ -10,11 +12,6 @@ Class {
 	],
 	#category : #'Sparta-Skia-Compositor'
 }
-
-{ #category : #accessing }
-SkiaCompositor class >> ffiLibrary [
-	^ SkiaLibrary
-]
 
 { #category : #accessing }
 SkiaCompositor class >> uniqueInstance [

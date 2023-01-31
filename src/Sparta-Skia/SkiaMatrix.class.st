@@ -1,7 +1,7 @@
 Class {
 	#name : #SkiaMatrix,
 	#superclass : #SkiaExternalObject,
-	#category : 'Sparta-Skia-External'
+	#category : #'Sparta-Skia-External'
 }
 
 { #category : #'instance creation' }
@@ -38,9 +38,9 @@ SkiaMatrix class >> primRelease: aHandle [
 SkiaMatrix >> asSpartaMatrix [
 	<return: #SpartaMatrix>
 	
-	^ GtBoxerArrayF32 newDuring: [ :aBuffer |
-		self primGetAll: aBuffer.
-		aBuffer dataDuring: [ :anArray |
+	^ self ffiLibrary newArrayF32During: [ :anArrayF32 |
+		self primGetAll: anArrayF32.
+		anArrayF32 dataDuring: [ :anArray |
 			SpartaMatrix new
 				sx: (anArray at: 1);
 				shx: (anArray at: 2);

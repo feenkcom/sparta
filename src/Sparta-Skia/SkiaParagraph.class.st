@@ -89,11 +89,6 @@ SkiaParagraph >> charOffsetForPoint: aPoint lineIndex: aLineIndex [
 ]
 
 { #category : #'api - paragraph' }
-SkiaParagraph >> cursorGlyphsForCharacter: anOffset [
-	^ self glyphsForChars: (self cursorIntervalForCharacter: anOffset)
-]
-
-{ #category : #'api - paragraph' }
 SkiaParagraph >> cursorIntervalForCharacter: anOffset [
 	| aCharFrom aCharTo |
 
@@ -137,18 +132,6 @@ SkiaParagraph >> glyphOffsetForPoint: aPoint [
 	<return: #Number>
 
 	^ self primGetGlyphPositionAtX: aPoint x y: aPoint y
-]
-
-{ #category : #'api - paragraph' }
-SkiaParagraph >> glyphsForChars: anInterval [
-	"An interval should be given in cursor coordinates"
-
-	anInterval
-		ifEmpty: [ ^ #() ].
-
-	^ GtBoxerRangeUSize
-		fromNativeHandle: (self primGetGlyphRangeForCharFrom: anInterval first to: anInterval last)
-		during: [ :aRange | aRange asInterval ]
 ]
 
 { #category : #'gt-extension' }
@@ -271,11 +254,10 @@ SkiaParagraph >> paintOn: aSkiaCanvas at: aPoint [
 
 { #category : #'api - paragraph' }
 SkiaParagraph >> placeholderRectangles [
-	^ GtBoxerArrayPointF32
-		fromNativeHandle: self primGetRectsForPlaceholders
-		during: [ :theBoxerArray |
-			theBoxerArray asPoints
-				pairsCollect: [ :origin :corner | Rectangle origin: origin corner: corner ] ]
+	
+	^ self ffiLibrary
+		newArrayF32FromHandle: self primGetRectsForPlaceholders
+		during: [ :anArrayF32 | anArrayF32 asRectangles ]
 ]
 
 { #category : #'private - ffi' }
@@ -296,11 +278,6 @@ SkiaParagraph >> primGetGlyphOffsetForCharOffset: anOffset [
 { #category : #'private - ffi' }
 SkiaParagraph >> primGetGlyphPositionAtX: aX y: aY [
 	^ self ffiCall: #(int32 skia_paragraph_get_glyph_position_at_coordinate(self, scalar aX, scalar aY))
-]
-
-{ #category : #'private - ffi' }
-SkiaParagraph >> primGetGlyphRangeForCharFrom: aStart to: anEnd [
-	^ self ffiCall: #(void* skia_paragraph_get_glyph_range_for_char_range(self, size_t aStart, size_t anEnd))
 ]
 
 { #category : #'private - ffi' }
@@ -404,9 +381,11 @@ SkiaParagraph >> rectanglesForChars: anInterval width: aWidthStyle height: aHeig
 		assert: [ anInterval first <= anInterval last ]
 		description: [ 'Interval must be positive' ].
 
-	^ GtBoxerArrayPointF32
-		fromNativeHandle: (self primGetRectsForCharRangeFrom: anInterval first to: anInterval last heightStyle: aHeightStyle widthStyle: aWidthStyle)
-		during: [ :theBoxerArray |
-			theBoxerArray asPoints
-				pairsCollect: [ :origin :corner | Rectangle origin: origin corner: corner ] ]
+	^ self ffiLibrary
+		newArrayF32FromHandle: (self
+			primGetRectsForCharRangeFrom: anInterval first
+			to: anInterval last
+			heightStyle: aHeightStyle
+			widthStyle: aWidthStyle)
+		during: [ :anArrayF32 | anArrayF32 asRectangles ]
 ]

@@ -5,15 +5,18 @@ Class {
 }
 
 { #category : #'instance creation' }
-SkiaRadialGradientShader class >> center: aCenterPoint radius: aRadius colors: theColors positions: thePositions mode: aTileMode flags: theBitFlags matrix: aSpartaMatrixOrNil [	
-	^ self fromNativeHandle: (self
-		primCreateAt: (GtBoxerPointF32 fromPoint: aCenterPoint)
-		radius: aRadius
-		colors: (SkiaArrayColor fromColors: theColors)
-		positions: (GtBoxerArrayF32 withAll: thePositions)
-		mode: aTileMode
-		flags: theBitFlags
-		matrix: (SkiaMatrix fromSpartaMatrix: aSpartaMatrixOrNil))
+SkiaRadialGradientShader class >> center: aCenterPoint radius: aRadius colors: theColors positions: thePositions mode: aTileMode flags: theBitFlags matrix: aSpartaMatrixOrNil [
+	^ self ffiLibrary
+		newArrayF32WithAll: thePositions
+		during: [ :thePositionsArrayF32 |
+			self fromNativeHandle: (self
+				primCreateAt: (self ffiLibrary newPointF32: aCenterPoint)
+				radius: aRadius
+				colors: (SkiaArrayColor fromColors: theColors)
+				positions: thePositionsArrayF32
+				mode: aTileMode
+				flags: theBitFlags
+				matrix: (SkiaMatrix fromSpartaMatrix: aSpartaMatrixOrNil)) ]
 ]
 
 { #category : #'private - ffi' }

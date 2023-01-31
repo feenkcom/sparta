@@ -4,7 +4,7 @@ Class {
 	#instVars : [
 		'metrics'
 	],
-	#category : 'Sparta-Skia-External'
+	#category : #'Sparta-Skia-External'
 }
 
 { #category : #'instance creation' }
@@ -205,7 +205,9 @@ SkiaFont >> lineSpacing [
 
 { #category : #text }
 SkiaFont >> measureString: aString paint: aSkiaPaint [
-	^ self measureText: (GtBoxerString fromString: aString) paint: aSkiaPaint
+	^ self ffiLibrary
+		newString: aString
+		during: [ :aStringBox | self measureText: aStringBox paint: aSkiaPaint ]
 ]
 
 { #category : #text }
@@ -363,12 +365,12 @@ SkiaFont >> skew [
 SkiaFont >> stringToGlyphs: aString [
 	<return: #ByteArray>
 
-	^ GtBoxerArrayU16 newDuring: [ :theGlyphs |
-		GtBoxerString
-			fromString: aString
-			during: [ :aBoxerString |
+	^ self ffiLibrary newArrayU16During: [ :theGlyphs |
+		self ffiLibrary
+			newString: aString
+			during: [ :aStringBox |
 				self
-					primText: aBoxerString
+					primText: aStringBox
 					toGlyphs: theGlyphs
 					encoding: SkiaTextEncoding UTF8
 					paint: SkiaPaint null
@@ -380,17 +382,17 @@ SkiaFont >> stringToGlyphs: aString [
 SkiaFont >> stringToTextRun: aString paint: aSkiaPaint [
 	<return: #SkiaTextRun>
 
-	^ GtBoxerArrayU16 newDuring: [ :aBoxerArrayU16 |
+	^ self ffiLibrary newArrayU16During: [ :anArrayU16 |
 		SkiaRectangleF32 newDuring: [ :aSkiaRectangle |
 			| theGlyphs aWidth aBounds |
 
-			GtBoxerString
-				fromString: aString
-				during: [ :aBoxerString |
+			self ffiLibrary
+				newString: aString
+				during: [ :aStringBox |
 					SkiaStringToTextRunComputeGlyphsSignal timeDuring: [
 						aWidth := self
-							primText: aBoxerString
-							toGlyphs: aBoxerArrayU16
+							primText: aStringBox
+							toGlyphs: anArrayU16
 							encoding: SkiaTextEncoding UTF8
 							paint: aSkiaPaint
 							bounds: aSkiaRectangle ] ].
@@ -399,7 +401,7 @@ SkiaFont >> stringToTextRun: aString paint: aSkiaPaint [
 				aBounds := aSkiaRectangle asRectangle ].
 			
 			SkiaStringToTextRunGlyphsAsByteArraySignal timeDuring: [
-				theGlyphs := aBoxerArrayU16 asByteArray ].			
+				theGlyphs := anArrayU16 asByteArray ].			
 
 			SkiaTextRun new
 				font: self;

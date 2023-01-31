@@ -174,7 +174,7 @@ SkiaSurface >> data [
 	| anImageInfo anArray |
 	
 	anImageInfo := self imageInfo.
-	anArray := GtBoxerArrayU8 new: anImageInfo byteSize withAll: 0.
+	anArray := self ffiLibrary newArrayU8: anImageInfo byteSize withAll: 0.
 	self primReadAllPixels: anArray.
 	^ anArray
 ]
