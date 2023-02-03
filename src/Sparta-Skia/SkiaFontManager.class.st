@@ -39,7 +39,7 @@ SkiaFontManager >> countFamilies [
 SkiaFontManager >> familyNameAt: anIndex [
 	<return: #String>
 
-	^ GtBoxerString getStringFrom: [ :aBoxerString | self primGetFamilyName: aBoxerString at: anIndex - 1 ]
+	^ self ffiLibrary getStringFrom: [ :aStringBox | self primGetFamilyName: aStringBox at: anIndex - 1 ]
 ]
 
 { #category : #accessing }
@@ -77,30 +77,36 @@ SkiaFontManager >> gtSpotterForFamilyNamesFor: aSearch [
 { #category : #private }
 SkiaFontManager >> matchFamilyName: aFamilyName [
 	<return: #SkiaFontStyleSet>
-	| aGtBoxerString |
-	
-	aGtBoxerString := GtBoxerString fromString: aFamilyName.
-	^ SkiaFontStyleSet fromNativeHandle: (self primMatchFamilyName: aGtBoxerString).
+
+	^ self ffiLibrary newString: aFamilyName during: [ :aStringBox |
+		SkiaFontStyleSet fromNativeHandle: (self primMatchFamilyName: aStringBox) ]
 ]
 
 { #category : #private }
 SkiaFontManager >> matchFamilyName: aFamilyName weight: aWeightNumber width: aSkiaFontStyleWidth slant: aSkiaFontStyleSlant ifFound: aFoundBlock ifNone: aNotFoundBlock [
-	| aGtBoxerString aTypeface |
 	
-	aGtBoxerString := GtBoxerString fromString: aFamilyName.
-	aTypeface := SkiaTypeface fromNativeHandle: (self primMatchFamilyName: aGtBoxerString weight: aWeightNumber value width: aSkiaFontStyleWidth slant: aSkiaFontStyleSlant).
+	^ self ffiLibrary newString: aFamilyName during: [ :aStringBox |
+		| aTypeface |
+		
+		aTypeface := SkiaTypeface fromNativeHandle: (self
+			primMatchFamilyName: aStringBox
+			weight: aWeightNumber value
+			width: aSkiaFontStyleWidth
+			slant: aSkiaFontStyleSlant).
 
-	^ aTypeface isNull
-		ifTrue: aNotFoundBlock 
-		ifFalse: [ aFoundBlock value: aTypeface ]
+		aTypeface isNull
+			ifTrue: [ aNotFoundBlock value ]
+			ifFalse: [ aFoundBlock value: aTypeface ] ]
 ]
 
 { #category : #'instance creation' }
 SkiaFontManager >> newTypeface: aByteArray [
 	"I create a new typeface from a given byte array"
 	
-	^ GtBoxerArrayU8 fromByteArray: aByteArray during: [ :aGtBoxerArrayU8 |
-		SkiaTypeface fromNativeHandle: (self primNewTypefaceFromData: aGtBoxerArrayU8) ]
+	^ self ffiLibrary
+		newArrayU8FromByteArray: aByteArray
+		during: [ :anArrayU8 |
+			SkiaTypeface fromNativeHandle: (self primNewTypefaceFromData: anArrayU8) ]
 ]
 
 { #category : #'private - ffi' }

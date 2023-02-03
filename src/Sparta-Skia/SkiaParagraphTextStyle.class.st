@@ -47,9 +47,9 @@ SkiaParagraphTextStyle >> decoration: aSkiaTextDecoration [
 
 { #category : #accessing }
 SkiaParagraphTextStyle >> fontFamily: aFontFamily [
-	GtBoxerString
-		fromString: aFontFamily
-		during: [ :aBoxerString | self primSetFontFamily: aBoxerString ]
+	self ffiLibrary
+		newString: aFontFamily
+		during: [ :aStringBox | self primSetFontFamily: aStringBox ]
 ]
 
 { #category : #accessing }
@@ -142,8 +142,8 @@ SkiaParagraphTextStyle >> primSetDecoration: aSkiaTextDecoration [
 ]
 
 { #category : #'private - ffi' }
-SkiaParagraphTextStyle >> primSetFontFamily: aGtBoxerString [
-	^ self ffiCall: #(void skia_paragraph_text_style_set_font_family(self, GtBoxerString aGtBoxerString))
+SkiaParagraphTextStyle >> primSetFontFamily: aStringBox [
+	^ self ffiCall: #(void skia_paragraph_text_style_set_font_family(self, GtStringBox aStringBox))
 ]
 
 { #category : #'private - ffi' }

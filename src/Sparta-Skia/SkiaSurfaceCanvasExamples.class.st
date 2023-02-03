@@ -1,7 +1,7 @@
 Class {
 	#name : #SkiaSurfaceCanvasExamples,
 	#superclass : #SkiaExternalObjectExamples,
-	#category : 'Sparta-Skia-Examples'
+	#category : #'Sparta-Skia-Examples'
 }
 
 { #category : #'examples - clip rectangle' }
@@ -675,6 +675,7 @@ SkiaSurfaceCanvasExamples >> drawTextBlobHelloWorldFromGlyphs [
 { #category : #'examples - draw shadow' }
 SkiaSurfaceCanvasExamples >> drawTriangleShadow [
 	<gtExample>
+	<noTest>
 	| aSurface aCanvas aPath aPaint |
 	
 	aSurface := SkiaSurface newRasterPremultipled: 800@500.

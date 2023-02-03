@@ -1,7 +1,9 @@
 Class {
 	#name : #SkiaExternalEnumeration,
 	#superclass : #FFIExternalEnumeration,
-	#category : 'Sparta-Skia-External'
+	#traits : 'TSkiaLibrary',
+	#classTraits : 'TSkiaLibrary classTrait',
+	#category : #'Sparta-Skia-External'
 }
 
 { #category : #accessing }
@@ -43,11 +45,6 @@ SkiaExternalEnumeration class >> externalDeclaration [
 { #category : #accessing }
 SkiaExternalEnumeration class >> externalType [
 	^ self subclassResponsibility
-]
-
-{ #category : #'library path' }
-SkiaExternalEnumeration class >> ffiLibrary [
-	^ SkiaLibrary
 ]
 
 { #category : #'as yet unclassified' }
@@ -128,5 +125,5 @@ SkiaExternalEnumeration >> primRealName: aBoxerString [
 SkiaExternalEnumeration >> realItem [
 	<return: #Symbol>
 
-	^ (GtBoxerString getStringFrom: [ :aBoxerString | self primRealName: aBoxerString ]) asSymbol
+	^ (self ffiLibrary getStringFrom: [ :aBoxerString | self primRealName: aBoxerString ]) asSymbol
 ]

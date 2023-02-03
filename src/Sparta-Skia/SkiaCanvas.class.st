@@ -61,9 +61,12 @@ Class {
 }
 
 { #category : #'api - instance creation' }
-SkiaCanvas class >> createForArrayU8: aGtBoxerArrayU8 extent: aPoint stride: aStride format: aSkiaColorType [
-	"aGtBoxerArrayU8 must over-live the canvas"
+SkiaCanvas class >> createForArrayU8: anArrayBox extent: aPoint stride: aStride format: aSkiaColorType [
 	| anImageData aSurface |
+	
+	self
+		assert: [ anArrayBox ffiLibrary = SkiaLibrary uniqueInstance ]
+		description: [ 'An array box must originate from the same library' ].
 	
 	anImageData := SkiaImageInfo
 		width: aPoint x
@@ -73,7 +76,7 @@ SkiaCanvas class >> createForArrayU8: aGtBoxerArrayU8 extent: aPoint stride: aSt
 	
 	aSurface := SkiaSurface
 		newRasterDirectImageInfo: anImageData
-		pixels: aGtBoxerArrayU8
+		pixels: anArrayBox
 		stride: aStride.
 		
 	^ self new initializeWith: aSurface
@@ -89,8 +92,8 @@ SkiaCanvas class >> createForData: aData extent: aPoint stride: aStride format: 
 		colorType: aSkiaColorType
 		alphaType: SkiaAlphaType Premul.
 	
-	"GtBoxerArrayU8 does not own the data"
-	thePixels := GtBoxerArrayU8 fromHandle: aData size: aStride * aPoint y.
+	"An ArrayU8 does not own the data"
+	thePixels := SkiaLibrary uniqueInstance unsafeNewArrayU8FromData: aData length: aStride * aPoint y.
 	
 	aSurface := SkiaSurface
 		newRasterDirectImageInfo: anImageData

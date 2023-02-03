@@ -6,16 +6,19 @@ Class {
 
 { #category : #'instance creation' }
 SkiaDashPathEffect class >> pattern: anArrayOfFloats offset: aNumber [
-	^ GtBoxerArrayF32
-		withAll: anArrayOfFloats
-		during: [ :aBoxerArrayF32 | self fromNativeHandle: (self primCreatePattern: aBoxerArrayF32 offset: aNumber) ]
+	^ self ffiLibrary
+		newArrayF32WithAll: anArrayOfFloats
+		during: [ :anArrayF32 | self fromNativeHandle: (self primCreatePattern: anArrayF32 offset: aNumber) ]
 ]
 
 { #category : #'instance creation' }
 SkiaDashPathEffect class >> pattern: anArrayOfFloats offset: aNumber during: aBlock [
-	^ GtBoxerArrayF32
-		withAll: anArrayOfFloats
-		during: [ :aBoxerArrayF32 | self fromNativeHandle: (self primCreatePattern: aBoxerArrayF32 offset: aNumber) during: aBlock ]
+	^ self ffiLibrary
+		newArrayF32WithAll: anArrayOfFloats
+		during: [ :anArrayF32 |
+			self
+				fromNativeHandle: (self primCreatePattern: anArrayF32 offset: aNumber)
+				during: aBlock ]
 ]
 
 { #category : #'private - ffi' }

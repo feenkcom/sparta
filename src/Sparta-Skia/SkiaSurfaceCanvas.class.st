@@ -1,6 +1,8 @@
 Class {
 	#name : #SkiaSurfaceCanvas,
 	#superclass : #GtBoxerReferenceBox,
+	#traits : 'TSkiaLibrary',
+	#classTraits : 'TSkiaLibrary classTrait',
 	#instVars : [
 		'surface'
 	],
@@ -9,11 +11,6 @@ Class {
 	],
 	#category : #'Sparta-Skia-External'
 }
-
-{ #category : #accessing }
-SkiaSurfaceCanvas class >> ffiLibrary [
-	^ SkiaLibrary
-]
 
 { #category : #'private - ffi' }
 SkiaSurfaceCanvas class >> primRelease: aHandle [

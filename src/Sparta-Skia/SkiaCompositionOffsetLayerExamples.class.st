@@ -11,21 +11,21 @@ SkiaCompositionOffsetLayerExamples >> composeOffsets [
 	
 	aParentLayer := SkiaCompositionOffsetLayer offset: 10@20.
 	self assert: aParentLayer layersCount equals: 0.
-	self assert: aParentLayer referenceCount equals: 1.
+	self assert: aParentLayer referenceCount equals: 0.
 	self assert: (aParentLayer offset closeTo: 10@20).
 	
 	aChildLayer := SkiaCompositionOffsetLayer offset: 40@50.
 	self assert: aChildLayer layersCount equals: 0.
-	self assert: aChildLayer referenceCount equals: 1.
+	self assert: aChildLayer referenceCount equals: 0.
 	self assert: (aChildLayer offset closeTo: 40@50).
 	
-	aParentLayer addLayer: aChildLayer.
+	aParentLayer := aParentLayer withLayers: { aChildLayer }.
 	
 	self assert: aParentLayer layersCount equals: 1.
-	self assert: aParentLayer referenceCount equals: 1.
+	self assert: aParentLayer referenceCount equals: 0.
 	self assert: (aParentLayer offset closeTo: 10@20).
 	self assert: aChildLayer layersCount equals: 0.
-	self assert: aChildLayer referenceCount equals: 2.
+	self assert: aChildLayer referenceCount equals: 1.
 	self assert: (aChildLayer offset closeTo: 40@50).
 	
 	^ aParentLayer
@@ -38,7 +38,7 @@ SkiaCompositionOffsetLayerExamples >> default [
 	
 	aLayer := SkiaCompositionOffsetLayer new.
 	self assert: aLayer layersCount equals: 0.
-	self assert: aLayer referenceCount equals: 1.
+	self assert: aLayer referenceCount equals: 0.
 	self assert: aLayer offset isZero.
 	
 	^ aLayer
@@ -51,7 +51,7 @@ SkiaCompositionOffsetLayerExamples >> newOffset [
 	
 	aLayer := SkiaCompositionOffsetLayer offset: 10@20.
 	self assert: aLayer layersCount equals: 0.
-	self assert: aLayer referenceCount equals: 1.
+	self assert: aLayer referenceCount equals: 0.
 	self assert: (aLayer offset closeTo: 10@20).
 	
 	^ aLayer
@@ -66,11 +66,11 @@ SkiaCompositionOffsetLayerExamples >> withOffset [
 	aNewlayer := aLayer withOffset: 10@20.
 	
 	self assert: aLayer layersCount equals: 0.
-	self assert: aLayer referenceCount equals: 1.
+	self assert: aLayer referenceCount equals: 0.
 	self assert: aLayer offset isZero.
 	
 	self assert: aNewlayer layersCount equals: 0.
-	self assert: aNewlayer referenceCount equals: 1.
+	self assert: aNewlayer referenceCount equals: 0.
 	self assert: (aNewlayer offset closeTo: 10@20).
 	
 	^ aLayer

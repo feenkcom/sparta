@@ -1,13 +1,10 @@
 Class {
 	#name : #SkiaInterfaceLoadCallback,
 	#superclass : #FFICallback,
-	#category : 'Sparta-Skia-External'
+	#traits : 'TSkiaLibrary',
+	#classTraits : 'TSkiaLibrary classTrait',
+	#category : #'Sparta-Skia-External'
 }
-
-{ #category : #'private - ffi' }
-SkiaInterfaceLoadCallback class >> ffiLibrary [
-	^ SkiaThreadedLibrary
-]
 
 { #category : #'callback spec' }
 SkiaInterfaceLoadCallback class >> fnSpec [
@@ -19,17 +16,6 @@ SkiaInterfaceLoadCallback class >> on: aBlock [
 	^ self 
 		newCallbackWithSignature: self fnSpec 
 		block: aBlock
-]
-
-{ #category : #'private - ffi' }
-SkiaInterfaceLoadCallback >> calloutAPIClass [
-	^ self class environment
-		at: #ThreadedFFIMigration
-		ifPresent: [ :aThreadedFFIMigration |
-			aThreadedFFIMigration threadedFFIAvailable
-				ifTrue: [ self class environment at: #TFCalloutAPI ]
-				ifFalse: [ super calloutAPIClass ] ]
-		ifAbsent: [ super calloutAPIClass ]
 ]
 
 { #category : #'private - ffi' }

@@ -3,7 +3,7 @@ Class {
 	#superclass : #SkiaExternalObject,
 	#traits : 'TSpartaPath',
 	#classTraits : 'TSpartaPath classTrait',
-	#category : 'Sparta-Skia-External'
+	#category : #'Sparta-Skia-External'
 }
 
 { #category : #'private - ffi' }
@@ -61,11 +61,10 @@ SkiaPath >> arcTo: aRectangle start: aStartAngle sweep: aSweepAngle forceMove: i
 SkiaPath >> asByteArray [
 	"Serialzie this path as a byte array"
 	<return: #ByteArray>
-	| aBoxerArray |
 	
-	aBoxerArray := GtBoxerArrayU8 new.
-	self primSerialize: aBoxerArray.
-	^ aBoxerArray asByteArray
+	^ self ffiLibrary newArrayU8During: [ :anArrayU8 |
+		self primSerialize: anArrayU8.
+		anArrayU8 asByteArray ]
 ]
 
 { #category : #'api - path' }
@@ -142,21 +141,20 @@ SkiaPath >> gtPointsFor: aView [
 { #category : #testing }
 SkiaPath >> hasLastPoint [
 	<return: #Boolean>
-	| aBoxerPoint |
-	
-	aBoxerPoint := GtBoxerPointF32 new.
-	^ [ self primGetLastPoint: aBoxerPoint ]
-		ensure: [ aBoxerPoint release ]
+
+	^ self ffiLibrary newPointF32During: [ :aPointF32 |
+		self primGetLastPoint: aPointF32 ]
 ]
 
 { #category : #accessing }
 SkiaPath >> lastPointDo: aBlock [
 	"Evaluate a given block with the last point of this path (if there is any) as an argument"
-	| aBoxerPoint hasLastPoint aLastPoint |
+	| hasLastPoint aLastPoint |
 	
-	aBoxerPoint := GtBoxerPointF32 new.
-	hasLastPoint := self primGetLastPoint: aBoxerPoint.
-	aLastPoint := [ aBoxerPoint asPoint ] ensure: [ aBoxerPoint release ].
+	self ffiLibrary newPointF32During: [ :aPointF32 |
+		hasLastPoint := self primGetLastPoint: aPointF32.
+		aLastPoint := aPointF32 asPoint ].
+
 	hasLastPoint
 		ifTrue: [ aBlock value: aLastPoint ]
 ]
@@ -184,11 +182,11 @@ SkiaPath >> moveTo: aPoint [
 { #category : #accessing }
 SkiaPath >> points [
 	<return: #Collection of: #Point>
-	| aBoxerArray |
-	
-	aBoxerArray := GtBoxerArrayPointF32 new: self pointsCount withAll: GtBoxerPointF32 new.
-	self primGetPoints: aBoxerArray.
-	^ aBoxerArray asPoints
+
+	^ self ffiLibrary
+		newArrayF32During: [ :anArrayF32 |
+			self primGetPoints: anArrayF32.
+			anArrayF32 asPoints ]
 ]
 
 { #category : #accessing }

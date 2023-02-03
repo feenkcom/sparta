@@ -1,7 +1,7 @@
 Class {
 	#name : #SkiaTypeface,
 	#superclass : #SkiaExternalObject,
-	#category : 'Sparta-Skia-External'
+	#category : #'Sparta-Skia-External'
 }
 
 { #category : #'instance creation' }
@@ -10,12 +10,11 @@ SkiaTypeface class >> default [
 ]
 
 { #category : #'instance creation' }
-SkiaTypeface class >> familyName: aFamilyName fontStyle: aSkiaFontStyle [
-	| aBoxerString |
-	
-	aBoxerString := GtBoxerString fromString: aFamilyName.
-	^ [ self fromNativeHandle: (self primFromFamilyName: aBoxerString fontStyle: aSkiaFontStyle) ]
-		ensure: [ aBoxerString release ]
+SkiaTypeface class >> familyName: aFamilyName fontStyle: aSkiaFontStyle [	
+	^ self ffiLibrary
+		newString: aFamilyName
+		during: [ :aStringBox |
+			self fromNativeHandle: (self primFromFamilyName: aStringBox fontStyle: aSkiaFontStyle) ]
 ]
 
 { #category : #'private - ffi' }
@@ -46,7 +45,7 @@ SkiaTypeface >> clone [
 SkiaTypeface >> familyName [
 	<return: #String>
 
-	^ GtBoxerString getStringFrom: [ :aBoxerString | self primGetFamilyName: aBoxerString ]
+	^ self ffiLibrary getStringFrom: [ :aStringBox | self primGetFamilyName: aStringBox ]
 ]
 
 { #category : #accessing }

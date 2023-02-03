@@ -21,14 +21,18 @@ SkiaConicalGradientShader class >> primCreateStart: aStartPoint radius: aStartRa
 
 { #category : #'instance creation' }
 SkiaConicalGradientShader class >> start: aStartPoint radius: aStartRadius end: anEndPoint radius: anEndRadius colors: theColors positions: thePositions mode: aTileMode flags: theBitFlags matrix: aSpartaMatrixOrNil [	
-	^ self fromNativeHandle: (self
-		primCreateStart: (GtBoxerPointF32 fromPoint: aStartPoint)
-		radius: aStartRadius
-		end: (GtBoxerPointF32 fromPoint: anEndPoint)
-		radius: anEndRadius
-		colors: (SkiaArrayColor fromColors: theColors)
-		positions: (GtBoxerArrayF32 withAll: thePositions)
-		mode: aTileMode
-		flags: theBitFlags
-		matrix: (SkiaMatrix fromSpartaMatrix: aSpartaMatrixOrNil))
+	
+	^ self ffiLibrary
+		newArrayF32WithAll: thePositions
+		during: [ :thePositionsArrayF32 |
+			self fromNativeHandle: (self
+				primCreateStart: (self ffiLibrary newPointF32: aStartPoint)
+				radius: aStartRadius
+				end: (self ffiLibrary newPointF32: anEndPoint)
+				radius: anEndRadius
+				colors: (SkiaArrayColor fromColors: theColors)
+				positions: thePositionsArrayF32
+				mode: aTileMode
+				flags: theBitFlags
+				matrix: (SkiaMatrix fromSpartaMatrix: aSpartaMatrixOrNil)) ]
 ]

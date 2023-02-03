@@ -1,7 +1,7 @@
 Class {
 	#name : #SkiaFontStyleSet,
 	#superclass : #SkiaExternalObject,
-	#category : 'Sparta-Skia-External'
+	#category : #'Sparta-Skia-External'
 }
 
 { #category : #'private - ffi' }
@@ -27,7 +27,7 @@ SkiaFontStyleSet >> fontStyleAt: anIndex [
 SkiaFontStyleSet >> fontStyleNameAt: anIndex [
 	<return: #String>
 	
-	^ GtBoxerString getStringFrom: [ :aBoxerString | self primStyleName: aBoxerString at: anIndex - 1 ]
+	^ self ffiLibrary getStringFrom: [ :aStringBox | self primStyleName: aStringBox at: anIndex - 1 ]
 ]
 
 { #category : #accessing }

@@ -11,11 +11,6 @@ SkiaCompositionLayer class >> primRelease: aHandle [
 	self ffiCall: #(void compositor_layer_drop(void* aHandle))
 ]
 
-{ #category : #adding }
-SkiaCompositionLayer >> addLayer: aSkiaCompositionLayer [
-	self primAddLayer: aSkiaCompositionLayer
-]
-
 { #category : #accessing }
 SkiaCompositionLayer >> layersCount [
 	<return: #Number>
@@ -45,10 +40,10 @@ SkiaCompositionLayer >> primWithLayers: aSkiaCompositionLayers [
 
 { #category : #accessing }
 SkiaCompositionLayer >> printOn: aStream [
-	GtBoxerString
-		fromNativeHandle: self primDebug
-		during: [ :aBoxerString |
-			aBoxerString string
+	self ffiLibrary
+		unsafeStringFromHandle: self primDebug
+		during: [ :aStringBox |
+			aStringBox string
 				ifEmpty: [
 					aStream
 						nextPutAll: self class name;

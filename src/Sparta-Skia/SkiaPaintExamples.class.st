@@ -1,7 +1,7 @@
 Class {
 	#name : #SkiaPaintExamples,
 	#superclass : #SkiaExternalObjectExamples,
-	#category : 'Sparta-Skia-Examples'
+	#category : #'Sparta-Skia-Examples'
 }
 
 { #category : #'examples - paint' }
@@ -107,12 +107,10 @@ SkiaPaintExamples >> setImageFilter [
 	
 	"paint does not consume an image filter"
 	self assert: anImageFilter isNull not.
-	self assert: (GtBoxerValueBox boxedPointerOf: anImageFilter) isNull not.
 	
 	"dropping the image filter does not drop it in the paint"
 	anImageFilter release.
 	self assert: anImageFilter isNull.
-	self assert: (GtBoxerValueBox boxedPointerOf: anImageFilter) isNull.
 	self assert: aPaint hasImageFilter.
 
 	^ aPaint
@@ -166,7 +164,6 @@ SkiaPaintExamples >> setShader [
 	
 	"paint does not consume an shader"
 	self assert: aShader isNull not.
-	self assert: (GtBoxerValueBox boxedPointerOf: aShader) isNull not.
 
 	^ aPaint
 ]

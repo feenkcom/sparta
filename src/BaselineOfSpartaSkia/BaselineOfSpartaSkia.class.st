@@ -1,9 +1,6 @@
 Class {
 	#name : #BaselineOfSpartaSkia,
 	#superclass : #BaselineOf,
-	#classVars : [
-		'PostLoaded'
-	],
 	#category : #BaselineOfSpartaSkia
 }
 
@@ -28,14 +25,4 @@ BaselineOfSpartaSkia >> baseline: spec [
 		spec package: 'Sparta-Skia' with: [
 			spec requires: #('SpartaCore' 'GToolkitInstaller' 'GToolkitBoxer' 'GToolkitExamplesEngine') ].
 	]
-]
-
-{ #category : #baseline }
-BaselineOfSpartaSkia >> postLoadSkia: aSpecLoader [
-	"prevent from installing multiple times by metacello"	
-	(PostLoaded isNotNil and: [ PostLoaded ])
-		ifTrue: [ ^ self ].
-
-	PostLoaded := true.
-	(self class environment at: #SkiaLibrary) install
 ]

@@ -6,18 +6,19 @@ Class {
 	#instVars : [
 		'gpuContext'
 	],
-	#category : 'Sparta-Skia-External'
+	#category : #'Sparta-Skia-External'
 }
 
 { #category : #'instance creation' }
 SkiaImage class >> fromBGR: aData extent: anExtent stride: aStride [
+	"aData is a pointer an array of bytes [u8] in BGR format"
 
-	^ GtBoxerArrayU8
-		fromHandle: aData
-		size: anExtent y * aStride
-		during: [ :aGtBoxerArrayU8 |
+	^ self ffiLibrary
+		unsafeNewArrayU8FromData: aData
+		length: anExtent y * aStride
+		during: [ :anArrayU8 |
 			self fromNativeHandle: (self
-				primFromPixels: aGtBoxerArrayU8
+				primFromPixels: anArrayU8
 				width: anExtent x height: anExtent y
 				rowBytes: aStride
 				colorType: SkiaColorType RGB888x) ]
@@ -25,13 +26,14 @@ SkiaImage class >> fromBGR: aData extent: anExtent stride: aStride [
 
 { #category : #'instance creation' }
 SkiaImage class >> fromBGRA: aData extent: anExtent stride: aStride [
+	"aData is a pointer an array of bytes [u8] in BGRA format"
 
-	^ GtBoxerArrayU8
-		fromHandle: aData
-		size: anExtent y * aStride
-		during: [ :aGtBoxerArrayU8 |
+	^ self ffiLibrary
+		unsafeNewArrayU8FromData: aData
+		length: anExtent y * aStride
+		during: [ :anArrayU8 |
 			self fromNativeHandle: (self
-				primFromPixels: aGtBoxerArrayU8
+				primFromPixels: anArrayU8
 				width: anExtent x height: anExtent y
 				rowBytes: aStride
 				colorType: SkiaColorType BGRA8888) ]
@@ -40,12 +42,17 @@ SkiaImage class >> fromBGRA: aData extent: anExtent stride: aStride [
 { #category : #'instance creation' }
 SkiaImage class >> fromBuffer: aByteArray start: startInteger end: endInteger [
 	"Create a SkiaImage from the supplied buffer (encoded JPG, PNG, BMP, etc.)"
-	| handle |
+	| aHandle |
 
-	handle := GtBoxerArrayU8 fromByteArray: aByteArray during: 
-		[ :bau8 | self primFromBuffer: bau8 start: startInteger end: endInteger ].
-	handle isNull ifTrue: [ self error: 'Unable to decode the supplied buffer' ].
-	^ self fromNativeHandle: handle
+	aHandle := self ffiLibrary
+		newArrayU8FromByteArray: aByteArray
+		during: [ :anArrayU8 | self
+			primFromBuffer: anArrayU8
+			start: startInteger
+			end: endInteger ].
+
+	aHandle isNull ifTrue: [ self error: 'Unable to decode the supplied buffer' ].
+	^ self fromNativeHandle: aHandle
 ]
 
 { #category : #'instance creation' }
@@ -54,8 +61,13 @@ SkiaImage class >> fromFile: aFileReference [
 	| fileReference handle |
 
 	fileReference := aFileReference asFileReference asAbsolute.
-	handle := GtBoxerString fromString: fileReference pathString during: [ :bs | self primFromFile: bs ].
+
+	handle := self ffiLibrary
+		newString: fileReference pathString
+		during: [ :aStringBox | self primFromFile: aStringBox ].
+
 	handle isNull ifTrue: [ self error: 'Unable to open: ', fileReference pathString ].
+
 	^ self fromNativeHandle: handle
 ]
 
@@ -69,13 +81,15 @@ SkiaImage class >> fromForm: aForm [
 		ifEmpty: [ 0 ]
 		ifNotEmpty: [ theBits size // aForm32 height * 4 ].
 
-	^ GtBoxerArrayU8 fromBitmap: theBits during: [ :aBoxerArrayU8 |
-		self fromNativeHandle: (self
-			primFromPixels: aBoxerArrayU8
-			width: aForm32 width
-			height: aForm32 height
-			rowBytes: aRowBytes
-			colorType: SkiaColorType BGRA8888) ]
+	^ self ffiLibrary
+		newArrayU8FromBitmap: theBits
+		during: [ :anArrayU8 |
+			self fromNativeHandle: (self
+				primFromPixels: anArrayU8
+				width: aForm32 width
+				height: aForm32 height
+				rowBytes: aRowBytes
+				colorType: SkiaColorType BGRA8888) ]
 ]
 
 { #category : #'instance creation' }
@@ -88,24 +102,26 @@ SkiaImage class >> fromForm: aForm during: aBlock [
 		ifEmpty: [ 0 ]
 		ifNotEmpty: [ theBits size // aForm32 height * 4 ].
 			
-	^ GtBoxerArrayU8 fromBitmap: theBits during: [ :aBoxerArrayU8 |
-		self fromNativeHandle: (self
-			primFromPixels: aBoxerArrayU8
-			width: aForm32 width
-			height: aForm32 height
-			rowBytes: aRowBytes
-			colorType: SkiaColorType BGRA8888) during: aBlock ]
+	^ self ffiLibrary
+		newArrayU8FromBitmap: theBits
+		during: [ :anArrayU8 |
+			self fromNativeHandle: (self
+				primFromPixels: anArrayU8
+				width: aForm32 width
+				height: aForm32 height
+				rowBytes: aRowBytes
+				colorType: SkiaColorType BGRA8888)
+			during: aBlock ]
 ]
 
 { #category : #'instance creation' }
 SkiaImage class >> fromGray: aData extent: anExtent stride: aStride [
-
-	^ GtBoxerArrayU8
-		fromHandle: aData
-		size: anExtent y * aStride
-		during: [ :aGtBoxerArrayU8 |
+	^ self ffiLibrary
+		unsafeNewArrayU8FromData: aData
+		length: anExtent y * aStride
+		during: [ :anArrayU8 |
 			self fromNativeHandle: (self
-				primFromPixels: aGtBoxerArrayU8
+				primFromPixels: anArrayU8
 				width: anExtent x height: anExtent y
 				rowBytes: aStride
 				colorType: SkiaColorType Gray8) ]
@@ -113,13 +129,12 @@ SkiaImage class >> fromGray: aData extent: anExtent stride: aStride [
 
 { #category : #'instance creation' }
 SkiaImage class >> fromRGBA: aData extent: anExtent stride: aStride [
-
-	^ GtBoxerArrayU8
-		fromHandle: aData
-		size: anExtent y * aStride
-		during: [ :aGtBoxerArrayU8 |
+	^ self ffiLibrary
+		unsafeNewArrayU8FromData: aData
+		length: anExtent y * aStride
+		during: [ :anArrayU8 |
 			self fromNativeHandle: (self
-				primFromPixels: aGtBoxerArrayU8
+				primFromPixels: anArrayU8
 				width: anExtent x height: anExtent y
 				rowBytes: aStride
 				colorType: SkiaColorType RGBA8888) ]
@@ -191,7 +206,7 @@ SkiaImage >> data [
 	| anImageInfo anArray |
 	
 	anImageInfo := self imageInfo.
-	anArray := GtBoxerArrayU8 new: anImageInfo byteSize withAll: 0.
+	anArray := self ffiLibrary newArrayU8: anImageInfo byteSize withAll: 0.
 	self primReadAllPixels: anArray.
 	^ anArray
 ]
@@ -370,8 +385,11 @@ SkiaImage >> saveFile: fileNameString format: format quality: aNumber [
 
 	self assert: fileNameString isString.
 	self assert: (aNumber between: 1 and: 100).
-	status := GtBoxerString fromString: fileNameString during: [ :fileName |
-		self primSaveFile: fileName format: format quality: aNumber ].
+
+	status := self ffiLibrary
+		newString: fileNameString
+		during: [ :aFileNameStringBox | self primSaveFile: aFileNameStringBox format: format quality: aNumber ].
+
 	self assert: status = 0.
 ]
 
@@ -382,11 +400,11 @@ SkiaImage >> savePng: fileNameString [
 
 	self assert: fileNameString isString.
 
-	status := GtBoxerString
-		fromString: fileNameString
-		during: [ :fileName |
+	status := self ffiLibrary
+		newString: fileNameString
+		during: [ :aFileNameStringBox |
 			self
-				primSaveFile: fileName
+				primSaveFile: aFileNameStringBox
 				format: SkiaEncodedImageFormat PNG
 				quality: 100 ].
 
