@@ -94,9 +94,9 @@ SkiaFontManager >> matchFamilyName: aFamilyName weight: aWeightNumber width: aSk
 			width: aSkiaFontStyleWidth
 			slant: aSkiaFontStyleSlant).
 
-		aTypeface
-			ifNotNil: aFoundBlock
-			ifNil: aNotFoundBlock ]
+		aTypeface isNull
+			ifTrue: [ aNotFoundBlock value ]
+			ifFalse: [ aFoundBlock value: aTypeface ] ]
 ]
 
 { #category : #'instance creation' }
