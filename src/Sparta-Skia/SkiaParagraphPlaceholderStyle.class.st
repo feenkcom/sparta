@@ -90,11 +90,6 @@ SkiaParagraphPlaceholderStyle >> primSetWidth: aWidth [
 	self ffiCall: #(void skia_paragraph_placeholder_style_set_width(self, scalar aWidth))
 ]
 
-{ #category : #'private - ffi' }
-SkiaParagraphPlaceholderStyle >> primToPhlowObject [
-	^ self ffiCall: #(void* skia_paragraph_placeholder_style_to_phlow(self))
-]
-
 { #category : #accessing }
 SkiaParagraphPlaceholderStyle >> width: aWidth [
 	self primSetWidth: aWidth

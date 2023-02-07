@@ -361,11 +361,6 @@ SkiaParagraph >> primPaint: aCanvas x: aX y: aY [
 ]
 
 { #category : #'private - ffi' }
-SkiaParagraph >> primToPhlowObject [
-	^ self ffiCall: #(void* skia_paragraph_with_text_to_phlow(self))
-]
-
-{ #category : #'private - ffi' }
 SkiaParagraph >> print [
 	self ffiCall: #(void skia_paragraph_print(self))
 ]

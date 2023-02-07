@@ -1,8 +1,8 @@
 Class {
 	#name : #SkiaLibrary,
 	#superclass : #FFILibrary,
-	#traits : 'TGtWithStringBox + TGtWithPointBoxF32 + TGtWithArrayBoxU8 + TGtWithArrayBoxU16 + TGtWithArrayBoxF32',
-	#classTraits : 'TGtWithStringBox classTrait + TGtWithPointBoxF32 classTrait + TGtWithArrayBoxU8 classTrait + TGtWithArrayBoxU16 classTrait + TGtWithArrayBoxF32 classTrait',
+	#traits : 'TGtWithStringBox + TGtWithPointBoxF32 + TGtWithArrayBoxU8 + TGtWithArrayBoxU16 + TGtWithArrayBoxF32 + TGtWithPhlowRust',
+	#classTraits : 'TGtWithStringBox classTrait + TGtWithPointBoxF32 classTrait + TGtWithArrayBoxU8 classTrait + TGtWithArrayBoxU16 classTrait + TGtWithArrayBoxF32 classTrait + TGtWithPhlowRust classTrait',
 	#category : #'Sparta-Skia-Library'
 }
 
