@@ -5,6 +5,11 @@ Class {
 }
 
 { #category : #'instance creation' }
+SkiaCompositorPlatform class >> forAndroid: aNativeWindow extent: anExtent [
+	^ self fromNativeHandle: (self primCreateAndroid: aNativeWindow width: anExtent x height: anExtent y)
+]
+
+{ #category : #'instance creation' }
 SkiaCompositorPlatform class >> forAngle: aWindowHWND extent: anExtent [
 	^ self fromNativeHandle: (self primCreateAngle: aWindowHWND width: anExtent x height: anExtent y)
 ]
@@ -17,6 +22,13 @@ SkiaCompositorPlatform class >> forD3D: aWindowHWND extent: anExtent [
 { #category : #'instance creation' }
 SkiaCompositorPlatform class >> forMetal: nsView extent: anExtent [
 	^ self fromNativeHandle: (self primCreateMetal: nsView width: anExtent x height: anExtent y)
+]
+
+{ #category : #'private - ffi' }
+SkiaCompositorPlatform class >> primCreateAndroid: aNativeWindow width: aWidth height: aHeight [
+	^ self
+		ffiCall: #(void* skia_android_egl_compositor_new_size(void* aNativeWindow, int32 aWidth, int32 aHeight))
+		options: #(optEventLoop)
 ]
 
 { #category : #'private - ffi' }
