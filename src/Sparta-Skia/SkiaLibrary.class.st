@@ -28,6 +28,11 @@ SkiaLibrary class >> startUp: isANewSession [
 ]
 
 { #category : #'api - library' }
+SkiaLibrary >> androidLibraryName [
+	^ 'libSkia.so'
+]
+
+{ #category : #'api - library' }
 SkiaLibrary >> hasModule [
 	"Return if there is a loadable and working Skia library installed, false otherwise"
 	<return: #Boolean>
