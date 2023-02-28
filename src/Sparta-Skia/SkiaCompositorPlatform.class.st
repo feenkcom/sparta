@@ -19,6 +19,11 @@ SkiaCompositorPlatform class >> forMetal: nsView extent: anExtent [
 	^ self fromNativeHandle: (self primCreateMetal: nsView width: anExtent x height: anExtent y)
 ]
 
+{ #category : #'instance creation' }
+SkiaCompositorPlatform class >> forXlibDisplay: anXlibDisplay window: anXlibWindow extent: anExtent [
+	^ self fromNativeHandle: (self primCreateXlibDisplay: anXlibDisplay window: anXlibWindow width: anExtent x height: anExtent y)
+]
+
 { #category : #'private - ffi' }
 SkiaCompositorPlatform class >> primCreateAngle: aWindowHWND width: aWidth height: aHeight [
 	^ self
@@ -37,6 +42,13 @@ SkiaCompositorPlatform class >> primCreateD3D: aWindowHWND width: aWidth height:
 SkiaCompositorPlatform class >> primCreateMetal: nsView width: aWidth height: aHeight [
 	^ self
 		ffiCall: #(void* skia_metal_compositor_new_size(void* nsView, uint32 aWidth, uint32 aHeight))
+		options: #(optEventLoop)
+]
+
+{ #category : #'private - ffi' }
+SkiaCompositorPlatform class >> primCreateXlibDisplay: anXlibDisplay window: anXlibWindow width: aWidth height: aHeight [
+	^ self
+		ffiCall: #(void* skia_xlib_gl_compositor_new_size(void* anXlibDisplay, ulong anXlibWindow, uint32 aWidth, uint32 aHeight))
 		options: #(optEventLoop)
 ]
 
