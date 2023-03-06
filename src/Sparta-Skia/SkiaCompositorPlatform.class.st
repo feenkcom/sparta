@@ -25,6 +25,11 @@ SkiaCompositorPlatform class >> forMetal: nsView extent: anExtent [
 ]
 
 { #category : #'instance creation' }
+SkiaCompositorPlatform class >> forWaylandDisplay: aWaylandDisplay surface: aWaylandSurface extent: anExtent [
+	^ self fromNativeHandle: (self primCreateWaylandDisplay: aWaylandDisplay surface: aWaylandSurface width: anExtent x height: anExtent y)
+]
+
+{ #category : #'instance creation' }
 SkiaCompositorPlatform class >> forXlibDisplay: anXlibDisplay window: anXlibWindow extent: anExtent [
 	^ self fromNativeHandle: (self primCreateXlibDisplay: anXlibDisplay window: anXlibWindow width: anExtent x height: anExtent y)
 ]
@@ -54,6 +59,13 @@ SkiaCompositorPlatform class >> primCreateD3D: aWindowHWND width: aWidth height:
 SkiaCompositorPlatform class >> primCreateMetal: nsView width: aWidth height: aHeight [
 	^ self
 		ffiCall: #(void* skia_metal_compositor_new_size(void* nsView, uint32 aWidth, uint32 aHeight))
+		options: #(optEventLoop)
+]
+
+{ #category : #'private - ffi' }
+SkiaCompositorPlatform class >> primCreateWaylandDisplay: aWaylandDisplay surface: aWaylandSurface width: aWidth height: aHeight [
+	^ self
+		ffiCall: #(void* skia_wayland_egl_compositor_new_size(void* aWaylandDisplay, void* aWaylandSurface, uint32 aWidth, uint32 aHeight))
 		options: #(optEventLoop)
 ]
 
