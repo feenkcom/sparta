@@ -13,10 +13,15 @@ SkiaTextBlob class >> glyphs: aByteArray font: aSkiaFont [
 
 { #category : #'instance creation' }
 SkiaTextBlob class >> glyphs: aByteArray font: aSkiaFont during: aBlock [
-	
-	^ self
-		fromNativeHandle: (self primNewFromGlyphs: aByteArray length: aByteArray size // 2 font: aSkiaFont)
-		during: aBlock
+	| wasPinned aHandle |
+	wasPinned := aByteArray isPinnedInMemory.
+	aHandle := [ self
+			primNewFromGlyphs: aByteArray
+			length: aByteArray size // 2
+			font: aSkiaFont ]
+		ensure: [ aByteArray setPinnedInMemory: wasPinned ].
+
+	^ self fromNativeHandle: aHandle during: aBlock
 ]
 
 { #category : #'private - ffi' }
@@ -26,6 +31,7 @@ SkiaTextBlob class >> primCreate [
 
 { #category : #'private - ffi' }
 SkiaTextBlob class >> primNewFromGlyphs: aByteArray length: anAmountOfU16Glyphs font: aSkiaFont [
+	"glyphs from aByteArray are copied into the text blob"
 	^ self ffiCall: #(void* skia_text_blob_from_glyphs(
 		void* aByteArray,
 		size_t anAmountOfU16Glyphs,
