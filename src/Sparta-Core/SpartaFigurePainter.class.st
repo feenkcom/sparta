@@ -162,67 +162,58 @@ SpartaFigurePainter >> drawPath: aSpartaPath [
 	To achieve perfect overlapping of the background and border we have to render it on a new
 	layer while using source composition operator to remove parts of the background or border
 	depending on the border position"
-	
+
 	self isBorderOutside
-		ifTrue: [
-			canvas layer during: [
-				canvas stroke
-					in: [ :aStrokePainter | strokeOptions ifNotNil: [ aStrokePainter strokeOptions: strokeOptions ] ];
-					paint: border;
-					path: aSpartaPath;
-					alpha: borderAlpha;
-					width: borderWidth * 2;
-					draw.
-				
-				"draw background on top of the border removing parts of it"
-				canvas fill
-					paint: background;
-					path: aSpartaPath;
-					alpha: backgroundAlpha;
-					composeSource;
-					draw ] ].
-	
+		ifTrue: [ canvas stroke
+				in: [ :aStrokePainter | strokeOptions ifNotNil: [ aStrokePainter strokeOptions: strokeOptions ] ];
+				paint: border;
+				path: aSpartaPath;
+				alpha: borderAlpha;
+				width: borderWidth * 2;
+				composeOver;
+				draw.	"draw background on top of the border removing parts of it"
+			canvas fill
+				paint: background;
+				path: aSpartaPath;
+				alpha: backgroundAlpha;
+				composeSource;
+				draw ].
+
 	self isBorderCentered
-		ifTrue: [
-			canvas layer during: [
-				"we first render the background and then on top of it border with source composition operator"
-				canvas fill
-					paint: background;
-					path: aSpartaPath;
-					alpha: backgroundAlpha;
-					draw.
-				
-				canvas stroke
-					"reuse my stroke options"
-					in: [ :aStrokePainter | strokeOptions ifNotNil: [ aStrokePainter strokeOptions: strokeOptions ] ];
-					paint: border;
-					path: aSpartaPath;
-					alpha: borderAlpha;
-					width: borderWidth;
-					composeSource;
-					draw ] ].
+		ifTrue: [ canvas fill
+				paint: background;
+				path: aSpartaPath;
+				alpha: backgroundAlpha;
+				composeOver;
+				draw.
+
+			canvas stroke
+				in: [ :aStrokePainter | strokeOptions ifNotNil: [ aStrokePainter strokeOptions: strokeOptions ] ];
+				paint: border;
+				path: aSpartaPath;
+				alpha: borderAlpha;
+				width: borderWidth;
+				composeOver;
+				draw ].
 
 	self isBorderInside
-		ifTrue: [
-			canvas layer during: [
-				canvas fill
-					paint: background;
-					path: aSpartaPath;
-					alpha: backgroundAlpha;
-					draw.
-					
-				canvas clip
-					by:  aSpartaPath
-					during: [
-						canvas stroke
-							"reuse my stroke options"
-							in: [ :aStrokePainter | strokeOptions ifNotNil: [ aStrokePainter strokeOptions: strokeOptions ] ];
-							paint: border;
-							path: aSpartaPath;
-							alpha: borderAlpha;
-							width: borderWidth * 2.0;
-							composeSource;
-							draw ] ] ]
+		ifTrue: [ canvas fill
+				paint: background;
+				path: aSpartaPath;
+				alpha: backgroundAlpha;
+				composeOver;
+				draw.
+
+			canvas clip
+				by: aSpartaPath
+				during: [ canvas stroke
+						in: [ :aStrokePainter | strokeOptions ifNotNil: [ aStrokePainter strokeOptions: strokeOptions ] ];
+						paint: border;
+						path: aSpartaPath;
+						alpha: borderAlpha;
+						width: borderWidth * 2.0;
+						composeOver;
+						draw	"reuse my stroke options" ] ]
 ]
 
 { #category : #drawing }
