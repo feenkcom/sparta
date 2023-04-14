@@ -10,7 +10,7 @@ BaselineOfSpartaSkia >> baseline: spec [
 	spec for: #'common' do: [
 		spec
 			baseline: 'SpartaCore' with: [
-				spec repository: 'github://feenkcom/Sparta:v0.8.156/src' ].
+				spec repository: 'github://feenkcom/Sparta:v0.8.157/src' ].
 		spec
 			baseline: 'GToolkitBoxer' with: [
 				spec repository: 'github://feenkcom/gtoolkit-boxer:v0.8.51/boxer-bindings' ].
