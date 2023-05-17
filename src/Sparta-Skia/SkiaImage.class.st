@@ -249,7 +249,7 @@ SkiaImage >> gtImageInfoFor: aView [
 	<gtView>
 
 	^ (self imageInfo gtInfoFor: aView)
-		title: 'Image Info';
+		title: 'Image info';
 		priority: 3
 ]
 
