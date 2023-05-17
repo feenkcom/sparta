@@ -1,7 +1,7 @@
 Class {
 	#name : #SkiaBackendTexture,
 	#superclass : #SkiaExternalObject,
-	#category : 'Sparta-Skia-External'
+	#category : #'Sparta-Skia-External'
 }
 
 { #category : #'instance creation' }
@@ -58,7 +58,7 @@ SkiaBackendTexture >> gtTextureInfoFor: aView [
 	<gtView>
 
 	^ (self textureInfo gtInfoFor: aView)
-			title: 'Texture Info';
+			title: 'Texture info';
 			priority: 3
 ]
 
