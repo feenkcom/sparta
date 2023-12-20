@@ -16,11 +16,10 @@ SkiaBackendRenderTarget class >> newGlExtent: anExtent sampleCount: aSampleCount
 ]
 
 { #category : #'instance creation' }
-SkiaBackendRenderTarget class >> newMetalExtent: anExtent sampleCount: aSampleCount [
+SkiaBackendRenderTarget class >> newMetalExtent: anExtent [
 	^ self fromNativeHandle: (self
 		primNewMetalWidth: anExtent x
-		height: anExtent y
-		sampleCount: aSampleCount)
+		height: anExtent y)
 ]
 
 { #category : #'private - ffi' }
@@ -36,11 +35,10 @@ SkiaBackendRenderTarget class >> primNewGlWidth: aWidth height: aHeight sampleCo
 ]
 
 { #category : #'private - ffi' }
-SkiaBackendRenderTarget class >> primNewMetalWidth: aWidth height: aHeight sampleCount: aSampleCount [
+SkiaBackendRenderTarget class >> primNewMetalWidth: aWidth height: aHeight [
 	^ self ffiCall: #(void* skia_backend_render_target_new_metal(
 		int32 aWidth,
-		int32 aHeight,
-		size_t aSampleCount
+		int32 aHeight
 	))
 ]
 

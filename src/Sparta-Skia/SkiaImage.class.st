@@ -368,7 +368,7 @@ SkiaImage >> primReadAllPixels: aBoxerArrayU8 [
 SkiaImage >> primSaveFile: fileName format: format quality: aNumber [
 
 	^ self ffiCall: #(int32 skia_image_to_file(self, GtBoxerString fileName,
-				SkiaEncodedImageFormat format, int32 aNumber))
+				SkiaEncodedImageFormat format, uint32 aNumber))
 ]
 
 { #category : #'private - ffi' }
