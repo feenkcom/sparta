@@ -11,7 +11,7 @@ Class {
 		'samplingArea',
 		'filterQuality'
 	],
-	#category : 'Sparta-Skia-Paints'
+	#category : #'Sparta-Skia-Paints'
 }
 
 { #category : #'extend modes' }
@@ -59,7 +59,7 @@ SkiaSurfacePaint >> isCanvas [
 SkiaSurfacePaint >> isImage [
 	<return: #Boolean>
 
-	^ skiaImage isKindOf: SkiaSurface
+	^ skiaImage isKindOf: SkiaPixelSurface
 ]
 
 { #category : #testing }

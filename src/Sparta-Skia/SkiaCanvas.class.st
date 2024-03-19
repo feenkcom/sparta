@@ -74,7 +74,7 @@ SkiaCanvas class >> createForArrayU8: anArrayBox extent: aPoint stride: aStride 
 		colorType: aSkiaColorType
 		alphaType: SkiaAlphaType Premul.
 	
-	aSurface := SkiaSurface
+	aSurface := SkiaPixelSurface
 		newRasterDirectImageInfo: anImageData
 		pixels: anArrayBox
 		stride: aStride.
@@ -95,7 +95,7 @@ SkiaCanvas class >> createForData: aData extent: aPoint stride: aStride format: 
 	"An ArrayU8 does not own the data"
 	thePixels := SkiaLibrary uniqueInstance unsafeNewArrayU8FromData: aData length: aStride * aPoint y.
 	
-	aSurface := SkiaSurface
+	aSurface := SkiaPixelSurface
 		newRasterDirectImageInfo: anImageData
 		pixels: thePixels
 		stride: aStride.
@@ -107,7 +107,7 @@ SkiaCanvas class >> createForData: aData extent: aPoint stride: aStride format: 
 SkiaCanvas class >> createFromBackendTexture: aSkiaBackendTexture format: aSkiaColorType [
 	| aSurface |
 		
-	aSurface := SkiaSurface fromBackendTexture: aSkiaBackendTexture colorType: aSkiaColorType.
+	aSurface := SkiaPixelSurface fromBackendTexture: aSkiaBackendTexture colorType: aSkiaColorType.
 	^ self new initializeWith: aSurface
 ]
 
@@ -121,7 +121,7 @@ SkiaCanvas class >> createFromMetalContext: aSkiaMetalContext [
 SkiaCanvas class >> createFromRenderTarget: aSkiaBackendRenderTarget format: aSkiaColorType [
 	| aSurface |
 		
-	aSurface := SkiaSurface fromRenderTarget: aSkiaBackendRenderTarget colorType: aSkiaColorType.
+	aSurface := SkiaPixelSurface fromRenderTarget: aSkiaBackendRenderTarget colorType: aSkiaColorType.
 	^ self new initializeWith: aSurface
 ]
 
@@ -129,7 +129,7 @@ SkiaCanvas class >> createFromRenderTarget: aSkiaBackendRenderTarget format: aSk
 SkiaCanvas class >> createFromRenderTarget: aSkiaBackendRenderTarget format: aSkiaColorType context: anOpenGLContext [
 	| aSurface |
 		
-	aSurface := SkiaSurface
+	aSurface := SkiaPixelSurface
 		fromRenderTarget: aSkiaBackendRenderTarget
 		colorType: aSkiaColorType
 		context: anOpenGLContext.
@@ -140,7 +140,7 @@ SkiaCanvas class >> createFromRenderTarget: aSkiaBackendRenderTarget format: aSk
 SkiaCanvas class >> createFromRenderTarget: aSkiaBackendRenderTarget format: aSkiaColorType directContext: aSkiaDirectContext [
 	| aSurface |
 		
-	aSurface := SkiaSurface
+	aSurface := SkiaPixelSurface
 		fromRenderTarget: aSkiaBackendRenderTarget
 		colorType: aSkiaColorType
 		directContext: aSkiaDirectContext.
@@ -157,7 +157,7 @@ SkiaCanvas class >> createNewRenderTargetExtent: aPoint format: aSkiaColorType [
 		colorType: aSkiaColorType
 		alphaType: SkiaAlphaType Premul.
 	
-	aSurface := SkiaSurface newRenderTargetImageInfo: anImageInfo.
+	aSurface := SkiaPixelSurface newRenderTargetImageInfo: anImageInfo.
 		
 	^ self new initializeWith: aSurface
 ]
@@ -255,7 +255,7 @@ canvas"
 
 { #category : #'api - instance creation' }
 SkiaCanvas class >> extent: anExtent [
-	^ self new initializeWith: (SkiaSurface newRasterPremultipled: anExtent)
+	^ self new initializeWith: (SkiaPixelSurface newRasterPremultipled: anExtent)
 ]
 
 { #category : #accessing }

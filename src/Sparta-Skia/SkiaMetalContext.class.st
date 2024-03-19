@@ -68,10 +68,10 @@ SkiaMetalContext >> primSetDrawableWidth: aWidth height: aHeight [
 
 { #category : #accessing }
 SkiaMetalContext >> surface [
-	^ SkiaSurface fromNativeHandle: self primNewSurface
+	^ SkiaPixelSurface fromNativeHandle: self primNewSurface
 ]
 
 { #category : #accessing }
 SkiaMetalContext >> surfaceDuring: aBlock [
-	^ SkiaSurface fromNativeHandle: self primNewSurface during: aBlock
+	^ SkiaPixelSurface fromNativeHandle: self primNewSurface during: aBlock
 ]
