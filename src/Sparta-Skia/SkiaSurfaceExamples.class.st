@@ -1,7 +1,7 @@
 Class {
 	#name : #SkiaSurfaceExamples,
 	#superclass : #SkiaExternalObjectExamples,
-	#category : 'Sparta-Skia-Examples'
+	#category : #'Sparta-Skia-Examples'
 }
 
 { #category : #accessing }
@@ -9,7 +9,7 @@ SkiaSurfaceExamples >> default [
 	<gtExample>
 	| aSurface anImageInfo thePixels |
 	
-	aSurface := SkiaSurface new.
+	aSurface := SkiaPixelSurface new.
 	
 	self assert: aSurface width equals: 600.
 	self assert: aSurface height equals: 400.
@@ -36,7 +36,7 @@ SkiaSurfaceExamples >> newRasterPremultipledSizeOne [
 	<gtExample>
 	| aSurface anImageInfo thePixels |
 	
-	aSurface := SkiaSurface newRasterPremultipled: 1@1.
+	aSurface := SkiaPixelSurface newRasterPremultipled: 1@1.
 	
 	self assert: aSurface width equals: 1.
 	self assert: aSurface height equals: 1.
@@ -63,7 +63,7 @@ SkiaSurfaceExamples >> snapshot [
 	<gtExample>
 	| aSurface aCanvas aSnapshot |
 	
-	aSurface := SkiaSurface newRasterPremultipled: 100@100.
+	aSurface := SkiaPixelSurface newRasterPremultipled: 100@100.
 	
 	aCanvas := aSurface canvas.
 	aCanvas drawRectangle: (20@20 corner: 80@80) paint: (SkiaPaint new color: Color gray).	

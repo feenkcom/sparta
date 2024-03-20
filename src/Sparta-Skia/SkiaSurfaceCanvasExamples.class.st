@@ -9,7 +9,7 @@ SkiaSurfaceCanvasExamples >> clipRectangle [
 	<gtExample>
 	| aSurface aCanvas aRectangle |
 	
-	aSurface := SkiaSurface newRasterPremultipled: 70@50.
+	aSurface := SkiaPixelSurface newRasterPremultipled: 70@50.
 	
 	aRectangle := SpartaRectangle fromRectangle: (10@10 corner: 60@40).
 	
@@ -32,7 +32,7 @@ SkiaSurfaceCanvasExamples >> drawCircleWithGrayFill [
 	<gtExample>
 	| aSurface aCanvas aCircle aPaint |
 	
-	aSurface := SkiaSurface newRasterPremultipled: 70@50.
+	aSurface := SkiaPixelSurface newRasterPremultipled: 70@50.
 	
 	aCircle := SpartaCircle center: 35@25 radius: 20.
 
@@ -169,7 +169,7 @@ SkiaSurfaceCanvasExamples >> drawDefaultTextBlob [
 	<gtExample>
 	| aSurface aCanvas aTextBlob aPaint |
 	
-	aSurface := SkiaSurface newRasterPremultipled: 70@50.
+	aSurface := SkiaPixelSurface newRasterPremultipled: 70@50.
 	
 	aTextBlob := SkiaTextBlob new.
 
@@ -231,7 +231,7 @@ SkiaSurfaceCanvasExamples >> drawImageWithBlur [
 	<gtExample>
 	| aSurface aCanvas anImage aPaint |
 	
-	aSurface := SkiaSurface newRasterPremultipled: 70@50.
+	aSurface := SkiaPixelSurface newRasterPremultipled: 70@50.
 
 	aPaint := SkiaPaint new imageFilter: (SkiaImageFilterBlur sigma: 3@3).
 	anImage := self drawPathTriangleWithGrayFill snapshot.
@@ -249,7 +249,7 @@ SkiaSurfaceCanvasExamples >> drawLineBlack [
 	<gtExample>
 	| aSurface aCanvas aLine aPaint |
 	
-	aSurface := SkiaSurface newRasterPremultipled: 50@50.
+	aSurface := SkiaPixelSurface newRasterPremultipled: 50@50.
 	
 	aLine := SpartaLine from: 10@10 to: 40@40.
 	aPaint := SkiaPaint new
@@ -270,7 +270,7 @@ SkiaSurfaceCanvasExamples >> drawLineBlackWithAntiAlias [
 	<gtExample>
 	| aSurface aCanvas aLine aPaint |
 	
-	aSurface := SkiaSurface newRasterPremultipled: 50@50.
+	aSurface := SkiaPixelSurface newRasterPremultipled: 50@50.
 	
 	aLine := SpartaLine from: 10@10 to: 40@40.
 	aPaint := SkiaPaint new
@@ -292,7 +292,7 @@ SkiaSurfaceCanvasExamples >> drawOvalWithBoxShadow [
 	<gtExample>
 	| aSurface aCanvas aRectangle aPaint |
 	
-	aSurface := SkiaSurface newRasterPremultipled: 70@50.
+	aSurface := SkiaPixelSurface newRasterPremultipled: 70@50.
 	
 	aRectangle := SpartaRectangle fromRectangle: (10@10 corner: 60@40).
 
@@ -316,7 +316,7 @@ SkiaSurfaceCanvasExamples >> drawOvalWithBoxShadowOnly [
 	<gtExample>
 	| aSurface aCanvas aRectangle aPaint |
 	
-	aSurface := SkiaSurface newRasterPremultipled: 70@50.
+	aSurface := SkiaPixelSurface newRasterPremultipled: 70@50.
 	
 	aRectangle := SpartaRectangle fromRectangle: (10@10 corner: 60@40).
 
@@ -340,7 +340,7 @@ SkiaSurfaceCanvasExamples >> drawOvalWithGrayFill [
 	<gtExample>
 	| aSurface aCanvas aRectangle aPaint |
 	
-	aSurface := SkiaSurface newRasterPremultipled: 70@50.
+	aSurface := SkiaPixelSurface newRasterPremultipled: 70@50.
 	
 	aRectangle := SpartaRectangle fromRectangle: (10@10 corner: 60@40).
 
@@ -363,7 +363,7 @@ SkiaSurfaceCanvasExamples >> drawPaintBlack [
 	<gtExample>
 	| aSurface aCanvas aPaint |
 	
-	aSurface := SkiaSurface newRasterPremultipled: 50@50.
+	aSurface := SkiaPixelSurface newRasterPremultipled: 50@50.
 	
 	aPaint := SkiaPaint new
 		color: Color black;
@@ -382,7 +382,7 @@ SkiaSurfaceCanvasExamples >> drawPathTriangleWithGrayFill [
 	<gtExample>
 	| aSurface aCanvas aPath aPaint |
 	
-	aSurface := SkiaSurface newRasterPremultipled: 70@50.
+	aSurface := SkiaPixelSurface newRasterPremultipled: 70@50.
 	
 	aPath := SkiaPath new
 		moveTo: 10@40;
@@ -408,7 +408,7 @@ SkiaSurfaceCanvasExamples >> drawPointBlack [
 	<gtExample>
 	| aSurface aCanvas aPaint |
 	
-	aSurface := SkiaSurface newRasterPremultipled: 50@50.
+	aSurface := SkiaPixelSurface newRasterPremultipled: 50@50.
 	
 	aPaint := SkiaPaint new
 		color: Color black;
@@ -427,7 +427,7 @@ SkiaSurfaceCanvasExamples >> drawRectangleWithConicalGradient [
 	<gtExample>
 	| aSurface aCanvas aRectangle aPaint aShader |
 
-	aSurface := SkiaSurface newRasterPremultipled: 400@400.
+	aSurface := SkiaPixelSurface newRasterPremultipled: 400@400.
 	aRectangle := SpartaRectangle fromRectangle: (50@50 corner: 350@350).
 
 	"gradient should be given in local coordinates of the canvas"
@@ -458,7 +458,7 @@ SkiaSurfaceCanvasExamples >> drawRectangleWithGrayFill [
 	<gtExample>
 	| aSurface aCanvas aRectangle aPaint |
 	
-	aSurface := SkiaSurface newRasterPremultipled: 70@50.
+	aSurface := SkiaPixelSurface newRasterPremultipled: 70@50.
 	
 	aRectangle := SpartaRectangle fromRectangle: (10@10 corner: 60@40).
 
@@ -480,7 +480,7 @@ SkiaSurfaceCanvasExamples >> drawRectangleWithGrayStroke [
 	<gtExample>
 	| aSurface aCanvas aRectangle aPaint |
 	
-	aSurface := SkiaSurface newRasterPremultipled: 70@50.
+	aSurface := SkiaPixelSurface newRasterPremultipled: 70@50.
 	
 	aRectangle := SpartaRectangle fromRectangle: (10@10 corner: 60@40).
 
@@ -507,7 +507,7 @@ SkiaSurfaceCanvasExamples >> drawRectangleWithGrayStrokeAndFill [
 	<gtExample>
 	| aSurface aCanvas aRectangle aPaint |
 	
-	aSurface := SkiaSurface newRasterPremultipled: 70@50.
+	aSurface := SkiaPixelSurface newRasterPremultipled: 70@50.
 	
 	aRectangle := SpartaRectangle fromRectangle: (10@10 corner: 60@40).
 
@@ -534,7 +534,7 @@ SkiaSurfaceCanvasExamples >> drawRectangleWithLinearGradient [
 	<gtExample>
 	| aSurface aCanvas aRectangle aPaint aShader |
 
-	aSurface := SkiaSurface newRasterPremultipled: 400@400.
+	aSurface := SkiaPixelSurface newRasterPremultipled: 400@400.
 	aRectangle := SpartaRectangle fromRectangle: (50@50 corner: 350@350).
 
 	"gradient should be given in local coordinates of the canvas"
@@ -564,7 +564,7 @@ SkiaSurfaceCanvasExamples >> drawRectangleWithRadialGradient [
 	<gtExample>
 	| aSurface aCanvas aRectangle aPaint aShader |
 	
-	aSurface := SkiaSurface newRasterPremultipled: 400@400.
+	aSurface := SkiaPixelSurface newRasterPremultipled: 400@400.
 	
 	aRectangle := SpartaRectangle fromRectangle: (50@50 corner: 350@350).
 
@@ -596,7 +596,7 @@ SkiaSurfaceCanvasExamples >> drawRectangleWithSweepGradient [
 	<gtExample>
 	| aSurface aCanvas aRectangle aPaint aShader |
 
-	aSurface := SkiaSurface newRasterPremultipled: 400@400.
+	aSurface := SkiaPixelSurface newRasterPremultipled: 400@400.
 	aRectangle := SpartaRectangle fromRectangle: (50@50 corner: 350@350).
 
 	"gradient should be given in local coordinates of the canvas"
@@ -628,7 +628,7 @@ SkiaSurfaceCanvasExamples >> drawTextBlobHelloWorld [
 	<gtExample>
 	| aSurface aCanvas aFont aTextBlob aPaint |
 	
-	aSurface := SkiaSurface newRasterPremultipled: 400@300.
+	aSurface := SkiaPixelSurface newRasterPremultipled: 400@300.
 	
 	aFont := SkiaFont size: 30.
 	
@@ -651,7 +651,7 @@ SkiaSurfaceCanvasExamples >> drawTextBlobHelloWorldFromGlyphs [
 	<gtExample>
 	| aSurface aCanvas aFont theGlyphs aPaint |
 	
-	aSurface := SkiaSurface newRasterPremultipled: 400@300.
+	aSurface := SkiaPixelSurface newRasterPremultipled: 400@300.
 	
 	aFont := SkiaFont size: 30.
 	theGlyphs := aFont stringToGlyphs: 'Hello World!'.
@@ -678,7 +678,7 @@ SkiaSurfaceCanvasExamples >> drawTriangleShadow [
 	<noTest>
 	| aSurface aCanvas aPath aPaint |
 	
-	aSurface := SkiaSurface newRasterPremultipled: 800@500.
+	aSurface := SkiaPixelSurface newRasterPremultipled: 800@500.
 	
 	aPath := SkiaPath new
 		moveTo: 100@400;
@@ -716,7 +716,7 @@ SkiaSurfaceCanvasExamples >> quickAcceptRectangle [
 	<gtExample>
 	| aSurface aCanvas aRectangle |
 	
-	aSurface := SkiaSurface newRasterPremultipled: 50@50.
+	aSurface := SkiaPixelSurface newRasterPremultipled: 50@50.
 	
 	aRectangle := SpartaRectangle fromRectangle: (10@10 corner: 20@20).
 	
@@ -740,7 +740,7 @@ SkiaSurfaceCanvasExamples >> quickRejectRectangle [
 	<gtExample>
 	| aSurface aCanvas aRectangle |
 	
-	aSurface := SkiaSurface newRasterPremultipled: 50@50.
+	aSurface := SkiaPixelSurface newRasterPremultipled: 50@50.
 	
 	aRectangle := SpartaRectangle fromRectangle: (10@10 corner: 20@20).
 	
@@ -764,7 +764,7 @@ SkiaSurfaceCanvasExamples >> saveAndRestoreLayer [
 	<gtExample>
 	| aSurface aCanvas aSaveLayerRec |
 	
-	aSurface := SkiaSurface newRasterPremultipled: 70@50.
+	aSurface := SkiaPixelSurface newRasterPremultipled: 70@50.
 	
 	aCanvas := aSurface canvas.
 	self assert: aCanvas saveCount equals: 1.
@@ -787,7 +787,7 @@ SkiaSurfaceCanvasExamples >> saveAndRestoreState [
 	<gtExample>
 	| aSurface aCanvas |
 	
-	aSurface := SkiaSurface newRasterPremultipled: 70@50.
+	aSurface := SkiaPixelSurface newRasterPremultipled: 70@50.
 	
 	aCanvas := aSurface canvas.
 	self assert: aCanvas saveCount equals: 1.
@@ -809,7 +809,7 @@ SkiaSurfaceCanvasExamples >> saveAndRestoreToCountState [
 	<gtExample>
 	| aSurface aCanvas |
 	
-	aSurface := SkiaSurface newRasterPremultipled: 70@50.
+	aSurface := SkiaPixelSurface newRasterPremultipled: 70@50.
 	
 	aCanvas := aSurface canvas.
 	self assert: aCanvas saveCount equals: 1.
