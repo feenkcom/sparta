@@ -319,6 +319,14 @@ SkiaSurfaceCanvas >> drawShadowPath: aSkiaPath zPlane: aZPlane lightPos: aLightP
 		flags: theFlagBits
 ]
 
+{ #category : #'api - drawing' }
+SkiaSurfaceCanvas >> drawSvg: anSvgDom at: aPoint [
+	self
+		primRenderSvg: anSvgDom
+		x: aPoint x
+		y: aPoint y
+]
+
 { #category : #'api - drawing optimized' }
 SkiaSurfaceCanvas >> drawTextBlob: aTextBlob at: anOriginPoint color: aColor antialias: isAntialias [
 	self
@@ -601,6 +609,11 @@ SkiaSurfaceCanvas >> primQuickRejectPath: aSkiaPath [
 { #category : #'private - ffi' }
 SkiaSurfaceCanvas >> primQuickRejectRectangleLeft: aLeft top: aTop right: aRight bottom: aBottom [
 	self ffiCall: #(bool skia_canvas_quick_reject_rectangle (self,scalar aLeft, scalar aTop, scalar aRight, scalar aBottom))
+]
+
+{ #category : #'private - ffi' }
+SkiaSurfaceCanvas >> primRenderSvg: aSkiaSvgDom x: aX y: aY [
+	self ffiCall: #(void skia_canvas_render_svg(self, void* aSkiaSvgDom, scalar aX, scalar aY))
 ]
 
 { #category : #'private - ffi' }
