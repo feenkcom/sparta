@@ -277,14 +277,14 @@ SkiaCanvas class >> strokeOptions [
 	^ SkiaStrokeOptions
 ]
 
+{ #category : #'api - instance creation' }
+SkiaCanvas class >> svg: aFileName extent: anExtent [
+	^ SkiaSvgCanvas new extent: anExtent
+]
+
 { #category : #converting }
 SkiaCanvas >> asForm [
 	^ self snapshot asForm
-]
-
-{ #category : #builders }
-SkiaCanvas >> batchProcessor [
-	^ SkiaBatcher new
 ]
 
 { #category : #builders }

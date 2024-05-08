@@ -7,11 +7,8 @@ Class {
 { #category : #accessing }
 SkiaSurface >> canvas [
 	<return: #SkiaSurfaceCanvas>
-	| aCanvas |
 
-	aCanvas := SkiaSurfaceCanvas fromNativeHandle: self primGetCanvas.
-	aCanvas surface: self.
-	^ aCanvas
+	^ self subclassResponsibility
 ]
 
 { #category : #accessing }
