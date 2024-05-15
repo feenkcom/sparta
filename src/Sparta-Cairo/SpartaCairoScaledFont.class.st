@@ -9,7 +9,7 @@ Class {
 		'userToDeviceMatrix',
 		'options'
 	],
-	#category : 'Sparta-Cairo-Text'
+	#category : #'Sparta-Cairo-Text'
 }
 
 { #category : #'instance creation' }
@@ -115,14 +115,21 @@ SpartaCairoScaledFont >> makeTextRunNoReleaseAscii: aString [
 
 { #category : #'instance creation' }
 SpartaCairoScaledFont >> makeTextRunNoReleaseWide: aString [
-	| aBuffer aGlyphsArrayPtr aGlyphsNumPtr aStatus aGlyphsArray aGlyphsNum  aTextRun |
+	| converter length aGlyphsArrayPtr aGlyphsNumPtr aStatus aGlyphsArray aGlyphsNum  aTextRun |
 
 	aGlyphsArrayPtr := ExternalAddress new.
 	aGlyphsNumPtr := ByteArray new: FFIInt32 externalTypeSize.
 
-	aBuffer := UTF8TextConverter default convertToSystemString: aString.
+	converter := CairoUTF8Converter new.
+	length := converter convert: aString from: 1 to: aString size.
 
-	aStatus := self primTextToGlyphs: aBuffer length: aBuffer size glyphs: aGlyphsArrayPtr num: aGlyphsNumPtr x: 0.0 y: 0.0.
+	aStatus := self 
+		primTextToGlyphs: converter buffer 
+		length: length 
+		glyphs: aGlyphsArrayPtr 
+		num: aGlyphsNumPtr 
+		x: 0.0 
+		y: 0.0.
 	aStatus isSuccess
 		ifFalse: [ SpartaCairoError signal: aStatus ].
 	
@@ -131,7 +138,7 @@ SpartaCairoScaledFont >> makeTextRunNoReleaseWide: aString [
 
 	aTextRun := SpartaCairoTextRun new
 		bits: 32;
-		buffer: aBuffer;
+		buffer: converter buffer ;
 		length: aGlyphsNum;
 		glyphs: aGlyphsArray;
 		scaledFont: self.
