@@ -7,9 +7,9 @@ Class {
 { #category : #'instance creation' }
 SkiaCompositionTransformationLayerExamples >> identity [
 	<gtExample>
+	<return: #SkiaCompositionTransformationLayer>
 	| aLayer |
-	
 	aLayer := SkiaCompositionTransformationLayer matrix: SpartaMatrix new.
-	
+
 	^ aLayer
 ]

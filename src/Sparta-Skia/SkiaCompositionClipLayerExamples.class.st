@@ -7,9 +7,11 @@ Class {
 { #category : #accessing }
 SkiaCompositionClipLayerExamples >> rectangle [
 	<gtExample>
+	<return: #SkiaCompositionClipLayer>
 	| aLayer |
-	
-	aLayer := SkiaCompositionClipLayer rectangle: (10@20 extent: 200@300) offset: 30@10.
-	
+	aLayer := SkiaCompositionClipLayer
+			rectangle: (10 @ 20 extent: 200 @ 300)
+			offset: 30 @ 10.
+
 	^ aLayer
 ]
