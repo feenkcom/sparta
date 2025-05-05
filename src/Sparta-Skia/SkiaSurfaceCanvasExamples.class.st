@@ -7,64 +7,64 @@ Class {
 { #category : #'examples - clip rectangle' }
 SkiaSurfaceCanvasExamples >> clipRectangle [
 	<gtExample>
+	<return: #SkiaPixelSurface>
 	| aSurface aCanvas aRectangle |
-	
-	aSurface := SkiaPixelSurface newRasterPremultipled: 70@50.
-	
-	aRectangle := SpartaRectangle fromRectangle: (10@10 corner: 60@40).
-	
+	aSurface := SkiaPixelSurface newRasterPremultipled: 70 @ 50.
+
+	aRectangle := SpartaRectangle fromRectangle: (10 @ 10 corner: 60 @ 40).
+
 	aCanvas := aSurface canvas.
 	aCanvas clipRectangle: aRectangle.
-	
-	self assert: aCanvas clipLocalBounds equals: (9@9 corner: 61@41).
-	self assert: aCanvas clipDeviceBounds equals: (10@10 corner: 60@40).
-	
+
+	self assert: aCanvas clipLocalBounds equals: (9 @ 9 corner: 61 @ 41).
+	self assert: aCanvas clipDeviceBounds equals: (10 @ 10 corner: 60 @ 40).
+
 	aCanvas drawPaint: (SkiaPaint new color: Color lightGray).
-	
+
 	aCanvas flush.
 	aCanvas release.
-	
+
 	^ aSurface
 ]
 
 { #category : #'examples - draw circle' }
 SkiaSurfaceCanvasExamples >> drawCircleWithGrayFill [
 	<gtExample>
+	<return: #SkiaPixelSurface>
 	| aSurface aCanvas aCircle aPaint |
-	
-	aSurface := SkiaPixelSurface newRasterPremultipled: 70@50.
-	
-	aCircle := SpartaCircle center: 35@25 radius: 20.
+	aSurface := SkiaPixelSurface newRasterPremultipled: 70 @ 50.
+
+	aCircle := SpartaCircle center: 35 @ 25 radius: 20.
 
 	aPaint := SkiaPaint new
-		antialias: true;
-		color: Color lightGray;
-		paintStyle: SkiaPaintStyle Fill.
-	
+			antialias: true;
+			color: Color lightGray;
+			paintStyle: SkiaPaintStyle Fill.
+
 	aCanvas := aSurface canvas.
 	aCanvas drawCircle: aCircle paint: aPaint.
-	
+
 	aCanvas flush.
 	aCanvas release.
-	
+
 	^ aSurface
 ]
 
 { #category : #'examples - draw color' }
 SkiaSurfaceCanvasExamples >> drawColorBlack [
 	<gtExample>
+	<return: #SkiaPixelSurface>
 	| aSurface aCanvas thePixels |
-	
 	aSurface := SkiaSurfaceExamples new newRasterPremultipledSizeOne.
-	
+
 	aCanvas := aSurface canvas.
 	aCanvas drawColor: Color black.
 	aCanvas flush.
 	aCanvas release.
-	
+
 	thePixels := aSurface data asArray.
 	self assert: thePixels equals: #(0 0 0 255).
-	
+
 	^ aSurface
 ]
 
@@ -92,18 +92,18 @@ SkiaSurfaceCanvasExamples >> drawColorBlue [
 { #category : #'examples - draw color' }
 SkiaSurfaceCanvasExamples >> drawColorGreen [
 	<gtExample>
+	<return: #SkiaPixelSurface>
 	| aSurface aCanvas thePixels |
-	
 	aSurface := SkiaSurfaceExamples new newRasterPremultipledSizeOne.
-	
+
 	aCanvas := aSurface canvas.
 	aCanvas drawColor: Color green.
 	aCanvas flush.
 	aCanvas release.
-	
+
 	thePixels := aSurface data asArray.
 	self assert: thePixels equals: #(0 255 0 255).
-	
+
 	^ aSurface
 ]
 
@@ -131,563 +131,581 @@ SkiaSurfaceCanvasExamples >> drawColorRed [
 { #category : #'examples - draw color' }
 SkiaSurfaceCanvasExamples >> drawColorTransparent [
 	<gtExample>
+	<return: #SkiaPixelSurface>
 	| aSurface aCanvas thePixels |
-	
 	aSurface := SkiaSurfaceExamples new newRasterPremultipledSizeOne.
-	
+
 	aCanvas := aSurface canvas.
 	aCanvas drawColor: Color transparent.
 	aCanvas flush.
 	aCanvas release.
-	
+
 	thePixels := aSurface data asArray.
 	self assert: thePixels equals: #(0 0 0 0).
-	
+
 	^ aSurface
 ]
 
 { #category : #'examples - draw color' }
 SkiaSurfaceCanvasExamples >> drawColorWhite [
 	<gtExample>
+	<return: #SkiaPixelSurface>
 	| aSurface aCanvas thePixels |
-	
 	aSurface := SkiaSurfaceExamples new newRasterPremultipledSizeOne.
-	
+
 	aCanvas := aSurface canvas.
 	aCanvas drawColor: Color white.
 	aCanvas flush.
 	aCanvas release.
-	
+
 	thePixels := aSurface data asArray.
 	self assert: thePixels equals: #(255 255 255 255).
-	
+
 	^ aSurface
 ]
 
 { #category : #'examples - draw text blob' }
 SkiaSurfaceCanvasExamples >> drawDefaultTextBlob [
 	<gtExample>
+	<return: #SkiaPixelSurface>
 	| aSurface aCanvas aTextBlob aPaint |
-	
-	aSurface := SkiaPixelSurface newRasterPremultipled: 70@50.
-	
+	aSurface := SkiaPixelSurface newRasterPremultipled: 70 @ 50.
+
 	aTextBlob := SkiaTextBlob new.
 
 	aPaint := SkiaPaint new
-		color: Color lightGray;
-		paintStyle: SkiaPaintStyle Fill.
-	
+			color: Color lightGray;
+			paintStyle: SkiaPaintStyle Fill.
+
 	aCanvas := aSurface canvas.
-	aCanvas drawTextBlob: aTextBlob at: 10@10 paint: aPaint.
+	aCanvas
+		drawTextBlob: aTextBlob
+		at: 10 @ 10
+		paint: aPaint.
 
 	aCanvas flush.
 	aCanvas release.
-	
+
 	^ aSurface
 ]
 
 { #category : #'examples - draw image' }
 SkiaSurfaceCanvasExamples >> drawImage [
 	<gtExample>
-	| aWhiteSurface aWhiteCanvas aWhiteImage aSurface  aCanvas |
-	
+	<return: #SkiaPixelSurface>
+	| aWhiteSurface aWhiteCanvas aWhiteImage aSurface aCanvas |
 	"we draw a white image 1@1 that we will draw on top of the black surface"
 	aWhiteSurface := SkiaSurfaceExamples new newRasterPremultipledSizeOne.
-	
+
 	aWhiteCanvas := aWhiteSurface canvas.
 	aWhiteCanvas drawColor: Color white.
 	aWhiteCanvas flush.
 	aWhiteCanvas release.
-	
+
 	aWhiteImage := aWhiteSurface snapshot.
 
 	self assert: aWhiteSurface data asArray equals: #(255 255 255 255).
-	self assert: aWhiteImage data asArray equals: #(255 255 255 255).
-	
-	"create a black surface"
+	self assert: aWhiteImage data asArray equals: #(255 255 255 255).	"create a black surface"
 	aSurface := SkiaSurfaceExamples new newRasterPremultipledSizeOne.
-	
+
 	aCanvas := aSurface canvas.
 	aCanvas drawColor: Color black.
 	aCanvas flush.
 	aCanvas release.
-	
-	self assert: aSurface data asArray equals: #(0 0 0 255).
-	
-	"we draw a white image on top of the black surface"
+
+	self assert: aSurface data asArray equals: #(0 0 0 255).	"we draw a white image on top of the black surface"
 	aCanvas := aSurface canvas.
-	aCanvas drawImage: aWhiteImage at: 0@0.
+	aCanvas drawImage: aWhiteImage at: 0 @ 0.
 	aCanvas flush.
-	aCanvas release.
-	
-	"it becomes white"
+	aCanvas release.	"it becomes white"
 	self assert: aSurface data asArray equals: #(255 255 255 255).
-	
+
 	^ aSurface
 ]
 
 { #category : #'examples - image filter blur' }
 SkiaSurfaceCanvasExamples >> drawImageWithBlur [
 	<gtExample>
+	<return: #SkiaPixelSurface>
 	| aSurface aCanvas anImage aPaint |
-	
-	aSurface := SkiaPixelSurface newRasterPremultipled: 70@50.
+	aSurface := SkiaPixelSurface newRasterPremultipled: 70 @ 50.
 
-	aPaint := SkiaPaint new imageFilter: (SkiaImageFilterBlur sigma: 3@3).
+	aPaint := SkiaPaint new imageFilter: (SkiaImageFilterBlur sigma: 3 @ 3).
 	anImage := self drawPathTriangleWithGrayFill snapshot.
-	
+
 	aCanvas := aSurface canvas.
-	aCanvas drawImage: anImage at: 0@0 paint: aPaint.
+	aCanvas
+		drawImage: anImage
+		at: 0 @ 0
+		paint: aPaint.
 	aCanvas flush.
 	aCanvas release.
-	
+
 	^ aSurface
 ]
 
 { #category : #'examples - draw line' }
 SkiaSurfaceCanvasExamples >> drawLineBlack [
 	<gtExample>
+	<return: #SkiaPixelSurface>
 	| aSurface aCanvas aLine aPaint |
-	
-	aSurface := SkiaPixelSurface newRasterPremultipled: 50@50.
-	
-	aLine := SpartaLine from: 10@10 to: 40@40.
+	aSurface := SkiaPixelSurface newRasterPremultipled: 50 @ 50.
+
+	aLine := SpartaLine from: 10 @ 10 to: 40 @ 40.
 	aPaint := SkiaPaint new
-		color: Color black;
-		strokeWidth: 6;
-		paintStyle: SkiaPaintStyle StrokeAndFill.
-	
+			color: Color black;
+			strokeWidth: 6;
+			paintStyle: SkiaPaintStyle StrokeAndFill.
+
 	aCanvas := aSurface canvas.
 	aCanvas drawLine: aLine paint: aPaint.
 	aCanvas flush.
 	aCanvas release.
-	
+
 	^ aSurface
 ]
 
 { #category : #'examples - draw line' }
 SkiaSurfaceCanvasExamples >> drawLineBlackWithAntiAlias [
 	<gtExample>
+	<return: #SkiaPixelSurface>
 	| aSurface aCanvas aLine aPaint |
-	
-	aSurface := SkiaPixelSurface newRasterPremultipled: 50@50.
-	
-	aLine := SpartaLine from: 10@10 to: 40@40.
+	aSurface := SkiaPixelSurface newRasterPremultipled: 50 @ 50.
+
+	aLine := SpartaLine from: 10 @ 10 to: 40 @ 40.
 	aPaint := SkiaPaint new
-		antialias: true;
-		color: Color black;
-		strokeWidth: 6;
-		paintStyle: SkiaPaintStyle StrokeAndFill.
-	
+			antialias: true;
+			color: Color black;
+			strokeWidth: 6;
+			paintStyle: SkiaPaintStyle StrokeAndFill.
+
 	aCanvas := aSurface canvas.
 	aCanvas drawLine: aLine paint: aPaint.
 	aCanvas flush.
 	aCanvas release.
-	
+
 	^ aSurface
 ]
 
 { #category : #'examples - image filter drop shadow' }
 SkiaSurfaceCanvasExamples >> drawOvalWithBoxShadow [
 	<gtExample>
+	<return: #SkiaPixelSurface>
 	| aSurface aCanvas aRectangle aPaint |
-	
-	aSurface := SkiaPixelSurface newRasterPremultipled: 70@50.
-	
-	aRectangle := SpartaRectangle fromRectangle: (10@10 corner: 60@40).
+	aSurface := SkiaPixelSurface newRasterPremultipled: 70 @ 50.
+
+	aRectangle := SpartaRectangle fromRectangle: (10 @ 10 corner: 60 @ 40).
 
 	aPaint := SkiaPaint new
-		antialias: true;
-		color: Color white;
-		imageFilter: (SkiaImageFilterDropShadow delta: 4@4 sigma: 2@2 color: (Color black alpha: 0.5));
-		paintStyle: SkiaPaintStyle Fill.
-	
+			antialias: true;
+			color: Color white;
+			imageFilter: (SkiaImageFilterDropShadow
+					delta: 4 @ 4
+					sigma: 2 @ 2
+					color: (Color black alpha: 0.5));
+			paintStyle: SkiaPaintStyle Fill.
+
 	aCanvas := aSurface canvas.
 	aCanvas drawOval: aRectangle paint: aPaint.
-	
+
 	aCanvas flush.
 	aCanvas release.
-	
+
 	^ aSurface
 ]
 
 { #category : #'examples - image filter drop shadow' }
 SkiaSurfaceCanvasExamples >> drawOvalWithBoxShadowOnly [
 	<gtExample>
+	<return: #SkiaPixelSurface>
 	| aSurface aCanvas aRectangle aPaint |
-	
-	aSurface := SkiaPixelSurface newRasterPremultipled: 70@50.
-	
-	aRectangle := SpartaRectangle fromRectangle: (10@10 corner: 60@40).
+	aSurface := SkiaPixelSurface newRasterPremultipled: 70 @ 50.
+
+	aRectangle := SpartaRectangle fromRectangle: (10 @ 10 corner: 60 @ 40).
 
 	aPaint := SkiaPaint new
-		antialias: true;
-		color: (Color white);
-		imageFilter: (SkiaImageFilterDropShadowOnly delta: 4@4 sigma: 3@3 color: (Color black alpha: 1));
-		paintStyle: SkiaPaintStyle Stroke.
-	
+			antialias: true;
+			color: Color white;
+			imageFilter: (SkiaImageFilterDropShadowOnly
+					delta: 4 @ 4
+					sigma: 3 @ 3
+					color: (Color black alpha: 1));
+			paintStyle: SkiaPaintStyle Stroke.
+
 	aCanvas := aSurface canvas.
 	aCanvas drawOval: aRectangle paint: aPaint.
-	
+
 	aCanvas flush.
 	aCanvas release.
-	
+
 	^ aSurface
 ]
 
 { #category : #'examples - draw oval' }
 SkiaSurfaceCanvasExamples >> drawOvalWithGrayFill [
 	<gtExample>
+	<return: #SkiaPixelSurface>
 	| aSurface aCanvas aRectangle aPaint |
-	
-	aSurface := SkiaPixelSurface newRasterPremultipled: 70@50.
-	
-	aRectangle := SpartaRectangle fromRectangle: (10@10 corner: 60@40).
+	aSurface := SkiaPixelSurface newRasterPremultipled: 70 @ 50.
+
+	aRectangle := SpartaRectangle fromRectangle: (10 @ 10 corner: 60 @ 40).
 
 	aPaint := SkiaPaint new
-		antialias: true;
-		color: Color lightGray;
-		paintStyle: SkiaPaintStyle Fill.
-	
+			antialias: true;
+			color: Color lightGray;
+			paintStyle: SkiaPaintStyle Fill.
+
 	aCanvas := aSurface canvas.
 	aCanvas drawOval: aRectangle paint: aPaint.
-	
+
 	aCanvas flush.
 	aCanvas release.
-	
+
 	^ aSurface
 ]
 
 { #category : #'examples - draw paint' }
 SkiaSurfaceCanvasExamples >> drawPaintBlack [
 	<gtExample>
+	<return: #SkiaPixelSurface>
 	| aSurface aCanvas aPaint |
-	
-	aSurface := SkiaPixelSurface newRasterPremultipled: 50@50.
-	
+	aSurface := SkiaPixelSurface newRasterPremultipled: 50 @ 50.
+
 	aPaint := SkiaPaint new
-		color: Color black;
-		paintStyle: SkiaPaintStyle Fill.
-	
+			color: Color black;
+			paintStyle: SkiaPaintStyle Fill.
+
 	aCanvas := aSurface canvas.
 	aCanvas drawPaint: aPaint.
 	aCanvas flush.
 	aCanvas release.
-	
+
 	^ aSurface
 ]
 
 { #category : #'examples - draw path' }
 SkiaSurfaceCanvasExamples >> drawPathTriangleWithGrayFill [
 	<gtExample>
+	<return: #SkiaPixelSurface>
 	| aSurface aCanvas aPath aPaint |
-	
-	aSurface := SkiaPixelSurface newRasterPremultipled: 70@50.
-	
+	aSurface := SkiaPixelSurface newRasterPremultipled: 70 @ 50.
+
 	aPath := SkiaPath new
-		moveTo: 10@40;
-		lineTo: 35@10;
-		lineTo: 60@40;
-		close.
+			moveTo: 10 @ 40;
+			lineTo: 35 @ 10;
+			lineTo: 60 @ 40;
+			close.
 
 	aPaint := SkiaPaint new
-		antialias: true;
-		color: Color lightGray;
-		paintStyle: SkiaPaintStyle Fill.
-	
+			antialias: true;
+			color: Color lightGray;
+			paintStyle: SkiaPaintStyle Fill.
+
 	aCanvas := aSurface canvas.
 	aCanvas drawPath: aPath paint: aPaint.
 	aCanvas flush.
 	aCanvas release.
-	
+
 	^ aSurface
 ]
 
 { #category : #'examples - draw point' }
 SkiaSurfaceCanvasExamples >> drawPointBlack [
 	<gtExample>
+	<return: #SkiaPixelSurface>
 	| aSurface aCanvas aPaint |
-	
-	aSurface := SkiaPixelSurface newRasterPremultipled: 50@50.
-	
+	aSurface := SkiaPixelSurface newRasterPremultipled: 50 @ 50.
+
 	aPaint := SkiaPaint new
-		color: Color black;
-		paintStyle: SkiaPaintStyle Fill.
-	
+			color: Color black;
+			paintStyle: SkiaPaintStyle Fill.
+
 	aCanvas := aSurface canvas.
-	aCanvas drawPoint: 25@25 paint: aPaint.
+	aCanvas drawPoint: 25 @ 25 paint: aPaint.
 	aCanvas flush.
 	aCanvas release.
-	
+
 	^ aSurface
 ]
 
 { #category : #'examples - gradient conical' }
 SkiaSurfaceCanvasExamples >> drawRectangleWithConicalGradient [
 	<gtExample>
+	<return: #SkiaPixelSurface>
 	| aSurface aCanvas aRectangle aPaint aShader |
-
-	aSurface := SkiaPixelSurface newRasterPremultipled: 400@400.
-	aRectangle := SpartaRectangle fromRectangle: (50@50 corner: 350@350).
-
-	"gradient should be given in local coordinates of the canvas"
+	aSurface := SkiaPixelSurface newRasterPremultipled: 400 @ 400.
+	aRectangle := SpartaRectangle fromRectangle: (50 @ 50 corner: 350 @ 350).	"gradient should be given in local coordinates of the canvas"
 	aShader := SkiaConicalGradientShader
-		start: 200@200 radius: 150
-		end: 200@60 radius: 10 
-		colors: { Color blue . Color red }
-		positions: { 0 . 1 }
-		mode: SkiaTileMode Clamp
-		flags: 0
-		matrix: SpartaMatrix new.
+			start: 200 @ 200
+			radius: 150
+			end: 200 @ 60
+			radius: 10
+			colors: {Color blue.
+					Color red}
+			positions: {0.
+					1}
+			mode: SkiaTileMode Clamp
+			flags: 0
+			matrix: SpartaMatrix new.
 
 	aPaint := SkiaPaint new
-		shader: aShader;
-		paintStyle: SkiaPaintStyle Fill.
-	
+			shader: aShader;
+			paintStyle: SkiaPaintStyle Fill.
+
 	aCanvas := aSurface canvas.
 	aCanvas drawRectangle: aRectangle paint: aPaint.
 
 	aCanvas flush.
 	aCanvas release.
-	
+
 	^ aSurface
 ]
 
 { #category : #'examples - draw rectangle' }
 SkiaSurfaceCanvasExamples >> drawRectangleWithGrayFill [
 	<gtExample>
+	<return: #SkiaPixelSurface>
 	| aSurface aCanvas aRectangle aPaint |
-	
-	aSurface := SkiaPixelSurface newRasterPremultipled: 70@50.
-	
-	aRectangle := SpartaRectangle fromRectangle: (10@10 corner: 60@40).
+	aSurface := SkiaPixelSurface newRasterPremultipled: 70 @ 50.
+
+	aRectangle := SpartaRectangle fromRectangle: (10 @ 10 corner: 60 @ 40).
 
 	aPaint := SkiaPaint new
-		color: Color lightGray;
-		paintStyle: SkiaPaintStyle Fill.
-	
+			color: Color lightGray;
+			paintStyle: SkiaPaintStyle Fill.
+
 	aCanvas := aSurface canvas.
 	aCanvas drawRectangle: aRectangle paint: aPaint.
 
 	aCanvas flush.
 	aCanvas release.
-	
+
 	^ aSurface
 ]
 
 { #category : #'examples - draw rectangle' }
 SkiaSurfaceCanvasExamples >> drawRectangleWithGrayStroke [
 	<gtExample>
+	<return: #SkiaPixelSurface>
 	| aSurface aCanvas aRectangle aPaint |
-	
-	aSurface := SkiaPixelSurface newRasterPremultipled: 70@50.
-	
-	aRectangle := SpartaRectangle fromRectangle: (10@10 corner: 60@40).
+	aSurface := SkiaPixelSurface newRasterPremultipled: 70 @ 50.
+
+	aRectangle := SpartaRectangle fromRectangle: (10 @ 10 corner: 60 @ 40).
 
 	aPaint := SkiaPaint new
-		color: Color lightGray;
-		strokeWidth: 7;
-		paintStyle: SkiaPaintStyle Stroke.
-	
+			color: Color lightGray;
+			strokeWidth: 7;
+			paintStyle: SkiaPaintStyle Stroke.
+
 	aCanvas := aSurface canvas.
+	aCanvas drawRectangle: aRectangle paint: aPaint.	"this one is to show the actual rectangle path"
+	aPaint
+		strokeWidth: 1;
+		color: Color black.
 	aCanvas drawRectangle: aRectangle paint: aPaint.
-	
-	"this one is to show the actual rectangle path"
-	aPaint strokeWidth: 1; color: Color black.
-	aCanvas drawRectangle: aRectangle paint: aPaint.
-	
+
 	aCanvas flush.
 	aCanvas release.
-	
+
 	^ aSurface
 ]
 
 { #category : #'examples - draw rectangle' }
 SkiaSurfaceCanvasExamples >> drawRectangleWithGrayStrokeAndFill [
 	<gtExample>
+	<return: #SkiaPixelSurface>
 	| aSurface aCanvas aRectangle aPaint |
-	
-	aSurface := SkiaPixelSurface newRasterPremultipled: 70@50.
-	
-	aRectangle := SpartaRectangle fromRectangle: (10@10 corner: 60@40).
+	aSurface := SkiaPixelSurface newRasterPremultipled: 70 @ 50.
+
+	aRectangle := SpartaRectangle fromRectangle: (10 @ 10 corner: 60 @ 40).
 
 	aPaint := SkiaPaint new
-		color: Color lightGray;
-		strokeWidth: 7;
-		paintStyle: SkiaPaintStyle StrokeAndFill.
-	
+			color: Color lightGray;
+			strokeWidth: 7;
+			paintStyle: SkiaPaintStyle StrokeAndFill.
+
 	aCanvas := aSurface canvas.
+	aCanvas drawRectangle: aRectangle paint: aPaint.	"this one is to show the actual rectangle path"
+	aPaint
+		strokeWidth: 1;
+		color: Color black;
+		paintStyle: SkiaPaintStyle Stroke.
 	aCanvas drawRectangle: aRectangle paint: aPaint.
-	
-	"this one is to show the actual rectangle path"
-	aPaint strokeWidth: 1; color: Color black; paintStyle: SkiaPaintStyle Stroke.
-	aCanvas drawRectangle: aRectangle paint: aPaint.
-	
+
 	aCanvas flush.
 	aCanvas release.
-	
+
 	^ aSurface
 ]
 
 { #category : #'examples - gradient linear' }
 SkiaSurfaceCanvasExamples >> drawRectangleWithLinearGradient [
 	<gtExample>
+	<return: #SkiaPixelSurface>
 	| aSurface aCanvas aRectangle aPaint aShader |
-
-	aSurface := SkiaPixelSurface newRasterPremultipled: 400@400.
-	aRectangle := SpartaRectangle fromRectangle: (50@50 corner: 350@350).
-
-	"gradient should be given in local coordinates of the canvas"
+	aSurface := SkiaPixelSurface newRasterPremultipled: 400 @ 400.
+	aRectangle := SpartaRectangle fromRectangle: (50 @ 50 corner: 350 @ 350).	"gradient should be given in local coordinates of the canvas"
 	aShader := SkiaLinearGradientShader
-		from: aRectangle origin to: aRectangle corner
-		colors: { Color blue . Color red }
-		positions: { 0 . 1 }
-		mode: SkiaTileMode Clamp
-		flags: 0
-		matrix: SpartaMatrix new.
+			from: aRectangle origin
+			to: aRectangle corner
+			colors: {Color blue.
+					Color red}
+			positions: {0.
+					1}
+			mode: SkiaTileMode Clamp
+			flags: 0
+			matrix: SpartaMatrix new.
 
 	aPaint := SkiaPaint new
-		shader: aShader;
-		paintStyle: SkiaPaintStyle Fill.
-	
+			shader: aShader;
+			paintStyle: SkiaPaintStyle Fill.
+
 	aCanvas := aSurface canvas.
 	aCanvas drawRectangle: aRectangle paint: aPaint.
 
 	aCanvas flush.
 	aCanvas release.
-	
+
 	^ aSurface
 ]
 
 { #category : #'examples - gradient radial' }
 SkiaSurfaceCanvasExamples >> drawRectangleWithRadialGradient [
 	<gtExample>
+	<return: #SkiaPixelSurface>
 	| aSurface aCanvas aRectangle aPaint aShader |
-	
-	aSurface := SkiaPixelSurface newRasterPremultipled: 400@400.
-	
-	aRectangle := SpartaRectangle fromRectangle: (50@50 corner: 350@350).
+	aSurface := SkiaPixelSurface newRasterPremultipled: 400 @ 400.
 
-	"gradient should be given in local coordinates of the canvas"
+	aRectangle := SpartaRectangle fromRectangle: (50 @ 50 corner: 350 @ 350).	"gradient should be given in local coordinates of the canvas"
 	aShader := SkiaRadialGradientShader
-		center: 200@200
-		radius: 200
-		colors: { Color blue . Color red }
-		positions: { 0 . 1 }
-		mode: SkiaTileMode Clamp
-		flags: 0
-		matrix: SpartaMatrix new.
+			center: 200 @ 200
+			radius: 200
+			colors: {Color blue.
+					Color red}
+			positions: {0.
+					1}
+			mode: SkiaTileMode Clamp
+			flags: 0
+			matrix: SpartaMatrix new.
 
 	aPaint := SkiaPaint new
-		shader: aShader;
-		paintStyle: SkiaPaintStyle Fill.
-	
+			shader: aShader;
+			paintStyle: SkiaPaintStyle Fill.
+
 	aCanvas := aSurface canvas.
 	aCanvas drawRectangle: aRectangle paint: aPaint.
 
 	aCanvas flush.
 	aCanvas release.
-	
+
 	^ aSurface
 ]
 
 { #category : #'examples - gradient sweep' }
 SkiaSurfaceCanvasExamples >> drawRectangleWithSweepGradient [
 	<gtExample>
+	<return: #SkiaPixelSurface>
 	| aSurface aCanvas aRectangle aPaint aShader |
-
-	aSurface := SkiaPixelSurface newRasterPremultipled: 400@400.
-	aRectangle := SpartaRectangle fromRectangle: (50@50 corner: 350@350).
-
-	"gradient should be given in local coordinates of the canvas"
+	aSurface := SkiaPixelSurface newRasterPremultipled: 400 @ 400.
+	aRectangle := SpartaRectangle fromRectangle: (50 @ 50 corner: 350 @ 350).	"gradient should be given in local coordinates of the canvas"
 	aShader := SkiaSweepGradientShader
-		center: 200@200
-		startAngle: 0
-		endAngle: 200
-		colors: { Color blue . Color red }
-		positions: { 0 . 1 }
-		mode: SkiaTileMode Clamp
-		flags: 0
-		matrix: SpartaMatrix new.
+			center: 200 @ 200
+			startAngle: 0
+			endAngle: 200
+			colors: {Color blue.
+					Color red}
+			positions: {0.
+					1}
+			mode: SkiaTileMode Clamp
+			flags: 0
+			matrix: SpartaMatrix new.
 
 	aPaint := SkiaPaint new
-		shader: aShader;
-		paintStyle: SkiaPaintStyle Fill.
-	
+			shader: aShader;
+			paintStyle: SkiaPaintStyle Fill.
+
 	aCanvas := aSurface canvas.
 	aCanvas drawRectangle: aRectangle paint: aPaint.
 
 	aCanvas flush.
 	aCanvas release.
-	
+
 	^ aSurface
 ]
 
 { #category : #'examples - draw svg' }
 SkiaSurfaceCanvasExamples >> drawSvg [
 	<gtExample>
+	<return: #SkiaPixelSurface>
 	| aFontManager anSvg aCanvas aSurface |
-	
 	aFontManager := SkiaFontManager default.
 	anSvg := SkiaSvgDom parse: self snowMountainSvg fontManager: aFontManager.
-	
-	aSurface := SkiaPixelSurface newRasterPremultipled: 800@600.
-	
+
+	aSurface := SkiaPixelSurface newRasterPremultipled: 800 @ 600.
+
 	aCanvas := aSurface canvas.
 	aCanvas drawColor: Color white.
-	aCanvas drawSvg: anSvg at: 0@0.
-	
+	aCanvas drawSvg: anSvg at: 0 @ 0.
+
 	aCanvas flush.
-	
+
 	^ aSurface
 ]
 
 { #category : #'examples - draw text blob' }
 SkiaSurfaceCanvasExamples >> drawTextBlobHelloWorld [
 	<gtExample>
+	<return: #SkiaPixelSurface>
 	| aSurface aCanvas aFont aTextBlob aPaint |
-	
-	aSurface := SkiaPixelSurface newRasterPremultipled: 400@300.
-	
+	aSurface := SkiaPixelSurface newRasterPremultipled: 400 @ 300.
+
 	aFont := SkiaFont size: 30.
-	
+
 	aTextBlob := SkiaTextBlob string: 'Hello World!' font: aFont.
 	aPaint := SkiaPaint new
-		color: Color lightGray;
-		paintStyle: SkiaPaintStyle Fill.
-	
+			color: Color lightGray;
+			paintStyle: SkiaPaintStyle Fill.
+
 	aCanvas := aSurface canvas.
-	aCanvas drawTextBlob: aTextBlob at: 50@100 paint: aPaint.
+	aCanvas
+		drawTextBlob: aTextBlob
+		at: 50 @ 100
+		paint: aPaint.
 
 	aCanvas flush.
 	aCanvas release.
-	
+
 	^ aSurface
 ]
 
 { #category : #'examples - draw text blob' }
 SkiaSurfaceCanvasExamples >> drawTextBlobHelloWorldFromGlyphs [
 	<gtExample>
+	<return: #SkiaPixelSurface>
 	| aSurface aCanvas aFont theGlyphs aPaint |
-	
-	aSurface := SkiaPixelSurface newRasterPremultipled: 400@300.
-	
+	aSurface := SkiaPixelSurface newRasterPremultipled: 400 @ 300.
+
 	aFont := SkiaFont size: 30.
 	theGlyphs := aFont stringToGlyphs: 'Hello World!'.
-	
+
 	aPaint := SkiaPaint new
-		color: Color lightGray;
-		paintStyle: SkiaPaintStyle Fill.
-	
+			color: Color lightGray;
+			paintStyle: SkiaPaintStyle Fill.
+
 	aCanvas := aSurface canvas.
-	
-	SkiaTextBlob glyphs: theGlyphs font: aFont during: [ :aTextBlob |
-		aCanvas drawTextBlob: aTextBlob at: 50@100 paint: aPaint.
-	].
+
+	SkiaTextBlob
+		glyphs: theGlyphs
+		font: aFont
+		during: [ :aTextBlob | 
+			aCanvas
+				drawTextBlob: aTextBlob
+				at: 50 @ 100
+				paint: aPaint ].
 
 	aCanvas flush.
 	aCanvas release.
-	
+
 	^ aSurface
 ]
 
@@ -733,115 +751,114 @@ SkiaSurfaceCanvasExamples >> drawTriangleShadow [
 { #category : #'examples - quick reject' }
 SkiaSurfaceCanvasExamples >> quickAcceptRectangle [
 	<gtExample>
+	<return: #SkiaPixelSurface>
 	| aSurface aCanvas aRectangle |
-	
-	aSurface := SkiaPixelSurface newRasterPremultipled: 50@50.
-	
-	aRectangle := SpartaRectangle fromRectangle: (10@10 corner: 20@20).
-	
+	aSurface := SkiaPixelSurface newRasterPremultipled: 50 @ 50.
+
+	aRectangle := SpartaRectangle fromRectangle: (10 @ 10 corner: 20 @ 20).
+
 	aCanvas := aSurface canvas.
 	aCanvas clipRectangle: aRectangle.
-	
-	self assert: aCanvas clipLocalBounds equals: (9@9 corner: 21@21).
-	self assert: aCanvas clipDeviceBounds equals: (10@10 corner: 20@20).
-	
-	"this rectangle is partially inside of the clip area -> it is accepted"
-	self assert: (aCanvas quickRejectRectangle: (15@15 corner: 40@40)) not.
-	
+
+	self assert: aCanvas clipLocalBounds equals: (9 @ 9 corner: 21 @ 21).
+	self assert: aCanvas clipDeviceBounds equals: (10 @ 10 corner: 20 @ 20).	"this rectangle is partially inside of the clip area -> it is accepted"
+	self assert: (aCanvas quickRejectRectangle: (15 @ 15 corner: 40 @ 40)) not.
+
 	aCanvas flush.
 	aCanvas release.
-	
+
 	^ aSurface
 ]
 
 { #category : #'examples - quick reject' }
 SkiaSurfaceCanvasExamples >> quickRejectRectangle [
 	<gtExample>
+	<return: #SkiaPixelSurface>
 	| aSurface aCanvas aRectangle |
-	
-	aSurface := SkiaPixelSurface newRasterPremultipled: 50@50.
-	
-	aRectangle := SpartaRectangle fromRectangle: (10@10 corner: 20@20).
-	
+	aSurface := SkiaPixelSurface newRasterPremultipled: 50 @ 50.
+
+	aRectangle := SpartaRectangle fromRectangle: (10 @ 10 corner: 20 @ 20).
+
 	aCanvas := aSurface canvas.
 	aCanvas clipRectangle: aRectangle.
-	
-	self assert: aCanvas clipLocalBounds equals: (9@9 corner: 21@21).
-	self assert: aCanvas clipDeviceBounds equals: (10@10 corner: 20@20).
-	
-	"this rectangle is outside of the clip area -> it is rejected"
-	self assert: (aCanvas quickRejectRectangle: (25@25 corner: 40@40)).
-	
+
+	self assert: aCanvas clipLocalBounds equals: (9 @ 9 corner: 21 @ 21).
+	self assert: aCanvas clipDeviceBounds equals: (10 @ 10 corner: 20 @ 20).	"this rectangle is outside of the clip area -> it is rejected"
+	self assert: (aCanvas quickRejectRectangle: (25 @ 25 corner: 40 @ 40)).
+
 	aCanvas flush.
 	aCanvas release.
-	
+
 	^ aSurface
 ]
 
 { #category : #'examples - state' }
 SkiaSurfaceCanvasExamples >> saveAndRestoreLayer [
 	<gtExample>
+	<return: #SkiaPixelSurface>
 	| aSurface aCanvas aSaveLayerRec |
-	
-	aSurface := SkiaPixelSurface newRasterPremultipled: 70@50.
-	
+	aSurface := SkiaPixelSurface newRasterPremultipled: 70 @ 50.
+
 	aCanvas := aSurface canvas.
 	self assert: aCanvas saveCount equals: 1.
-	
+
 	aSaveLayerRec := SkiaSaveLayerRec new.
-	
+
 	aCanvas saveLayer: aSaveLayerRec.
 	self assert: aCanvas saveCount equals: 2.
-	
+
 	aCanvas restore.
 	self assert: aCanvas saveCount equals: 1.
-	
+
 	aCanvas release.
-	
+
 	^ aSurface
 ]
 
 { #category : #'examples - state' }
 SkiaSurfaceCanvasExamples >> saveAndRestoreState [
 	<gtExample>
+	<return: #SkiaPixelSurface>
 	| aSurface aCanvas |
-	
-	aSurface := SkiaPixelSurface newRasterPremultipled: 70@50.
-	
+	aSurface := SkiaPixelSurface newRasterPremultipled: 70 @ 50.
+
 	aCanvas := aSurface canvas.
 	self assert: aCanvas saveCount equals: 1.
-	
+
 	aCanvas save.
 	self assert: aCanvas saveCount equals: 2.
-	
+
 	aCanvas restore.
 	self assert: aCanvas saveCount equals: 1.
-	
-	
+
+
 	aCanvas release.
-	
+
 	^ aSurface
 ]
 
 { #category : #'examples - state' }
 SkiaSurfaceCanvasExamples >> saveAndRestoreToCountState [
 	<gtExample>
+	<return: #SkiaPixelSurface>
 	| aSurface aCanvas |
-	
-	aSurface := SkiaPixelSurface newRasterPremultipled: 70@50.
-	
+	aSurface := SkiaPixelSurface newRasterPremultipled: 70 @ 50.
+
 	aCanvas := aSurface canvas.
 	self assert: aCanvas saveCount equals: 1.
-	
-	aCanvas save; save; save.
+
+	aCanvas
+		save;
+		save;
+		save.
 	self assert: aCanvas saveCount equals: 4.
-	
+
 	aCanvas restoreToCount: 1.
 	self assert: aCanvas saveCount equals: 1.
-	
-	
+
+
 	aCanvas release.
-	
+
 	^ aSurface
 ]
 

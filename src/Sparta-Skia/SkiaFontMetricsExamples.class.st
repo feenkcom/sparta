@@ -1,16 +1,16 @@
 Class {
 	#name : #SkiaFontMetricsExamples,
 	#superclass : #SkiaExternalObjectExamples,
-	#category : 'Sparta-Skia-Examples'
+	#category : #'Sparta-Skia-Examples'
 }
 
 { #category : #accessing }
 SkiaFontMetricsExamples >> default [
 	<gtExample>
+	<return: #SkiaFontMetrics>
 	| aFontMetrics |
-	
 	aFontMetrics := SkiaFontMetrics new.
-	
+
 	self assert: aFontMetrics ascent equals: 0.0.
 	self assert: aFontMetrics averageCharWidth equals: 0.0.
 	self assert: aFontMetrics bottom equals: 0.0.
@@ -27,6 +27,6 @@ SkiaFontMetricsExamples >> default [
 	self assert: aFontMetrics xHeight equals: 0.0.
 	self assert: aFontMetrics xMax equals: 0.0.
 	self assert: aFontMetrics xMin equals: 0.0.
-	
+
 	^ aFontMetrics
 ]

@@ -7,8 +7,8 @@ Class {
 { #category : #'examples - paint' }
 SkiaPaintExamples >> default [
 	<gtExample>
+	<return: #SkiaPaint>
 	| aPaint |
-	
 	aPaint := SkiaPaint new.
 	self assert: aPaint alpha equals: 1.
 	self assert: aPaint antialias not.
@@ -21,94 +21,88 @@ SkiaPaintExamples >> default [
 	self assert: aPaint strokeWidth equals: 0.0.
 	self assert: aPaint strokeMiter equals: 4.0.
 	self assert: aPaint color equals: Color black.
-	
+
 	^ aPaint
 ]
 
 { #category : #'examples - paint' }
 SkiaPaintExamples >> setAlpha [
 	<gtExample>
+	<return: #SkiaPaint>
 	| aPaint |
-	
 	aPaint := self default.
 	aPaint alpha: 0.5.
-	
+
 	self assert: (aPaint alpha closeTo: 0.5).
-	
+
 	^ aPaint
 ]
 
 { #category : #'examples - paint' }
 SkiaPaintExamples >> setAntialias [
 	<gtExample>
+	<return: #SkiaPaint>
 	| aPaint |
-	
 	aPaint := self default.
 	aPaint antialias: true.
-	
+
 	self assert: aPaint antialias.
-	
+
 	^ aPaint
 ]
 
 { #category : #'examples - paint' }
 SkiaPaintExamples >> setBlendMode [
 	<gtExample>
+	<return: #SkiaPaint>
 	| aPaint |
-	
 	aPaint := self default.
 	aPaint blendMode: SkiaBlendMode SoftLight.
-	
+
 	self assert: aPaint blendMode equals: SkiaBlendMode SoftLight.
-	
+
 	^ aPaint
 ]
 
 { #category : #'examples - paint' }
 SkiaPaintExamples >> setCapStyle [
 	<gtExample>
+	<return: #SkiaPaint>
 	| aPaint |
-	
 	aPaint := self default.
 	aPaint capStyle: SkiaCapStyle Round.
-	
+
 	self assert: aPaint capStyle equals: SkiaCapStyle Round.
-	
+
 	^ aPaint
 ]
 
 { #category : #'examples - paint' }
 SkiaPaintExamples >> setDither [
 	<gtExample>
+	<return: #SkiaPaint>
 	| aPaint |
-	
 	aPaint := self default.
 	aPaint dither: true.
-	
+
 	self assert: aPaint dither.
-	
+
 	^ aPaint
 ]
 
 { #category : #'examples - paint' }
 SkiaPaintExamples >> setImageFilter [
 	<gtExample>
+	<return: #SkiaPaint>
 	| aPaint anImageFilter |
-	
-	anImageFilter := SkiaImageFilterBlur sigma: 3@3.
+	anImageFilter := SkiaImageFilterBlur sigma: 3 @ 3.
 	self assert: anImageFilter isNull not.
-	
-	aPaint := self default.
 
-	"initially no image filter"
+	aPaint := self default.	"initially no image filter"
 	self assert: aPaint hasImageFilter not.
 	aPaint imageFilter: anImageFilter.
-	self assert: aPaint hasImageFilter.
-	
-	"paint does not consume an image filter"
-	self assert: anImageFilter isNull not.
-	
-	"dropping the image filter does not drop it in the paint"
+	self assert: aPaint hasImageFilter.	"paint does not consume an image filter"
+	self assert: anImageFilter isNull not.	"dropping the image filter does not drop it in the paint"
 	anImageFilter release.
 	self assert: anImageFilter isNull.
 	self assert: aPaint hasImageFilter.
@@ -119,50 +113,49 @@ SkiaPaintExamples >> setImageFilter [
 { #category : #'examples - paint' }
 SkiaPaintExamples >> setJoinStyle [
 	<gtExample>
+	<return: #SkiaPaint>
 	| aPaint |
-	
 	aPaint := self default.
 	aPaint joinStyle: SkiaJoinStyle Bevel.
-	
+
 	self assert: aPaint joinStyle equals: SkiaJoinStyle Bevel.
-	
+
 	^ aPaint
 ]
 
 { #category : #'examples - paint' }
 SkiaPaintExamples >> setPaintStyle [
 	<gtExample>
+	<return: #SkiaPaint>
 	| aPaint |
-	
 	aPaint := self default.
 	aPaint paintStyle: SkiaPaintStyle StrokeAndFill.
-	
+
 	self assert: aPaint paintStyle equals: SkiaPaintStyle StrokeAndFill.
-	
+
 	^ aPaint
 ]
 
 { #category : #'examples - paint' }
 SkiaPaintExamples >> setShader [
 	<gtExample>
+	<return: #SkiaPaint>
 	| aPaint aShader |
-	
 	aShader := SkiaLinearGradientShader
-		from: (0@0) to: (50@50)
-		colors: { Color black . Color white }
-		positions: { 0 . 1 }
-		mode: SkiaTileMode Clamp
-		flags: 0
-		matrix: SpartaMatrix new.
+			from: 0 @ 0
+			to: 50 @ 50
+			colors: {Color black.
+					Color white}
+			positions: {0.
+					1}
+			mode: SkiaTileMode Clamp
+			flags: 0
+			matrix: SpartaMatrix new.
 
-	aPaint := self default.
-
-	"initially no shader"
+	aPaint := self default.	"initially no shader"
 	self assert: aPaint shader isNull.
 	aPaint shader: aShader.
-	self assert: aPaint shader isNull not.
-	
-	"paint does not consume an shader"
+	self assert: aPaint shader isNull not.	"paint does not consume an shader"
 	self assert: aShader isNull not.
 
 	^ aPaint
@@ -171,25 +164,25 @@ SkiaPaintExamples >> setShader [
 { #category : #'examples - paint' }
 SkiaPaintExamples >> setStrokeMiter [
 	<gtExample>
+	<return: #SkiaPaint>
 	| aPaint |
-	
 	aPaint := self default.
 	aPaint strokeMiter: 10.
-	
+
 	self assert: aPaint strokeMiter equals: 10.
-	
+
 	^ aPaint
 ]
 
 { #category : #'examples - paint' }
 SkiaPaintExamples >> setStrokeWidth [
 	<gtExample>
+	<return: #SkiaPaint>
 	| aPaint |
-	
 	aPaint := self default.
 	aPaint strokeWidth: 10.
-	
+
 	self assert: aPaint strokeWidth equals: 10.
-	
+
 	^ aPaint
 ]

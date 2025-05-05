@@ -1,17 +1,17 @@
 Class {
 	#name : #SkiaFontManagerExamples,
 	#superclass : #SkiaExternalObjectExamples,
-	#category : 'Sparta-Skia-Examples'
+	#category : #'Sparta-Skia-Examples'
 }
 
 { #category : #accessing }
 SkiaFontManagerExamples >> default [
 	<gtExample>
+	<return: #SkiaFontManager>
 	| aFontManager |
-	
 	aFontManager := SkiaFontManager new.
 	self assert: aFontManager countFamilies > 0.
-	
+
 	^ aFontManager
 ]
 

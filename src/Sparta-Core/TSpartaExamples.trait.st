@@ -182,14 +182,19 @@ TSpartaExamples classSide >> exampleFillRectangle [
 { #category : #'examples - path arc around' }
 TSpartaExamples >> arc_0_to_0 [
 	<gtExample>
+	<return: #SkiaCanvas>
+	<return: #SpartaCairoCanvas>
+	<return: #Error>
 	| aCanvas aPath |
+	aCanvas := self class canvas: 400 @ 300.
 
-	aCanvas := self class canvas: 400@300.
-	
 	aPath := aCanvas path
-		absolute;
-		arcAround: 100@100 radius: 50 startAngle: 0 endAngle: 0;
-		build.
+			absolute;
+			arcAround: 100 @ 100
+				radius: 50
+				startAngle: 0
+				endAngle: 0;
+			build.
 
 	aCanvas fill
 		paint: (Color gray alpha: 0.2);
@@ -208,14 +213,19 @@ TSpartaExamples >> arc_0_to_0 [
 { #category : #'examples - path arc around' }
 TSpartaExamples >> arc_0_to_180 [
 	<gtExample>
+	<return: #SkiaCanvas>
+	<return: #SpartaCairoCanvas>
+	<return: #Error>
 	| aCanvas aPath |
+	aCanvas := self class canvas: 400 @ 300.
 
-	aCanvas := self class canvas: 400@300.
-	
 	aPath := aCanvas path
-		absolute;
-		arcAround: 100@100 radius: 50 startAngle: 0 endAngle: Float pi;
-		build.
+			absolute;
+			arcAround: 100 @ 100
+				radius: 50
+				startAngle: 0
+				endAngle: Float pi;
+			build.
 
 	aCanvas fill
 		paint: (Color gray alpha: 0.2);
@@ -234,14 +244,19 @@ TSpartaExamples >> arc_0_to_180 [
 { #category : #'examples - path arc around' }
 TSpartaExamples >> arc_0_to_270 [
 	<gtExample>
+	<return: #SkiaCanvas>
+	<return: #SpartaCairoCanvas>
+	<return: #Error>
 	| aCanvas aPath |
+	aCanvas := self class canvas: 400 @ 300.
 
-	aCanvas := self class canvas: 400@300.
-	
 	aPath := aCanvas path
-		absolute;
-		arcAround: 100@100 radius: 50 startAngle: 0 endAngle: Float pi * (3.0 / 2.0);
-		build.
+			absolute;
+			arcAround: 100 @ 100
+				radius: 50
+				startAngle: 0
+				endAngle: Float pi * (3.0 / 2.0);
+			build.
 
 	aCanvas fill
 		paint: (Color gray alpha: 0.2);
@@ -260,20 +275,25 @@ TSpartaExamples >> arc_0_to_270 [
 { #category : #'examples - path arc around' }
 TSpartaExamples >> arc_0_to_360 [
 	<gtExample>
+	<return: #SkiaCanvas>
+	<return: #SpartaCairoCanvas>
+	<return: #Error>
 	| aCanvas aPath |
+	aCanvas := self class canvas: 400 @ 300.
 
-	aCanvas := self class canvas: 400@300.
-	
 	aPath := aCanvas path
-		absolute;
-		arcAround: 100@100 radius: 50 startAngle: 0 endAngle: Float pi * 2;
-		build.
+			absolute;
+			arcAround: 100 @ 100
+				radius: 50
+				startAngle: 0
+				endAngle: Float pi * 2;
+			build.
 
 	aCanvas fill
 		paint: (Color gray alpha: 0.2);
 		path: aPath;
 		draw.
-	
+
 	aCanvas stroke
 		paint: Color black;
 		path: aPath;
@@ -286,15 +306,20 @@ TSpartaExamples >> arc_0_to_360 [
 { #category : #'examples - path arc around' }
 TSpartaExamples >> arc_0_to_450 [
 	<gtExample>
+	<return: #SkiaCanvas>
+	<return: #SpartaCairoCanvas>
+	<return: #Error>
 	| aCanvas aPath |
+	aCanvas := self class canvas: 400 @ 300.
 
-	aCanvas := self class canvas: 400@300.
-	
 	aPath := aCanvas path
-		absolute;
-		arcAround: 100@100 radius: 50 startAngle: 0 endAngle: Float pi * (5.0 /2.0);
-		build.
-		
+			absolute;
+			arcAround: 100 @ 100
+				radius: 50
+				startAngle: 0
+				endAngle: Float pi * (5.0 / 2.0);
+			build.
+
 	aCanvas fill
 		paint: (Color gray alpha: 0.2);
 		path: aPath;
@@ -312,14 +337,19 @@ TSpartaExamples >> arc_0_to_450 [
 { #category : #'examples - path arc around' }
 TSpartaExamples >> arc_0_to_90 [
 	<gtExample>
+	<return: #SkiaCanvas>
+	<return: #SpartaCairoCanvas>
+	<return: #Error>
 	| aCanvas aPath |
+	aCanvas := self class canvas: 400 @ 300.
 
-	aCanvas := self class canvas: 400@300.
-	
 	aPath := aCanvas path
-		absolute;
-		arcAround: 100@100 radius: 50 startAngle: 0 endAngle: Float pi / 2.0;
-		build.
+			absolute;
+			arcAround: 100 @ 100
+				radius: 50
+				startAngle: 0
+				endAngle: Float pi / 2.0;
+			build.
 
 	aCanvas fill
 		paint: (Color gray alpha: 0.2);
@@ -338,14 +368,19 @@ TSpartaExamples >> arc_0_to_90 [
 { #category : #'examples - path arc around' }
 TSpartaExamples >> arc_0_to_minus_270 [
 	<gtExample>
+	<return: #SkiaCanvas>
+	<return: #SpartaCairoCanvas>
+	<return: #Error>
 	| aCanvas aPath |
+	aCanvas := self class canvas: 400 @ 300.
 
-	aCanvas := self class canvas: 400@300.
-	
 	aPath := aCanvas path
-		absolute;
-		arcAround: 100@100 radius: 50 startAngle: 0 endAngle: Float pi * (3.0 / 2.0) negated;
-		build.
+			absolute;
+			arcAround: 100 @ 100
+				radius: 50
+				startAngle: 0
+				endAngle: Float pi * (3.0 / 2.0) negated;
+			build.
 
 	aCanvas fill
 		paint: (Color gray alpha: 0.2);
@@ -364,20 +399,25 @@ TSpartaExamples >> arc_0_to_minus_270 [
 { #category : #'examples - path arc around' }
 TSpartaExamples >> arc_0_to_minus_360 [
 	<gtExample>
+	<return: #SkiaCanvas>
+	<return: #SpartaCairoCanvas>
+	<return: #Error>
 	| aCanvas aPath |
+	aCanvas := self class canvas: 400 @ 300.
 
-	aCanvas := self class canvas: 400@300.
-	
 	aPath := aCanvas path
-		absolute;
-		arcAround: 100@100 radius: 50 startAngle: 0 endAngle: (Float pi * 2) negated;
-		build.
+			absolute;
+			arcAround: 100 @ 100
+				radius: 50
+				startAngle: 0
+				endAngle: (Float pi * 2) negated;
+			build.
 
 	aCanvas fill
 		paint: (Color gray alpha: 0.2);
 		path: aPath;
 		draw.
-	
+
 	aCanvas stroke
 		paint: Color black;
 		path: aPath;
@@ -390,14 +430,19 @@ TSpartaExamples >> arc_0_to_minus_360 [
 { #category : #'examples - path arc around' }
 TSpartaExamples >> arc_0_to_minus_90 [
 	<gtExample>
+	<return: #SkiaCanvas>
+	<return: #SpartaCairoCanvas>
+	<return: #Error>
 	| aCanvas aPath |
+	aCanvas := self class canvas: 400 @ 300.
 
-	aCanvas := self class canvas: 400@300.
-	
 	aPath := aCanvas path
-		absolute;
-		arcAround: 100@100 radius: 50 startAngle: 0 endAngle: (Float pi / 2.0) negated;
-		build.
+			absolute;
+			arcAround: 100 @ 100
+				radius: 50
+				startAngle: 0
+				endAngle: (Float pi / 2.0) negated;
+			build.
 
 	aCanvas fill
 		paint: (Color gray alpha: 0.2);
@@ -416,14 +461,19 @@ TSpartaExamples >> arc_0_to_minus_90 [
 { #category : #'examples - path arc around' }
 TSpartaExamples >> arc_90_to_180 [
 	<gtExample>
+	<return: #SkiaCanvas>
+	<return: #SpartaCairoCanvas>
+	<return: #Error>
 	| aCanvas aPath |
+	aCanvas := self class canvas: 400 @ 300.
 
-	aCanvas := self class canvas: 400@300.
-	
 	aPath := aCanvas path
-		absolute;
-		arcAround: 100@100 radius: 50 startAngle: Float pi / 2.0 endAngle: Float pi;
-		build.
+			absolute;
+			arcAround: 100 @ 100
+				radius: 50
+				startAngle: Float pi / 2.0
+				endAngle: Float pi;
+			build.
 
 	aCanvas fill
 		paint: (Color gray alpha: 0.2);
@@ -442,15 +492,19 @@ TSpartaExamples >> arc_90_to_180 [
 { #category : #'examples - path arc to' }
 TSpartaExamples >> arc_ccw_from_100_100_to_100_100_angle_360 [
 	<gtExample>
+	<return: #SkiaCanvas>
+	<return: #SpartaCairoCanvas>
+	<return: #Error>
 	| aCanvas aPath |
+	aCanvas := self class canvas: 400 @ 300.
 
-	aCanvas := self class canvas: 400@300.
-	
 	aPath := aCanvas path
-		absolute;
-		moveTo: 100@100;
-		arcTo: 100@100 angle: Float pi * 2 cw: false;
-		build.
+			absolute;
+			moveTo: 100 @ 100;
+			arcTo: 100 @ 100
+				angle: Float pi * 2
+				cw: false;
+			build.
 
 	aCanvas fill
 		paint: (Color gray alpha: 0.2);
@@ -469,15 +523,19 @@ TSpartaExamples >> arc_ccw_from_100_100_to_100_100_angle_360 [
 { #category : #'examples - path arc to' }
 TSpartaExamples >> arc_ccw_from_100_100_to_100_200_angle_180 [
 	<gtExample>
+	<return: #SkiaCanvas>
+	<return: #SpartaCairoCanvas>
+	<return: #Error>
 	| aCanvas aPath |
+	aCanvas := self class canvas: 400 @ 300.
 
-	aCanvas := self class canvas: 400@300.
-	
 	aPath := aCanvas path
-		absolute;
-		moveTo: 100@100;
-		arcTo: 100@200 angle: Float pi cw: false;
-		build.
+			absolute;
+			moveTo: 100 @ 100;
+			arcTo: 100 @ 200
+				angle: Float pi
+				cw: false;
+			build.
 
 	aCanvas fill
 		paint: (Color gray alpha: 0.2);
@@ -496,15 +554,19 @@ TSpartaExamples >> arc_ccw_from_100_100_to_100_200_angle_180 [
 { #category : #'examples - path arc to' }
 TSpartaExamples >> arc_ccw_from_100_100_to_150_150_angle_270 [
 	<gtExample>
+	<return: #SkiaCanvas>
+	<return: #SpartaCairoCanvas>
+	<return: #Error>
 	| aCanvas aPath |
+	aCanvas := self class canvas: 400 @ 300.
 
-	aCanvas := self class canvas: 400@300.
-	
 	aPath := aCanvas path
-		absolute;
-		moveTo: 100@100;
-		arcTo: 150@150 angle: Float pi * 3.0 / 2.0 cw: false;
-		build.
+			absolute;
+			moveTo: 100 @ 100;
+			arcTo: 150 @ 150
+				angle: Float pi * 3.0 / 2.0
+				cw: false;
+			build.
 
 	aCanvas fill
 		paint: (Color gray alpha: 0.2);
@@ -523,15 +585,19 @@ TSpartaExamples >> arc_ccw_from_100_100_to_150_150_angle_270 [
 { #category : #'examples - path arc to' }
 TSpartaExamples >> arc_ccw_from_100_100_to_150_150_angle_270_negated [
 	<gtExample>
+	<return: #SkiaCanvas>
+	<return: #SpartaCairoCanvas>
+	<return: #Error>
 	| aCanvas aPath |
+	aCanvas := self class canvas: 400 @ 300.
 
-	aCanvas := self class canvas: 400@300.
-	
 	aPath := aCanvas path
-		absolute;
-		moveTo: 100@100;
-		arcTo: 150@150 angle: Float pi * 3.0 / 2.0 negated cw: false;
-		build.
+			absolute;
+			moveTo: 100 @ 100;
+			arcTo: 150 @ 150
+				angle: Float pi * 3.0 / 2.0 negated
+				cw: false;
+			build.
 
 	aCanvas fill
 		paint: (Color gray alpha: 0.2);
@@ -550,15 +616,19 @@ TSpartaExamples >> arc_ccw_from_100_100_to_150_150_angle_270_negated [
 { #category : #'examples - path arc to' }
 TSpartaExamples >> arc_ccw_from_100_100_to_150_150_angle_90 [
 	<gtExample>
+	<return: #SkiaCanvas>
+	<return: #SpartaCairoCanvas>
+	<return: #Error>
 	| aCanvas aPath |
+	aCanvas := self class canvas: 400 @ 300.
 
-	aCanvas := self class canvas: 400@300.
-	
 	aPath := aCanvas path
-		absolute;
-		moveTo: 100@100;
-		arcTo: 150@150 angle: Float pi / 2.0 cw: false;
-		build.
+			absolute;
+			moveTo: 100 @ 100;
+			arcTo: 150 @ 150
+				angle: Float pi / 2.0
+				cw: false;
+			build.
 
 	aCanvas fill
 		paint: (Color gray alpha: 0.2);
@@ -577,15 +647,19 @@ TSpartaExamples >> arc_ccw_from_100_100_to_150_150_angle_90 [
 { #category : #'examples - path arc to' }
 TSpartaExamples >> arc_ccw_from_100_100_to_150_150_angle_90_negated [
 	<gtExample>
+	<return: #SkiaCanvas>
+	<return: #SpartaCairoCanvas>
+	<return: #Error>
 	| aCanvas aPath |
+	aCanvas := self class canvas: 400 @ 300.
 
-	aCanvas := self class canvas: 400@300.
-	
 	aPath := aCanvas path
-		absolute;
-		moveTo: 100@100;
-		arcTo: 150@150 angle: Float pi / 2.0 negated cw: false;
-		build.
+			absolute;
+			moveTo: 100 @ 100;
+			arcTo: 150 @ 150
+				angle: Float pi / 2.0 negated
+				cw: false;
+			build.
 
 	aCanvas fill
 		paint: (Color gray alpha: 0.2);
@@ -604,15 +678,19 @@ TSpartaExamples >> arc_ccw_from_100_100_to_150_150_angle_90_negated [
 { #category : #'examples - path arc to' }
 TSpartaExamples >> arc_ccw_from_100_100_to_50_150_angle_270 [
 	<gtExample>
+	<return: #SkiaCanvas>
+	<return: #SpartaCairoCanvas>
+	<return: #Error>
 	| aCanvas aPath |
+	aCanvas := self class canvas: 400 @ 300.
 
-	aCanvas := self class canvas: 400@300.
-	
 	aPath := aCanvas path
-		absolute;
-		moveTo: 100@100;
-		arcTo: 50@150 angle: Float pi * 3.0 / 2.0 cw: false;
-		build.
+			absolute;
+			moveTo: 100 @ 100;
+			arcTo: 50 @ 150
+				angle: Float pi * 3.0 / 2.0
+				cw: false;
+			build.
 
 	aCanvas fill
 		paint: (Color gray alpha: 0.2);
@@ -631,15 +709,19 @@ TSpartaExamples >> arc_ccw_from_100_100_to_50_150_angle_270 [
 { #category : #'examples - path arc to' }
 TSpartaExamples >> arc_cw_from_100_100_to_100_100_angle_360 [
 	<gtExample>
+	<return: #SkiaCanvas>
+	<return: #SpartaCairoCanvas>
+	<return: #Error>
 	| aCanvas aPath |
+	aCanvas := self class canvas: 400 @ 300.
 
-	aCanvas := self class canvas: 400@300.
-	
 	aPath := aCanvas path
-		absolute;
-		moveTo: 100@100;
-		arcTo: 100@100 angle: Float pi * 2 cw: true;
-		build.
+			absolute;
+			moveTo: 100 @ 100;
+			arcTo: 100 @ 100
+				angle: Float pi * 2
+				cw: true;
+			build.
 
 	aCanvas fill
 		paint: (Color gray alpha: 0.2);
@@ -658,15 +740,19 @@ TSpartaExamples >> arc_cw_from_100_100_to_100_100_angle_360 [
 { #category : #'examples - path arc to' }
 TSpartaExamples >> arc_cw_from_100_100_to_100_200_angle_180 [
 	<gtExample>
+	<return: #SkiaCanvas>
+	<return: #SpartaCairoCanvas>
+	<return: #Error>
 	| aCanvas aPath |
+	aCanvas := self class canvas: 400 @ 300.
 
-	aCanvas := self class canvas: 400@300.
-	
 	aPath := aCanvas path
-		absolute;
-		moveTo: 100@100;
-		arcTo: 100@200 angle: Float pi cw: true;
-		build.
+			absolute;
+			moveTo: 100 @ 100;
+			arcTo: 100 @ 200
+				angle: Float pi
+				cw: true;
+			build.
 
 	aCanvas fill
 		paint: (Color gray alpha: 0.2);
@@ -685,15 +771,19 @@ TSpartaExamples >> arc_cw_from_100_100_to_100_200_angle_180 [
 { #category : #'examples - path arc to' }
 TSpartaExamples >> arc_cw_from_100_100_to_150_150_angle_90 [
 	<gtExample>
+	<return: #SkiaCanvas>
+	<return: #SpartaCairoCanvas>
+	<return: #Error>
 	| aCanvas aPath |
+	aCanvas := self class canvas: 400 @ 300.
 
-	aCanvas := self class canvas: 400@300.
-	
 	aPath := aCanvas path
-		absolute;
-		moveTo: 100@100;
-		arcTo: 150@150 angle: Float pi / 2.0 cw: true;
-		build.
+			absolute;
+			moveTo: 100 @ 100;
+			arcTo: 150 @ 150
+				angle: Float pi / 2.0
+				cw: true;
+			build.
 
 	aCanvas fill
 		paint: (Color gray alpha: 0.2);
@@ -712,15 +802,19 @@ TSpartaExamples >> arc_cw_from_100_100_to_150_150_angle_90 [
 { #category : #'examples - path arc to' }
 TSpartaExamples >> arc_cw_from_100_100_to_50_150_angle_270 [
 	<gtExample>
+	<return: #SkiaCanvas>
+	<return: #SpartaCairoCanvas>
+	<return: #Error>
 	| aCanvas aPath |
+	aCanvas := self class canvas: 400 @ 300.
 
-	aCanvas := self class canvas: 400@300.
-	
 	aPath := aCanvas path
-		absolute;
-		moveTo: 100@100;
-		arcTo: 50@150 angle: Float pi * 3.0 / 2.0 cw: true;
-		build.
+			absolute;
+			moveTo: 100 @ 100;
+			arcTo: 50 @ 150
+				angle: Float pi * 3.0 / 2.0
+				cw: true;
+			build.
 
 	aCanvas fill
 		paint: (Color gray alpha: 0.2);
@@ -739,15 +833,19 @@ TSpartaExamples >> arc_cw_from_100_100_to_50_150_angle_270 [
 { #category : #'examples - path arc to' }
 TSpartaExamples >> arc_cw_from_100_200_to_50_150_angle_90 [
 	<gtExample>
+	<return: #SkiaCanvas>
+	<return: #SpartaCairoCanvas>
+	<return: #Error>
 	| aCanvas aPath |
+	aCanvas := self class canvas: 400 @ 300.
 
-	aCanvas := self class canvas: 400@300.
-	
 	aPath := aCanvas path
-		absolute;
-		moveTo: 100@200;
-		arcTo: 50@150 angle: Float pi / 2.0 cw: true;
-		build.
+			absolute;
+			moveTo: 100 @ 200;
+			arcTo: 50 @ 150
+				angle: Float pi / 2.0
+				cw: true;
+			build.
 
 	aCanvas fill
 		paint: (Color gray alpha: 0.2);
@@ -1144,24 +1242,21 @@ TSpartaExamples >> benchmarkTransformTranslateBy [
 { #category : #'examples - clip circle' }
 TSpartaExamples >> clipCircle [
 	<gtExample>
+	<return: #SkiaCanvas>
+	<return: #SpartaCairoCanvas>
+	<return: #Error>
 	| aCanvas |
-	
-	aCanvas := self class canvas: 400@300.
+	aCanvas := self class canvas: 400 @ 300.
 
-	self assert: aCanvas clip globalBounds equals: aCanvas bounds.
-	
-	"no clip"
+	self assert: aCanvas clip globalBounds equals: aCanvas bounds.	"no clip"
 	aCanvas fill
 		path: aCanvas bounds;
 		paint: (Color gray alpha: 0.1);
 		draw.
-	
+
 	aCanvas clip
-		by: (aCanvas shape circleAt: (150@150) radius: 100)
-		during: [
-			self assert: aCanvas clip globalBounds equals: (50@50 extent: 200@200).
-	
-			"root clip"
+		by: (aCanvas shape circleAt: 150 @ 150 radius: 100)
+		during: [ self assert: aCanvas clip globalBounds equals: (50 @ 50 extent: 200 @ 200).	"root clip"
 			aCanvas fill
 				path: aCanvas bounds;
 				paint: (Color gray alpha: 0.3);
@@ -1173,24 +1268,21 @@ TSpartaExamples >> clipCircle [
 { #category : #'examples - clip rectangle' }
 TSpartaExamples >> clipRectangleOnce [
 	<gtExample>
+	<return: #SkiaCanvas>
+	<return: #SpartaCairoCanvas>
+	<return: #Error>
 	| aCanvas |
-	
-	aCanvas := self class canvas: 400@300.
+	aCanvas := self class canvas: 400 @ 300.
 
-	self assert: aCanvas clip globalBounds equals: aCanvas bounds.
-	
-	"no clip"
+	self assert: aCanvas clip globalBounds equals: aCanvas bounds.	"no clip"
 	aCanvas fill
 		path: aCanvas bounds;
 		paint: (Color gray alpha: 0.1);
 		draw.
-	
+
 	aCanvas clip
-		by: (0@0 extent: 300@250)
-		during: [
-			self assert: aCanvas clip globalBounds equals: (0@0 extent: 300@250).
-	
-			"root clip"
+		by: (0 @ 0 extent: 300 @ 250)
+		during: [ self assert: aCanvas clip globalBounds equals: (0 @ 0 extent: 300 @ 250).	"root clip"
 			aCanvas fill
 				path: aCanvas bounds;
 				paint: (Color gray alpha: 0.3);
@@ -1202,35 +1294,29 @@ TSpartaExamples >> clipRectangleOnce [
 { #category : #'examples - clip rectangle' }
 TSpartaExamples >> clipRectangleTwice [
 	<gtExample>
+	<return: #SkiaCanvas>
+	<return: #SpartaCairoCanvas>
+	<return: #Error>
 	| aCanvas |
-	
-	aCanvas := self class canvas: 400@300.
-	
-	self assert: aCanvas clip globalBounds equals: aCanvas bounds.
+	aCanvas := self class canvas: 400 @ 300.
 
-	"no clip"
+	self assert: aCanvas clip globalBounds equals: aCanvas bounds.	"no clip"
 	aCanvas fill
 		path: aCanvas bounds;
 		paint: (Color gray alpha: 0.1);
 		draw.
-	
-	aCanvas clip
-		by: (0@0 extent: 300@250)
-		during: [
-			self assert: aCanvas clip globalBounds equals: (0@0 extent: 300@250).
 
-			"root clip"
+	aCanvas clip
+		by: (0 @ 0 extent: 300 @ 250)
+		during: [ self assert: aCanvas clip globalBounds equals: (0 @ 0 extent: 300 @ 250).	"root clip"
 			aCanvas fill
 				path: aCanvas bounds;
 				paint: (Color gray alpha: 0.3);
 				draw.
-			
+
 			aCanvas clip
-				by: (50@50 extent: 300@250)
-				during: [
-					self assert: aCanvas clip globalBounds equals: (50@50 extent: 250@200).
-					
-					"nested clip"
+				by: (50 @ 50 extent: 300 @ 250)
+				during: [ self assert: aCanvas clip globalBounds equals: (50 @ 50 extent: 250 @ 200).	"nested clip"
 					aCanvas fill
 						path: aCanvas bounds;
 						paint: (Color gray alpha: 0.3);
@@ -1242,24 +1328,21 @@ TSpartaExamples >> clipRectangleTwice [
 { #category : #'examples - clip rounded rectangle' }
 TSpartaExamples >> clipRoundedRectangle [
 	<gtExample>
+	<return: #SkiaCanvas>
+	<return: #SpartaCairoCanvas>
+	<return: #Error>
 	| aCanvas |
-	
-	aCanvas := self class canvas: 400@300.
+	aCanvas := self class canvas: 400 @ 300.
 
-	self assert: aCanvas clip globalBounds equals: aCanvas bounds.
-	
-	"no clip"
+	self assert: aCanvas clip globalBounds equals: aCanvas bounds.	"no clip"
 	aCanvas fill
 		path: aCanvas bounds;
 		paint: (Color gray alpha: 0.1);
 		draw.
-	
+
 	aCanvas clip
-		by: (aCanvas shape roundedRectangle: (0@0 extent: 300@250) radii: #(30 30 30 30))
-		during: [
-			self assert: aCanvas clip globalBounds equals: (0@0 extent: 300@250).
-	
-			"root clip"
+		by: (aCanvas shape roundedRectangle: (0 @ 0 extent: 300 @ 250) radii: #(30 30 30 30))
+		during: [ self assert: aCanvas clip globalBounds equals: (0 @ 0 extent: 300 @ 250).	"root clip"
 			aCanvas fill
 				path: aCanvas bounds;
 				paint: (Color gray alpha: 0.3);
@@ -1301,15 +1384,18 @@ TSpartaExamples >> donut [
 { #category : #'examples - image filter blur' }
 TSpartaExamples >> drawCanvasWithBlurTo [
 	<gtExample>
+	<return: #SkiaCanvas>
+	<return: #SpartaCairoCanvas>
+	<return: #MessageNotUnderstood>
 	| aSourceCanvas aDestinationCanvas |
 	aSourceCanvas := self fillTriangleWithLinearGradient.
-	
-	aDestinationCanvas := self class canvas: 600@500.
+
+	aDestinationCanvas := self class canvas: 600 @ 500.
 	aDestinationCanvas filter
 		type: (aDestinationCanvas filters blur
-			source: aSourceCanvas;
-			stdDeviation: 20);
-		to: 100@50;
+				source: aSourceCanvas;
+				stdDeviation: 20);
+		to: 100 @ 50;
 		draw.
 
 	^ aDestinationCanvas
@@ -1318,14 +1404,17 @@ TSpartaExamples >> drawCanvasWithBlurTo [
 { #category : #'examples - gradient linear' }
 TSpartaExamples >> drawLinearGradient [
 	<gtExample>
+	<return: #SkiaCanvas>
+	<return: #SpartaCairoCanvas>
+	<return: #Error>
 	| aCanvas aGradient |
-
-	aCanvas := self class canvas: 400@400.
+	aCanvas := self class canvas: 400 @ 400.
 	aGradient := aCanvas paint linearGradient
-		begin: 0@0;
-		end: 400@400;
-		stops: { 0 -> Color blue . 1 -> Color red }.
-	
+			begin: 0 @ 0;
+			end: 400 @ 400;
+			stops: {0 -> Color blue.
+					1 -> Color red}.
+
 	aCanvas fill
 		path: aCanvas bounds;
 		paint: aGradient;
@@ -1337,14 +1426,17 @@ TSpartaExamples >> drawLinearGradient [
 { #category : #'examples - gradient linear' }
 TSpartaExamples >> drawLinearGradientMiddleStops [
 	<gtExample>
+	<return: #SkiaCanvas>
+	<return: #SpartaCairoCanvas>
+	<return: #Error>
 	| aCanvas aGradient |
-
-	aCanvas := self class canvas: 400@400.
+	aCanvas := self class canvas: 400 @ 400.
 	aGradient := aCanvas paint linearGradient
-		begin: 0@0;
-		end: 400@400;
-		stops: { 0.2 -> Color blue . 0.6 -> Color red }.
-	
+			begin: 0 @ 0;
+			end: 400 @ 400;
+			stops: {0.2 -> Color blue.
+					0.6 -> Color red}.
+
 	aCanvas fill
 		path: aCanvas bounds;
 		paint: aGradient;
@@ -1356,16 +1448,19 @@ TSpartaExamples >> drawLinearGradientMiddleStops [
 { #category : #'examples - gradient linear' }
 TSpartaExamples >> drawLinearGradientPartial [
 	<gtExample>
+	<return: #SkiaCanvas>
+	<return: #SpartaCairoCanvas>
+	<return: #Error>
 	| aCanvas aGradient |
-
-	aCanvas := self class canvas: 400@400.
+	aCanvas := self class canvas: 400 @ 400.
 	aGradient := aCanvas paint linearGradient
-		begin: 0@0;
-		end: 400@400;
-		stops: { 0 -> Color blue . 1 -> Color red }.
-	
+			begin: 0 @ 0;
+			end: 400 @ 400;
+			stops: {0 -> Color blue.
+					1 -> Color red}.
+
 	aCanvas fill
-		path: (100@100 corner: 300@300);
+		path: (100 @ 100 corner: 300 @ 300);
 		paint: aGradient;
 		draw.
 
@@ -1375,14 +1470,17 @@ TSpartaExamples >> drawLinearGradientPartial [
 { #category : #'examples - gradient radial' }
 TSpartaExamples >> drawRadialGradient [
 	<gtExample>
+	<return: #SkiaCanvas>
+	<return: #SpartaCairoCanvas>
+	<return: #Error>
 	| aCanvas aGradient |
-
-	aCanvas := self class canvas: 400@400.
+	aCanvas := self class canvas: 400 @ 400.
 	aGradient := aCanvas paint radialGradient
-		center: 200@200;
-		radius: 200;
-		stops: { 0 -> Color blue . 1 -> Color red }.
-	
+			center: 200 @ 200;
+			radius: 200;
+			stops: {0 -> Color blue.
+					1 -> Color red}.
+
 	aCanvas fill
 		path: aCanvas bounds;
 		paint: aGradient;
@@ -1394,14 +1492,17 @@ TSpartaExamples >> drawRadialGradient [
 { #category : #'examples - gradient radial' }
 TSpartaExamples >> drawRadialGradientMiddleStops [
 	<gtExample>
+	<return: #SkiaCanvas>
+	<return: #SpartaCairoCanvas>
+	<return: #Error>
 	| aCanvas aGradient |
-
-	aCanvas := self class canvas: 400@400.
+	aCanvas := self class canvas: 400 @ 400.
 	aGradient := aCanvas paint radialGradient
-		center: 200@200;
-		radius: 200;
-		stops: { 0.2 -> Color blue . 0.6 -> Color red }.
-	
+			center: 200 @ 200;
+			radius: 200;
+			stops: {0.2 -> Color blue.
+					0.6 -> Color red}.
+
 	aCanvas fill
 		path: aCanvas bounds;
 		paint: aGradient;
@@ -1413,16 +1514,19 @@ TSpartaExamples >> drawRadialGradientMiddleStops [
 { #category : #'examples - gradient radial' }
 TSpartaExamples >> drawRadialGradientPartial [
 	<gtExample>
+	<return: #SkiaCanvas>
+	<return: #SpartaCairoCanvas>
+	<return: #Error>
 	| aCanvas aGradient |
-
-	aCanvas := self class canvas: 400@400.
+	aCanvas := self class canvas: 400 @ 400.
 	aGradient := aCanvas paint radialGradient
-		center: 200@200;
-		radius: 200;
-		stops: { 0 -> Color blue . 1 -> Color red }.
-	
+			center: 200 @ 200;
+			radius: 200;
+			stops: {0 -> Color blue.
+					1 -> Color red}.
+
 	aCanvas fill
-		path: (100@100 corner: 300@300);
+		path: (100 @ 100 corner: 300 @ 300);
 		paint: aGradient;
 		draw.
 
@@ -1432,12 +1536,14 @@ TSpartaExamples >> drawRadialGradientPartial [
 { #category : #'examples - fill circle' }
 TSpartaExamples >> fillCircleWithGrayColor [
 	<gtExample>
+	<return: #SkiaCanvas>
+	<return: #SpartaCairoCanvas>
+	<return: #Error>
 	| aCanvas |
+	aCanvas := self class canvas: 400 @ 300.
 
-	aCanvas := self class canvas: 400@300.
-	
 	aCanvas fill
-		path: (aCanvas shape circleAt: 200@150 radius: 100);
+		path: (aCanvas shape circleAt: 200 @ 150 radius: 100);
 		paint: Color lightGray;
 		draw.
 
@@ -1447,18 +1553,20 @@ TSpartaExamples >> fillCircleWithGrayColor [
 { #category : #'examples - fill rectangle' }
 TSpartaExamples >> fillRectangleSurface [
 	<gtExample>
+	<return: #SkiaCanvas>
+	<return: #SpartaCairoCanvas>
+	<return: #Error>
 	| aCanvas anImageCanvas |
+	aCanvas := self class canvas: 400 @ 300.
 
-	aCanvas := self class canvas: 400@300.
-	
-	anImageCanvas := self class canvas: 200@100.
+	anImageCanvas := self class canvas: 200 @ 100.
 	anImageCanvas fill
 		path: anImageCanvas bounds;
 		paint: Color red;
 		draw.
-	
+
 	aCanvas fill
-		path: (100@100 corner: 300@200);
+		path: (100 @ 100 corner: 300 @ 200);
 		paint: anImageCanvas;
 		draw.
 
@@ -1468,12 +1576,14 @@ TSpartaExamples >> fillRectangleSurface [
 { #category : #'examples - fill rectangle' }
 TSpartaExamples >> fillRectangleWithGrayColor [
 	<gtExample>
+	<return: #SkiaCanvas>
+	<return: #SpartaCairoCanvas>
+	<return: #Error>
 	| aCanvas |
+	aCanvas := self class canvas: 400 @ 300.
 
-	aCanvas := self class canvas: 400@300.
-	
 	aCanvas fill
-		path: (100@100 corner: 300@200);
+		path: (100 @ 100 corner: 300 @ 200);
 		paint: Color lightGray;
 		draw.
 
@@ -1483,17 +1593,20 @@ TSpartaExamples >> fillRectangleWithGrayColor [
 { #category : #'examples - fill rectangle' }
 TSpartaExamples >> fillRectangleWithLinearGradient [
 	<gtExample>
+	<return: #SkiaCanvas>
+	<return: #SpartaCairoCanvas>
+	<return: #Error>
 	| aCanvas aPaint |
+	aCanvas := self class canvas: 400 @ 300.
 
-	aCanvas := self class canvas: 400@300.
-	
 	aPaint := aCanvas paint linearGradient
-		begin: 50@50;
-		end: 300@200;
-		stops: { 0 -> Color blue . 1 -> Color red }.
-	
+			begin: 50 @ 50;
+			end: 300 @ 200;
+			stops: {0 -> Color blue.
+					1 -> Color red}.
+
 	aCanvas fill
-		path: (50@50 corner: 350@250);
+		path: (50 @ 50 corner: 350 @ 250);
 		paint: aPaint;
 		draw.
 
@@ -1503,17 +1616,20 @@ TSpartaExamples >> fillRectangleWithLinearGradient [
 { #category : #'examples - fill rectangle' }
 TSpartaExamples >> fillRectangleWithRadialGradient [
 	<gtExample>
+	<return: #SkiaCanvas>
+	<return: #SpartaCairoCanvas>
+	<return: #Error>
 	| aCanvas aPaint |
+	aCanvas := self class canvas: 400 @ 300.
 
-	aCanvas := self class canvas: 400@300.
-	
 	aPaint := aCanvas paint radialGradient
-		center: 200@150;
-		radius: 150;
-		stops: { 0 -> Color blue . 1 -> Color red }.
-	
+			center: 200 @ 150;
+			radius: 150;
+			stops: {0 -> Color blue.
+					1 -> Color red}.
+
 	aCanvas fill
-		path: (50@50 corner: 350@250);
+		path: (50 @ 50 corner: 350 @ 250);
 		paint: aPaint;
 		draw.
 
@@ -1523,12 +1639,16 @@ TSpartaExamples >> fillRectangleWithRadialGradient [
 { #category : #'examples - fill rounded rectangle' }
 TSpartaExamples >> fillRoundedRectangleWithGrayColor [
 	<gtExample>
+	<return: #SkiaCanvas>
+	<return: #SpartaCairoCanvas>
+	<return: #Error>
 	| aCanvas |
+	aCanvas := self class canvas: 400 @ 300.
 
-	aCanvas := self class canvas: 400@300.
-	
 	aCanvas fill
-		path: (aCanvas shape roundedRectangle: (100@100 corner: 300@200) radii: #(20 30 40 50));
+		path: (aCanvas shape
+				roundedRectangle: (100 @ 100 corner: 300 @ 200)
+				radii: #(20 30 40 50));
 		paint: Color lightGray;
 		draw.
 
@@ -1538,18 +1658,20 @@ TSpartaExamples >> fillRoundedRectangleWithGrayColor [
 { #category : #'examples - fill triangle' }
 TSpartaExamples >> fillTriangleWithGrayColor [
 	<gtExample>
+	<return: #SkiaCanvas>
+	<return: #SpartaCairoCanvas>
+	<return: #Error>
 	| aCanvas aPath |
+	aCanvas := self class canvas: 400 @ 300.
 
-	aCanvas := self class canvas: 400@300.
-	
 	aPath := aCanvas path
-		absolute;
-		moveTo: 200@50;
-		lineTo: 350@250;
-		lineTo: 50@250;
-		close;
-		build.
-	
+			absolute;
+			moveTo: 200 @ 50;
+			lineTo: 350 @ 250;
+			lineTo: 50 @ 250;
+			close;
+			build.
+
 	aCanvas fill
 		path: aPath;
 		paint: Color lightGray;
@@ -1561,23 +1683,26 @@ TSpartaExamples >> fillTriangleWithGrayColor [
 { #category : #'examples - fill triangle' }
 TSpartaExamples >> fillTriangleWithLinearGradient [
 	<gtExample>
+	<return: #SkiaCanvas>
+	<return: #SpartaCairoCanvas>
+	<return: #Error>
 	| aCanvas aPath aPaint |
+	aCanvas := self class canvas: 400 @ 300.
 
-	aCanvas := self class canvas: 400@300.
-	
 	aPath := aCanvas path
-		absolute;
-		moveTo: 200@50;
-		lineTo: 350@250;
-		lineTo: 50@250;
-		close;
-		build.
+			absolute;
+			moveTo: 200 @ 50;
+			lineTo: 350 @ 250;
+			lineTo: 50 @ 250;
+			close;
+			build.
 
 	aPaint := aCanvas paint linearGradient
-		begin: 50@250;
-		end: 275@150;
-		stops: { 0 -> Color blue . 1 -> Color red }.
-	
+			begin: 50 @ 250;
+			end: 275 @ 150;
+			stops: {0 -> Color blue.
+					1 -> Color red}.
+
 	aCanvas fill
 		path: aPath;
 		paint: aPaint;
@@ -1589,23 +1714,26 @@ TSpartaExamples >> fillTriangleWithLinearGradient [
 { #category : #'examples - fill triangle' }
 TSpartaExamples >> fillTriangleWithRadialGradient [
 	<gtExample>
+	<return: #SkiaCanvas>
+	<return: #SpartaCairoCanvas>
+	<return: #Error>
 	| aCanvas aPath aPaint |
+	aCanvas := self class canvas: 400 @ 300.
 
-	aCanvas := self class canvas: 400@300.
-	
 	aPath := aCanvas path
-		absolute;
-		moveTo: 200@50;
-		lineTo: 350@250;
-		lineTo: 50@250;
-		close;
-		build.
+			absolute;
+			moveTo: 200 @ 50;
+			lineTo: 350 @ 250;
+			lineTo: 50 @ 250;
+			close;
+			build.
 
 	aPaint := aCanvas paint radialGradient
-		center: 200@170;
-		radius: 125;
-		stops: { 0 -> Color blue . 1 -> Color red }.
-	
+			center: 200 @ 170;
+			radius: 125;
+			stops: {0 -> Color blue.
+					1 -> Color red}.
+
 	aCanvas fill
 		path: aPath;
 		paint: aPaint;
@@ -1617,18 +1745,20 @@ TSpartaExamples >> fillTriangleWithRadialGradient [
 { #category : #'examples - fill rectangle' }
 TSpartaExamples >> fillTwoRectanglesWithColorsAndAlpha [
 	<gtExample>
+	<return: #SkiaCanvas>
+	<return: #SpartaCairoCanvas>
+	<return: #Error>
 	| aCanvas |
+	aCanvas := self class canvas: 400 @ 300.
 
-	aCanvas := self class canvas: 400@300.
-	
 	aCanvas fill
-		path: (50@50 corner: 200@150);
+		path: (50 @ 50 corner: 200 @ 150);
 		paint: (Color blue alpha: 0.5);
 		alpha: 0.5;
 		draw.
-		
+
 	aCanvas fill
-		path: (100@100 corner: 250@200);
+		path: (100 @ 100 corner: 250 @ 200);
 		paint: Color red;
 		alpha: 0.5;
 		draw.
@@ -1639,18 +1769,20 @@ TSpartaExamples >> fillTwoRectanglesWithColorsAndAlpha [
 { #category : #'examples - fill rectangle' }
 TSpartaExamples >> fillTwoRectanglesWithColorsAndAlphaComposeSource [
 	<gtExample>
+	<return: #SkiaCanvas>
+	<return: #SpartaCairoCanvas>
+	<return: #Error>
 	| aCanvas |
+	aCanvas := self class canvas: 400 @ 300.
 
-	aCanvas := self class canvas: 400@300.
-	
 	aCanvas fill
-		path: (50@50 corner: 200@150);
+		path: (50 @ 50 corner: 200 @ 150);
 		paint: (Color blue alpha: 0.5);
 		alpha: 0.5;
 		draw.
-		
+
 	aCanvas fill
-		path: (100@100 corner: 250@200);
+		path: (100 @ 100 corner: 250 @ 200);
 		paint: Color red;
 		composeSource;
 		alpha: 0.5;
@@ -1662,17 +1794,19 @@ TSpartaExamples >> fillTwoRectanglesWithColorsAndAlphaComposeSource [
 { #category : #'examples - fill rectangle' }
 TSpartaExamples >> fillTwoRectanglesWithColorsSemiTransparent [
 	<gtExample>
+	<return: #SkiaCanvas>
+	<return: #SpartaCairoCanvas>
+	<return: #Error>
 	| aCanvas |
+	aCanvas := self class canvas: 400 @ 300.
 
-	aCanvas := self class canvas: 400@300.
-	
 	aCanvas fill
-		path: (50@50 corner: 200@150);
+		path: (50 @ 50 corner: 200 @ 150);
 		paint: (Color blue alpha: 0.5);
 		draw.
-		
+
 	aCanvas fill
-		path: (100@100 corner: 250@200);
+		path: (100 @ 100 corner: 250 @ 200);
 		paint: (Color red alpha: 0.5);
 		draw.
 
@@ -1682,92 +1816,76 @@ TSpartaExamples >> fillTwoRectanglesWithColorsSemiTransparent [
 { #category : #examples }
 TSpartaExamples >> mario [
 	<gtExample>
+	<return: #SkiaCanvas>
+	<return: #SpartaCairoCanvas>
+	<return: #Error>
 	| mario colors pixel canvas |
+	mario := #(#(0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1) #(0 0 0 0 0 0 2 2 2 2 2 0 0 0 1 1) #(0 0 0 0 0 2 2 2 2 2 2 2 2 2 1 1) #(0 0 0 0 0 3 3 3 1 1 3 1 0 3 3 3) #(0 0 0 0 3 1 3 1 1 1 3 1 1 3 3 3) #(0 0 0 0 3 1 3 3 1 1 1 3 1 1 1 3) #(0 0 0 0 3 3 1 1 1 1 3 3 3 3 3 0) #(0 0 0 0 0 0 1 1 1 1 1 1 1 3 0 0) #(0 0 3 3 3 3 3 2 3 3 3 2 3 0 0 0) #(0 3 3 3 3 3 3 3 2 3 3 3 2 0 0 3) #(1 1 3 3 3 3 3 3 2 2 2 2 2 0 0 3) #(1 1 1 0 2 2 3 2 2 1 2 2 1 2 3 3) #(0 1 0 3 2 2 2 2 2 2 2 2 2 2 3 3) #(0 0 3 3 3 2 2 2 2 2 2 2 2 2 3 3) #(0 3 3 3 2 2 2 2 2 2 2 0 0 0 0 0) #(0 3 0 0 2 2 2 2 0 0 0 0 0 0 0 0)).
 
-	mario := #(
-		(0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1)
-		(0 0 0 0 0 0 2 2 2 2 2 0 0 0 1 1)
-		(0 0 0 0 0 2 2 2 2 2 2 2 2 2 1 1)
-		(0 0 0 0 0 3 3 3 1 1 3 1 0 3 3 3)
-		(0 0 0 0 3 1 3 1 1 1 3 1 1 3 3 3)
-		(0 0 0 0 3 1 3 3 1 1 1 3 1 1 1 3)
-		(0 0 0 0 3 3 1 1 1 1 3 3 3 3 3 0)
-		(0 0 0 0 0 0 1 1 1 1 1 1 1 3 0 0)
-		(0 0 3 3 3 3 3 2 3 3 3 2 3 0 0 0)
-		(0 3 3 3 3 3 3 3 2 3 3 3 2 0 0 3)
-		(1 1 3 3 3 3 3 3 2 2 2 2 2 0 0 3)
-		(1 1 1 0 2 2 3 2 2 1 2 2 1 2 3 3)
-		(0 1 0 3 2 2 2 2 2 2 2 2 2 2 3 3)
-		(0 0 3 3 3 2 2 2 2 2 2 2 2 2 3 3)
-		(0 3 3 3 2 2 2 2 2 2 2 0 0 0 0 0)
-		(0 3 0 0 2 2 2 2 0 0 0 0 0 0 0 0)).
-		
-	colors := { 
-		0 -> (Color fromHexString: #FFFFFF).
-		1 -> (Color fromHexString: #F6A502).
-		2 -> (Color fromHexString: #D30301).
-		3 -> (Color fromHexString: #'6B5200')
-	} asDictionary.
+	colors := {0 -> (Color fromHexString: #FFFFFF).
+			1 -> (Color fromHexString: #F6A502).
+			2 -> (Color fromHexString: #D30301).
+			3 -> (Color fromHexString: #'6B5200')} asDictionary.
 
 	pixel := 32.
 
 	canvas := self class canvas: pixel * mario size asPoint.
 
-	mario withIndexDo: [ :eachRow :y |
-		eachRow withIndexDo: [ :dot :x |
-			canvas fill
-				path: ((x@y - 1) * pixel extent: pixel asPoint);
-				paint: (colors at: dot);
-				draw ] ].
+	mario
+		withIndexDo: [ :eachRow :y | 
+			eachRow
+				withIndexDo: [ :dot :x | 
+					canvas fill
+						path: ((x @ y - 1) * pixel extent: pixel asPoint);
+						paint: (colors at: dot);
+						draw ] ].
 	^ canvas
 ]
 
 { #category : #'examples - transformation' }
 TSpartaExamples >> rotateFillRectangle [
 	<gtExample>
+	<return: #SkiaCanvas>
+	<return: #SpartaCairoCanvas>
+	<return: #Error>
 	| aCanvas |
-
-	aCanvas := self class canvas: 400@300.
+	aCanvas := self class canvas: 400 @ 300.
 	aCanvas fill
-		path: (50@50 extent: 100@75);
+		path: (50 @ 50 extent: 100 @ 75);
 		paint: (Color gray alpha: 0.4);
 		draw.
 
 	aCanvas transform
 		by: [ :t | t rotateByDegrees: 10 ]
-		during: [
-			aCanvas fill
-				path: (50@50 extent: 100@75);
+		during: [ aCanvas fill
+				path: (50 @ 50 extent: 100 @ 75);
 				paint: (Color red alpha: 0.4);
 				draw ].
 
 	^ aCanvas
-	
-	
 ]
 
 { #category : #'examples - transformation' }
 TSpartaExamples >> scaleFillRectangle [
 	<gtExample>
+	<return: #SkiaCanvas>
+	<return: #SpartaCairoCanvas>
+	<return: #Error>
 	| aCanvas |
-
-	aCanvas := self class canvas: 400@300.
+	aCanvas := self class canvas: 400 @ 300.
 	aCanvas fill
-		path: (50@50 extent: 100@75);
+		path: (50 @ 50 extent: 100 @ 75);
 		paint: (Color gray alpha: 0.4);
 		draw.
 
 	aCanvas transform
 		by: [ :t | t scaleBy: 1.5 ]
-		during: [
-			aCanvas fill
-				path: (50@50 extent: 100@75);
+		during: [ aCanvas fill
+				path: (50 @ 50 extent: 100 @ 75);
 				paint: (Color red alpha: 0.4);
 				draw ].
 
 	^ aCanvas
-	
-	
 ]
 
 { #category : #examples }
@@ -1800,19 +1918,20 @@ TSpartaExamples >> shadow [
 { #category : #'examples - stroke circle' }
 TSpartaExamples >> strokeCircleWithBoxShadow [
 	<gtExample>
+	<return: #SkiaCanvas>
+	<return: #SpartaCairoCanvas>
+	<return: #Error>
 	| aCanvas |
-
-	aCanvas := self class canvas: 400@300.
+	aCanvas := self class canvas: 400 @ 300.
 
 	aCanvas stroke
-		path: (aCanvas shape circleAt: 200@150 radius: 100);
+		path: (aCanvas shape circleAt: 200 @ 150 radius: 100);
 		paint: (aCanvas paint boxShadow
-			radius: 20;
-			offset: 20@20;
-			color: (Color black alpha: 0.5));
-		"width plays a role of a spread"
+				radius: 20;
+				offset: 20 @ 20;
+				color: (Color black alpha: 0.5));
 		width: 5;
-		draw.
+		draw.	"width plays a role of a spread"
 
 	^ aCanvas
 ]
@@ -1820,12 +1939,14 @@ TSpartaExamples >> strokeCircleWithBoxShadow [
 { #category : #'examples - stroke circle' }
 TSpartaExamples >> strokeCircleWithGrayColor [
 	<gtExample>
+	<return: #SkiaCanvas>
+	<return: #SpartaCairoCanvas>
+	<return: #Error>
 	| aCanvas |
-
-	aCanvas := self class canvas: 400@300.
+	aCanvas := self class canvas: 400 @ 300.
 
 	aCanvas stroke
-		path: (aCanvas shape circleAt: 200@150 radius: 100);
+		path: (aCanvas shape circleAt: 200 @ 150 radius: 100);
 		paint: Color lightGray;
 		width: 5;
 		draw.
@@ -1836,10 +1957,12 @@ TSpartaExamples >> strokeCircleWithGrayColor [
 { #category : #'examples - stroke line' }
 TSpartaExamples >> strokeLineWithGrayColor [
 	<gtExample>
+	<return: #SkiaCanvas>
+	<return: #SpartaCairoCanvas>
+	<return: #Error>
 	| aCanvas aLine |
-
-	aCanvas := self class canvas: 400@300.
-	aLine := SpartaLine from: 50@150 to: 350 @ 150.
+	aCanvas := self class canvas: 400 @ 300.
+	aLine := SpartaLine from: 50 @ 150 to: 350 @ 150.
 
 	aCanvas stroke
 		path: aLine;
@@ -1853,10 +1976,12 @@ TSpartaExamples >> strokeLineWithGrayColor [
 { #category : #'examples - stroke line' }
 TSpartaExamples >> strokeLineWithGrayColorCapButt [
 	<gtExample>
+	<return: #SkiaCanvas>
+	<return: #SpartaCairoCanvas>
+	<return: #Error>
 	| aCanvas aLine |
-
-	aCanvas := self class canvas: 400@300.
-	aLine := SpartaLine from: 50@150 to: 350 @ 150.
+	aCanvas := self class canvas: 400 @ 300.
+	aLine := SpartaLine from: 50 @ 150 to: 350 @ 150.
 
 	aCanvas stroke
 		path: aLine;
@@ -1864,7 +1989,7 @@ TSpartaExamples >> strokeLineWithGrayColorCapButt [
 		width: 20;
 		capButt;
 		draw.
-		
+
 	aCanvas stroke
 		path: aLine;
 		paint: Color black;
@@ -1877,10 +2002,12 @@ TSpartaExamples >> strokeLineWithGrayColorCapButt [
 { #category : #'examples - stroke line' }
 TSpartaExamples >> strokeLineWithGrayColorCapRound [
 	<gtExample>
+	<return: #SkiaCanvas>
+	<return: #SpartaCairoCanvas>
+	<return: #Error>
 	| aCanvas aLine |
-
-	aCanvas := self class canvas: 400@300.
-	aLine := SpartaLine from: 50@150 to: 350 @ 150.
+	aCanvas := self class canvas: 400 @ 300.
+	aLine := SpartaLine from: 50 @ 150 to: 350 @ 150.
 
 	aCanvas stroke
 		path: aLine;
@@ -1888,7 +2015,7 @@ TSpartaExamples >> strokeLineWithGrayColorCapRound [
 		width: 20;
 		capRound;
 		draw.
-		
+
 	aCanvas stroke
 		path: aLine;
 		paint: Color black;
@@ -1901,10 +2028,12 @@ TSpartaExamples >> strokeLineWithGrayColorCapRound [
 { #category : #'examples - stroke line' }
 TSpartaExamples >> strokeLineWithGrayColorCapSquare [
 	<gtExample>
+	<return: #SkiaCanvas>
+	<return: #SpartaCairoCanvas>
+	<return: #Error>
 	| aCanvas aLine |
-
-	aCanvas := self class canvas: 400@300.
-	aLine := SpartaLine from: 50@150 to: 350 @ 150.
+	aCanvas := self class canvas: 400 @ 300.
+	aLine := SpartaLine from: 50 @ 150 to: 350 @ 150.
 
 	aCanvas stroke
 		path: aLine;
@@ -1912,7 +2041,7 @@ TSpartaExamples >> strokeLineWithGrayColorCapSquare [
 		width: 20;
 		capSquare;
 		draw.
-		
+
 	aCanvas stroke
 		path: aLine;
 		paint: Color black;
@@ -1925,19 +2054,20 @@ TSpartaExamples >> strokeLineWithGrayColorCapSquare [
 { #category : #'examples - stroke rectangle' }
 TSpartaExamples >> strokeRectangleWithBoxShadow [
 	<gtExample>
+	<return: #SkiaCanvas>
+	<return: #SpartaCairoCanvas>
+	<return: #Error>
 	| aCanvas |
-
-	aCanvas := self class canvas: 400@300.
+	aCanvas := self class canvas: 400 @ 300.
 
 	aCanvas stroke
-		path: (100@100 corner: 300@200);
+		path: (100 @ 100 corner: 300 @ 200);
 		paint: (aCanvas paint boxShadow
-			radius: 20;
-			offset: 20@20;
-			color: (Color black alpha: 0.5));
-		"width plays a role of a spread"
+				radius: 20;
+				offset: 20 @ 20;
+				color: (Color black alpha: 0.5));
 		width: 5;
-		draw.
+		draw.	"width plays a role of a spread"
 
 	^ aCanvas
 ]
@@ -1945,12 +2075,14 @@ TSpartaExamples >> strokeRectangleWithBoxShadow [
 { #category : #'examples - stroke rectangle' }
 TSpartaExamples >> strokeRectangleWithGrayColor [
 	<gtExample>
+	<return: #SkiaCanvas>
+	<return: #SpartaCairoCanvas>
+	<return: #Error>
 	| aCanvas |
-
-	aCanvas := self class canvas: 400@300.
+	aCanvas := self class canvas: 400 @ 300.
 
 	aCanvas stroke
-		path: (100@100 corner: 300@200);
+		path: (100 @ 100 corner: 300 @ 200);
 		paint: Color lightGray;
 		width: 5;
 		draw.
@@ -1961,16 +2093,20 @@ TSpartaExamples >> strokeRectangleWithGrayColor [
 { #category : #'examples - stroke rounded rectangle' }
 TSpartaExamples >> strokeRoundedRectangleWithBoxShadow [
 	<gtExample>
+	<return: #SkiaCanvas>
+	<return: #SpartaCairoCanvas>
+	<return: #Error>
 	| aCanvas |
-
-	aCanvas := self class canvas: 400@300.
+	aCanvas := self class canvas: 400 @ 300.
 
 	aCanvas stroke
-		path: (aCanvas shape roundedRectangle: (100@100 corner: 300@200) radii: #(20 30 40 50));
+		path: (aCanvas shape
+				roundedRectangle: (100 @ 100 corner: 300 @ 200)
+				radii: #(20 30 40 50));
 		paint: (aCanvas paint boxShadow
-			radius: 20;
-			offset: 20@20;
-			color: (Color black alpha: 0.5));
+				radius: 20;
+				offset: 20 @ 20;
+				color: (Color black alpha: 0.5));
 		width: 5;
 		draw.
 
@@ -1980,12 +2116,16 @@ TSpartaExamples >> strokeRoundedRectangleWithBoxShadow [
 { #category : #'examples - stroke rounded rectangle' }
 TSpartaExamples >> strokeRoundedRectangleWithGrayColor [
 	<gtExample>
+	<return: #SkiaCanvas>
+	<return: #SpartaCairoCanvas>
+	<return: #Error>
 	| aCanvas |
-
-	aCanvas := self class canvas: 400@300.
+	aCanvas := self class canvas: 400 @ 300.
 
 	aCanvas stroke
-		path: (aCanvas shape roundedRectangle: (100@100 corner: 300@200) radii: #(20 30 40 50));
+		path: (aCanvas shape
+				roundedRectangle: (100 @ 100 corner: 300 @ 200)
+				radii: #(20 30 40 50));
 		paint: Color lightGray;
 		width: 5;
 		draw.
@@ -1996,18 +2136,20 @@ TSpartaExamples >> strokeRoundedRectangleWithGrayColor [
 { #category : #'examples - stroke triangle' }
 TSpartaExamples >> strokeTriangleWithGrayColor [
 	<gtExample>
+	<return: #SkiaCanvas>
+	<return: #SpartaCairoCanvas>
+	<return: #Error>
 	| aCanvas aPath |
+	aCanvas := self class canvas: 400 @ 300.
 
-	aCanvas := self class canvas: 400@300.
-	
 	aPath := aCanvas path
-		absolute;
-		moveTo: 200@50;
-		lineTo: 350@250;
-		lineTo: 50@250;
-		close;
-		build.
-	
+			absolute;
+			moveTo: 200 @ 50;
+			lineTo: 350 @ 250;
+			lineTo: 50 @ 250;
+			close;
+			build.
+
 	aCanvas stroke
 		path: aPath;
 		paint: Color lightGray;
@@ -2020,10 +2162,12 @@ TSpartaExamples >> strokeTriangleWithGrayColor [
 { #category : #'examples - text run' }
 TSpartaExamples >> textRunWithMetrics [
 	<gtExample>
+	<return: #Association>
+	<return: #Association>
+	<return: #Error>
 	| aCanvas |
-	
-	aCanvas := self class canvas: 50@50.
-	
+	aCanvas := self class canvas: 50 @ 50.
+
 	^ aCanvas text
 		font: aCanvas font build;
 		string: 'Hello world!';
@@ -2033,90 +2177,85 @@ TSpartaExamples >> textRunWithMetrics [
 { #category : #'examples - transformation' }
 TSpartaExamples >> translateAndClipFillRectangle [
 	<gtExample>
+	<return: #SkiaCanvas>
+	<return: #SpartaCairoCanvas>
+	<return: #Error>
 	| aCanvas |
-
-	aCanvas := self class canvas: 400@300.
+	aCanvas := self class canvas: 400 @ 300.
 	aCanvas fill
-		path: (50@50 extent: 100@75);
+		path: (50 @ 50 extent: 100 @ 75);
 		paint: (Color gray alpha: 0.4);
 		draw.
-	
+
 	aCanvas clip
-		by: (100@75 extent: 100@75)
-		during: [
-			aCanvas transform
-				by: [ :t | t translateBy: 50@25 ]
-				during: [
-					aCanvas fill
-						path: (50@50 extent: 100@75);
+		by: (100 @ 75 extent: 100 @ 75)
+		during: [ aCanvas transform
+				by: [ :t | t translateBy: 50 @ 25 ]
+				during: [ aCanvas fill
+						path: (50 @ 50 extent: 100 @ 75);
 						paint: (Color red alpha: 0.4);
 						draw ] ].
-				
+
 	aCanvas clip
-		by: (150@125 extent: 100@75)
-		during: [
-			aCanvas transform
-				by: [ :t | t translateBy: 100@75 ]
-				during: [
-					aCanvas fill
-						path: (50@50 extent: 100@75);
+		by: (150 @ 125 extent: 100 @ 75)
+		during: [ aCanvas transform
+				by: [ :t | t translateBy: 100 @ 75 ]
+				during: [ aCanvas fill
+						path: (50 @ 50 extent: 100 @ 75);
 						paint: (Color red alpha: 0.4);
 						draw ] ].
 
 	aCanvas transform
-		by: [ :t | t translateBy: 100@75 ]
-		during: [	
-			aCanvas clip
-				by: (50@50 extent: 100@75)
-				during: [
-					aCanvas fill
-						path: (0@0 extent: 100@75);
+		by: [ :t | t translateBy: 100 @ 75 ]
+		during: [ aCanvas clip
+				by: (50 @ 50 extent: 100 @ 75)
+				during: [ aCanvas fill
+						path: (0 @ 0 extent: 100 @ 75);
 						paint: (Color blue alpha: 0.4);
 						draw ] ].
 
 	^ aCanvas
-	
-	
 ]
 
 { #category : #'examples - transformation' }
 TSpartaExamples >> translateFillRectangle [
 	<gtExample>
+	<return: #SkiaCanvas>
+	<return: #SpartaCairoCanvas>
+	<return: #Error>
 	| aCanvas |
-
-	aCanvas := self class canvas: 400@300.
+	aCanvas := self class canvas: 400 @ 300.
 	aCanvas fill
-		path: (50@50 extent: 100@75);
+		path: (50 @ 50 extent: 100 @ 75);
 		paint: (Color gray alpha: 0.4);
 		draw.
-		
+
 	aCanvas transform
-		by: [ :t | t translateBy: 50@25 ]
-		during: [
-			aCanvas fill
-				path: (50@50 extent: 100@75);
+		by: [ :t | t translateBy: 50 @ 25 ]
+		during: [ aCanvas fill
+				path: (50 @ 50 extent: 100 @ 75);
 				paint: (Color red alpha: 0.4);
 				draw ].
 
 	^ aCanvas
-	
-	
 ]
 
 { #category : #'examples - path' }
 TSpartaExamples >> trianglePathAbsolute [
 	<gtExample>
+	<return: #SkiaPath>
+	<return: #SpartaCairoPath>
+	<return: #Error>
 	| aCanvas aPath |
+	aCanvas := self class canvas: 400 @ 300.
 
-	aCanvas := self class canvas: 400@300.
-	
 	aPath := aCanvas path
-		absolute;
-		moveTo: 200@50;
-		lineTo: 350@250;
-		lineTo: 50@250;
-		close;
-		build.
+			absolute;
+			moveTo: 200 @ 50;
+			lineTo: 350 @ 250;
+			lineTo: 50 @ 250;
+			close;
+			build.
 
 	^ aPath
 ]
@@ -2124,17 +2263,19 @@ TSpartaExamples >> trianglePathAbsolute [
 { #category : #'examples - path' }
 TSpartaExamples >> trianglePathRelative [
 	<gtExample>
+	<return: #SkiaPath>
+	<return: #SpartaCairoPath>
+	<return: #Error>
 	| aCanvas aPath |
+	aCanvas := self class canvas: 400 @ 300.
 
-	aCanvas := self class canvas: 400@300.
-	
 	aPath := aCanvas path
-		relative;
-		moveTo: 200@50;
-		lineTo: 150@200;
-		lineTo: -300@0;
-		close;
-		build.
+			relative;
+			moveTo: 200 @ 50;
+			lineTo: 150 @ 200;
+			lineTo: -300 @ 0;
+			close;
+			build.
 
 	^ aPath
 ]
