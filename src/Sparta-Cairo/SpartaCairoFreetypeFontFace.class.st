@@ -37,7 +37,7 @@ SpartaCairoFreetypeFontFace class >> create: aFreetypeFont [
 { #category : #'private - ffi' }
 SpartaCairoFreetypeFontFace class >> primCreate: aFreetypeFontFace [
 
-	^ self ffiCall: #(SpartaCairoFreetypeFontFace cairo_ft_font_face_create_for_ft_face ( void* aFreetypeFontFace, 0 ) )
+	^ self ffiCall: #(SpartaCairoFreetypeFontFace cairo_ft_font_face_create_for_ft_face ( void* aFreetypeFontFace, int 0 ) )
 ]
 
 { #category : #accessing }
