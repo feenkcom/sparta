@@ -172,9 +172,9 @@ SpartaCairoScaledFont >> primTextToGlyphs: aBuffer length: aLength glyphs: theGl
 		int aLength,
 		void** theGlyphs,
 		int * aGlyphsCount,
-		nil,
-		nil,
-		nil))
+		void * 0,
+		void * 0,
+		void * 0))
 ]
 
 { #category : #accessing }
