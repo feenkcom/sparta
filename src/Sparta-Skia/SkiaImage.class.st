@@ -170,8 +170,7 @@ SkiaImage class >> primRelease: aHandle [
 
 { #category : #converting }
 SkiaImage >> asElement [
-
-	^ BlSkiaImageElement new image: self
+	^ (BlSkiaImageElement new image: self) size: self extent
 ]
 
 { #category : #converting }
