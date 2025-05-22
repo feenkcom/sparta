@@ -1,7 +1,7 @@
 Class {
 	#name : #SkiaPaint,
 	#superclass : #SkiaExternalObject,
-	#category : 'Sparta-Skia-External'
+	#category : #'Sparta-Skia-External'
 }
 
 { #category : #accessing }
@@ -130,7 +130,7 @@ SkiaPaint >> filterQuality [
 SkiaPaint >> filterQuality: aSkiaFilterQuality [
 	<return: #SkiaFilterQuality>
 	
-	self primSetFilterQuality: aSkiaFilterQuality
+	self error: 'Filter quality is not supported'
 ]
 
 { #category : #'gt-extension' }
@@ -316,11 +316,6 @@ SkiaPaint >> primSetBlendMode: aSkiaBlendMode [
 { #category : #'private - ffi' }
 SkiaPaint >> primSetDither: isDither [
 	self ffiCall: #(void skia_paint_set_dither(self, bool isDither))
-]
-
-{ #category : #'private - ffi' }
-SkiaPaint >> primSetFilterQuality: aSkiaFilterQuality [
-	self ffiCall: #(void skia_paint_set_filter_quality(self, SkiaFilterQuality aSkiaFilterQuality))
 ]
 
 { #category : #'private - ffi' }
