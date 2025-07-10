@@ -10,7 +10,7 @@ BaselineOfSpartaSkia >> baseline: spec [
 	spec for: #'common' do: [
 		spec
 			baseline: 'SpartaCore' with: [
-				spec repository: 'github://feenkcom/Sparta:v0.8.210/src' ].
+				spec repository: 'github://feenkcom/Sparta:v0.8.211/src' ].
 		spec
 			baseline: 'GToolkitBoxer' with: [
 				spec repository: 'github://feenkcom/gtoolkit-boxer:v0.8.55/boxer-bindings' ].
@@ -19,7 +19,7 @@ BaselineOfSpartaSkia >> baseline: spec [
 				spec repository: 'github://feenkcom/gt4phlow-rs:v0.6.14/src' ].
 		spec
 			baseline: 'GToolkitExamplesEngine' with: [
-				spec repository: 'github://feenkcom/gtoolkit-examples:v0.8.110/src' ].
+				spec repository: 'github://feenkcom/gtoolkit-examples:v0.8.111/src' ].
 
 		spec package: 'Sparta-Skia' with: [
 			spec requires: #(#SpartaCore #GToolkitBoxer #GToolkitPhlowForRust #GToolkitExamplesEngine) ].
