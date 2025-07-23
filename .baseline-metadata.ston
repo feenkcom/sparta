@@ -1,7 +1,7 @@
 {
 	"repositories" : {
-		"github://feenkcom/gt4phlow-rs/src" : "v0.6.14",
-		"github://feenkcom/gtoolkit-boxer/boxer-bindings" : "v0.8.55",
-		"github://feenkcom/gtoolkit-examples/src" : "v0.8.113"
+		"github://feenkcom/gt4phlow-rs/src" : "v0.6.15",
+		"github://feenkcom/gtoolkit-boxer/boxer-bindings" : "v0.8.56",
+		"github://feenkcom/gtoolkit-examples/src" : "v0.8.114"
 	}
 }
