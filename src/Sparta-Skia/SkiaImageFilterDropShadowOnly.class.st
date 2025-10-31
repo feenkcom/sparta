@@ -1,7 +1,7 @@
 Class {
 	#name : #SkiaImageFilterDropShadowOnly,
 	#superclass : #SkiaImageFilterDropShadow,
-	#category : 'Sparta-Skia-External'
+	#category : #'Sparta-Skia-External'
 }
 
 { #category : #'private - ffi' }

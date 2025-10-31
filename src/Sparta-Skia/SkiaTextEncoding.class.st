@@ -7,7 +7,7 @@ Class {
 		'UTF32',
 		'UTF8'
 	],
-	#category : 'Sparta-Skia-External'
+	#category : #'Sparta-Skia-External'
 }
 
 { #category : #'accessing enum' }

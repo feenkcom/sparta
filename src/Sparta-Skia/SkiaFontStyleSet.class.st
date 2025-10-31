@@ -48,6 +48,9 @@ SkiaFontStyleSet >> gtFontStylesFor: aView [
 		column: 'Weight' text: [ :each | each second key weight ] width: 50;
 		column: 'Slant' text: [ :each | each second key slant item ] width: 100;
 		column: 'Width' text: [ :each | each second key width item ] width: 100;
+		column: 'Preview' icon: [ :each | 
+			((SkiaFont typeface: (self typefaceAt: each first) clone size: 100) asPreviewElementFor: 'glamorous toolkit') asScalableElement height: 30
+		] weight: 1;
 		send: [ :each | self typefaceAt: each first ]
 ]
 

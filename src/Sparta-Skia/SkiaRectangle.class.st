@@ -1,7 +1,7 @@
 Class {
 	#name : #SkiaRectangle,
 	#superclass : #SkiaExternalObject,
-	#category : 'Sparta-Skia-External'
+	#category : #'Sparta-Skia-External'
 }
 
 { #category : #converting }

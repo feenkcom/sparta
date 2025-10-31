@@ -1,7 +1,7 @@
 Class {
 	#name : #SkiaFilterSource,
 	#superclass : #Object,
-	#category : 'Sparta-Skia-Filters'
+	#category : #'Sparta-Skia-Filters'
 }
 
 { #category : #testing }

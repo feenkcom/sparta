@@ -5,7 +5,7 @@ Class {
 		'bounds',
 		'advance'
 	],
-	#category : 'Sparta-Skia-Text'
+	#category : #'Sparta-Skia-Text'
 }
 
 { #category : #accessing }

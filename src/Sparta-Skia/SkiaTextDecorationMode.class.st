@@ -5,7 +5,7 @@ Class {
 		'Gaps',
 		'Through'
 	],
-	#category : 'Sparta-Skia-External'
+	#category : #'Sparta-Skia-External'
 }
 
 { #category : #'accessing enum' }

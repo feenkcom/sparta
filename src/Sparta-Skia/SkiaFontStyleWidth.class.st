@@ -15,7 +15,7 @@ Class {
 	#classInstVars : [
 		'Widths'
 	],
-	#category : 'Sparta-Skia-External'
+	#category : #'Sparta-Skia-External'
 }
 
 { #category : #'accessing enum' }

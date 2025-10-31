@@ -3,7 +3,7 @@ Class {
 	#superclass : #Object,
 	#traits : 'TSpartaFilter',
 	#classTraits : 'TSpartaFilter classTrait',
-	#category : 'Sparta-Skia-Filters'
+	#category : #'Sparta-Skia-Filters'
 }
 
 { #category : #converting }

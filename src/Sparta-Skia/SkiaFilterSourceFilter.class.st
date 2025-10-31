@@ -4,7 +4,7 @@ Class {
 	#instVars : [
 		'filter'
 	],
-	#category : 'Sparta-Skia-Filters'
+	#category : #'Sparta-Skia-Filters'
 }
 
 { #category : #accessing }

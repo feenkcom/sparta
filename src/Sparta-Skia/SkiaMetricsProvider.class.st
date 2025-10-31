@@ -4,7 +4,7 @@ Class {
 	#instVars : [
 		'font'
 	],
-	#category : 'Sparta-Skia-Text'
+	#category : #'Sparta-Skia-Text'
 }
 
 { #category : #accessing }

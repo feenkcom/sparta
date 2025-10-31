@@ -9,7 +9,7 @@ Class {
 	#classVars : [
 		'isEnabled'
 	],
-	#category : 'Sparta-Skia-Telemetry'
+	#category : #'Sparta-Skia-Telemetry'
 }
 
 { #category : #'api - signal' }

@@ -32,7 +32,7 @@ Class {
 		'SrcOver',
 		'Xor'
 	],
-	#category : 'Sparta-Skia-External'
+	#category : #'Sparta-Skia-External'
 }
 
 { #category : #'accessing enum' }

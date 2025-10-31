@@ -39,6 +39,43 @@ SkiaFont class >> typeface: aSkiaTypeface size: aSize [
 	^ self fromNativeHandle: (self primNewTypeface: aSkiaTypeface size: aSize)
 ]
 
+{ #category : #'gt-extension' }
+SkiaFont >> asPreviewElementFor: aString [
+	| theMeasuredLines aSkiaCanvas aFont aMaxWidth aMaxHeight aBaseline |
+	aSkiaCanvas := SkiaCanvas extent: 1 @ 1.
+
+	aFont := self.
+	theMeasuredLines := aString lines
+			collect: [ :eachLine | 
+				eachLine
+					-> (aSkiaCanvas text
+							font: aFont;
+							string: eachLine;
+							measure) ].
+
+	aMaxWidth := theMeasuredLines
+			max: [ :eachMeasuredLine | eachMeasuredLine value textMetrics width ].
+	aMaxHeight := theMeasuredLines
+			sum: [ :eachMeasuredLine | eachMeasuredLine value fontMetrics lineSpacing ].
+	aSkiaCanvas release.
+
+	aSkiaCanvas := SkiaCanvas extent: aMaxWidth @ aMaxHeight + 40.
+
+	aBaseline := theMeasuredLines first value fontMetrics ascent negated + 20.
+	theMeasuredLines
+		do: [ :eachMeasuredLine | 
+			aSkiaCanvas text
+				font: aFont;
+				string: eachMeasuredLine key;
+				baseline: ((aSkiaCanvas width - eachMeasuredLine value textMetrics width) / 2.0)
+						@ aBaseline;
+				paint: Color black;
+				draw.
+
+			aBaseline := aBaseline + eachMeasuredLine value fontMetrics lineSpacing ].
+	^ aSkiaCanvas asForm asElement
+]
+
 { #category : #accessing }
 SkiaFont >> edging [
 	<return: #SkiaFontEdging>
@@ -101,47 +138,16 @@ SkiaFont >> gtInfoFor: aView [
 { #category : #'gt-extension' }
 SkiaFont >> gtPreviewFor: aView [
 	<gtView>
-
 	^ aView explicit
 		title: 'Preview';
 		priority: 1;
-		stencil: [
-			| aSkiaCanvas aString aFont theMeasuredLines aMaxWidth aMaxHeight aBaseline |
-			
-			aSkiaCanvas := SkiaCanvas extent: 1@1.
-			
-			aFont := self.
-
+		stencil: [ | aString |
 			aString := 'ABCDEFGHIJKLM
 NOPQRSTUVWXYZ
 abcdefghijklm
 nopqrstuvwxyz
 1234567890'.
-
-			theMeasuredLines := aString lines collect: [ :eachLine |
-				eachLine -> (aSkiaCanvas text
-					font: aFont;
-					string: eachLine;
-					measure) ].
-			
-			aMaxWidth := theMeasuredLines max: [ :eachMeasuredLine | eachMeasuredLine value textMetrics width ].
-			aMaxHeight := theMeasuredLines sum: [ :eachMeasuredLine | eachMeasuredLine value fontMetrics lineSpacing ].
-			aSkiaCanvas release.
-				
-			aSkiaCanvas := SkiaCanvas extent: (aMaxWidth @ aMaxHeight) + 40.
-			
-			aBaseline := theMeasuredLines first value fontMetrics ascent negated + 20.
-			theMeasuredLines do: [ :eachMeasuredLine |
-				
-				aSkiaCanvas text
-					font: aFont;
-					string: eachMeasuredLine key;
-					baseline: ((aSkiaCanvas width - eachMeasuredLine value textMetrics width) / 2.0) @ aBaseline;
-					paint: Color black;
-					draw.
-				
-				aBaseline := aBaseline +  eachMeasuredLine value fontMetrics lineSpacing ].
-			aSkiaCanvas asForm asElement ]
+			self asPreviewElementFor: aString ]
 ]
 
 { #category : #'gt-extension' }

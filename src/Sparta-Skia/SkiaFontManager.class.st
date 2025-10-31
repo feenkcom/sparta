@@ -53,10 +53,13 @@ SkiaFontManager >> familyNames [
 SkiaFontManager >> gtFamilyNamesFor: aView [
 	<gtView>
 	
-	^ aView list
+	^ aView columnedList
 		title: 'Families';
 		priority: 10;
-		items: [ self familyNames ];
+		items: [ self familyNames sorted ];
+		column: 'Font name' text: #yourself;
+		column: 'Preview' text: [ :each | each asRopedText fontName: each ];
+		column: 'Styles' text: [:each | (self matchFamilyName: each) fontStylesWithNames size ] width: 100;
 		send: [ :aFamilyName | self matchFamilyName: aFamilyName ]
 ]
 

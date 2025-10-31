@@ -4,7 +4,7 @@ Class {
 	#instVars : [
 		'offset'
 	],
-	#category : 'Sparta-Skia-Builders'
+	#category : #'Sparta-Skia-Builders'
 }
 
 { #category : #testing }

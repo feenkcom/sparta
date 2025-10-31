@@ -7,7 +7,7 @@ Class {
 		'Medium',
 		'None'
 	],
-	#category : 'Sparta-Skia-External'
+	#category : #'Sparta-Skia-External'
 }
 
 { #category : #'accessing enum' }

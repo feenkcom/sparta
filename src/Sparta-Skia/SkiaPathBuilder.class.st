@@ -7,7 +7,7 @@ Class {
 		'path',
 		'isAbsolute'
 	],
-	#category : 'Sparta-Skia-Builders'
+	#category : #'Sparta-Skia-Builders'
 }
 
 { #category : #'instance creation' }

@@ -24,7 +24,7 @@ Class {
 		'RGBAF32',
 		'Unknown'
 	],
-	#category : 'Sparta-Skia-External'
+	#category : #'Sparta-Skia-External'
 }
 
 { #category : #'accessing enum' }

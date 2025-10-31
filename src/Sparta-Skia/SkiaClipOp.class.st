@@ -5,7 +5,7 @@ Class {
 		'Difference',
 		'Intersect'
 	],
-	#category : 'Sparta-Skia-External'
+	#category : #'Sparta-Skia-External'
 }
 
 { #category : #'accessing enum' }

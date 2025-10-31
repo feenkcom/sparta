@@ -1,7 +1,7 @@
 Class {
 	#name : #SkiaConicalGradientShader,
 	#superclass : #SkiaGradientShader,
-	#category : 'Sparta-Skia-External'
+	#category : #'Sparta-Skia-External'
 }
 
 { #category : #'private - ffi' }

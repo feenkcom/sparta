@@ -5,5 +5,5 @@ Class {
 		'session',
 		'fonts'
 	],
-	#category : 'Sparta-Skia-External'
+	#category : #'Sparta-Skia-External'
 }

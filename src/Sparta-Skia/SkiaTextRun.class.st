@@ -9,7 +9,7 @@ Class {
 		'advance',
 		'font'
 	],
-	#category : 'Sparta-Skia-Text'
+	#category : #'Sparta-Skia-Text'
 }
 
 { #category : #'instance creation' }

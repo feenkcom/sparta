@@ -4,7 +4,7 @@ Class {
 	#instVars : [
 		'interestingSignals'
 	],
-	#category : 'Sparta-Skia-Telemetry'
+	#category : #'Sparta-Skia-Telemetry'
 }
 
 { #category : #'instance creation' }

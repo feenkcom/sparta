@@ -1,7 +1,7 @@
 Class {
 	#name : #SkiaRectangleF32,
 	#superclass : #SkiaRectangle,
-	#category : 'Sparta-Skia-External'
+	#category : #'Sparta-Skia-External'
 }
 
 { #category : #'private - ffi' }

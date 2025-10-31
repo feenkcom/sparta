@@ -8,7 +8,7 @@ Class {
 		'transformation',
 		'tileMode'
 	],
-	#category : 'Sparta-Skia-Paints'
+	#category : #'Sparta-Skia-Paints'
 }
 
 { #category : #converting }

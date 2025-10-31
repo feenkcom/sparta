@@ -6,7 +6,7 @@ Class {
 		'AntiAlias',
 		'SubpixelAntiAlias'
 	],
-	#category : 'Sparta-Skia-External'
+	#category : #'Sparta-Skia-External'
 }
 
 { #category : #'accessing enum' }

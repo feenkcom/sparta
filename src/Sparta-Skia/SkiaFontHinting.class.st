@@ -7,7 +7,7 @@ Class {
 		'Normal',
 		'Slight'
 	],
-	#category : 'Sparta-Skia-External'
+	#category : #'Sparta-Skia-External'
 }
 
 { #category : #'accessing enum' }
