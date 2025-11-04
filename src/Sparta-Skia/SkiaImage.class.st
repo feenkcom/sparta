@@ -143,17 +143,17 @@ SkiaImage class >> fromRGBA: aData extent: anExtent stride: aStride [
 { #category : #'private - ffi' }
 SkiaImage class >> primFromBuffer: aGtBoxerArrayU8 start: startInteger end: endInteger [
 
-	^ self ffiCall: #(void* skia_image_from_buffer(GtBoxerArrayU8 aGtBoxerArrayU8, size_t startInteger, size_t endInteger))
+	^ self ffiBareCall: #(void* skia_image_from_buffer(GtBoxerArrayU8 aGtBoxerArrayU8, size_t startInteger, size_t endInteger))
 ]
 
 { #category : #'private - ffi' }
 SkiaImage class >> primFromFile: aGtBoxerString [
-	^ self ffiCall: #(void* skia_image_from_file(GtBoxerString aGtBoxerString))
+	^ self ffiBareCall: #(void* skia_image_from_file(GtBoxerString aGtBoxerString))
 ]
 
 { #category : #'private - ffi' }
 SkiaImage class >> primFromPixels: aGtBoxerArrayU8 width: aWidth height: aHeight rowBytes: anAmountOfBytesPerRow colorType: aColorType [
-	^ self ffiCall: #(void* skia_image_from_pixels(
+	^ self ffiBareCall: #(void* skia_image_from_pixels(
 		GtBoxerArrayU8 aGtBoxerArrayU8,
 		int32 aWidth,
 		int32 aHeight,
@@ -165,7 +165,7 @@ SkiaImage class >> primFromPixels: aGtBoxerArrayU8 width: aWidth height: aHeight
 SkiaImage class >> primRelease: aHandle [
 	
 	"Plain pointers must be deleted using delete(), all users must implement a specific method"
-	self ffiCall: #(void skia_image_drop(void* aHandle))
+	self ffiBareCall: #(void skia_image_drop(void* aHandle))
 ]
 
 { #category : #converting }
