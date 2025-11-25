@@ -11,6 +11,11 @@ SkiaParagraph class >> primRelease: aHandle [
 	self ffiCall: #(void skia_paragraph_drop(void* aHandle))
 ]
 
+{ #category : #'private -ffi' }
+SkiaParagraph class >> smokeTest: aParagraphStyle [
+	^ self ffiCall: #(void paragraph_smoke(void* aParagraphStyle))
+]
+
 { #category : #'api - paragraph' }
 SkiaParagraph >> charCount [
 	<return: #Number>
