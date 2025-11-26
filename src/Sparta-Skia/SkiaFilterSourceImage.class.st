@@ -4,7 +4,7 @@ Class {
 	#instVars : [
 		'image'
 	],
-	#category : 'Sparta-Skia-Filters'
+	#category : #'Sparta-Skia-Filters'
 }
 
 { #category : #accessing }

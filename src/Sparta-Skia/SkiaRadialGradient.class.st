@@ -7,7 +7,7 @@ Class {
 		'center',
 		'radius'
 	],
-	#category : 'Sparta-Skia-Paints'
+	#category : #'Sparta-Skia-Paints'
 }
 
 { #category : #converting }

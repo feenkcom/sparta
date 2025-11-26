@@ -1,7 +1,7 @@
 Class {
 	#name : #SkiaLayerBuilder,
 	#superclass : #SpartaLayerBuilder,
-	#category : 'Sparta-Skia-Builders'
+	#category : #'Sparta-Skia-Builders'
 }
 
 { #category : #'api - layer' }

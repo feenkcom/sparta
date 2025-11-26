@@ -1,7 +1,7 @@
 Class {
 	#name : #SkiaImageFilterBlur,
 	#superclass : #SkiaImageFilter,
-	#category : 'Sparta-Skia-External'
+	#category : #'Sparta-Skia-External'
 }
 
 { #category : #'private - ffi' }

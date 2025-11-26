@@ -1,7 +1,7 @@
 Class {
 	#name : #SkiaShader,
 	#superclass : #SkiaExternalObject,
-	#category : 'Sparta-Skia-External'
+	#category : #'Sparta-Skia-External'
 }
 
 { #category : #'private - ffi' }

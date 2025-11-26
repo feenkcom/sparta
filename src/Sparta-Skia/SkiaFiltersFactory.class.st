@@ -1,7 +1,7 @@
 Class {
 	#name : #SkiaFiltersFactory,
 	#superclass : #SpartaFiltersFactory,
-	#category : 'Sparta-Skia-Builders'
+	#category : #'Sparta-Skia-Builders'
 }
 
 { #category : #accessing }

@@ -14,7 +14,7 @@ Class {
 	#classInstVars : [
 		'default'
 	],
-	#category : 'Sparta-Skia-Core'
+	#category : #'Sparta-Skia-Core'
 }
 
 { #category : #accessing }

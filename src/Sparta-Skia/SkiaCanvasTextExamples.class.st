@@ -3,7 +3,7 @@ Class {
 	#superclass : #Object,
 	#traits : 'TSpartaTextExamples',
 	#classTraits : 'TSpartaTextExamples classTrait',
-	#category : 'Sparta-Skia-Examples'
+	#category : #'Sparta-Skia-Examples'
 }
 
 { #category : #accessing }

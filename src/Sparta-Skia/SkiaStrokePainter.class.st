@@ -1,7 +1,7 @@
 Class {
 	#name : #SkiaStrokePainter,
 	#superclass : #SpartaStrokePainter,
-	#category : 'Sparta-Skia-Builders'
+	#category : #'Sparta-Skia-Builders'
 }
 
 { #category : #'private - drawing' }

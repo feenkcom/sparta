@@ -7,7 +7,7 @@ Class {
 		'InverseWinding',
 		'Winding'
 	],
-	#category : 'Sparta-Skia-External'
+	#category : #'Sparta-Skia-External'
 }
 
 { #category : #'accessing enum' }

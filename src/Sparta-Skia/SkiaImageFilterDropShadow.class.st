@@ -1,7 +1,7 @@
 Class {
 	#name : #SkiaImageFilterDropShadow,
 	#superclass : #SkiaImageFilter,
-	#category : 'Sparta-Skia-External'
+	#category : #'Sparta-Skia-External'
 }
 
 { #category : #'instance creation' }

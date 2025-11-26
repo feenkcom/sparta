@@ -1,7 +1,7 @@
 Class {
 	#name : #SkiaRadialGradientShader,
 	#superclass : #SkiaGradientShader,
-	#category : 'Sparta-Skia-External'
+	#category : #'Sparta-Skia-External'
 }
 
 { #category : #'instance creation' }

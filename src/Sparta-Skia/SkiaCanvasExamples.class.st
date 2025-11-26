@@ -3,7 +3,7 @@ Class {
 	#superclass : #Object,
 	#traits : 'TSpartaExamples',
 	#classTraits : 'TSpartaExamples classTrait',
-	#category : 'Sparta-Skia-Examples'
+	#category : #'Sparta-Skia-Examples'
 }
 
 { #category : #'instance creation' }

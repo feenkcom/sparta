@@ -1,7 +1,7 @@
 Class {
 	#name : #SkiaExternalEnumerationExamples,
 	#superclass : #Object,
-	#category : 'Sparta-Skia-Examples'
+	#category : #'Sparta-Skia-Examples'
 }
 
 { #category : #examples }

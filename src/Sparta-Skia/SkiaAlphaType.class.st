@@ -7,7 +7,7 @@ Class {
 		'Unknown',
 		'Unpremul'
 	],
-	#category : 'Sparta-Skia-External'
+	#category : #'Sparta-Skia-External'
 }
 
 { #category : #'accessing enum' }

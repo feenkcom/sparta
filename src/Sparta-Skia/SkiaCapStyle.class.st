@@ -6,7 +6,7 @@ Class {
 		'Round',
 		'Square'
 	],
-	#category : 'Sparta-Skia-External'
+	#category : #'Sparta-Skia-External'
 }
 
 { #category : #'accessing enum' }

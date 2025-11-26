@@ -1,7 +1,7 @@
 Class {
 	#name : #SkiaShapeFactory,
 	#superclass : #SpartaShapeFactory,
-	#category : 'Sparta-Skia-Builders'
+	#category : #'Sparta-Skia-Builders'
 }
 
 { #category : #shapes }

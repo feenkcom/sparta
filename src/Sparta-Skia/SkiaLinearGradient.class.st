@@ -7,7 +7,7 @@ Class {
 		'begin',
 		'end'
 	],
-	#category : 'Sparta-Skia-Paints'
+	#category : #'Sparta-Skia-Paints'
 }
 
 { #category : #converting }

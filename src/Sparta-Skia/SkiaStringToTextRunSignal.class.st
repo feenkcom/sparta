@@ -1,5 +1,5 @@
 Class {
 	#name : #SkiaStringToTextRunSignal,
 	#superclass : #SkiaPerformanceSignal,
-	#category : 'Sparta-Skia-Telemetry'
+	#category : #'Sparta-Skia-Telemetry'
 }
