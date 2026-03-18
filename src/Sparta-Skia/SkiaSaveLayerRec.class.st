@@ -27,7 +27,7 @@ SkiaSaveLayerRec >> bounds: aRectangle [
 
 { #category : #accessing }
 SkiaSaveLayerRec >> paint: aSkiaPaint [
-	self primSetPaint: aSkiaPaint
+	self primSetPaint: aSkiaPaint transferOwnership
 ]
 
 { #category : #'private - ffi' }

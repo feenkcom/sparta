@@ -46,12 +46,12 @@ SkiaParagraphBuilder >> addPlaceholder: aSkiaParagraphPlaceholderStyle charLengt
 SkiaParagraphBuilder >> addString: aString [
 	self ffiLibrary
 		newString: aString
-		during: [ :aStringBox | self primAddText: aStringBox ]
+		during: [ :aStringBox | self primAddText: aStringBox transferOwnership ]
 ]
 
 { #category : #'api - builder' }
 SkiaParagraphBuilder >> build [
-	^ SkiaParagraph fromNativeHandle: self primBuild
+	^ SkiaParagraph fromNativeHandle: (self primBuild: self transferOwnership)
 ]
 
 { #category : #'api - builder' }
@@ -69,12 +69,12 @@ SkiaParagraphBuilder >> primAddPlaceholder: aSkiaParagraphPlaceholderStyle charL
 
 { #category : #'private - ffi' }
 SkiaParagraphBuilder >> primAddText: aGtBoxerString [
-	^ self ffiCall: #(void skia_paragraph_builder_add_text(self, GtBoxerString aGtBoxerString))
+	^ self ffiCall: #(void skia_paragraph_builder_add_text(self, void* aGtBoxerString))
 ]
 
 { #category : #'private - ffi' }
-SkiaParagraphBuilder >> primBuild [
-	^ self ffiCall: #(void* skia_paragraph_builder_build(self))
+SkiaParagraphBuilder >> primBuild: aHandle [
+	^ self ffiCall: #(void* skia_paragraph_builder_build(void* aHandle))
 ]
 
 { #category : #'private - ffi' }

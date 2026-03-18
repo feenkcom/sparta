@@ -48,12 +48,15 @@ SkiaSvgSurface >> end [
 	<return: #String>
 
 	^ self ffiLibrary
-		getStringFrom: [ :aBoxerString | self primEnd: aBoxerString ]
+		getStringFrom: [ :aBoxerString |
+			self
+				primEnd: self transferOwnership
+				withSvg: aBoxerString ]
 ]
 
 { #category : #'private - ffi' }
-SkiaSvgSurface >> primEnd: aStringBox [
-	^ self ffiCall: #(void* skia_svg_canvas_end(self, void* aStringBox))
+SkiaSvgSurface >> primEnd: aCanvas withSvg: aStringBox [
+	^ self ffiCall: #(void skia_svg_canvas_end(void* aCanvas, void* aStringBox))
 ]
 
 { #category : #'private - ffi' }
