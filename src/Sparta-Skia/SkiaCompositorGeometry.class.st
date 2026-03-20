@@ -23,14 +23,14 @@ SkiaCompositorGeometry class >> none [
 SkiaCompositorGeometry class >> path: aSkiaPath [
 	^ SkiaCompositorPath
 		fromSkiaPath: aSkiaPath
-		during: [ :aCompositorPath | self fromNativeHandle: (self primPath: aCompositorPath) ]
+		during: [ :aCompositorPath | self fromNativeHandle: (self primPath: aCompositorPath transferOwnership) ]
 ]
 
 { #category : #'instance creation' }
 SkiaCompositorGeometry class >> path: aSkiaPath during: aBlock [
 	^ SkiaCompositorPath
 		fromSkiaPath: aSkiaPath
-		during: [ :aCompositorPath | self fromNativeHandle: (self primPath: aCompositorPath) during: aBlock ]
+		during: [ :aCompositorPath | self fromNativeHandle: (self primPath: aCompositorPath transferOwnership) during: aBlock ]
 ]
 
 { #category : #'private - ffi' }

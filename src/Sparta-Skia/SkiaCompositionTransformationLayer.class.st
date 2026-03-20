@@ -8,7 +8,7 @@ Class {
 SkiaCompositionTransformationLayer class >> matrix: aSpartaMatrix [
 	^ SkiaCompositorMatrix
 		matrix: aSpartaMatrix
-		during: [ :aSkiaCompositorMatrix | self fromNativeHandle: (self primCreateMatrix: aSkiaCompositorMatrix) ]
+		during: [ :aSkiaCompositorMatrix | self fromNativeHandle: (self primCreateMatrix: aSkiaCompositorMatrix transferOwnership) ]
 ]
 
 { #category : #'private - ffi' }

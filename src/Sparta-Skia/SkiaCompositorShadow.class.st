@@ -24,7 +24,7 @@ SkiaCompositorShadow class >> primColor: aColor radius: aRadiusPoint offset: anO
 		radiusY: aRadiusPoint y
 		offsetX: anOffsetPoint x
 		offsetY: anOffsetPoint y
-		geometry: aSkiaCompositorGeometry
+		geometry: aSkiaCompositorGeometry transferOwnership
 ]
 
 { #category : #'private - ffi' }

@@ -65,5 +65,5 @@ SkiaCompositionLayer >> withLayers: aCollectionOfLayers [
 
 	^ SkiaCompositorLayers newDuring: [ :theCompositorLayers |
 		aCollectionOfLayers do: [ :eachLayer | theCompositorLayers add: eachLayer ].
-		self class fromNativeHandle: (self primWithLayers: theCompositorLayers) ]
+		self class fromNativeHandle: (self primWithLayers: theCompositorLayers transferOwnership) ]
 ]

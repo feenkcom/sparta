@@ -11,5 +11,5 @@ SkiaCompositionShadowLayer class >> primNewShadow: aSkiaCompositorShadow [
 
 { #category : #'instance creation' }
 SkiaCompositionShadowLayer class >> shadow: aSkiaCompositorShadow [
-	^ self fromNativeHandle: (self primNewShadow: aSkiaCompositorShadow)
+	^ self fromNativeHandle: (self primNewShadow: aSkiaCompositorShadow transferOwnership)
 ]
