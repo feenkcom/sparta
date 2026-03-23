@@ -7,7 +7,7 @@ Class {
 { #category : #'instance creation' }
 SkiaCompositorLeftoverCommand class >> clip: aCompositorGeometry offset: anOffsetPoint during: aBlock [
 	^ self
-		fromNativeHandle: (self primNewClip: aCompositorGeometry offsetX: anOffsetPoint x offsetY: anOffsetPoint y)
+		fromNativeHandle: (self primNewClip: aCompositorGeometry transferOwnership offsetX: anOffsetPoint x offsetY: anOffsetPoint y)
 		during: aBlock
 ]
 
@@ -35,7 +35,7 @@ SkiaCompositorLeftoverCommand class >> transform: aSpartaMatrix offset: anOffset
 		during: [ :aCompositorMatrix |
 			self
 				fromNativeHandle: (self
-					primNewTransform: aCompositorMatrix
+					primNewTransform: aCompositorMatrix transferOwnership
 					offsetX: anOffsetPoint x
 					offsetY: anOffsetPoint y)
 				during: aBlock ]

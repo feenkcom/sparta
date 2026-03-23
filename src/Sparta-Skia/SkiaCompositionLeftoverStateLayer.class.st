@@ -9,7 +9,7 @@ Class {
 
 { #category : #accessing }
 SkiaCompositionLeftoverStateLayer class >> commands: theLeftoverCommands [
-	^ self fromNativeHandle: (self primCreate: theLeftoverCommands)
+	^ self fromNativeHandle: (self primCreate: theLeftoverCommands transferOwnership)
 ]
 
 { #category : #'private - ffi' }

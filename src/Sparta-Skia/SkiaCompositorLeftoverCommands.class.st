@@ -18,10 +18,10 @@ SkiaCompositorLeftoverCommands class >> primRelease: aHandle [
 
 { #category : #adding }
 SkiaCompositorLeftoverCommands >> add: aLeftoverCommand [
-	self primAdd: aLeftoverCommand
+	self primAddCommand: aLeftoverCommand transferOwnership
 ]
 
 { #category : #'private - ffi' }
-SkiaCompositorLeftoverCommands >> primAdd: aLeftoverCommand [
+SkiaCompositorLeftoverCommands >> primAddCommand: aLeftoverCommand [
 	self ffiCall: #(void compositor_leftover_commands_add(self, SkiaCompositorLeftoverCommand aLeftoverCommand))
 ]
