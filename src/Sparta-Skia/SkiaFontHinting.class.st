@@ -60,5 +60,5 @@ SkiaFontHinting class >> initialize [
 
 { #category : #'private - ffi' }
 SkiaFontHinting >> primRealName: aBoxerString [
-	^ self ffiCall: #(void skia_enums_font_hinting_to_string(self, GtBoxerString aBoxerString))
+	^ self ffiCall: #(void skia_enums_font_hinting_to_string(self, GtStringBox aBoxerString))
 ]

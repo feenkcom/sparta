@@ -24,7 +24,7 @@ SkiaTypeface class >> primCreate [
 
 { #category : #'private - ffi' }
 SkiaTypeface class >> primFromFamilyName: aGtBoxerString fontStyle: aSkiaFontStyle [
-	^ self ffiCall: #(void* skia_typeface_from_name(GtBoxerString aGtBoxerString, SkiaFontStyle aSkiaFontStyle))
+	^ self ffiCall: #(void* skia_typeface_from_name(GtStringBox aGtBoxerString, SkiaFontStyle aSkiaFontStyle))
 ]
 
 { #category : #'private - ffi' }
@@ -110,7 +110,7 @@ SkiaTypeface >> primClone [
 
 { #category : #'private - ffi' }
 SkiaTypeface >> primGetFamilyName: aGtBoxerString [
-	^ self ffiCall: #(void skia_typeface_get_family_name(self, GtBoxerString aGtBoxerString))
+	^ self ffiCall: #(void skia_typeface_get_family_name(self, GtStringBox aGtBoxerString))
 ]
 
 { #category : #'private - ffi' }

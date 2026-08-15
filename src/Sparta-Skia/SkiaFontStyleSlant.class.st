@@ -66,5 +66,5 @@ SkiaFontStyleSlant class >> initialize [
 
 { #category : #'private - ffi' }
 SkiaFontStyleSlant >> primRealName: aBoxerString [
-	^ self ffiCall: #(void skia_enums_font_style_slant_to_string(self, GtBoxerString aBoxerString))
+	^ self ffiCall: #(void skia_enums_font_style_slant_to_string(self, GtStringBox aBoxerString))
 ]

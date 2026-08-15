@@ -107,7 +107,7 @@ SkiaPixelSurface class >> primNewRaster32PremultipliedWidth: aWidth height: aHei
 SkiaPixelSurface class >> primNewRasterDirectImageInfo: aSkiaImageInfo pixels: thePixels stride: aStride [
 	^ self ffiCall: #(void* skia_surface_new_raster_direct(
 		SkiaImageInfo aSkiaImageInfo,
-		GtBoxerArrayU8 thePixels,
+		GtArrayBoxU8 thePixels,
 		size_t aStride))
 ]
 
@@ -168,7 +168,7 @@ SkiaPixelSurface >> colorType [
 
 { #category : #accessing }
 SkiaPixelSurface >> data [
-	<return: #GtBoxerArrayU8>
+	<return: #GtArrayBoxU8>
 	| anImageInfo anArray |
 
 	anImageInfo := self imageInfo.
@@ -272,7 +272,7 @@ SkiaPixelSurface >> primNewSimilar: aSkiaImageInfo [
 
 { #category : #'private - ffi' }
 SkiaPixelSurface >> primReadAllPixels: aBoxerArrayU8 [
-	^ self ffiCall: #(bool skia_surface_read_all_pixels(self, GtBoxerArrayU8 aBoxerArrayU8))
+	^ self ffiCall: #(bool skia_surface_read_all_pixels(self, GtArrayBoxU8 aBoxerArrayU8))
 ]
 
 { #category : #accessing }

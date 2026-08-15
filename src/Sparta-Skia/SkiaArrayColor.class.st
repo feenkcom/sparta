@@ -1,6 +1,6 @@
 Class {
 	#name : #SkiaArrayColor,
-	#superclass : #GtBoxerArray,
+	#superclass : #AnObsoleteGtBoxerArray,
 	#traits : 'TSkiaLibrary',
 	#classTraits : 'TSkiaLibrary classTrait',
 	#category : #'Sparta-Skia-External'

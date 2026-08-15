@@ -71,7 +71,7 @@ SkiaFontStyleSet >> primNewTypefaceAt: anIndex [
 
 { #category : #'private - ffi' }
 SkiaFontStyleSet >> primStyleName: aGtBoxerString at: anIndex [
-	^ self ffiCall: #(void skia_font_style_set_name_at(self, size_t anIndex, GtBoxerString aGtBoxerString))
+	^ self ffiCall: #(void skia_font_style_set_name_at(self, size_t anIndex, GtStringBox aGtBoxerString))
 ]
 
 { #category : #accessing }

@@ -23,5 +23,5 @@ SkiaDashPathEffect class >> pattern: anArrayOfFloats offset: aNumber during: aBl
 
 { #category : #'private - ffi' }
 SkiaDashPathEffect class >> primCreatePattern: aBoxerArrayF32 offset: anOffset [
-	^ self ffiCall: #(void* skia_path_effect_dash(GtBoxerArrayF32 aBoxerArrayF32, scalar anOffset))
+	^ self ffiCall: #(void* skia_path_effect_dash(GtArrayBoxF32 aBoxerArrayF32, scalar anOffset))
 ]

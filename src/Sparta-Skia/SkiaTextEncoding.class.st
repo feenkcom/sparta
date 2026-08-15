@@ -60,5 +60,5 @@ SkiaTextEncoding class >> initialize [
 
 { #category : #'private - ffi' }
 SkiaTextEncoding >> primRealName: aBoxerString [
-	^ self ffiCall: #(void skia_enums_text_encoding_to_string(self, GtBoxerString aBoxerString))
+	^ self ffiCall: #(void skia_enums_text_encoding_to_string(self, GtStringBox aBoxerString))
 ]

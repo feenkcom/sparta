@@ -44,5 +44,5 @@ SkiaParagraphRectWidthStyle class >> initialize [
 
 { #category : #'private - ffi' }
 SkiaParagraphRectWidthStyle >> primRealName: aBoxerString [
-	^ self ffiCall: #(void skia_enums_clip_op_to_string(self, GtBoxerString aBoxerString))
+	^ self ffiCall: #(void skia_enums_clip_op_to_string(self, GtStringBox aBoxerString))
 ]

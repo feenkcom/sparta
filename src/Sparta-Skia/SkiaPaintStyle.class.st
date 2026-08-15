@@ -52,5 +52,5 @@ SkiaPaintStyle class >> initialize [
 
 { #category : #'private - ffi' }
 SkiaPaintStyle >> primRealName: aBoxerString [
-	^ self ffiCall: #(void skia_enums_paint_style_to_string(self, GtBoxerString aBoxerString))
+	^ self ffiCall: #(void skia_enums_paint_style_to_string(self, GtStringBox aBoxerString))
 ]

@@ -60,5 +60,5 @@ SkiaFilterQuality class >> initialize [
 
 { #category : #'private - ffi' }
 SkiaFilterQuality >> primRealName: aBoxerString [
-	^ self ffiCall: #(void skia_enums_filter_quality_to_string(self, GtBoxerString aBoxerString))
+	^ self ffiCall: #(void skia_enums_filter_quality_to_string(self, GtStringBox aBoxerString))
 ]

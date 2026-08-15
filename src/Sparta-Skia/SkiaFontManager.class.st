@@ -119,21 +119,21 @@ SkiaFontManager >> primCountFamilies [
 
 { #category : #'private - ffi' }
 SkiaFontManager >> primGetFamilyName: aGtBoxerString at: anIndex [
-	^ self ffiCall: #(void skia_font_manager_get_family_name_at(self, GtBoxerString aGtBoxerString, size_t anIndex))
+	^ self ffiCall: #(void skia_font_manager_get_family_name_at(self, GtStringBox aGtBoxerString, size_t anIndex))
 ]
 
 { #category : #'private - ffi' }
 SkiaFontManager >> primMatchFamilyName: aGtBoxerString [
 	^ self ffiCall: #(void* skia_font_manager_match_family(
 		self,
-		GtBoxerString aGtBoxerString))
+		GtStringBox aGtBoxerString))
 ]
 
 { #category : #'private - ffi' }
 SkiaFontManager >> primMatchFamilyName: aGtBoxerString weight: aWeight width: aSkiaFontStyleWidth slant: aSkiaFontStyleSlant [
 	^ self ffiCall: #(void* skia_font_manager_match_family_style(
 		self,
-		GtBoxerString aGtBoxerString,
+		GtStringBox aGtBoxerString,
 		int32 aWeight,
 		SkiaFontStyleWidth aSkiaFontStyleWidth,
 		SkiaFontStyleSlant aSkiaFontStyleSlant))
@@ -141,5 +141,5 @@ SkiaFontManager >> primMatchFamilyName: aGtBoxerString weight: aWeight width: aS
 
 { #category : #'private - ffi' }
 SkiaFontManager >> primNewTypefaceFromData: aGtBoxerArrayU8 [
-	^ self ffiCall: #(void* skia_font_manager_new_typeface_from_data(self, GtBoxerArrayU8 aGtBoxerArrayU8))
+	^ self ffiCall: #(void* skia_font_manager_new_typeface_from_data(self, GtArrayBoxU8 aGtBoxerArrayU8))
 ]

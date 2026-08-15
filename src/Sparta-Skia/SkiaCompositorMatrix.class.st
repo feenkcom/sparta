@@ -24,7 +24,7 @@ SkiaCompositorMatrix class >> matrix: aSpartaMatrix during: aBlock [
 
 { #category : #'private - ffi' }
 SkiaCompositorMatrix class >> primNew: aGtBoxerArrayF32 [
-	^ self ffiCall: #(void* compositor_matrix_new(GtBoxerArrayF32 aGtBoxerArrayF32))
+	^ self ffiCall: #(void* compositor_matrix_new(GtArrayBoxF32 aGtBoxerArrayF32))
 ]
 
 { #category : #'private - ffi' }

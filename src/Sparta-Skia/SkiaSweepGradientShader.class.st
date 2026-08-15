@@ -23,11 +23,11 @@ SkiaSweepGradientShader class >> center: aCenterPoint startAngle: aStartAngle en
 { #category : #'private - ffi' }
 SkiaSweepGradientShader class >> primCreateAt: aCenter startAngle: aStartAngle endAngle: anEndAngle colors: theColors positions: thePositions mode: aTileMode flags: theBitFlags matrix: anOptionalMatrix [
 	^ self ffiCall: #(void* skia_gradient_sweep_create(
-		GtBoxerPointF32 aCenter,
+		GtPointBoxF32 aCenter,
 		scalar aStartAngle,
 		scalar anEndAngle,
 		SkiaArrayColor theColors,
-		GtBoxerArrayF32 thePositions,
+		GtArrayBoxF32 thePositions,
 		SkiaTileMode aTileMode,
 		uint32 theBitFlags,
 		SkiaMatrix anOptionalMatrix

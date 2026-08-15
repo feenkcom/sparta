@@ -230,12 +230,12 @@ SkiaPath >> primGetFillType [
 
 { #category : #'private - ffi' }
 SkiaPath >> primGetLastPoint: aGtBoxerPoint [
-	^ self ffiCall: #(bool skia_path_get_last_point(self, GtBoxerPointF32 aGtBoxerPoint))
+	^ self ffiCall: #(bool skia_path_get_last_point(self, GtPointBoxF32 aGtBoxerPoint))
 ]
 
 { #category : #'private - ffi' }
 SkiaPath >> primGetPoints: aBoxerArrayPointF32 [
-	^ self ffiCall: #(size_t skia_path_get_points(self, GtBoxerArrayPointF32 aBoxerArrayPointF32))
+	^ self ffiCall: #(size_t skia_path_get_points(self, void* aBoxerArrayPointF32))
 ]
 
 { #category : #'private - ffi' }
@@ -268,7 +268,7 @@ SkiaPath >> primQuadToX: aX Y: aY viaX: aViaX Y: aViaY absolute: isAbsolute [
 
 { #category : #'private - ffi' }
 SkiaPath >> primSerialize: aBoxerArrayU8 [
-	^ self ffiCall: #(void skia_path_serialize(self, GtBoxerArrayU8 aBoxerArrayU8))
+	^ self ffiCall: #(void skia_path_serialize(self, GtArrayBoxU8 aBoxerArrayU8))
 ]
 
 { #category : #'private - ffi' }

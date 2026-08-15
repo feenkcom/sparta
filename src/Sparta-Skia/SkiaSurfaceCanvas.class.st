@@ -1,6 +1,6 @@
 Class {
 	#name : #SkiaSurfaceCanvas,
-	#superclass : #GtBoxerReferenceBox,
+	#superclass : #AnObsoleteGtBoxerReferenceBox,
 	#traits : 'TSkiaLibrary',
 	#classTraits : 'TSkiaLibrary classTrait',
 	#instVars : [
@@ -307,19 +307,6 @@ SkiaSurfaceCanvas >> drawRoundedRectangle: aSpartaRoundedRectangle paint: aSkiaP
 ]
 
 { #category : #'api - drawing' }
-SkiaSurfaceCanvas >> drawShadowPath: aSkiaPath zPlane: aZPlane lightPos: aLightPos lightRadius: aRadius ambientColor: anAmbientColor spotColor: aSpotColor flags: theFlagBits [
-
-	self
-		primDrawShadowPath: aSkiaPath
-		zPlane: aZPlane
-		lightPos: aLightPos
-		lightRadius: aRadius
-		ambientColor: (SkiaColor fromColor: anAmbientColor)
-		spotColor: (SkiaColor fromColor: aSpotColor)
-		flags: theFlagBits
-]
-
-{ #category : #'api - drawing' }
 SkiaSurfaceCanvas >> drawSvg: anSvgDom at: aPoint [
 	self
 		primRenderSvg: anSvgDom
@@ -523,18 +510,6 @@ SkiaSurfaceCanvas >> primDrawRoundedRectangleLeft: aLeft top: aTop right: aRight
 		scalar aLeft, scalar aTop, scalar aRight, scalar aBottom,
 		scalar aTopLeftRadius, scalar aTopRightRadius, scalar aBottomRightRadius, scalar aBottomLeftRadius,
 		SkiaPaint aSkiaPaint))
-]
-
-{ #category : #'private - ffi' }
-SkiaSurfaceCanvas >> primDrawShadowPath: aSkiaPath zPlane: aZPlane lightPos: aLightPos lightRadius: aRadius ambientColor: anAmbientColor spotColor: aSpotColor flags: theFlagBits [
-	^ self ffiCall: #(void skia_canvas_draw_shadow(self,
-		SkiaPath aSkiaPath,
-		GtBoxerPoint3F32 aZPlane,
-		GtBoxerPoint3F32 aLightPos,
-		scalar aRadius,
-		SkiaColor anAmbientColor,
-		SkiaColor aSpotColor,
-		uint32 theFlagBits))
 ]
 
 { #category : #'private - ffi' }

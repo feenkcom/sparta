@@ -143,18 +143,18 @@ SkiaImage class >> fromRGBA: aData extent: anExtent stride: aStride [
 { #category : #'private - ffi' }
 SkiaImage class >> primFromBuffer: aGtBoxerArrayU8 start: startInteger end: endInteger [
 
-	^ self ffiBareCall: #(void* skia_image_from_buffer(GtBoxerArrayU8 aGtBoxerArrayU8, size_t startInteger, size_t endInteger))
+	^ self ffiBareCall: #(void* skia_image_from_buffer(GtArrayBoxU8 aGtBoxerArrayU8, size_t startInteger, size_t endInteger))
 ]
 
 { #category : #'private - ffi' }
 SkiaImage class >> primFromFile: aGtBoxerString [
-	^ self ffiBareCall: #(void* skia_image_from_file(GtBoxerString aGtBoxerString))
+	^ self ffiBareCall: #(void* skia_image_from_file(GtStringBox aGtBoxerString))
 ]
 
 { #category : #'private - ffi' }
 SkiaImage class >> primFromPixels: aGtBoxerArrayU8 width: aWidth height: aHeight rowBytes: anAmountOfBytesPerRow colorType: aColorType [
 	^ self ffiBareCall: #(void* skia_image_from_pixels(
-		GtBoxerArrayU8 aGtBoxerArrayU8,
+		GtArrayBoxU8 aGtBoxerArrayU8,
 		int32 aWidth,
 		int32 aHeight,
 		size_t anAmountOfBytesPerRow,
@@ -201,7 +201,7 @@ SkiaImage >> backendTextureOrigin [
 
 { #category : #accessing }
 SkiaImage >> data [
-	<return: #GtBoxerArrayU8>
+	<return: #GtArrayBoxU8>
 	| anImageInfo anArray |
 	
 	anImageInfo := self imageInfo.
@@ -360,13 +360,13 @@ SkiaImage >> primIsTextureBackend [
 
 { #category : #'private - ffi' }
 SkiaImage >> primReadAllPixels: aBoxerArrayU8 [
-	^ self ffiCall: #(bool skia_image_read_all_pixels(self, GtBoxerArrayU8 aBoxerArrayU8))
+	^ self ffiCall: #(bool skia_image_read_all_pixels(self, GtArrayBoxU8 aBoxerArrayU8))
 ]
 
 { #category : #'private - ffi' }
 SkiaImage >> primSaveFile: fileName format: format quality: aNumber [
 
-	^ self ffiCall: #(int32 skia_image_to_file(self, GtBoxerString fileName,
+	^ self ffiCall: #(int32 skia_image_to_file(self, GtStringBox fileName,
 				SkiaEncodedImageFormat format, uint32 aNumber))
 ]
 

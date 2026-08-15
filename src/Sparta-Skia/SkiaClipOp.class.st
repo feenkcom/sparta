@@ -44,5 +44,5 @@ SkiaClipOp class >> initialize [
 
 { #category : #'private - ffi' }
 SkiaClipOp >> primRealName: aBoxerString [
-	^ self ffiCall: #(void skia_enums_clip_op_to_string(self, GtBoxerString aBoxerString))
+	^ self ffiCall: #(void skia_enums_clip_op_to_string(self, GtStringBox aBoxerString))
 ]
