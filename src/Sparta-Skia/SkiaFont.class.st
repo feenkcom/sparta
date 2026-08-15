@@ -395,19 +395,16 @@ SkiaFont >> stringToTextRun: aString paint: aSkiaPaint [
 			self ffiLibrary
 				newString: aString
 				during: [ :aStringBox |
-					SkiaStringToTextRunComputeGlyphsSignal timeDuring: [
-						aWidth := self
+					aWidth := self
 							primText: aStringBox
 							toGlyphs: anArrayU16
 							encoding: SkiaTextEncoding UTF8
 							paint: aSkiaPaint
-							bounds: aSkiaRectangle ] ].
+							bounds: aSkiaRectangle ].
 				
-			SkiaStringToTextRunBoundsAsRectangleSignal timeDuring: [
-				aBounds := aSkiaRectangle asRectangle ].
-			
-			SkiaStringToTextRunGlyphsAsByteArraySignal timeDuring: [
-				theGlyphs := anArrayU16 asByteArray ].			
+			aBounds := aSkiaRectangle asRectangle.
+
+			theGlyphs := anArrayU16 asByteArray.			
 
 			SkiaTextRun new
 				font: self;
