@@ -12,9 +12,7 @@ BaselineOfSpartaSkia >> baseline: spec [
 			baseline: 'SpartaCore' with: [
 				spec repository: 'github://feenkcom/Sparta:main/src' ];
 			baseline: 'GToolkitBoxer' with: [
-				spec repository: 'github://feenkcom/gtoolkit-boxer:main/boxer-bindings' ];
-			baseline: 'GToolkitExamplesEngine' with: [
-				spec repository: 'github://feenkcom/gtoolkit-examples:main/src' ].
+				spec repository: 'github://feenkcom/gtoolkit-boxer:main/boxer-bindings' ].
 		spec package: 'Sparta-Skia' with: [
-				spec requires: #('SpartaCore' 'GToolkitBoxer' 'GToolkitExamplesEngine' ). ]. ].
+				spec requires: #('SpartaCore' 'GToolkitBoxer'). ]. ].
 ]
