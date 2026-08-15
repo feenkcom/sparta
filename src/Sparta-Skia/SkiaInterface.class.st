@@ -6,7 +6,7 @@ Class {
 
 { #category : #'instance creation' }
 SkiaInterface class >> load: aBlock [
-	^ self fromNativeHandle: (self primLoadWith: (self primLoaderCallbackFor: aBlock))
+	^ self shouldNotImplement
 ]
 
 { #category : #'instance creation' }
@@ -19,24 +19,6 @@ SkiaInterface class >> native [
 { #category : #'private - ffi' }
 SkiaInterface class >> primCreate [
 	^ self ffiCall: #(void* skia_interface_new_native())
-]
-
-{ #category : #'private - ffi' }
-SkiaInterface class >> primLoadWith: aCallback [
-	^ self ffiCall: #(void* skia_interface_new_load_with(SkiaInterfaceLoadCallback aCallback))
-]
-
-{ #category : #'private - ffi' }
-SkiaInterface class >> primLoaderCallbackFor: aBlock [
-	| aCallback |
-	
-	aCallback := SkiaInterfaceLoadCallback on: [ :aStringBoxHandle |
-		"Rust owns aGtBoxerStringHandle, we should not take ownership"
-		self ffiLibrary
-			unsafeStringFromHandle: aStringBoxHandle
-			during: [ :aStringBox | aBlock value: aStringBox string ] ].
-
-	^ aCallback
 ]
 
 { #category : #'private - ffi' }
