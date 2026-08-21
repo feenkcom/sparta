@@ -60,5 +60,5 @@ SkiaPathFillType class >> initialize [
 
 { #category : #'private - ffi' }
 SkiaPathFillType >> primRealName: aBoxerString [
-	^ self ffiCall: #(void skia_enums_path_fill_type_to_string(self, GtBoxerString aBoxerString))
+	^ self ffiCall: #(void skia_enums_path_fill_type_to_string(self, GtStringBox aBoxerString))
 ]

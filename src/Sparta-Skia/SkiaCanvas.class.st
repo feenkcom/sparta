@@ -345,7 +345,7 @@ SkiaCanvas >> fontFaceBuilder [
 SkiaCanvas >> initializeWith: aSkiaSurface [
 	skiaSurface := aSkiaSurface.
 	skiaSurfaceCanvas := skiaSurface canvas.
-	session := Smalltalk session
+	session := SessionManager default currentSession
 ]
 
 { #category : #testing }
@@ -354,7 +354,7 @@ SkiaCanvas >> isValid [
 	and is actually valid that is determined by a backend"
 	<return: #Boolean>
 
-	^ session == Smalltalk session
+	^ session == SessionManager default currentSession
 		and: [ skiaSurface isNull not
 			and: [ skiaSurfaceCanvas isNull not ] ]
 ]

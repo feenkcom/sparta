@@ -124,5 +124,5 @@ SkiaEncodedImageFormat class >> initialize [
 
 { #category : #'private - ffi' }
 SkiaEncodedImageFormat >> primRealName: aBoxerString [
-	^ self ffiCall: #(void skia_enums_encoded_image_format_to_string(self, GtBoxerString aBoxerString))
+	^ self ffiCall: #(void skia_enums_encoded_image_format_to_string(self, GtStringBox aBoxerString))
 ]

@@ -7,12 +7,12 @@ Class {
 { #category : #'private - ffi' }
 SkiaConicalGradientShader class >> primCreateStart: aStartPoint radius: aStartRadius end: anEndPoint radius: anEndRadius colors: theColors positions: thePositions mode: aTileMode flags: theBitFlags matrix: anOptionalMatrix [
 	^ self ffiCall: #(void* skia_gradient_two_point_conical_create(
-		GtBoxerPointF32 aStartPoint,
+		GtPointBoxF32 aStartPoint,
 		scalar aStartRadius,
-		GtBoxerPointF32 anEndPoint,
+		GtPointBoxF32 anEndPoint,
 		scalar anEndRadius,
 		SkiaArrayColor theColors,
-		GtBoxerArrayF32 thePositions,
+		GtArrayBoxF32 thePositions,
 		SkiaTileMode aTileMode,
 		uint32 theBitFlags,
 		SkiaMatrix anOptionalMatrix

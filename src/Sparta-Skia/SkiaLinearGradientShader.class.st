@@ -22,10 +22,10 @@ SkiaLinearGradientShader class >> from: aFromPoint to: aToPoint colors: theColor
 { #category : #'private - ffi' }
 SkiaLinearGradientShader class >> primCreateFrom: aFromPoint to: aToPoint colors: theColors positions: thePositions mode: aTileMode flags: theBitFlags matrix: anOptionalMatrix [
 	^ self ffiCall: #(void* skia_gradient_linear_create(
-		GtBoxerPointF32 aFromPoint,
-		GtBoxerPointF32 aToPoint,
+		GtPointBoxF32 aFromPoint,
+		GtPointBoxF32 aToPoint,
 		SkiaArrayColor theColors,
-		GtBoxerArrayF32 thePositions,
+		GtArrayBoxF32 thePositions,
 		SkiaTileMode aTileMode,
 		uint32 theBitFlags,
 		SkiaMatrix anOptionalMatrix

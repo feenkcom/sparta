@@ -75,9 +75,7 @@ SkiaExternalEnumeration class >> initialize [
 	self initializeEnumeration.
 	representationType := self externalType.
 	
-	Author
-		useAuthor: 'UFFI'
-		during: [ self rebuildEnumAccessors ]
+	self rebuildEnumAccessors
 ]
 
 { #category : #accessing }

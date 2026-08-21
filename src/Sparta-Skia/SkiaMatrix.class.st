@@ -52,7 +52,7 @@ SkiaMatrix >> asSpartaMatrix [
 
 { #category : #'private - ffi' }
 SkiaMatrix >> primGetAll: aBoxerArrayF32 [
-	self ffiCall: #(void skia_matrix_get_all(self, GtBoxerArrayF32 aBoxerArrayF32))
+	self ffiCall: #(void skia_matrix_get_all(self, GtArrayBoxF32 aBoxerArrayF32))
 ]
 
 { #category : #'private - ffi' }

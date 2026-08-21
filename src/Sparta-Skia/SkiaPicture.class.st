@@ -112,7 +112,7 @@ SkiaPicture >> primPlaybackOn: aCanvas [
 
 { #category : #'private - ffi' }
 SkiaPicture >> primSerialize: aBoxerArrayU8 [
-	^ self ffiCall: #(void skia_picture_serialize(self, GtBoxerArrayU8 aBoxerArrayU8))
+	^ self ffiCall: #(void skia_picture_serialize(self, GtArrayBoxU8 aBoxerArrayU8))
 ]
 
 { #category : #'private - ffi' }

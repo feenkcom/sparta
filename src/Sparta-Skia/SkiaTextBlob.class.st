@@ -37,7 +37,7 @@ SkiaTextBlob class >> primNewFromGlyphs: aByteArray length: anAmountOfU16Glyphs 
 { #category : #'private - ffi' }
 SkiaTextBlob class >> primNewFromText: aGtBoxerString encoding: aSkiaTextEncoding font: aSkiaFont [
 	^ self ffiCall: #(void* skia_text_blob_from_text(
-		GtBoxerString aGtBoxerString,
+		GtStringBox aGtBoxerString,
 		SkiaTextEncoding aSkiaTextEncoding,
 		SkiaFont aSkiaFont ))
 ]

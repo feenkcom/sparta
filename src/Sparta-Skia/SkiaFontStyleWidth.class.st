@@ -119,5 +119,5 @@ SkiaFontStyleWidth class >> initialize [
 
 { #category : #'private - ffi' }
 SkiaFontStyleWidth >> primRealName: aBoxerString [
-	^ self ffiCall: #(void skia_enums_font_style_width_to_string(self, GtBoxerString aBoxerString))
+	^ self ffiCall: #(void skia_enums_font_style_width_to_string(self, GtStringBox aBoxerString))
 ]

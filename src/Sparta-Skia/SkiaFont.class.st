@@ -321,7 +321,7 @@ SkiaFont >> primIsSubpixel [
 { #category : #'private - ffi' }
 SkiaFont >> primMeasureText: aGtBoxerString encoding: aSkiaTextEncoding paint: aSkiaPaint bounds: aSkiaRectangleF32 [
 	^ self ffiCall: #(scalar skia_font_measure_text(self,
-		GtBoxerString aGtBoxerString,
+		GtStringBox aGtBoxerString,
 		SkiaTextEncoding aSkiaTextEncoding,
 		SkiaPaint aSkiaPaint,
 		SkiaRectangleF32 aSkiaRectangleF32))
@@ -345,9 +345,9 @@ SkiaFont >> primSetSubpixel: aBoolean [
 { #category : #'private - ffi' }
 SkiaFont >> primText: aGtBoxerString toGlyphs: aGtBoxerArrayU16 encoding: aSkiaTextEncoding paint: aSkiaPaint bounds: aSkiaRectangleF32 [
 	^ self ffiCall: #(scalar skia_font_text_to_glyphs(self,
-		GtBoxerString aGtBoxerString,
+		GtStringBox aGtBoxerString,
 		SkiaTextEncoding aSkiaTextEncoding,
-		GtBoxerArrayU16 aGtBoxerArrayU16,
+		GtArrayBoxU16 aGtBoxerArrayU16,
 		SkiaPaint aSkiaPaint,
 		SkiaRectangleF32 aSkiaRectangleF32))
 ]
@@ -395,19 +395,16 @@ SkiaFont >> stringToTextRun: aString paint: aSkiaPaint [
 			self ffiLibrary
 				newString: aString
 				during: [ :aStringBox |
-					SkiaStringToTextRunComputeGlyphsSignal timeDuring: [
-						aWidth := self
+					aWidth := self
 							primText: aStringBox
 							toGlyphs: anArrayU16
 							encoding: SkiaTextEncoding UTF8
 							paint: aSkiaPaint
-							bounds: aSkiaRectangle ] ].
+							bounds: aSkiaRectangle ].
 				
-			SkiaStringToTextRunBoundsAsRectangleSignal timeDuring: [
-				aBounds := aSkiaRectangle asRectangle ].
-			
-			SkiaStringToTextRunGlyphsAsByteArraySignal timeDuring: [
-				theGlyphs := anArrayU16 asByteArray ].			
+			aBounds := aSkiaRectangle asRectangle.
+
+			theGlyphs := anArrayU16 asByteArray.			
 
 			SkiaTextRun new
 				font: self;

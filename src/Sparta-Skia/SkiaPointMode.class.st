@@ -52,5 +52,5 @@ SkiaPointMode class >> initialize [
 
 { #category : #'private - ffi' }
 SkiaPointMode >> primRealName: aBoxerString [
-	^ self ffiCall: #(void skia_enums_point_mode_to_string(self, GtBoxerString aBoxerString))
+	^ self ffiCall: #(void skia_enums_point_mode_to_string(self, GtStringBox aBoxerString))
 ]
