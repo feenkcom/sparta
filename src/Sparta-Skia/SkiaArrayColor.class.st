@@ -16,6 +16,13 @@ SkiaArrayColor class >> fromColors: aCollectionOfColors [
 	^ theSkiaColors
 ]
 
+{ #category : #'instance creation' }
+SkiaArrayColor class >> new: aSize withAll: aDefaultObject [
+	^ self
+		fromOwnedHandle: (self primCreateNew: aSize withAll: aDefaultObject)
+		library: self ffiLibrary
+]
+
 { #category : #'private - ffi' }
 SkiaArrayColor class >> primCreate [
 	^ self ffiCall: #(void* skia_color_array_default())
