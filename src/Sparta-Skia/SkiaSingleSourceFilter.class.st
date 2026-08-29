@@ -27,7 +27,7 @@ SkiaSingleSourceFilter >> drawOn: aSkiaFilterPainter canvasSource: aSkiaCanvasSo
 				
 				aSkiaFilterPainter canvas surfaceCanvas
 					drawImage: aSkiaImage
-					at: aSkiaFilterPainter destinationTopLeft
+					at: aSkiaFilterPainter sourceToDestinationOffset
 					paint: aSkiaPaint ] ] ]
 ]
 
@@ -40,7 +40,7 @@ SkiaSingleSourceFilter >> drawOn: aSkiaFilterPainter imageSource: aSkiaImageSour
 			
 			aSkiaFilterPainter canvas surfaceCanvas
 				drawImage: aSkiaImageSource image
-				at: aSkiaFilterPainter destinationTopLeft
+				at: aSkiaFilterPainter sourceToDestinationOffset
 				paint: aSkiaPaint ] ]
 ]
 
