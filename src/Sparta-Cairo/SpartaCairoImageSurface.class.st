@@ -1,7 +1,7 @@
 Class {
 	#name : #SpartaCairoImageSurface,
 	#superclass : #SpartaCairoSurface,
-	#category : 'Sparta-Cairo'
+	#category : #'Sparta-Cairo'
 }
 
 { #category : #'instance creation' }

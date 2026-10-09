@@ -6,7 +6,7 @@ Class {
 	#instVars : [
 		'stdDeviation'
 	],
-	#category : 'Sparta-Cairo-Filters'
+	#category : #'Sparta-Cairo-Filters'
 }
 
 { #category : #accessing }

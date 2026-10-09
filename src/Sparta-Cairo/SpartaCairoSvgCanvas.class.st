@@ -1,7 +1,7 @@
 Class {
 	#name : #SpartaCairoSvgCanvas,
 	#superclass : #SpartaCairoCanvas,
-	#category : 'Sparta-Cairo'
+	#category : #'Sparta-Cairo'
 }
 
 { #category : #'private - ffi' }

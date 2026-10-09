@@ -3,5 +3,5 @@ Class {
 	#superclass : #SpartaShapeFactory,
 	#traits : 'TSpartaCairoLibrary',
 	#classTraits : 'TSpartaCairoLibrary classTrait',
-	#category : 'Sparta-Cairo-Builders'
+	#category : #'Sparta-Cairo-Builders'
 }

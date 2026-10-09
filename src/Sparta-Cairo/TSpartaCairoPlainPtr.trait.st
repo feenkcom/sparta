@@ -1,6 +1,6 @@
 Trait {
 	#name : #TSpartaCairoPlainPtr,
-	#category : 'Sparta-Cairo-Library'
+	#category : #'Sparta-Cairo-Library'
 }
 
 { #category : #finalization }

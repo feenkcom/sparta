@@ -6,7 +6,7 @@ Class {
 		'CAIRO_LINE_CAP_ROUND',
 		'CAIRO_LINE_CAP_SQUARE'
 	],
-	#category : 'Sparta-Cairo-Enums'
+	#category : #'Sparta-Cairo-Enums'
 }
 
 { #category : #'accessing enum' }

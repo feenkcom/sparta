@@ -6,7 +6,7 @@ Class {
 		'CAIRO_HINT_METRICS_OFF',
 		'CAIRO_HINT_METRICS_ON'
 	],
-	#category : 'Sparta-Cairo-Enums'
+	#category : #'Sparta-Cairo-Enums'
 }
 
 { #category : #'accessing enum' }

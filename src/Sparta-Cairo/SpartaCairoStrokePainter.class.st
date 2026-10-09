@@ -3,7 +3,7 @@ Class {
 	#superclass : #SpartaStrokePainter,
 	#traits : 'TSpartaCairoLibrary + TSpartaCairoContext',
 	#classTraits : 'TSpartaCairoLibrary classTrait + TSpartaCairoContext classTrait',
-	#category : 'Sparta-Cairo-Builders'
+	#category : #'Sparta-Cairo-Builders'
 }
 
 { #category : #private }

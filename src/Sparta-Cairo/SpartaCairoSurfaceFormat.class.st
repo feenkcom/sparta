@@ -10,7 +10,7 @@ Class {
 		'CAIRO_FORMAT_RGB24',
 		'CAIRO_FORMAT_RGB30'
 	],
-	#category : 'Sparta-Cairo-Enums'
+	#category : #'Sparta-Cairo-Enums'
 }
 
 { #category : #'accessing enum' }

@@ -8,7 +8,7 @@ Class {
 		'samplingArea',
 		'surface'
 	],
-	#category : 'Sparta-Cairo-Paints'
+	#category : #'Sparta-Cairo-Paints'
 }
 
 { #category : #converting }

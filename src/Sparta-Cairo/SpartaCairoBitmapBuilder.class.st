@@ -1,7 +1,7 @@
 Class {
 	#name : #SpartaCairoBitmapBuilder,
 	#superclass : #SpartaBitmapBuilder,
-	#category : 'Sparta-Cairo-Builders'
+	#category : #'Sparta-Cairo-Builders'
 }
 
 { #category : #bitmap }

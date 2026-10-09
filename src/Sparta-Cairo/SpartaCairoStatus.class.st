@@ -42,7 +42,7 @@ Class {
 		'CAIRO_STATUS_USER_FONT_NOT_IMPLEMENTED',
 		'CAIRO_STATUS_WRITE_ERROR'
 	],
-	#category : 'Sparta-Cairo-Enums'
+	#category : #'Sparta-Cairo-Enums'
 }
 
 { #category : #'accessing enum' }

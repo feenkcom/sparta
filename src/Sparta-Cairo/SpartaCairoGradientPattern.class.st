@@ -1,7 +1,7 @@
 Class {
 	#name : #SpartaCairoGradientPattern,
 	#superclass : #SpartaCairoPattern,
-	#category : 'Sparta-Cairo-External'
+	#category : #'Sparta-Cairo-External'
 }
 
 { #category : #'private - ffi' }

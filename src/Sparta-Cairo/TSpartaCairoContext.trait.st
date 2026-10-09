@@ -1,6 +1,6 @@
 Trait {
 	#name : #TSpartaCairoContext,
-	#category : 'Sparta-Cairo-Builders'
+	#category : #'Sparta-Cairo-Builders'
 }
 
 { #category : #'private - ffi' }

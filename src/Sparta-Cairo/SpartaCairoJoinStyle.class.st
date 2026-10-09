@@ -6,7 +6,7 @@ Class {
 		'CAIRO_LINE_JOIN_MITER',
 		'CAIRO_LINE_JOIN_ROUND'
 	],
-	#category : 'Sparta-Cairo-Enums'
+	#category : #'Sparta-Cairo-Enums'
 }
 
 { #category : #'accessing enum' }

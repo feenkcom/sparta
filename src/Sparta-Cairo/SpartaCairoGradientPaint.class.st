@@ -6,7 +6,7 @@ Class {
 	#instVars : [
 		'stops'
 	],
-	#category : 'Sparta-Cairo-Paints'
+	#category : #'Sparta-Cairo-Paints'
 }
 
 { #category : #initialization }

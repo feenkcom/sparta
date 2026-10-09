@@ -3,5 +3,5 @@ Class {
 	#superclass : #Object,
 	#traits : 'TSpartaFilter',
 	#classTraits : 'TSpartaFilter classTrait',
-	#category : 'Sparta-Cairo-Filters'
+	#category : #'Sparta-Cairo-Filters'
 }

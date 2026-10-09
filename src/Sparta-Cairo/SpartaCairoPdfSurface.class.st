@@ -4,7 +4,7 @@ Class {
 	#instVars : [
 		'extent'
 	],
-	#category : 'Sparta-Cairo'
+	#category : #'Sparta-Cairo'
 }
 
 { #category : #'instance creation' }

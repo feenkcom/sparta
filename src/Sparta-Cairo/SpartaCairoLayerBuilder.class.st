@@ -3,7 +3,7 @@ Class {
 	#superclass : #SpartaLayerBuilder,
 	#traits : 'TSpartaCairoLibrary + TSpartaCairoContext',
 	#classTraits : 'TSpartaCairoLibrary classTrait + TSpartaCairoContext classTrait',
-	#category : 'Sparta-Cairo-Builders'
+	#category : #'Sparta-Cairo-Builders'
 }
 
 { #category : #layer }

@@ -11,7 +11,7 @@ Class {
 		'OFFSET_X',
 		'OFFSET_Y'
 	],
-	#category : 'Sparta-Cairo-External'
+	#category : #'Sparta-Cairo-External'
 }
 
 { #category : #'instance creation' }

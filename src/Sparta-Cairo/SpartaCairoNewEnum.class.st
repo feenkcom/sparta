@@ -1,7 +1,7 @@
 Class {
 	#name : #SpartaCairoNewEnum,
 	#superclass : #SpartaCairoEnum,
-	#category : 'Sparta-Cairo-Enums'
+	#category : #'Sparta-Cairo-Enums'
 }
 
 { #category : #'enum declaration' }

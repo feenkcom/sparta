@@ -32,7 +32,7 @@ Class {
 		'CAIRO_OPERATOR_SOURCE',
 		'CAIRO_OPERATOR_XOR'
 	],
-	#category : 'Sparta-Cairo-Enums'
+	#category : #'Sparta-Cairo-Enums'
 }
 
 { #category : #'accessing enum' }

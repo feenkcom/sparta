@@ -6,7 +6,7 @@ Class {
 		'CAIRO_CONTENT_COLOR',
 		'CAIRO_CONTENT_COLOR_ALPHA'
 	],
-	#category : 'Sparta-Cairo-Enums'
+	#category : #'Sparta-Cairo-Enums'
 }
 
 { #category : #'accessing enum' }

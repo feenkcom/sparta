@@ -5,7 +5,7 @@ Class {
 		'CAIRO_FT_SYNTHESIZE_BOLD',
 		'CAIRO_FT_SYNTHESIZE_OBLIQUE'
 	],
-	#category : 'Sparta-Cairo-Enums'
+	#category : #'Sparta-Cairo-Enums'
 }
 
 { #category : #'accessing enum' }

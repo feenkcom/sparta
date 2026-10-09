@@ -8,7 +8,7 @@ Class {
 		'OFFSET_X',
 		'OFFSET_Y'
 	],
-	#category : 'Sparta-Cairo-Text'
+	#category : #'Sparta-Cairo-Text'
 }
 
 { #category : #'field definition' }
