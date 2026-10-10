@@ -1,7 +1,7 @@
 Class {
 	#name : #SpartaCairoEnum,
 	#superclass : #FFIExternalEnumeration,
-	#category : 'Sparta-Cairo-Enums'
+	#category : #'Sparta-Cairo-Enums'
 }
 
 { #category : #'enum declaration' }
@@ -23,7 +23,5 @@ SpartaCairoEnum class >> initialize [
 		ifTrue: [ ^ self ].
 
 	self initializeEnumeration.
-	Author
-		useAuthor: 'UFFI'
-		during: [ self rebuildEnumAccessors ]
+	self rebuildEnumAccessors
 ]

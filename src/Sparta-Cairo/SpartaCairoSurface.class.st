@@ -3,7 +3,7 @@ Class {
 	#superclass : #FFIExternalObject,
 	#traits : 'TSpartaCairoLibrary + TSpartaSurface + TSpartaCairoRefPtr + TSpartaCairoDebug',
 	#classTraits : 'TSpartaCairoLibrary classTrait + TSpartaSurface classTrait + TSpartaCairoRefPtr classTrait + TSpartaCairoDebug classTrait',
-	#category : 'Sparta-Cairo'
+	#category : #'Sparta-Cairo'
 }
 
 { #category : #'private - ffi' }

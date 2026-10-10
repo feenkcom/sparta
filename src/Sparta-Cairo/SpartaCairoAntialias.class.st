@@ -10,7 +10,7 @@ Class {
 		'CAIRO_ANTIALIAS_NONE',
 		'CAIRO_ANTIALIAS_SUBPIXEL'
 	],
-	#category : 'Sparta-Cairo-Enums'
+	#category : #'Sparta-Cairo-Enums'
 }
 
 { #category : #'accessing enum' }

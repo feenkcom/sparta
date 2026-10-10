@@ -3,7 +3,7 @@ Class {
 	#superclass : #SpartaCairoFilter,
 	#traits : 'TSpartaFilterSource',
 	#classTraits : 'TSpartaFilterSource classTrait',
-	#category : 'Sparta-Cairo-Filters'
+	#category : #'Sparta-Cairo-Filters'
 }
 
 { #category : #dispatch }

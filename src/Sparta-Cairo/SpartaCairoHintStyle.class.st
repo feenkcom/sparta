@@ -8,7 +8,7 @@ Class {
 		'CAIRO_HINT_STYLE_NONE',
 		'CAIRO_HINT_STYLE_SLIGHT'
 	],
-	#category : 'Sparta-Cairo-Enums'
+	#category : #'Sparta-Cairo-Enums'
 }
 
 { #category : #'accessing enum' }

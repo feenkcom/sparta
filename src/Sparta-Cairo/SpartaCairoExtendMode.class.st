@@ -7,7 +7,7 @@ Class {
 		'CAIRO_EXTEND_REFLECT',
 		'CAIRO_EXTEND_REPEAT'
 	],
-	#category : 'Sparta-Cairo-Enums'
+	#category : #'Sparta-Cairo-Enums'
 }
 
 { #category : #'accessing enum' }

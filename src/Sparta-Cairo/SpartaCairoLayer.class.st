@@ -6,7 +6,7 @@ Class {
 		'mask',
 		'subpixelAA'
 	],
-	#category : 'Sparta-Cairo-Utilities'
+	#category : #'Sparta-Cairo-Utilities'
 }
 
 { #category : #accessing }

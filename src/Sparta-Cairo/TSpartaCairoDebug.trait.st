@@ -1,6 +1,6 @@
 Trait {
 	#name : #TSpartaCairoDebug,
-	#category : 'Sparta-Cairo-Library'
+	#category : #'Sparta-Cairo-Library'
 }
 
 { #category : #debug }

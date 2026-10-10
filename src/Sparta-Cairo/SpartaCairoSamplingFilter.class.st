@@ -9,7 +9,7 @@ Class {
 		'CAIRO_FILTER_GOOD',
 		'CAIRO_FILTER_NEAREST'
 	],
-	#category : 'Sparta-Cairo-Enums'
+	#category : #'Sparta-Cairo-Enums'
 }
 
 { #category : #'accessing enum' }

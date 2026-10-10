@@ -1,7 +1,7 @@
 Class {
 	#name : #SpartaCairoLinearGradientPattern,
 	#superclass : #SpartaCairoGradientPattern,
-	#category : 'Sparta-Cairo-External'
+	#category : #'Sparta-Cairo-External'
 }
 
 { #category : #'instance creation' }

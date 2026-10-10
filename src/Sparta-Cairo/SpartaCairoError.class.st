@@ -4,7 +4,7 @@ Class {
 	#instVars : [
 		'status'
 	],
-	#category : 'Sparta-Cairo-Library'
+	#category : #'Sparta-Cairo-Library'
 }
 
 { #category : #signalling }

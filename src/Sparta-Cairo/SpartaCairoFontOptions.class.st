@@ -3,7 +3,7 @@ Class {
 	#superclass : #FFIExternalObject,
 	#traits : 'TSpartaCairoLibrary + TSpartaCairoPlainPtr + TSpartaCairoDebug',
 	#classTraits : 'TSpartaCairoLibrary classTrait + TSpartaCairoPlainPtr classTrait + TSpartaCairoDebug classTrait',
-	#category : 'Sparta-Cairo-Text'
+	#category : #'Sparta-Cairo-Text'
 }
 
 { #category : #'instance creation' }

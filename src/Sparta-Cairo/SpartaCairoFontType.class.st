@@ -8,7 +8,7 @@ Class {
 		'CAIRO_FONT_TYPE_USER',
 		'CAIRO_FONT_TYPE_WIN32'
 	],
-	#category : 'Sparta-Cairo-Enums'
+	#category : #'Sparta-Cairo-Enums'
 }
 
 { #category : #'accessing enum' }

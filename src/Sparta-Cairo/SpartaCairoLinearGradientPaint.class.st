@@ -7,7 +7,7 @@ Class {
 		'begin',
 		'end'
 	],
-	#category : 'Sparta-Cairo-Paints'
+	#category : #'Sparta-Cairo-Paints'
 }
 
 { #category : #converting }

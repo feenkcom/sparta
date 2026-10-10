@@ -7,7 +7,7 @@ Class {
 	#classInstVars : [
 		'uniqueInstance'
 	],
-	#category : 'Sparta-Cairo'
+	#category : #'Sparta-Cairo'
 }
 
 { #category : #cleanup }

@@ -8,7 +8,7 @@ Class {
 		'CAIRO_SUBPIXEL_ORDER_VBGR',
 		'CAIRO_SUBPIXEL_ORDER_VRGB'
 	],
-	#category : 'Sparta-Cairo-Enums'
+	#category : #'Sparta-Cairo-Enums'
 }
 
 { #category : #'accessing enum' }

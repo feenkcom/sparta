@@ -11,7 +11,7 @@ Class {
 	#classInstVars : [
 		'default'
 	],
-	#category : 'Sparta-Cairo'
+	#category : #'Sparta-Cairo'
 }
 
 { #category : #cleanup }
