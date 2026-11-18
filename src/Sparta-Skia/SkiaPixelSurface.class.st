@@ -180,7 +180,7 @@ SkiaPixelSurface >> data [
 { #category : #accessing }
 SkiaPixelSurface >> flush [
 	self primFlush.
-	gpuContext ifNotNil: #flush
+	gpuContext ifNotNil: [ :v | v flush ]
 ]
 
 { #category : #accessing }
